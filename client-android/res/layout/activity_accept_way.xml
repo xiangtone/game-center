@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/rl_title_bar"
+        layout="@layout/main_header" />
+
+    <!-- part1 -->
+
+    <LinearLayout
+        android:id="@+id/accept_way_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/app_bg_drawable"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/accept_the_way_bg"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/atw_invite_connect_tv"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/atw_invite_connect_Uplay"
+                android:background="@drawable/accept_the_way_tvbg"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/text_margin_size"
+                android:textSize="@dimen/text_big_size" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/atw_wifi_height"
+                android:layout_marginLeft="@dimen/atw_graybg_margin"
+                android:layout_marginRight="@dimen/atw_graybg_margin"
+                android:layout_marginTop="@dimen/text_margin_size"
+                android:background="@color/atw_wifi_bg"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/qr_code_scanner_margin"
+                    android:text="@string/atw_wifi"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_big_size" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="@dimen/atw_graybg_margin"
+                android:layout_marginRight="@dimen/atw_graybg_margin"
+                android:background="@drawable/line_wifi" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/atw_wifi_height"
+                android:layout_marginBottom="@dimen/text_margin_size"
+                android:layout_marginLeft="@dimen/atw_graybg_margin"
+                android:layout_marginRight="@dimen/atw_graybg_margin"
+                android:background="@color/atw_wifi_bg"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/atw_zapp_wifi"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/qr_code_scanner_margin"
+                    android:layout_marginRight="@dimen/qr_code_scanner_margin"
+                    android:drawableRight="@drawable/icon_wifi"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="@dimen/devicename_text_size" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/atw_InstallationNotes_tv"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/atw_invite_connect_Uplay"
+                android:background="@drawable/accept_the_way_tvbg"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/text_margin_size"
+                android:textSize="@dimen/text_big_size" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/iu_scanner_iv"
+                    android:layout_width="@dimen/qr_code_size"
+                    android:layout_height="@dimen/qr_code_size"
+                    android:contentDescription="@null" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="5"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin_size"
+                android:gravity="center_vertical"
+                android:text="@string/atw_operation_tips"
+                android:textSize="@dimen/text_big_size" >
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- part2 -->
+
+    <RelativeLayout
+        android:id="@+id/accept_way_rel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/acceptway_connectionIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tv_connecting"
+            android:layout_centerInParent="true"
+            android:background="@drawable/create_free_connection"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/tv_connecting"
+            android:layout_width="@dimen/connecting_width"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/text_margin_size"
+            android:text="Connecting..."
+            android:textSize="@dimen/text_connecting_size"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</LinearLayout>

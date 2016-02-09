@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/app_bg_drawable" >
+
+    <LinearLayout
+        android:id="@+id/item_gridview_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1.5dp"
+        android:layout_marginRight="1.5dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/selector_gridview_app_item"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/gl_category_icon_iv"
+            android:layout_width="@dimen/grid_icon_size"
+            android:layout_height="@dimen/grid_icon_size"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/common_padding"
+            android:src="@drawable/ic_screen_default_picture" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/common_padding"
+            android:paddingLeft="@dimen/common_padding"
+            android:paddingRight="@dimen/common_padding" >
+
+            <TextView
+                android:id="@+id/gl_category_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/grid_app_name_color"
+                android:textSize="@dimen/text_big_size" />
+
+            <TextView
+                android:id="@+id/gl_category_app_recommend_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/grid_app_size_color"
+                android:textSize="@dimen/text_mid_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

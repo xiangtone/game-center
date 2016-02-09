@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable" >
+
+    <include
+        android:id="@+id/rl_title_bar"
+        layout="@layout/main_header" />
+
+    <RelativeLayout
+        android:id="@+id/zdth_showData_Rel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_title_bar"
+        android:background="@drawable/app_bg_drawable"
+        android:visibility="visible" >
+
+        <TextView
+            android:id="@+id/zdth_savedData_Tv"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/transferHistoryTvHeiht"
+            android:gravity="center"
+            android:textSize="@dimen/title_text_size"
+            android:visibility="invisible" />
+
+        <com.x.ui.view.expendlistview.ActionSlideExpandableListView
+            android:id="@+id/zdth_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/zdth_deleteAll_ll"
+            android:layout_below="@+id/zdth_savedData_Tv"
+            android:background="@android:color/transparent"
+            android:cacheColorHint="@color/transparent"
+            android:divider="@color/transparent"
+            android:dividerHeight="1px" />
+
+        <LinearLayout
+            android:id="@id/zdth_deleteAll_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#ffffff"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#cccccc" />
+
+            <TextView
+                android:id="@+id/zdth_deleteAll_tv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/horizontal_progresssbar_height"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/selector_btn_and_progress_theme"
+                android:gravity="center"
+                android:text="@string/delete_all"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_big_size"
+                android:visibility="visible" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/zdth_loading_Rel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_title_bar"
+        android:visibility="visible" >
+
+        <include
+            android:layout_centerInParent="true"
+            layout="@layout/loading" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/zdth_empty_Rel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_title_bar"
+        android:visibility="gone" >
+
+        <include layout="@layout/empty" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_fail"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="@dimen/tab_title_padding"
+    android:background="@drawable/banner_default_picture"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:visibility="gone" >
+
+</LinearLayout>

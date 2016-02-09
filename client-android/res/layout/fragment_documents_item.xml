@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="6dp"
+    android:background="@drawable/selector_listview_app_item" >
+
+    <ImageView
+        android:id="@+id/doc_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_resource_doc" />
+
+    <TextView
+        android:id="@+id/doc_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/doc_image"
+        android:layout_marginTop="13dp"
+        android:layout_toLeftOf="@+id/docs_check"
+        android:layout_toRightOf="@+id/doc_image"
+        android:ellipsize="middle"
+        android:singleLine="true"
+        android:textSize="@dimen/text_big_size" />
+
+    <TextView
+        android:id="@+id/doc_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/doc_name"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_toRightOf="@+id/doc_image"
+        android:textColor="@color/pic_title_bg"
+        android:textSize="@dimen/text_big_size" />
+
+    <View
+        android:id="@+id/doc_view"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/doc_size"
+        android:layout_alignTop="@+id/doc_size"
+        android:layout_below="@+id/doc_name"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_toRightOf="@+id/doc_size"
+        android:background="@color/pic_title_bg" />
+
+    <TextView
+        android:id="@+id/doc_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/doc_size"
+        android:layout_alignTop="@+id/doc_size"
+        android:layout_below="@+id/doc_name"
+        android:layout_toRightOf="@+id/doc_view"
+        android:textColor="@color/pic_title_bg"
+        android:textSize="@dimen/text_big_size" />
+
+    <CheckBox
+        android:id="@+id/docs_check"
+        android:layout_width="@dimen/checkbox_w"
+        android:layout_height="@dimen/checkbox_h"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:button="@drawable/selector_option_btn"
+        android:clickable="false"
+        android:focusable="false"
+        android:visibility="invisible" />
+
+</RelativeLayout>

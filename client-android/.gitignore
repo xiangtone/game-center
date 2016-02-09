@@ -1,0 +1,12 @@
+/bin
+
+/gen
+
+.classpath
+
+.project
+
+/.apt_generated
+
+.factorypath
+

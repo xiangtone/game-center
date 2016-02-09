@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp" 
+        android:layout_marginBottom="8dp">
+
+        <RelativeLayout
+            android:id="@+id/imhha_app_item_rl01"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/img_app_icon01"
+                android:layout_width="@dimen/app_cover_size_small"
+                android:layout_height="@dimen/app_cover_size_small"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_screen_default_picture" />
+
+            <TextView
+                android:id="@+id/tv_app_name01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_app_icon01"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="#383838"
+                android:textSize="@dimen/text_mid_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/imhha_app_item_rl02"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/img_app_icon02"
+                android:layout_width="@dimen/app_cover_size_small"
+                android:layout_height="@dimen/app_cover_size_small"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_screen_default_picture" />
+
+            <TextView
+                android:id="@+id/tv_app_name02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_app_icon02"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="#383838"
+                android:textSize="@dimen/text_mid_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/imhha_app_item_rl03"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/img_app_icon03"
+                android:layout_width="@dimen/app_cover_size_small"
+                android:layout_height="@dimen/app_cover_size_small"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_screen_default_picture" />
+
+            <TextView
+                android:id="@+id/tv_app_name03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_app_icon03"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="#383838"
+                android:textSize="@dimen/text_mid_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/imhha_app_item_rl04"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/img_app_icon04"
+                android:layout_width="@dimen/app_cover_size_small"
+                android:layout_height="@dimen/app_cover_size_small"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_screen_default_picture" />
+
+            <TextView
+                android:id="@+id/tv_app_name04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_app_icon04"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="#383838"
+                android:textSize="@dimen/text_mid_size" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/hmhi_divider_line"
+        layout="@layout/common_line_view"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<resources>
+
+    <!--
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
+    -->
+    <dimen name="activity_horizontal_margin">128dp</dimen>
+    <dimen name="rating_bar_height_small">16px</dimen>
+
+    <!-- applocker -->
+    <!-- keyboard -->
+    <dimen name="font_size_keyboard_number">55dp</dimen>
+    <dimen name="stars_box_height">50dp</dimen>
+    <dimen name="lock_logo_wight">70dp</dimen>
+    <dimen name="enter_pwd_text_size">30sp</dimen>
+    <dimen name="keyboard_delete_wight">53dp</dimen>
+    <dimen name="keyboard_delete_height">30dp</dimen>
+    <dimen name="security_ok_btn_wight">400dp</dimen>
+    <dimen name="stars_box_margin_top">30dp</dimen>
+    <dimen name="pwd_set_guide_wight">450dp</dimen>
+
+    <!-- slidingpane menu -->
+    <dimen name="circular_size">220dp</dimen>
+    <dimen name="clean_ll_size">140dp</dimen>
+    <dimen name="circular_progress_loading_size">152dp</dimen>
+    <dimen name="slidingpane_width">440dp</dimen>
+    <dimen name="circular_view_margin_left">75dp</dimen>
+    <dimen name="circular_view_margin_top">40dp</dimen>
+    <dimen name="circular_view_margin_bottom">35dp</dimen>
+    <dimen name="storage_text_margin_left">12dp</dimen>
+    <dimen name="ram_text_margin_right">8dp</dimen>
+
+    <!-- DynamicListView -->
+    <dimen name="dynamic_item_padding">7.4dp</dimen>
+    <dimen name="dynamic_banner_padding_top">10dp</dimen>
+    <dimen name="dynamic_banner_height">102dp</dimen>
+
+</resources>

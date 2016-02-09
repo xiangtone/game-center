@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/maa_top_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/rl_title_bar"
+        layout="@layout/main_header" />
+
+    <!-- 主页面 开关锁 图标 -->
+
+    <RelativeLayout
+        android:id="@+id/maa_top_rl"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/selector_listview_app_item" >
+
+        <ImageView
+            android:id="@+id/applock_main_lock_left_ico"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/common_padding"
+            android:background="@drawable/ic_app_lock_switch"
+            android:contentDescription="@string/app_name" />
+
+        <!-- xxxxx  中间程序名字的布局xxxxxxxx -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/applock_main_lock_left_ico"
+            android:layout_toRightOf="@+id/applock_main_lock_left_ico"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/common_padding"
+            android:paddingRight="50dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/app_lock_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:maxWidth="@dimen/app_name_widht"
+                    android:singleLine="false"
+                    android:text="@string/app_lock_title"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/text_big_size" />
+
+                <LinearLayout
+                    android:id="@+id/maa_size_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_padding"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/app_lock_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:singleLine="false"
+                        android:text="@string/app_lock_desc"
+                        android:textColor="@color/tab_text_color"
+                        android:textSize="@dimen/text_mid_size" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ToggleButton
+            android:id="@+id/applock_main_islock"
+            style="@style/Widget.Button.Toggle"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <!-- 以下布局另外2个 -->
+
+    <RelativeLayout
+        android:id="@+id/ll_lock_list"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/selector_listview_app_item" >
+
+        <!-- 主页面 开关锁 图标 -->
+
+        <ImageView
+            android:id="@+id/applock_main_list_left_ico"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/common_padding"
+            android:background="@drawable/ic_lock_list"
+            android:contentDescription="@string/app_name" />
+
+        <!-- xxxxx  中间程序名字的布局xxxxxxxx -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/applock_main_list_left_ico"
+            android:layout_toRightOf="@+id/applock_main_list_left_ico"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/common_padding"
+            android:paddingRight="50dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/common_padding"
+                android:paddingRight="@dimen/common_padding" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_padding" >
+
+                    <TextView
+                        android:id="@+id/app_lock_list_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="false"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="@string/app_lock_list_title"
+                        android:textColor="@color/title_color"
+                        android:textSize="@dimen/text_big_size" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_padding"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/app_lock_list_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:singleLine="false"
+                        android:text=""
+                        android:textColor="@color/tab_text_color"
+                        android:textSize="@dimen/text_mid_size" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/app_lock_list_count_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center_vertical"
+                            android:singleLine="false"
+                            android:text="@string/app_lock_list_count_desc"
+                            android:textColor="@color/tab_text_color"
+                            android:textSize="@dimen/text_mid_size" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/applock_main_list_right_ico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18dp"
+            android:background="@drawable/ic_forward_expand" />
+    </RelativeLayout>
+    <!-- 高级设置 -->
+
+    <RelativeLayout
+        android:id="@+id/ll_advance_setting"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/selector_listview_app_item" >
+
+        <ImageView
+            android:id="@+id/applock_main_advance_setting_left_ico"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/common_padding"
+            android:background="@drawable/ic_advanced_settings_icon"
+            android:contentDescription="@string/app_name" />
+
+        <!-- xxxxx  中间程序名字的布局xxxxxxxx -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/applock_main_advance_setting_left_ico"
+            android:layout_toRightOf="@+id/applock_main_advance_setting_left_ico"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/common_padding"
+            android:paddingRight="30dp" >
+
+            <LinearLayout
+                android:id="@+id/ll_applock_setting_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/common_padding"
+                android:paddingRight="@dimen/common_padding" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_padding" >
+
+                    <TextView
+                        android:id="@+id/app_lock_advance_setting_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="false"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="@string/advance_setting_title"
+                        android:textColor="@color/title_color"
+                        android:textSize="@dimen/text_big_size" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_padding"
+                    android:orientation="horizontal" >
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/app_lock_advance_setting_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center_vertical"
+                            android:singleLine="false"
+                            android:text="@string/advance_setting_desc"
+                            android:textColor="@color/tab_text_color"
+                            android:textSize="@dimen/text_mid_size" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/applock_main_advance_setting_right_ico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18dp"
+            android:background="@drawable/ic_forward_expand"
+            android:contentDescription="@null" />
+    </RelativeLayout>
+
+</LinearLayout>

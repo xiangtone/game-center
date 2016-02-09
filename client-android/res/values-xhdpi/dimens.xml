@@ -1,0 +1,82 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="common_padding_small">1dp</dimen>
+    <dimen name="common_padding">4dp</dimen>
+    <dimen name="app_cover_size">48dp</dimen>
+    <dimen name="app_cover_size_small">48dp</dimen>
+    <dimen name="file_icon_height">50dp</dimen>
+    <dimen name="file_icon_wigth">80dp</dimen>
+    <dimen name="drawer_width">260dp</dimen>
+    <dimen name="drawer_head_itme_height">70dp</dimen>
+    <dimen name="drawer_itme_height">58dp</dimen>
+    <dimen name="grdiview_spaceing">8dp</dimen>
+    <dimen name="tab_title_padding">20dp</dimen>
+    <dimen name="tab_fade_edgelength">4dp</dimen>
+    <dimen name="account_padding">8dp</dimen>
+    <dimen name="recharge_detail_text_width">100dp</dimen>
+    <dimen name="text_small_margin_size">3dp</dimen>
+    <dimen name="text_small_padding_size">2dp</dimen>
+    <dimen name="text_margin_size">5dp</dimen>
+    <dimen name="main_header_default_height">48dip</dimen>
+    <dimen name="footbar_radio_text_size">12sp</dimen>
+
+    <!--
+         <dimen name="image_height">160dp</dimen>
+    <dimen name="image_width">100dp</dimen>
+    -->
+    
+    <dimen name="small_icon_size">25dp</dimen>
+    <dimen name="padding_size">15dp</dimen>
+    <dimen name="no_comment_icon">40dp</dimen>
+    <dimen name="management_gridview_spaceing">4dp</dimen>
+    <dimen name="progressbar_height">3dp</dimen>
+    <dimen name="rating_bar_height">34dp</dimen>
+    <dimen name="rating_bar_height_small">24px</dimen>
+    <dimen name="banner_raius_height">2dp</dimen>
+    <dimen name="app_name_widht">130dp</dimen>
+    <dimen name="app_versionname_widht">40dp</dimen>
+    <!-- 零流量分享 -->
+    <dimen name="zerodatashare_marginTop">50dp</dimen>
+    <dimen name="scanner_wifi_ap_code_tvMargin">30dp</dimen>
+    <dimen name="scanner_wifi_ap_code_btnMargin">8dp</dimen>
+    <dimen name="shareway_TvmarginTop">8dp</dimen>
+    <dimen name="shareway_llmarginTop">12dp</dimen>
+    <dimen name="installuplay_scanner_width">145dp</dimen>
+    <dimen name="installuplay_scanner_height">145dp</dimen>
+    <dimen name="atw_scanner_width">130dp</dimen>
+    <dimen name="atw_scanner_height">130dp</dimen>
+    <dimen name="atw_scanner_marginTop">20dp</dimen>
+    <dimen name="deviceName_layout1_marginTop">15dp</dimen>
+    <dimen name="deviceName_layout2_marginTop">5dp</dimen>
+    <dimen name="deviceName_width">55dp</dimen>
+    <dimen name="deviceName_height">55dp</dimen>
+    <dimen name="devicename_text_size">13sp</dimen>
+    <dimen name="scanner_wifi_ap_code_scanner_width">280dp</dimen>
+    <dimen name="scanner_wifi_ap_code_scanner_height">280dp</dimen>
+    <dimen name="qr_connecting_width">150dp</dimen>
+    <dimen name="qr_connecting_height">35dp</dimen>
+    <!-- 铃声模块 -->
+    <dimen name="ringtones_pic_size">54dp</dimen>
+
+    <!-- 新手引导 -->
+    <dimen name="guide_homepage_marginbottom">45dp</dimen>
+    <dimen name="sf_code_width">160dp</dimen>
+    <dimen name="sf_code_height">160dp</dimen>
+
+    <!-- account -->
+    <dimen name="login_marginTop">40dp</dimen>
+    <!-- uninstall -->
+    <dimen name="uninstall_margin">6dp</dimen>
+    <dimen name="uninstall_margin_right">60dp</dimen>
+    <dimen name="uninstall_margin_bottom">5dp</dimen>
+    <!-- applocker -->
+    <!-- keyboard -->
+    <dimen name="font_size_keyboard_number">40sp</dimen>
+    <dimen name="stars_box_height">40sp</dimen>
+<!-- wallpaper ablum -->
+ <!--    <dimen name="wp_ablum_num_text_size">12sp</dimen>
+    <dimen name="wallpaper_ablum_num_textview_width">77dp</dimen>
+    <dimen name="wallpaper_ablum_num_text_paddingright_size">3dp</dimen>
+     <dimen name="wallpaper_ablum_num_textview_marginbottom">10dp</dimen> -->
+</resources>

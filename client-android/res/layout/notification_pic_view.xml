@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/notify_img"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/push_notify_pic_height"
+        android:scaleType="fitXY"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/notify_content_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/notify_img"
+        android:background="@color/translucent_80_dark"
+        android:padding="@dimen/common_padding">
+
+        <!-- title + time -->
+
+        <TextView
+            android:id="@+id/notify_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_margin"
+            android:layout_toLeftOf="@+id/notify_time"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:layout_marginRight="@dimen/common_margin_large"
+            android:textSize="@dimen/text_connecting_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/notify_time"
+            android:layout_width="@dimen/push_notify_time_width"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/common_margin"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sub_title_text_size" />
+        <!-- summary + icon -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/notify_time"
+            android:layout_below="@+id/notify_title" 
+            android:padding="@dimen/common_padding_small">
+
+            <TextView
+                android:id="@+id/notify_summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/common_margin_xlarge"
+                android:layout_toLeftOf="@+id/notify_small_icon"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textSize="@dimen/sub_title_text_size"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:id="@+id/notify_small_icon"
+                android:layout_width="@dimen/push_notify_right_icon_size"
+                android:layout_height="@dimen/push_notify_right_icon_size"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/common_margin_xlarge" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

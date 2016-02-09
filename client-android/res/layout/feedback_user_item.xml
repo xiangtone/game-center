@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/app_information_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/feedback_man_top_rl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/feedback_arrow_iv"
+            android:paddingRight="30dp" >
+
+            <TextView
+                android:id="@+id/userQuestionTv"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/feedback_user_item_marginleft"
+                android:layout_marginTop="@dimen/feedback_user_expand"
+                android:textColor="@color/app_theme_color"
+                android:textSize="@dimen/text_big_size" />
+
+            <TextView
+                android:id="@+id/userTimeTv"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/userQuestionTv"
+                android:layout_marginLeft="@dimen/feedback_user_item_marginleft"
+                android:layout_marginTop="2dp"
+                android:paddingBottom="2dp"
+                android:textColor="@color/app_theme_color"
+                android:textSize="@dimen/text_mid_size"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/feedback_arrow_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/ic_download_manager_arrow_down" />
+    </RelativeLayout>
+    <!-- 弹出的部分 -->
+
+    <LinearLayout
+        android:id="@+id/feedback_man_expand_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/feedback_user_item_marginleft"
+        android:layout_marginRight="@dimen/feedback_user_item_marginleft"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#cccccc" />
+
+        <TextView
+            android:id="@+id/userReplyTv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/feedback_user_expand"
+            android:layout_marginTop="@dimen/feedback_user_expand"
+            android:paddingLeft="@dimen/feedback_user_item_marginleft"
+            android:paddingRight="@dimen/feedback_user_item_marginleft"
+            android:textSize="@dimen/text_big_size" />
+    </LinearLayout>
+
+</LinearLayout>

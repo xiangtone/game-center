@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/noti_icon"
+        android:layout_width="@dimen/noti_icon_size"
+        android:layout_height="@dimen/noti_icon_size"
+        android:layout_margin="@dimen/noti_content_margin"
+        android:contentDescription="@null"
+        android:src="@drawable/mas_ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/noti_content_margin"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/noti_content_margin" >
+
+            <TextView
+                android:id="@+id/noti_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/noti_time"
+                android:singleLine="true"
+                android:textColor="#fff"
+                android:textSize="@dimen/noti_title_text_size" />
+
+            <TextView
+                android:id="@+id/noti_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="#fff"
+                android:textSize="@dimen/noti_sub_title_text_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_margin_size"
+            android:layout_marginRight="@dimen/noti_content_margin"
+            android:layout_marginTop="@dimen/noti_sub_title_margin_top" >
+
+            <LinearLayout
+                android:id="@+id/tv_tips"
+                android:layout_toLeftOf="@+id/img_icon"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/click_to_open"
+                    android:textColor="#999999"
+                    android:textSize="@dimen/noti_sub_title_text_size" />
+
+                <TextView
+                    android:id="@+id/noti_drag_tips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/noti_drag_tips"
+                    android:textColor="#999999"
+                    android:singleLine="true"
+                    android:textSize="@dimen/noti_sub_title_text_size" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ic_noti_open"
+                android:contentDescription="@null"
+                android:textColor="#999999" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/text_margin_size"
+            android:background="#333" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <LinearLayout
+                android:id="@+id/noti_open_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/notification_btn_selector"
+                android:gravity="center"
+                android:padding="@dimen/noti_btn_padding" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_noti_open"
+                    android:gravity="center_vertical"
+                    android:text="@string/notification_open_btn_text"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/text_big_size" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0.5dp"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="@dimen/text_margin_size"
+                android:layout_marginTop="@dimen/text_margin_size"
+                android:background="#333" />
+
+            <LinearLayout
+                android:id="@+id/noti_share_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@drawable/notification_btn_selector"
+                android:gravity="center"
+                android:padding="@dimen/noti_btn_padding" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_noti_share"
+                    android:gravity="center_vertical"
+                    android:text="@string/notification_share_btn_text"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/text_big_size" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

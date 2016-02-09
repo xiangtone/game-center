@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:round="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="6dp"
+    android:background="@drawable/selector_listview_app_item" >
+
+    <RelativeLayout
+        android:id="@+id/ring_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/ring_disk_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/ringtones_disk_bg" >
+
+            <ImageView
+                android:id="@+id/ring_disk_def"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ringtones_disk_pic" />
+
+            <ImageView
+                android:id="@+id/ring_disk_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/ring_disk_def"
+                android:layout_alignLeft="@+id/ring_disk_def"
+                android:layout_alignRight="@+id/ring_disk_def"
+                android:layout_alignTop="@+id/ring_disk_def"
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/ring_disk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ringtones_disk" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ringtones_disk_top" />
+
+            <ProgressBar
+                android:id="@+id/ring_load"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/ring_disk_def"
+                android:layout_alignLeft="@+id/ring_disk_def"
+                android:layout_alignRight="@+id/ring_disk_def"
+                android:layout_alignTop="@+id/ring_disk_def"
+                android:layout_centerVertical="true"
+                android:indeterminate="false"
+                android:indeterminateDrawable="@anim/ring_loading"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ringtones_disk_pic_mask" />
+
+            <ImageView
+                android:id="@+id/ring_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ringtones_play" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/ring_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/ring_disk_bg"
+            android:layout_toLeftOf="@+id/ring_btn_ll"
+            android:layout_toRightOf="@+id/ring_disk_bg"
+            android:singleLine="true"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ring_disk_bg"
+            android:layout_below="@+id/ring_name"
+            android:layout_toRightOf="@+id/ring_disk_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <!-- onLineTime 时间 -->
+			<ImageView 
+			    android:id="@+id/ring_timeIv"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:src="@drawable/ring_time"
+			    android:layout_marginRight="5dp"
+			    />
+			<ImageView 
+			    android:id="@+id/ring_downloadIv"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:gravity="center_vertical"
+			    android:src="@drawable/ring_download"
+			    android:visibility="gone"
+			    />
+            <TextView
+                android:id="@+id/ring_onlinetime_or_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/pic_title_bg"
+                android:textSize="@dimen/ring_text_size" />
+
+            <View
+                android:id="@+id/ringtongs_device"
+                android:layout_width="0.5dp"
+                android:layout_height="10dp"
+                android:background="@color/gray" 
+                android:layout_marginLeft="@dimen/ring_text_margin"
+                android:layout_marginRight="@dimen/ring_text_margin"/>
+
+            <TextView
+                android:id="@+id/ring_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/pic_title_bg"
+                android:textSize="@dimen/ring_text_size" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="10dp"
+                android:background="@color/gray" 
+                android:layout_marginLeft="@dimen/ring_text_margin"
+                android:layout_marginRight="@dimen/ring_text_margin"/>
+
+            <TextView
+                android:id="@+id/ring_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/pic_title_bg"
+                android:textSize="@dimen/ring_text_size" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/ring_btn_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/ring_download_btn"
+                style="@style/DownloadTextviewStyle"
+                android:drawableTop="@drawable/selector_download_btn"
+                android:text="@string/app_status_normal"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/hali_ring_pause_ll"
+                style="@style/DownloadProgressLayoutStyle"
+                android:orientation="vertical" >
+
+                <com.x.ui.view.RoundProgress
+                    android:id="@+id/hali_ring_pause_rp"
+                    android:layout_width="@dimen/download_btn_width"
+                    android:layout_height="@dimen/download_btn_width"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@anim/download"
+                    round:backColor="@color/translucent"
+                    round:progressColor="@color/round_progress_color"
+                    round:thickness="2dp" />
+
+                <TextView
+                    android:id="@+id/hali_ring_pause_btn"
+                    style="@style/DownloadTextviewStyle"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingTop="2dp"
+                    android:text="@string/app_status_pause" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ring_continue_btn"
+                style="@style/DownloadTextviewStyle"
+                android:drawableTop="@drawable/selector_continue_btn"
+                android:text="@string/app_status_continue"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/ring_settings_btn"
+                style="@style/DownloadTextviewStyle"
+                android:drawableTop="@drawable/selector_settings_btn"
+                android:text="@string/music_setting"
+                android:visibility="gone" />
+        </FrameLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

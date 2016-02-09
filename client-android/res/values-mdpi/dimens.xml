@@ -1,0 +1,142 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="rating_bar_height">32dp</dimen>
+    <dimen name="rating_bar_height_small">12px</dimen>
+    <dimen name="app_name_widht">100dp</dimen>
+    <dimen name="app_versionname_widht">30dp</dimen>
+    <dimen name="grid_icon_size">70dp</dimen>
+    <dimen name="app_cover_size">48dp</dimen>
+    <dimen name="app_cover_size_small">48dp</dimen>
+
+    <!-- text size -->
+    <dimen name="download_btn_text_size">8sp</dimen>
+    <dimen name="title_text_size">14sp</dimen>
+    <dimen name="sub_title_text_size">12sp</dimen>
+    <dimen name="tab_title_text_size">15sp</dimen>
+    <dimen name="text_big_size">13sp</dimen>
+    <dimen name="text_mid_size">10sp</dimen>
+    <dimen name="text_small_size">9sp</dimen>
+    <dimen name="text_large_size">20sp</dimen>
+    <dimen name="text_sub_large_size">14sp</dimen>
+    <dimen name="devicename_text_size">12sp</dimen>
+    <dimen name="noti_title_text_size">18sp</dimen>
+    <dimen name="left_drawer_big_text_size">16sp</dimen>
+    <dimen name="version_name_text_size">18sp</dimen>
+    <dimen name="about_page_selector_text_size">14sp</dimen>
+    <dimen name="share_icon_text_size">9sp</dimen>
+    <dimen name="circular_progress_text_size">12sp</dimen>
+    <dimen name="circular_center_text_size">36sp</dimen>
+
+    <!-- 应用详情截图 -->
+    <dimen name="image_height">150dp</dimen>
+    <dimen name="image_width">90dp</dimen>
+    <dimen name="image_width_horizontal">250dp</dimen>
+    <dimen name="download_btn_width">24dp</dimen>
+    <dimen name="checkbox_w">26dp</dimen>
+    <dimen name="checkbox_h">26dp</dimen>
+    <dimen name="checkbox_margin">13dp</dimen>
+    <dimen name="srotage_show_size">10sp</dimen>
+    <dimen name="srotage_number_size">19sp</dimen>
+    <dimen name="srotage_number_per_size">9sp</dimen>
+    <dimen name="srotage_text_height">36dp</dimen>
+
+    <!-- 零流量分享 -->
+    <dimen name="qr_code_size">200dp</dimen>
+    <dimen name="qr_code_scanner_margin_bottom">20dp</dimen>
+    <dimen name="qr_code_scanner_margin_top">10dp</dimen>
+    <dimen name="qr_connecting_width">95dp</dimen>
+    <dimen name="qr_connecting_height">20dp</dimen>
+    <dimen name="qr_connecting_icon_width">65dp</dimen>
+    <dimen name="qr_connecting_icon_height">80dp</dimen>
+    <dimen name="atw_invite_connect_Uplay">60dp</dimen>
+    <dimen name="atw_wifi_height">32dp</dimen>
+    <dimen name="shareway_llHeight">98dp</dimen>
+    <dimen name="share_btn_height">35dp</dimen>
+    <dimen name="share_btn_margin_top">15dp</dimen>
+    <dimen name="share_description_margin_top">5dp</dimen>
+    <dimen name="head_size">60dp</dimen>
+    <dimen name="head_btn_paddingleft">25dp</dimen>
+    <dimen name="head_btn_paddingtop">5dp</dimen>
+    <dimen name="head_icon_margin_top">12dp</dimen>
+    <dimen name="head_btn_margin_top">20dp</dimen>
+    <dimen name="share_file_tips_margin_top">20dp</dimen>
+    <dimen name="share_icon_size">40dp</dimen>
+
+    <!-- 分享方式 -->
+    <dimen name="sf_iv_size">50dp</dimen>
+    <dimen name="sf_code_width">140dp</dimen>
+    <dimen name="sf_code_height">140dp</dimen>
+    <dimen name="sf_invitation_tips_marginbottom">4dp</dimen>
+    <dimen name="sf_browser_width">180dp</dimen>
+    <dimen name="sf_browser_height">100dp</dimen>
+    <dimen name="share_free_textsize">13sp</dimen>
+    <dimen name="sf_marginMiddleTv">1dp</dimen>
+    <dimen name="sf_row_margin">3dp</dimen>
+    <dimen name="share_free_margin_top">5dp</dimen>
+
+    <!-- 新手引导 -->
+    <dimen name="guide_homepage_textsize">16sp</dimen>
+    <dimen name="guide_homepage_marginbottom">45dp</dimen>
+    <dimen name="guide_tips_textmargin_top">47dp</dimen>
+    <dimen name="guide_maringLeft">-35dp</dimen>
+    <dimen name="guide_tips_width">135dp</dimen>
+    <dimen name="guide_tips_height">110dp</dimen>
+    <dimen name="guide_point_indication_padding">10dp</dimen>
+    <dimen name="guide_drawer_tip_maringTop">-26dp</dimen>
+    <dimen name="guide_drawer_tip_maringLeft">38dp</dimen>
+    <dimen name="guide_drawer_marginLeft">10dp</dimen>
+    <dimen name="guide_wifishare_marginTop">100dp</dimen>
+
+    <!-- 公用对话框 -->
+    <dimen name="update_window_margin">20dp</dimen>
+
+    <!-- 关于我们 -->
+    <dimen name="about_logo_width">100dp</dimen>
+    <dimen name="about_logo_height">120dp</dimen>
+    <dimen name="about_selector_item_paddingleft">10dp</dimen>
+    <dimen name="about_selector_item_paddingRight">10dp</dimen>
+    <dimen name="about_selector_item_paddingTop">8dp</dimen>
+    <dimen name="about_selector_item_paddingBottom">8dp</dimen>
+
+    <!-- 搜索功能 -->
+    <dimen name="keyword_view_padding">3dp</dimen>
+
+    <!-- 二维码模块 -->
+    <dimen name="qr_scan_frame_size">200dp</dimen>
+
+    <!-- settings -->
+    <dimen name="block_padding">8dp</dimen>
+    <!-- uninstall apps -->
+    <dimen name="uninstall_margin_bottom">2dp</dimen>
+
+    <!-- slidingPane Menu -->
+    <dimen name="circular_size">160dp</dimen>
+    <dimen name="clean_ll_size">80dp</dimen>
+    <dimen name="circular_progress_loading_size">92dp</dimen>
+    <dimen name="rectangle_to_circular_padding">28dp</dimen>
+    <dimen name="circular_ll_marginLeft">35dp</dimen>
+    <dimen name="circular_bottom_margin_count">1dp</dimen>
+    <dimen name="circular_top_margin_posx">15dp</dimen>
+    <dimen name="circular_top_margin_posy">10dp</dimen>
+    <dimen name="circular_bottom_margin_posy">-20dp</dimen>
+    <dimen name="circular_bottom_margin_posx">0dp</dimen>
+    <dimen name="slidingpane_width">230dp</dimen>
+    <dimen name="circular_view_margin_left">0dp</dimen>
+    <dimen name="circular_view_margin_top">0dp</dimen>
+    <dimen name="circular_view_margin_bottom">0dp</dimen>
+    <dimen name="storage_text_margin_left">22dp</dimen>
+    <dimen name="ram_text_margin_right">13dp</dimen>
+
+    <!-- applocker -->
+    <!-- keyboard -->
+    <dimen name="font_size_keyboard_number">30dp</dimen>
+    <dimen name="stars_box_height">40dp</dimen>
+    <dimen name="lock_logo_wight">50dp</dimen>
+    <dimen name="enter_pwd_text_size">16sp</dimen>
+    <dimen name="keyboard_delete_wight">30dp</dimen>
+    <dimen name="keyboard_delete_height">17dp</dimen>
+    <dimen name="security_ok_btn_wight">200dp</dimen>
+    <dimen name="stars_box_margin_top">20dp</dimen>
+    <dimen name="pwd_set_guide_wight">320dp</dimen>
+</resources>

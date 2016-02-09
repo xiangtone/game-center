@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:flow="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_listview_app_item"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <com.x.ui.view.viewflow.ViewFlow
+            android:id="@+id/fb_viewflow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/banner_height"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/transparent"
+        android:gravity="center" >
+
+        <com.x.ui.view.viewflow.CircleFlowIndicator
+            android:id="@+id/fb_viewflowindic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="2dip"
+            flow:activeColor="@color/flow_black_gray"
+            flow:inactiveColor="@color/flow_light_gray"
+            flow:inactiveRadius="@dimen/banner_raius_height"
+            flow:inactiveType="fill" />
+    </LinearLayout>
+
+</LinearLayout>

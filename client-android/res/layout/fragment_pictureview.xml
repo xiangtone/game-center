@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/selector_listview_app_item" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/wallpaper_gridview_item_padding" >
+
+        <ImageView
+            android:id="@+id/pic_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/folder_pic_image_h"
+            android:layout_centerInParent="true"
+            android:background="@null"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/pic_name_num"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/pic_name_h"
+            android:layout_alignParentBottom="true"
+            android:background="@color/pic_title_bg"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/white" />
+
+        <CheckBox
+            android:id="@+id/pic_check"
+            android:layout_width="@dimen/checkbox_w"
+            android:layout_height="@dimen/checkbox_h"
+            android:layout_alignParentRight="true"
+            android:button="@drawable/selector_option_btn"
+            android:clickable="false"
+            android:focusable="false"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</RelativeLayout>

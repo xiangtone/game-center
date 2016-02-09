@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:flow="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/banner_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_listview_app_item" >
+
+        <com.x.ui.view.viewflow.ViewFlow
+            android:id="@+id/fb_viewflow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/banner_height" />
+
+        <com.x.ui.view.viewflow.CircleFlowIndicator
+            android:id="@+id/fb_viewflowindic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fb_viewflow"
+            android:layout_centerInParent="true"
+            android:padding="4dip"
+            flow:activeColor="@color/flow_black_gray"
+            flow:inactiveColor="@color/flow_light_gray"
+            flow:inactiveRadius="@dimen/banner_raius_height"
+            flow:inactiveType="fill" />
+    </RelativeLayout>
+
+    <com.x.ui.view.dynamic.DynamicListView
+        android:id="@+id/app_dynamiclistview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dynamic_banner_height"
+        android:layout_below="@+id/banner_view"
+        android:background="@drawable/selector_listview_app_item"
+        android:cacheColorHint="@android:color/transparent"
+        android:clickable="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none"
+        android:focusable="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none"
+        android:smoothScrollbar="true"
+        android:visibility="gone" />
+
+</RelativeLayout>

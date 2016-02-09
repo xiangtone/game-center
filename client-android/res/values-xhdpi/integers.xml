@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  
+    <!-- 壁纸模块 -->
+    <integer name="quiltview_delete_width">10</integer>
+    <integer name="waterfall_delete_width">6</integer>
+    
+    <integer name="srotage_roundbar_interval">13</integer>
+    <integer name="srotage_roundbar_width">15</integer>      
+
+</resources>

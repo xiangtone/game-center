@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/guide3"
+    android:orientation="vertical" >
+
+
+    <TextView
+        android:id="@+id/guideHomePageTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="@dimen/guide_homepage_marginbottom"
+        android:background="@drawable/guide_startnow"
+        android:paddingLeft="@dimen/guide_start_btn_padding"
+        android:paddingRight="@dimen/guide_start_btn_padding"
+        android:text="@string/start_now"
+        android:textColor="@color/white"
+        android:textSize="@dimen/guide_homepage_textsize" />
+
+</FrameLayout>

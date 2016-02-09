@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_listview_app_item"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/hci_collection_logo_iv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_theme_height"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/banner_default_picture" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="12dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/hci_collection_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/hci_collection_date_tv"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="Games for Men(We picked a list of stuffs that many guys like. So enjoy these games for men!)"
+                android:textColor="@color/grid_app_name_color"
+                android:textSize="@dimen/text_big_size" />
+
+            <TextView
+                android:id="@id/hci_collection_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/hci_collection_name_tv"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="@dimen/tab_title_padding"
+                android:text="2014-09-01"
+                android:textColor="@color/grid_app_size_color"
+                android:textSize="@dimen/text_mid_size" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/hci_collection_brief_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_small_margin_size"
+            android:layout_marginTop="@dimen/text_small_margin_size"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:maxLines="2"
+            android:text="Dressed her up as mermaid,fairy or princess Dressed her up as mermaid,fairy or princessDressed her up as mermaid,fairy or princessDressed her up as mermaid,fairy or princessDressed her up as mermaid,fairy or princess"
+            android:textColor="@color/grid_app_size_color"
+            android:textSize="@dimen/text_mid_size" />
+    </LinearLayout>
+
+</LinearLayout>

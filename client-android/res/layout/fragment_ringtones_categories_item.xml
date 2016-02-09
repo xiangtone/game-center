@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/selector_listview_app_item"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/wallpaper_gridview_item_padding" >
+
+        <com.x.ui.view.MyImageView
+            android:id="@+id/ring_category_image"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/image_categories_height"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/banner_default_picture" />
+
+        <TextView
+            android:id="@+id/ring_category_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#60000000"
+            android:gravity="center"
+            android:padding="@dimen/common_padding"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_big_size"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</LinearLayout>

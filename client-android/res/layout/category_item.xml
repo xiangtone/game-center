@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/hali_app_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_listview_app_item"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/grdiview_spaceing"
+ >
+
+    <ImageView
+        android:id="@+id/ci_category_icon_iv"
+        android:layout_width="@dimen/app_cover_size"
+        android:layout_height="@dimen/app_cover_size"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="8.0dip"
+        android:layout_marginRight="7.0dip"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_screen_default_picture" />
+
+    <LinearLayout
+        android:id="@+id/ci_category_name_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ci_category_icon_iv"
+        android:layout_alignTop="@+id/ci_category_icon_iv"
+        android:layout_marginRight="5.0dip"
+        android:layout_toRightOf="@+id/ci_category_icon_iv"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/ci_category_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5.0dip"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxWidth="180.0dip"
+            android:scrollHorizontally="true"
+            android:textColor="@color/title_color"
+            android:textSize="16.0dip" />
+
+        <TextView
+            android:id="@+id/ci_category_app_recommend_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:singleLine="true"
+            android:textColor="@color/tab_text_color"
+            android:textSize="11.0dip" />
+    </LinearLayout>
+
+    <!-- 新功能 子分类 -->
+
+    <com.x.ui.view.categorygridview.SubCategoryGridView
+        android:id="@+id/ci_category_sub_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ci_category_icon_iv"
+
+        android:gravity="center"
+        android:horizontalSpacing="11dp"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="11dp"
+         />
+       <!--  android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp" -->
+</RelativeLayout>

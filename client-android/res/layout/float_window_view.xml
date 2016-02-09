@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_frame"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin_size"
+            android:gravity="center" >
+
+            <ImageView
+                android:layout_width="@dimen/country_icon_size"
+                android:layout_height="@dimen/country_icon_size"
+                android:contentDescription="@null"
+                android:src="@drawable/mas_ic_launcher" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_margin_size"
+                android:text="@string/upgrade_reminder"
+                android:textColor="#333333"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/text_sub_large_size"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_line"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/green_line_size"
+            android:background="@drawable/nav_bg" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:maxLines="10"
+            android:minHeight="@dimen/content_min_height"
+            android:padding="@dimen/content_margin"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"
+            android:textColor="@color/update_color"
+            android:textSize="@dimen/text_big_size" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="#c8c8c8" />
+    </LinearLayout>
+
+    <!-- bottom -->
+
+    <include layout="@layout/common_dialog_bottom_bar" />
+
+</LinearLayout>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lail_top_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/zdth_catalog_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/title_bg"
+        android:orientation="horizontal"
+        android:paddingBottom="5dip"
+        android:paddingTop="5dip" >
+
+        <ImageView
+            android:id="@+id/zdth_catalog_iv"
+            android:layout_width="@dimen/transferHistory_catalog_width_height"
+            android:layout_height="@dimen/transferHistory_catalog_width_height"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/device_name"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/zdth_catalog_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:textColor="#454545" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/zdth_top_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_listview_app_item" >
+
+        <FrameLayout
+            android:id="@+id/zdth_left_panel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/zdth_file_icon_iv"
+                android:layout_width="@dimen/app_cover_size"
+                android:layout_height="@dimen/app_cover_size"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/common_padding"
+                android:contentDescription="@string/app_name" />
+
+            <RelativeLayout
+                android:id="@+id/zdth_disk_bg"
+                android:layout_width="@dimen/app_cover_size"
+                android:layout_height="@dimen/app_cover_size"
+                android:layout_margin="@dimen/common_padding"
+                android:background="@drawable/ringtones_disk_bg"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/zdth_disk_def"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ringtones_disk_pic" />
+
+                <ImageView
+                    android:id="@+id/zdth_disk_pic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/zdth_disk_def"
+                    android:layout_alignLeft="@+id/zdth_disk_def"
+                    android:layout_alignRight="@+id/zdth_disk_def"
+                    android:layout_alignTop="@+id/zdth_disk_def"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/zdth_disk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ringtones_disk" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ringtones_disk_top" />
+
+                <ProgressBar
+                    android:id="@+id/zdth_load"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:indeterminate="false"
+                    android:indeterminateDrawable="@anim/ring_loading"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ringtones_disk_pic_mask" />
+
+                <ImageView
+                    android:id="@+id/zdth_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ringtones_play" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/zdth_right_panel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <View
+                android:id="@+id/zdth_divider"
+                style="@style/VerticalDividerStyle" />
+
+            <LinearLayout
+                android:id="@+id/zdth_fileOfOperationll"
+                android:layout_width="@dimen/transferHistory_item_width"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/zdth_fileOfOperationIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:id="@+id/zdth_fileOfOperationTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:textColor="@color/tab_text_color"
+                    android:textSize="@dimen/download_btn_text_size" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/zdth_content_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/zdth_right_panel"
+            android:layout_toRightOf="@id/zdth_left_panel"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/common_padding"
+            android:paddingRight="@dimen/common_padding" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_padding" >
+
+                <TextView
+                    android:id="@+id/zdth_file_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="bottom"
+                    android:singleLine="true"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/text_big_size" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_padding"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/zdth_fileSizeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/tab_text_color"
+                    android:textSize="@dimen/text_small_size" />
+
+                <TextView
+                    android:id="@+id/zdth_ring_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/tab_text_color"
+                    android:textSize="@dimen/text_small_size"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/zdth_expand_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/detail_bottom"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/zdth_share_rel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@drawable/selector_manager_share_free_btn"
+                android:drawablePadding="2dp"
+                android:gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/bot_tools_share"
+                android:textColor="@color/update_color"
+                android:textSize="@dimen/text_small_size" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:background="#929292" />
+
+        <RelativeLayout
+            android:id="@+id/zdth_delete_rel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@drawable/selector_manager_delete_btn"
+                android:drawablePadding="2dp"
+                android:gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/manager_delete"
+                android:textColor="@color/update_color"
+                android:textSize="@dimen/text_small_size" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

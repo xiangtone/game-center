@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <include layout="@layout/search_header" />
+
+    <LinearLayout
+        android:id="@+id/ll_fragment_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <com.x.ui.view.TabPageIndicator
+            android:id="@+id/aam_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tab_unselected_holo" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/aam_content_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".AppManagementActivity" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/search_tips_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:scrollbarStyle="outsideOverlay"
+        android:smoothScrollbar="true" />
+
+</LinearLayout>

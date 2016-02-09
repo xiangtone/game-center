@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/rl_title_bar"
+        layout="@layout/main_header" />
+
+    <RelativeLayout
+        android:id="@+id/feedbackRel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+
+        <com.x.ui.view.expendlistview.ActionSlideExpandableListView
+            android:id="@+id/userfeedback_lv"
+            style="@style/ScrollBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/userfeedback_rel"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:cacheColorHint="@color/transparent"
+            android:divider="@color/transparent"
+            android:dividerHeight="0dp"
+            android:listSelector="@android:color/transparent"
+            android:smoothScrollbar="true" />
+
+        <RelativeLayout
+            android:id="@id/userfeedback_rel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/feedback_user_marginbottom"
+            android:layout_marginLeft="@dimen/feedback_user_marginleft"
+            android:layout_marginRight="@dimen/feedback_user_marginleft"
+            android:layout_marginTop="@dimen/feedback_user_marginbottom"
+            android:background="@drawable/selector_btn_and_progress_theme"
+            android:gravity="center" >
+
+            <TextView
+                android:id="@+id/userfeedback_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="@dimen/common_padding"
+                android:text="@string/submit_feedback"
+                android:textColor="@color/white"
+                android:textSize="@dimen/left_drawer_big_text_size" />
+
+            <ImageView
+                android:id="@+id/userfeedback_tip_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@+id/userfeedback_tv"
+                android:contentDescription="@null"
+                android:src="@drawable/new_tip"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <include layout="@layout/loading" />
+
+    <include
+        layout="@layout/error"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <integer name="gridview_row_count">3</integer>
+    <integer name="download_gridview_row_count">1</integer>
+    
+    <integer name="srotage_roundbar_interval">10</integer>
+    <integer name="srotage_roundbar_width">9</integer>    
+    <integer name="LIVE_WALLPAPER_COLUMN">2</integer>
+    
+    <!-- 搜索模块 -->
+    <integer name="keyword_page_size">12</integer>    
+    <integer name="item1_with_icon_max_ems">8</integer>    
+    <integer name="item1_with_text_max_ems">9</integer> 
+    <integer name="item2_with_icon_max_ems">5</integer>    
+    <integer name="item2_with_text_max_ems">6</integer>    
+    
+</resources>

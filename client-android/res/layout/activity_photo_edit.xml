@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pictrue_bg" >
+
+    <!-- 图片显示、设置等 -->
+    <RelativeLayout
+        android:id="@+id/ly_show_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.x.ui.view.photo.crop.CropImageView
+            android:id="@+id/pic_crop_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@null" />
+        
+        <!-- 编辑 -->
+        <LinearLayout
+            android:id="@+id/piv_photo_edit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/wallpaper_bottom_navbar_height"
+            android:layout_alignParentBottom="true"
+            android:background="@color/pic_edit_bg1"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/pic_crop_rotate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/selector_wallpaper_rotate"
+                    android:text="@string/picture_rotate"
+                    android:textColor="@color/selector_btn_text_color"
+                    android:textSize="@dimen/text_big_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/pic_crop_confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/selector_wallpaper_confirm"
+                    android:text="@string/picture_confirm"
+                    android:textColor="@color/selector_btn_text_color"
+                    android:textSize="@dimen/text_big_size" />
+            </LinearLayout>
+        </LinearLayout>
+        
+        <!-- 保存，分享 -->
+        <LinearLayout
+            android:id="@+id/piv_photo_save"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/wallpaper_bottom_navbar_height"
+            android:layout_alignParentBottom="true"
+            android:background="@color/pic_edit_bg1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/pic_crop_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/selector_wallpaper_share"
+                    android:text="@string/picture_share"
+                    android:textColor="@color/selector_btn_text_color"
+                    android:textSize="@dimen/text_big_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/pic_crop_wallpaper"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/selector_wallpaper_pic"
+                    android:text="@string/picture_set_wallpaper"
+                    android:textColor="@color/selector_btn_text_color"
+                    android:textSize="@dimen/text_big_size" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- loading -->
+    <include
+        layout="@layout/loading"
+        android:visibility="gone" />
+
+</FrameLayout>
