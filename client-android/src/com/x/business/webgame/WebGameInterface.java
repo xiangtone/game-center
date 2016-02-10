@@ -1,6 +1,6 @@
 /**   
 * @Title: WebGameInterface.java
-* @Package com.mas.amineappstore.business.webgame
+* @Package com.x.business.webgame
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-8-26 下午2:53:44

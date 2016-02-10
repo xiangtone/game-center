@@ -1,6 +1,6 @@
 /**   
 * @Title: PinyinComparator.java
-* @Package com.mas.amineappstore.util
+* @Package com.x.util
 * @Description: TODO 
 
 * @date 2014-2-10 上午10:14:18

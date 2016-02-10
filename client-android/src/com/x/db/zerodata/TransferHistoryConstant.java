@@ -1,6 +1,6 @@
 /**   
 * @Title: TransferHistoryConstant.java
-* @Package com.mas.amineappstore.db.zerodata
+* @Package com.x.db.zerodata
 * @Description: TODO 
 
 * @date 2014-3-31 下午06:42:13
@@ -20,7 +20,7 @@ package com.x.db.zerodata;
 public class TransferHistoryConstant {
 	/**
 	 */
-	public static final String[] ENTITYS = { "com.mas.amineappstore.db.zerodata.TransferHistoryInfoEntity" };
+	public static final String[] ENTITYS = { "com.x.db.zerodata.TransferHistoryInfoEntity" };
 	/**
 	 */
 	public static final String DB_NAME = "transfer_history.db";

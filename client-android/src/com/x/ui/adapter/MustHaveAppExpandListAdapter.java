@@ -1,6 +1,6 @@
 /**   
 * @Title: MustHaveAppExpandListAdapter.java
-* @Package com.mas.amineappstore.ui.adapter
+* @Package com.x.ui.adapter
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-6-18 下午4:48:16

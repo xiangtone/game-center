@@ -1,6 +1,6 @@
 /**   
 * @Title: CategoryInfoBean.java
-* @Package com.mas.amineappstore.model
+* @Package com.x.model
 * @Description: TODO 
 
 * @date 2014-2-13 下午08:55:00

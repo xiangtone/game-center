@@ -1,6 +1,6 @@
 /**   
 * @Title: MyAppsNewViewHolder.java
-* @Package com.mas.amineappstore.ui.adapter
+* @Package com.x.ui.adapter
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-7-7 下午4:52:00

@@ -1,6 +1,6 @@
 /**   
 * @Title: ShakeDetector.java
-* @Package com.mas.amineappstore.business.shake
+* @Package com.x.business.shake
 * @Description: TODO 
 
 * @date 2014-4-25 上午10:06:24

@@ -1,6 +1,6 @@
 /**   
 * @Title: DownloadUtils.java
-* @Package com.mas.amineappstore.util
+* @Package com.x.util
 * @Description: TODO 
 
 * @date 2014-1-20 上午09:54:23

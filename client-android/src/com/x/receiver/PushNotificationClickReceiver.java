@@ -1,7 +1,7 @@
 
 /**   
  * @Title: PushNotificationClickReceiver.java
- * @Package com.mas.amineappstore.receiver
+ * @Package com.x.receiver
  * @Description: TODO(用一句话描述该文件做什么)
  
  * @date 2015-8-5 下午4:06:04

@@ -1,6 +1,6 @@
 /**   
 * @Title: DownloadEntityManager.java
-* @Package com.mas.amineappstore.db
+* @Package com.x.db
 * @Description: TODO 
 
 * @date 2013-12-17 上午11:29:30

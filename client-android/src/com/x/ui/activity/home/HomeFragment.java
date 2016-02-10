@@ -1,6 +1,6 @@
 /**   
  * @Title: HomeFragment2.java
- * @Package com.mas.amineappstore.activity
+ * @Package com.x.activity
  * @Description: TODO 
  
  * @date 2014-2-11 上午09:44:54

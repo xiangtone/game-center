@@ -1,6 +1,6 @@
 /**   
  * @Title: ZeroDataTransferHistoryActivity.java
- * @Package com.mas.amineappstore.ui.activity.zerodata
+ * @Package com.x.ui.activity.zerodata
  * @Description: TODO 
  
  * @date 2014-3-31 下午04:42:26

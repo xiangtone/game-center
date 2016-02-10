@@ -1,6 +1,6 @@
 /**   
 * @Title: MyAppsBean.java
-* @Package com.mas.amineappstore.publics.model
+* @Package com.x.publics.model
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-7-7 下午2:43:11

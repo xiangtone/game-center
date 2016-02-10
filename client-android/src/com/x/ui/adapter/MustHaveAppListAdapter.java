@@ -1,6 +1,6 @@
 /**   
 * @Title: MustHaveAppListAdapter.java
-* @Package com.mas.amineappstore.ui.adapter
+* @Package com.x.ui.adapter
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-9-1 下午5:58:13
@@ -399,7 +399,7 @@ public class MustHaveAppListAdapter extends ArrayListBaseAdapter<MustHaveAppInfo
 	* <p>Description: </p> 
 	* @param position
 	* @return 
-	* @see com.mas.amineappstore.ui.view.stickylistheaders.StickyListHeadersAdapter#getHeaderId(int) 
+	* @see com.x.ui.view.stickylistheaders.StickyListHeadersAdapter#getHeaderId(int) 
 	*/
 
 	@Override
@@ -426,7 +426,7 @@ public class MustHaveAppListAdapter extends ArrayListBaseAdapter<MustHaveAppInfo
 	* <p>Title: setList</p> 
 	* <p>Description: </p> 
 	* @param list 
-	* @see com.mas.amineappstore.ui.adapter.ArrayListBaseAdapter#setList(java.util.List) 
+	* @see com.x.ui.adapter.ArrayListBaseAdapter#setList(java.util.List) 
 	*/
 
 	/** 

@@ -1,6 +1,6 @@
 /**   
 * @Title: AccountManager.java
-* @Package com.mas.amineappstore.business.account
+* @Package com.x.business.account
 * @Description: TODO 
 
 * @date 2014-3-17 下午04:49:39

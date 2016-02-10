@@ -1,6 +1,6 @@
 /**   
 * @Title: AppListViewHolder.java
-* @Package com.mas.amineappstore.adapter
+* @Package com.x.adapter
 * @Description: TODO 
 
 * @date 2013-12-23 上午10:30:31

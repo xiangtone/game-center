@@ -1,6 +1,6 @@
 /**   
 * @Title: StatisticConstant.java
-* @Package com.mas.amineappstore.business.statistic
+* @Package com.x.business.statistic
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-5-30 下午2:03:44

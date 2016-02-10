@@ -1,6 +1,6 @@
 /**   
  * @Title: CategoryListAdapter.java
- * @Package com.mas.amineappstore.adapter
+ * @Package com.x.adapter
  * @Description: TODO 
  
  * @date 2014-2-13 下午08:56:14

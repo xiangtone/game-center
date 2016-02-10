@@ -16,12 +16,12 @@ public class AlarmManage {
 	public Context context;
 	public static final String alarm_Runing_Time = "alarmRuningTime";
 	public Long alarm_time = 8 * 60 * 60 * 1000L;/*2 * 60 * 1000L ;*/
-	public static final String alarmAction = "com.mas.amineappstore.ALARM";
+	public static final String alarmAction = "com.x.ALARM";
 
 	public Long first_alarm_time =  60 * 60 * 1000L;
 	public Long second_alarm_time = 4 * 60 * 60 * 1000L;
-	public static final String firstAlarmAction = "com.mas.amineappstore.alarm.FIRST";
-	public static final String secondAlarmAction = "com.mas.amineappstore.alarm.SECOND";
+	public static final String firstAlarmAction = "com.x.alarm.FIRST";
+	public static final String secondAlarmAction = "com.x.alarm.SECOND";
 
 	public AlarmManage(Context context) {
 		this.context = context;

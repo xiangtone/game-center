@@ -1,6 +1,6 @@
 /**   
 * @Title: LocalAppEntitys.java
-* @Package com.mas.amineappstore.db
+* @Package com.x.db
 * @Description: TODO 
 
 * @date 2013-12-17 上午09:50:21
@@ -20,7 +20,7 @@ package com.x.db;
 public class LocalAppDbConstant {
 	/**
 	 */
-	public static final String[] ENTITYS = { "com.mas.amineappstore.db.dao.LocalAppInfoEntity" };
+	public static final String[] ENTITYS = { "com.x.db.dao.LocalAppInfoEntity" };
 	/**
 	 */
 	public static final String DB_NAME = "amine_appstore_localapp.db";

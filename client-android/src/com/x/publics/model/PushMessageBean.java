@@ -1,6 +1,6 @@
 /**   
 * @Title: PushMessageBean.java
-* @Package com.mas.amineappstore.publics.model
+* @Package com.x.publics.model
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-8-4 下午1:49:00

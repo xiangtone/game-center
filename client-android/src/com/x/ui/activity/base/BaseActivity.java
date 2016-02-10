@@ -1,6 +1,6 @@
 /**   
 * @Title: BaseActivity.java
-* @Package com.mas.amineappstore.activity.base
+* @Package com.x.activity.base
 * @Description: TODO 
 
 * @date 2013-12-16 下午01:07:11

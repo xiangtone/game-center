@@ -1,6 +1,6 @@
 /**   
 * @Title: ExpandAnimation.java
-* @Package com.mas.amineappstore.view
+* @Package com.x.view
 * @Description: TODO 
 
 * @date 2013-12-17 下午04:26:45

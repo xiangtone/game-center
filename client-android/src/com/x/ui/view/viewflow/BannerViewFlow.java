@@ -1,6 +1,6 @@
 /**   
 * @Title: BannerViewFlow.java
-* @Package com.mas.amineappstore.view.viewflow
+* @Package com.x.view.viewflow
 * @Description: TODO 
 
 * @date 2014-2-13 上午11:22:46

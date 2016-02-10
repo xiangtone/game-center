@@ -1,6 +1,6 @@
 /**   
 * @Title: DownloadDbConstant.java
-* @Package com.mas.amineappstore.db
+* @Package com.x.db
 * @Description: TODO 
 
 * @date 2013-12-17 上午11:24:48
@@ -21,7 +21,7 @@ public class DownloadDbConstant {
 
 	/**
 	 */
-	public static final String[] ENTITYS = { "com.mas.amineappstore.db.dao.DownloadInfoEntity" };
+	public static final String[] ENTITYS = { "com.x.db.dao.DownloadInfoEntity" };
 	/**
 	 */
 	public static final String DB_NAME = "amine_appstore_download.db";

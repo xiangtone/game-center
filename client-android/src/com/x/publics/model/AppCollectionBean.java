@@ -1,6 +1,6 @@
 /**   
 * @Title: AppCollectionBean.java
-* @Package com.mas.amineappstore.publics.model
+* @Package com.x.publics.model
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-9-2 上午10:57:57

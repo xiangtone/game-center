@@ -1,6 +1,6 @@
 /**   
 * @Title: ImageUtils.java
-* @Package com.mas.amineappstore.util
+* @Package com.x.util
 * @Description: TODO 
 
 * @date 2014-1-13 下午02:58:43

@@ -2,13 +2,13 @@ package com.x.business.zerodata.transfer;
 
 public class TransferIntent {
 
-	public static final String INTENT_UPDATE_UI = "com.mas.amineappstore.activity.IZeroDataClientTransferActivity";
-	public static final String INTENT_DOWNLOADSERVICE = "com.mas.amineappstore.business.zerodata.transfer.TransferService";
-	public static final String INTENT_FINISH_ACTIVITY = "com.mas.amineappstore.activity.finish";
-	public static final String INTENT_TRANSFER_RECONNECT = "com.mas.amineappstore.ui.activity.zerodata.ZeroDataClientTransferActivity.Reconnect";
-	//	public static final String INTENT_SETTINGS_CHANGE = "com.mas.amineappstore.settings.change";
+	public static final String INTENT_UPDATE_UI = "com.x.activity.IZeroDataClientTransferActivity";
+	public static final String INTENT_DOWNLOADSERVICE = "com.x.business.zerodata.transfer.TransferService";
+	public static final String INTENT_FINISH_ACTIVITY = "com.x.activity.finish";
+	public static final String INTENT_TRANSFER_RECONNECT = "com.x.ui.activity.zerodata.ZeroDataClientTransferActivity.Reconnect";
+	//	public static final String INTENT_SETTINGS_CHANGE = "com.x.settings.change";
 
-	//	public static final String INTENT_APKFILE_DELETE_UPDATE_UI = "com.mas.amineappstore.activity.ApkManagementActivity.IDeleteApkUiReceiver";
+	//	public static final String INTENT_APKFILE_DELETE_UPDATE_UI = "com.x.activity.ApkManagementActivity.IDeleteApkUiReceiver";
 	public static final String INTENT_DELETE_EXTRA_PATH = "file_path";
 	public static final String INTENT_DELETE_EXTRA_TYPE = "file_type";
 	public static final int EXTRA_TYPE_INSTALL = 1;

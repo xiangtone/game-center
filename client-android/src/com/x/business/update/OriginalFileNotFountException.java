@@ -1,6 +1,6 @@
 /**   
 * @Title: OriginalFileNotFountException.java
-* @Package com.mas.amineappstore.business.update
+* @Package com.x.business.update
 * @Description: TODO 
 
 * @date 2014-4-8 下午02:33:20

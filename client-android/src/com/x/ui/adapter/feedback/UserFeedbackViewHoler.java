@@ -1,6 +1,6 @@
 /**   
 * @Title: UserFeedbackViewHoler.java
-* @Package com.mas.amineappstore.ui.adapter.feedback
+* @Package com.x.ui.adapter.feedback
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-7-23 上午9:43:46

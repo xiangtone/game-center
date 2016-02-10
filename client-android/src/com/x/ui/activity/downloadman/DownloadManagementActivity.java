@@ -1,6 +1,6 @@
 /**   
 * @Title: ManagementActivity.java
-* @Package com.mas.amineappstore.activity
+* @Package com.x.activity
 * @Description: TODO 
 
 * @date 2013-12-16 下午02:57:57

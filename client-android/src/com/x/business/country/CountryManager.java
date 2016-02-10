@@ -1,6 +1,6 @@
 /**   
 * @Title: CountryManager.java
-* @Package com.mas.amineappstore.business.country
+* @Package com.x.business.country
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-6-6 上午10:06:42

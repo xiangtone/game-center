@@ -1,6 +1,6 @@
 /**   
 * @Title: MainActivity.java
-* @Package com.mas.amineappstore.ui.activity.home
+* @Package com.x.ui.activity.home
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-4-29 下午2:59:00

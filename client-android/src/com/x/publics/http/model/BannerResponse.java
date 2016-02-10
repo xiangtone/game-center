@@ -1,6 +1,6 @@
 /**   
 * @Title: BannerResponse.java
-* @Package com.mas.amineappstore.http.model
+* @Package com.x.http.model
 * @Description: TODO 
 
 * @date 2014-2-13 下午03:01:57

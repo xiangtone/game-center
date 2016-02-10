@@ -1,6 +1,6 @@
 /**   
 * @Title: PushNotificationBean.java
-* @Package com.mas.amineappstore.business.notification
+* @Package com.x.business.notification
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-8-5 下午3:31:26

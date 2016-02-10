@@ -1,6 +1,6 @@
 /**   
 * @Title: TransferHistoryManager.java
-* @Package com.mas.amineappstore.business.zerodata.history
+* @Package com.x.business.zerodata.history
 * @Description: TODO 
 
 * @date 2014-3-31 下午08:05:45

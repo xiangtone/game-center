@@ -1,6 +1,6 @@
 /**   
 * @Title: AdPushReceiver.java
-* @Package com.mas.amineappstore.receiver
+* @Package com.x.receiver
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-8-4 下午1:36:49

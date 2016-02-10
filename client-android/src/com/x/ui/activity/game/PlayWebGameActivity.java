@@ -1,6 +1,6 @@
 /**   
 * @Title: PlayWebGameActivity.java
-* @Package com.mas.amineappstore.ui.activity.game
+* @Package com.x.ui.activity.game
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-8-25 上午10:34:18

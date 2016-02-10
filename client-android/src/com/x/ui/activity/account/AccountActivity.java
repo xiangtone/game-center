@@ -398,7 +398,7 @@ public class AccountActivity extends BaseActivity implements OnClickListener, On
 	/* (非 Javadoc) 
 	* <p>Title: onResume</p> 
 	* <p>Description: </p>  
-	* @see com.mas.amineappstore.ui.activity.base.BaseActivity#onResume() 
+	* @see com.x.ui.activity.base.BaseActivity#onResume() 
 	*/
 
 	@Override

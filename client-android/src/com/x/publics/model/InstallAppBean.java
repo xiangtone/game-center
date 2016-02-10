@@ -1,6 +1,6 @@
 /**   
 * @Title: InstallAppBean.java
-* @Package com.mas.amineappstore.model
+* @Package com.x.model
 * @Description: TODO 
 
 * @date 2013-12-17 上午10:06:05

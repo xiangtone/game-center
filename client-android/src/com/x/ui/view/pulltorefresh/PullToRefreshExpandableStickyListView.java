@@ -1,6 +1,6 @@
 /**   
 * @Title: PullToRefreshExpandableStickyListView.java
-* @Package com.mas.amineappstore.ui.view.pulltorefresh
+* @Package com.x.ui.view.pulltorefresh
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-6-19 上午10:15:14

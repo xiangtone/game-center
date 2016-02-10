@@ -1,6 +1,6 @@
 /**   
 * @Title: LockHanlder.java
-* @Package com.mas.amineappstore.business.applocker
+* @Package com.x.business.applocker
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-10-27 下午4:28:21

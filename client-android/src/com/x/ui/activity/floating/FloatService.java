@@ -338,7 +338,7 @@ public class FloatService extends Service {
 		private List<String> getHomes() {
 			List<String> packages = new ArrayList<String>();
 //			packages.add("{com.mas.amineappstore/" +
-//				"com.mas.amineappstore.ui.activity.floating.RadialMenuActivity}"); //添加需要过滤的界面
+//				"com.x.ui.activity.floating.RadialMenuActivity}"); //添加需要过滤的界面
 			PackageManager packageManager = getPackageManager();
 			Intent intent = new Intent(Intent.ACTION_MAIN);
 			intent.addCategory(Intent.CATEGORY_HOME);

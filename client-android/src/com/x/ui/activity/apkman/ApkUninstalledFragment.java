@@ -1,6 +1,6 @@
 /**   
 * @Title: ApkUninstalledFragment.java
-* @Package com.mas.amineappstore.activity
+* @Package com.x.activity
 * @Description: TODO 
 
 * @date 2014-2-14 下午01:43:56

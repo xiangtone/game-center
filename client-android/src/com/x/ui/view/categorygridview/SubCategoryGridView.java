@@ -1,6 +1,6 @@
 /**   
  * @Title: SubCategoryGridView.java
- * @Package com.mas.amineappstore.ui.view.categorygridview
+ * @Package com.x.ui.view.categorygridview
  * @Description: TODO(用一句话描述该文件做什么)
  
  * @date 2015-10-19 下午6:06:14

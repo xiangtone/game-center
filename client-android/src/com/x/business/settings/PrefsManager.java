@@ -1,6 +1,6 @@
 /**   
 * @Title: PrefsManager.java
-* @Package com.mas.amineappstore.business.settings
+* @Package com.x.business.settings
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-10-21 上午9:54:52

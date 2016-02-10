@@ -1,6 +1,6 @@
 /**   
 * @Title: LockTask.java
-* @Package com.mas.amineappstore.business.applocker
+* @Package com.x.business.applocker
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-10-9 下午1:22:06
@@ -47,7 +47,7 @@ public class LockTask extends Thread {
 	public static boolean isIncomingCall = false;
 	public static String TAG = "AppLocker";
 	private List<String> lockedList = null;
-	public static final String UNLOCK_ACTIVITY = "com.mas.amineappstore.ui.activity.applocker.ApplockerPasswordActivity";
+	public static final String UNLOCK_ACTIVITY = "com.x.ui.activity.applocker.ApplockerPasswordActivity";
 	public static String INCOMING_CALL;
 	private static final List<String> PHONES = new ArrayList<String>();
 	public LockTask(Context context) {

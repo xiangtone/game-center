@@ -1,6 +1,6 @@
 /**   
  * @Title: ZeroDataClientActivity.java
- * @Package com.mas.amineappstore.activity
+ * @Package com.x.activity
  * @Description: TODO 
  
  * @date 2014-1-14 下午02:56:34

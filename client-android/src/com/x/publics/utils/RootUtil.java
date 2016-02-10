@@ -1,6 +1,6 @@
 /**   
 * @Title: RootUtil.java
-* @Package com.mas.amineappstore.publics.utils
+* @Package com.x.publics.utils
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-10-10 上午9:34:09

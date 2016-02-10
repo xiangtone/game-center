@@ -1,6 +1,6 @@
 /**   
 * @Title: SettingModel.java
-* @Package com.mas.amineappstore.util.settings
+* @Package com.x.util.settings
 * @Description: TODO 
 
 * @date 2014-2-15 下午05:43:25

@@ -1,6 +1,6 @@
 /**   
 * @Title: ApkListAdapter.java
-* @Package com.mas.amineappstore.adapter
+* @Package com.x.adapter
 * @Description: TODO 
 
 * @date 2014-2-15 上午11:12:06

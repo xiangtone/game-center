@@ -1,6 +1,6 @@
 /**   
 * @Title: ApkReceiver.java
-* @Package com.mas.amineappstore.receiver
+* @Package com.x.receiver
 * @Description: TODO 
 
 * @date 2013-12-17 上午10:46:55

@@ -1,6 +1,6 @@
 /**   
 * @Title: AppsUpgradeRequest.java
-* @Package com.mas.amineappstore.http.model
+* @Package com.x.http.model
 * @Description: TODO 
 
 * @date 2014-1-18 下午03:25:51

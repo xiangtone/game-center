@@ -1,6 +1,6 @@
 /**   
  * @Title: NotificationBtnClickReceiver.java
- * @Package com.mas.amineappstore.receiver
+ * @Package com.x.receiver
  * @Description: TODO(用一句话描述该文件做什么)
  
  * @date 2014-8-7 上午10:43:12

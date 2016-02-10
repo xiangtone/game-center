@@ -1,6 +1,6 @@
 /**   
 * @Title: ApplockerAlarm.java
-* @Package com.mas.amineappstore.business.alarm
+* @Package com.x.business.alarm
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-10-13 上午11:20:12
@@ -26,7 +26,7 @@ import android.content.Intent;
 public class ApplockerAlarm {
 	private static ApplockerAlarm applockerAlarm;
 	private Context context;
-	public static final String ACTION_START_LOCK_SERVICE = "com.mas.amineappstore.START_LOCK_SERVICE";
+	public static final String ACTION_START_LOCK_SERVICE = "com.x.START_LOCK_SERVICE";
 	public Long alarm_time = 10 * 1000L;
 	public static boolean  isCreatAlarm = false ;
 	

@@ -1,6 +1,6 @@
 /**   
 * @Title: CharacterParser.java
-* @Package com.mas.amineappstore.util.sort
+* @Package com.x.util.sort
 * @Description: TODO 
 
 * @date 2014-2-10 上午10:16:56

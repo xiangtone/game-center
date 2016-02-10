@@ -56,7 +56,7 @@ public class ServiceHelper implements ServiceConnection, IServiceHelper {
 			runRunnablesOnConnect();
 			return;
 		}
-		Intent serviceIntent = new Intent("com.mas.amineappstore.business.zerodata.server.service.ServiceController");
+		Intent serviceIntent = new Intent("com.x.business.zerodata.server.service.ServiceController");
 		mContext.startService(serviceIntent);
 		mContext.bindService(serviceIntent, this, Context.BIND_AUTO_CREATE);
 	}

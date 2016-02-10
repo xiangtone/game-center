@@ -1,6 +1,6 @@
 /**   
 * @Title: FeedbackListResponse.java
-* @Package com.mas.amineappstore.publics.http.model
+* @Package com.x.publics.http.model
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-8-12 下午4:31:13

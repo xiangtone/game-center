@@ -1,6 +1,6 @@
 /**   
 * @Title: Constan.java
-* @Package com.mas.amineappstore.util
+* @Package com.x.util
 * @Description: TODO 
 
 * @date 2014-1-15 上午11:34:16

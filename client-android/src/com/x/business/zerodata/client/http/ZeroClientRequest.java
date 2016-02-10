@@ -1,6 +1,6 @@
 /**   
 * @Title: ZeroClientRequest.java
-* @Package com.mas.amineappstore.business.zerodata.client.http
+* @Package com.x.business.zerodata.client.http
 * @Description: TODO 
 
 * @date 2014-3-20 上午11:03:51

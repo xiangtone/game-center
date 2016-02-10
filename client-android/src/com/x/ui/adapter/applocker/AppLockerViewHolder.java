@@ -1,6 +1,6 @@
 /**   
  * @Title: AppLockerViewHolder.java
- * @Package com.mas.amineappstore.ui.activity.applocker
+ * @Package com.x.ui.activity.applocker
  * @Description: TODO(用一句话描述该文件做什么)
  
  * @date 2014-10-11 上午10:54:13

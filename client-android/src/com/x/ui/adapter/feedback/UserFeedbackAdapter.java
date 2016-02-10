@@ -1,6 +1,6 @@
 /**   
 * @Title: UserAdapter.java
-* @Package com.mas.amineappstore.ui.adapter.feedback
+* @Package com.x.ui.adapter.feedback
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-7-22 下午5:56:32

@@ -1,6 +1,6 @@
 /**   
 * @Title: UserInfoBean.java
-* @Package com.mas.amineappstore.model
+* @Package com.x.model
 * @Description: TODO 
 
 * @date 2014-1-21 上午10:44:38

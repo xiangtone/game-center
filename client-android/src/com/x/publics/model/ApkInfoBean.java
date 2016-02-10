@@ -1,6 +1,6 @@
 /**   
 * @Title: ApkInfoBean.java
-* @Package com.mas.amineappstore.model
+* @Package com.x.model
 * @Description: TODO 
 
 * @date 2014-2-14 下午04:25:32

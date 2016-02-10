@@ -1,6 +1,6 @@
 /**   
 * @Title: StatisticManager.java
-* @Package com.mas.amineappstore.business.statistic
+* @Package com.x.business.statistic
 * @Description: TODO 
 
 * @date 2014-4-8 下午02:39:45

@@ -1,6 +1,6 @@
 /**   
 * @Title: MySlidingPaneLayout.java
-* @Package com.mas.amineappstore.ui.view
+* @Package com.x.ui.view
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-10-27 下午7:08:50

@@ -1,6 +1,6 @@
 /**   
 * @Title: BroadCastManager.java
-* @Package com.mas.amineappstore.download
+* @Package com.x.download
 * @Description: TODO 
 
 * @date 2014-1-9 下午03:27:07

@@ -1,6 +1,6 @@
 /**   
 * @Title: AppDownloadLogResponse.java
-* @Package com.mas.amineappstore.publics.http.model
+* @Package com.x.publics.http.model
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-3-20 上午10:11:13

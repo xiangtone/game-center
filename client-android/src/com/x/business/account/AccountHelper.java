@@ -1,6 +1,6 @@
 /**   
 * @Title: AccountHelper.java
-* @Package com.mas.amineappstore.business.account
+* @Package com.x.business.account
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-8-28 上午9:58:33

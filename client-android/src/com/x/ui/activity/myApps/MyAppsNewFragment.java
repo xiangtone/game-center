@@ -1,6 +1,6 @@
 /**   
 * @Title: MyAppsNewFragment.java
-* @Package com.mas.amineappstore.ui.activity.myApps
+* @Package com.x.ui.activity.myApps
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-7-7 上午11:23:04

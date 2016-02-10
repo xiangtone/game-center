@@ -1,6 +1,6 @@
 /**   
 * @Title: SlideSlideDragLayout.java
-* @Package com.mas.amineappstore.ui.view.drag
+* @Package com.x.ui.view.drag
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-4-29 下午3:04:29

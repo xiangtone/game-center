@@ -1,6 +1,6 @@
 /**   
 * @Title: SettingsUtils.java
-* @Package com.mas.amineappstore.util
+* @Package com.x.util
 * @Description: TODO 
 
 * @date 2014-2-9 下午01:54:52

@@ -1,6 +1,6 @@
 /**   
  * @Title: SplashActivity.java
- * @Package com.mas.amineappstore.activity
+ * @Package com.x.activity
  * @Description: TODO 
  
  * @date 2014-1-15 下午03:04:35

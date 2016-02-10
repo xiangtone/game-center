@@ -1,6 +1,6 @@
 /**   
 * @Title: AudioEffectManager.java
-* @Package com.mas.amineappstore.business.audio
+* @Package com.x.business.audio
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-6-12 下午1:38:05

@@ -1,6 +1,6 @@
 /**   
 * @Title: FeedbackManager.java
-* @Package com.mas.amineappstore.business.feedback
+* @Package com.x.business.feedback
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-8-18 上午10:39:45

@@ -1,6 +1,6 @@
 /**   
 * @Title: AppsDownloadingShowActivity.java
-* @Package com.mas.amineappstore.ui.activity
+* @Package com.x.ui.activity
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-3-17 下午4:37:31

@@ -1,6 +1,6 @@
 /**   
 * @Title: LocalAppEntityManager.java
-* @Package com.mas.amineappstore.db
+* @Package com.x.db
 * @Description: TODO 
 
 * @date 2013-12-17 上午10:02:15

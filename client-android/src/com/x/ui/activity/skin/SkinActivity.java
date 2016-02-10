@@ -1,6 +1,6 @@
 /**   
 * @Title: SkinActivity.java
-* @Package com.mas.amineappstore.ui.activity.skin
+* @Package com.x.ui.activity.skin
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-12-9 上午10:48:15

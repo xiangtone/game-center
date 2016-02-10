@@ -1,6 +1,6 @@
 /**   
  * @Title: DataFetcher.java
- * @Package com.mas.amineappstore.http
+ * @Package com.x.http
  * @Description: TODO 
  
  * @date 2013-12-16 下午01:44:45

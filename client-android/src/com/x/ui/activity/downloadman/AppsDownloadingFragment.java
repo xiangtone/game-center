@@ -1,7 +1,7 @@
 /**   
 
 * @Title: AppsDownloadingFragment.java
-* @Package com.mas.amineappstore.activity
+* @Package com.x.activity
 * @Description: TODO 
 
 * @date 2014-2-18 下午05:43:38

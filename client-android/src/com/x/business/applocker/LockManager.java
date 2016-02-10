@@ -1,6 +1,6 @@
 /**   
  * @Title: LockManager.java
- * @Package com.mas.amineappstore.business.applocker
+ * @Package com.x.business.applocker
  * @Description: TODO(用一句话描述该文件做仿و)
  
  * @date 2014-10-10 上午9:49:30

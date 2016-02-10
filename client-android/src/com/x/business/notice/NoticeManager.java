@@ -1,6 +1,6 @@
 /**   
 * @Title: NoticeManager.java
-* @Package com.mas.amineappstore.business.notice
+* @Package com.x.business.notice
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-10-10 下午2:31:53

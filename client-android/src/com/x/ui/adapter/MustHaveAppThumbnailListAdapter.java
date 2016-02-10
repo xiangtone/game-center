@@ -1,6 +1,6 @@
 /**   
 * @Title: MustHaveAppThumbnailListAdapter.java
-* @Package com.mas.amineappstore.ui.adapter
+* @Package com.x.ui.adapter
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-6-1 下午2:54:09
@@ -57,7 +57,7 @@ public class MustHaveAppThumbnailListAdapter extends ArrayListBaseAdapter<MustHa
 	* <p>Title: getCount</p> 
 	* <p>Description: </p> 
 	* @return 
-	* @see com.mas.amineappstore.ui.adapter.ArrayListBaseAdapter#getCount() 
+	* @see com.x.ui.adapter.ArrayListBaseAdapter#getCount() 
 	*/
 
 	@Override

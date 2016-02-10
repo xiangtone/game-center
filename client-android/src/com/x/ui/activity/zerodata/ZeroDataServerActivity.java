@@ -1,6 +1,6 @@
 /**   
 * @Title: ZeroDataServerActivity.java
-* @Package com.mas.amineappstore.activity
+* @Package com.x.activity
 * @Description: TODO 
 
 * @date 2014-1-14 下午02:56:34
@@ -441,7 +441,7 @@ public class ZeroDataServerActivity extends BaseActivity implements OnClickListe
 		List<RunningServiceInfo> list = am.getRunningServices(100);
 		for (RunningServiceInfo info : list) {
 			if (info.service.getClassName().equals(
-					"com.mas.amineappstore.business.zerodata.server.service.ServerService")) {
+					"com.x.business.zerodata.server.service.ServerService")) {
 				return true;
 			}
 		}

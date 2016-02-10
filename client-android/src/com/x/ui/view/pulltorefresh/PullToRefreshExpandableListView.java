@@ -1,6 +1,6 @@
 /**   
 * @Title: PullToRefreshExpandableListView.java
-* @Package com.mas.amineappstore.ui.view.pulltorefresh
+* @Package com.x.ui.view.pulltorefresh
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-4-23 下午3:52:12
@@ -77,7 +77,7 @@ public class PullToRefreshExpandableListView extends PullToRefreshBase<Expandabl
 	* <p>Title: getPullToRefreshScrollDirection</p> 
 	* <p>Description: </p> 
 	* @return 
-	* @see com.mas.amineappstore.ui.view.pulltorefresh.PullToRefreshBase#getPullToRefreshScrollDirection() 
+	* @see com.x.ui.view.pulltorefresh.PullToRefreshBase#getPullToRefreshScrollDirection() 
 	*/
 
 	/**
@@ -724,7 +724,7 @@ public class PullToRefreshExpandableListView extends PullToRefreshBase<Expandabl
 		* <p>Title: setEmptyView</p> 
 		* <p>Description: </p> 
 		* @param v 
-		* @see com.mas.amineappstore.ui.view.stickylistheaders.StickyListHeadersListView#setEmptyView(android.view.View) 
+		* @see com.x.ui.view.stickylistheaders.StickyListHeadersListView#setEmptyView(android.view.View) 
 		*/
 
 		@Override
@@ -755,7 +755,7 @@ public class PullToRefreshExpandableListView extends PullToRefreshBase<Expandabl
 	* @param context
 	* @param attrs
 	* @return 
-	* @see com.mas.amineappstore.ui.view.pulltorefresh.PullToRefreshBase#createRefreshableView(android.content.Context, android.util.AttributeSet) 
+	* @see com.x.ui.view.pulltorefresh.PullToRefreshBase#createRefreshableView(android.content.Context, android.util.AttributeSet) 
 	*/
 
 	@Override

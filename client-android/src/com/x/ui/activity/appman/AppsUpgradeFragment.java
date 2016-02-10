@@ -1,6 +1,6 @@
 /**   
 * @Title: AppsUpgradeFragment.java
-* @Package com.mas.amineappstore.activity
+* @Package com.x.activity
 * @Description: TODO 
 
 * @date 2014-1-24 上午10:28:28

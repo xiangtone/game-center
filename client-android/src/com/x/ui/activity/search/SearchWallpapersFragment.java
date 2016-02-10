@@ -1,6 +1,6 @@
 /**   
  * @Title: SearchWallpapersFragment.java
- * @Package com.mas.amineappstore.ui.activity.search
+ * @Package com.x.ui.activity.search
  * @Description: TODO(用一句话描述该文件做什么)
  
  * @date 2014-7-11 下午5:05:55

@@ -1,6 +1,6 @@
 /**   
 * @Title: DynamicListViewManager.java
-* @Package com.mas.amineappstore.business.dynamiclistview
+* @Package com.x.business.dynamiclistview
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-3-17 下午3:38:16

@@ -1,6 +1,6 @@
 /**   
 * @Title: PhoneStateReceiver.java
-* @Package com.mas.amineappstore.business.applocker
+* @Package com.x.business.applocker
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-10-21 上午9:39:09

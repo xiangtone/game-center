@@ -1,6 +1,6 @@
 /**   
 * @Title: ScrollViewExtend.java
-* @Package com.mas.amineappstore.view
+* @Package com.x.view
 * @Description: TODO 
 
 * @date 2014-1-13 下午04:24:38

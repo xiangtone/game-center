@@ -1,6 +1,6 @@
 /**   
  * @Title: SearchResponse.java
- * @Package com.mas.amineappstore.http.model
+ * @Package com.x.http.model
  * @Description: TODO 
  
  * @date 2014-1-20 上午11:45:51

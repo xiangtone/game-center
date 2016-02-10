@@ -1,6 +1,6 @@
 /**   
 * @Title: SkinConstan.java
-* @Package com.mas.amineappstore.business.skin
+* @Package com.x.business.skin
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-11-28 下午4:38:34

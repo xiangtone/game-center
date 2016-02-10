@@ -1,6 +1,6 @@
 /**   
 * @Title: AutoCheckUpdateManager.java
-* @Package com.mas.amineappstore.manage
+* @Package com.x.manage
 * @Description: TODO 
 
 * @date 2014-2-28 上午11:26:01

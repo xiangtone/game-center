@@ -1,6 +1,6 @@
 /**   
 * @Title: CommonRequest.java
-* @Package com.mas.amineappstore.http.model
+* @Package com.x.http.model
 * @Description: TODO 
 
 * @date 2014-1-15 上午09:21:22

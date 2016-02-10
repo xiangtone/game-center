@@ -1,6 +1,6 @@
 /**   
 * @Title: ServerException.java
-* @Package com.mas.amineappstore.download.error
+* @Package com.x.download.error
 * @Description: TODO 
 
 * @date 2014-3-13 下午01:28:17

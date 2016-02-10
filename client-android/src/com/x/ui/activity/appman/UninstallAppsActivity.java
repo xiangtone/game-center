@@ -1,6 +1,6 @@
 /**   
 * @Title: UninstallAppsActivity.java
-* @Package com.mas.amineappstore.ui.activity
+* @Package com.x.ui.activity
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-10-8 下午3:23:42

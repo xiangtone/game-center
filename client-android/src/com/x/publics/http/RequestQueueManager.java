@@ -1,6 +1,6 @@
 /**   
 * @Title: RequestQueueManager.java
-* @Package com.mas.amineappstore.http
+* @Package com.x.http
 * @Description: TODO 
 
 * @date 2014-1-7 下午01:49:58

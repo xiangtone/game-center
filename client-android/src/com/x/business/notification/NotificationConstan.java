@@ -1,6 +1,6 @@
 /**   
  * @Title: NotificationConstan.java
- * @Package com.mas.amineappstore.business.notification
+ * @Package com.x.business.notification
  * @Description: TODO(用一句话描述该文件做什么)
  
  * @date 2015-8-5 下午5:14:46
@@ -35,7 +35,7 @@ public class NotificationConstan {
 	public static final int PUSH_MODE_TEXT=0;
 	
 	/** 通知栏按钮点击事件对应的ACTION */
-	public final static String ACTION_BUTTON = "com.mas.amineappstore.intent.action.NotifyClick";
+	public final static String ACTION_BUTTON = "com.x.intent.action.NotifyClick";
 	/** 通知栏标识 */
 	public final static String INTENT_NOTICEID_TAG = "NoticeId";
 	/** 通知 点击控件 标识 */

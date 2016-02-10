@@ -1,6 +1,6 @@
 /**   
 * @Title: AdPushResponse.java
-* @Package com.mas.amineappstore.publics.http.model
+* @Package com.x.publics.http.model
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-8-4 下午1:50:40

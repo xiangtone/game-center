@@ -1,6 +1,6 @@
 /**   
 * @Title: Pager.java
-* @Package com.mas.amineappstore.model
+* @Package com.x.model
 * @Description: TODO 
 
 * @date 2014-1-14 下午07:37:13

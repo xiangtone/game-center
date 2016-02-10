@@ -1,6 +1,6 @@
 /**   
 * @Title: DynamicListView.java
-* @Package com.mas.amineappstore.ui.view.dynamic
+* @Package com.x.ui.view.dynamic
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-3-23 下午2:38:43

@@ -1,6 +1,6 @@
 /**   
 * @Title: DownloadNotificationManager.java
-* @Package com.mas.amineappstore.download
+* @Package com.x.download
 * @Description: TODO 
 
 * @date 2013-12-19 下午05:12:43

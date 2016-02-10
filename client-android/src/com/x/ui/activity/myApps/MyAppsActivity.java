@@ -1,6 +1,6 @@
 /**   
 * @Title: MyAppsActivity.java
-* @Package com.mas.amineappstore.ui.activity
+* @Package com.x.ui.activity
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-7-7 上午10:24:09

@@ -1,6 +1,6 @@
 /**   
 * @Title: LockService.java
-* @Package com.mas.amineappstore.business.applocker
+* @Package com.x.business.applocker
 * @Description: TODO(服务轮询栈顶的应用是否为被加锁应用)
 
 * @date 2014-10-9 下午1:50:40

@@ -1,6 +1,6 @@
 /**   
 * @Title: ProgressWebView.java
-* @Package com.mas.amineappstore.ui.view
+* @Package com.x.ui.view
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-9-5 下午4:47:59

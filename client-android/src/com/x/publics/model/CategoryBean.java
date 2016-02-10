@@ -1,6 +1,6 @@
 /**   
  * @Title: CategoryBean.java
- * @Package com.mas.amineappstore.publics.model
+ * @Package com.x.publics.model
  * @Description: TODO(用一句话描述该文件做什么)
  
  * @date 2015-10-20 下午3:52:10

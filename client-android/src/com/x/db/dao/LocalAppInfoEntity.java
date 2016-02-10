@@ -1,6 +1,6 @@
 /**   
 * @Title: LocalLocalAppInfoEntity.java
-* @Package com.mas.amineappstore.db.dao
+* @Package com.x.db.dao
 * @Description: TODO 
 
 * @date 2013-12-17 上午09:52:17

@@ -27,8 +27,8 @@ import com.x.ui.activity.floating.FloatService;
  */
 public class BootReceiver extends BroadcastReceiver {
 
-	public static final String FIRST_ALARM_ACTION = "com.mas.amineappstore.alarm.FIRST";
-	public static final String SECOND_ALARM_ACTION = "com.mas.amineappstore.alarm.SECOND";
+	public static final String FIRST_ALARM_ACTION = "com.x.alarm.FIRST";
+	public static final String SECOND_ALARM_ACTION = "com.x.alarm.SECOND";
 
 	@Override
 	public void onReceive(Context context, Intent intent) {

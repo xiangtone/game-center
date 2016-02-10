@@ -1,6 +1,6 @@
 /**   
 * @Title: SkinConfiueManager.java
-* @Package com.mas.amineappstore.business.skin
+* @Package com.x.business.skin
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2014-11-25 下午5:30:00
@@ -65,7 +65,7 @@ public class SkinConfigManager {
 	private static SkinConfigManager skinConfigManager;
 	private Resources mResources;
 	private String lastSkinPath;
-	public static final String SKIN_PACKAGENAME = "com.mas.amineappstore.skin.black";
+	public static final String SKIN_PACKAGENAME = "com.x.skin.black";
 	private static final String TYPE_DRAWABLE = "drawable";
 	private static final String TYPE_COLOR = "color";
 

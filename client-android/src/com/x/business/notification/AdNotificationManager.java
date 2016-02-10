@@ -1,6 +1,6 @@
 /**   
  * @Title: AdNotificationManager.java
- * @Package com.mas.amineappstore.business.notification
+ * @Package com.x.business.notification
  * @Description: TODO(用一句话描述该文件做什么)
  
  * @date 2015-8-4 上午11:23:59
@@ -63,7 +63,7 @@ public class AdNotificationManager {
 	private static AlarmManage alarmManage;
 	public Context context;
 	public Long alarm_time = 12 * 60 * 60 * 1000L;
-	public static final String alarmAction = "com.mas.amineappstore.AD_PUSH";
+	public static final String alarmAction = "com.x.AD_PUSH";
 
 	public AdNotificationManager() {
 

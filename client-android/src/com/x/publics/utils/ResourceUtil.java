@@ -1,6 +1,6 @@
 /**   
  * @Title: ResourceUtil.java
- * @Package com.mas.amineappstore.util
+ * @Package com.x.util
  * @Description: TODO 
  
  * @date 2014-2-17 下午01:17:32

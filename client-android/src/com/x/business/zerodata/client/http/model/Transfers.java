@@ -1,6 +1,6 @@
 /**   
 * @Title: Transfers.java
-* @Package com.mas.amineappstore.business.zerodata.client.http.model
+* @Package com.x.business.zerodata.client.http.model
 * @Description: TODO 
 
 * @date 2014-3-20 下午12:33:00

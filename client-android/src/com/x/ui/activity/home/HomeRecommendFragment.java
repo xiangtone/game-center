@@ -1,6 +1,6 @@
 /**   
  * @Title: RecommendFragment.java
- * @Package com.mas.amineappstore.activity
+ * @Package com.x.activity
  * @Description: TODO 
  
  * @date 2014-2-12 下午07:48:21

@@ -1,6 +1,6 @@
 /**   
 * @Title: FragmentUtils.java
-* @Package com.mas.amineappstore.publics.utils
+* @Package com.x.publics.utils
 * @Description: TODO(用一句话描述该文件做什么)
 
 * @date 2015-4-21 下午3:57:51

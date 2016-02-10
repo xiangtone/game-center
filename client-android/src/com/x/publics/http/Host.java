@@ -1,6 +1,6 @@
 /**   
  * @Title: Host.java
- * @Package com.mas.amineappstore.http
+ * @Package com.x.http
  * @Description: TODO 
  
  * @date 2014-1-15 下午04:16:37

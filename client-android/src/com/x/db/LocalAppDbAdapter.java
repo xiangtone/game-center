@@ -1,6 +1,6 @@
 /**   
 * @Title: LocalAppDbAdapter.java
-* @Package com.mas.amineappstore.db
+* @Package com.x.db
 * @Description: TODO 
 
 * @date 2013-12-17 上午09:49:31

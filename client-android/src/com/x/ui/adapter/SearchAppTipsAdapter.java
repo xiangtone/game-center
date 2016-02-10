@@ -1,6 +1,6 @@
 /**   
  * @Title: SearchTipsAdapter.java
- * @Package com.mas.amineappstore.ui.adapter
+ * @Package com.x.ui.adapter
  * @Description: TODO(用一句话描述该文件做什么)
  
  * @date 2014-7-30 下午2:54:28

@@ -1,6 +1,6 @@
 /**   
 * @Title: Host.java
-* @Package com.mas.amineappstore.business.zerodata.client.http
+* @Package com.x.business.zerodata.client.http
 * @Description: TODO 
 
 * @date 2014-4-8 上午10:56:09

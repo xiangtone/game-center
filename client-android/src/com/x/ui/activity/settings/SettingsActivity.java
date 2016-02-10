@@ -1,6 +1,6 @@
 /**   
  * @Title: SettingsActivity.java
- * @Package com.mas.amineappstore.activity
+ * @Package com.x.activity
  * @Description: TODO 
  
  * @date 2014-2-17 上午09:34:51

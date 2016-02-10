@@ -1,6 +1,6 @@
 /**   
 * @Title: TransferListAdapter.java
-* @Package com.mas.amineappstore.ui.adapter
+* @Package com.x.ui.adapter
 * @Description: TODO 
 
 * @date 2014-3-24 下午07:01:00

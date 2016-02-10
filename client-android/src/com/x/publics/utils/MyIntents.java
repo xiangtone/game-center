@@ -2,15 +2,15 @@ package com.x.publics.utils;
 
 public class MyIntents {
 
-	public static final String INTENT_UPDATE_UI = "com.mas.amineappstore.activity.IManagementActivity";
-	public static final String INTENT_DOWNLOADSERVICE = "com.mas.amineappstore.download.IDownloadService";
-	public static final String INTENT_FINISH_ACTIVITY = "com.mas.amineappstore.activity.finish";
-	public static final String INTENT_SETTINGS_CHANGE = "com.mas.amineappstore.settings.change";
-	public static final String INTENT_AUTO_DOWNLOAD_ERRORPAUSED = "com.mas.amineappstore.autodownload.error.pause";
-	public static final String INTENT_UPDATE_AUTO_WIFI_ACTION = "com.mas.amineappstore.UPDATE_AUTO_WIFI_DOWNLOAD";
-	public static final String INTENT_UPDATE_CHANGE_WIFI_ACTION = "com.mas.amineappstore.UPDATE_CHANGE_WIFI";  // wifi切换触发获取应用更新请求成功广播
+	public static final String INTENT_UPDATE_UI = "com.x.activity.IManagementActivity";
+	public static final String INTENT_DOWNLOADSERVICE = "com.x.download.IDownloadService";
+	public static final String INTENT_FINISH_ACTIVITY = "com.x.activity.finish";
+	public static final String INTENT_SETTINGS_CHANGE = "com.x.settings.change";
+	public static final String INTENT_AUTO_DOWNLOAD_ERRORPAUSED = "com.x.autodownload.error.pause";
+	public static final String INTENT_UPDATE_AUTO_WIFI_ACTION = "com.x.UPDATE_AUTO_WIFI_DOWNLOAD";
+	public static final String INTENT_UPDATE_CHANGE_WIFI_ACTION = "com.x.UPDATE_CHANGE_WIFI";  // wifi切换触发获取应用更新请求成功广播
 
-	public static final String INTENT_APKFILE_DELETE_UPDATE_UI = "com.mas.amineappstore.activity.ApkManagementActivity.IDeleteApkUiReceiver";
+	public static final String INTENT_APKFILE_DELETE_UPDATE_UI = "com.x.activity.ApkManagementActivity.IDeleteApkUiReceiver";
 	public static final String INTENT_DELETE_EXTRA_PATH = "file_path";
 	public static final String INTENT_DELETE_EXTRA_TYPE = "file_type";
 	
@@ -20,7 +20,7 @@ public class MyIntents {
 	public static final int EXTRA_TYPE_UNINSTALL_ALL = 4;
 	public static final int EXTRA_TYPE_UNINSTALL_TO_INSTALL = 5;
 	
-	public static final String INTENT_APK_SCAN_UPDATE_UI = "com.mas.amineappstore.activity.ApkManagementActivity.IScanApkUiReceiver";
+	public static final String INTENT_APK_SCAN_UPDATE_UI = "com.x.activity.ApkManagementActivity.IScanApkUiReceiver";
 	public static final String INTENT_EXTRA_APK_SCAN_STATUS = "scan_status";
 	public static final int EXTRA_TYPE_APK_SCAN_START = 101;
 	public static final int EXTRA_TYPE_APK_SCAN_FINISH = 102;
@@ -84,6 +84,6 @@ public class MyIntents {
 
 	/**刷新favoriteList**/
 	public static final int INTENT_TYPE_FAVORITE_REFRESH_LIST = 100;
-	public static final String INTENT_FAVORITE_AUTO_WIFI_ACTION = "com.mas.amineappstore.FAVORITE_AUTO_WIFI_DOWNLOAD";
+	public static final String INTENT_FAVORITE_AUTO_WIFI_ACTION = "com.x.FAVORITE_AUTO_WIFI_DOWNLOAD";
 
 }

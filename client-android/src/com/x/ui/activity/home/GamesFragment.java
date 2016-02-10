@@ -1,6 +1,6 @@
 /**   
 * @Title: GamesFragment2.java
-* @Package com.mas.amineappstore.activity
+* @Package com.x.activity
 * @Description: TODO 
 
 * @date 2014-2-13 下午05:18:34
