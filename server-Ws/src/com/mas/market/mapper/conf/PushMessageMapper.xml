@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.market.mapper.PushMessageMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.data.PushMessageData" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mode" property="mode" jdbcType="INTEGER" />
+    <result column="pic" property="picUrl" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="action" property="action" jdbcType="INTEGER" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+       <if test="condition.raveId != null" >
+         and raveId = #{condition.raveId}
+      </if>
+    </trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    id,mode,pic,title,content,action,url,icon
+  </sql>
+  
+  <select id="queryPushMessage" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select
+    <include refid="Base_Column_List" />
+    from t_message_push
+    where status = 1 and ((target = 1 and versionName like "%"#{condition.versionName}"%") or target = 0)
+    	and (
+    			(startTime is null and <![CDATA[endTime >= now()]]>)
+    		    or (endTime is null and <![CDATA[startTime <= now()]]>)
+    		    or (startTime is not null and endTime is not null and <![CDATA[startTime <= now()]]> and <![CDATA[endTime >= now()]]>)
+    		)
+    order by lastUpdateTime desc,id desc
+	limit 1
+  </select>
+  
+</mapper>

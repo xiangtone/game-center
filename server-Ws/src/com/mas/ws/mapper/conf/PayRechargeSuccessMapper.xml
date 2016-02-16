@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.ws.mapper.PayRechargeSuccessMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.ws.pojo.PayRechargeSuccess" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="orderId" property="orderId" jdbcType="VARCHAR" />
+    <result column="rechargeValue" property="rechargeValue" jdbcType="INTEGER" />
+    <result column="rechargeType" property="rechargeType" jdbcType="VARCHAR" />
+    <result column="exchangeAValue" property="exchangeAValue" jdbcType="INTEGER" />
+    <result column="aValue" property="aValue" jdbcType="INTEGER" />
+    <result column="aValuePresent" property="aValuePresent" jdbcType="INTEGER" />
+    <result column="cardNo" property="cardNo" jdbcType="VARCHAR" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="IP" property="IP" jdbcType="VARCHAR" />
+    <result column="clientId" property="clientId" jdbcType="INTEGER" />
+    <result column="userId" property="userId" jdbcType="INTEGER" />
+    <result column="userName" property="userName" jdbcType="VARCHAR" />
+    <result column="userPwd" property="userPwd" jdbcType="VARCHAR" />
+    <result column="appId" property="appId" jdbcType="INTEGER" />
+    <result column="apkKey" property="apkKey" jdbcType="VARCHAR" />
+    <result column="cpId" property="cpId" jdbcType="INTEGER" />
+    <result column="serverId" property="serverId" jdbcType="INTEGER" />
+    <result column="channelId" property="channelId" jdbcType="INTEGER" />
+    <result column="sessionId" property="sessionId" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="Now" property="now" jdbcType="VARCHAR" />
+    <result column="RMID" property="RMID" jdbcType="VARCHAR" />
+    <result column="QID" property="QID" jdbcType="VARCHAR" />
+    <result column="RspCode" property="rspCode" jdbcType="VARCHAR" />
+    <result column="RspDesc" property="rspDesc" jdbcType="VARCHAR" />
+    <result column="TrxID" property="trxID" jdbcType="VARCHAR" />
+    <result column="TrxStatus" property="trxStatus" jdbcType="VARCHAR" />
+    <result column="BID" property="BID" jdbcType="VARCHAR" />
+    <result column="TrxRC" property="trxRC" jdbcType="VARCHAR" />
+    <result column="TrxTime" property="trxTime" jdbcType="VARCHAR" />
+    <result column="TrxValue" property="trxValue" jdbcType="VARCHAR" />
+    <result column="BMod" property="BMod" jdbcType="VARCHAR" />
+    <result column="ProdID" property="prodID" jdbcType="VARCHAR" />
+    <result column="SN" property="SN" jdbcType="VARCHAR" />
+    <result column="Val" property="val" jdbcType="VARCHAR" />
+    <result column="signature" property="signature" jdbcType="VARCHAR" />
+    <result column="Certificate" property="certificate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.orderId != null" >
+         and orderId = #{condition.orderId}
+      </if>
+      <if test="condition.rechargeValue != null" >
+         and rechargeValue = #{condition.rechargeValue}
+      </if>
+      <if test="condition.rechargeType != null" >
+         and rechargeType = #{condition.rechargeType}
+      </if>
+      <if test="condition.exchangeAValue != null" >
+         and exchangeAValue = #{condition.exchangeAValue}
+      </if>
+      <if test="condition.aValue != null" >
+         and aValue = #{condition.aValue}
+      </if>
+      <if test="condition.aValuePresent != null" >
+         and aValuePresent = #{condition.aValuePresent}
+      </if>
+      <if test="condition.cardNo != null" >
+         and cardNo = #{condition.cardNo}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.IP != null" >
+         and IP = #{condition.IP}
+      </if>
+      <if test="condition.clientId != null" >
+         and clientId = #{condition.clientId}
+      </if>
+      <if test="condition.userId != null" >
+         and userId = #{condition.userId}
+      </if>
+      <if test="condition.userName != null" >
+         and userName = #{condition.userName}
+      </if>
+      <if test="condition.userPwd != null" >
+         and userPwd = #{condition.userPwd}
+      </if>
+      <if test="condition.appId != null" >
+         and appId = #{condition.appId}
+      </if>
+      <if test="condition.apkKey != null" >
+         and apkKey = #{condition.apkKey}
+      </if>
+      <if test="condition.cpId != null" >
+         and cpId = #{condition.cpId}
+      </if>
+      <if test="condition.serverId != null" >
+         and serverId = #{condition.serverId}
+      </if>
+      <if test="condition.channelId != null" >
+         and channelId = #{condition.channelId}
+      </if>
+      <if test="condition.sessionId != null" >
+         and sessionId = #{condition.sessionId}
+      </if>
+      <if test="condition.remark != null" >
+         and remark = #{condition.remark}
+      </if>
+      <if test="condition.now != null" >
+         and Now = #{condition.now}
+      </if>
+      <if test="condition.RMID != null" >
+         and RMID = #{condition.RMID}
+      </if>
+      <if test="condition.QID != null" >
+         and QID = #{condition.QID}
+      </if>
+      <if test="condition.rspCode != null" >
+         and RspCode = #{condition.rspCode}
+      </if>
+      <if test="condition.rspDesc != null" >
+         and RspDesc = #{condition.rspDesc}
+      </if>
+      <if test="condition.trxID != null" >
+         and TrxID = #{condition.trxID}
+      </if>
+      <if test="condition.trxStatus != null" >
+         and TrxStatus = #{condition.trxStatus}
+      </if>
+      <if test="condition.BID != null" >
+         and BID = #{condition.BID}
+      </if>
+      <if test="condition.trxRC != null" >
+         and TrxRC = #{condition.trxRC}
+      </if>
+      <if test="condition.trxTime != null" >
+         and TrxTime = #{condition.trxTime}
+      </if>
+      <if test="condition.trxValue != null" >
+         and TrxValue = #{condition.trxValue}
+      </if>
+      <if test="condition.BMod != null" >
+         and BMod = #{condition.BMod}
+      </if>
+      <if test="condition.prodID != null" >
+         and ProdID = #{condition.prodID}
+      </if>
+      <if test="condition.SN != null" >
+         and SN = #{condition.SN}
+      </if>
+      <if test="condition.val != null" >
+         and Val = #{condition.val}
+      </if>
+      <if test="condition.signature != null" >
+         and signature = #{condition.signature}
+      </if>
+      <if test="condition.certificate != null" >
+         and Certificate = #{condition.certificate}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, orderId, rechargeValue, rechargeType, exchangeAValue, aValue, aValuePresent, 
+    cardNo, createTime, IP, clientId, userId, userName, userPwd, appId, apkKey, cpId, 
+    serverId, channelId, sessionId, remark, Now, RMID, QID, RspCode, RspDesc, TrxID, 
+    TrxStatus, BID, TrxRC, TrxTime, TrxValue, BMod, ProdID, SN, Val, signature, Certificate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.ws.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pay_recharge_success
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pay_recharge_success
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pay_recharge_success
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.ws.pojo.Criteria" >
+    delete from pay_recharge_success
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.ws.pojo.PayRechargeSuccess" >
+    insert into pay_recharge_success (id, orderId, rechargeValue, rechargeType, exchangeAValue, 
+      aValue, aValuePresent, cardNo, createTime, IP, clientId, userId, 
+      userName, userPwd, appId, apkKey, cpId, serverId, channelId, 
+      sessionId, remark, Now, RMID, QID, RspCode, RspDesc, TrxID, 
+      TrxStatus, BID, TrxRC, TrxTime, TrxValue, BMod, ProdID, SN, 
+      Val, signature, Certificate)
+    values (#{id}, #{orderId}, #{rechargeValue}, #{rechargeType}, #{exchangeAValue}, 
+      #{aValue}, #{aValuePresent}, #{cardNo}, #{createTime}, #{IP}, #{clientId}, #{userId}, 
+      #{userName}, #{userPwd}, #{appId}, #{apkKey}, #{cpId}, #{serverId}, #{channelId}, 
+      #{sessionId}, #{remark}, #{now}, #{RMID}, #{QID}, #{rspCode}, #{rspDesc}, #{trxID}, 
+      #{trxStatus}, #{BID}, #{trxRC}, #{trxTime}, #{trxValue}, #{BMod}, #{prodID}, #{SN}, 
+      #{val}, #{signature}, #{certificate})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.ws.pojo.PayRechargeSuccess" >
+    insert into pay_recharge_success
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderId != null" >
+        orderId,
+      </if>
+      <if test="rechargeValue != null" >
+        rechargeValue,
+      </if>
+      <if test="rechargeType != null" >
+        rechargeType,
+      </if>
+      <if test="exchangeAValue != null" >
+        exchangeAValue,
+      </if>
+      <if test="aValue != null" >
+        aValue,
+      </if>
+      <if test="aValuePresent != null" >
+        aValuePresent,
+      </if>
+      <if test="cardNo != null" >
+        cardNo,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="IP != null" >
+        IP,
+      </if>
+      <if test="clientId != null" >
+        clientId,
+      </if>
+      <if test="userId != null" >
+        userId,
+      </if>
+      <if test="userName != null" >
+        userName,
+      </if>
+      <if test="userPwd != null" >
+        userPwd,
+      </if>
+      <if test="appId != null" >
+        appId,
+      </if>
+      <if test="apkKey != null" >
+        apkKey,
+      </if>
+      <if test="cpId != null" >
+        cpId,
+      </if>
+      <if test="serverId != null" >
+        serverId,
+      </if>
+      <if test="channelId != null" >
+        channelId,
+      </if>
+      <if test="sessionId != null" >
+        sessionId,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="now != null" >
+        Now,
+      </if>
+      <if test="RMID != null" >
+        RMID,
+      </if>
+      <if test="QID != null" >
+        QID,
+      </if>
+      <if test="rspCode != null" >
+        RspCode,
+      </if>
+      <if test="rspDesc != null" >
+        RspDesc,
+      </if>
+      <if test="trxID != null" >
+        TrxID,
+      </if>
+      <if test="trxStatus != null" >
+        TrxStatus,
+      </if>
+      <if test="BID != null" >
+        BID,
+      </if>
+      <if test="trxRC != null" >
+        TrxRC,
+      </if>
+      <if test="trxTime != null" >
+        TrxTime,
+      </if>
+      <if test="trxValue != null" >
+        TrxValue,
+      </if>
+      <if test="BMod != null" >
+        BMod,
+      </if>
+      <if test="prodID != null" >
+        ProdID,
+      </if>
+      <if test="SN != null" >
+        SN,
+      </if>
+      <if test="val != null" >
+        Val,
+      </if>
+      <if test="signature != null" >
+        signature,
+      </if>
+      <if test="certificate != null" >
+        Certificate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="orderId != null" >
+        #{orderId},
+      </if>
+      <if test="rechargeValue != null" >
+        #{rechargeValue},
+      </if>
+      <if test="rechargeType != null" >
+        #{rechargeType},
+      </if>
+      <if test="exchangeAValue != null" >
+        #{exchangeAValue},
+      </if>
+      <if test="aValue != null" >
+        #{aValue},
+      </if>
+      <if test="aValuePresent != null" >
+        #{aValuePresent},
+      </if>
+      <if test="cardNo != null" >
+        #{cardNo},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="IP != null" >
+        #{IP},
+      </if>
+      <if test="clientId != null" >
+        #{clientId},
+      </if>
+      <if test="userId != null" >
+        #{userId},
+      </if>
+      <if test="userName != null" >
+        #{userName},
+      </if>
+      <if test="userPwd != null" >
+        #{userPwd},
+      </if>
+      <if test="appId != null" >
+        #{appId},
+      </if>
+      <if test="apkKey != null" >
+        #{apkKey},
+      </if>
+      <if test="cpId != null" >
+        #{cpId},
+      </if>
+      <if test="serverId != null" >
+        #{serverId},
+      </if>
+      <if test="channelId != null" >
+        #{channelId},
+      </if>
+      <if test="sessionId != null" >
+        #{sessionId},
+      </if>
+      <if test="remark != null" >
+        #{remark},
+      </if>
+      <if test="now != null" >
+        #{now},
+      </if>
+      <if test="RMID != null" >
+        #{RMID},
+      </if>
+      <if test="QID != null" >
+        #{QID},
+      </if>
+      <if test="rspCode != null" >
+        #{rspCode},
+      </if>
+      <if test="rspDesc != null" >
+        #{rspDesc},
+      </if>
+      <if test="trxID != null" >
+        #{trxID},
+      </if>
+      <if test="trxStatus != null" >
+        #{trxStatus},
+      </if>
+      <if test="BID != null" >
+        #{BID},
+      </if>
+      <if test="trxRC != null" >
+        #{trxRC},
+      </if>
+      <if test="trxTime != null" >
+        #{trxTime},
+      </if>
+      <if test="trxValue != null" >
+        #{trxValue},
+      </if>
+      <if test="BMod != null" >
+        #{BMod},
+      </if>
+      <if test="prodID != null" >
+        #{prodID},
+      </if>
+      <if test="SN != null" >
+        #{SN},
+      </if>
+      <if test="val != null" >
+        #{val},
+      </if>
+      <if test="signature != null" >
+        #{signature},
+      </if>
+      <if test="certificate != null" >
+        #{certificate},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.ws.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from pay_recharge_success
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update pay_recharge_success
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.orderId != null" >
+        orderId = #{record.orderId},
+      </if>
+      <if test="record.rechargeValue != null" >
+        rechargeValue = #{record.rechargeValue},
+      </if>
+      <if test="record.rechargeType != null" >
+        rechargeType = #{record.rechargeType},
+      </if>
+      <if test="record.exchangeAValue != null" >
+        exchangeAValue = #{record.exchangeAValue},
+      </if>
+      <if test="record.aValue != null" >
+        aValue = #{record.aValue},
+      </if>
+      <if test="record.aValuePresent != null" >
+        aValuePresent = #{record.aValuePresent},
+      </if>
+      <if test="record.cardNo != null" >
+        cardNo = #{record.cardNo},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+      <if test="record.IP != null" >
+        IP = #{record.IP},
+      </if>
+      <if test="record.clientId != null" >
+        clientId = #{record.clientId},
+      </if>
+      <if test="record.userId != null" >
+        userId = #{record.userId},
+      </if>
+      <if test="record.userName != null" >
+        userName = #{record.userName},
+      </if>
+      <if test="record.userPwd != null" >
+        userPwd = #{record.userPwd},
+      </if>
+      <if test="record.appId != null" >
+        appId = #{record.appId},
+      </if>
+      <if test="record.apkKey != null" >
+        apkKey = #{record.apkKey},
+      </if>
+      <if test="record.cpId != null" >
+        cpId = #{record.cpId},
+      </if>
+      <if test="record.serverId != null" >
+        serverId = #{record.serverId},
+      </if>
+      <if test="record.channelId != null" >
+        channelId = #{record.channelId},
+      </if>
+      <if test="record.sessionId != null" >
+        sessionId = #{record.sessionId},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark},
+      </if>
+      <if test="record.now != null" >
+        Now = #{record.now},
+      </if>
+      <if test="record.RMID != null" >
+        RMID = #{record.RMID},
+      </if>
+      <if test="record.QID != null" >
+        QID = #{record.QID},
+      </if>
+      <if test="record.rspCode != null" >
+        RspCode = #{record.rspCode},
+      </if>
+      <if test="record.rspDesc != null" >
+        RspDesc = #{record.rspDesc},
+      </if>
+      <if test="record.trxID != null" >
+        TrxID = #{record.trxID},
+      </if>
+      <if test="record.trxStatus != null" >
+        TrxStatus = #{record.trxStatus},
+      </if>
+      <if test="record.BID != null" >
+        BID = #{record.BID},
+      </if>
+      <if test="record.trxRC != null" >
+        TrxRC = #{record.trxRC},
+      </if>
+      <if test="record.trxTime != null" >
+        TrxTime = #{record.trxTime},
+      </if>
+      <if test="record.trxValue != null" >
+        TrxValue = #{record.trxValue},
+      </if>
+      <if test="record.BMod != null" >
+        BMod = #{record.BMod},
+      </if>
+      <if test="record.prodID != null" >
+        ProdID = #{record.prodID},
+      </if>
+      <if test="record.SN != null" >
+        SN = #{record.SN},
+      </if>
+      <if test="record.val != null" >
+        Val = #{record.val},
+      </if>
+      <if test="record.signature != null" >
+        signature = #{record.signature},
+      </if>
+      <if test="record.certificate != null" >
+        Certificate = #{record.certificate},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update pay_recharge_success
+    set id = #{record.id},
+      orderId = #{record.orderId},
+      rechargeValue = #{record.rechargeValue},
+      rechargeType = #{record.rechargeType},
+      exchangeAValue = #{record.exchangeAValue},
+      aValue = #{record.aValue},
+      aValuePresent = #{record.aValuePresent},
+      cardNo = #{record.cardNo},
+      createTime = #{record.createTime},
+      IP = #{record.IP},
+      clientId = #{record.clientId},
+      userId = #{record.userId},
+      userName = #{record.userName},
+      userPwd = #{record.userPwd},
+      appId = #{record.appId},
+      apkKey = #{record.apkKey},
+      cpId = #{record.cpId},
+      serverId = #{record.serverId},
+      channelId = #{record.channelId},
+      sessionId = #{record.sessionId},
+      remark = #{record.remark},
+      Now = #{record.now},
+      RMID = #{record.RMID},
+      QID = #{record.QID},
+      RspCode = #{record.rspCode},
+      RspDesc = #{record.rspDesc},
+      TrxID = #{record.trxID},
+      TrxStatus = #{record.trxStatus},
+      BID = #{record.BID},
+      TrxRC = #{record.trxRC},
+      TrxTime = #{record.trxTime},
+      TrxValue = #{record.trxValue},
+      BMod = #{record.BMod},
+      ProdID = #{record.prodID},
+      SN = #{record.SN},
+      Val = #{record.val},
+      signature = #{record.signature},
+      Certificate = #{record.certificate}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.ws.pojo.PayRechargeSuccess" >
+    update pay_recharge_success
+    <set >
+      <if test="orderId != null" >
+        orderId = #{orderId},
+      </if>
+      <if test="rechargeValue != null" >
+        rechargeValue = #{rechargeValue},
+      </if>
+      <if test="rechargeType != null" >
+        rechargeType = #{rechargeType},
+      </if>
+      <if test="exchangeAValue != null" >
+        exchangeAValue = #{exchangeAValue},
+      </if>
+      <if test="aValue != null" >
+        aValue = #{aValue},
+      </if>
+      <if test="aValuePresent != null" >
+        aValuePresent = #{aValuePresent},
+      </if>
+      <if test="cardNo != null" >
+        cardNo = #{cardNo},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+      <if test="IP != null" >
+        IP = #{IP},
+      </if>
+      <if test="clientId != null" >
+        clientId = #{clientId},
+      </if>
+      <if test="userId != null" >
+        userId = #{userId},
+      </if>
+      <if test="userName != null" >
+        userName = #{userName},
+      </if>
+      <if test="userPwd != null" >
+        userPwd = #{userPwd},
+      </if>
+      <if test="appId != null" >
+        appId = #{appId},
+      </if>
+      <if test="apkKey != null" >
+        apkKey = #{apkKey},
+      </if>
+      <if test="cpId != null" >
+        cpId = #{cpId},
+      </if>
+      <if test="serverId != null" >
+        serverId = #{serverId},
+      </if>
+      <if test="channelId != null" >
+        channelId = #{channelId},
+      </if>
+      <if test="sessionId != null" >
+        sessionId = #{sessionId},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark},
+      </if>
+      <if test="now != null" >
+        Now = #{now},
+      </if>
+      <if test="RMID != null" >
+        RMID = #{RMID},
+      </if>
+      <if test="QID != null" >
+        QID = #{QID},
+      </if>
+      <if test="rspCode != null" >
+        RspCode = #{rspCode},
+      </if>
+      <if test="rspDesc != null" >
+        RspDesc = #{rspDesc},
+      </if>
+      <if test="trxID != null" >
+        TrxID = #{trxID},
+      </if>
+      <if test="trxStatus != null" >
+        TrxStatus = #{trxStatus},
+      </if>
+      <if test="BID != null" >
+        BID = #{BID},
+      </if>
+      <if test="trxRC != null" >
+        TrxRC = #{trxRC},
+      </if>
+      <if test="trxTime != null" >
+        TrxTime = #{trxTime},
+      </if>
+      <if test="trxValue != null" >
+        TrxValue = #{trxValue},
+      </if>
+      <if test="BMod != null" >
+        BMod = #{BMod},
+      </if>
+      <if test="prodID != null" >
+        ProdID = #{prodID},
+      </if>
+      <if test="SN != null" >
+        SN = #{SN},
+      </if>
+      <if test="val != null" >
+        Val = #{val},
+      </if>
+      <if test="signature != null" >
+        signature = #{signature},
+      </if>
+      <if test="certificate != null" >
+        Certificate = #{certificate},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.ws.pojo.PayRechargeSuccess" >
+    update pay_recharge_success
+    set orderId = #{orderId},
+      rechargeValue = #{rechargeValue},
+      rechargeType = #{rechargeType},
+      exchangeAValue = #{exchangeAValue},
+      aValue = #{aValue},
+      aValuePresent = #{aValuePresent},
+      cardNo = #{cardNo},
+      createTime = #{createTime},
+      IP = #{IP},
+      clientId = #{clientId},
+      userId = #{userId},
+      userName = #{userName},
+      userPwd = #{userPwd},
+      appId = #{appId},
+      apkKey = #{apkKey},
+      cpId = #{cpId},
+      serverId = #{serverId},
+      channelId = #{channelId},
+      sessionId = #{sessionId},
+      remark = #{remark},
+      Now = #{now},
+      RMID = #{RMID},
+      QID = #{QID},
+      RspCode = #{rspCode},
+      RspDesc = #{rspDesc},
+      TrxID = #{trxID},
+      TrxStatus = #{trxStatus},
+      BID = #{BID},
+      TrxRC = #{trxRC},
+      TrxTime = #{trxTime},
+      TrxValue = #{trxValue},
+      BMod = #{BMod},
+      ProdID = #{prodID},
+      SN = #{SN},
+      Val = #{val},
+      signature = #{signature},
+      Certificate = #{certificate}
+    where id = #{id}
+  </update>
+</mapper>

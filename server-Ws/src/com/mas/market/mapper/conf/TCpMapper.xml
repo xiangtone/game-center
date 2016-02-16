@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.market.mapper.TCpMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.market.pojo.TCp" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="phoneNum" property="phoneNum" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="contact" property="contact" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="callbackUrl" property="callbackUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.name != null" >
+         and name = #{condition.name}
+      </if>
+      <if test="condition.description != null" >
+         and description = #{condition.description}
+      </if>
+      <if test="condition.address != null" >
+         and address = #{condition.address}
+      </if>
+      <if test="condition.phoneNum != null" >
+         and phoneNum = #{condition.phoneNum}
+      </if>
+      <if test="condition.qq != null" >
+         and qq = #{condition.qq}
+      </if>
+      <if test="condition.email != null" >
+         and email = #{condition.email}
+      </if>
+      <if test="condition.contact != null" >
+         and contact = #{condition.contact}
+      </if>
+      <if test="condition.remark != null" >
+         and remark = #{condition.remark}
+      </if>
+      <if test="condition.state != null" >
+         and state = #{condition.state}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.updateTime != null" >
+         and updateTime = #{condition.updateTime}
+      </if>
+      <if test="condition.callbackUrl != null" >
+         and callbackUrl = #{condition.callbackUrl}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, name, description, address, phoneNum, qq, email, contact, remark, state, createTime, 
+    updateTime, callbackUrl
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_cp
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_cp
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_cp
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.market.pojo.Criteria" >
+    delete from t_cp
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.market.pojo.TCp" >
+    insert into t_cp (id, name, description, address, phoneNum, qq, email, 
+      contact, remark, state, createTime, updateTime, callbackUrl)
+    values (#{id}, #{name}, #{description}, #{address}, #{phoneNum}, #{qq}, #{email}, 
+      #{contact}, #{remark}, #{state}, #{createTime}, #{updateTime}, #{callbackUrl})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.market.pojo.TCp" >
+    insert into t_cp
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="phoneNum != null" >
+        phoneNum,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="contact != null" >
+        contact,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="callbackUrl != null" >
+        callbackUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="name != null" >
+        #{name},
+      </if>
+      <if test="description != null" >
+        #{description},
+      </if>
+      <if test="address != null" >
+        #{address},
+      </if>
+      <if test="phoneNum != null" >
+        #{phoneNum},
+      </if>
+      <if test="qq != null" >
+        #{qq},
+      </if>
+      <if test="email != null" >
+        #{email},
+      </if>
+      <if test="contact != null" >
+        #{contact},
+      </if>
+      <if test="remark != null" >
+        #{remark},
+      </if>
+      <if test="state != null" >
+        #{state},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+      <if test="callbackUrl != null" >
+        #{callbackUrl},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.market.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from t_cp
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_cp
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address},
+      </if>
+      <if test="record.phoneNum != null" >
+        phoneNum = #{record.phoneNum},
+      </if>
+      <if test="record.qq != null" >
+        qq = #{record.qq},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email},
+      </if>
+      <if test="record.contact != null" >
+        contact = #{record.contact},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+      <if test="record.updateTime != null" >
+        updateTime = #{record.updateTime},
+      </if>
+      <if test="record.callbackUrl != null" >
+        callbackUrl = #{record.callbackUrl},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_cp
+    set id = #{record.id},
+      name = #{record.name},
+      description = #{record.description},
+      address = #{record.address},
+      phoneNum = #{record.phoneNum},
+      qq = #{record.qq},
+      email = #{record.email},
+      contact = #{record.contact},
+      remark = #{record.remark},
+      state = #{record.state},
+      createTime = #{record.createTime},
+      updateTime = #{record.updateTime},
+      callbackUrl = #{record.callbackUrl}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.market.pojo.TCp" >
+    update t_cp
+    <set >
+      <if test="name != null" >
+        name = #{name},
+      </if>
+      <if test="description != null" >
+        description = #{description},
+      </if>
+      <if test="address != null" >
+        address = #{address},
+      </if>
+      <if test="phoneNum != null" >
+        phoneNum = #{phoneNum},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq},
+      </if>
+      <if test="email != null" >
+        email = #{email},
+      </if>
+      <if test="contact != null" >
+        contact = #{contact},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark},
+      </if>
+      <if test="state != null" >
+        state = #{state},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime},
+      </if>
+      <if test="callbackUrl != null" >
+        callbackUrl = #{callbackUrl},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.market.pojo.TCp" >
+    update t_cp
+    set name = #{name},
+      description = #{description},
+      address = #{address},
+      phoneNum = #{phoneNum},
+      qq = #{qq},
+      email = #{email},
+      contact = #{contact},
+      remark = #{remark},
+      state = #{state},
+      createTime = #{createTime},
+      updateTime = #{updateTime},
+      callbackUrl = #{callbackUrl}
+    where id = #{id}
+  </update>
+</mapper>

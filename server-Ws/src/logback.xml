@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- For assistance related to logback-translator or configuration  -->
+<!-- files in general, please contact the logback user mailing list -->
+<!-- at http://www.qos.ch/mailman/listinfo/logback-user             -->
+<!--                                                                -->
+<!-- For professional support please see                            -->
+<!--    http://www.qos.ch/shop/products/professionalSupport         -->
+<!--                                                                -->
+<configuration>
+<!--   <appender name="console" class="ch.qos.logback.core.ConsoleAppender"> -->
+<!--     <encoder> -->
+<!--       <pattern>[%d{HH:mm:ss:SSS}][%p](%c:%L) - %m%n</pattern> -->
+<!--     </encoder> -->
+<!--   </appender> -->
+  
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender"> 
+        <encoder charset="UTF-8"> 
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender> 
+    
+  <appender name="E" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!--See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender-->
+    <File>/www/masWeb/logs/error.log</File>
+    <Encoding>UTF-8</Encoding>
+    <encoder>
+      <pattern>%d %p [%c] - &lt;%m&gt;%n</pattern>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>ERROR</level>
+    </filter>
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <maxIndex>10</maxIndex>
+      <FileNamePattern>/www/masWeb/logs/error.log.%i</FileNamePattern>
+    </rollingPolicy>
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <MaxFileSize>10240KB</MaxFileSize>
+    </triggeringPolicy>
+  </appender>
+  <appender name="I" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!--See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender-->
+    <File>/www/masWeb/logs/info.log</File>
+    <Encoding>UTF-8</Encoding>
+    <encoder>
+      <pattern>%d %p [%c] - &lt;%m&gt;%n</pattern>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>INFO</level>
+    </filter>
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <maxIndex>10</maxIndex>
+      <FileNamePattern>E:/logs/masWeb/logs/info.log.%i</FileNamePattern>
+    </rollingPolicy>
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <MaxFileSize>10240KB</MaxFileSize>
+    </triggeringPolicy>
+  </appender>
+  <logger name="java.sql.Connection" level="debug"/>
+  <logger name="com.opensymphony.oscache" level="debug"/>
+  <logger name="java.sql.PreparedStatement" level="debug"/>
+  <logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="debug"/>
+  <logger name="org.tuckey.web.filters" level="WARN"/>
+  <logger name="com.market.service" level="info"/>
+  <logger name="com.ibatis" level="debug"/>
+  <logger name="org.acegisecurity.intercept.event.LoggerListener" level="WARN"/>
+  <logger name="com.ibatis.sqlmap.engine.builder.xml.SqlMapParser" level="debug"/>
+  <logger name="org.apache.velocity" level="WARN"/>
+  <logger name="org.springframework.security" level="DEBUG"/>
+  <logger name="org.apache.struts" level="ERROR"/>
+  <logger name="org.acegisecurity" level="WARN"/>
+  <logger name="org.springframework.scheduling.quartz" level="debug"/>
+  <logger name="org.displaytag" level="ERROR"/>
+  <logger name="com.ibatis.common.util.StopWatch" level="debug"/>
+  <logger name="com.ibatis.sqlmap.engine.cache.CacheModel" level="debug"/>
+  <logger name="org.springframework" level="info"/>
+  <logger name="com.market.resource" level="info"/>
+  <logger name="org.apache.commons" level="ERROR"/>
+  <logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientImpl" level="debug"/>
+  <logger name="net.sf.navigator" level="ERROR"/>
+  <logger name="java.sql.ResultSet" level="DEBUG"/>
+  <logger name="com.mas" level="info"/>
+  <logger name="java.sql.Statement" level="DEBUG"/>
+  <logger name="com.tacitknowledge.filters" level="DEBUG"/>
+  <logger name="com.ibatis.common.jdbc.SimpleDataSource" level="debug"/>
+  <root level="info">
+   <appender-ref ref="console"/>
+    <!--  <appender-ref ref="E"/>
+    <appender-ref ref="I"/> -->
+  </root>
+</configuration>

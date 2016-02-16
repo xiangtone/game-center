@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.ws.mapper.ImageDownloadLogMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.ws.pojo.ImageDownloadLog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="clientId" property="clientId" jdbcType="INTEGER" />
+    <result column="raveId" property="raveId" jdbcType="INTEGER" />
+    <result column="columnId" property="columnId" jdbcType="INTEGER" />
+    <result column="userId" property="userId" jdbcType="INTEGER" />
+    <result column="userName" property="userName" jdbcType="VARCHAR" />
+    <result column="masPackageName" property="masPackageName" jdbcType="VARCHAR" />
+    <result column="masVersionName" property="masVersionName" jdbcType="VARCHAR" />
+    <result column="masVersionCode" property="masVersionCode" jdbcType="INTEGER" />
+    <result column="imageId" property="imageId" jdbcType="INTEGER" />
+    <result column="imageName" property="imageName" jdbcType="VARCHAR" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="IP" property="IP" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.clientId != null" >
+         and clientId = #{condition.clientId}
+      </if>
+      <if test="condition.raveId != null" >
+         and raveId = #{condition.raveId}
+      </if>
+      <if test="condition.columnId != null" >
+         and columnId = #{condition.columnId}
+      </if>
+      <if test="condition.userId != null" >
+         and userId = #{condition.userId}
+      </if>
+      <if test="condition.userName != null" >
+         and userName = #{condition.userName}
+      </if>
+      <if test="condition.masPackageName != null" >
+         and masPackageName = #{condition.masPackageName}
+      </if>
+      <if test="condition.masVersionName != null" >
+         and masVersionName = #{condition.masVersionName}
+      </if>
+      <if test="condition.masVersionCode != null" >
+         and masVersionCode = #{condition.masVersionCode}
+      </if>
+      <if test="condition.imageId != null" >
+         and imageId = #{condition.imageId}
+      </if>
+      <if test="condition.imageName != null" >
+         and imageName = #{condition.imageName}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.IP != null" >
+         and IP = #{condition.IP}
+      </if>
+      <if test="condition.country != null" >
+         and country = #{condition.country}
+      </if>
+      <if test="condition.province != null" >
+         and province = #{condition.province}
+      </if>
+      <if test="condition.city != null" >
+         and city = #{condition.city}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, clientId, raveId, columnId, userId, userName, masPackageName, masVersionName, 
+    masVersionCode, imageId, imageName, createTime, IP, country, province, city
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.ws.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from image_download_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from image_download_log
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from image_download_log
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.ws.pojo.Criteria" >
+    delete from image_download_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.ws.pojo.ImageDownloadLog" >
+    insert into image_download_log (id, clientId, raveId, columnId, userId, userName, masPackageName, 
+      masVersionName, masVersionCode, imageId, imageName, createTime, 
+      IP, country, province, city)
+    values (#{id}, #{clientId}, #{raveId}, #{columnId}, #{userId}, #{userName}, #{masPackageName}, 
+      #{masVersionName}, #{masVersionCode}, #{imageId}, #{imageName}, #{createTime}, 
+      #{IP}, #{country}, #{province}, #{city})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.ws.pojo.ImageDownloadLog" >
+    insert into image_download_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="clientId != null" >
+        clientId,
+      </if>
+      <if test="raveId != null" >
+        raveId,
+      </if>
+      <if test="columnId != null" >
+        columnId,
+      </if>
+      <if test="userId != null" >
+        userId,
+      </if>
+      <if test="userName != null" >
+        userName,
+      </if>
+      <if test="masPackageName != null" >
+        masPackageName,
+      </if>
+      <if test="masVersionName != null" >
+        masVersionName,
+      </if>
+      <if test="masVersionCode != null" >
+        masVersionCode,
+      </if>
+      <if test="imageId != null" >
+        imageId,
+      </if>
+      <if test="imageName != null" >
+        imageName,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="IP != null" >
+        IP,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="clientId != null" >
+        #{clientId},
+      </if>
+      <if test="raveId != null" >
+        #{raveId},
+      </if>
+      <if test="columnId != null" >
+        #{columnId},
+      </if>
+      <if test="userId != null" >
+        #{userId},
+      </if>
+      <if test="userName != null" >
+        #{userName},
+      </if>
+      <if test="masPackageName != null" >
+        #{masPackageName},
+      </if>
+      <if test="masVersionName != null" >
+        #{masVersionName},
+      </if>
+      <if test="masVersionCode != null" >
+        #{masVersionCode},
+      </if>
+      <if test="imageId != null" >
+        #{imageId},
+      </if>
+      <if test="imageName != null" >
+        #{imageName},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="IP != null" >
+        #{IP},
+      </if>
+      <if test="country != null" >
+        #{country},
+      </if>
+      <if test="province != null" >
+        #{province},
+      </if>
+      <if test="city != null" >
+        #{city},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.ws.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from image_download_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update image_download_log
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.clientId != null" >
+        clientId = #{record.clientId},
+      </if>
+      <if test="record.raveId != null" >
+        raveId = #{record.raveId},
+      </if>
+      <if test="record.columnId != null" >
+        columnId = #{record.columnId},
+      </if>
+      <if test="record.userId != null" >
+        userId = #{record.userId},
+      </if>
+      <if test="record.userName != null" >
+        userName = #{record.userName},
+      </if>
+      <if test="record.masPackageName != null" >
+        masPackageName = #{record.masPackageName},
+      </if>
+      <if test="record.masVersionName != null" >
+        masVersionName = #{record.masVersionName},
+      </if>
+      <if test="record.masVersionCode != null" >
+        masVersionCode = #{record.masVersionCode},
+      </if>
+      <if test="record.imageId != null" >
+        imageId = #{record.imageId},
+      </if>
+      <if test="record.imageName != null" >
+        imageName = #{record.imageName},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+      <if test="record.IP != null" >
+        IP = #{record.IP},
+      </if>
+      <if test="record.country != null" >
+        country = #{record.country},
+      </if>
+      <if test="record.province != null" >
+        province = #{record.province},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update image_download_log
+    set id = #{record.id},
+      clientId = #{record.clientId},
+      raveId = #{record.raveId},
+      columnId = #{record.columnId},
+      userId = #{record.userId},
+      userName = #{record.userName},
+      masPackageName = #{record.masPackageName},
+      masVersionName = #{record.masVersionName},
+      masVersionCode = #{record.masVersionCode},
+      imageId = #{record.imageId},
+      imageName = #{record.imageName},
+      createTime = #{record.createTime},
+      IP = #{record.IP},
+      country = #{record.country},
+      province = #{record.province},
+      city = #{record.city}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.ws.pojo.ImageDownloadLog" >
+    update image_download_log
+    <set >
+      <if test="clientId != null" >
+        clientId = #{clientId},
+      </if>
+      <if test="raveId != null" >
+        raveId = #{raveId},
+      </if>
+      <if test="columnId != null" >
+        columnId = #{columnId},
+      </if>
+      <if test="userId != null" >
+        userId = #{userId},
+      </if>
+      <if test="userName != null" >
+        userName = #{userName},
+      </if>
+      <if test="masPackageName != null" >
+        masPackageName = #{masPackageName},
+      </if>
+      <if test="masVersionName != null" >
+        masVersionName = #{masVersionName},
+      </if>
+      <if test="masVersionCode != null" >
+        masVersionCode = #{masVersionCode},
+      </if>
+      <if test="imageId != null" >
+        imageId = #{imageId},
+      </if>
+      <if test="imageName != null" >
+        imageName = #{imageName},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+      <if test="IP != null" >
+        IP = #{IP},
+      </if>
+      <if test="country != null" >
+        country = #{country},
+      </if>
+      <if test="province != null" >
+        province = #{province},
+      </if>
+      <if test="city != null" >
+        city = #{city},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.ws.pojo.ImageDownloadLog" >
+    update image_download_log
+    set clientId = #{clientId},
+      raveId = #{raveId},
+      columnId = #{columnId},
+      userId = #{userId},
+      userName = #{userName},
+      masPackageName = #{masPackageName},
+      masVersionName = #{masVersionName},
+      masVersionCode = #{masVersionCode},
+      imageId = #{imageId},
+      imageName = #{imageName},
+      createTime = #{createTime},
+      IP = #{IP},
+      country = #{country},
+      province = #{province},
+      city = #{city}
+    where id = #{id}
+  </update>
+</mapper>

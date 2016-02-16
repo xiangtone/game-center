@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.market.mapper.TAppAlbumResMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.market.pojo.TAppAlbumRes" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="raveId" property="raveId" jdbcType="INTEGER" />
+    <result column="albumId" property="albumId" jdbcType="INTEGER" />
+    <result column="columnId" property="columnId" jdbcType="INTEGER" />
+    <result column="categoryId" property="categoryId" jdbcType="INTEGER" />
+    <result column="categoryName" property="categoryName" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="DECIMAL" />
+    <result column="appId" property="appId" jdbcType="INTEGER" />
+    <result column="appName" property="appName" jdbcType="VARCHAR" />
+    <result column="free" property="free" jdbcType="INTEGER" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="bigLogo" property="bigLogo" jdbcType="VARCHAR" />
+    <result column="brief" property="brief" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="stars" property="stars" jdbcType="INTEGER" />
+    <result column="starsReal" property="starsReal" jdbcType="REAL" />
+    <result column="apkId" property="apkId" jdbcType="INTEGER" />
+    <result column="fileSize" property="fileSize" jdbcType="INTEGER" />
+    <result column="packageName" property="packageName" jdbcType="VARCHAR" />
+    <result column="versionCode" property="versionCode" jdbcType="INTEGER" />
+    <result column="versionName" property="versionName" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="initDowdload" property="initDowdload" jdbcType="INTEGER" />
+    <result column="realDowdload" property="realDowdload" jdbcType="INTEGER" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="source" property="source" jdbcType="INTEGER" />
+    <result column="effective" property="effective" jdbcType="BIT" />
+    <result column="fileType" property="fileType" jdbcType="INTEGER" />
+    <result column="fileTypeName" property="fileTypeName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.raveId != null" >
+         and raveId = #{condition.raveId}
+      </if>
+      <if test="condition.albumId != null" >
+         and albumId = #{condition.albumId}
+      </if>
+      <if test="condition.columnId != null" >
+         and columnId = #{condition.columnId}
+      </if>
+      <if test="condition.categoryId != null" >
+         and categoryId = #{condition.categoryId}
+      </if>
+      <if test="condition.sort != null" >
+         and sort = #{condition.sort}
+      </if>
+      <if test="condition.appId != null" >
+         and appId = #{condition.appId}
+      </if>
+      <if test="condition.appName != null" >
+         and appName = #{condition.appName}
+      </if>
+      <if test="condition.free != null" >
+         and free = #{condition.free}
+      </if>
+      <if test="condition.logo != null" >
+         and logo = #{condition.logo}
+      </if>
+      <if test="condition.bigLogo != null" >
+         and bigLogo = #{condition.bigLogo}
+      </if>
+      <if test="condition.brief != null" >
+         and brief = #{condition.brief}
+      </if>
+      <if test="condition.description != null" >
+         and description = #{condition.description}
+      </if>
+      <if test="condition.stars != null" >
+         and stars = #{condition.stars}
+      </if>
+      <if test="condition.apkId != null" >
+         and apkId = #{condition.apkId}
+      </if>
+      <if test="condition.fileSize != null" >
+         and fileSize = #{condition.fileSize}
+      </if>
+      <if test="condition.packageName != null" >
+         and packageName = #{condition.packageName}
+      </if>
+      <if test="condition.versionCode != null" >
+         and versionCode = #{condition.versionCode}
+      </if>
+      <if test="condition.versionName != null" >
+         and versionName = #{condition.versionName}
+      </if>
+      <if test="condition.url != null" >
+         and url = #{condition.url}
+      </if>
+      <if test="condition.initDowdload != null" >
+         and initDowdload = #{condition.initDowdload}
+      </if>
+      <if test="condition.realDowdload != null" >
+         and realDowdload = #{condition.realDowdload}
+      </if>
+      <if test="condition.operator != null" >
+         and operator = #{condition.operator}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.source != null" >
+         and source = #{condition.source}
+      </if>
+      <if test="condition.effective != null" >
+         and effective = #{condition.effective}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, raveId, albumId, columnId, categoryId, categoryName, sort, appId, appName, free, 
+    logo, bigLogo, brief, description, stars, apkId, fileSize, packageName, versionCode, 
+    versionName, url, initDowdload, realDowdload, operator, createTime, source, effective
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_app_album_res
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_album_res
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_app_album_res
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.market.pojo.Criteria" >
+    delete from t_app_album_res
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.market.pojo.TAppAlbumRes" >
+    insert into t_app_album_res (id, raveId, albumId, columnId, categoryId, sort, appId, 
+      appName, free, logo, bigLogo, brief, description, stars, apkId, 
+      fileSize, packageName, versionCode, versionName, url, initDowdload, 
+      realDowdload, operator, createTime)
+    values (#{id}, #{raveId}, #{albumId}, #{columnId}, #{categoryId}, #{sort}, #{appId}, 
+      #{appName}, #{free}, #{logo}, #{bigLogo}, #{brief}, #{description}, #{stars}, #{apkId}, 
+      #{fileSize}, #{packageName}, #{versionCode}, #{versionName}, #{url}, #{initDowdload}, 
+      #{realDowdload}, #{operator}, #{createTime})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.market.pojo.TAppAlbumRes" >
+    insert into t_app_album_res
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="raveId != null" >
+        raveId,
+      </if>
+      <if test="albumId != null" >
+        albumId,
+      </if>
+      <if test="columnId != null" >
+        columnId,
+      </if>
+      <if test="categoryId != null" >
+        categoryId,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="appId != null" >
+        appId,
+      </if>
+      <if test="appName != null" >
+        appName,
+      </if>
+      <if test="free != null" >
+        free,
+      </if>
+      <if test="logo != null" >
+        logo,
+      </if>
+      <if test="bigLogo != null" >
+        bigLogo,
+      </if>
+      <if test="brief != null" >
+        brief,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="stars != null" >
+        stars,
+      </if>
+      <if test="apkId != null" >
+        apkId,
+      </if>
+      <if test="fileSize != null" >
+        fileSize,
+      </if>
+      <if test="packageName != null" >
+        packageName,
+      </if>
+      <if test="versionCode != null" >
+        versionCode,
+      </if>
+      <if test="versionName != null" >
+        versionName,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="initDowdload != null" >
+        initDowdload,
+      </if>
+      <if test="realDowdload != null" >
+        realDowdload,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="raveId != null" >
+        #{raveId},
+      </if>
+      <if test="albumId != null" >
+        #{albumId},
+      </if>
+      <if test="columnId != null" >
+        #{columnId},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId},
+      </if>
+      <if test="sort != null" >
+        #{sort},
+      </if>
+      <if test="appId != null" >
+        #{appId},
+      </if>
+      <if test="appName != null" >
+        #{appName},
+      </if>
+      <if test="free != null" >
+        #{free},
+      </if>
+      <if test="logo != null" >
+        #{logo},
+      </if>
+      <if test="bigLogo != null" >
+        #{bigLogo},
+      </if>
+      <if test="brief != null" >
+        #{brief},
+      </if>
+      <if test="description != null" >
+        #{description},
+      </if>
+      <if test="stars != null" >
+        #{stars},
+      </if>
+      <if test="apkId != null" >
+        #{apkId},
+      </if>
+      <if test="fileSize != null" >
+        #{fileSize},
+      </if>
+      <if test="packageName != null" >
+        #{packageName},
+      </if>
+      <if test="versionCode != null" >
+        #{versionCode},
+      </if>
+      <if test="versionName != null" >
+        #{versionName},
+      </if>
+      <if test="url != null" >
+        #{url},
+      </if>
+      <if test="initDowdload != null" >
+        #{initDowdload},
+      </if>
+      <if test="realDowdload != null" >
+        #{realDowdload},
+      </if>
+      <if test="operator != null" >
+        #{operator},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.market.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from t_app_album_res
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_app_album_res
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.raveId != null" >
+        raveId = #{record.raveId},
+      </if>
+      <if test="record.albumId != null" >
+        albumId = #{record.albumId},
+      </if>
+      <if test="record.columnId != null" >
+        columnId = #{record.columnId},
+      </if>
+      <if test="record.categoryId != null" >
+        categoryId = #{record.categoryId},
+      </if>
+      <if test="record.sort != null" >
+        sort = #{record.sort},
+      </if>
+      <if test="record.appId != null" >
+        appId = #{record.appId},
+      </if>
+      <if test="record.appName != null" >
+        appName = #{record.appName},
+      </if>
+      <if test="record.free != null" >
+        free = #{record.free},
+      </if>
+      <if test="record.logo != null" >
+        logo = #{record.logo},
+      </if>
+      <if test="record.bigLogo != null" >
+        bigLogo = #{record.bigLogo},
+      </if>
+      <if test="record.brief != null" >
+        brief = #{record.brief},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description},
+      </if>
+      <if test="record.stars != null" >
+        stars = #{record.stars},
+      </if>
+      <if test="record.apkId != null" >
+        apkId = #{record.apkId},
+      </if>
+      <if test="record.fileSize != null" >
+        fileSize = #{record.fileSize},
+      </if>
+      <if test="record.packageName != null" >
+        packageName = #{record.packageName},
+      </if>
+      <if test="record.versionCode != null" >
+        versionCode = #{record.versionCode},
+      </if>
+      <if test="record.versionName != null" >
+        versionName = #{record.versionName},
+      </if>
+      <if test="record.url != null" >
+        url = #{record.url},
+      </if>
+      <if test="record.initDowdload != null" >
+        initDowdload = #{record.initDowdload},
+      </if>
+      <if test="record.realDowdload != null" >
+        realDowdload = #{record.realDowdload},
+      </if>
+      <if test="record.operator != null" >
+        operator = #{record.operator},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_app_album_res
+    set id = #{record.id},
+      raveId = #{record.raveId},
+      albumId = #{record.albumId},
+      columnId = #{record.columnId},
+      categoryId = #{record.categoryId},
+      sort = #{record.sort},
+      appId = #{record.appId},
+      appName = #{record.appName},
+      free = #{record.free},
+      logo = #{record.logo},
+      bigLogo = #{record.bigLogo},
+      brief = #{record.brief},
+      description = #{record.description},
+      stars = #{record.stars},
+      apkId = #{record.apkId},
+      fileSize = #{record.fileSize},
+      packageName = #{record.packageName},
+      versionCode = #{record.versionCode},
+      versionName = #{record.versionName},
+      url = #{record.url},
+      initDowdload = #{record.initDowdload},
+      realDowdload = #{record.realDowdload},
+      operator = #{record.operator},
+      createTime = #{record.createTime}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.market.pojo.TAppAlbumRes" >
+    update t_app_album_res
+    <set >
+      <if test="raveId != null" >
+        raveId = #{raveId},
+      </if>
+      <if test="albumId != null" >
+        albumId = #{albumId},
+      </if>
+      <if test="columnId != null" >
+        columnId = #{columnId},
+      </if>
+      <if test="categoryId != null" >
+        categoryId = #{categoryId},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort},
+      </if>
+      <if test="appId != null" >
+        appId = #{appId},
+      </if>
+      <if test="appName != null" >
+        appName = #{appName},
+      </if>
+      <if test="free != null" >
+        free = #{free},
+      </if>
+      <if test="logo != null" >
+        logo = #{logo},
+      </if>
+      <if test="bigLogo != null" >
+        bigLogo = #{bigLogo},
+      </if>
+      <if test="brief != null" >
+        brief = #{brief},
+      </if>
+      <if test="description != null" >
+        description = #{description},
+      </if>
+      <if test="stars != null" >
+        stars = #{stars},
+      </if>
+      <if test="apkId != null" >
+        apkId = #{apkId},
+      </if>
+      <if test="fileSize != null" >
+        fileSize = #{fileSize},
+      </if>
+      <if test="packageName != null" >
+        packageName = #{packageName},
+      </if>
+      <if test="versionCode != null" >
+        versionCode = #{versionCode},
+      </if>
+      <if test="versionName != null" >
+        versionName = #{versionName},
+      </if>
+      <if test="url != null" >
+        url = #{url},
+      </if>
+      <if test="initDowdload != null" >
+        initDowdload = #{initDowdload},
+      </if>
+      <if test="realDowdload != null" >
+        realDowdload = #{realDowdload},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.market.pojo.TAppAlbumRes" >
+    update t_app_album_res
+    set raveId = #{raveId},
+      albumId = #{albumId},
+      columnId = #{columnId},
+      categoryId = #{categoryId},
+      sort = #{sort},
+      appId = #{appId},
+      appName = #{appName},
+      free = #{free},
+      logo = #{logo},
+      bigLogo = #{bigLogo},
+      brief = #{brief},
+      description = #{description},
+      stars = #{stars},
+      apkId = #{apkId},
+      fileSize = #{fileSize},
+      packageName = #{packageName},
+      versionCode = #{versionCode},
+      versionName = #{versionName},
+      url = #{url},
+      initDowdload = #{initDowdload},
+      realDowdload = #{realDowdload},
+      operator = #{operator},
+      createTime = #{createTime}
+    where id = #{id}
+  </update>
+  <select id="columnlist" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+	  SELECT  t1.id, t1.categoryId, t1.categoryName, t1.appId, t1.appName, t1.free, 
+	    t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars, t1.apkId, t1.fileSize, t1.packageName, t1.versionCode, 
+	    t1.versionName, t1.url, t1.initDowdload, t1.realDowdload, t1.createTime, (t3.fatherId-1) as fileType
+	  	FROM `t_app_album_res` t1 join t_category t3 on(t1.categoryId=t3.id) where effective = true
+	  	<if test="condition.raveId != null and condition.raveId ==1" >
+	       and t1.raveId = 1
+	    </if>
+	    <if test="condition.raveId != null and condition.raveId !=1" >
+	       and t1.raveId = #{condition.raveId}
+	    </if>
+		<if test="condition.columnId != null" >
+	         and columnId = #{condition.columnId}
+	    </if>
+	  	 order by t1.sort desc,t1.initDowdload+t1.realDowdload desc
+	    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="columnlistByLiveWallpaper" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+	  SELECT  t1.id, t1.categoryId, t1.categoryName, t1.appId, t1.appName, t1.free, 
+	    t3.url as logo, t3.url as bigLogo, t1.brief, t1.description, t1.stars, t1.apkId, t1.fileSize, t1.packageName, t1.versionCode, 
+	    t1.versionName, t1.url, t1.initDowdload, t1.realDowdload, t1.createTime, 1 as fileType
+	  	FROM (select * from `t_app_album_res` where columnId = 45
+	  	<if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+	    </if>
+	    <if test="condition.raveId != null and condition.raveId !=1" >
+	       and raveId = #{condition.raveId}
+	    </if>
+	  	order by sort desc,initDowdload+realDowdload desc
+	    <include refid="common.Mysql_Pagination_Limit" />) t1 
+	    left join (SELECT appId,url FROM `t_app_picture` where state = true GROUP BY appId) t3 on (t1.appId=t3.appId)
+  </select>
+  <select id="appDetailByApkId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  SELECT t2.id, t1.categoryId, t1.sort, t1.id as appId, 
+      t1.name as appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars,t1.starsReal,t2.id AS apkId, 
+      t2.fileSize, t2.packageName, t2.versionCode, t2.versionName, t2.url, t1.initDowdload, 
+      t1.realDowdload, t1.operator,t1.`initialReleaseDate` as createTime,(t3.fatherId-1) as fileType,
+      t1.issuer
+    FROM `t_app_file` t2 JOIN `t_app_info` t1 ON(t1.`id`=t2.`appId`) join t_category t3 on(t1.categoryId=t3.id)
+  	WHERE t2.`id`=#{apkId} LIMIT 1
+  </select>
+  <select id="appDetailByAppId" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+  SELECT t2.id, t1.categoryId, t1.sort, t1.id as appId, 
+      t1.name as appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars,t1.starsReal,t2.id AS apkId, 
+      t2.fileSize, t2.packageName, t2.versionCode, t2.versionName, t2.url, t1.initDowdload, 
+      t1.realDowdload, t1.operator,t1.`initialReleaseDate` as createTime,(t3.fatherId-1) as fileType,t1.issuer
+    FROM `t_app_info` t1 JOIN 
+    (
+    	select * from `t_app_file` where `state`=TRUE
+   		<if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+	    </if>
+	    <if test="condition.raveId != null and condition.raveId !=1" >
+	       and (raveId = 1 or raveId = #{condition.raveId})
+	    </if>
+		 order by raveId desc
+    )  t2 ON(t1.`id`=t2.`appId`) join t_category t3 on(t1.categoryId=t3.id)
+  	WHERE t1.`id`=#{condition.appId} LIMIT 1
+  </select>
+  <select id="appDetailByPackageName" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+  SELECT t2.id, t1.categoryId, t1.sort, t1.id as appId, 
+      t1.name as appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars,t2.id AS apkId, 
+      t2.fileSize, t2.packageName, t2.versionCode, t2.versionName, t2.url, t1.initDowdload, 
+      t1.realDowdload, t1.operator,t1.`initialReleaseDate` as createTime,(t3.fatherId-1) as fileType,t1.issuer
+    FROM `t_app_info` t1 JOIN 
+    (
+    	select * from `t_app_file` where `state`=TRUE
+   		<if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+	    </if>
+	    <if test="condition.raveId != null and condition.raveId !=1" >
+	       and (raveId = 1 or raveId = #{condition.raveId})
+	    </if>
+		 order by raveId desc
+    )  t2 ON(t1.`id`=t2.`appId`) join t_category t3 on(t1.categoryId=t3.id)
+  	WHERE t2.`packageName`=#{condition.packageName} LIMIT 1
+  </select>
+  <select id="categorylist" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+  	SELECT t2.id, t1.categoryId, t1.sort, t1.id as appId, 
+      t1.name as appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars,t2.id AS apkId, 
+      t2.fileSize, t2.packageName, t2.versionCode, t2.versionName, t2.url, t1.initDowdload, 
+      t1.realDowdload, t1.operator,t2.`updateTime` AS createTime,(t3.fatherId-1) as fileType
+    FROM `t_app_info` t1 JOIN 
+    (
+    	select * from `t_app_file` where `state`=TRUE
+   		<if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+	    </if>
+	    <if test="condition.raveId != null and condition.raveId !=1" >
+	       and (raveId = 1 or raveId = #{condition.raveId})
+	    </if>
+		 order by raveId desc
+    )  t2 ON(t1.`id`=t2.`appId`) join t_category t3 on(t1.categoryId=t3.id)
+  	WHERE t1.`free`!=1  
+  	<if test="condition.categoryIds != null">
+  		  	and t1.`categoryId` in
+  		  	<foreach collection="condition.categoryIds" item="categoryId" open="(" close=")" separator=",">
+  				#{categoryId}
+  			</foreach>
+  	</if>
+  	group by packageName
+  	<if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <!-- 
+  <select id="categoryHotList" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+  	SELECT t1.categoryId, t1.appId, t1.apkId,
+      t1.appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars,
+      t1.fileSize, t1.packageName, t1.versionCode, t1.versionName, t1.url, t1.initDowdload, 
+      t1.realDowdload, t1.operator,t1.`updateTime` AS createTime,(t2.fatherId-1) as fileType
+    FROM `t_app_category_res` t1 JOIN t_category t2 on(t1.categoryId=t2.id)
+  	WHERE t1.`free`!=1  
+  	<if test="condition.raveId != null and condition.raveId ==1" >
+	       and t1.raveId = 1
+	</if>
+	<if test="condition.raveId != null and condition.raveId !=1" >
+	       and (t1.raveId = 1 or t1.raveId = #{condition.raveId})
+	</if>
+  	<if test="condition.categoryIds != null">
+  		  	and t1.`categoryId` in
+  		  	<foreach collection="condition.categoryIds" item="categoryId" open="(" close=")" separator=",">
+  				#{categoryId}
+  			</foreach>
+  	</if>
+  	group by packageName
+  	<if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+   -->
+  <select id="searchRecommend" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+  	SELECT t2.id, t1.categoryId, t1.sort, t1.id as appId, 
+      t1.name as appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars,t2.id AS apkId, 
+      t2.fileSize, t2.packageName, t2.versionCode, t2.versionName, t2.url, t1.initDowdload, 
+      t1.realDowdload, t1.operator,t2.`updateTime` AS createTime,(t3.fatherId-1) as fileType,t1.issuer
+    FROM `t_app_info` t1 JOIN 
+    (
+    	select * from `t_app_file` where `state`=TRUE
+   		<if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+	    </if>
+	    <if test="condition.raveId != null and condition.raveId !=1" >
+	       and (raveId = 1 or raveId = #{condition.raveId})
+	    </if>
+		 order by raveId desc 
+    ) 
+    t2 ON(t1.`id`=t2.`appId`) join t_category t3 on(t1.categoryId=t3.id)
+  	WHERE t1.`categoryId`=#{condition.categoryId} AND t1.id != #{condition.appId} AND t1.`free`!=1 AND t2.`state`=TRUE
+  	      AND t1.`dowdChange` >= 0.5
+  	group by packageName ORDER BY RAND() LIMIT #{mysqlLength}
+  </select>
+   <select id="getAppsForUpdate" resultMap="BaseResultMap" parameterType="java.util.Map" >
+	SELECT t2.id, t1.categoryId, t1.sort, t1.id as appId, 
+      t1.name as appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars,t2.id AS apkId, 
+      t2.fileSize, t2.packageName, t2.versionCode, t2.versionName, t2.url, t1.initDowdload, 
+      t1.realDowdload, t1.operator,t2.`updateTime` AS createTime,(t3.fatherId-1) as fileType
+      FROM 
+       ( select * from `mas_market`.`t_app_file` where `state`=TRUE 
+       	    <if test="raveId != null and raveId ==1" >
+	       		and raveId = 1
+		    </if>
+		    <if test="raveId != null and raveId !=1" >
+		       and (raveId = 1 or raveId = #{raveId})
+		    </if>
+	       	   and packageName in 
+	       <foreach collection="packageList" index="index" item="item" open="(" separator="," close=")">
+	            #{item}
+	      	</foreach>
+	      	order by raveId desc,versionCode desc
+       )
+       t2 JOIN `t_app_info` t1 ON(t1.`id`=t2.`appId`) join t_category t3 on(t1.categoryId=t3.id)  group by packageName
+  </select>
+  <select id="searchApps" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    SELECT t2.id, t1.categoryId, t1.sort, t1.id as appId, 
+      t1.name as appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars,t2.id AS apkId, 
+      t2.fileSize, t2.packageName, t2.versionCode, t2.versionName, t2.url, t1.initDowdload, 
+      t1.realDowdload, t1.operator,t2.`updateTime` AS createTime,(t3.fatherId-1) as fileType
+    from `t_app_info` t1 JOIN 
+    (
+    	select * from `t_app_file` where `state`=TRUE 
+   		<if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+	    </if>
+	    <if test="condition.raveId != null and condition.raveId !=1" >
+	       and (raveId = 1 or raveId = #{condition.raveId})
+	    </if>
+		 order by raveId desc
+    )t2 ON(t1.`id`=t2.`appId`) join t_category t3 on(t1.categoryId=t3.id)
+  	where t1.`free`!=1 AND (INSTR(t1.name,#{condition.appNameLike})>0 OR INSTR(t1.`anotherName`,#{condition.appNameLike})>0 ) GROUP BY packageName 
+	ORDER BY t1.name = #{condition.appNameLike} DESC,
+	if(INSTR(CONCAT('#',t1.`anotherName`,'#'),CONCAT('#',#{condition.appNameLike},'#'))>0,3,IF(INSTR(t1.`name`,#{condition.appNameLike})=1,2,INSTR(CONCAT('#',t1.`anotherName`),CONCAT('#',#{condition.appNameLike}))>0) ) DESC,
+	realDowdload DESC,initDowdload DESC
+	<include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByRAND" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+	    select  t1.id, t1.categoryId, t1.categoryName, t1.appId, t1.appName, t1.free, 
+	    t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars, t1.apkId, t1.fileSize, t1.packageName, t1.versionCode, 
+	    t1.versionName, t1.url, t1.initDowdload, t1.realDowdload, t1.createTime,(t3.fatherId-1) as fileType
+	    from t_app_album_res t1 join t_category t3 on(t1.categoryId=t3.id)where effective = true
+	    <if test="condition.raveId != null" >
+	       and t1.raveId = #{condition.raveId}
+	    </if>
+		<if test="condition.columnId != null" >
+	         and columnId = #{condition.columnId}
+	    </if>
+	    <if test="orderByClause != null" >
+	      order by ${orderByClause}
+	    </if>
+	    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <update id="updateAppDownLoad" parameterType="com.mas.market.pojo.Criteria" >
+  	UPDATE `mas_market`.`t_app_info` SET realDowdload = (realDowdload+1) WHERE id = #{condition.appId}
+  </update>
+  <update id="updateAppOpenLog" parameterType="java.lang.Integer" >
+  	UPDATE `mas_market`.`t_app_info` SET pageOpen = (pageOpen+1) WHERE id = #{appId}
+  </update>
+  <select id="keywordAppsList" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    SELECT t2.id, t1.categoryId, t1.sort, t1.id as appId, 
+      t1.name as appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars,t2.id AS apkId, 
+      t2.fileSize, t2.packageName, t2.versionCode, t2.versionName, t2.url, t1.initDowdload, 
+      t1.realDowdload, t1.operator,t2.`updateTime` AS createTime,(t3.fatherId-1) as fileType
+    from t_search_keyword_reslist t4 join `t_app_info` t1 on(t1.`id`=t4.`resId`) JOIN 
+    (
+    	select * from `t_app_file` where `state`=TRUE 
+   		<if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+	    </if>
+	    <if test="condition.raveId != null and condition.raveId !=1" >
+	       and (raveId = 1 or raveId = #{condition.raveId})
+	    </if>
+		 order by raveId desc
+    )  t2 ON(t1.`id`=t2.`appId`) join t_category t3 on(t1.categoryId=t3.id)
+  	where t4.searchId= #{condition.searchId}
+	group by packageName
+ 	order by t4.sort DESC,t4.createTime DESC
+	<include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="searchAppsTip" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    SELECT t2.id, t1.categoryId, t1.sort, t1.id as appId, 
+      t1.name as appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars,t2.id AS apkId, 
+      t2.fileSize, t2.packageName, t2.versionCode, t2.versionName, t2.url, t1.initDowdload, 
+      t1.realDowdload, t1.operator,t2.`updateTime` AS createTime,(t3.fatherId-1) as fileType
+    from `t_app_info` t1 JOIN 
+    (
+    	select * from `t_app_file` where `state`=TRUE 
+   		<if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+	    </if>
+	    <if test="condition.raveId != null and condition.raveId !=1" >
+	       and (raveId = 1 or raveId = #{condition.raveId})
+	    </if>
+		 order by raveId desc
+    )  t2 ON(t1.`id`=t2.`appId`) join t_category t3 on(t1.categoryId=t3.id)
+  	where t1.`free`!=1 AND (INSTR(t1.name,#{condition.appNameLike})>0 OR INSTR(t1.`anotherName`,#{condition.appNameLike})>0 ) group by packageName 
+	ORDER BY t1.name = #{condition.appNameLike} DESC,
+	if(INSTR(CONCAT('#',t1.`anotherName`,'#'),CONCAT('#',#{condition.appNameLike},'#'))>0,3,IF(INSTR(t1.`name`,#{condition.appNameLike})=1,2,INSTR(CONCAT('#',t1.`anotherName`),CONCAT('#',#{condition.appNameLike}))>0) ) DESC,
+	realDowdload DESC,initDowdload DESC
+	<include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="collectionlist" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+  	select  t1.*,(t3.fatherId-1) as fileType
+  	FROM `t_app_collection_res` t1 join t_category t3 on(t1.categoryId=t3.id) where collectionId = #{condition.collectionId}
+  	<if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <!-- 
+  <select id="musthave" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+	  SELECT t2.name AS operator,t2.collectionId as id,(t3.fatherId-1) AS fileType,t1.raveId, t1.albumId, t1.columnId, t1.categoryId, t1.sort, t1.appId, 
+      t1.appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars, t1.apkId, 
+      t1.fileSize, t1.packageName, t1.versionCode, t1.versionName, t1.url, t1.initDowdload,t1.realDowdload,t1.createTime
+       FROM (SELECT * FROM `mas_market`.`t_app_collection` where state = true and type=2
+       <if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+	    </if>
+	    <if test="condition.raveId != null and condition.raveId !=1" >
+	       and (raveId = 1 or raveId = #{condition.raveId})
+	    </if>
+	    ORDER BY sort DESC,createTime DESC 
+       <include refid="common.Mysql_Pagination_Limit" />)
+       t2 LEFT JOIN `mas_market`.`t_app_collection_res` t1 
+       ON(t1.`collectionId`=t2.`collectionId`)
+       LEFT JOIN `mas_market`.t_category t3 ON(t1.categoryId=t3.id) 
+        ORDER BY t2.sort DESC,t2.createTime DESC, t1.sort DESC,t1.initDowdload + t1.realDowdload DESC
+  </select>
+   -->
+   <select id="musthave" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+	  SELECT t2.name AS operator,t2.collectionId as id,(t3.fatherId-1) AS fileType,t1.raveId, t1.albumId, t1.columnId, t1.categoryId, t1.sort, t1.appId, 
+      t1.appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars, t1.apkId, 
+      t1.fileSize, t1.packageName, t1.versionCode, t1.versionName, t1.url, t1.initDowdload,t1.realDowdload,t1.createTime
+       FROM (SELECT * FROM `mas_market`.`t_app_collection` where state = true and type=2
+       <if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+	    </if>
+	    <if test="condition.raveId != null and condition.raveId !=1" >
+	       and (raveId = 1 or raveId = #{condition.raveId})
+	    </if>
+	    ORDER BY sort DESC,name ASC 
+       <include refid="common.Mysql_Pagination_Limit" />)
+       t2 LEFT JOIN `mas_market`.`t_app_collection_res` t1 
+       ON(t1.`collectionId`=t2.`collectionId`)
+       LEFT JOIN `mas_market`.t_category t3 ON(t1.categoryId=t3.id) 
+        ORDER BY t2.sort DESC,operator ASC, t1.sort DESC,t1.appName ASC
+  </select>
+  <select id="getAppInfoByAppId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+	 SELECT free FROM `mas_market`.`t_app_info` WHERE id = #{appId}
+  </select>
+  
+  <select id="searchSameIssuerRecommend" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+  	SELECT t2.id, t1.categoryId, t1.sort, t1.id as appId, 
+      t1.name as appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars,t2.id AS apkId, 
+      t2.fileSize, t2.packageName, t2.versionCode, t2.versionName, t2.url, t1.initDowdload, 
+      t1.realDowdload, t1.operator,t2.`updateTime` AS createTime,(t3.fatherId-1) as fileType,t1.issuer
+    FROM `t_app_info` t1 JOIN 
+    (
+    	select * from `t_app_file` where `state`=TRUE
+   		<if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+	    </if>
+	    <if test="condition.raveId != null and condition.raveId !=1" >
+	       and (raveId = 1 or raveId = #{condition.raveId})
+	    </if>
+		 order by raveId desc 
+    ) 
+    t2 ON(t1.`id`=t2.`appId`) join t_category t3 on(t1.categoryId=t3.id)
+  	WHERE t1.`issuer`=#{condition.issuer} AND t1.id != #{condition.appId} AND t1.`free`!=1 AND t2.`state`=TRUE
+  	group by packageName ORDER BY RAND() 
+	<!-- <include refid="common.Mysql_Pagination_Limit" /> -->
+  </select>
+  
+  <select id="searchAppsByArray" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    SELECT t2.id, t1.categoryId, t1.sort, t1.id as appId, 
+      t1.name as appName, t1.free, t1.logo, t1.bigLogo, t1.brief, t1.description, t1.stars,t2.id AS apkId, 
+      t2.fileSize, t2.packageName, t2.versionCode, t2.versionName, t2.url, t1.initDowdload, 
+      t1.realDowdload, t1.operator,t2.`updateTime` AS createTime,(t3.fatherId-1) as fileType
+    from `t_app_info` t1 JOIN 
+    (
+    	select * from `t_app_file` where `state`=TRUE 
+   		<if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+	    </if>
+	    <if test="condition.raveId != null and condition.raveId !=1" >
+	       and (raveId = 1 or raveId = #{condition.raveId})
+	    </if>
+		 order by raveId desc
+    )t2 ON(t1.`id`=t2.`appId`) join t_category t3 on(t1.categoryId=t3.id)
+  	where t1.`free`!=1 
+  	<if test="condition.appNameLike0 != null" >
+  		AND (
+  			INSTR(t1.name,#{condition.appNameLike0})>0 OR INSTR(t1.`anotherName`,#{condition.appNameLike0})>0 
+  			<if test="condition.appNameLike1 != null" >
+  				OR INSTR(t1.name,#{condition.appNameLike1})>0 OR INSTR(t1.`anotherName`,#{condition.appNameLike1})>0
+  			</if>
+  			<if test="condition.appNameLike2 != null" >
+  				OR INSTR(t1.name,#{condition.appNameLike2})>0 OR INSTR(t1.`anotherName`,#{condition.appNameLike2})>0
+  			</if>
+  		)
+  	</if>
+  	GROUP BY packageName 
+	ORDER BY 
+	<if test="condition.appNameLike0 != null" >
+  		t1.name = #{condition.appNameLike0} DESC,
+  		if(INSTR(CONCAT('#',t1.`anotherName`,'#'),CONCAT('#',#{condition.appNameLike0},'#'))>0,3,IF(INSTR(t1.`name`,#{condition.appNameLike0})=1,2,INSTR(CONCAT('#',t1.`anotherName`),CONCAT('#',#{condition.appNameLike0}))>0) ) DESC,
+  	</if>
+	<if test="condition.appNameLike1 != null" >
+  		t1.name = #{condition.appNameLike1} DESC,
+  		if(INSTR(CONCAT('#',t1.`anotherName`,'#'),CONCAT('#',#{condition.appNameLike1},'#'))>0,3,IF(INSTR(t1.`name`,#{condition.appNameLike1})=1,2,INSTR(CONCAT('#',t1.`anotherName`),CONCAT('#',#{condition.appNameLike1}))>0) ) DESC,
+  	</if>
+  	<if test="condition.appNameLike2 != null" >
+  		t1.name = #{condition.appNameLike2} DESC,
+  		if(INSTR(CONCAT('#',t1.`anotherName`,'#'),CONCAT('#',#{condition.appNameLike2},'#'))>0,3,IF(INSTR(t1.`name`,#{condition.appNameLike2})=1,2,INSTR(CONCAT('#',t1.`anotherName`),CONCAT('#',#{condition.appNameLike2}))>0) ) DESC,
+  	</if>
+  	<!-- 
+	<if test="condition.appNameLike0 != null" >
+		if(INSTR(CONCAT('#',t1.`anotherName`,'#'),CONCAT('#',#{condition.appNameLike0},'#'))>0,3,IF(INSTR(t1.`name`,#{condition.appNameLike0})=1,2,INSTR(CONCAT('#',t1.`anotherName`),CONCAT('#',#{condition.appNameLike0}))>0) ) DESC,
+	</if>
+	<if test="condition.appNameLike1 != null" >
+		if(INSTR(CONCAT('#',t1.`anotherName`,'#'),CONCAT('#',#{condition.appNameLike1},'#'))>0,3,IF(INSTR(t1.`name`,#{condition.appNameLike1})=1,2,INSTR(CONCAT('#',t1.`anotherName`),CONCAT('#',#{condition.appNameLike1}))>0) ) DESC,
+	</if>
+	<if test="condition.appNameLike2 != null" >
+		if(INSTR(CONCAT('#',t1.`anotherName`,'#'),CONCAT('#',#{condition.appNameLike2},'#'))>0,3,IF(INSTR(t1.`name`,#{condition.appNameLike2})=1,2,INSTR(CONCAT('#',t1.`anotherName`),CONCAT('#',#{condition.appNameLike2}))>0) ) DESC,
+	</if>
+	 -->
+	realDowdload DESC,initDowdload DESC
+	<include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  
+</mapper>

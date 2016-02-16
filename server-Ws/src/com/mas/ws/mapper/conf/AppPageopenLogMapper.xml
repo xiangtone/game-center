@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.ws.mapper.AppPageopenLogMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.ws.pojo.AppPageopenLog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="raveId" property="raveId" jdbcType="INTEGER" />
+    <result column="columnId" property="columnId" jdbcType="INTEGER" />
+    <result column="appId" property="appId" jdbcType="INTEGER" />
+    <result column="appName" property="appName" jdbcType="VARCHAR" />
+    <result column="packageName" property="packageName" jdbcType="VARCHAR" />
+    <result column="versionName" property="versionName" jdbcType="VARCHAR" />
+    <result column="versionCode" property="versionCode" jdbcType="INTEGER" />
+    <result column="apkId" property="apkId" jdbcType="INTEGER" />
+    <result column="categoryId" property="categoryId" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="IP" property="IP" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="free" property="free" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.raveId != null" >
+         and raveId = #{condition.raveId}
+      </if>
+      <if test="condition.columnId != null" >
+         and columnId = #{condition.columnId}
+      </if>
+      <if test="condition.appId != null" >
+         and appId = #{condition.appId}
+      </if>
+      <if test="condition.appName != null" >
+         and appName = #{condition.appName}
+      </if>
+      <if test="condition.packageName != null" >
+         and packageName = #{condition.packageName}
+      </if>
+      <if test="condition.versionName != null" >
+         and versionName = #{condition.versionName}
+      </if>
+      <if test="condition.versionCode != null" >
+         and versionCode = #{condition.versionCode}
+      </if>
+      <if test="condition.apkId != null" >
+         and apkId = #{condition.apkId}
+      </if>
+      <if test="condition.categoryId != null" >
+         and categoryId = #{condition.categoryId}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.IP != null" >
+         and IP = #{condition.IP}
+      </if>
+      <if test="condition.country != null" >
+         and country = #{condition.country}
+      </if>
+      <if test="condition.province != null" >
+         and province = #{condition.province}
+      </if>
+      <if test="condition.city != null" >
+         and city = #{condition.city}
+      </if>
+      <if test="condition.free != null" >
+         and free = #{condition.free}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, raveId, columnId, appId, appName, packageName, versionName, versionCode, apkId, 
+    categoryId, createTime, IP, country, province, city, free
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.ws.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from app_pageopen_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from app_pageopen_log
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from app_pageopen_log
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.ws.pojo.Criteria" >
+    delete from app_pageopen_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.ws.pojo.AppPageopenLog" >
+    insert into app_pageopen_log (id, raveId, columnId, appId, appName, packageName, versionName, 
+      versionCode, apkId, categoryId, createTime, IP, country, province, 
+      city, free)
+    values (#{id}, #{raveId}, #{columnId}, #{appId}, #{appName}, #{packageName}, #{versionName}, 
+      #{versionCode}, #{apkId}, #{categoryId}, #{createTime}, #{IP}, #{country}, #{province}, 
+      #{city}, #{free})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.ws.pojo.AppPageopenLog" >
+    insert into app_pageopen_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="raveId != null" >
+        raveId,
+      </if>
+      <if test="columnId != null" >
+        columnId,
+      </if>
+      <if test="appId != null" >
+        appId,
+      </if>
+      <if test="appName != null" >
+        appName,
+      </if>
+      <if test="packageName != null" >
+        packageName,
+      </if>
+      <if test="versionName != null" >
+        versionName,
+      </if>
+      <if test="versionCode != null" >
+        versionCode,
+      </if>
+      <if test="apkId != null" >
+        apkId,
+      </if>
+      <if test="categoryId != null" >
+        categoryId,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="IP != null" >
+        IP,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="free != null" >
+        free,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="raveId != null" >
+        #{raveId},
+      </if>
+      <if test="columnId != null" >
+        #{columnId},
+      </if>
+      <if test="appId != null" >
+        #{appId},
+      </if>
+      <if test="appName != null" >
+        #{appName},
+      </if>
+      <if test="packageName != null" >
+        #{packageName},
+      </if>
+      <if test="versionName != null" >
+        #{versionName},
+      </if>
+      <if test="versionCode != null" >
+        #{versionCode},
+      </if>
+      <if test="apkId != null" >
+        #{apkId},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="IP != null" >
+        #{IP},
+      </if>
+      <if test="country != null" >
+        #{country},
+      </if>
+      <if test="province != null" >
+        #{province},
+      </if>
+      <if test="city != null" >
+        #{city},
+      </if>
+      <if test="free != null" >
+        #{free},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.ws.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from app_pageopen_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update app_pageopen_log
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.raveId != null" >
+        raveId = #{record.raveId},
+      </if>
+      <if test="record.columnId != null" >
+        columnId = #{record.columnId},
+      </if>
+      <if test="record.appId != null" >
+        appId = #{record.appId},
+      </if>
+      <if test="record.appName != null" >
+        appName = #{record.appName},
+      </if>
+      <if test="record.packageName != null" >
+        packageName = #{record.packageName},
+      </if>
+      <if test="record.versionName != null" >
+        versionName = #{record.versionName},
+      </if>
+      <if test="record.versionCode != null" >
+        versionCode = #{record.versionCode},
+      </if>
+      <if test="record.apkId != null" >
+        apkId = #{record.apkId},
+      </if>
+      <if test="record.categoryId != null" >
+        categoryId = #{record.categoryId},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+      <if test="record.IP != null" >
+        IP = #{record.IP},
+      </if>
+      <if test="record.country != null" >
+        country = #{record.country},
+      </if>
+      <if test="record.province != null" >
+        province = #{record.province},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city},
+      </if>
+      <if test="record.free != null" >
+        free = #{record.free},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update app_pageopen_log
+    set id = #{record.id},
+      raveId = #{record.raveId},
+      columnId = #{record.columnId},
+      appId = #{record.appId},
+      appName = #{record.appName},
+      packageName = #{record.packageName},
+      versionName = #{record.versionName},
+      versionCode = #{record.versionCode},
+      apkId = #{record.apkId},
+      categoryId = #{record.categoryId},
+      createTime = #{record.createTime},
+      IP = #{record.IP},
+      country = #{record.country},
+      province = #{record.province},
+      city = #{record.city},
+      free = #{record.free}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.ws.pojo.AppPageopenLog" >
+    update app_pageopen_log
+    <set >
+      <if test="raveId != null" >
+        raveId = #{raveId},
+      </if>
+      <if test="columnId != null" >
+        columnId = #{columnId},
+      </if>
+      <if test="appId != null" >
+        appId = #{appId},
+      </if>
+      <if test="appName != null" >
+        appName = #{appName},
+      </if>
+      <if test="packageName != null" >
+        packageName = #{packageName},
+      </if>
+      <if test="versionName != null" >
+        versionName = #{versionName},
+      </if>
+      <if test="versionCode != null" >
+        versionCode = #{versionCode},
+      </if>
+      <if test="apkId != null" >
+        apkId = #{apkId},
+      </if>
+      <if test="categoryId != null" >
+        categoryId = #{categoryId},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+      <if test="IP != null" >
+        IP = #{IP},
+      </if>
+      <if test="country != null" >
+        country = #{country},
+      </if>
+      <if test="province != null" >
+        province = #{province},
+      </if>
+      <if test="city != null" >
+        city = #{city},
+      </if>
+      <if test="free != null" >
+        free = #{free},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.ws.pojo.AppPageopenLog" >
+    update app_pageopen_log
+    set raveId = #{raveId},
+      columnId = #{columnId},
+      appId = #{appId},
+      appName = #{appName},
+      packageName = #{packageName},
+      versionName = #{versionName},
+      versionCode = #{versionCode},
+      apkId = #{apkId},
+      categoryId = #{categoryId},
+      createTime = #{createTime},
+      IP = #{IP},
+      country = #{country},
+      province = #{province},
+      city = #{city},
+      free = #{free}
+    where id = #{id}
+  </update>
+</mapper>
