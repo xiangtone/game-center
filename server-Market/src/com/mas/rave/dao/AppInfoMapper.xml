@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppInfo" >
+  	  <association column="categoryId" property="category" jdbcType="INTEGER" select="com.mas.rave.dao.CategoryMapper.selectByPrimaryKey" />
+  	  <association column="fatherChannelId" property="channel" jdbcType="INTEGER" select="com.mas.rave.dao.ChannelMapper.selectByPrimaryKey" />
+ 	  <association column="cpId" property="cp" jdbcType="INTEGER" select="com.mas.rave.dao.CpMapper.selectByPrimaryKey" />
+  </resultMap>
+  <resultMap id="BaseResultMap1" type="com.mas.rave.main.vo.AppInfo" >
+    <!-- 根据二级分类查询一级分类 -->
+  	<association column="categoryId" property="category" jdbcType="INTEGER" select="com.mas.rave.dao.CategoryMapper.selectByCategory" />
+  	<association column="fatherChannelId" property="channel" jdbcType="INTEGER" select="com.mas.rave.dao.ChannelMapper.selectByPrimaryKey" />
+ 	<association column="cpId" property="cp" jdbcType="INTEGER" select="com.mas.rave.dao.CpMapper.selectByPrimaryKey" />
+  </resultMap> 
+  
+  
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.andValue" >
+                  and ${criterion.condition} #{criterion.value} and ${criterion.secondCondition} #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="dynamicWhere">
+  	  <if test="packageName != null or countryId != 0 ">
+  	   ,t_app_file t2
+  	  </if>
+  	<trim prefix="where" prefixOverrides="and">
+  	    <if test="packageName != null and packageName != ''">
+  	     and  t2.packageName like CONCAT("%",#{packageName},"%")
+  	     and t1.id = t2.appId 
+  		</if>
+  		<if test="name != null and name != ''">
+  			and t1.name like CONCAT("%",#{name},"%")
+  		</if>
+  		<if test="id !=null and id != ''">
+  			and  (t1.id like CONCAT("%",#{id},"%")	or t1.name like CONCAT("%",#{id},"%"))	
+  		</if>
+  		<!-- aozh
+  		<if test="state != null">
+  			and  t1.state = #{state}
+  		</if>
+  		 -->
+  		<if test="category != null" >
+  			and  t1.categoryId = #{category.id}   			
+  		</if>
+  		<if test="free != null and free!=-1 and free!=-2" >
+  			and  t1.free = #{free}
+  		</if>
+  		<if test="free != null and free==-1" >
+  			and  t1.free !=1
+  		</if>  
+  		<if test="free != null and free==-2" >
+  			 <![CDATA[and t1.free in (0,2)]]> 
+  		</if>		 
+  		 <if test="category_parent != null and category_parent != 0">
+   			and  t1.categoryId IN (SELECT id FROM t_category WHERE fatherId=#{category_parent})
+   		</if>
+   		 <if test="category_parent1 != null and category_parent1 != 0">
+   			or  t1.categoryId IN (SELECT id FROM t_category WHERE fatherId=#{category_parent1})
+   		</if>
+   		<if test="countryId != null and countryId != 0">
+   			and  t2.raveId = #{countryId} 
+   			and t1.id = t2.appId 
+   		</if>
+   			<if test="cpId != null and cpId != ''">
+  			and t1.cpId like CONCAT("%",#{cpId},"%")
+  		</if>
+  		<if test="source != null and source != ''">
+  			and t1.source like CONCAT("%",#{source},"%")
+  		</if>
+  		<if test="startTime != null and startTime != ''">
+  			 <![CDATA[and t1.createTime >= #{startTime}]]> 
+  		</if>
+  		<if test="endTime != null and endTime != ''">
+  			 <![CDATA[and t1.createTime <= #{endTime}]]> 
+  		</if>
+  	</trim>
+  </sql>
+  <sql id="dynamicWhere1"> 	 
+  	
+  	<trim prefix="where" prefixOverrides="and"> 	 
+  	    <if test="packageName != null and packageName != ''">
+  	       and  t2.packageName like CONCAT("%",#{packageName},"%")  	    
+  		</if>
+  		<if test="name != null and name != ''">
+  			and t1.name like CONCAT("%",#{name},"%")
+  		</if>
+  		<if test="id !=null and id != ''">
+  			and  (t1.id like CONCAT("%",#{id},"%")	or t1.name like CONCAT("%",#{id},"%"))	
+  		</if>
+  		<!-- aozh
+  		<if test="state != null">
+  			and  t1.state = #{state}
+  		</if>
+  		 -->
+  		<if test="category != null" >
+  			and  t1.categoryId = #{category.id}   			
+  		</if>
+  		<if test="free != null and free!=-1 and free!=-2" >
+  			and  t1.free = #{free}
+  		</if>
+  		<if test="free != null and free==-1" >
+  			and  t1.free !=1
+  		</if>  	
+  		<if test="free != null and free==-2" >
+  			 <![CDATA[and t1.free in (0,2)]]> 
+  		</if> 	 
+  		 <if test="category_parent != null and category_parent != 0">
+   			and  t1.categoryId IN (SELECT id FROM t_category WHERE fatherId=#{category_parent})
+   		</if>
+   		<if test="category_parent1 != null and category_parent1 != 0">
+   			or  t1.categoryId IN (SELECT id FROM t_category WHERE fatherId=#{category_parent1})
+   		</if>
+   		<if test="countryId != null and countryId != 0">
+   			and  t2.raveId = #{countryId} 
+   			and t1.id = t2.appId 
+   		</if>
+   		<if test="cpId != null and cpId != ''">
+  			and t1.cpId like CONCAT("%",#{cpId},"%")
+  		</if>
+  		<if test="source != null and source != ''">
+  			and t1.source like CONCAT("%",#{source},"%")
+  		</if>
+  		<if test="startTime != null and startTime != ''">
+  			 <![CDATA[and t1.createTime >= #{startTime}]]> 
+  		</if>
+  		<if test="endTime != null and endTime != ''">
+  			 <![CDATA[and t1.createTime <= #{endTime}]]> 
+  		</if>
+  	</trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id,fatherChannelId,password,pwd,name,anotherName,cpId,issuer,tags,pinyin, 
+	free,brief,description,logo,bigLogo,stars,starsInit,starsReal, 
+	officalIcon,officalScore, officalImg,backgroundImg, 
+	machineType,keyword,initial, hasSite,updateTime,
+	operator,remark,categoryId,initialReleaseDate,createTime, sort,initDowdload,realDowdload,pageOpen,updateNum,pdfUrl,source
+  </sql>
+  <sql id="Base_Column_List1" >
+    t1.id as id,  fatherChannelId, password, pwd,  name, t1.cpId ,issuer, tags, pinyin, t1.updateNum as updateNum,t1.pdfUrl,t1.source,
+	free, brief,description,logo, bigLogo,stars,starsInit,starsReal,
+	officalIcon,officalScore ,officalImg,backgroundImg,initDowdload,realDowdload,pageOpen,updateNum,
+	machineType, keyword, initial, hasSite, t1.updateTime as updateTime,
+	operator, t1.remark as remark, categoryId,initialReleaseDate,t1.createTime as createTime,sort
+  </sql>
+	<!-- 分页查看app信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap1" parameterType="com.mas.rave.main.vo.AppInfo" >
+    select 
+    <include refid="Base_Column_List1" />
+  	  ,t2.packageName as packageName,
+  	  t2.state as state,t2.cpState as cpState
+    from t_app_info t1   left join t_app_file t2 on t1.id = t2.appId 
+   <include refid="dynamicWhere1"/>
+     GROUP BY t1.id
+     order by
+      <if test="name != null and name != ''">
+          LOWER(t1.name) =  #{name} DESC,LOWER(t1.name) LIKE CONCAT(#{name},"%") DESC, realDowdload DESC,initDowdload DESC,  		  
+  	  </if>
+      t1.free,t1.createTime desc
+      limit #{currentPage} ,#{pageSize}
+      
+  </select>
+  
+    <select id="selectByExample1" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppInfo" >
+    select 
+    <include refid="Base_Column_List1" />
+     <if test="packageName != null and packageName != ''">
+  	  ,t2.packageName as packageName
+  	 </if>
+    from t_app_info t1
+    <trim prefix="where" prefixOverrides="and">
+	    <if test="name != null and name != ''">
+	  			and t1.name like CONCAT("%",#{name},"%")
+	  	</if>
+	  	<if test="free != null and free!=-1" >
+	  			and  t1.free = #{free}
+	  	</if>
+  	</trim>
+    <if test="packageName != null and packageName != ''">
+      	GROUP BY appId
+      </if>
+     order by
+      <if test="name != null and name != ''">
+          LOWER(t1.name) =  #{name} DESC,LOWER(t1.name) LIKE CONCAT(#{name},"%") DESC, realDowdload DESC,initDowdload DESC,  		  
+  	  </if>
+      t1.createTime desc 
+  </select>
+    <select id="getAllAppInfos" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_app_info
+   where id!=1
+     order by sort desc
+  </select>
+  
+  <!-- 根据参数查看app信息 -->
+  <select id="getApps" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_app_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  
+  
+  <!-- 删除app信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_app_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <!-- 增加app信息 -->
+  <insert id="insert"  parameterType="com.mas.rave.main.vo.AppInfo">
+  	<selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+    INSERT INTO t_app_info 
+	(id,name,anotherName,cpId,fatherChannelId,password,pwd,
+	tags,pinyin,free,brief,description,logo,bigLogo,
+	stars,officalIcon,officalScore,officalImg,backgroundImg, 
+	machineType,keyword,initial,hasSite, 
+	operator,remark,source,
+	<if test="category != null" >
+		categoryId,
+	</if>
+	initialReleaseDate,createTime,sort,initDowdload,realDowdload,pageOpen)
+	VALUES
+	(#{id},#{name},#{anotherName},#{cp.id},#{channel.id},#{password},#{pwd},#{tags},#{pinyin}, 
+	#{free},#{brief},#{description},#{logo},#{bigLogo},#{stars},#{officalIcon}, 
+	#{officalScore},#{officalImg},#{backgroundImg},#{machineType}, 
+	#{keyword},#{initial},#{hasSite}, 
+	#{operator},#{remark},#{source},
+	<if test="category != null" >
+		#{category.id},
+	</if>
+	#{initialReleaseDate},now(),#{sort},#{initDowdload},#{realDowdload},#{pageOpen}
+	)
+	
+	
+  </insert>
+  
+  <!-- 统计app信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.AppInfo" resultType="java.lang.Integer" >
+    select count(*) from t_app_info t1 
+    <include refid="dynamicWhere"/>
+  </select> 
+  
+  <!-- 更新app信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.AppInfo" >
+	UPDATE t_app_info SET name = #{name},anotherName=#{anotherName},cpId=#{cp.id},
+	fatherChannelId=#{channel.id},password=#{password},pwd=#{pwd},
+	free = #{free},brief = #{brief},description = #{description},logo = #{logo}, 
+	bigLogo = #{bigLogo},stars = #{stars},initial = #{initial},
+	updateTime = now(),remark = #{remark},source=#{source},initialReleaseDate=#{initialReleaseDate},
+	<if test="category != null" >
+		categoryId=#{category.id},
+	</if>
+	sort = #{sort},initDowdload=#{initDowdload},
+	pdfUrl=#{pdfUrl}
+	WHERE id = #{id}
+  </update>
+  
+  
+  <update id="updateNum" parameterType="java.lang.Integer" >
+	UPDATE t_app_info SET updateNum=updateNum+1 WHERE id = #{id}
+  </update>
+  
+   <update id="upFree" parameterType="com.mas.rave.main.vo.AppInfo" >
+	UPDATE t_app_info SET free=#{free},initialReleaseDate=#{initialReleaseDate},source=#{source} WHERE id = #{id}
+  </update>
+  
+  
+  <select id="selectByFatherChannelIdAndName"  resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppInfo" >
+    select
+    	<include refid="Base_Column_List" />
+    from t_app_info where name = #{name} and fatherChannelId = #{fatherChannelId}
+  </select>
+    <select id="selectByName"  resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    	<include refid="Base_Column_List" />
+    from t_app_info where name = #{name} 
+  </select>
+    
+  <select id="getAppInfoCountByCategory"  resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+    select count(*) from t_app_info where categoryId = #{categoryId}
+  </select>
+  
+    <select id="checkCp"  resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+   	 select count(*) from t_app_info where cpId = #{cpId}
+  </select>
+  <select id="selectADayAgoInfo"  resultMap="BaseResultMap">
+   	 SELECT t1.id,t1.name,t1.initialReleaseDate as initialReleaseDate1, t2.name AS categoryName,t1.realDowdload,t1.pageOpen FROM t_app_info t1 
+   	 LEFT JOIN t_category t2 ON t1.categoryId=t2.id WHERE (TO_DAYS(CURDATE()) - TO_DAYS(t1.createTime))>0
+  </select>
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model title="Application Self-Support" >
+	<properties name="Name" title="名称" columnsWidth="5000"/>
+	<properties name="Id" title="appId" columnsWidth="4500"/>	
+	<properties name="ChannelName" title="渠道" columnsWidth="5000"/>	
+	<properties name="ChannelId" title="渠道Id" columnsWidth="5000"/>		
+	<properties name="CpName" title="cp" columnsWidth="5000"/>	
+	<properties name="CpId" title="cpId" columnsWidth="5000"/>	
+	<properties name="FirstCategoryName" title="一级分类英文名" columnsWidth="5000"/>
+	<properties name="FirstCategoryNameCn" title="一级分类中文名" columnsWidth="5000"/>			
+	<properties name="SecondCategoryName" title="二级分类英文名" columnsWidth="5000"/>
+	<properties name="SecondCategoryNameCn" title="二级分类中文名" columnsWidth="5000"/>
+	<properties name="Stars" title="星星评级" columnsWidth="4500"/>		
+	<properties name="UpdateNum" title="更新数" columnsWidth="5000"/>
+	<properties name="RealDowdload" title="下载数(实)" columnsWidth="4500"/>
+	<properties name="InitDowdload" title="下载数(虚)" columnsWidth="10000"/>
+	<properties name="PageOpen" title="浏览数" columnsWidth="5000"/>
+	<properties name="CreateTime" title="创建日期" columnsWidth="5000"/>
+	<properties name="source" title="责任人" columnsWidth="5000"/>
+</model>

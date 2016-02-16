@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mas.rave.dao.ImageAlbumResMapper">
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.ImageAlbumRes">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="raveId" jdbcType="INTEGER" property="raveId" />
+    <result column="imageId" jdbcType="INTEGER" property="imageId" />
+    <result column="imageName" jdbcType="VARCHAR" property="imageName" />
+    <result column="biglogo" jdbcType="VARCHAR" property="biglogo" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="fileSize" jdbcType="INTEGER" property="fileSize" />
+    <result column="free" jdbcType="INTEGER" property="free" />
+    <result column="width" jdbcType="INTEGER" property="width" />
+    <result column="length" jdbcType="INTEGER" property="length" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+    <result column="brief" jdbcType="VARCHAR" property="brief" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="stars" jdbcType="INTEGER" property="stars" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="initDowdload" jdbcType="INTEGER" property="initDowdload" />
+    <result column="realDowdload" jdbcType="VARCHAR" property="realDowdload" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="albumId" jdbcType="INTEGER" property="albumId" />
+    <result column="columnId" jdbcType="INTEGER" property="columnId" />
+    <association column="themeId" property="imageAlbumTheme" jdbcType="INTEGER" select="com.mas.rave.dao.ImageAlbumThemeMapper.selectByPrimaryKey" />
+    <association column="albumId" property="appAlbum" jdbcType="INTEGER" select="com.mas.rave.dao.AppAlbumMapper.selectByPrimaryKey" />
+  	<association column="columnId" property="appAlbumColumn" jdbcType="INTEGER" select="com.mas.rave.dao.AppAlbumColumnMapper.selectByPrimaryKey" />
+  	<association column="categoryId" property="category" jdbcType="INTEGER" select="com.mas.rave.dao.CategoryMapper.selectByPrimaryKey" />
+   	<association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 	  	
+ 
+  </resultMap>
+  <sql id="commonColumns">
+  	<![CDATA[
+  		id,raveId,themeId,albumId,columnId,imageId,imageName,biglogo,categoryId,sort,fileSize,width,length,free,
+  		logo,brief,description,stars,url,initDowdload,realDowdload,operator,createTime
+  	]]>
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="params.id != null and params.id != ''">
+  			and id = #{params.id}
+  		</if>
+  		<if test="params.imageName != null and params.imageName != ''">
+  			and imageName like "%${params.imageName}%"
+  		</if>
+  		<if test="params.themeId != null and params.themeId != ''">
+  			and themeId = #{params.themeId}
+  		</if>
+  		<if test="params.columnId != null and params.columnId != ''">
+  			and columnId = #{params.columnId}
+  		</if>
+  		<if test="params.startTime != null and params.startTime != ''">
+  			<![CDATA[and createTime >= #{params.startTime}]]>
+  		</if>
+  		<if test="params.endTime != null and params.endTime != ''">
+  			<![CDATA[and createTime <= #{params.endTime}]]>
+  		</if>
+  		<if test="params.raveId != null and params.raveId != ''" > 	     
+	     <!--  <![CDATA[ and  raveId=#{params.raveId}]]>	 -->      
+			 <if test="params.raveId >1" >  
+			   and raveId=#{params.raveId}
+		     </if> 
+		      <if test="params.raveId ==1" >  
+		      	and raveId=#{params.raveId}
+		      </if>
+        </if>
+  	</trim>
+  </sql>
+  <select id="query" parameterType="com.mas.rave.common.page.PaginationBean" resultMap="BaseResultMap">
+  	select 
+  	<include refid="commonColumns"/> 
+  	from mas_market.t_res_image_album_res 
+  	<include refid="dynamicWhere"/>
+  	<trim>
+  		 order by 		
+	  	<if test="params.imageName != null and params.imageName != ''">
+  	     LOWER(imageName) =  #{params.imageName} DESC,LOWER(imageName) LIKE CONCAT(#{params.imageName},"%") DESC,
+  	    </if> 
+  	    <if test="params.themeId != null and params.themeId != ''">
+  			 sort desc,createTime desc
+  		</if>
+  		<if test="params.columnId != null and params.columnId != ''">
+  			 sort desc,realDowdload desc
+  		</if>
+  	</trim>
+  </select>
+	<!-- 根据imageId查询 add by jieding -->
+   <select id="selectByImageId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  	select 
+  	<include refid="commonColumns"/> 
+  	from mas_market.t_res_image_album_res where imageId = #{imageId} 	
+  </select>
+  <!-- 根据themeId查询 add by jieding -->
+   <select id="selectByThemeId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  	select 
+  	<include refid="commonColumns"/> 
+  	from mas_market.t_res_image_album_res where themeId = #{themeId} 	
+  </select>
+  <select id="queryCounts" parameterType="com.mas.rave.common.page.PaginationBean" resultType="java.lang.Integer">
+  	select count(id) from mas_market.t_res_image_album_res 
+  	<include refid="dynamicWhere"/>
+  </select>
+  <delete id="deleteById" parameterType="com.mas.rave.common.page.PaginationBean">
+  	delete from mas_market.t_res_image_album_res where id in (${params.ids})
+  </delete>
+  
+    <delete id="deleteByImageId" parameterType="java.lang.Integer">
+  		delete from mas_market.t_res_image_album_res where imageId = #{imageId}
+  </delete>
+  
+  <update id="updateById" parameterType="com.mas.rave.main.vo.ImageAlbumRes">
+  	update mas_market.t_res_image_album_res set sort = #{sort} where id = #{id}
+  </update>
+    <!-- 更新image分发信息-->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.ImageAlbumTheme" >
+  	UPDATE mas_market.t_res_image_album_res 
+	SET categoryId = #{categoryId},
+	sort = #{sort},imageName = #{imageName},free = #{free},logo = #{logo},
+	biglogo = #{biglogo},brief = #{brief},description = #{description},stars = #{stars},
+	fileSize = #{fileSize},url = #{url},width = #{width},length = #{length},initDowdload = #{initDowdload},
+	realDowdload =#{realDowdload},operator = #{operator} WHERE id = #{id}
+  </update>
+  <insert id="insert" parameterType="java.util.HashMap">
+  	insert into mas_market.t_res_image_album_res
+  	(
+  	<include refid="commonColumns"/>
+  	)
+  	select null,#{raveId},#{themeId},#{albumId},#{columnId},
+  	id,name,biglogo,categoryId,10,fileSize,width,length,free,
+  	logo,brief,description,stars,url,initDowdload,realDowdload,operator,createTime 
+  	from mas_market.t_res_image where id in 
+  	<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+         #{item}
+   	</foreach>
+  </insert>
+</mapper>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.CountryMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.Country" />
+  
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+   	id,name,nameCn,createTime,url,state
+  </sql>
+   <!-- 根据条件查询国家信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.CountryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_rave_country
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <!-- 获取所有国家信息 -->
+   <select id="getCountrys" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_rave_country  order by id asc;
+  </select>
+   <!-- 根据ID查询国家信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_rave_country
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+   <!-- 根据ID删除国家信息 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_rave_country
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <!-- 增加国家信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.Country" >
+    INSERT INTO t_rave_country (name,nameCn,createTime) VALUES(#{name},#{nameCn},NOW())
+  </insert>
+  
+  
+  <!-- 统计国家信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.CountryExample" resultType="java.lang.Integer" >
+    select count(*) from t_rave_country
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <!-- 更新国家信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.Country" >
+  UPDATE t_rave_country SET name = #{name}, nameCn = #{nameCn}
+  WHERE
+	id = #{id}
+  
+  </update>
+  
+  <update id="updateState" parameterType="java.util.HashMap" >
+  	UPDATE t_rave_country SET state = #{state} WHERE id = #{id}
+  </update>
+  
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+    
+	<description>mas.rave自定义jsp标签描述文件</description>
+	<display-name>mas.rave TAG DESC</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>ccgk</short-name>
+	<uri>http://www.ccgk.com/jsp/commons</uri>
+
+	<tag>
+		<description>
+        	分页标签
+		</description>
+		<name>pagination</name>
+		<tag-class>com.mas.rave.common.web.PaginationTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>
+			封装分页对象
+			</description>
+			<name>paginationVo</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+			请求url
+			</description>
+			<name>contextPath</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+			参数
+			</description>
+			<name>params</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<function>
+		<description>  
+       return if the user has the special operation permission
+		</description>
+		<name>hasPermission</name>
+		<function-class>com.mas.rave.common.permission.PermissionFunctionTag</function-class>
+		<function-signature>boolean userHasSpecialPermission(java.lang.Integer,java.lang.String)</function-signature>
+		<example>  
+        	userHasSpecialPermission(12,"order_add")
+		</example>
+	</function>
+</taglib>

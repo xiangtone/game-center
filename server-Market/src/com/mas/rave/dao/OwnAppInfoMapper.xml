@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.OwnAppInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.OwnAppInfo" >
+  </resultMap>
+   <sql id="dynamicWhere"> 	 
+  	<trim prefix="where" prefixOverrides="and"> 	 
+  	    <if test="packageName != null and packageName != ''">
+  	       and  t2.packageName like CONCAT("%",#{packageName},"%")  	    
+  		</if>
+  		<if test="name != null and name != ''">
+  			and t1.name like CONCAT("%",#{name},"%")
+  		</if>
+  		<if test="id !=null and id != ''">
+  			and  (t1.id like CONCAT("%",#{id},"%")	or t1.name like CONCAT("%",#{id},"%"))	
+  		</if>
+  		<if test="free != null and free!=-1 and free!=-2" >
+  			and  t1.free = #{free}
+  		</if>
+  		<if test="source != null and source != ''">
+  			and t1.source like CONCAT("%",#{source},"%")
+  		</if>
+  		<if test="startTime != null and startTime != ''">
+  			 <![CDATA[and t1.createTime >= #{startTime}]]> 
+  		</if>
+  		<if test="endTime != null and endTime != ''">
+  			 <![CDATA[and t1.createTime <= #{endTime}]]> 
+  		</if>
+  	</trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id,password,pwd,name,free,brief,description,logo,bigLogo,stars,
+	machineType,keyword,initial, hasSite,updateTime,
+	operator,remark,createTime, sort,source
+  </sql>
+  
+    <sql id="Base_Column_List1" >
+    t1.id,t1.password,t1.pwd,t1.name,
+	t1.free,t1.brief,t1.description,t1.logo,t1.bigLogo,t1.stars,
+	t1.machineType,t1.keyword,t1.initial,t1.hasSite,t1.updateTime,
+	t1.operator,t1.remark,t1.createTime,t1.sort,t1.source
+  </sql>
+  
+	<!-- 分页查看app信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.OwnAppInfo" >
+    select 
+    <include refid="Base_Column_List1" />
+  	  ,t2.packageName as packageName
+    from t_own_app_info t1 left join t_own_app_file t2 on t1.id = t2.appId 
+   <include refid="dynamicWhere"/>
+     GROUP BY t1.id
+     order by t1.createTime desc
+      limit #{currentPage} ,#{pageSize}
+  </select>
+  
+   <select id="queryAll"  resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.OwnAppInfo" >
+    select
+    <include refid="Base_Column_List" />
+    from t_own_app_info 
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_own_app_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_own_app_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <!-- 增加app信息 -->
+  <insert id="insert"  parameterType="com.mas.rave.main.vo.OwnAppInfo">
+  	<selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+    INSERT INTO t_own_app_info 
+	(id,name,anotherName,password,pwd,
+	free,brief,description,logo,bigLogo,stars, 
+	machineType,keyword, 
+	operator,remark,source,createTime,sort)
+	VALUES
+	(#{id},#{name},#{anotherName},#{password},#{pwd},
+	#{free},#{brief},#{description},#{logo},#{bigLogo},#{stars},#{machineType}, 
+	#{keyword},#{operator},#{remark},#{source},now(),#{sort}
+	)
+  </insert>
+  
+  <!-- 统计app信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.OwnAppInfo" resultType="java.lang.Integer" >
+    select count(*) from t_own_app_info t1 
+    <include refid="dynamicWhere"/>
+  </select> 
+  
+   <select id="selectByName"  resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_own_app_info where name = #{name} 
+  </select>
+  
+  
+  <!-- 更新app信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.OwnAppInfo" >
+	UPDATE t_own_app_info SET name = #{name},anotherName=#{anotherName},
+	password=#{password},pwd=#{pwd},
+	free = #{free},brief = #{brief},description = #{description},logo = #{logo}, 
+	bigLogo = #{bigLogo},stars = #{stars},
+	updateTime = now(),remark = #{remark},source=#{source},
+	sort = #{sort}
+	WHERE id = #{id}
+  </update>
+</mapper>

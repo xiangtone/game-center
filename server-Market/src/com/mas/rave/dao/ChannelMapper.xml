@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.ChannelMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.Channel" >
+      <association column="provinceId" property="province" jdbcType="INTEGER" select="com.mas.rave.dao.ProvinceMapper.selectByPrimaryKey" />
+  
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.orValue" >
+                  and ${criterion.condition} #{criterion.value} or ${criterion.secondCondition}  #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id,fatherId,fatherName,password,pwd,name,type,contacter,phone,email,address,provinceId,
+    description,remark,state,sort, createTime,operator
+  </sql>
+  
+  <update id="updateSortByPrimarykey" parameterType="com.mas.rave.main.vo.Channel" >
+  	update t_channel_info set sort = #{sort} where id = #{id}
+  </update>
+  
+	<!-- 分页查看渠道信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.ChannelExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_channel_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    order by sort desc
+    <!-- 
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if> -->
+  </select>
+  
+  <!-- 分页查看渠道信息 -->
+  <select id="getChannels" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_channel_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  
+  
+  <!-- 删除平台信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_channel_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_channel_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+   <delete id="deletSecondChannel" parameterType="java.lang.Integer" >
+    delete from t_channel_info
+    where fatherId = #{fatherId}
+  </delete>
+  
+  
+  <!-- 增加渠道信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.Channel" >
+    INSERT INTO t_channel_info (id,fatherId,fatherName,password,pwd,name,type,contacter,phone,email,address, 
+	 <if test="province != null" >
+        provinceId,
+      </if>
+	description,remark,state,sort,createTime,operator)
+	VALUES(#{id},#{fatherId},#{fatherName},#{password},#{pwd},#{name}, 
+	#{type},#{contacter},#{phone}, #{email},
+	#{address}, 
+	<if test="province != null" >
+        #{province.id},
+    </if>
+    #{description}, 
+	#{remark},#{state},#{sort},now(),#{operator});
+  </insert>
+  
+  
+  <!-- 统计渠道信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.ChannelExample" resultType="java.lang.Integer" >
+    select count(*) from t_channel_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <!-- 更新平台信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.Channel" >
+	UPDATE t_channel_info
+	SET
+	id = #{id},fatherId = #{fatherId},fatherName = #{fatherName},
+	NAME = #{name},type = #{type},password=#{password},pwd=#{pwd},
+	contacter = #{contacter}, 
+	<if test="province != null" >
+		provinceId=#{province.id},
+	</if>
+	phone = #{phone}, email = #{email},address= #{address}, 
+	description = #{description}, 
+	remark = #{remark},state = #{state},sort = #{sort},createTime = #{createTime}, 
+	operator = #{operator}
+	WHERE
+	id = #{id};
+  </update>
+</mapper>

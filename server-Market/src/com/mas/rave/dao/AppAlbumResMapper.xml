@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppAlbumResMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppAlbumRes" >
+  	  <association column="appId" property="appInfo" jdbcType="INTEGER" select="com.mas.rave.dao.AppInfoMapper.selectByPrimaryKey" />
+  	  <association column="apkId" property="appFile" jdbcType="INTEGER" select="com.mas.rave.dao.AppFileMapper.selectByPrimaryKey" />
+  	  <association column="albumId" property="appAlbum" jdbcType="INTEGER" select="com.mas.rave.dao.AppAlbumMapper.selectByPrimaryKey" />
+  	  <association column="columnId" property="appAlbumColumn" jdbcType="INTEGER" select="com.mas.rave.dao.AppAlbumColumnMapper.selectByPrimaryKey" />
+  	  <association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 	
+  	  <association column="collectionId" property="appCollection" jdbcType="INTEGER" select="com.mas.rave.dao.AppCollectionMapper.selectByPrimaryKey" /> 	
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.andValue" >
+                  and ${criterion.condition} #{criterion.value} and ${criterion.secondCondition} #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+  	collectionId,id,raveId,albumId,columnId,categoryId,sort,appId, 
+	appName,free,logo,bigLogo,brief,description,stars,apkId, 
+	fileSize,packageName,versionCode,versionName,url,initDowdload,realDowdload,operator,createTime,source,effective,ranking
+  </sql>
+<select id="getSelectAppFiles" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+   select *  from 
+   (
+     SELECT categoryId,sort,t2.id as appId, raveId,
+			appName,free,logo,bigLogo,brief,description,stars,t1.id AS id,
+			fileSize,packageName,versionCode,versionName,url,initDowdload,realDowdload,operator,t1.channelId as channelId
+	 FROM `t_app_file` t1 JOIN `t_app_info` t2 ON(t1.`appId`=t2.`id`) 
+ 		WHERE t1.state = true and (t2.free = 0 or t2.free = 2 or (t2.free = 3 and t1.cpState=1))
+ 		<if test="appname != null" >
+ 		    and t2.name like "%${appname}%" 
+ 		</if>
+ 		<if test="appid != null" >
+ 		    and( t2.`id` like "%${appid}%" or t2.name like "%${appid}%")
+ 		</if>
+  	    <if test="raveId != null" > 
+	      and ( raveId=#{raveId}
+	      <if test="raveId >1" >  
+	      or raveId=1
+          </if>
+         ) 
+        </if>
+ 	 	<if test="categoryId != null" >
+ 		 	and t2.categoryId = #{categoryId}
+ 	 	</if>
+ 	 	<if test="category_parent != null" >
+ 		 	and t2.categoryId in (select id from t_category where fatherId = #{category_parent})
+ 	 	</if>
+ 	 	<if test="collectionId != null" >
+ 		 	AND NOT EXISTS (SELECT appId FROM `t_app_album_res` WHERE t2.`id`=appId AND  collectionId = #{collectionId} and raveId=#{raveId}  AND effective=true)
+ 	 	</if>
+ 	 	<if test="columnId != null" >
+ 		 	AND NOT EXISTS (SELECT appId FROM `t_app_album_res` WHERE t2.`id`=appId AND  columnId = #{columnId} and raveId=#{raveId}  AND effective=true)
+ 	 	</if>
+ 		 ORDER BY raveId DESC ) t0
+ 		GROUP BY appId 
+ 		ORDER BY 			 		
+ 	  <if test="appname != null and appname != ''">
+   		LOWER(appName) = #{appname} DESC,LOWER(appName) LIKE CONCAT(#{appname},"%") DESC,realDowdload DESC,initDowdload DESC,  		  
+  	  </if>
+ 		 raveId DESC  	 
+ 		limit #{index},#{pageSize}
+  </select>
+  <select id="getSelectAppFilesCount" resultType="java.lang.Integer" parameterType="java.util.HashMap">
+  SELECT COUNT(DISTINCT t2.id)
+	FROM `t_app_file` t1 JOIN `t_app_info` t2 ON(t1.`appId`=t2.`id`) 
+ 		WHERE t1.state = true and (t2.free = 0 or t2.free = 2 or (t2.free = 3 and t1.cpState=1))
+ 		<if test="appname != null" >
+ 		    and t2.name like "%${appname}%"
+ 		</if>
+ 		<if test="appid != null" >
+ 		    and( t2.`id` like "%${appid}%" or t2.name like "%${appid}%")
+ 		</if>
+ 		<if test="raveId != null" > 
+		     and ( raveId=#{raveId}
+		     <if test="raveId >1" >  
+		     or raveId=1
+	      	 </if>
+	       ) 
+	     </if>
+ 	 	<if test="categoryId != null" >
+ 		 	and t2.categoryId = #{categoryId}
+ 	 	</if>
+ 	 	<if test="category_parent != null" >
+ 		 	and t2.categoryId in (select id from t_category where fatherId = #{category_parent})
+ 	 	</if>
+ 	 	<if test="collectionId != null" >
+ 		 	AND NOT EXISTS (SELECT appId FROM `t_app_album_res` WHERE t2.`id`=appId AND  collectionId = #{collectionId} and raveId=#{raveId}  AND effective=true)
+ 	 	</if>
+ 	 	<if test="columnId != null" >
+ 		 	AND NOT EXISTS (SELECT appId FROM `t_app_album_res` WHERE t2.`id`=appId AND  columnId = #{columnId} and raveId=#{raveId}  AND effective=true)
+ 	 	</if> 		
+  </select>
+  <insert id="insertSelectApps"  parameterType="java.util.HashMap" >
+      INSERT INTO `mas_market`.`t_app_album_res`
+		(`collectionId`,`columnId`,`albumId`,`raveId`,`categoryId`, `appId`, `appName`, `free`, `logo`, `bigLogo`, `brief`, `description`, `stars`, `apkId`, `fileSize`, `packageName`, `versionCode`, `versionName`, `url`, `initDowdload`, `realDowdload`,`source`,`effective`)
+		SELECT #{collectionId},#{columnId},#{albumId},#{raveId},`categoryId`, t1.`id`, `name`, `free`, `logo`, `bigLogo`, `brief`, `description`, `stars`, t2.`id`, `fileSize`, `packageName`, `versionCode`, `versionName`, `url`, `initDowdload`, `realDowdload`,0,true
+		FROM `mas_market`.`t_app_file` t2,`mas_market`.`t_app_info` t1 WHERE t2.appId = t1.id 
+	    AND NOT EXISTS (SELECT appId FROM `t_app_album_res_temp` WHERE t1.`id`=appId AND columnId = #{columnId} AND raveId=#{raveId}  AND effective=0)		
+		AND t2.id in
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+      	</foreach>
+  </insert>
+	<!-- app分发信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppAlbumResExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_app_album_res
+	<if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    order by 
+     <if test="orderByClause != null" >
+       ${orderByClause}
+    </if>
+     <if test="mapOrderByClause != null" >
+        <if test="mapOrderByClause.appName != null ">
+   		LOWER(appName) =  #{mapOrderByClause.appName} DESC,
+   		LOWER(appName) LIKE CONCAT(#{mapOrderByClause.appName},"%") DESC, 		  
+  	    </if>      
+    </if>
+    sort desc,initDowdload+realDowdload desc
+  </select>
+  
+  <!-- 同步app对应文件cp -->
+  <update id="upAppAlbumResByAppId" parameterType="java.util.HashMap" >
+	UPDATE t_app_album_res SET appName=#{appName} WHERE appId = #{appId}
+  </update>
+  
+  <update id="updateSortByPrimarykey" parameterType="com.mas.rave.main.vo.AppAlbumRes">
+  	update t_app_album_res set sort = #{sort} where id = #{id}
+  </update>
+  <!-- 更新排名 -->
+   <update id="updateRankingByPrimarykey" parameterType="com.mas.rave.main.vo.AppAlbumRes">
+  	update t_app_album_res set ranking = #{ranking} where id = #{id}
+  </update> 
+  <!-- 删除app分发信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_album_res
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+   <select id="selectByColumnId" resultType="java.lang.String" parameterType="com.mas.rave.main.vo.AppAlbumRes" >
+    SELECT appName FROM `t_app_album_res` WHERE
+     columnId = #{columnId} and raveId=#{raveId}
+  </select>
+  <delete id="deleteByCollectionId" parameterType="java.lang.Integer" >
+   	 delete from t_app_album_res where 
+     collectionId = #{collectionId,jdbcType=INTEGER}
+  </delete> 
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_app_album_res
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <delete id="deleteByApp" parameterType="java.util.HashMap" >
+    delete from t_app_album_res
+    where 
+    <if test="apkId != null" >
+    	 apkId = #{apkId}
+    </if>
+    <if test="appId != null" >
+    	 appId = #{appId}
+    </if>
+  </delete>
+  
+   <delete id="deleteByAlbumId" parameterType="java.lang.Integer" >
+    delete from t_app_album_res
+    where albumId = #{albumId}
+  </delete>
+  <!-- 增加app分发信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.AppAlbumRes" >
+  	INSERT INTO t_app_album_res (id,raveId,albumId,columnId,categoryId,sort,appId,appName,free,logo, 
+	bigLogo,brief,description,stars,
+	<if test="appFile != null" >
+      apkId,
+    </if>
+	fileSize, 
+	packageName,versionCode,versionName,url,initDowdload,operator,createTime,ranking)
+	VALUES(#{id},#{raveId},#{appAlbum.id},#{appAlbumColumn.columnId},#{categoryId},
+	#{sort},#{appInfo.id},#{appName},#{free},#{logo},#{bigLogo},#{brief}, 
+	#{description},#{stars},
+	<if test="appFile != null" >
+      #{appFile.id},
+    </if>
+	#{fileSize},#{packageName},#{versionCode}, 
+	#{versionName},#{url},#{initDowdload},#{operator},now(),#{ranking})
+  </insert>
+  
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.AppAlbumResExample" resultType="java.lang.Integer" >
+    select count(*) from t_app_album_res
+     <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <!-- 更新分发信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.AppAlbumRes" >
+  	UPDATE t_app_album_res SET id = #{id},raveId = #{raveId},albumId = #{appAlbum.id},categoryId=#{categoryId},free=#{free},columnId = #{appAlbumColumn.columnId}, 
+	sort = #{sort},appId = #{appInfo.id},appName = #{appName}, 
+	logo = #{logo},bigLogo = #{bigLogo},brief = #{brief},description = #{description}, 
+	stars = #{stars},apkId = #{appFile.id},fileSize = #{fileSize}, packageName = #{packageName}, 
+	versionCode = #{versionCode},versionName = #{versionName},url = #{url},initDowdload=#{initDowdload},operator = #{operator},ranking = #{ranking}
+	WHERE id = #{id} 
+  </update>
+</mapper>

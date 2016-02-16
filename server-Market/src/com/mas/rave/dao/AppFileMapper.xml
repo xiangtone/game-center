@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppFileMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppFile" >
+  	<association column="appId" property="appInfo" jdbcType="INTEGER" select="com.mas.rave.dao.AppInfoMapper.selectByPrimaryKey" />
+  	<association column="channelId" property="channel" jdbcType="INTEGER" select="com.mas.rave.dao.ChannelMapper.selectByPrimaryKey" />
+  	<association column="cpId" property="cp" jdbcType="INTEGER" select="com.mas.rave.dao.CpMapper.selectByPrimaryKey" />
+  	<association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 	  	
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+   id,appId,appName,channelId,cpId,apkKey,serverId,raveId,upgradeType,packageName,versionCode,versionName,url,osType,resolution, 
+	fileSize,cpChannelCode,updateInfo,remark, state,createTime,updateTime,language,haslist,cpState
+  </sql>
+  
+	<!-- 分页查看app文件信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppFileExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_app_file
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+      <if test="map!=null and map.raveId != null" > 
+		and ( raveId=#{map.raveId}
+		<if test="map.raveId >1" >  
+		or raveId=1
+	    </if>
+	    ) 
+	 </if> 
+    </if>
+    <if test="orderByClause != null or(map!=null and map.raveId != null)" >
+      order by
+        <if test="map!=null and map.raveId != null" > 
+		raveId desc;  
+	   </if> 
+	   <if test="orderByClause != null" >
+       ${orderByClause}
+       </if>
+    </if>
+
+  </select>
+  
+  <select id="getAppFiles" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+     <include refid="Base_Column_List" />
+     ,(SELECT c.nameCn FROM `t_rave_country` c WHERE c.id= f.raveId) as raveNames,
+     (SELECT c.name FROM `t_rave_country` c WHERE c.id= f.raveId) as nameEn
+    from t_app_file f
+   where f.appId=#{appId}
+   order by f.createTime
+  </select>
+  
+  <select id="getAppFilesGroupBy" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select appId,channelId,raveId,GROUP_CONCAT(B.name) raveNames,cpId,versionCode,versionName,haslist,
+    packageName,A.url,A.state,cpState,apkKey  
+    FROM t_app_file A LEFT JOIN t_rave_country B on A.raveId=B.id 
+     where appId=#{appId} GROUP BY appId,channelId,cpId,versionCode,versionName,packageName,A.state,cpState,apkKey
+  </select>
+  
+  <!-- 分页查看app文件信息 -->
+  <select id="getApps" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <if test="distinct" > 
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_app_file
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  
+  <select id="getAppFileByPac" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
+   select 
+    <include refid="Base_Column_List" />
+    from t_app_file
+    where packageName = #{packageName} 
+  </select>
+   <select id="getAppFileByPacs" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
+   select 
+    <include refid="Base_Column_List" />
+    from t_app_file
+    where 
+    <if test="appId!=null" > 
+    	 appId=#{appId} 
+    </if>
+    <if test="packageName!=null" > 
+     	and packageName = #{packageName}
+    </if>
+     <if test="channelId!=null" > 
+     	and channelId=#{channelId}
+    </if>
+     <if test="raveId!=null" > 
+     	and raveId=#{raveId}
+    </if>
+  </select>
+  <!-- app文件信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+   select 
+    <include refid="Base_Column_List" />
+     ,(SELECT c.nameCn FROM `t_rave_country` c WHERE c.id= raveId) as raveNames,
+     (SELECT c.name FROM `t_rave_country` c WHERE c.id= raveId) as nameEn
+    from t_app_file
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_app_file
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <update id="updateState" parameterType="com.mas.rave.main.vo.AppFile" >
+    update t_app_file set state=#{state},cpState=#{cpState}  
+    where id = #{id}
+  </update>
+  
+  <!-- 增加app文件信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.AppFile" >
+    INSERT INTO mas_market.t_app_file 
+	(appId,appName,
+	<if test="channel != null" >
+		channelId,
+	</if>
+	<if test="cp != null" >
+		cpId,
+	</if>
+	apkKey,serverId,raveId,upgradeType,packageName,versionCode,versionName,url,osType,resolution,fileSize, 
+	cpChannelCode,updateInfo,remark,state,createTime,updateTime,language,haslist)
+	VALUES(#{appInfo.id},#{appName},
+	<if test="channel != null" >
+		#{channel.id},
+	</if>
+	<if test="cp != null" >
+		#{cp.id},
+	</if>
+	#{apkKey},#{serverId},#{raveId},#{upgradeType},#{packageName},#{versionCode},#{versionName},#{url},#{osType},#{resolution},#{fileSize}, 
+	#{cpChannelCode},#{updateInfo},#{remark},#{state},now(),now(),#{language},#{haslist});
+  </insert>
+  
+  <!-- 统计app文件信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.AppFileExample" resultType="java.lang.Integer" >
+    select count(*) from t_app_file
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <!-- 更新app文件信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.AppFile" >
+	UPDATE t_app_file 
+	SET 
+	<if test="appInfo != null" >
+		appId=#{appInfo.id},
+	</if>
+	appName=#{appName},
+	<if test="channel != null" >
+		channelId=#{channel.id},
+	</if>
+	<if test="cp != null" >
+		cpId=#{cp.id},
+	</if>
+	serverId=#{serverId},
+	upgradeType=#{upgradeType},raveId=#{raveId},packageName=#{packageName},versionCode = #{versionCode},
+	versionName = #{versionName},url = #{url}, language=#{language}, osType=#{osType},
+	resolution = #{resolution},fileSize = #{fileSize}, cpChannelCode = #{cpChannelCode}, 
+	updateInfo = #{updateInfo},remark = #{remark}, 
+	state = #{state},
+	updateTime = now(),
+	haslist=#{haslist}
+	WHERE id = #{id};
+  </update>
+  
+  <!-- 同步app对应文件cp -->
+  <update id="upAppFileByAppId" parameterType="java.util.HashMap" >
+	UPDATE t_app_file SET cpId=#{cpId},appName=#{appName} WHERE appId = #{appId};
+  </update>
+  
+   <select id="getAppFileByAppIdAndRaveIdAndChannel" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_file
+    where appId = #{appId}
+    <if test="raveId != null" > 
+		and ( raveId=#{raveId}
+		<if test="raveId >1" >  
+		or raveId=1
+	    </if>
+	    ) 
+	 </if> 
+	 and channelId=#{channelId} and state=true
+   group By packageName order by raveId desc
+  </select>
+    <select id="getAppFileByAppIdAndRaveId" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_file
+    where appId = #{appId}
+    <if test="raveId != null" > 
+		and ( raveId=#{raveId}
+		<if test="raveId >1" >  
+		or raveId=1
+	    </if>
+	    ) 
+	 </if>
+	 and state=true 
+   group By packageName order by raveId desc
+  </select> 
+   <select id="selectByChannelIdAndPack" resultType="com.mas.rave.main.vo.AppFile" parameterType="com.mas.rave.main.vo.AppFile" >
+    select
+    id,appId,appName,channelId,cpId,apkKey,serverId,upgradeType,packageName,versionCode,versionName,url,osType,resolution, 
+	fileSize,cpChannelCode,updateInfo,remark, state,createTime,updateTime,language,haslist
+    from t_app_file where channelId = #{channel.id} and packageName = #{packageName} limit 1
+  </select>
+  
+  <select id="selectByChannelIdAndName" resultType="com.mas.rave.main.vo.AppFile" parameterType="com.mas.rave.main.vo.AppFile" >
+    	select
+    id,appId,appName,channelId,cpId,apkKey,serverId,upgradeType,packageName,versionCode,versionName,url,osType,resolution, 
+	fileSize,cpChannelCode,updateInfo,remark, state,createTime,updateTime,language,haslist
+    from t_app_file where channelId = #{channel.id} and appName = #{appName} limit 1
+  </select>
+   <select id="getAppFileByName" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppFile" >
+   select 
+    <include refid="Base_Column_List" />
+    from t_app_file
+    where appName = #{appName} 
+  </select>
+  
+  
+  <select id="getAllCpFile" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppFile" >
+   select 
+    f.appName,f.state,f.cpState
+    from t_app_file f,t_app_info i
+    where f.appId=i.id AND i.free=3 AND f.cpState!=1 AND f.state=false
+  </select>
+  
+</mapper>

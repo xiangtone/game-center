@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mas.rave.dao.MusicAlbumResMapper">
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.MusicAlbumRes">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="raveId" jdbcType="INTEGER" property="raveId" />
+    <result column="themeId" jdbcType="INTEGER" property="themeId" />
+    <result column="musicId" jdbcType="INTEGER" property="musicId" />
+    <result column="musicName" jdbcType="VARCHAR" property="musicName" />
+    <result column="artist" jdbcType="VARCHAR" property="artist" />
+    <result column="categoryId" jdbcType="INTEGER" property="categoryId" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="fileSize" jdbcType="INTEGER" property="fileSize" />
+    <result column="duration" jdbcType="INTEGER" property="duration" />
+    <result column="free" jdbcType="INTEGER" property="free" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+    <result column="brief" jdbcType="VARCHAR" property="brief" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="stars" jdbcType="INTEGER" property="stars" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="initDowdload" jdbcType="INTEGER" property="initDowdload" />
+    <result column="realDowdload" jdbcType="VARCHAR" property="realDowdload" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <association column="themeId" property="musicTheme" jdbcType="INTEGER" select="com.mas.rave.dao.MusicAlbumThemeMapper.selectByPrimaryKey" />
+    <association column="albumId" property="appAlbum" jdbcType="INTEGER" select="com.mas.rave.dao.AppAlbumMapper.selectByPrimaryKey" />
+  	<association column="columnId" property="appAlbumColumn" jdbcType="INTEGER" select="com.mas.rave.dao.AppAlbumColumnMapper.selectByPrimaryKey" />
+  	<association column="categoryId" property="category" jdbcType="INTEGER" select="com.mas.rave.dao.CategoryMapper.selectByPrimaryKey" />
+    <association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 	  	
+  </resultMap>
+  <sql id="commonColumns">
+  	<![CDATA[
+  		id,raveId,themeId,albumId,columnId,musicId,musicName,artist,categoryId,sort,fileSize,duration,free,
+  		logo,brief,description,stars,url,initDowdload,realDowdload,operator,createTime
+  	]]>
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="params.id != null and params.id != ''">
+  			and id = #{params.id}
+  		</if>
+  		<if test="params.musicName != null and params.musicName != ''">
+  			and musicName like "%${params.musicName}%"
+  		</if>
+  		<if test="params.themeId != null and params.themeId != ''">
+  			and themeId = #{params.themeId}
+  		</if>
+  		<if test="params.columnId != null and params.columnId != ''">
+  			and columnId = #{params.columnId}
+  		</if>
+  		<if test="params.startTime != null and params.startTime != ''">
+  			<![CDATA[and createTime >= #{params.startTime}]]>
+  		</if>
+  		<if test="params.endTime != null and params.endTime != ''">
+  			<![CDATA[and createTime <= #{params.endTime}]]>
+  		</if>
+  		<if test="params.raveId != null and params.raveId != ''" > 	    
+			 <if test="params.raveId >1" >  
+			   and raveId=#{params.raveId}
+		     </if> 
+		      <if test="params.raveId ==1" >  
+		      	and raveId=#{params.raveId}
+		      </if>
+        </if>
+  	</trim>
+  </sql>
+  <select id="query" parameterType="com.mas.rave.common.page.PaginationBean" resultMap="BaseResultMap">
+  	select 
+  	<include refid="commonColumns"/> 
+  	from mas_market.t_res_music_album_res 
+  	<include refid="dynamicWhere"/>
+  	<trim>
+  		order by 
+  		<if test="params.columnId==34">
+  			sort desc,createTime desc
+  		</if>
+  		<if test="params.columnId!=34">
+	  		<if test="params.musicName != null and params.musicName != ''">
+	  	      		LOWER(musicName) =  #{params.musicName} DESC,LOWER(musicName) LIKE CONCAT(#{params.musicName},"%") DESC,  	    
+	  	    </if>
+	  		<if test="params.themeId != null and params.themeId != ''">
+  				 sort desc,createTime desc
+  			</if>
+  			<if test="params.columnId != null and params.columnId != ''">
+  				 sort desc,realDowdload desc
+  			</if>
+  		</if>
+  	</trim>
+  </select>
+   <!-- 根据musicId查询 add by jieding -->
+  <select id="selectByMusicId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  	select 
+  	<include refid="commonColumns"/> 
+  	from mas_market.t_res_music_album_res where musicId = #{musicId} 	
+  </select>
+  <!-- 根据themId查询 add by jieding -->
+    <select id="selectByThemeId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  	select 
+  	<include refid="commonColumns"/> 
+  	from mas_market.t_res_music_album_res where themeId = #{themeId} 	
+  </select>
+    <!-- 根据musicId查询  add by jieding -->
+  <select id="queryCounts" parameterType="com.mas.rave.common.page.PaginationBean" resultType="java.lang.Integer">
+  	select count(id) from mas_market.t_res_music_album_res 
+  	<include refid="dynamicWhere"/>
+  </select>
+  <delete id="deleteById" parameterType="com.mas.rave.common.page.PaginationBean">
+  	delete from mas_market.t_res_music_album_res where id in (${params.ids})
+  </delete>
+  <update id="updateById" parameterType="com.mas.rave.main.vo.MusicAlbumRes">
+  	update mas_market.t_res_music_album_res set sort = #{sort} where id = #{id}
+  </update>
+  
+   <delete id="deleteByMusicId" parameterType="java.lang.Integer">
+  		delete from mas_market.t_res_music_album_res where musicId = #{musicId}
+  </delete>
+  <!-- 更新image分发信息-->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.MusicAlbumRes" >
+  	UPDATE t_res_music_album_res 
+	SET categoryId = #{categoryId},
+	sort = #{sort},musicName = #{musicName},artist = #{artist},
+	free = #{free},logo = #{logo},brief = #{brief},description = #{description},stars = #{stars},
+	fileSize = #{fileSize},duration = #{duration},url = #{url},initDowdload = #{initDowdload},
+	realDowdload =#{realDowdload},operator = #{operator} WHERE id = #{id}
+  </update>
+  <insert id="insert" parameterType="java.util.HashMap">
+  	insert into mas_market.t_res_music_album_res
+  	(
+  	<include refid="commonColumns"/>
+  	)
+    select null,#{raveId},#{themeId},#{albumId},#{columnId},   	
+  	id,name,artist,categoryId,10,fileSize,duration,free,
+  		logo,brief,description,stars,url,initDowdload,realDowdload,operator,createTime 
+  	from mas_market.t_res_music where id in 
+  	<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+         #{item}
+   	</foreach>
+  </insert>
+</mapper>

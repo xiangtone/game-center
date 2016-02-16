@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.TAppDistributeMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.TAppDistribute" >
+    <result column="appId" property="appId" jdbcType="INTEGER" />
+    <result column="appName" property="appName" jdbcType="VARCHAR" />
+    <result column="raveId" property="raveId" jdbcType="INTEGER" />
+    <result column="categoryId" property="categoryId" jdbcType="INTEGER" />
+    <result column="categoryName" property="categoryName" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="free" property="free" jdbcType="INTEGER" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="bigLogo" property="bigLogo" jdbcType="VARCHAR" />
+    <result column="brief" property="brief" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="stars" property="stars" jdbcType="INTEGER" />
+    <result column="initDowdload" property="initDowdload" jdbcType="INTEGER" />
+    <result column="realDowdload" property="realDowdload" jdbcType="INTEGER" />
+    <result column="pageOpen" property="pageOpen" jdbcType="INTEGER" />
+    <result column="updateNum" property="updateNum" jdbcType="INTEGER" />
+    <result column="apkId" property="apkId" jdbcType="INTEGER" />
+    <result column="fileSize" property="fileSize" jdbcType="INTEGER" />
+    <result column="packageName" property="packageName" jdbcType="VARCHAR" />
+    <result column="versionCode" property="versionCode" jdbcType="INTEGER" />
+    <result column="versionName" property="versionName" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="hrHigerank" property="hrHigerank" jdbcType="INTEGER" />
+    <result column="hrLowrank" property="hrLowrank" jdbcType="INTEGER" />
+    <result column="hnHigerank" property="hnHigerank" jdbcType="INTEGER" />
+    <result column="hnLowrank" property="hnLowrank" jdbcType="INTEGER" />
+    <result column="htHigerank" property="htHigerank" jdbcType="INTEGER" />
+    <result column="htLowrank" property="htLowrank" jdbcType="INTEGER" />
+    <result column="hpHigerank" property="hpHigerank" jdbcType="INTEGER" />
+    <result column="hpLowrank" property="hpLowrank" jdbcType="INTEGER" />
+    <result column="ahHigerank" property="ahHigerank" jdbcType="INTEGER" />
+    <result column="ahLowrank" property="ahLowrank" jdbcType="INTEGER" />
+    <result column="atHigerank" property="atHigerank" jdbcType="INTEGER" />
+    <result column="atLowrank" property="atLowrank" jdbcType="INTEGER" />
+    <result column="anHigerank" property="anHigerank" jdbcType="INTEGER" />
+    <result column="anLowrank" property="anLowrank" jdbcType="INTEGER" />
+    <result column="ghHigerank" property="ghHigerank" jdbcType="INTEGER" />
+    <result column="ghLowrank" property="ghLowrank" jdbcType="INTEGER" />
+    <result column="gtHigerank" property="gtHigerank" jdbcType="INTEGER" />
+    <result column="gtLowrank" property="gtLowrank" jdbcType="INTEGER" />
+    <result column="gnHigerank" property="gnHigerank" jdbcType="INTEGER" />
+    <result column="gnLowrank" property="gnLowrank" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" />    
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.category_parent != null" >
+ 		 	and categoryId in (select id from t_category where fatherId = #{condition.category_parent})
+ 	  </if>
+      <if test="condition.appId != null" >
+         and (appId like "%${condition.appId}%" or  appName like "%${condition.appId}%")
+      </if>
+      <if test="condition.appName != null" >
+         and appName like "%${condition.appName}%"
+      </if>
+      <if test="condition.raveId != null and condition.raveId != '' and condition.raveId != 0" >
+         and raveId =  #{condition.raveId}
+      </if>
+      <if test="condition.categoryId != null" >
+         and categoryId = #{condition.categoryId}
+      </if>
+      <if test="condition.categoryName != null" >
+         and categoryName = #{condition.categoryName}
+      </if>
+      <if test="condition.sort != null" >
+         and sort = #{condition.sort}
+      </if>
+      <if test="condition.free != null" >
+         and free = #{condition.free}
+      </if>
+      <if test="condition.logo != null" >
+         and logo = #{condition.logo}
+      </if>
+      <if test="condition.bigLogo != null" >
+         and bigLogo = #{condition.bigLogo}
+      </if>
+      <if test="condition.brief != null" >
+         and brief = #{condition.brief}
+      </if>
+      <if test="condition.description != null" >
+         and description = #{condition.description}
+      </if>
+      <if test="condition.stars != null" >
+         and stars = #{condition.stars}
+      </if>
+      <if test="condition.initDowdload != null" >
+         and initDowdload = #{condition.initDowdload}
+      </if>
+      <if test="condition.realDowdload != null" >
+         and realDowdload = #{condition.realDowdload}
+      </if>
+      <if test="condition.pageOpen != null" >
+         and pageOpen = #{condition.pageOpen}
+      </if>
+      <if test="condition.updateNum != null" >
+         and updateNum = #{condition.updateNum}
+      </if>
+      <if test="condition.apkId != null" >
+         and apkId = #{condition.apkId}
+      </if>
+      <if test="condition.fileSize != null" >
+         and fileSize = #{condition.fileSize}
+      </if>
+      <if test="condition.packageName != null" >
+         and packageName = #{condition.packageName}
+      </if>
+      <if test="condition.versionCode != null" >
+         and versionCode = #{condition.versionCode}
+      </if>
+      <if test="condition.versionName != null" >
+         and versionName = #{condition.versionName}
+      </if>
+      <if test="condition.url != null" >
+         and url = #{condition.url}
+      </if>
+      <if test="condition.hrHigerank != null" >
+         and hrHigerank = #{condition.hrHigerank}
+      </if>
+      <if test="condition.hrLowrank != null" >
+         and hrLowrank = #{condition.hrLowrank}
+      </if>
+      <if test="condition.hnHigerank != null" >
+         and hnHigerank = #{condition.hnHigerank}
+      </if>
+      <if test="condition.hnLowrank != null" >
+         and hnLowrank = #{condition.hnLowrank}
+      </if>
+      <if test="condition.htHigerank != null" >
+         and htHigerank = #{condition.htHigerank}
+      </if>
+      <if test="condition.htLowrank != null" >
+         and htLowrank = #{condition.htLowrank}
+      </if>
+      <if test="condition.hpHigerank != null" >
+         and hpHigerank = #{condition.hpHigerank}
+      </if>
+      <if test="condition.hpLowrank != null" >
+         and hpLowrank = #{condition.hpLowrank}
+      </if>
+      <if test="condition.ahHigerank != null" >
+         and ahHigerank = #{condition.ahHigerank}
+      </if>
+      <if test="condition.ahLowrank != null" >
+         and ahLowrank = #{condition.ahLowrank}
+      </if>
+      <if test="condition.atHigerank != null" >
+         and atHigerank = #{condition.atHigerank}
+      </if>
+      <if test="condition.atLowrank != null" >
+         and atLowrank = #{condition.atLowrank}
+      </if>
+      <if test="condition.anHigerank != null" >
+         and anHigerank = #{condition.anHigerank}
+      </if>
+      <if test="condition.anLowrank != null" >
+         and anLowrank = #{condition.anLowrank}
+      </if>
+      <if test="condition.ghHigerank != null" >
+         and ghHigerank = #{condition.ghHigerank}
+      </if>
+      <if test="condition.ghLowrank != null" >
+         and ghLowrank = #{condition.ghLowrank}
+      </if>
+      <if test="condition.gtHigerank != null" >
+         and gtHigerank = #{condition.gtHigerank}
+      </if>
+      <if test="condition.gtLowrank != null" >
+         and gtLowrank = #{condition.gtLowrank}
+      </if>
+      <if test="condition.gnHigerank != null" >
+         and gnHigerank = #{condition.gnHigerank}
+      </if>
+      <if test="condition.gnLowrank != null" >
+         and gnLowrank = #{condition.gnLowrank}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.updateTime != null" >
+         and updateTime = #{condition.updateTime}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    appId, appName, raveId,categoryId, categoryName, sort, free, logo, bigLogo, brief, description, 
+    stars, initDowdload, realDowdload, pageOpen, updateNum, apkId, fileSize, packageName, 
+    versionCode, versionName, url, hrHigerank, hrLowrank, hnHigerank, hnLowrank, htHigerank, 
+    htLowrank, hpHigerank, hpLowrank, ahHigerank, ahLowrank, atHigerank, atLowrank, anHigerank, 
+    anLowrank, ghHigerank, ghLowrank, gtHigerank, gtLowrank, gnHigerank, gnLowrank, createTime, 
+    updateTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_app_distribute
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+     GROUP BY appId,raveId
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="mysqlOffset != null and mysqlLength != null" >
+      <![CDATA[ limit #{mysqlOffset} , #{mysqlLength} ]]>
+    </if>
+  </select>
+ 
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.Criteria" resultType="java.lang.Integer" >
+     select count(*) from ( select count(*) from t_app_distribute
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+     GROUP BY appId,raveId) t
+  </select>
+  
+</mapper>

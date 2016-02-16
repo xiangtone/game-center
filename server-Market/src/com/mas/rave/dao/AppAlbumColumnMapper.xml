@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppAlbumColumnMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppAlbumColumn" >
+    <association column="albumId" property="appAlbum" jdbcType="INTEGER" select="com.mas.rave.dao.AppAlbumMapper.selectByPrimaryKey" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.andValue" >
+                  and ${criterion.condition} #{criterion.value} and ${criterion.secondCondition} #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+  	 columnId,albumId,name,nameCn,icon,bigicon,description,sort,state,flag,createTime,operator
+  </sql>
+  
+	<!-- 分页查看app专辑信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppAlbumColumn" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_app_album_column
+	<if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <!-- 
+    order by sort desc
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if> -->
+  </select>
+  	<!-- 根据app顶级分类查找app专辑信息 -->
+  <select id="getAppAlbumColumnsByAppAlbumId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+     <include refid="Base_Column_List" />
+    from t_app_album_column 
+    where albumId = #{albumId,jdbcType=INTEGER}
+  </select>
+  <!-- 根据id查看专辑信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select columnId,albumId,name,nameCn,icon,bigicon,description,sort,state,flag,createTime,operator
+    from t_app_album_column
+    where columnId = #{columnId,jdbcType=INTEGER}
+  </select>
+   <!-- 删除app专辑信息 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_app_album_column
+    where columnId = #{columnId,jdbcType=INTEGER}
+  </delete>
+  
+  
+  <!-- 增加app专辑信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.AppAlbumColumn" >
+   <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+	INSERT INTO t_app_album_column (columnId,
+	<if test="appAlbum != null" >
+      albumId,
+    </if>
+	name,nameCn,icon,bigicon,description,sort,state,flag,createTime,operator)
+	VALUES(#{columnId},#{albumId},#{name},#{nameCn},#{icon},#{bigicon},#{description},#{sort},#{state},#{flag},now(),#{operator})
+  </insert>
+  
+  <!-- 统计app专辑信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.AppAlbumColumn" resultType="java.lang.Integer" >
+    select count(*) from t_app_album_column 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <update id="updateSortByPrimaryKey" parameterType="com.mas.rave.main.vo.AppAlbumColumn" >
+  	update t_app_album_column set sort = #{sort} where columnId = #{columnId}
+  </update>
+  
+  <!-- 更新app专辑信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.AppAlbumColumn" >
+  	UPDATE t_app_album_column 
+	SET columnId = #{columnId},
+	<if test="appAlbum != null" >
+     albumId = #{albumId},
+    </if>
+	name = #{name},nameCn = #{nameCn}, 
+	icon = #{icon},bigicon = #{bigicon},description = #{description},sort = #{sort}, 
+	state = #{state},flag = #{flag},operator = #{operator}
+	WHERE columnId = #{columnId}
+  </update>
+</mapper>

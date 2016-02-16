@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppComment" >
+  	<association column="appId" property="appInfo" jdbcType="INTEGER" select="com.mas.rave.dao.AppInfoMapper.selectByPrimaryKey" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+   	t.id,t.appId,t.clientId,t.userId,t.userName,t.stars,t.content,t.sort,t.state,t.createTime
+  </sql>
+  
+	<!-- 分页查看app评论信息 -->
+  <select id="selectByExample" resultType="com.mas.rave.main.vo.AppComment" parameterType="java.util.HashMap" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,t1.name as name,t1.id as appId
+    from t_app_comment t Left JOIN  t_app_info t1 on t.appId=t1.id 
+     <if test="appName != null" >
+      where t1.name like  CONCAT("%",#{appName},"%")  
+    </if>
+      order by t.createTime desc
+      limit #{currentPage} ,#{pageSize}
+  </select>
+
+  <!-- 删除app评论信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_comment t
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_app_comment
+    where id = #{id}
+  </delete>
+  
+  <delete id="deleteByAppId" parameterType="java.lang.Integer" >
+    delete from t_app_comment
+    where appId = #{appId}
+  </delete>
+  
+  
+  <!-- 增加app评论信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.AppComment" >
+	INSERT INTO t_app_comment (id,appId,clientId,userId,userName,stars,content,sort,state,createTime)
+	VALUES (#{id},#{appInfo.id},#{clientId},#{userId},#{userName},#{stars},#{content},#{sort},#{state},now())
+  </insert>
+  
+  <!-- 统计app评论信息 -->
+  <select id="countByExample" parameterType="java.util.HashMap" resultType="java.lang.Integer" >
+    select count(*) from t_app_comment t Left JOIN  t_app_info t1 on t.appId=t1.id  
+    <if test="appName != null" >
+      where t1.name like CONCAT("%",#{appName},"%")  
+    </if>
+  </select>
+  
+  <!-- 更新app评论信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.AppComment" >
+	UPDATE t_app_comment SET appId = #{appInfo.id}, 
+	clientId = #{clientId},userId = #{userId},userName = #{userName},stars = #{stars}, 
+	content = #{content},sort = #{sort},state = #{state}
+	WHERE id = #{id};
+  </update>
+  
+</mapper>

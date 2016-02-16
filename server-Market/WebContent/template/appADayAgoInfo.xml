@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model title="Application Info" >
+	<properties name="Id" title="id" columnsWidth="4500"/>
+	<properties name="Name" title="name" columnsWidth="5000"/>
+	<properties name="InitialReleaseDate1" title="theDate" columnsWidth="5000"/>
+	<properties name="CategoryName" title="categoryName" columnsWidth="5000"/>
+	<properties name="RealDowdload" title="realDowdload" columnsWidth="5000"/>
+    <properties name="PageOpen" title="pageOpen" columnsWidth="5000"/>	
+</model>

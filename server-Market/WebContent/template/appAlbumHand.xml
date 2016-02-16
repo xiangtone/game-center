@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model title="Application Album Hand" >
+	<properties name="AppId" title="AppId" columnsWidth="4500"/>
+	<properties name="AppAlbumName" title="页签" columnsWidth="5000"/>
+	<properties name="AlbumName" title="专辑" columnsWidth="5000"/>	
+	<properties name="CategoryName" title="分类" columnsWidth="5000"/>
+	<properties name="AppName" title="应用名" columnsWidth="10000"/>
+	<properties name="Stars" title="评分" columnsWidth="4500"/>
+	<properties name="RealDowdload" title="Download" columnsWidth="10000"/>
+	<properties name="Ranking" title="排行" columnsWidth="5000"/>
+</model>

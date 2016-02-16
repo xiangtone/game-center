@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.ImageAlbumThemeMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.ImageAlbumTheme" >
+    	<association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 	  	
+  
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+  	 themeId,raveId,name,nameCn,icon,bigicon,description,sort,state,createTime,updateTime,operator
+  </sql>
+  
+  <update id="updateSortByPrimarykey" parameterType="com.mas.rave.main.vo.ImageAlbumTheme">
+  	update t_res_image_theme set sort = #{sort} where themeId = #{themeId};
+  </update>
+  
+	<!-- 分页查看image主题信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.ImageAlbumTheme" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_res_image_theme
+	<if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    order by sort desc,createTime desc 
+    <!-- 
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if> -->
+  </select>
+  
+  <!-- 根据id查看image主题信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_res_image_theme
+    where themeId = #{themeId,jdbcType=INTEGER}
+  </select>
+      <!-- 根据name查看image主题信息 -->
+  <select id="selectByThemeName" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.ImageAlbumTheme" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_res_image_theme
+    where name = #{name}
+       <if test="raveId != null  and raveId != 0" > 
+			<if test="raveId >1" >  
+		     and ( raveId=#{raveId} or raveId=1 )
+	       </if> 
+	 </if>
+  </select>
+      <!-- 根据nameCn查看image主题信息 -->
+  <select id="selectByThemeNameCn" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_res_image_theme
+    where nameCn = #{nameCn}
+  </select>
+   <!-- 删除image主题信息 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_res_image_theme
+    where themeId = #{themeId,jdbcType=INTEGER}
+  </delete>
+  
+  
+  <!-- 增加image主题信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.ImageAlbumTheme" >
+   <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+	INSERT INTO t_res_image_theme (themeId,raveId,
+	name,nameCn,icon,bigicon,
+	description,sort,state,
+	createTime,operator)
+	VALUES(#{themeId},#{raveId},#{name},#{nameCn},#{icon},#{bigicon},
+	#{description},#{sort},#{state},now(),#{operator})
+  </insert>
+  
+  <!-- 统计image主题信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.ImageAlbumTheme" resultType="java.lang.Integer" >
+    select count(*) from t_res_image_theme 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <!-- 更新image主题信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.ImageAlbumTheme" >
+  	UPDATE t_res_image_theme 
+	SET themeId = #{themeId},raveId=#{raveId},
+	name = #{name}, nameCn = #{nameCn},icon = #{icon},bigicon = #{bigicon}, 
+	description = #{description},sort = #{sort},state = #{state},
+	updateTime =now(),operator = #{operator} WHERE themeId = #{themeId}
+  </update>
+</mapper>

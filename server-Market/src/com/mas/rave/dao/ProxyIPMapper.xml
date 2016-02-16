@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.ProxyIPMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.ProxyIP" >
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.andValue" >
+                  and ${criterion.condition} #{criterion.value} and ${criterion.secondCondition} #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  	   <if test="ip != null and ip != ''">
+  			and ip =${ip}
+  		</if>
+  	</trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    id,ip
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.ProxyIP" >
+	    SELECT 
+	    <include refid="Base_Column_List" />
+	    from 
+        t_proxy_ip 
+        <include refid="dynamicWhere"/>     
+       order by  id desc 
+      limit #{currentPage} ,#{pageSize} 
+  </select>
+  
+   <select id="getAllIPConfigs" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_proxy_ip order by id desc
+  </select>
+  
+  <select id="getProxyIpCount" resultType="java.lang.Integer">
+    select count(id) from t_proxy_ip
+  </select>
+  
+  <!--根据id查找ip信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_proxy_ip
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+   <!--根据ip查找ip信息 -->
+  <select id="selectByIP" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_proxy_ip
+    where ip = #{ip,jdbcType=INTEGER}
+  </select> 
+  <!-- 根据id删除ip信息 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_proxy_ip
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <!-- 根据ip删除ip信息 -->
+  <delete id="deleteByIP" parameterType="java.lang.String" >
+    delete from t_proxy_ip
+    where ip = #{ip}
+  </delete>
+  <!-- 增加ip信息 -->
+  <insert id="insert"  parameterType="com.mas.rave.main.vo.ProxyIP">
+  	<selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+    INSERT INTO t_proxy_ip 
+	(id,ip)
+	VALUES
+	(#{id},#{ip})
+  </insert>
+  
+  <!-- 统计log信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.ProxyIP" resultType="java.lang.Integer" >
+   SELECT  count(*) from  t_proxy_ip 
+    <include refid="dynamicWhere"/>
+  </select> 
+  
+  
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model title="Application distribution statistics" >
+	<properties name="appId" title="appId" columnsWidth="5500"/>
+	<properties name="appName" title="appName" columnsWidth="4500"/>
+	<properties name="countryName" title="countryName" columnsWidth="5500"/>
+	<properties name="categoryName" title="categoryName" columnsWidth="5500"/>
+	<properties name="initDowdload" title="initDowdload" columnsWidth="4500"/>
+	<properties name="realDowdload" title="realDowdload" columnsWidth="4500"/>
+	<properties name="pageOpen" title="Pageviews" columnsWidth="4500"/>
+	<properties name="updateNum" title="updateNum" columnsWidth="4500"/>
+	<properties name="versionName" title="versionName" columnsWidth="4500"/>
+	<properties name="stars" title="stars" columnsWidth="4500"/>
+	<properties name="fileSize" title="fileSize" columnsWidth="4500"/>
+	<properties name="createTime" title="InitialTime" columnsWidth="4500"/>
+	<properties name="updateTime" title="updateTime" columnsWidth="4500"/>
+	<properties name="hrHigerank" title="Home recommend Highest Rank" columnsWidth="5500"/>
+	<properties name="hrLowrank" title="Home recommend Lowest Rank" columnsWidth="5500"/>
+	<properties name="hnHigerank" title="Home new Highest Rank" columnsWidth="5500"/>
+	<properties name="hnLowrank" title="Home new Lowest Rank" columnsWidth="5500"/>
+	<properties name="htHigerank" title="Home top Highest Rank" columnsWidth="5500"/>
+	<properties name="htLowrank" title="Home top Lowest Rank" columnsWidth="5500"/>
+	<properties name="hpHigerank" title="Home POPULAR Highest Rank" columnsWidth="5500"/>
+	<properties name="hpLowrank" title="Home POPULAR Lowest Rank" columnsWidth="5500"/>
+	<properties name="ahHigerank" title="App HOT Highest Rank" columnsWidth="5500"/>
+	<properties name="ahLowrank" title="App HOT Lowest Rank" columnsWidth="5500"/>
+	<properties name="atHigerank" title="App TOP Highest Rank" columnsWidth="5500"/>
+	<properties name="atLowrank" title="App TOP Lowest Rank" columnsWidth="5500"/>
+	<properties name="anHigerank" title="App NEW Highest Rank" columnsWidth="5500"/>
+	<properties name="anLowrank" title="App NEW Lowest Rank" columnsWidth="5500"/>
+	<properties name="ghHigerank" title="Game HOT Highest Rank" columnsWidth="5500"/>
+	<properties name="ghLowrank" title="Game HOT Lowest Rank" columnsWidth="5500"/>
+	<properties name="gtHigerank" title="Game TOP Highest Rank" columnsWidth="5500"/>
+	<properties name="gtLowrank" title="Game TOP Lowest Rank" columnsWidth="5500"/>
+	<properties name="gnHigerank" title="Game NEW Highest Rank" columnsWidth="5500"/>
+	<properties name="gnLowrank" title="Game NEW Lowest Rank" columnsWidth="5500"/>
+</model>

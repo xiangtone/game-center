@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.MessagePushMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.MessagePush" >
+  </resultMap>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  	   <if test="title != null and title != ''">
+  			and title like CONCAT("%",#{title},"%")
+  		</if>
+  		<if test="target!=-1">
+  			and target = #{target}
+  		</if>
+  		<if test="action!=-1">
+  			and action = #{action}
+  		</if>
+  		<if test="startTime != null and startTime != ''">
+  			 <![CDATA[and startTime >= #{startTime}]]> 
+  		</if>
+  		<if test="endTime != null and endTime != ''">
+  			 <![CDATA[and endTime <= #{endTime}]]> 
+  		</if>
+  	</trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+  id,mode,pic,title,content,target,versionName,action,url,startTime,endTime,icon,status,createTime,createBy,lastUpdateTime,lastUpdateBy
+  </sql>
+
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.MessagePush" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_message_push 
+   <include refid="dynamicWhere"/>
+  	ORDER BY createTime DESC
+      limit #{currentPage} ,#{pageSize}
+  </select>
+ 
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_message_push
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_message_push
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert"  parameterType="com.mas.rave.main.vo.MessagePush">
+  	<selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+    INSERT INTO `mas_market`.`t_message_push` 
+	(mode,pic, title,content,target,versionName,ACTION, 
+	url,startTime,endTime,icon,STATUS,createTime, 
+	createBy,lastUpdateTime,lastUpdateBy)
+	VALUES
+	(#{mode},#{pic},#{title},#{content}, 
+	#{target},#{versionName},#{action},#{url}, 
+	#{startTime},#{endTime},#{icon},#{status}, 
+	NOW(),#{createBy},now(),#{lastUpdateBy});
+  </insert>
+  
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.ImageInfo" resultType="java.lang.Integer" >
+    select count(*) from t_message_push  
+    <include refid="dynamicWhere"/>
+  </select> 
+
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.MessagePush" >
+	UPDATE `mas_market`.`t_message_push` 
+	SET mode = #{mode},pic = #{pic} ,title = #{title},content = #{content},target = #{target}, 
+	versionName = #{versionName},action = #{action},url = #{url}, 
+	startTime = #{startTime} ,endTime = #{endTime} , 
+	icon = #{icon} ,status = #{status} ,createBy = #{createBy} , lastUpdateTime = now() , 
+	lastUpdateBy = #{lastUpdateBy}
+	WHERE id = #{id} ;
+  </update>
+  
+</mapper>

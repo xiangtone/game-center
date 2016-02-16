@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.ImageInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.ImageInfo" >
+  	  <association column="categoryId" property="category" jdbcType="INTEGER" select="com.mas.rave.dao.CategoryMapper.selectByPrimaryKey" />
+   	  <association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 
+  </resultMap>
+    <resultMap id="BaseResultMap1" type="com.mas.rave.main.vo.ImageInfo" >
+   	  <association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 
+   	   <association column="categoryId" property="category" jdbcType="INTEGER" select="com.mas.rave.dao.CategoryMapper.selectByCategory" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.andValue" >
+                  and ${criterion.condition} #{criterion.value} and ${criterion.secondCondition} #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  	   <if test="id != null and id != ''">
+  			and (id like CONCAT("%",#{id},"%") or name like CONCAT("%",#{id},"%"))
+  		</if>
+  		<if test="name != null and name != ''">
+  			and name like CONCAT("%",#{name},"%")
+  		</if>
+  		<if test="state !=null">
+  			and  state =#{state}		
+  		</if>
+  		<if test="category != null" >
+  			and  categoryId = #{category.id}
+  		</if>
+  		 <if test="category_parent != null and category_parent != 0">
+   			and  categoryId IN (SELECT id FROM t_category WHERE fatherId=#{category_parent})
+   		</if>
+   		 <if test="category_parent1 != null and category_parent1 != 0">
+   			or  categoryId IN (SELECT id FROM t_category WHERE fatherId=#{category_parent1})
+   		</if>
+   		 <if test="raveId != null  and raveId != 0" > 
+		     and ( raveId=#{raveId}
+		     <if test="(null != imageAlbumRes or 1== searchkey) and raveId >1" >  
+		     or raveId=1
+	      	 </if>
+	         ) 
+	     </if>
+   		<if test="null != imageAlbumRes">
+   			and  id NOT IN (SELECT imageId FROM mas_market.t_res_image_album_res WHERE 
+   			<if test="imageAlbumRes.albumId != null and imageAlbumRes.columnId != null">
+   				albumId = #{imageAlbumRes.albumId} and columnId = #{imageAlbumRes.columnId} and raveId=#{raveId}
+   			</if>
+   			<if test="imageAlbumRes.themeId != null">
+   				themeId = #{imageAlbumRes.themeId} and raveId=#{raveId}
+   			</if>
+   			)
+   		</if>
+   		<if test="1== searchkey and ids != null" >
+ 		 	and id NOT IN 
+   	  	<foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+         #{item}
+     	</foreach> 	
+ 	 	</if>	
+  	</trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    id,raveId,name,anotherName,pinyin,logo,biglogo,url,width,length,fileSize,
+	free,stars,categoryId,brief,description,
+	initDowdload,realDowdload,createTime,
+	updateTime,state,operator,source
+  </sql>
+
+	<!-- 分页查看music信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap1" parameterType="com.mas.rave.main.vo.ImageInfo" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_res_image 
+   <include refid="dynamicWhere"/>
+     order by 
+       <if test="name != null and name != ''">
+    		LOWER(name) =  #{name} DESC,LOWER(name) LIKE CONCAT(#{name},"%") DESC,realDowdload DESC,initDowdload DESC,  		  
+  	   </if>
+     	<if test="null != imageAlbumRes or 1== searchkey">
+     	raveId desc,
+     	</if>
+        createTime desc 
+      limit #{currentPage} ,#{pageSize}
+  </select>
+ 
+  <!--根据id查找music信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_res_image
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <!-- 根据id删除music信息 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_res_image
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <!-- 根据name查询music信息 -->
+   <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_res_image
+    where name = #{name,jdbcType=INTEGER}
+  </select>
+  <!-- 增加music信息 -->
+  <insert id="insert"  parameterType="com.mas.rave.main.vo.ImageInfo">
+  	<selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+    INSERT INTO t_res_image 
+	(id,raveId,name,anotherName,pinyin,logo,biglogo,url,width,length,fileSize,
+	free,stars,brief,description,
+	initDowdload,realDowdload,
+	updateTime,state,operator,source,
+	<if test="category != null" >
+		categoryId,
+	</if>
+	createTime)
+	VALUES
+	(#{id},#{raveId},#{name},#{anotherName},#{pinyin},#{logo},#{biglogo},#{url},#{width},#{length},#{fileSize}, 
+	#{free},#{stars},#{brief},#{description}, 
+	#{initDowdload},#{realDowdload}, 
+	#{updateTime},#{state},#{operator},#{source},
+	<if test="category != null" >
+		#{category.id},
+	</if>
+	now()
+	)
+	
+	
+  </insert>
+  
+  <!-- 统计app信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.ImageInfo" resultType="java.lang.Integer" >
+    select count(*) from t_res_image  
+    <include refid="dynamicWhere"/>
+  </select> 
+  <select id="getImageInfoCountByCategory"  resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+    select count(*) from t_res_image where categoryId = #{categoryId}
+  </select>
+  <!-- 更新app信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.ImageInfo" >
+	UPDATE t_res_image SET raveId=#{raveId},name = #{name},anotherName=#{anotherName},pinyin = #{pinyin},logo = #{logo},biglogo = #{biglogo},
+	url = #{url},width = #{width}, length = #{length}, fileSize = #{fileSize}, 
+	free = #{free},brief = #{brief},description = #{description},
+	initDowdload = #{initDowdload},realDowdload = #{realDowdload}, 
+	updateTime = now(),stars = #{stars},operator = #{operator},source = #{source},
+	<if test="category != null" >
+		categoryId=#{category.id},
+	</if>
+	state = #{state}
+	WHERE id = #{id}
+  </update>
+  
+  
+</mapper>

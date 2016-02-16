@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.OwnAppFileListMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.OwnAppFileList" >
+  	<association column="appId" property="appInfo" jdbcType="INTEGER" select="com.mas.rave.dao.OwnAppInfoMapper.selectByPrimaryKey" />
+  	<association column="apkId" property="appFile" jdbcType="INTEGER" select="com.mas.rave.dao.OwnAppFileMapper.selectByPrimaryKey" />
+  </resultMap>
+ <sql id="dynamicWhere"> 	 
+  <trim prefix="where" prefixOverrides="and">
+  	    <if test="packageName != null and packageName != ''">
+  	       and  t.packageName like CONCAT("%",#{packageName},"%")  	    
+  		</if>
+  		 <if test="versionCode != null and versionCode != ''">
+  	       and  t.versionCode =#{versionCode} 	    
+  		</if>
+  		 <if test="apkId != null and apkId != ''">
+  	       and  t.apkId = #{apkId} 	    
+  		</if>
+  	</trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+   id,appId,apkId,appName,apkKey,serverId,upgradeType,packageName,versionCode,versionName,url,osType,resolution, 
+	fileSize,updateInfo,remark, state,createTime,updateTime,language,
+	(SELECT url FROM t_own_app_file_patch t1 WHERE t.apkId=t1.apkId AND t.versionCode = t1.lowVersionCode ORDER BY t1.createTime DESC limit 1) AS patch
+  </sql>
+  
+	<!-- 分页查看app文件信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.OwnAppFileList" >
+    select
+    <include refid="Base_Column_List" />
+    from t_own_app_file_list t
+      <include refid="dynamicWhere" />
+      order by t.versionCode
+  </select>
+  
+  <!-- 分页查看app文件信息 -->
+  <select id="getApps" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from t_own_app_file_list t
+      <include refid="dynamicWhere" />
+      order by t.versionCode desc
+  </select>
+  
+   <select id="checkFile" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
+    select
+    <include refid="Base_Column_List" />
+    from t_own_app_file_list t
+  	where t.packageName=#{packageName} and t.versionCode=#{versionCode} and t.apkId=#{apkId}
+      order by t.versionCode desc
+  </select>
+  
+  <!-- 删除app文件信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+   select 
+    <include refid="Base_Column_List" />
+    from t_own_app_file_list t
+    where t.id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_own_app_file_list
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <!-- 增加app文件信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.OwnAppFileList" >
+    INSERT INTO t_own_app_file_list 
+	(appId,apkId,appName,
+	apkKey,serverId,upgradeType,packageName,versionCode,versionName,url,osType,resolution,fileSize, 
+	updateInfo,remark,state,createTime,updateTime,language)
+	VALUES(#{appInfo.id},#{apkId},#{appName},
+	#{apkKey},#{serverId},#{upgradeType},#{packageName},#{versionCode},#{versionName},#{url},#{osType},#{resolution},#{fileSize}, 
+	#{updateInfo},#{remark},#{state},now(),now(),#{language});
+  </insert>
+  
+  <!-- 统计app文件信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.AppFileListExample" resultType="java.lang.Integer" >
+    select count(*) from t_own_app_file_list t
+      <include refid="dynamicWhere" />
+  </select>
+  
+  <!-- 更新app文件信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.AppFileList" >
+	UPDATE t_own_app_file_list 
+	SET 
+	<if test="appInfo != null" >
+		appId=#{appInfo.id},
+	</if>
+	apkId=#{apkId},
+	appName=#{appName},
+	apkKey=#{apkKey},serverId=#{serverId},
+	upgradeType=#{upgradeType},packageName=#{packageName},versionCode = #{versionCode},
+	versionName = #{versionName},url = #{url}, language=#{language}, osType=#{osType},
+	resolution = #{resolution},fileSize = #{fileSize},
+	updateInfo = #{updateInfo},remark = #{remark}, 
+	state = #{state},updateTime = now()
+	WHERE id = #{id};
+  </update>
+
+</mapper>

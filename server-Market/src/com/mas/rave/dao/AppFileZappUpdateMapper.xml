@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppFileZappUpdateMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppFileZappUpdate" >
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.orValue" >
+                  and ${criterion.condition} #{criterion.value} or ${criterion.secondCondition}  #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+   <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  	  	<if test="apkKey != null and apkKey != ''">
+  			and  apkKey =#{apkKey}		
+  		</if>
+  	   <if test="versionCode != null and versionCode !=0">
+  			and  versionCode =#{versionCode}		
+  		</if>
+  		<if test="versionName != null and versionName != ''">
+  			and  versionName =#{versionName}		
+  		</if>	
+  	</trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id,apkKey,versionName,versionCode,upgradeType,updateInfo,createTime,updateTime
+  </sql>
+  	<!-- 分页查看 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppFileZappUpdateExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from  t_app_file_zappupdate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+      <if test="orderByClause != null or mapOrderByClause != null" >
+      order by   
+  	    <if test="orderByClause != null">	         
+          ${orderByClause}
+        </if>
+    </if>
+  </select>  
+  <!-- 查询byId  -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from  t_app_file_zappupdate
+    where id = #{id,jdbcType=INTEGER}
+  </select> 
+  <!-- 增加-->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.AppFileZappUpdate" >
+    INSERT INTO  t_app_file_zappupdate (id,apkKey,versionName,versionCode,upgradeType,updateInfo,createTime,updateTime)
+	VALUES(#{id},#{apkKey},#{versionName},#{versionCode},
+	#{upgradeType},#{updateInfo},NOW(),#{updateTime});
+  </insert>
+
+  <!-- 统计 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.AppFileZappUpdateExample" resultType="java.lang.Integer" >
+    select count(*) from  t_app_file_zappupdate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+   <!-- 更新-->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.AppFileZappUpdate" >
+	UPDATE  t_app_file_zappupdate
+	SET
+	id = #{id},apkKey = #{apkKey},versionName = #{versionName},versionCode = #{versionCode},
+	upgradeType = #{upgradeType},updateInfo = #{updateInfo},updateTime=NOW()
+	WHERE
+	id = #{id};
+  </update>
+  <!--删除-->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_app_file_zappupdate
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+     <!-- 根据条件查询  -->
+   <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppFileZappUpdate" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_file_zappupdate 
+    <include refid="dynamicWhere" />
+  </select>
+</mapper>

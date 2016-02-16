@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppAlbumThemeMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppAlbumTheme" >
+  		<association column="apkId" property="appFile" jdbcType="INTEGER" select="com.mas.rave.dao.AppFileMapper.selectByPrimaryKey" />
+  	  	<association column="columnId" property="appAlbumColumn" jdbcType="INTEGER" select="com.mas.rave.dao.AppAlbumColumnMapper.selectByPrimaryKey" />
+     	<association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 	  	
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+  	 themeId,columnId,raveId,name,nameCn,icon,bigicon,description,sort,state,flag,apkId,createTime,updateTime,operator,categoryId
+  </sql>
+  
+  <update id="updateSortByPrimarykey" parameterType="com.mas.rave.main.vo.AppAlbumTheme">
+  	update t_app_album_theme set sort = #{sort} where themeId = #{themeId};
+  </update>
+  
+	<!-- 分页查看app主题信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppAlbumTheme" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,apkId as appId
+    from t_app_album_theme
+	<if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    order by sort desc
+    <!-- 
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if> -->
+  </select>
+  
+  <!-- 根据id查看主题信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_album_theme
+    where themeId = #{themeId,jdbcType=INTEGER}
+  </select>
+  
+        <!-- 根据name查看app主题信息 -->
+  <select id="selectByThemeName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_album_theme
+    where name = #{name} and flag!=3
+  </select>
+      <!-- 根据nameCn查看app主题信息 -->
+  <select id="selectByThemeNameCn" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_album_theme
+    where nameCn = #{nameCn} and flag!=3
+  </select>
+  
+   <select id="getappBanner" resultType="com.mas.rave.main.vo.AppAlbumTheme" parameterType="java.lang.Integer" >
+    select 
+    themeId,columnId,raveId,name,nameCn,icon,bigicon,description,sort,state,flag,apkId,createTime,updateTime,operator,categoryId
+    from t_app_album_theme
+    where themeId = #{themeId,jdbcType=INTEGER} and flag=3
+  </select>
+  
+  
+   <!-- 删除app主题信息 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_app_album_theme
+    where themeId = #{themeId,jdbcType=INTEGER}
+  </delete>
+  
+  
+  <!-- 增加app主题信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.AppAlbumTheme" >
+   <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+	INSERT INTO t_app_album_theme (themeId,
+	<if test="appAlbumColumn != null" >
+      columnId,
+    </if>
+    <if test="country != null" >
+      raveId,
+    </if>
+	name,nameCn,icon,bigicon,
+	description,sort,state,flag,
+	<if test="appFile != null" >
+      apkId,categoryId,
+    </if>
+	createTime,operator)
+	VALUES(#{themeId},
+	<if test="appAlbumColumn != null" >
+      #{appAlbumColumn.columnId},
+    </if>
+    <if test="country != null" >
+      #{country.id},
+    </if>
+	#{name},#{nameCn},#{icon},#{bigicon},#{description},#{sort},#{state},#{flag},
+	<if test="appFile != null" >
+      #{appFile.id},#{appFile.appInfo.category.id},
+    </if>
+	now(),#{operator})
+  </insert>
+  
+  <!-- 统计app主题信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.AppAlbumTheme" resultType="java.lang.Integer" >
+    select count(*) from t_app_album_theme 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+   <!-- 获取banner图 -->
+   <select id="getBanners" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  	 select 
+    <include refid="Base_Column_List" />
+    from t_app_album_theme where flag!=#{flag}
+  </select>
+  
+  <!-- 更新app主题信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.AppAlbumTheme" >
+  	UPDATE t_app_album_theme 
+	SET name = #{name}, nameCn = #{nameCn},icon = #{icon},bigicon = #{bigicon}, 
+	description = #{description},sort = #{sort},state = #{state},flag = #{flag},
+	<if test="appAlbumColumn != null" >
+      columnId = #{appAlbumColumn.columnId},
+    </if>	
+    <if test="country != null" >
+      raveId =  #{country.id},
+    </if>	
+	<if test="appFile != null" >
+      apkId = #{appFile.id},categoryId = #{appFile.appInfo.category.id}, 
+    </if>
+    <!-- 清除关联的apkId-->
+    <if test="appFile == null" >
+      apkId = null,categoryId = null, 
+    </if>
+	updateTime = now(),operator = #{operator} WHERE themeId = #{themeId}
+  </update>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Companys>
+	<Company name="zj" value="直接公司"></Company>
+	<Company name="th" value="同行公司"></Company>
+	<Company name="fh" value="发货公司"></Company>
+	<Company name="sh" value="收货公司"></Company>
+	<Company name="tz" value="通知公司"></Company>
+	<Company name="cgs" value="船公司"></Company>
+	<Company name="hk" value="航空公司"></Company>
+	<Company name="hwdl" value="海外代理"></Company>
+	<Company name="jndl" value="境内代理"></Company>
+	<Company name="dcdl" value="订舱代理"></Company>
+	<Company name="tch" value="拖车行"></Company>
+	<Company name="ckcz" value="仓库/场站"></Company>
+	<Company name="bgh" value="报关行"></Company>
+	<Company name="bjh" value="经营单位"></Company>
+	<Company name="bc" value="驳船公司"></Company>
+	<Company name="bx" value="保险公司"></Company>
+	<Company name="kd" value="快递公司"></Company>
+	<Company name="qt" value="其它"></Company>
+</Companys>

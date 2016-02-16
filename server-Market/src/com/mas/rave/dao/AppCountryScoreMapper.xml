@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppCountryScoreMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppCountryScore" >
+   	  <association column="appId" property="appInfo" jdbcType="INTEGER" select="com.mas.rave.dao.AppInfoMapper.selectByPrimaryKey" />
+   	  <association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.andValue" >
+                  and ${criterion.condition} #{criterion.value} and ${criterion.secondCondition} #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="appName != null" >
+ 		    and a.appName like "%${appName}%" 
+ 		</if>
+   		 <if test="raveId != null  and raveId != 0" > 
+		     and a.raveId=#{raveId}
+	     </if>	
+	     <if test="albumId != null  and albumId != 0" > 
+		     and a.albumId=#{albumId}
+	     </if>
+	     <if test="columnId != null  and columnId != 0" > 
+		     and a.columnId=#{columnId}
+	     </if>	
+	     <if test="isCategory != null">
+	     	and a.isCategory=#{isCategory}
+	     </if>	
+  	</trim>
+  </sql>
+   <sql id="dynamicWhere1">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="appId!= null  and appId != 0" >
+ 		    and appId=#{appId} 
+ 		</if>
+   		 <if test="raveId != null  and raveId != 0" > 
+		     and raveId=#{raveId}
+	     </if>	
+  	</trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id,albumId,columnId,raveId,appId,appName,score,fadingDay,startDate,
+	initialReleaseDate,days,enforceScore,state,createTime,isCategory
+  </sql>
+  
+  <!-- 左链接查询app专题和页签 -->
+  <sql id="left_join_column">
+  	SELECT  a.id,a.albumId,a.columnId,a.raveId,a.appId,a.appName,a.score,a.fadingDay,a.startDate,
+			a.initialReleaseDate,a.days,a.enforceScore,a.state,a.createTime,a.isCategory,
+			b.name albumName,c.name columnName,c.nameCn columnNameCn
+	FROM t_app_contry_score a 
+	LEFT JOIN t_app_album b ON a.albumId=b.id
+	LEFT JOIN t_app_album_column c ON a.columnId=c.columnId
+  </sql>
+  
+	<!-- 分页查看信息 -->
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppCountryScore" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_contry_score 
+   <include refid="dynamicWhere1"/>
+  </select>
+  <delete id="deleteByCondition" parameterType="com.mas.rave.main.vo.AppCountryScore" >
+    delete from t_app_contry_score
+    <include refid="dynamicWhere1"/>
+  </delete>
+	<!-- 分页查看信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppCountryScore" >
+    <include refid="left_join_column"/>
+    <include refid="dynamicWhere"/>
+     order by 
+       <if test="appName != null and appName != ''">
+    		LOWER(appName) =  #{appName} DESC,LOWER(appName) LIKE CONCAT(#{appName},"%") DESC,		  
+  	   </if>
+        createTime desc 
+      limit #{currentPage} ,#{pageSize}
+  </select>
+ 
+  <!--根据id查找信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <include refid="left_join_column"/>
+    where a.id = #{id,jdbcType=INTEGER}
+  </select>
+  <!-- 根据id删除信息 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_app_contry_score
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert"  parameterType="com.mas.rave.main.vo.AppCountryScore">
+  	<selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+    INSERT INTO t_app_contry_score 
+	(id,raveId,appId,appName,score,
+	fadingDay,startDate,initialReleaseDate,days,enforceScore,state)
+	VALUES
+	(#{id},#{raveId},#{appId},#{appName},#{score},	
+	#{fadingDay},#{startDate},#{initialReleaseDate},#{days},#{enforceScore},#{state})
+  </insert>
+    
+  <!-- 更新app信息 -->
+  <update id="update" parameterType="com.mas.rave.main.vo.AppCountryScore" >
+	UPDATE t_app_contry_score SET raveId = #{raveId},appId=#{appId},appName=#{appName},
+	score=#{score},fadingDay=#{fadingDay},startDate=#{startDate},isCategory=#{isCategory}
+	WHERE id = #{id}
+  </update>
+   <!-- 更新app信息 -->
+  <update id="updateByState" parameterType="com.mas.rave.main.vo.AppCountryScore" >
+	UPDATE t_app_contry_score SET state = #{state}
+	 <if test="state != null  and state ==true" > 
+	,startDate=now()
+	 </if>	
+	WHERE id = #{id}
+  </update> 
+  <!-- 统计app信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.AppCountryScore" resultType="java.lang.Integer" >
+    SELECT count(a.id)
+	FROM t_app_contry_score a 
+	LEFT JOIN t_app_album b ON a.albumId=b.id
+	LEFT JOIN t_app_album_column c ON a.columnId=c.columnId 
+    <include refid="dynamicWhere"/>
+  </select> 
+  
+  
+   <select id="getSelectAppFiles" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+   select *  from 
+   (
+     SELECT t2.id as appId, raveId,appName,bigLogo,free
+	 FROM `t_app_file` t1 JOIN `t_app_info` t2 ON(t1.`appId`=t2.`id`) 
+ 		WHERE t1.state = true and (t2.free = 0 or t2.free = 2 or (t2.free = 3 and t1.cpState=1))
+ 		<if test="appname != null" >
+ 		    and t2.name like "%${appname}%" 
+ 		</if>
+ 		<if test="appid != null" >
+ 		    and( t2.`id` like "%${appid}%" or t2.name like "%${appid}%")
+ 		</if>
+  	    <if test="raveId != null" > 
+	      and ( raveId=#{raveId}
+	      <if test="raveId >1" >  
+	      or raveId=1
+          </if>
+         ) 
+        </if>
+ 	 	<if test="categoryId != null" >
+ 		 	and t2.categoryId = #{categoryId}
+ 	 	</if>
+ 	 	<if test="category_parent != null" >
+ 		 	and t2.categoryId in (select id from t_category where fatherId = #{category_parent})
+ 	 	</if>
+	    AND NOT EXISTS (SELECT appId FROM `t_app_contry_score` WHERE t2.`id`=appId AND raveId=#{raveId} and columnId=#{columnId})	     
+ 		ORDER BY raveId DESC ) t0
+ 		GROUP BY appId 
+ 		ORDER BY 			 		
+ 	  <if test="appname != null and appname != ''">
+   		LOWER(appName) = #{appname} DESC,LOWER(appName) LIKE CONCAT(#{appname},"%") DESC,	  
+  	  </if>
+ 		 raveId DESC  	 
+ 		limit #{index},#{pageSize}
+  </select>
+  <select id="getSelectAppFilesCount" resultType="java.lang.Integer" parameterType="java.util.HashMap">
+  SELECT COUNT(DISTINCT t2.id)
+	FROM `t_app_file` t1 JOIN `t_app_info` t2 ON(t1.`appId`=t2.`id`) 
+ 		WHERE t1.state = true and (t2.free = 0 or t2.free = 2 or (t2.free = 3 and t1.cpState=1))
+ 		<if test="appname != null" >
+ 		    and t2.name like "%${appname}%"
+ 		</if>
+ 		<if test="appid != null" >
+ 		    and( t2.`id` like "%${appid}%" or t2.name like "%${appid}%")
+ 		</if>
+ 		<if test="raveId != null" > 
+		     and ( raveId=#{raveId}
+		     <if test="raveId >1" >  
+		     or raveId=1
+	      	 </if>
+	       ) 
+	     </if>
+ 	 	<if test="categoryId != null" >
+ 		 	and t2.categoryId = #{categoryId}
+ 	 	</if>
+ 	 	<if test="category_parent != null" >
+ 		 	and t2.categoryId in (select id from t_category where fatherId = #{category_parent})
+ 	 	</if>
+	    AND NOT EXISTS (SELECT appId FROM `t_app_contry_score` WHERE t2.`id`=appId AND raveId=#{raveId} and columnId=#{columnId})	     
+ 		
+  </select>
+  <!-- 插入手动分发数据 -->
+  <insert id="insertSelectApps"  parameterType="java.util.HashMap" >
+      INSERT INTO `t_app_contry_score`
+		(raveId,appId,appName,score,fadingDay,startDate,initialReleaseDate,days,enforceScore,state)
+		SELECT #{raveId},t1.`id`,name,10,10,now(),createTime,0,10.00,true
+		FROM `t_app_info` t1   
+	    WHERE NOT EXISTS (SELECT appId FROM `t_app_contry_score` WHERE t1.`id`=appId AND raveId=#{raveId})	     
+		AND t1.id in
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+      	</foreach>
+  </insert>
+  
+  <!-- 插入手动分发数据 -->
+  <insert id="insertByApp"  parameterType="java.util.HashMap" >
+      INSERT INTO `t_app_contry_score`
+		(albumId,columnId,raveId,appId,appName,score,fadingDay,startDate,initialReleaseDate,days,enforceScore,state)
+		SELECT #{albumId},#{columnId},#{raveId},t1.`id`,name,10,10,now(),createTime,0,10.00,true
+		FROM `t_app_info` t1   
+	    WHERE NOT EXISTS (SELECT appId FROM `t_app_contry_score` WHERE t1.`id`=appId AND raveId=#{raveId} and columnId=#{columnId})	     
+		AND t1.id in
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+      	</foreach>
+  </insert>
+  
+</mapper>

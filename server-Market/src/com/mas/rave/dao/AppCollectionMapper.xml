@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppCollectionMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppCollection" >
+    	<association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 	  	
+  
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+  	 collectionId,raveId,name,nameCn,icon,bigicon,description,sort,state,createTime,updateTime,operator,type
+  </sql>
+	<!-- 分页查看App主题信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppCollectionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_app_collection
+	<if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    order by sort desc,createTime desc 
+    <!-- 
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if> -->
+  </select>
+  
+  <!-- 分页查看App主题信息 2015-06-16 修改排序-->
+  <select id="selectByExample1" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppCollectionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_app_collection
+	<if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    order by sort desc,name 
+    <!-- 
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if> -->
+  </select>
+  
+  <!-- 根据id查看App主题信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_collection
+    where collectionId = #{collectionId,jdbcType=INTEGER}
+  </select>
+      <!-- 根据name查看App主题信息 -->
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppCollection" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_collection
+    where name = #{name}
+       <if test="raveId != null  and raveId != 0" > 
+			<if test="raveId >1" >  
+		     and ( raveId=#{raveId} or raveId=1 )
+	       </if> 
+	 </if>
+	 <if test="type != null  and type != 0" > 
+		and type = #{type}
+	 </if>
+  </select>
+   <!-- 删除App主题信息 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_app_collection
+    where collectionId = #{collectionId,jdbcType=INTEGER}
+  </delete>
+  
+  
+  <!-- 增加App主题信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.AppCollection" >
+   <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+	INSERT INTO t_app_collection (collectionId,raveId,
+	name,nameCn,icon,bigicon,
+	description,sort,state,
+	createTime,updateTime,operator,type)
+	VALUES(#{collectionId},#{raveId},#{name},#{nameCn},#{icon},#{bigicon},
+	#{description},#{sort},#{state},#{createTime},NOW(),#{operator},#{type})
+  </insert>
+  
+  <!-- 统计App主题信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.AppCollection" resultType="java.lang.Integer" >
+    select count(*) from t_app_collection 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <!-- 更新App主题信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.AppCollection" >
+  	UPDATE t_app_collection 
+	SET collectionId = #{collectionId},raveId=#{raveId},
+	name = #{name}, nameCn = #{nameCn},icon = #{icon},bigicon = #{bigicon}, 
+	description = #{description},sort = #{sort},state = #{state},createTime=#{createTime},
+	updateTime =NOW(),operator = #{operator},type = #{type} WHERE collectionId = #{collectionId}
+  </update>
+  
+  <update id="updateSortByPrimarykey" parameterType="com.mas.rave.main.vo.AppCollection">
+  	update t_app_collection set sort = #{sort} where collectionId = #{collectionId};
+  </update>
+  
+</mapper>

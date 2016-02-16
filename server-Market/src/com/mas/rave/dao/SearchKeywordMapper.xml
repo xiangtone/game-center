@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.SearchKeywordMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.SearchKeyword" >
+  	  <association column="albumId" property="appAlbum" jdbcType="INTEGER" select="com.mas.rave.dao.AppAlbumMapper.selectByPrimaryKey" /> 	 
+      <association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 	  	 
+      <association column="iconId" property="searchIcon" jdbcType="INTEGER" select="com.mas.rave.dao.SearchKeywordIconMapper.selectByPrimaryKey" /> 
+  </resultMap>
+    <resultMap id="BaseResultMapFile" type="com.mas.rave.main.vo.AppFile" >
+  	<association column="appId" property="appInfo" jdbcType="INTEGER" select="com.mas.rave.dao.AppInfoMapper.selectByPrimaryKey" />
+  	<association column="channelId" property="channel" jdbcType="INTEGER" select="com.mas.rave.dao.ChannelMapper.selectByPrimaryKey" />
+  	<association column="cpId" property="cp" jdbcType="INTEGER" select="com.mas.rave.dao.CpMapper.selectByPrimaryKey" />
+  	<association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 	  	
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.andValue" >
+                  and ${criterion.condition} #{criterion.value} and ${criterion.secondCondition} #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  	   <if test="searchId != null and searchId != ''">
+  			and searchId = #{searchId}
+  		</if>
+  		<if test="keyword != null and keyword != ''">
+  			and keyword like  CONCAT("%",#{keyword},"%")
+  		</if>
+  		<if test="country != null and country != ''">
+	  		and ( raveId=#{country.id}
+			<if test="country.id >1" >  
+			or raveId=1
+		    </if>
+		    )
+  		</if>
+  		<if test="appAlbum != null and appAlbum != ''">
+  			and albumId =#{appAlbum.id}
+  		</if>
+  	</trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    searchId,iconId,iconUrl,raveId,raveName,keyword,resLogo,resId,flag,albumId,sort,
+	createTime,updateTime,operator,searchNum
+  </sql>
+
+	<!-- 分页查看SearchKeyword信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.SearchKeyword" >
+    SELECT
+     <include refid="Base_Column_List" />
+     ,
+	CASE WHEN t1.`albumId`=2 THEN (SELECT NAME FROM `t_app_info` t2 WHERE t2.id = t1.resId)
+	WHEN t1.`albumId`=4 THEN (SELECT NAME FROM `t_res_music` t4 WHERE t4.id = t1.resId)   
+	ELSE  (SELECT NAME FROM `t_res_image` t5 WHERE t5.id = t1.resId) END AS resName 	
+	FROM t_search_keyword t1 
+   <include refid="dynamicWhere"/>
+     order by
+    <if test="keyword != null and keyword != ''">
+   		LOWER(keyword) =  #{keyword} DESC,LOWER(keyword) LIKE CONCAT(#{keyword},"%") DESC,realDowdload DESC,initDowdload DESC,  		  
+  	</if>
+  	<if test="country != null and country != ''">
+ 	 raveId desc,
+  	 </if>
+     sort desc ,createTime desc 
+      limit #{currentPage} ,#{pageSize}
+  </select>  
+  <!--根据id查找SearchKeyword信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_search_keyword
+    where searchId = #{searchId,jdbcType=INTEGER}
+  </select>
+      <!-- 根据name查询SearchKeyword信息 -->
+   <select id="selectByKeyword" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_search_keyword
+    where keyword = #{keyword}
+  </select>  
+    
+    <!-- 根据IconId查询SearchKeyword信息 -->
+   <select id="selectByIconId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_search_keyword
+    where IconId = #{IconId,jdbcType=INTEGER}
+  </select>   
+  <!-- 根据id删除SearchKeyword信息 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_search_keyword
+    where searchId = #{searchId,jdbcType=INTEGER}
+  </delete> 
+  <!-- 根据resId删除SearchKeyword信息 -->
+  <delete id="deleteByResId" parameterType="java.lang.Integer" >
+    delete from t_search_keyword
+    where resId = #{resId,jdbcType=INTEGER}
+  </delete> 
+  <!-- 增加SearchKeyword信息 -->
+  <insert id="insert"  parameterType="com.mas.rave.main.vo.SearchKeyword">
+  	<selectKey resultType="java.lang.Integer" keyProperty="searchId" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+    INSERT INTO t_search_keyword 
+	(searchId,iconId,iconUrl,raveId,raveName,keyword,resLogo,resId,flag,albumId,sort,
+	createTime,updateTime,operator,searchNum)
+	VALUES
+	(#{searchId},#{iconId},#{iconUrl},#{raveId},#{raveName},#{keyword},#{resLogo},#{resId},#{flag},#{albumId},#{sort}, 
+	now(),#{updateTime},#{operator},#{searchNum}	
+	)	
+  </insert>  
+  <!-- 统计SearchKeyword信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.SearchKeyword" resultType="java.lang.Integer" >
+    select count(*) from t_search_keyword  
+    <include refid="dynamicWhere"/>
+  </select> 
+  <!-- 更新SearchKeyword信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.SearchKeyword" >
+	UPDATE t_search_keyword SET iconId = #{iconId},iconUrl = #{iconUrl},raveId= #{raveId},raveName = #{raveName},
+	keyword=#{keyword},resLogo = #{resLogo},resId = #{resId},flag = #{flag},albumId = #{albumId},
+	sort = #{sort},updateTime = now(),operator = #{operator},searchNum = #{searchNum}
+	WHERE searchId = #{searchId}
+  </update> 
+
+    <select id="getSelectAppFiles" resultMap="BaseResultMapFile" parameterType="java.util.HashMap">
+   select *  from 
+   (
+     SELECT t2.id as appId, raveId,appName,t2.free As free,t2.biglogo as logo,t1.id AS id,realDowdload,initDowdload
+			FROM `t_app_file` t1 JOIN `t_app_info` t2 ON (t1.`appId`=t2.`id`) 
+ 		WHERE t1.state = true and (t2.free = 0 or t2.free = 2 or (t2.free = 3 and t1.cpState=1))
+ 		<if test="appname != null" >
+ 		    and t2.name like "%${appname}%" 
+ 		</if>
+ 		<if test="appid != null" >
+ 		    and( t2.`id` like "%${appid}%" or t2.name like "%${appid}%")
+ 		</if>
+  	    <if test="raveId != null" > 
+	      and ( raveId=#{raveId}
+	      <if test="raveId >1" >  
+	      or raveId=1
+          </if>
+         ) 
+        </if>
+ 	 	<if test="categoryId != null" >
+ 		 	and t2.categoryId = #{categoryId}
+ 	 	</if>
+ 	 	<if test="category_parent != null" >
+ 		 	and t2.categoryId in (select id from t_category where fatherId = #{category_parent})
+ 	 	</if> 
+ 	 	<if test="ids != null" >
+ 		 	and t2.id NOT IN 
+	   	  	<foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+	         #{item}
+	     	</foreach> 	
+ 	 	</if>	
+ 	 	ORDER BY raveId DESC ) t0
+ 		GROUP BY appId  		
+ 		ORDER BY 			 		
+ 	  <if test="appname != null and appname != ''">
+   		LOWER(appName) = #{appname} DESC,LOWER(appName) LIKE CONCAT(#{appname},"%") DESC,  		  
+  	  </if>
+ 		 raveId DESC,realDowdload DESC,initDowdload DESC 	 
+ 		limit #{currentIndex},#{pageSize}
+  </select>
+  
+   <select id="getSelectAppFilesCount" resultType="java.lang.Integer" parameterType="java.util.HashMap">
+    select count(*)  from
+   (
+   select *  from 
+   (  
+     SELECT t2.id as appId, raveId,appName,t2.free As free,t2.biglogo as logo,t1.id AS id
+	 FROM `t_app_file` t1 JOIN `t_app_info` t2 ON(t1.`appId`=t2.`id`) 
+ 		WHERE t1.state = true and (t2.free = 0 or t2.free = 2 or (t2.free = 3 and t1.cpState=1))
+ 		<if test="appname != null" >
+ 		    and t2.name like "%${appname}%"
+ 		</if>
+ 		<if test="appid != null" >
+ 		    and( t2.`id` like "%${appid}%" or t2.name like "%${appid}%")
+ 		</if>
+ 		<if test="raveId != null" > 
+		     and ( raveId=#{raveId}
+		     <if test="raveId >1" >  
+		     or raveId=1
+	      	 </if>
+	       ) 
+	     </if>
+ 	 	<if test="categoryId != null" >
+ 		 	and t2.categoryId = #{categoryId}
+ 	 	</if>
+ 	 	<if test="category_parent != null" >
+ 		 	and t2.categoryId in (select id from t_category where fatherId = #{category_parent})
+ 	 	</if>
+ 	 	<if test="ids != null" >
+ 		 	and t2.id NOT IN 
+	   	  	<foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+	         #{item}
+	     	</foreach> 	
+ 	 	</if>
+ 	 order by raveId desc ) t0 
+ 	 GROUP BY appId
+ 	 ) t		
+  </select>
+  
+</mapper>

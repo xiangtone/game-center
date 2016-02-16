@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppScoreMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppScore" />
+	<!-- 分页查看app内容信息 -->
+  <select id="getAllScore" resultMap="BaseResultMap" >
+    select scoreKey,scoreValue,createTime  from t_app_score
+  </select>
+  
+  <!-- 更新app内容信息 -->
+  <update id="updateSore" parameterType="com.mas.rave.main.vo.AppScore" >
+  	UPDATE t_app_score SET scoreValue = #{scoreValue},createTime = now() WHERE scoreKey = #{scoreKey}
+  </update>
+</mapper>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.OwnAppFileMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.OwnAppFile" >
+  	<association column="appId" property="appInfo" jdbcType="INTEGER" select="com.mas.rave.dao.OwnAppInfoMapper.selectByPrimaryKey" />
+  </resultMap>
+  <sql id="dynamicWhere"> 	 
+  	<trim prefix="where" prefixOverrides="and">
+  	    <if test="packageName != null and packageName != ''">
+  	       and  packageName like CONCAT("%",#{packageName},"%")  	    
+  		</if>
+  		<if test="name != null and name != ''">
+  			and appName like CONCAT("%",#{name},"%")
+  		</if>
+  	</trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+   id,appId,appName,apkKey,serverId,upgradeType,packageName,versionCode,versionName,url,osType,resolution, 
+	fileSize,cpChannelCode,updateInfo,remark, state,createTime,updateTime,language,haslist,cpState
+  </sql>
+  
+	<!-- 分页查看app文件信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.OwnAppFile" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_own_app_file
+     <include refid="dynamicWhere" />
+      order by createTime
+  </select>
+  
+  <select id="getByParameter" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
+   select 
+    <include refid="Base_Column_List" />
+    from t_own_app_file
+    where packageName = #{packageName} 
+  </select>
+
+  <!-- app文件信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+   select 
+    <include refid="Base_Column_List" />
+    from t_own_app_file
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_own_app_file
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <update id="updateState" parameterType="com.mas.rave.main.vo.OwnAppFile" >
+    update t_own_app_file set state=#{state},cpState=#{cpState}  
+    where id = #{id}
+  </update>
+  
+  <!-- 增加app文件信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.OwnAppFile" >
+    INSERT INTO mas_market.t_own_app_file 
+	(appId,appName,
+	apkKey,serverId,upgradeType,packageName,versionCode,versionName,url,osType,resolution,fileSize, 
+	cpChannelCode,updateInfo,remark,state,createTime,updateTime,language,haslist)
+	VALUES(#{appInfo.id},#{appName},
+	#{apkKey},#{serverId},#{upgradeType},#{packageName},#{versionCode},#{versionName},#{url},#{osType},#{resolution},#{fileSize}, 
+	#{cpChannelCode},#{updateInfo},#{remark},#{state},now(),now(),#{language},#{haslist});
+  </insert>
+  
+  <!-- 统计app文件信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.OwnAppFile" resultType="java.lang.Integer" >
+    select count(*) from t_own_app_file
+   <include refid="dynamicWhere" />
+  </select>
+  
+  
+  <select id="getOwnAppFiles" parameterType="java.lang.Integer" resultMap="BaseResultMap" >
+   select 
+    <include refid="Base_Column_List" />
+    from t_own_app_file
+   where appId=#{appId}
+  </select>
+  
+  <!-- 更新app文件信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.OwnAppFile" >
+	UPDATE t_own_app_file 
+	SET 
+	<if test="appInfo != null" >
+		appId=#{appInfo.id},
+	</if>
+	appName=#{appName},
+	serverId=#{serverId},
+	upgradeType=#{upgradeType},packageName=#{packageName},versionCode = #{versionCode},
+	versionName = #{versionName},url = #{url}, language=#{language}, osType=#{osType},
+	resolution = #{resolution},fileSize = #{fileSize}, cpChannelCode = #{cpChannelCode}, 
+	updateInfo = #{updateInfo},remark = #{remark}, 
+	state = #{state},
+	updateTime = now(),
+	haslist=#{haslist}
+	WHERE id = #{id};
+  </update>
+  
+  <update id="upOwnAppFileByAppId" parameterType="java.util.HashMap" >
+	UPDATE t_own_app_file SET appName=#{appName} WHERE appId = #{appId};
+  </update>
+  
+</mapper>

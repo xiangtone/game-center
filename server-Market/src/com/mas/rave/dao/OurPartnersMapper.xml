@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.OurPartnersMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.OurPartners" >
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.andValue" >
+                  and ${criterion.condition} #{criterion.value} and ${criterion.secondCondition} #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+  	 id,nameCh,nameEn,url,logo,state,sort,operator,remark,createTime,updateTime
+  </sql>
+  
+	<!-- 分页查看广告全作信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.OurPartners" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_our_partners
+	<if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+     order by sort desc
+  </select>
+  	
+  <!-- 根据id查看广告合作信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select  
+    <include refid="Base_Column_List" />
+    from t_our_partners
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+   <!-- 删除广告合作信息 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_our_partners
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  
+  <!-- 增加广告合作信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.OurPartners" >
+   <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+	INSERT INTO t_our_partners 
+	(nameCh,nameEn,url,logo,state,sort,operator,remark,createTime)
+	VALUES(#{nameCh}, #{nameEn},#{url},#{logo},#{state},#{sort},#{operator},#{remark}, now());
+  </insert>
+  
+  <!-- 统计app专辑信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.OurPartners" resultType="java.lang.Integer" >
+    select count(*) from t_our_partners 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <update id="updateSortByPrimarykey" parameterType="com.mas.rave.main.vo.OurPartners" >
+  	update t_our_partners set sort = #{sort} where id = #{id}
+  </update>
+  
+  <!-- 更新app专辑信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.OurPartners" >
+  	UPDATE t_our_partners 
+	set nameCh = #{nameCh},nameEn = #{nameEn}, 
+	url = #{url},logo = #{logo},state = #{state}, 
+	sort = #{sort},operator = #{operator}, 
+	remark = #{remark},updateTime = now()
+	WHERE id = #{id} ;
+  </update>
+</mapper>

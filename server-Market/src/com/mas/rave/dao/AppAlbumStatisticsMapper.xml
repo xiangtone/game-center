@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppAlbumStatisticsMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppAlbumStatistics" >
+  	  <association column="appId" property="appInfo" jdbcType="INTEGER" select="com.mas.rave.dao.AppInfoMapper.selectByPrimaryKey" />
+  	  <association column="albumId" property="appAlbum" jdbcType="INTEGER" select="com.mas.rave.dao.AppAlbumMapper.selectByPrimaryKey" />
+  	  <association column="columnId" property="appAlbumColumn" jdbcType="INTEGER" select="com.mas.rave.dao.AppAlbumColumnMapper.selectByPrimaryKey" />
+  	  <association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 	
+   	  <association column="{appId=appId1,raveId=raveId1}" property="appFile" jdbcType="INTEGER" select="com.mas.rave.dao.AppFileMapper.getAppFileByAppIdAndRaveId" />
+ 
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.andValue" >
+                  and ${criterion.condition} #{criterion.value} and ${criterion.secondCondition} #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+  	appId,appId as appId1,free,appType,appName,logo,categoryId,categoryName,raveId,raveId as raveId1,albumId, 
+	columnId,dowdChange,realDowdload,pageOpen,days,searchAppRank,searchAppCount,dowdRank,dowdAppCount,enforceScore,enforceScore,starsReal, 
+	annieExtent,finalScore,createTime
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="appName != null" >
+ 		    and appName like "%${appName}%" 
+ 		</if>
+ 		<if test="appId != null  and appId != 0" > 
+		     and appId=#{appId}
+	     </if>
+   		 <if test="raveId != null  and raveId != 0" > 
+		     and raveId=#{raveId}
+	     </if>
+	     <if test="appType != null  and appType != 0" > 
+		     and appType=#{appType}
+	     </if>
+	     <if test="categoryId != null  and categoryId != 0" > 
+		     and categoryId=#{categoryId}
+	     </if>
+	    <if test="albumId != null  and albumId != 0" > 
+		     and albumId=#{albumId}
+	    </if>
+	    <if test="columnId != null  and columnId != 0" > 
+		     and columnId=#{columnId}
+	     </if>
+  	</trim>
+  </sql>
+    <sql id="dynamicWhere1">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="appName != null" >
+ 		    and appName =#{appName}
+ 		</if>
+ 		<if test="appId != null  and appId != 0" > 
+		     and appId=#{appId}
+	    </if>
+   		<if test="raveId != null  and raveId != 0" > 
+		     and raveId=#{raveId}
+	    </if>
+	    <if test="appType != null  and appType != 0" > 
+		     and appType=#{appType}
+	    </if>
+	    <if test="categoryId != null  and categoryId != 0" > 
+		     and categoryId=#{categoryId}
+	    </if>
+	    <if test="albumId != null  and albumId != 0" > 
+		     and albumId=#{albumId}
+	    </if>
+	    <if test="columnId != null  and columnId != 0" > 
+		     and columnId=#{columnId}
+	    </if>
+  	</trim>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppAlbumStatistics" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_album_statistics   
+    <include refid="dynamicWhere"/>
+    order by finalScore desc,initDowdload+realDowdload desc
+  </select>
+    <!-- 统计信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.AppAlbumStatistics" resultType="java.lang.Integer" >
+    select count(*) from t_app_album_statistics  
+    <include refid="dynamicWhere"/>
+  </select> 
+   <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppAlbumStatistics" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_album_statistics   
+    <include refid="dynamicWhere"/>
+    order by finalScore desc
+  </select>
+  <delete id="deleteByCondition" parameterType="com.mas.rave.main.vo.AppAlbumStatistics" >
+    delete from t_app_album_statistics
+    <include refid="dynamicWhere1"/>
+  </delete>
+  <insert id="insert"  parameterType="com.mas.rave.main.vo.AppAlbumStatistics">
+    INSERT INTO t_app_album_statistics 
+	(appId,free,appType,appName,logo,categoryId,categoryName,raveId,albumId, 
+	columnId,dowdChange,realDowdload,pageOpen,days,searchAppRank,searchAppCount,enforceScore,starsReal, 
+	annieExtent,finalScore,createTime)
+	VALUES
+	(#{appId},#{free},#{appType},#{appName},#{logo},#{categoryId},#{categoryName},#{raveId},#{albumId},  
+	#{columnId},#{dowdChange},#{realDowdload},#{pageOpen},#{days},#{searchAppRank},#{searchAppCount},
+	#{enforceScore},#{starsReal},#{annieExtent},#{finalScore},NOW())
+  </insert>
+  <!-- 更新信息 -->
+  <update id="update" parameterType="com.mas.rave.main.vo.AppAlbumStatistics" >
+  		UPDATE t_app_album_statistics SET free = #{free},appType = #{appType},albumId = #{albumId},
+  		appName = #{appName},logo = #{logo},categoryId = #{categoryId},categoryName = #{categoryName},
+  		dowdChange = #{dowdChange},realDowdload = #{realDowdload},pageOpen = #{pageOpen},
+  		days = #{days},searchAppRank = #{searchAppRank},searchAppCount = #{searchAppCount},enforceScore = #{enforceScore},
+  		starsReal = #{starsReal},annieExtent = #{annieExtent},finalScore = #{finalScore}		
+  		where appId= #{appId} and raveId = #{raveId} and columnId = #{columnId}
+  </update>
+</mapper>

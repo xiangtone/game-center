@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.OwnAppFilePatchMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.OwnAppFilePatch" >
+  	<association column="appId" property="appInfo" jdbcType="INTEGER" select="com.mas.rave.dao.OwnAppInfoMapper.selectByPrimaryKey" />
+  </resultMap>
+ <sql id="dynamicWhere"> 	 
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="apkId != null and apkId != ''">
+  			and apkId =#{apkId}
+  		</if>
+  		<if test="apkId != null and apkId != ''">
+  			and lowVersionCode =#{lowVersionCode}
+  		</if>
+  	</trim>
+  </sql>
+  <sql id="Base_Column_List" >
+   id,apkId,appId,appName,lowMD5,lowPackageName,lowVersionCode,lowVersionName,
+   packageName,versionCode,versionName,url,fileSize,state,createTime,updateTime
+  </sql>
+  
+  
+  <select id="getOwnAppFilePatchs" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+     <include refid="Base_Column_List" />
+    from t_own_app_file_patch f
+   where f.apkId=#{apkId}
+   order by f.createTime
+  </select>
+  
+  <!-- app文件信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+   select 
+    <include refid="Base_Column_List" />
+    from t_own_app_file_patch
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_own_app_file_patch
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <!-- 增加appPatch文件信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.OwnAppFilePatch" >
+    INSERT INTO mas_market.t_own_app_file_patch 
+	(apkId,appId,appName,
+	lowMD5,lowPackageName,lowVersionCode,lowVersionName,lowFileSize,
+	packageName,versionCode,versionName,url,fileSize,state,createTime)
+	VALUES(#{apkId},#{appInfo.id},#{appName},
+	#{lowMD5},#{lowPackageName},#{lowVersionCode},#{lowVersionName},#{lowFileSize},
+	#{packageName},#{versionCode},#{versionName},#{url},#{fileSize},#{state},now());
+  </insert>
+  
+ 
+  <!-- 获取对应差异包 -->
+  <select id="getPtchByApkId" resultType="com.mas.rave.main.vo.OwnAppFilePatch" parameterType="java.util.HashMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_own_app_file_patch
+    where apkId = #{apkId} and lowVersionCode=#{lowVersionCode}
+  </select>
+  
+</mapper>

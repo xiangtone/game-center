@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.ClientFeedbackMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.ClientFeedback" >
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.orValue" >
+                  and ${criterion.condition} #{criterion.value} or ${criterion.secondCondition}  #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+    <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  	   <if test="clientId != null">
+  			and  clientId =#{clientId}		
+  		</if>
+  		<if test="imei != null and imei != ''">
+  			and  imei =#{imei}		
+  		</if>	
+  	</trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    lookOver,id,imei,clientId,userId,userName,email,content,deviceModel,deviceVendor,osVersion,osVersionName,deviceType,state,
+    masPackageName,masVersionName,masVersionCode,createTime,feedbackType,IP,country,province,city
+  </sql>
+  	<!-- 分页查看客户端回馈信息信息 -->
+  <select id="selectByExample"  resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.ClientFeedback" >
+  SELECT * FROM (
+  SELECT t2.lookOver AS replyOrNot, t1.createTime, 
+   t1.id, t1.imei, t1.clientId, t1.userId, t1.userName, t1.email, t1.content, 
+   t1.deviceModel, t1.deviceVendor, t1.osVersion, t1.osVersionName, t1.deviceType, t1.state, 
+   t1.masPackageName, t1.masVersionName, t1.masVersionCode, t1.feedbackType, t1.IP, t1.country, t1.province, t1.city     
+   FROM t_client_feedback t1 LEFT JOIN (SELECT lookOver,clientId,createTime FROM (SELECT lookOver,clientId,createTime FROM t_client_feedback WHERE feedbackType=2 ORDER BY createTime DESC ) t GROUP BY clientId ) t2 
+   ON ( t1.clientId= t2.clientId AND t1.createTime&lt;= t2.createTime)     
+       <trim prefix="where" prefixOverrides="and"> 
+         and  feedbackType=1
+        <if test="clientId != null">
+        	  and  t1.clientId like '%${clientId}%' 
+  	    </if>  
+         <if test="deviceModel != null ">
+		  and  t1.deviceModel like '%${deviceModel}%' 
+  	    </if> 
+        <if test="deviceVendor != null ">
+		  and  t1.deviceVendor like '%${deviceVendor}%' 
+  	    </if>  
+  	    </trim>   	    
+      order by t1.createTime DESC ) t0
+      GROUP BY clientId      
+       order by
+        <if test="clientId != null">
+   		LOWER(clientId) =  #{clientId} DESC,
+   		LOWER(clientId) LIKE CONCAT(#{clientId},"%") DESC, 		  
+  	    </if>  
+         <if test="deviceModel != null ">
+   		LOWER(deviceModel) =  #{deviceModel} DESC,
+   		LOWER(deviceModel) LIKE CONCAT(#{deviceModel},"%") DESC,	  
+  	    </if> 
+        <if test="deviceVendor != null ">
+   		LOWER(deviceVendor) =  #{deviceVendor} DESC,
+   		LOWER(deviceVendor) LIKE CONCAT(#{deviceVendor},"%") DESC, 		  
+  	    </if> 
+  	     createTime DESC  
+  	     limit #{currentPage} ,#{pageSize} 	         
+  </select>
+  
+    <!-- 分页查看客户端回馈信息信息  -->
+  <select id="getClientFeedbacks" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_client_feedback
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  
+  
+  <!-- 查询客户端回馈信息  -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_client_feedback
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+   <!-- 查询客户端回馈信息  -->
+   <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.ClientFeedback" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_client_feedback 
+    <include refid="dynamicWhere" />
+    
+    order by createTime desc   
+    limit #{currentPage} ,#{pageSize}
+  </select>
+   <!-- 统计客户端回馈信息  -->
+  <select id="countByCondition" parameterType="com.mas.rave.main.vo.ClientFeedback" resultType="java.lang.Integer" >
+    select count(*) from t_client_feedback
+    <include refid="dynamicWhere" />
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete  from t_client_feedback
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+     <!-- 查询客户端回馈信息  -->
+   <select id="selectByClientFeedback" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.ClientFeedback" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_client_feedback 
+    <include refid="dynamicWhere" />    
+    order by createTime desc   
+  </select>
+  
+   <delete id="deleteByClientId" parameterType="java.lang.Integer" >
+    delete  from t_client_feedback
+    where clientId = #{clientId,jdbcType=INTEGER}
+  </delete>
+  
+  <!-- 增加客户端回馈信息信息  -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.ClientFeedback" >
+    INSERT INTO t_client_feedback (id,imei,clientId,content,
+   createTime,feedbackType)
+	VALUES(#{id},#{imei},#{clientId},#{content},
+	#{createTime},#{feedbackType});
+  </insert>
+  
+  
+  <!-- 统计客户端回馈信息信息  -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.ClientFeedback" resultType="java.lang.Integer" >   
+     
+   SELECT count(DISTINCT t1.clientId)  
+   FROM t_client_feedback t1 LEFT JOIN (SELECT * FROM (SELECT * FROM t_client_feedback WHERE feedbackType=2 ORDER BY createTime DESC) t GROUP BY clientId) t2 
+   ON ( t1.clientId= t2.clientId AND t1.createTime&lt;= t2.createTime )
+      
+       <trim prefix="where" prefixOverrides="and">   
+        <if test="clientId != null">
+        	  and  t1.clientId like '%${clientId}%' 
+  	    </if>  
+         <if test="deviceModel != null ">
+		  and  t1.deviceModel like '%${deviceModel}%' 
+  	    </if> 
+        <if test="deviceVendor != null ">
+		  and  t1.deviceVendor like '%${deviceVendor}%' 
+  	    </if>
+  	    </trim>
+  </select>
+  
+   <!-- 更新客户端回馈信息信息  -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.ClientFeedback" >
+	UPDATE t_client_feedback
+	SET
+	id = #{id},imei = #{imei},clientId = #{clientId},userId = #{userId},
+	userName = #{userName},email = #{email},content=#{content},deviceModel=#{deviceModel},
+	deviceVendor = #{deviceVendor}, osVersion = #{osVersion}, osVersionName = #{osVersionName},deviceType= #{deviceType}, 
+	state = #{state},masPackageName = #{masPackageName},masVersionName = #{masVersionName},masVersionCode = #{masVersionCode},
+	createTime = #{createTime},feedbackType = #{feedbackType},IP = #{IP},country = #{country},
+	province = #{province},city = #{city}
+	WHERE
+	id = #{id};
+  </update>
+</mapper>

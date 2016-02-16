@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppannieInfoBaseMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppannieInfoBase" >
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.andValue" >
+                  and ${criterion.condition} #{criterion.value} and ${criterion.secondCondition} #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql> 
+  <sql id="Base_Column_List" >
+    id,appName,annieInstallTotal,annieRatings,issuer,initialReleaseDate,size,url,createTime
+  </sql>
+	<!-- 分页查看信息 -->
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppannieInfoBase" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_appannie_info_base 
+    where appName=#{appName}
+     <if test="annieRatings != null" >
+      and annieRatings>0.0
+    </if>
+  </select>
+  <delete id="deleteByName" parameterType="com.mas.rave.main.vo.AppannieInfoBase" >
+    delete from t_appannie_info_base
+    where appName=#{appName}
+  </delete>
+  <insert id="insert"  parameterType="com.mas.rave.main.vo.AppannieInfoBase">
+  	<selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+    INSERT INTO t_appannie_info_base 
+	(id,appName,annieInstallTotal,annieRatings,issuer,initialReleaseDate,
+	size,url)
+	VALUES
+	(#{id},#{appName},#{annieInstallTotal},#{annieRatings},#{issuer},#{initialReleaseDate},  
+	#{size},#{url})
+  </insert>
+</mapper>

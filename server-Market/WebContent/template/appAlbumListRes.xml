@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model title="Application Album List Res" >
+	<properties name="ApkId" title="应用文件编号" columnsWidth="4500"/>
+	<properties name="AlbumName" title="专辑英文名" columnsWidth="5000"/>
+	<properties name="AlbumNameCn" title="专辑中文名" columnsWidth="5000"/>	
+	<properties name="CategoryName" title="分类英文名" columnsWidth="5000"/>
+	<properties name="CategoryNameCn" title="分类中文名" columnsWidth="5000"/>
+	<properties name="Sort" title="分数" columnsWidth="5000"/>
+	<properties name="AppId" title="应用编号" columnsWidth="4500"/>
+	<properties name="AppName" title="应用名" columnsWidth="10000"/>
+	<properties name="FreeString" title="平台资源类型" columnsWidth="5000"/>
+	<properties name="Stars" title="星星评级" columnsWidth="4500"/>
+	<properties name="FileSizeString" title="大小" columnsWidth="5000"/>
+	<properties name="PackageName" title="包名" columnsWidth="10000"/>
+	<properties name="VersionName" title="版本名称" columnsWidth="5000"/>
+	<properties name="SourceString" title="分发类型" columnsWidth="5000"/>
+	<properties name="CreateTime" title="创建日期" columnsWidth="5000"/>
+</model>

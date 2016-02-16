@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppInfoRankMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppInfoRank">
+   	  <association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+   appId,raveId,hrHigerank,hrLowrank,hnHigerank,hnLowrank,htHigerank,htLowrank,hpHigerank,hpLowrank,ahHigerank,ahLowrank,atHigerank,atLowrank,anHigerank,anLowrank,ghHigerank,ghLowrank,gtHigerank,gtLowrank,gnHigerank,gnLowrank,createTime,updateTime
+  </sql>
+  
+
+  
+  <!-- app_info_rank -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppInfoRank" >
+   select 
+    <include refid="Base_Column_List" />
+    from t_app_info_rank 
+    where appId = #{appId} and raveId=#{raveId}
+  </select>
+  
+  <!-- 增加 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.AppInfoRank" >
+    INSERT INTO mas_market.t_app_info_rank 
+	(appId,raveId,hrHigerank,hrLowrank,hnHigerank,hnLowrank,htHigerank,htLowrank,hpHigerank,hpLowrank,ahHigerank,ahLowrank,atHigerank,atLowrank,anHigerank,anLowrank,ghHigerank,ghLowrank,gtHigerank,gtLowrank,gnHigerank,gnLowrank,createTime)  
+	 VALUES(#{appId},#{raveId},#{hrHigerank},#{hrLowrank},#{hnHigerank},#{hnLowrank},#{htHigerank},#{htLowrank},#{hpHigerank},#{hpLowrank},#{ahHigerank},#{ahLowrank},#{atHigerank},#{atLowrank},#{anHigerank},#{anLowrank},#{ghHigerank},#{ghLowrank},#{gtHigerank},#{gtLowrank},#{gnHigerank},#{gnLowrank},now());
+  </insert>
+  
+  <!-- 更新 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.AppInfoRank" >
+	UPDATE t_app_info_rank 
+	SET  
+	hrHigerank=#{hrHigerank},
+	hrLowrank=#{hrLowrank},
+	hnHigerank=#{hnHigerank},
+	hnLowrank=#{hnLowrank},
+	htHigerank=#{htHigerank},
+	htLowrank=#{htLowrank},
+	hpHigerank=#{hpHigerank},
+	hpLowrank=#{hpLowrank},
+	ahHigerank=#{ahHigerank},
+	ahLowrank=#{ahLowrank},
+	atHigerank=#{atHigerank},
+	atLowrank=#{atLowrank},
+	anHigerank=#{anHigerank},
+	anLowrank=#{anLowrank},
+	ghHigerank=#{ghHigerank},
+	ghLowrank=#{ghLowrank},
+	gtHigerank=#{gtHigerank},
+	gtLowrank=#{gtLowrank},
+	gnHigerank=#{gnHigerank},
+	gnLowrank=#{gnLowrank},
+	updateTime=now() 
+	WHERE appId = #{appId}
+	<if test="country != null" >
+		and raveId = #{country.id}
+	</if> 
+	
+  </update>
+ 
+
+</mapper>

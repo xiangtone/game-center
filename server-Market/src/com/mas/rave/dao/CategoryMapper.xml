@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.CategoryMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.Category" />
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.orValue" >
+                  and ${criterion.condition} #{criterion.value} or ${criterion.secondCondition}  #{criterion.secondValue}
+                </when>
+                 <when test="criterion.andValue" >
+                  and ${criterion.condition} #{criterion.value} and ${criterion.secondCondition} #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="id != null and id != ''">
+  			t.id = #{id}
+  		</if>
+  		<if test="name != null and name != ''">
+  			and t.name like #{name}
+  		</if>
+  		<if test="state != null">
+  			and t.state = #{state}
+  		</if>
+  		<if test="flag != null and flag == 0">
+  			and t.fatherId not in (0,1)
+  		</if>
+  		<if test="fatherId != null and fatherId != ''">
+  			and t.fatherId = #{fatherId}
+  		</if>
+  		<if test="raveId != null and raveId != ''">
+	  		<if test="raveId >0">
+	  			and ( t.raveId = #{raveId}
+	  			<if test="raveId >1">
+	  				or t.raveId = 1
+	  			</if>
+	  			)
+	  		</if>
+	  		
+  		</if>
+  	</trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    id,marketInfoId,raveId,name,categoryCn,fatherId,level,icon,bigicon,recommend,sort, 
+	state,createTime,updateTime 
+  </sql>
+  
+   <sql id="Base_Column_List1" >
+    t.id,t.marketInfoId,t.raveId,t.name,t.categoryCn,t.fatherId,t.level,t.icon,t.bigicon,t.recommend,t.sort, 
+	t.state,t.createTime,t.updateTime 
+  </sql>
+  
+  <update id="updateSortByPrimarykey" parameterType="com.mas.rave.main.vo.Category">
+  	update t_category set sort = #{sort} where id = #{id}
+  </update>
+  
+	<!-- 分页查看app分类信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.Category" >
+    select
+    <!-- 
+    <if test="distinct" >
+      distinct
+    </if> -->
+    <include refid="Base_Column_List1" />
+   ,(select t1.name from t_rave_country t1 where id=raveId) as cateName
+    ,(select t1.nameCn from t_rave_country t1 where id=raveId) as cateNameCn
+    from t_category t
+    <include refid="dynamicWhere"/>
+    <!-- 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+     -->
+    order by t.sort desc
+    <!-- 
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if> -->
+  </select>
+  
+  <!-- 分页查看app分类信息 -->
+  <select id="getcategorys" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_category
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  
+  <!-- 分页查看app分类信息 -->
+  <select id="getSecondCategorys" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_category
+   where fatherId>1;
+  </select>
+  
+  <!-- 根据id查看app分类信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_category
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <!-- 根据二级分类查询一级分类 -->
+  <select id="selectByCategory" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    SELECT a.id firstId,a.name firstName,a.fatherId firstFatherId,b.* FROM t_category a
+	JOIN  t_category b ON a.id=b.fatherId
+	 WHERE b.id= #{id,jdbcType=INTEGER}
+  </select>
+    
+  <!-- 根据name获取分类信息 -->
+  <select id="getCategorysByName" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.Category" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_category
+    where name = #{name} and fatherId=#{fatherId}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_category
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <!-- 增加app分类信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.Category" >
+   	INSERT INTO t_category (raveId,name,categoryCn,fatherId,level,icon,bigicon,
+	recommend,sort,state,createTime)
+	VALUES(#{raveId},#{name},#{categoryCn},#{fatherId},#{level},#{icon},#{bigicon},#{recommend},#{sort}, 
+	#{state},now())
+  </insert>
+  
+  
+  <!-- 统计app分类信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.Category" resultType="java.lang.Integer" >
+    select count(*) from t_category t
+    <include refid="dynamicWhere"/>
+    <!-- 
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if> -->
+  </select>
+  
+  <!-- 更新app分类信息 -->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.Category" >
+	UPDATE t_category 
+	SET raveId=#{raveId},name = #{name},categoryCn = #{categoryCn},fatherId = #{fatherId}, 
+	icon = #{icon},bigicon=#{bigicon},recommend = #{recommend},sort = #{sort}, 
+	state = #{state},updateTime = now() 
+	WHERE id = #{id}
+  </update>
+</mapper>

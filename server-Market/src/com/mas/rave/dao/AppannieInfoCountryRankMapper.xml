@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.AppannieInfoCountryRankMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.AppannieInfoCountryRank" >
+       <result column="appName1" jdbcType="VARCHAR" property="appName" />
+   	  <association column="raveId" property="country" jdbcType="INTEGER" select="com.mas.rave.dao.CountryMapper.selectByPrimaryKey" /> 	  	
+  	  <association column="albumId" property="appAlbum" jdbcType="INTEGER" select="com.mas.rave.dao.AppAlbumMapper.selectByPrimaryKey" />
+   	  <association column="appName" property="appInfo" jdbcType="VARCHAR" select="com.mas.rave.dao.AppInfoMapper.selectByName" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.andValue" >
+                  and ${criterion.condition} #{criterion.value} and ${criterion.secondCondition} #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="appName != null" >
+ 		    and appName like "%${appName}%" 
+ 		</if>
+   		 <if test="raveId != null  and raveId != 0" > 
+		     and raveId=#{raveId}
+	     </if>
+	     <if test="albumId != null  and albumId != 0" > 
+		     and albumId=#{albumId}
+	     </if>
+	     <if test="annieType != null  and annieType != 0" > 
+		     and annieType=#{annieType}
+	     </if>
+	     <if test="state != null" > 
+		     and state=#{state}
+	     </if>
+	     <if test="createTime != null" > 
+		     and createTime=#{createTime}
+	     </if>
+  	</trim>
+  </sql>
+    <sql id="dynamicWhere1">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="appName != null" >
+ 		    and appName =#{appName}
+ 		</if>
+   		 <if test="raveId != null  and raveId != 0" > 
+		     and raveId=#{raveId}
+	     </if>
+	     <if test="albumId != null  and albumId != 0" > 
+		     and albumId=#{albumId}
+	     </if>
+	     <if test="annieType != null and annieType != 0" > 
+		     and annieType=#{annieType}
+	     </if>
+	     <if test="state != null" > 
+		     and state=#{state}
+	     </if>
+	     <if test="createTime != null" > 
+		     and createTime=#{createTime}
+	     </if>
+  	</trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id,raveId,albumId,appName,annieInstallTotal,appName as appName1,
+	annieRatings,initialReleaseDate,annieRank,annieExtent,annieType,createTime,state
+  </sql>
+	<!-- 分页查看信息 -->
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppannieInfoCountryRank" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_appannie_contry_rank 
+   <include refid="dynamicWhere1"/>
+  </select>
+   <select id="selectByCreateTime" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+   <include refid="Base_Column_List" />
+    from t_appannie_contry_rank 
+    WHERE TO_DAYS(createTime) = TO_DAYS(#{createTime}) group by appName;
+  </select>
+  <delete id="deleteByCondition" parameterType="com.mas.rave.main.vo.AppannieInfoCountryRank" >
+    delete from t_appannie_contry_rank
+    <include refid="dynamicWhere1"/>
+  </delete>
+	<!-- 分页查看信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.AppannieInfoCountryRank" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_appannie_contry_rank 
+   <include refid="dynamicWhere"/>
+     order by 
+       <if test="appName != null and appName != ''">
+    		LOWER(appName) =  #{appName} DESC,LOWER(appName) LIKE CONCAT(#{appName},"%") DESC,		  
+  	   </if>
+       annieType asc, annieRank asc 
+      limit #{currentPage} ,#{pageSize}
+  </select>
+ 
+  <!--根据id查找信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_appannie_contry_rank
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <!-- 根据id删除信息 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_appannie_contry_rank
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert"  parameterType="com.mas.rave.main.vo.AppannieInfoCountryRank">
+  	<selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+    INSERT INTO t_appannie_contry_rank 
+	(id,raveId,albumId,appName,
+	annieInstallTotal,annieRatings,initialReleaseDate,
+	annieRank,annieExtent,annieType,createTime,state)
+	VALUES
+	(#{id},#{raveId},#{albumId},#{appName},	
+	#{annieInstallTotal},#{annieRatings},#{initialReleaseDate},  
+	#{annieRank},#{annieExtent},#{annieType},now(),#{state})
+  </insert>
+  
+  <!-- 统计信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.AppannieInfoCountryRank" resultType="java.lang.Integer" >
+    select count(*) from t_appannie_contry_rank  
+    <include refid="dynamicWhere"/>
+  </select> 
+  <!-- 更新信息 -->
+  <update id="updateStatusBy" parameterType="com.mas.rave.main.vo.AppannieInfoCountryRank" >
+  		UPDATE t_appannie_contry_rank 
+		SET state = #{state} where raveId= #{raveId} and albumId=#{albumId}
+  </update>
+   <!-- 更新信息 -->
+  <update id="update" parameterType="com.mas.rave.main.vo.AppannieInfoCountryRank" >
+  		UPDATE t_appannie_contry_rank SET raveId = #{raveId},albumId = #{albumId},appName = #{appName},
+  		annieInstallTotal = #{annieInstallTotal},annieRatings = #{annieRatings},initialReleaseDate = #{initialReleaseDate},
+  		annieRank = #{annieRank},annieExtent = #{annieExtent},annieType = #{annieType},state = #{state}
+  		where id= #{id}
+  </update>
+</mapper>

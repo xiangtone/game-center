@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.LogMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.Log" >
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                 <when test="criterion.andValue" >
+                  and ${criterion.condition} #{criterion.value} and ${criterion.secondCondition} #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  	   <if test="operator != null and operator != ''">
+  			and operator like  "%${operator}%"
+  		</if>
+  		<if test="res != null and res != ''">
+  			and res like  "%${res}%"
+  		</if>
+  		<if test="action != null and action != ''">
+  			and action like  "%${action}%"
+  		</if>
+  		<if test="startTime != null and startTime != ''">
+  			 <![CDATA[and time >= #{startTime}]]> 
+  		</if>
+  		<if test="endTime != null and endTime != ''">
+  			 <![CDATA[and time <= #{endTime}]]> 
+  		</if>
+  	</trim>
+  </sql>
+  
+  <sql id="Base_Column_List" >
+    id,operator,action,res,succ,time
+  </sql>
+
+	<!-- 分页查看log信息  SELECT * FROM  (SELECT * FROM `t_operation_log` WHERE operator LIKE '%ding%' LIMIT 8) t LIMIT 0,10;-->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.Log" >
+	    SELECT 
+	    <include refid="Base_Column_List" />
+	    from 
+        t_operation_log 
+        <include refid="dynamicWhere"/>     
+       order by  time desc 
+      limit #{currentPage} ,#{pageSize} 
+  </select>
+  
+    <select id="getAllLogs" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_operation_log order by time desc
+  </select>
+   
+  <!--根据id查找log信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_operation_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <!-- 增加log信息 -->
+  <insert id="insert"  parameterType="com.mas.rave.main.vo.Log">
+  	<selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+    INSERT INTO t_operation_log 
+	(id,operator,action,res,succ,time)
+	VALUES
+	(#{id},#{operator},#{action},#{res},#{succ},now())
+  </insert>
+  
+  <!-- 统计log信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.Log" resultType="java.lang.Integer" >
+   SELECT  count(*) from  t_operation_log 
+    <include refid="dynamicWhere"/>
+  </select> 
+  
+  
+</mapper>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.rave.dao.ClientSkinMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.rave.main.vo.ClientSkin" />
+  <sql id="dynamicWhere"> 	 
+  	<trim prefix="where" prefixOverrides="and"> 	 
+  	    <if test="packageName != null and packageName != ''">
+  	       and  packageName = #{packageName} 	    
+  		</if>
+  		<if test="skinName != null and skinName != ''">
+  			and skinName like CONCAT("%",#{skinName},"%")
+  		</if>
+  	</trim>
+  </sql>
+  <sql id="Base_Column_List" >
+  	 skinId,skinName,logo,description,packageName, versionName, versionCode, apkUrl,apkSize, downLoadNum,createTime, updateTime,sort,state
+  </sql>
+  
+	<!-- 分页查看zapp皮肤信息 -->
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.rave.main.vo.ClientSkin" >
+    select
+    <include refid="Base_Column_List" />
+    from t_client_skin
+     <include refid="dynamicWhere" />
+    order by sort desc
+    limit #{currentPage} ,#{pageSize}
+  </select>
+  
+  <!-- 根据id查看zapp皮肤题信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_client_skin
+    where skinId = #{skinId,jdbcType=INTEGER}
+  </select>
+      <!-- 根据包名查看zapp皮肤信息-->
+  <select id="selectByPackName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_client_skin
+    where packageName = #{packageName}
+    limit 1
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_client_skin
+    where skinId = #{skinId,jdbcType=INTEGER}
+  </delete>
+  
+  
+  <!-- 增加zapp皮肤信息 -->
+  <insert id="insert" parameterType="com.mas.rave.main.vo.ClientSkin" >
+   <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+    SELECT @@IDENTITY
+   </selectKey>
+	INSERT INTO t_client_skin 
+	(skinName, logo,description,packageName,versionName,versionCode,apkUrl,apkSize,createTime,sort,state)
+	VALUES (#{skinName},#{logo},#{description},#{packageName},#{versionName},#{versionCode},#{apkUrl},#{apkSize},now(),#{sort}, #{state})
+  </insert>
+  
+  <!-- 统计zapp皮肤信息 -->
+  <select id="countByExample" parameterType="com.mas.rave.main.vo.ClientSkin" resultType="java.lang.Integer" >
+    select count(*) from t_client_skin 
+    <include refid="dynamicWhere" />
+  </select>
+  
+  <!-- 更新zapp皮肤信息-->
+  <update id="updateByPrimaryKey" parameterType="com.mas.rave.main.vo.ClientSkin" >
+  	UPDATE t_client_skin
+	SET skinName = #{skinName},logo = #{logo},description = #{description} , packageName = #{packageName} , 
+	versionName = #{versionName},versionCode = #{versionCode},apkUrl = #{apkUrl},apkSize = #{apkSize},updateTime = now(), state = #{state},sort=#{sort}
+	WHERE skinId = #{skinId}
+  </update>
+  <!-- zapp皮肤信息排序-->
+  <update id="updateSortByPrimarykey" parameterType="com.mas.rave.main.vo.ClientSkin" >
+  	update t_client_skin set sort = #{sort} where skinId = #{skinId}
+  </update>
+</mapper>
