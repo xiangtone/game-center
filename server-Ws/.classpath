@@ -124,6 +124,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xmlsec-1.5.2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/json.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-io-2.4.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/aMineIndomog"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/x-game-center-Indomog"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

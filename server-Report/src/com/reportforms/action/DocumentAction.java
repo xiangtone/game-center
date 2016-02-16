@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -46,7 +47,7 @@ public class DocumentAction {
 			    try {  
 			    	response.reset();
 			    	response.setHeader("Content-Disposition", "attachment; filename=zApp_Report_Manual.docx");
-			    	response.setCharacterEncoding("utf-8");
+			    	((ServletRequest) response).setCharacterEncoding("utf-8");
 			    	response.addHeader("Content-Length", "" + outFile.length());
 			    	response.setContentType("application/octet-stream; charset=utf-8");  
 			        os.write(FileUtils.readFileToByteArray(outFile));  
