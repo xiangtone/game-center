@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_light"
+    android:orientation="horizontal"
+    android:padding="10dp" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="11"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/applocker_pwd_setter_security_hint_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="@string/find_remind"
+            android:textColor="@color/applocker_security_reminder" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/applocker_pwd_setter_security_question_et"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/ic_editor_box"
+                android:ems="10"
+                android:maxLength="100"
+                android:padding="@dimen/text_margin_size"
+                android:singleLine="true"
+                android:textSize="14sp" />
+
+            <ImageButton
+                android:id="@+id/applocker_pwd_setter_security_question_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/selector_btn_and_progress_theme"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_applocker_security_expand" />
+        </RelativeLayout>
+
+        <com.x.ui.view.editview.ClearEditText
+            android:id="@+id/applocker_pwd_setter_security_answer_et"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/text_margin_size"
+            android:background="@drawable/ic_editor_box"
+            android:drawableRight="@drawable/account_delete_selector"
+            android:ems="10"
+            android:maxLength="100"
+            android:padding="@dimen/text_margin_size"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/applocker_pwd_setter_security_illegal_info_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/account_red" />
+
+        <Button
+            android:id="@+id/applocker_pwd_setter_security_confirm_btn"
+            android:layout_width="@dimen/security_ok_btn_wight"
+            android:layout_height="@dimen/account_btn_layout_height"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/selector_btn_and_progress_theme"
+            android:text="@string/ok"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

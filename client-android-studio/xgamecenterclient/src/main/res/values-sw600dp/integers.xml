@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="gridview_row_count">4</integer>
+    <integer name="download_gridview_row_count">2</integer>
+
+    <!-- 壁纸模块 -->
+    <integer name="quiltview_delete_width">8</integer>
+    <integer name="waterfall_delete_width">4</integer>
+    <integer name="LIVE_WALLPAPER_COLUMN">3</integer>
+    
+    <integer name="srotage_roundbar_interval">12</integer>
+    <integer name="srotage_roundbar_width">13</integer>      
+    
+    <!-- 搜索模块 -->
+    <integer name="keyword_page_size">24</integer>  
+    <integer name="item1_with_icon_max_ems">18</integer>    
+    <integer name="item1_with_text_max_ems">19</integer> 
+    <integer name="item2_with_icon_max_ems">15</integer>    
+    <integer name="item2_with_text_max_ems">16</integer> 
+
+</resources>

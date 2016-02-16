@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <item type="drawable" name="app_bg_drawable">#eeeeee</item>
+    <item type="drawable" name="white_drawable">#ffffffff</item>
+    <item type="drawable" name="tab_menu_divider">#a8b670</item>
+    <item type="drawable" name="app_item_bg">#f7f7f7</item>
+      
+    <item type="drawable" name="left_account_bg">#aa66cc</item>
+    <item type="drawable" name="left_manager_bg">#33add6</item>
+    <item type="drawable" name="left_more_bg">#ff8800</item>
+    <item type="drawable" name="setting_divider">#c4c4c4</item>
+    <item type="drawable" name="transparent">#00000000</item>
+</resources>

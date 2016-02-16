@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/search_result_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/common_padding"
+        android:text="@string/resource_search"
+        android:textColor="#383838"
+        android:textSize="@dimen/title_text_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#c4c4c4" />
+
+    <com.x.ui.view.pulltorefresh.PullToRefreshListView
+        android:id="@+id/ringtones_search_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/app_bg_drawable"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:smoothScrollbar="true" />
+
+    <include
+        layout="@layout/loading"
+        android:visibility="gone" />
+
+    <include
+        layout="@layout/error"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/iai_top_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/app_information_bg" >
+
+        <ImageView
+            android:id="@+id/iai_app_icon_iv"
+            android:layout_width="@dimen/app_cover_size_small"
+            android:layout_height="@dimen/app_cover_size_small"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/common_padding"
+            android:contentDescription="@string/app_name" />
+
+        <LinearLayout
+            android:id="@+id/iai_right_panel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <View
+                android:id="@+id/iai_divider"
+                style="@style/VerticalDividerStyle" />
+
+            <TextView
+                android:id="@+id/iai_apk_delete_tv"
+                style="@style/DownloadTextviewStyle"
+                android:drawableTop="@drawable/selector_uninstall_btn"
+                android:text="@string/manager_delete"
+                android:textColor="@color/update_color" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/iai_right_panel"
+            android:layout_toRightOf="@id/iai_app_icon_iv"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/common_padding"
+            android:paddingRight="@dimen/common_padding" >
+
+            <TextView
+                android:id="@+id/iai_app_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="150dp"
+                android:singleLine="true"
+                android:textColor="@color/grid_app_name_color"
+                android:textSize="@dimen/text_big_size" />
+
+            <TextView
+                android:id="@+id/iai_app_version_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="150dp"
+                android:singleLine="true"
+                android:textColor="@color/grid_app_size_color"
+                android:textSize="@dimen/text_small_size" />
+
+            <TextView
+                android:id="@+id/iai_app_size_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/grid_app_size_color"
+                android:textSize="@dimen/text_small_size" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

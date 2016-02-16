@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/text_margin_size"
+    android:background="#ffffff"
+    android:baselineAligned="false"
+    android:orientation="horizontal" >
+
+    <!-- 收藏按钮 -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginRight="@dimen/text_margin_size"
+        android:layout_weight="3" >
+
+        <ImageView
+            android:id="@+id/btn_app_collect"
+            android:layout_width="@dimen/horizontal_progresssbar_height"
+            android:layout_height="@dimen/horizontal_progresssbar_height"
+            android:layout_centerInParent="true"
+            android:background="@drawable/app_ic_unfavorite"
+            android:contentDescription="@null" />
+    </RelativeLayout>
+
+    <!-- 评论按钮 -->
+
+    <RelativeLayout
+        android:id="@+id/btn_app_comments"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/horizontal_progresssbar_height"
+        android:layout_weight="1"
+        android:background="@drawable/ic_btn_gray"
+        android:gravity="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/text_small_padding_size"
+            android:text="@string/app_comment_btn_text"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/text_big_size" />
+    </RelativeLayout>
+
+    <!-- 分享按钮 -->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="@dimen/text_margin_size"
+        android:layout_weight="3" >
+
+        <ImageView
+            android:id="@+id/btn_app_share"
+            android:layout_width="@dimen/horizontal_progresssbar_height"
+            android:layout_height="@dimen/horizontal_progresssbar_height"
+            android:layout_centerInParent="true"
+            android:background="@drawable/selector_app_share_btn"
+            android:contentDescription="@null" />
+    </RelativeLayout>
+
+</LinearLayout>

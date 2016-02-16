@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_frame"
+    android:orientation="vertical" >
+
+    <!-- content -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin_size"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:layout_width="@dimen/country_icon_size"
+            android:layout_height="@dimen/country_icon_size"
+            android:contentDescription="@null"
+            android:src="@drawable/mas_ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_margin_size"
+            android:text="@string/app_country"
+            android:textColor="#333333"
+            android:textSize="@dimen/text_sub_large_size"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider_line"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/green_line_size"
+        android:background="@drawable/nav_bg" />
+
+    <LinearLayout
+        android:id="@+id/ly_listview_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/country_listview_height" >
+
+        <com.x.ui.view.pulltorefresh.PullToRefreshListView
+            android:id="@+id/lv_country"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:divider="@color/dialog_stroke"
+            android:dividerHeight="0.1dp"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:padding="@dimen/common_padding"
+            android:scrollbars="none" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="#c8c8c8" />
+
+    <!-- bottom -->
+
+    <include layout="@layout/common_dialog_bottom_bar" />
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="0.5dp"
+    android:layout_marginBottom="@dimen/text_small_margin_size"
+    android:layout_marginTop="@dimen/text_small_margin_size"
+    android:background="#c4c4c4" />

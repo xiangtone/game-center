@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/rl_title_bar"
+        layout="@layout/main_header" />
+
+    <include
+        layout="@layout/empty"
+        android:visibility="gone" />
+
+    <include layout="@layout/loading" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:id="@+id/azdct_transfer_percent_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" >
+
+            <TextView
+                android:id="@+id/azdct_transfer_percent_tips_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:text="@string/share_receive_percent" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/azdct_transfer_save_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" >
+
+            <TextView
+                android:id="@+id/azdct_transfer_save_tips_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:text="@string/share_receive_save_stream" />
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/azdct_transfer_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/azdct_transfer_save_ll"
+            android:layout_below="@id/azdct_transfer_percent_ll"
+            android:background="@android:color/transparent"
+            android:cacheColorHint="@color/transparent"
+            android:divider="@color/transparent"
+            android:dividerHeight="1dp"
+            android:paddingLeft="@dimen/common_padding"
+            android:paddingRight="@dimen/common_padding" />
+    </RelativeLayout>
+
+</LinearLayout>

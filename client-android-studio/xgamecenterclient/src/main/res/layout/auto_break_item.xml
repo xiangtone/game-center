@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/keyword_layout_height"
+    android:background="@drawable/selector_search_recommend_keywords"
+    android:gravity="center"
+    android:paddingLeft="@dimen/keyword_item_text_padding"
+    android:paddingRight="@dimen/keyword_item_text_padding" >
+
+    <ImageView
+        android:id="@+id/res_logo"
+        android:layout_width="@dimen/keyword_icon_size"
+        android:layout_height="@dimen/keyword_icon_size"
+        android:layout_marginRight="2dp"
+        android:contentDescription="@null" />
+
+    <TextView
+        android:id="@+id/res_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textColor="#787878"
+        android:textSize="@dimen/text_big_size" />
+
+</LinearLayout>

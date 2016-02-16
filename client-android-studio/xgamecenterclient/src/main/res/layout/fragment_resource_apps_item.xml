@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/apps_icon"
+        android:layout_width="@dimen/share_app_size"
+        android:layout_height="@dimen/share_app_size"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="8dp" />
+
+    <TextView
+        android:id="@+id/apps_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/apps_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:ellipsize="middle"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/apps_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/apps_title"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/pic_title_bg"
+        android:textSize="@dimen/text_big_size" />
+
+    <CheckBox
+        android:id="@+id/apps_check"
+        android:layout_width="@dimen/share_app_check_size"
+        android:layout_height="@dimen/share_app_check_size"
+        android:layout_alignParentRight="true"
+        android:button="@drawable/selector_option_btn"
+        android:clickable="false"
+        android:focusable="false" />
+
+</RelativeLayout>

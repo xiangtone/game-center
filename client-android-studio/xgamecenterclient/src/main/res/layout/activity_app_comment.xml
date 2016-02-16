@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_comment_content"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_frame"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin_size" >
+
+            <ImageView
+                android:id="@+id/img_app_icon"
+                android:layout_width="@dimen/app_cover_size"
+                android:layout_height="@dimen/app_cover_size"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="@dimen/text_margin_size"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="#383838"
+                    android:textSize="@dimen/title_text_size" />
+
+                <TextView
+                    android:id="@+id/tv_app_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_margin_size"
+                    android:textColor="#787878"
+                    android:textSize="@dimen/sub_title_text_size" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_line"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/green_line_size"
+            android:background="@drawable/nav_bg" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_margin_size"
+            android:layout_marginRight="@dimen/text_margin_size"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="@dimen/account_padding"
+                android:layout_weight="2"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/tv_ratings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/rate_app"
+                    android:textColor="#383838"
+                    android:textSize="@dimen/title_text_size" />
+
+                <RatingBar
+                    android:id="@+id/rb_stars"
+                    style="@style/AppCommon.large.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_margin_size"
+                    android:layout_toRightOf="@+id/tv_ratings"
+                    android:stepSize="1" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_content"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="@dimen/account_padding"
+                android:layout_weight="1"
+                android:background="@drawable/app_information_bg"
+                android:gravity="top"
+                android:hint="@string/rate_content"
+                android:lines="5"
+                android:maxLength="140"
+                android:padding="@dimen/common_padding"
+                android:textColor="#383838"
+                android:textColorHint="#c8c8c8"
+                android:textSize="@dimen/title_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right" >
+
+            <TextView
+                android:id="@+id/tv_left_chars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/text_margin_size"
+                android:text="0/140"
+                android:textSize="@dimen/text_mid_size" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/account_padding"
+            android:background="#c8c8c8" />
+    </LinearLayout>
+    <!-- bottom -->
+
+    <include layout="@layout/common_dialog_bottom_bar" />
+
+</LinearLayout>

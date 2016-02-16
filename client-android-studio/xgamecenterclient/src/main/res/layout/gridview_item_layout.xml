@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:round="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/app_bg_drawable" >
+
+    <LinearLayout
+        android:id="@+id/item_gridview_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1.8dp"
+        android:layout_marginRight="1.8dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/selector_gridview_app_item"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/gl_app_comment"
+            android:layout_width="@dimen/grid_icon_size"
+            android:layout_height="@dimen/grid_icon_size"
+            android:textSize="@dimen/text_big_size"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/gl_app_icon"
+                android:layout_width="@dimen/grid_icon_size"
+                android:layout_height="@dimen/grid_icon_size"
+                android:contentDescription="@null"
+                android:padding="@dimen/gridview_icon_padding"
+                android:src="@drawable/ic_screen_default_picture" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/gl_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:paddingLeft="@dimen/common_padding"
+            android:singleLine="true"
+            android:text="FaceBook"
+            android:textColor="@color/grid_app_name_color"
+            android:textSize="@dimen/text_big_size" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:paddingBottom="1dp"
+            android:paddingLeft="@dimen/common_padding"
+            android:paddingRight="@dimen/common_padding" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/gl_app_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="3.91M"
+                    android:textColor="@color/grid_app_size_color"
+                    android:textSize="@dimen/text_mid_size" />
+
+                <RatingBar
+                    android:id="@+id/gl_app_ratingBar"
+                    style="@style/AppCommon.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:numStars="5"
+                    android:rating="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="right|center_vertical" >
+
+                <TextView
+                    android:id="@+id/gl_app_download_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_download_btn" />
+
+                <com.x.ui.view.RoundProgress
+                    android:id="@+id/gl_app_pause_rp"
+                    android:layout_width="@dimen/download_btn_width"
+                    android:layout_height="@dimen/download_btn_width"
+                    round:backColor="@color/translucent"
+                    round:progressColor="@color/round_progress_color"
+                    round:thickness="2dp" />
+
+                <TextView
+                    android:id="@+id/gl_app_continue_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_continue_btn"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/gl_app_upgrade_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_upgrade_btn"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/gl_app_launch_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_launch_btn"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/gl_app_install_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_install_btn"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

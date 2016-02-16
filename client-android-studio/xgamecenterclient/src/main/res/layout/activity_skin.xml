@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/rl_title_bar"
+        layout="@layout/main_header" />
+
+    <com.x.ui.view.pulltorefresh.PullToRefreshListView
+        android:id="@+id/fhr_skin_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="2dp" 
+        android:divider="@android:color/transparent"
+        android:listSelector="@android:color/transparent" 
+        android:paddingTop="6dp"
+        />
+
+</LinearLayout>

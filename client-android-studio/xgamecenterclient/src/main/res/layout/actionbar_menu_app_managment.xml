@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/selector_actionbar_menu">
+
+    <ImageView
+        android:id="@+id/amam_app_managment_iv"
+        style="?attr/actionButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:background="?attr/selectableItemBackground"
+        android:focusable="true"
+        android:src="@drawable/ic_actionbar_manager" />
+
+    <TextView
+        android:id="@+id/amam_app_update_tips_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/sliding_point"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="9sp"
+        android:visibility="invisible" />
+
+</FrameLayout>

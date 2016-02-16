@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/fai_storage_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/common_padding"
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding"
+        android:visibility="gone" >
+
+        <View
+            android:id="@+id/fai_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@drawable/setting_divider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/common_padding"
+                android:text="SDCard Space:"
+                android:textColor="@color/update_color"
+                android:textSize="@dimen/title_text_size" />
+
+            <TextView
+                android:id="@+id/fai_storage_avail_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/left_more_bg"
+                android:padding="@dimen/common_padding"
+                android:singleLine="true"
+                android:text=" "
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_text_size" />
+
+            <TextView
+                android:id="@+id/fai_storage_use_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4px"
+                android:layout_weight="1.0"
+                android:background="@drawable/left_manager_bg"
+                android:padding="@dimen/common_padding"
+                android:singleLine="true"
+                android:text=" "
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.x.ui.view.expendlistview.ActionSlideExpandableListView
+        android:id="@+id/fai_app_install_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/fai_storage_ll"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@color/transparent"
+        android:divider="@color/transparent"
+        android:dividerHeight="1px"
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding" />
+
+    <include
+        layout="@layout/empty"
+        android:visibility="gone" />
+
+</RelativeLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wp_album_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_listview_app_item"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/wp_ablum_img_logo_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_theme_height" >
+
+        <ImageView
+            android:id="@+id/wp_img_logo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_theme_height"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/banner_default_picture" />
+
+        <TextView
+            android:id="@+id/wp_ablum_num_tv"
+            android:layout_width="@dimen/wallpaper_ablum_num_textview_width"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/wallpaper_ablum_num_textview_marginbottom"
+            android:paddingRight="@dimen/wallpaper_ablum_num_text_paddingright_size"
+            android:gravity="center"
+            android:text="@string/wallpaper_ablum_num_text"
+            android:background="@drawable/wp_album_num_bg"
+            android:textColor="@color/white"
+            android:textSize="@dimen/wp_ablum_num_text_size" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp" >
+
+        <TextView
+            android:id="@+id/wp_tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grid_app_name_color"
+            android:textSize="@dimen/text_big_size" />
+
+        <TextView
+            android:id="@+id/wp_tv_brief"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_small_margin_size"
+            android:layout_marginTop="@dimen/text_small_margin_size"
+            android:textColor="@color/grid_app_size_color"
+            android:textSize="@dimen/text_mid_size" />
+    </LinearLayout>
+
+    <!--
+         <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="#c4c4c4" />
+    -->
+
+    <LinearLayout
+        android:id="@+id/btn_one_click_download_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F7F7F7"
+        android:gravity="center"
+        android:padding="@dimen/one_click_download_padding" >
+
+        <TextView
+            android:id="@+id/tv_download_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/selector_one_click_download"
+            android:gravity="center"
+            android:text="@string/one_click_btn_text"
+            android:textColor="@color/selector_one_click_download_text"
+            android:textSize="@dimen/text_big_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_one_click_download_pressd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F7F7F7"
+        android:gravity="center"
+        android:padding="@dimen/one_click_download_padding"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_menu_download_pressed"
+            android:gravity="center"
+            android:text="@string/one_click_btn_text"
+            android:textColor="#D1D3CD"
+            android:textSize="@dimen/text_big_size" />
+    </LinearLayout>
+
+</LinearLayout>

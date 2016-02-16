@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.x"
+    android:versionCode="10061"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:versionName="1.3.1.061">
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.net.wifi.WIFI_AP_STATE_CHANGED" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+
+    <application
+        android:name=".AmineApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/mas_ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/zapp.Theme"
+        tools:replace="theme">
+        <activityi
+            android:name="com.x.business.notification.NotificationTest"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light" >
+
+            <!--
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activityi>
+        <!-- 推送通知按钮的广播 -->
+        <receiver
+            android:name="com.x.receiver.PushNotificationClickReceiver"
+            android:exported="false" >
+            <intent-filter android:priority="999" >
+                <action android:name="com.x.intent.action.NotifyClick" />
+            </intent-filter>
+        </receiver>
+        <!-- 过渡页 -->
+        <activity
+            android:name="com.x.ui.activity.home.SplashActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/launch.Theme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.APP_MARKET" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 引导页 -->
+        <activity
+            android:name="com.x.ui.activity.guide.GuideActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <!-- GuideMainActivity界面 -->
+        <activity
+            android:name="com.x.ui.activity.guide.GuideMainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <!-- 首页 -->
+        <activity
+            android:name=".ui.activity.home.MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewpagerActionBarTheme"
+            android:windowSoftInputMode="adjustPan" >
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <!-- 分类详情 -->
+        <activity
+            android:name="com.x.ui.activity.home.CategoryDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewpagerActionBarTheme"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <!-- 下载管理 -->
+        <activity
+            android:name="com.x.ui.activity.downloadman.DownloadingActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <!-- My apps -->
+        <activity
+            android:name=".ui.activity.myApps.MyAppsActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewpagerActionBarTheme" >
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.downloadman.DownloadManagementActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewpagerActionBarTheme" >
+
+            <!--
+            <intent-filter> 添加到浏览器下载选择
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:scheme="ftp" />
+                <data android:scheme="sftp" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:scheme="ftp" />
+                <data android:scheme="sftp" />
+                <data android:host="*" />
+                <data android:pathPattern=".*\\.apk" />
+                <data android:pathPattern=".*\\.apk.*" />
+                <data android:pathPattern=".*\\..*\\.apk.*" />
+                <data android:pathPattern=".*\\..*\\..*\\.apk.*" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.apk.*" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.apk.*" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.apk.*" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.apk.*" />
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.apk.*" />
+            </intent-filter>
+            -->
+        </activity>
+        <!-- 本地Resource管理 -->
+        <activity
+            android:name="com.x.ui.activity.resource.ResourceManagementActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewpagerActionBarTheme" >
+        </activity>
+        <!-- Picture -->
+        <activity
+            android:name="com.x.ui.activity.resource.PictureActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewpagerActionBarTheme" >
+        </activity>
+        <!-- Photo -->
+        <activity
+            android:name="com.x.ui.activity.resource.PhotoActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Photo.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.resource.PhotoEditActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Photo.Fullscreen" >
+        </activity>
+
+        <!-- 应用管理 -->
+        <activity
+            android:name="com.x.ui.activity.appman.AppManagementActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewpagerActionBarTheme" >
+        </activity>
+        <!-- 安装包管理 -->
+        <activity
+            android:name="com.x.ui.activity.apkman.ApkManagementActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewpagerActionBarTheme" >
+        </activity>
+        <!-- 搜索功能 -->
+        <activity
+            android:name="com.x.ui.activity.search.SearchActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewpagerActionBarTheme"
+            android:windowSoftInputMode="adjustPan" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+        <!-- 应用详情 -->
+        <activity
+            android:name="com.x.ui.activity.appdetail.AppDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="details"
+                    android:path=""
+                    android:scheme="market" />
+                <data
+                    android:host="search"
+                    android:path=""
+                    android:scheme="market" />
+            </intent-filter>
+        </activity>
+        <!-- 个人中心 -->
+        <activity
+            android:name="com.x.ui.activity.account.AccountActivity"
+            android:configChanges="orientation|keyboard|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 查看大图 -->
+        <activity
+            android:name="com.x.ui.activity.appdetail.ViewPagerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent" >
+        </activity>
+        <!-- 应用评论 -->
+        <activity
+            android:name="com.x.ui.activity.appdetail.CommentActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommentDialog" >
+        </activity>
+        <!-- 帮助页面 -->
+        <activity
+            android:name=".ui.activity.HelpActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 设置页面 -->
+        <activity
+            android:name="com.x.ui.activity.settings.SettingsActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 收藏应用 -->
+        <activity
+            android:name="com.x.ui.activity.myApps.FavoriteAppActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 用户反馈 -->
+        <activity
+            android:name=".ui.activity.feedback.FeedbackActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 提交反馈 -->
+        <activity
+            android:name=".ui.activity.feedback.SubmitFeedbackActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified" >
+        </activity>
+        <!-- 关于我们 -->
+        <activity
+            android:name="com.x.ui.activity.settings.AboutActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 卸载应用 -->
+        <activity
+            android:name="com.x.ui.activity.appman.UninstallAppsActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".ui.activity.game.PlayWebGameActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 用户登录 -->
+        <activity
+            android:name=".ui.activity.account.LoginActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+        <!-- 用户注册 -->
+        <activity
+            android:name=".ui.activity.account.RegisterActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+        <activity
+            android:name=".ui.activity.account.ModifyPwdActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+
+        <!-- 铃声分类（详情）子界面 -->
+        <activity
+            android:name="com.x.ui.activity.ringtones.RingtonesCategoryActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewpagerActionBarTheme" >
+        </activity>
+        <!-- 铃声搜索 -->
+        <activity
+            android:name="com.x.ui.activity.ringtones.RingtonesSearchActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service android:name=".publics.download.DownloadService" >
+            <intent-filter>
+                <action android:name="com.x.download.IDownloadService" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".receiver.ApkReceiver" >
+            <intent-filter android:priority="999" >
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 零流量分享 -->
+        <service
+            android:name="com.x.business.zerodata.server.service.ServerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.x.business.zerodata.server.service.ServiceController" />
+            </intent-filter>
+        </service>
+        <!-- 零流量分享 -->
+        <service
+            android:name="com.x.business.zerodata.transfer.TransferService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.x.business.zerodata.transfer.TransferService" />
+            </intent-filter>
+        </service>
+        <!-- 零流量分享新手引导 -->
+        <activity
+            android:name="com.x.ui.activity.guide.ZeroDataGuideActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.zerodata.ZeroDataShareActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.zerodata.InstallationUplayActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.zerodata.AcceptTheWayActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.zerodata.ZeroDataServerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewpagerActionBarTheme" >
+        </activity>
+        <!-- 零流量分享 确认分享 -->
+        <activity
+            android:name="com.x.ui.activity.zerodata.ZeroDataShareConfirmActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+
+            <!--
+            <intent-filter
+                android:label="@string/sharenearby_intent"
+                android:priority="100000" >
+                <action android:name="android.intent.action.SEND" />
+
+                <data android:mimeType="image/*" />
+                <data android:mimeType="text/*" />
+                <data android:mimeType="video/*" />
+                <data android:mimeType="audio/*" />
+                <data android:mimeType="application/*" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter
+                android:label="@string/sharenearby_intent"
+                android:priority="100000" >
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+
+                <data android:mimeType="image/*" />
+                <data android:mimeType="text/*" />
+                <data android:mimeType="video/*" />
+                <data android:mimeType="audio/*" />
+                <data android:mimeType="application/*" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            -->
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.zerodata.ZeroDataClientActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.zerodata.ZeroDataClientTransferActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <!-- 零流量分享 收发记录 -->
+        <activity
+            android:name="com.x.ui.activity.zerodata.ZeroDataTransferHistoryActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 零流量分享 正在创建免费WIFI -->
+        <activity
+            android:name="com.x.ui.activity.zerodata.ZeroDataQrConnectingActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 二维码扫描 -->
+        <activity
+            android:name="com.x.ui.activity.scan.ScanActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.zbar.lib.CaptureActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 二维码结果 -->
+        <activity
+            android:name="com.x.ui.activity.scan.ScanResultActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommentDialog" >
+        </activity>
+        <!-- 壁纸分类（详情）子界面 -->
+        <activity
+            android:name="com.x.ui.activity.wallpaper.WallpaperCategoryActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewpagerActionBarTheme" >
+        </activity>
+        <!-- 壁纸专题（详情）子界面 -->
+        <activity
+            android:name="com.x.ui.activity.wallpaper.WallpaperAlbumActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/ViewpagerActionBarTheme" >
+        </activity>
+        <!-- 壁纸详情、查看大图、下载、设置等操作 -->
+        <activity
+            android:name="com.x.ui.activity.wallpaper.WallpaperDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Photo.Fullscreen" >
+        </activity>
+        <!-- 打开壁纸大图 -->
+        <activity
+            android:name="com.x.ui.activity.wallpaper.WallpaperOpenActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Photo.Fullscreen" >
+        </activity>
+        <!-- 壁纸搜索 -->
+        <activity
+            android:name="com.x.ui.activity.wallpaper.WallpaperSearchActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 多国家选择 -->
+        <activity
+            android:name="com.x.ui.activity.settings.CountryActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommentDialog" >
+        </activity>
+        <!-- 悬浮窗APP列表 -->
+        <activity
+            android:name="com.x.ui.activity.floating.AppListAvticity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+
+        <!-- 首页专辑详情 -->
+        <activity
+            android:name=".ui.activity.home.HomeCollectionDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <!-- 悬浮窗service -->
+        <service android:name="com.x.ui.activity.floating.FloatService" />
+
+        <!-- 开机自启 -->
+        <receiver android:name=".receiver.BootReceiver" >
+            <intent-filter android:priority="999" >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="com.x.alarm.FIRST" />
+                <action android:name="com.x.alarm.SECOND" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 网络切换 ,自动下载开关 -->
+        <receiver android:name="com.x.receiver.ConnectChangeReceiver" >
+            <intent-filter android:priority="999" >
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.x.FAVORITE_AUTO_WIFI_DOWNLOAD" />
+                <action android:name="com.x.UPDATE_AUTO_WIFI_DOWNLOAD" />
+                <action android:name="com.x.ALARM" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 通知栏按钮点击广播 -->
+        <receiver
+            android:name=".receiver.NotificationBtnClickReceiver"
+            android:exported="false" >
+            <intent-filter android:priority="999" >
+                <action android:name="com.notifications.intent.action.ButtonClick" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".receiver.AdPushReceiver"
+            android:exported="false" >
+            <intent-filter android:priority="999" >
+                <action android:name="com.x.AD_PUSH" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 平台更新，通知栏 -->
+        <activity
+            android:name="com.x.publics.download.upgrade.FxActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommentDialog" >
+        </activity>
+
+        <!-- 通知栏,应用分享 -->
+        <activity
+            android:name="com.x.business.notice.NoticeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/CommentDialog" >
+        </activity>
+        <!-- 账号系统 -->
+
+        <activity
+            android:name="com.x.ui.activity.account.FindPwdActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.account.ForgetPwdActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.account.SendPwdSuccessActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <!-- Tools -->
+        <activity
+            android:name="com.x.ui.activity.tools.ToolsActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <!-- skinTheme -->
+        <activity
+            android:name="com.x.ui.activity.skin.SkinActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <!-- applocker -->
+        <activity
+            android:name="com.x.ui.activity.applocker.AppCommonLockerActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.applocker.AppLockerAdvanceSettingActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.applocker.AppLockerMainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service android:name="com.x.business.applocker.LockService" >
+        </service>
+
+        <activity
+            android:name="com.x.ui.activity.applocker.ApplockerPasswordActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/page_applocker_unlock"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:taskAffinity="com.x.LOCK_TASK"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.applocker.ApplockerPwdSetterActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.x.ui.activity.applocker.AppLockerFindPasswordActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <!-- DynamicListViewDetail -->
+        <activity
+            android:name="com.x.ui.activity.downloadshow.AppsDownloadingShowActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
+        <receiver android:name="com.x.receiver.PhoneStateReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+            </intent-filter>
+        </receiver>
+        <!--
+        sdk 
+        <activity
+            android:name="google.system.mas.ui.mog.RechargeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="google.system.mas.ui.mog.AccActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="google.system.mas.ui.platform.PlatformRechargeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/translucents" />
+        <activity
+            android:name="google.system.mas.ui.platform.PlatformAccActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/translucents" />
+
+        <service android:name="google.system.mas.sdk.service.MasService" >
+        </service>
+        -->
+        <!-- 渠道应用配置 -->
+<!--         <meta-data
+            android:name="cpId"
+            android:value="300001" />
+        <meta-data
+            android:name="appId"
+            android:value="1" />
+        <meta-data
+            android:name="serverId"
+            android:value="1" />
+        <meta-data
+            android:name="channelId"
+            android:value="100004" />
+        <meta-data
+            android:name="apkKey"
+            android:value="dfe00da371777e080bf52e6714822b7c" />
+        DataEye
+        <meta-data
+            android:name="DC_CHANNEL"
+            android:value="online" />
+        <meta-data
+            android:name="DC_APPID"
+            android:value="5BF7E99E3703586F24541364A752EAC3" >
+        </meta-data> -->
+        
+        
+           <!-- 渠道应用配置 -->
+        <meta-data
+            android:name="cpId"
+            android:value="300001" />
+        <meta-data
+            android:name="appId"
+            android:value="1" />
+        <meta-data
+            android:name="serverId"
+            android:value="1" />
+        <meta-data
+            android:name="channelId"
+            android:value="100004" />
+        <meta-data
+            android:name="apkKey"
+            android:value="dfe00da371777e080bf52e6714822b7c" />
+        <!-- DataEye -->
+        <meta-data
+            android:name="DC_CHANNEL"
+            android:value="online" />
+        <meta-data
+            android:name="DC_APPID"
+            android:value="5BF7E99E3703586F24541364A752EAC3" >
+        </meta-data>
+        
+        
+    </application>
+
+</manifest>

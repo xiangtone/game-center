@@ -1,0 +1,2 @@
+include ':notifications4EveryWhere'
+include ':xgamecenterclient'

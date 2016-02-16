@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/text_margin_size"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:padding="@dimen/common_padding" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_ratings"
+        android:textColor="#363636"
+        android:textSize="@dimen/text_big_size" />
+
+    <include layout="@layout/common_line_view" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/common_padding" >
+
+        <!-- score -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="#383838"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_margin_size"
+                android:layout_marginRight="@dimen/text_margin_size"
+                android:gravity="center_horizontal"
+                android:text="@string/app_average"
+                android:textColor="#fff"
+                android:textSize="@dimen/sub_title_text_size"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_margin="2dp"
+                android:background="#EDEDED"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_avg_stars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="5.0"
+                    android:textColor="#111"
+                    android:textSize="@dimen/text_big_size"
+                    android:textStyle="bold" />
+
+                <RatingBar
+                    android:id="@+id/avg_stars"
+                    style="@style/AppCommon.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:rating="5" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- percents -->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/text_margin_size"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <RatingBar
+                    android:id="@+id/s5"
+                    style="@style/AppCommon.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:rating="5" />
+
+                <ProgressBar
+                    android:id="@+id/pg_5"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/text_margin_size"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_margin_size"
+                    android:layout_toRightOf="@+id/s5"
+                    android:progressDrawable="@drawable/progress_bar_yellow_bg" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/text_small_margin_size"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <RatingBar
+                    android:id="@+id/s4"
+                    style="@style/AppCommon.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:rating="4" />
+
+                <ProgressBar
+                    android:id="@+id/pg_4"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/text_margin_size"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_margin_size"
+                    android:layout_toRightOf="@+id/s4"
+                    android:progressDrawable="@drawable/progress_bar_yellow_bg" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/text_small_margin_size"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <RatingBar
+                    android:id="@+id/s3"
+                    style="@style/AppCommon.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:rating="3" />
+
+                <ProgressBar
+                    android:id="@+id/pg_3"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/text_margin_size"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_margin_size"
+                    android:layout_toRightOf="@+id/s3"
+                    android:progressDrawable="@drawable/progress_bar_yellow_bg" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/text_small_margin_size"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <RatingBar
+                    android:id="@+id/s2"
+                    style="@style/AppCommon.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:rating="2" />
+
+                <ProgressBar
+                    android:id="@+id/pg_2"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/text_margin_size"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_margin_size"
+                    android:layout_toRightOf="@+id/s2"
+                    android:progressDrawable="@drawable/progress_bar_yellow_bg" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/text_small_margin_size"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <RatingBar
+                    android:id="@+id/s1"
+                    style="@style/AppCommon.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:rating="1" />
+
+                <ProgressBar
+                    android:id="@+id/pg_1"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/text_margin_size"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/text_margin_size"
+                    android:layout_toRightOf="@+id/s1"
+                    android:progressDrawable="@drawable/progress_bar_yellow_bg" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

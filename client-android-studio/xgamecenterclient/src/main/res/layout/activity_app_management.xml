@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <include
+            android:id="@+id/rl_title_bar"
+            layout="@layout/main_header" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal" >
+
+            <!-- 扫描时的Loading -->
+
+            <FrameLayout
+                android:id="@+id/aam_scan_fra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/title_bg"
+                android:padding="5dp" >
+
+                <ProgressBar
+                    android:id="@+id/loading_prograssbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminateDrawable="@drawable/loading_prograssbar"
+                    android:pivotX="50.0%"
+                    android:pivotY="50.0%" />
+
+                <ImageView
+                    android:id="@+id/loading_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/loading_logo"
+                    android:contentDescription="@null" />
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/aam_apk_scan_rl"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/title_bg"
+                android:orientation="horizontal"
+                android:padding="@dimen/common_padding"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/aam_rescan_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="4dp"
+                    android:background="@drawable/selector_apk_refresh_btn"
+                    android:contentDescription="@null"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/aam_scan_apk_tips_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="2dp"
+                    android:layout_toLeftOf="@id/aam_rescan_btn"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    android:textColor="@color/update_color"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/aam_scan_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="4dp"
+            android:progressDrawable="@drawable/progress_bar_bg" />
+
+        <com.x.ui.view.TabPageIndicator
+            android:id="@+id/aam_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tab_unselected_holo" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/aam_content_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".AppManagementActivity" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/act_app_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/transparent" />
+
+</FrameLayout>

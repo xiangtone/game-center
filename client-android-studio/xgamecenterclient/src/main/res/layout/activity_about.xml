@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_about_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/rl_title_bar"
+        layout="@layout/main_header" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.2" >
+
+        <ImageView
+            android:id="@+id/img_about_icon"
+            android:layout_width="@dimen/about_logo_width"
+            android:layout_height="@dimen/about_logo_height"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_about_us"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/tv_version_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_about_icon"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="-20dp"
+            android:textColor="#787878"
+            android:textSize="@dimen/version_name_text_size" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/text_mid_size"
+        android:paddingLeft="@dimen/about_selector_view_padding"
+        android:paddingRight="@dimen/about_selector_view_padding" >
+
+        <RelativeLayout
+            android:id="@+id/rel_feedback"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_item_theme" >
+
+            <TextView
+                android:id="@+id/btn_feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/slidingmenu_ic_feedback"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/about_selector_item_paddingBottom"
+                android:paddingLeft="@dimen/about_selector_item_paddingleft"
+                android:paddingTop="@dimen/about_selector_item_paddingTop"
+                android:text="@string/feed_back"
+                android:textColor="@color/grid_app_name_color"
+                android:textSize="@dimen/about_page_selector_text_size" />
+
+            <ImageView
+                android:id="@+id/feedback_tip_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@+id/btn_feedback"
+                android:contentDescription="@null"
+                android:src="@drawable/new_tip"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/about_selector_item_paddingRight"
+                android:background="@drawable/ic_about_more"
+                android:contentDescription="@null" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="#E5E5E5" />
+
+        <LinearLayout
+            android:id="@+id/btn_check_new_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_item_theme" >
+
+            <TextView
+                style="@style/aboutPageItemTextStyle"
+                android:background="@null"
+                android:drawableLeft="@drawable/slidingmenu_ic_about"
+                android:text="@string/check_new_version" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="#E5E5E5" />
+
+        <TextView
+            android:id="@+id/tv_website"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal|bottom"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_sub_large_size" />
+    </LinearLayout>
+
+</LinearLayout>
