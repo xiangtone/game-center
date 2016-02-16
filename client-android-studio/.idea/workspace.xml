@@ -9,32 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3807b583-ac4d-4039-ba43-dd45d9fc8850" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/TCL_DataEye_final_V1_0_1_001.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/android_universal_image_loader_1_9_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_22_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/butterknife_6_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client-android-studio.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/gridlayout_v7_22_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/gson_1_7_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/nineoldandroids_library_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/notifications4EveryWhere/notifications4EveryWhere.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_22_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_22_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xgamecenterclient/xgamecenterclient.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/zxing.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server-Report/.classpath" afterPath="$PROJECT_DIR$/../server-Report/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server-Ws/.classpath" afterPath="$PROJECT_DIR$/../server-Ws/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server-Report/src/com/reportforms/action/DocumentAction.java" afterPath="$PROJECT_DIR$/../server-Report/src/com/reportforms/action/DocumentAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server-Market/.settings/org.eclipse.wst.common.component" afterPath="$PROJECT_DIR$/../server-Market/.settings/org.eclipse.wst.common.component" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server-Report/.settings/org.eclipse.wst.common.component" afterPath="$PROJECT_DIR$/../server-Report/.settings/org.eclipse.wst.common.component" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server-Market/.settings/org.eclipse.wst.common.project.facet.core.xml" afterPath="$PROJECT_DIR$/../server-Market/.settings/org.eclipse.wst.common.project.facet.core.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server-Report/.settings/org.eclipse.wst.common.project.facet.core.xml" afterPath="$PROJECT_DIR$/../server-Report/.settings/org.eclipse.wst.common.project.facet.core.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/project.properties" afterPath="$PROJECT_DIR$/../client-android/project.properties" />
-    </list>
+    <list default="true" id="3807b583-ac4d-4039-ba43-dd45d9fc8850" name="Default" comment="" />
     <ignored path="client-android-studio.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
