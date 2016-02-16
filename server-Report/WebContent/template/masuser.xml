@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="masuser" title="平台注册用户" serviceName="masUserServiceImpl" method="query" countsName="queryAllCounts">
+	<properties name="UserId" title="编号" columnsWidth="2500"/>
+	<properties name="UserName" title="用户名" columnsWidth="5000"/>
+	<properties name="UserPwd" title="密码" columnsWidth="5000"/>
+	<properties name="NickName" title="昵称" columnsWidth="5000"/>
+	<properties name="SexString" title="性别" columnsWidth="2500"/>
+	<properties name="Age" title="年龄" columnsWidth="2500"/>
+	<properties name="Phone" title="手机号码" columnsWidth="5000"/>
+	<properties name="Email" title="电子邮箱" columnsWidth="5000"/>
+	<properties name="StateString" title="状态" columnsWidth="2500"/>
+	<properties name="Address" title="地址" columnsWidth="5000"/>
+	<properties name="RealName" title="真实姓名" columnsWidth="5000"/>
+	<properties name="CreateTime" title="日期" columnsWidth="5000"/>
+	<properties name="aValue" title="虚拟货币" columnsWidth="5000"/>
+	<properties name="aValuePresent" title="全局赠送" columnsWidth="5000"/>
+	<properties name="UserStateString" title="帐号状态" columnsWidth="2500"/>
+	<properties name="CategoryIdString" title="用户类别" columnsWidth="2500"/>
+	<properties name="RechargeNum" title="充值次数" columnsWidth="5000"/>
+	<properties name="aValueAll" title="充值总额" columnsWidth="5000"/>
+	<properties name="aValuePresentAll" title="赠送总额" columnsWidth="5000"/>
+</model>

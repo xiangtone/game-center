@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="apptop" title="搜索排行榜" serviceName="appSearchLogServiceImpl" method="queryByGroupBy" countsName="queryByGroupByCounts">
+	<properties name="Content" title="搜索内容" columnsWidth="5000"/>
+	<properties name="SearchCount" title="搜索次数" columnsWidth="5000"/>
+</model>

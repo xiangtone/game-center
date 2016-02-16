@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reportforms.dao.ClientActivateLogMapper">
+  <resultMap id="BaseResultMap" type="com.reportforms.model.ClientActivateLog">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="clientId" jdbcType="INTEGER" property="clientId" />
+    <result column="userId" jdbcType="INTEGER" property="userId" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <result column="appId" jdbcType="INTEGER" property="appId" />
+    <!-- <result column="appName" jdbcType="VARCHAR" property="appName" /> -->
+    <result column="serverId" jdbcType="INTEGER" property="serverId" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="appPackageName" jdbcType="VARCHAR" property="appPackageName" />
+    <result column="appVersionName" jdbcType="VARCHAR" property="appVersionName" />
+    <result column="appVersionCode" jdbcType="INTEGER" property="appVersionCode" />
+    <result column="masPackageName" jdbcType="VARCHAR" property="masPackageName" />
+    <result column="masVersionName" jdbcType="VARCHAR" property="masVersionName" />
+    <result column="masVersionCode" jdbcType="INTEGER" property="masVersionCode" />
+    
+  </resultMap>
+  <sql id="commonColumns">
+  	<![CDATA[
+  		id,clientId,userId,userName,appId,serverId,createTime,ip,country,province,city,appPackageName,
+  		appVersionName,appVersionCode,masPackageName,masVersionName,masVersionCode
+  	]]>
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="params.id != null and params.id != ''">
+  			id = #{params.id}
+  		</if>
+  		<if test="params.clientId != null and params.clientId != ''">
+  			and clientId = #{params.clientId}
+  		</if>
+  		<if test="params.userName != null and params.userName != ''">
+  			and userName = #{params.userName}
+  		</if>
+  		<if test="params.startTime != null and params.startTime != ''">
+  			<![CDATA[and createTime >= #{params.startTime}]]>
+  		</if>
+  		<if test="params.endTime != null and params.endTime != ''">
+  			<![CDATA[and createTime <= #{params.endTime}]]>
+  		</if>
+  	</trim>
+  </sql>
+  <select id="query" parameterType="paramsBean" resultMap="BaseResultMap">
+  	select 
+  	<include refid="commonColumns"/> 
+  	from mas_ws.client_activate_log 
+  	<include refid="dynamicWhere"/>
+  	<trim>
+  		<if test="sort != null and order != null">
+  			order by ${sort} ${order}
+  		</if>
+  	</trim>
+  </select>
+  <select id="queryAllCounts" parameterType="paramsBean" resultType="java.lang.Integer">
+  	select count(id) from mas_ws.client_activate_log
+  	<include refid="dynamicWhere"/>
+  </select>
+</mapper>

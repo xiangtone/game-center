@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reportforms.dao.AppDownLoadMapper">
+  <resultMap id="BaseResultMap" type="com.reportforms.model.AppDownLoad">
+    <result column="theDate" jdbcType="VARCHAR" property="theDate" />
+    <result column="appId" jdbcType="INTEGER" property="appId" />
+    <result column="appName" jdbcType="VARCHAR" property="appName" />
+    <result column="appType" jdbcType="INTEGER" property="appType" />
+    <result column="categoryId" jdbcType="INTEGER" property="categoryId" />
+    <result column="free" jdbcType="INTEGER" property="free" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="countryCn" jdbcType="VARCHAR" property="countryCn" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="openNum" jdbcType="BIGINT" property="openNum" />
+    <result column="downloadNum" jdbcType="BIGINT" property="downloadNum" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  
+  <resultMap id="totalResultMap" type="com.reportforms.model.AppDownLoad">
+    <result column="openNum" jdbcType="BIGINT" property="openNum" />
+    <result column="downloadNum" jdbcType="BIGINT" property="downloadNum" />
+  </resultMap>
+  
+  <sql id="commonColumns">
+  	<![CDATA[
+  		theDate,appId,appName,appType,categoryId,free,source,countryCn,country,openNum,downloadNum,createTime
+  	]]>
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="params.appId != null and params.appId != ''">
+  			and appId = #{params.appId}
+  		</if>
+  		<if test="params.appName != null and params.appName != ''">
+  			and appName = #{params.appName}
+  		</if>
+  		<if test="params.appType != null and params.appType != ''">
+  			and appType = #{params.appType}
+  		</if>
+  		<if test="params.country != null and params.country != ''">
+  			and countryCn = #{params.country}
+  		</if>
+  		<if test="params.free != null and params.free != ''">
+  			and free = #{params.free}
+  		</if>
+  		<if test="params.source != null and params.source != ''">
+  			and source = #{params.source}
+  		</if>
+  		<if test="params.startTime != null and params.startTime != ''">
+  			<![CDATA[and theDate >= #{params.startTime}]]>
+  		</if>
+  		<if test="params.endTime != null and params.endTime != ''">
+  			<![CDATA[and theDate <= #{params.endTime}]]>
+  		</if>
+  		<if test="params.theDate != null and params.theDate != ''">
+			and theDate = #{params.theDate}
+		</if>
+		and free is not null
+  	</trim>
+  </sql>
+  <select id="query" parameterType="paramsBean" resultMap="BaseResultMap">
+  	select 
+  	<include refid="commonColumns"/> 
+  	from mas_ws.app_open_download_day 
+  	<include refid="dynamicWhere"/>
+  	<trim>
+  		<if test="sort != null and order != null">
+  			order by ${sort} ${order}
+  		</if>
+  	</trim>
+  </select>
+  <select id="queryAllCounts" parameterType="paramsBean" resultType="java.lang.Integer">
+  	select count(appId) from mas_ws.app_open_download_day
+  	<include refid="dynamicWhere"/>
+  </select>
+  
+  <select id="queryByGroupBy" parameterType="paramsBean"  resultMap="BaseResultMap">
+	select theDate,appId,appName,appType,categoryId,free,source,countryCn,country,sum(openNum) as openNum,sum(downloadNum) as downloadNum,createTime 
+	from mas_ws.app_open_download_day
+	<include refid="dynamicWhere"/>
+	group by ${params.groupBy}
+	<trim>
+		<if test="sort != null and order != null">
+			order by ${sort} ${order}
+		</if>
+	</trim>
+	</select>
+	<select id="queryByTotal" parameterType="paramsBean"  resultMap="totalResultMap">
+		SELECT SUM(openNum) AS openNum,
+  			SUM(downloadNum) AS downloadNum
+  		FROM (
+			SELECT 
+			  theDate,
+			  appId,
+			  SUM(openNum) AS openNum,
+			  SUM(downloadNum) AS downloadNum
+			FROM
+			  mas_ws.app_open_download_day 
+			<include refid="dynamicWhere"/>
+			GROUP BY ${params.groupBy} )
+		AS newtable
+	</select>
+<select id="queryByGroupByCounts" parameterType="paramsBean" resultType="java.lang.Integer">
+  	select count(appId) from (
+  	select theDate,appId from mas_ws.app_open_download_day
+  	<include refid="dynamicWhere"/>
+  	 group by theDate,appId
+  	) AS new_table
+  </select>
+</mapper>

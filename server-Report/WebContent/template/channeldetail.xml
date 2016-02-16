@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="channeldetail" title="充值渠道明细" serviceName="hpAccountServiceImpl" method="query" countsName="queryAllCounts">
+	<properties name="Id" title="编号" columnsWidth="2500"/>
+	<properties name="OrderId" title="订单号" columnsWidth="8000"/>
+	<properties name="ChannelId" title="渠道编号" columnsWidth="8000"/>
+	<properties name="ChannelName" title="渠道名称" columnsWidth="5000"/>
+	<properties name="ExchangeAValue" title="充值金额" columnsWidth="2500"/>
+	<properties name="RechargeTimeString" title="充值日期" columnsWidth="5000"/>
+	<properties name="CardNo" title="充值卡号" columnsWidth="8000"/>
+	<properties name="RechargeValue" title="充值卡面值" columnsWidth="5000"/>
+</model>

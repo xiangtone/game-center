@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+#popbox_mask {background:#000;filter:alpha(opacity=40);opacity:0.40;position:fixed;z-index:1;}
+.popbox .head {border-bottom:solid 1px #707070;background-image:url(../../images/popup.jpg);font-weight:bold;height:32px;line-height:32px;padding-left:10px; color:#FFFFFF;}
+.popbox .content {padding:15px;}
+.popbox table.tbl_edit tr{border-bottom:#e3eaf2 1px dashed}
+.popbox table.tbl_edit td {border-bottom:#e3eaf2 1px dashed;height:26px;padding:0px;}
+.popbox table.tbl_edit td.noborder {border:none;}
+.popbox table.tbl_edit td.td_name {color:#666;width:94px;}
+.popbox table.tbl_edit td.td_content {}
+.popbox table.tbl_edit td input.text, 
+.popbox table td input.number {border:1px solid #c3c3c3;width:190px;padding-right:7px}
+.popbox table.tbl_edit td textarea.textarea {border:1px solid #c3c3c3;height:60px;width:240px;}
+/*.popbox table.tbl_edit td .error {background:url(../../images/icon22.gif) 3px -1212px no-repeat;color:#f50;padding-left:27px;}
+.popbox table.tbl_edit td .valid {}*/
+.popbox span.error{color:#f50;padding-left: 10px;}
+.popbox label.error{color:#f50;padding-left: 10px;}
+.popbox table.tbl_list tr.thead td {background:url(../../images/bgx.gif) 0 -100px repeat-x;border:none;font-weight:bold;height:32px;}
+.popbox table.tbl_list tr.thead a {cursor:pointer;text-decoration:underline;}
+.popbox table.tbl_list td {border:#ccc 1px dashed;border-top:none;height:26px;padding:0 4px;}
+.popbox table.tbl_list tr.page td {border:none;}

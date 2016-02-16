@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="appdownload" title="应用下载统计" serviceName="appDownLoadServiceImpl" method="queryByGroupBy" countsName="queryByGroupByCounts">
+	<properties name="DownloadNum" title="下载次数" columnsWidth="5000" isSums="true"/>
+	<properties name="OpenNum" title="浏览次数" columnsWidth="5000" isSums="true"/>
+	<properties name="TheDate" title="时间" columnsWidth="5000"/>
+	<properties name="AppTypeString" title="应用类型" columnsWidth="5000"/>
+	<properties name="AppId" title="应用编号" columnsWidth="5000"/>
+	<properties name="AppName" title="应用名称" columnsWidth="5000"/>
+	<properties name="CategoryName" title="应用分类" columnsWidth="5000"/>
+	<properties name="FreeDesc" title="来源" columnsWidth="5000"/>
+</model>

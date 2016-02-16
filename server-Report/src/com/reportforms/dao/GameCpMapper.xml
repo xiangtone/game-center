@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reportforms.dao.GameCpMapper">
+  <resultMap id="BaseResultMap" type="com.reportforms.model.GameCp">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="cpName" />
+  </resultMap>
+  <sql id="commonColumns">
+  	<![CDATA[
+  		id,name
+  	]]>
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="params.id != null and params.id != ''">
+  			id = #{params.id}
+  		</if>
+  		<if test="params.cpName != null and params.cpName != ''">
+  			and name = #{params.cpName}
+  		</if>
+  	</trim>
+  </sql>
+  <sql id="dynamicHaving">
+  	<trim prefix="having" prefixOverrides="and">
+  		<if test="params.id != null and params.id != ''">
+  			id = #{params.id}
+  		</if>
+  		<if test="params.cpName != null and params.cpName != ''">
+  			and name = #{params.cpName}
+  		</if>
+  	</trim>
+  </sql>
+  <select id="queryAll" resultMap="BaseResultMap">
+  	select id,name from mas_market.t_cp
+  </select>
+  <select id="query" parameterType="paramsBean" resultMap="BaseResultMap">
+  	select 
+  	<include refid="commonColumns"/> 
+  	from mas_market.t_cp 
+  	<include refid="dynamicWhere"/>
+  	<trim>
+  		<if test="sort != null and order != null">
+  			order by ${sort} ${order}
+  		</if>
+  	</trim>
+  </select>
+  <select id="queryAllCounts" parameterType="paramsBean" resultType="java.lang.Integer">
+  	select count(id) from mas_market.t_cp
+  	<include refid="dynamicWhere"/>
+  </select>
+  <select id="queryByGroupBy" parameterType="paramsBean"  resultMap="BaseResultMap">
+  	<![CDATA[select id,name from mas_market.t_cp group by ${params.groupBy}]]>
+  	<include refid="dynamicHaving"/>
+  	<trim>
+  		<if test="sort != null and order != null">
+  			order by ${sort} ${order}
+  		</if>
+  	</trim>
+  </select>
+  <select id="queryByGroupByCounts" parameterType="paramsBean" resultType="java.lang.Integer">
+  	select count(id) from (select * from mas_market.t_cp group by ${params.groupBy}
+  	<include refid="dynamicHaving"/>
+  	) AS new_table
+  </select>
+</mapper>

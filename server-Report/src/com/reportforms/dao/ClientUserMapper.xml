@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.reportforms.dao.ClientUserMapper">
+	<resultMap id="BaseResultMap" type="com.reportforms.model.ClientUser">
+		<id column="clientId" property="clientId" jdbcType="INTEGER" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="imei" property="imei" jdbcType="VARCHAR" />
+		<result column="mac" property="mac" jdbcType="VARCHAR" />
+		<result column="imsi" property="imsi" jdbcType="VARCHAR" />
+		<result column="deviceModel" property="deviceModel" jdbcType="VARCHAR" />
+		<result column="deviceVendor" property="deviceVendor" jdbcType="VARCHAR" />
+		<result column="deviceType" property="deviceType" jdbcType="INTEGER" />
+		<result column="netType" property="netType" jdbcType="VARCHAR" />
+		<result column="osVersion" property="osVersion" jdbcType="VARCHAR" />
+		<result column="createTime" property="createTime" jdbcType="DATE" />
+		<result column="ip" jdbcType="VARCHAR" property="ip" />
+	    <result column="country" jdbcType="VARCHAR" property="country" />
+	    <result column="province" jdbcType="VARCHAR" property="province" />
+	    <result column="city" jdbcType="VARCHAR" property="city" />
+	    <result column="activeNum" property="activeNum" jdbcType="INTEGER" />
+	    <result column="appPackageNameLast" jdbcType="VARCHAR" property="appPackageNameLast" />
+	    <result column="appVersionNameLast" jdbcType="VARCHAR" property="appVersionNameLast" />
+	    <result column="appVersionCodeLast" jdbcType="INTEGER" property="appVersionCodeLast" />
+	    <result column="appPackageNameFirst" jdbcType="VARCHAR" property="appPackageNameFirst" />
+	    <result column="appVersionNameFirst" jdbcType="VARCHAR" property="appVersionNameFirst" />
+	    <result column="appVersionCodeFirst" jdbcType="INTEGER" property="appVersionCodeFirst" />
+	</resultMap>
+	<sql id="commonColumns">
+		clientId,phone,imei,mac,imsi,deviceModel,deviceVendor,deviceType,netType,osVersion,createTime,ip,country,province,city,activeNum,
+		appPackageNameFirst,appVersionNameFirst,appVersionCodeFirst,appPackageNameLast,appVersionNameLast,appVersionCodeLast
+	</sql>
+	<sql id="dynamicWhere">
+		<trim prefix="where" prefixOverrides="and">
+			<if test="params.clientId != null and params.clientId != ''">
+				clientId = #{params.clientId}
+			</if>
+			<if test="params.phone != null and params.phone != ''">
+				and phone = #{params.phone}
+			</if>
+			<if test="params.startTime != null and params.startTime != ''">
+  				<![CDATA[and createTime > #{params.startTime}]]>
+			</if>
+			<if test="params.endTime != null and params.endTime != ''">
+  				<![CDATA[and createTime < #{params.endTime}]]>
+			</if>
+		</trim>
+	</sql>
+	<select id="query" parameterType="paramsBean" resultMap="BaseResultMap">
+		select
+		<include refid="commonColumns" />
+		from mas_ws.client_user
+		<include refid="dynamicWhere" />
+		<trim>
+			<if test="sort != null and order != null">
+				order by ${sort} ${order}
+			</if>
+		</trim>
+	</select>
+	<select id="queryAllCounts"  parameterType="paramsBean" resultType="java.lang.Integer">
+		select count(clientId) from mas_ws.client_user
+		<include refid="dynamicWhere" />
+	</select>
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="clientuser" title="平台激活设备" serviceName="clientUserServiceImpl" method="query" countsName="queryAllCounts">
+	<properties name="ClientId" title="设备编号" columnsWidth="2500"/>
+	<properties name="Phone" title="手机号码" columnsWidth="5000"/>
+	<properties name="Imei" title="机器序列号" columnsWidth="5000"/>
+	<properties name="Mac" title="网卡(wifi)地址" columnsWidth="5000"/>
+	<properties name="Imsi" title="SIM卡号" columnsWidth="5000"/>
+	<properties name="DeviceModel" title="手机机型" columnsWidth="5000"/>
+	<properties name="DeviceVendor" title="手机厂商" columnsWidth="5000"/>
+	<properties name="DeviceTypeString" title="终端类型" columnsWidth="5000"/>
+	<properties name="NetType" title="网络类型" columnsWidth="5000"/>
+	<properties name="OsVersion" title="系统版本" columnsWidth="5000"/>
+	<properties name="AppVersionNameFirst" title="第一次启动zapp版本" columnsWidth="5000"/>
+	<properties name="AppVersionNameLast" title="最后一次启动zapp版本" columnsWidth="5000"/>
+	<properties name="Country" title="国家" columnsWidth="5000"/>
+	<properties name="Province" title="省份" columnsWidth="5000"/>
+	<properties name="City" title="城市" columnsWidth="5000"/>
+	<properties name="ActiveNum" title="启动次数" columnsWidth="5000"/>
+	<properties name="CreateTimeString" title="日期" columnsWidth="5000"/>
+</model>

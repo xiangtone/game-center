@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="appsearchlog" title="应用搜索日志" serviceName="appSearchLogServiceImpl" method="query" countsName="queryAllCounts">
+	<properties name="ClientId" title="设备编号" columnsWidth="5000"/>
+	<properties name="UserName" title="用户名" columnsWidth="5000"/>
+	<properties name="Content" title="搜索内容" columnsWidth="5000"/>
+	<properties name="SearchNum" title="结果个数" columnsWidth="5000"/>
+	<properties name="CreateTimeString" title="搜索时间" columnsWidth="5000"/>
+</model>

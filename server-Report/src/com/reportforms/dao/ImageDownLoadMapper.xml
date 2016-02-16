@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reportforms.dao.ImageDownLoadMapper">
+<resultMap id="BaseResultMap" type="com.reportforms.model.ImageDownLoad">
+  <result column="theDate" jdbcType="VARCHAR" property="theDate" />
+  <result column="imageId" jdbcType="INTEGER" property="imageId" />
+  <result column="imageName" jdbcType="VARCHAR" property="imageName" />
+  <result column="categoryId" jdbcType="INTEGER" property="categoryId" />
+  <result column="countryCn" jdbcType="VARCHAR" property="countryCn" />
+  <result column="country" jdbcType="VARCHAR" property="country" />
+  <result column="downloadNum" jdbcType="BIGINT" property="downloadNum" />
+  <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+</resultMap>
+	<resultMap id="totalResultMap" type="com.reportforms.model.ImageDownLoad" />
+<sql id="commonColumns">
+	<![CDATA[
+		theDate,imageId,imageName,categoryId,countryCn,country,downloadNum,createTime
+	]]>
+</sql>
+<sql id="dynamicWhere">
+	<trim prefix="where" prefixOverrides="and">
+		<if test="params.imageId != null and params.imageId != ''">
+			and imageId = #{params.imageId}
+		</if>
+		<if test="params.imageName != null and params.imageName != ''">
+			and imageName = #{params.imageName}
+		</if>
+		<if test="params.country != null and params.country != ''">
+			and countryCn = #{params.country}
+		</if>
+		<if test="params.startTime != null and params.startTime != ''">
+			<![CDATA[and theDate >= #{params.startTime}]]>
+		</if>
+		<if test="params.endTime != null and params.endTime != ''">
+			<![CDATA[and theDate <= #{params.endTime}]]>
+		</if>
+		<if test="params.theDate != null and params.theDate != ''">
+			and theDate = #{params.theDate}
+		</if>
+	</trim>
+</sql>
+<select id="query" parameterType="paramsBean" resultMap="BaseResultMap">
+	select 
+	<include refid="commonColumns"/> 
+	from mas_ws.image_download_day 
+	<include refid="dynamicWhere"/>
+	<trim>
+		<if test="sort != null and order != null">
+			order by ${sort} ${order}
+		</if>
+	</trim>
+</select>
+<select id="queryAllCounts" parameterType="paramsBean" resultType="java.lang.Integer">
+	select count(imageId) from mas_ws.image_download_day
+	<include refid="dynamicWhere"/>
+</select>
+
+<select id="queryByGroupBy" parameterType="paramsBean"  resultMap="BaseResultMap">
+	select theDate,imageId,imageName,categoryId,countryCn,country,sum(downloadNum) as downloadNum,createTime 
+	from mas_ws.image_download_day
+	<include refid="dynamicWhere"/>
+	group by ${params.groupBy}
+	<trim>
+		<if test="sort != null and order != null">
+			order by ${sort} ${order}
+		</if>
+	</trim>
+</select>
+<select id="queryByTotal" parameterType="paramsBean"  resultMap="totalResultMap">
+		SELECT SUM(downloadNum) AS downloadNum
+  		FROM (
+			SELECT 
+			  theDate,
+			  imageId,
+			  SUM(downloadNum) AS downloadNum
+			FROM
+			  mas_ws.image_download_day 
+			<include refid="dynamicWhere"/>
+			GROUP BY ${params.groupBy} )
+		AS newtable
+	</select>
+<select id="queryByGroupByCounts" parameterType="paramsBean" resultType="java.lang.Integer">
+  	select count(imageId) from (
+  	select theDate,imageId from mas_ws.image_download_day
+  	<include refid="dynamicWhere"/>
+  	 group by theDate,imageId
+  	) AS new_table
+  </select>
+</mapper>

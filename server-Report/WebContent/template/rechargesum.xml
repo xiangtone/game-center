@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="rechargesum" title="账号充值汇总" serviceName="hpAccountServiceImpl" method="queryByGroupBy" countsName="queryByGroupByCounts">
+	<properties name="Id" title="编号" columnsWidth="2500"/>
+	<properties name="UserName" title="用户账号" columnsWidth="8000"/>
+	<properties name="ExchangeAValue" title="充值总额" columnsWidth="5000"/>
+</model>

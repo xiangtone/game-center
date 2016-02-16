@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.reportforms.dao.AppDistributeMapper" >
+  <resultMap id="BaseResultMap" type="com.reportforms.model.AppDistribute" >
+    <result column="appId" property="appId" jdbcType="INTEGER" />
+    <result column="appName" property="appName" jdbcType="VARCHAR" />
+    <result column="raveId" property="raveId" jdbcType="INTEGER" />
+    <result column="categoryId" property="categoryId" jdbcType="INTEGER" />
+    <result column="categoryName" property="categoryName" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="free" property="free" jdbcType="INTEGER" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="bigLogo" property="bigLogo" jdbcType="VARCHAR" />
+    <result column="brief" property="brief" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="stars" property="stars" jdbcType="INTEGER" />
+    <result column="initDowdload" property="initDowdload" jdbcType="INTEGER" />
+    <result column="realDowdload" property="realDowdload" jdbcType="INTEGER" />
+    <result column="pageOpen" property="pageOpen" jdbcType="INTEGER" />
+    <result column="updateNum" property="updateNum" jdbcType="INTEGER" />
+    <result column="apkId" property="apkId" jdbcType="INTEGER" />
+    <result column="fileSize" property="fileSize" jdbcType="INTEGER" />
+    <result column="packageName" property="packageName" jdbcType="VARCHAR" />
+    <result column="versionCode" property="versionCode" jdbcType="INTEGER" />
+    <result column="versionName" property="versionName" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="hrHigerank" property="hrHigerank" jdbcType="INTEGER" />
+    <result column="hrLowrank" property="hrLowrank" jdbcType="INTEGER" />
+    <result column="hnHigerank" property="hnHigerank" jdbcType="INTEGER" />
+    <result column="hnLowrank" property="hnLowrank" jdbcType="INTEGER" />
+    <result column="htHigerank" property="htHigerank" jdbcType="INTEGER" />
+    <result column="htLowrank" property="htLowrank" jdbcType="INTEGER" />
+    <result column="hpHigerank" property="hpHigerank" jdbcType="INTEGER" />
+    <result column="hpLowrank" property="hpLowrank" jdbcType="INTEGER" />
+    <result column="ahHigerank" property="ahHigerank" jdbcType="INTEGER" />
+    <result column="ahLowrank" property="ahLowrank" jdbcType="INTEGER" />
+    <result column="atHigerank" property="atHigerank" jdbcType="INTEGER" />
+    <result column="atLowrank" property="atLowrank" jdbcType="INTEGER" />
+    <result column="anHigerank" property="anHigerank" jdbcType="INTEGER" />
+    <result column="anLowrank" property="anLowrank" jdbcType="INTEGER" />
+    <result column="ghHigerank" property="ghHigerank" jdbcType="INTEGER" />
+    <result column="ghLowrank" property="ghLowrank" jdbcType="INTEGER" />
+    <result column="gtHigerank" property="gtHigerank" jdbcType="INTEGER" />
+    <result column="gtLowrank" property="gtLowrank" jdbcType="INTEGER" />
+    <result column="gnHigerank" property="gnHigerank" jdbcType="INTEGER" />
+    <result column="gnLowrank" property="gnLowrank" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <association column="raveId" property="country" jdbcType="INTEGER" select="com.reportforms.dao.CountryMapper.selectByPrimaryKey" />    
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="params.category_parent != null and params.category_parent != ''" >
+ 		 	and categoryId in (select id from t_category where fatherId = #{params.category_parent})
+ 	  </if>
+      <if test="params.appId != null" >
+         and (appId like "%${params.appId}%" or  appName like "%${params.appId}%")
+      </if>
+      <if test="params.appName != null and params.appName != ''" >
+         and appName like "%${params.appName}%"
+      </if>
+      <if test="params.raveId != null and params.raveId != '' and params.raveId != 0" >
+         and raveId =  #{params.raveId}
+      </if>
+      <if test="params.categoryId != null and params.categoryId != 0" >
+         and categoryId = #{params.categoryId}
+      </if>
+      <if test="params.categoryName != null and params.categoryName != ''" >
+         and categoryName = #{params.categoryName}
+      </if>
+      <if test="params.sort != null" >
+         and sort = #{params.sort}
+      </if>
+      <if test="params.free != null" >
+         and free = #{params.free}
+      </if>
+      <if test="params.stars != null" >
+         and stars = #{params.stars}
+      </if>
+      <if test="params.apkId != null" >
+         and apkId = #{params.apkId}
+      </if>
+      <if test="params.fileSize != null" >
+         and fileSize = #{params.fileSize}
+      </if>
+      <if test="params.packageName != null and params.packageName != ''" >
+         and packageName = #{params.packageName}
+      </if>
+      <if test="params.versionCode != null" >
+         and versionCode = #{params.versionCode}
+      </if>
+      <if test="params.versionName != null" >
+         and versionName = #{params.versionName}
+      </if>
+      <if test="params.url != null" >
+         and url = #{params.url}
+      </if>
+      <if test="params.createTime != null" >
+         and createTime = #{params.createTime}
+      </if>
+      <if test="params.updateTime != null" >
+         and updateTime = #{params.updateTime}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    appId, appName, raveId,categoryId, categoryName, sort, free, logo, bigLogo, brief, description, 
+    stars, initDowdload, realDowdload, pageOpen, updateNum, apkId, fileSize, packageName, 
+    versionCode, versionName, url, hrHigerank, hrLowrank, hnHigerank, hnLowrank, htHigerank, 
+    htLowrank, hpHigerank, hpLowrank, ahHigerank, ahLowrank, atHigerank, atLowrank, anHigerank, 
+    anLowrank, ghHigerank, ghLowrank, gtHigerank, gtLowrank, gnHigerank, gnLowrank, createTime, 
+    updateTime
+  </sql>
+  <select id="query" resultMap="BaseResultMap" parameterType="paramsBean" >
+    select
+    <include refid="Base_Column_List" />
+    from t_app_distribute
+    <include refid="Example_Where_Clause" />
+     GROUP BY appId,raveId
+    <if test="params.orderBy != null" >
+      order by ${params.orderBy}
+    </if>
+  </select>
+ 
+  <select id="queryAllCounts" parameterType="paramsBean" resultType="java.lang.Integer" >
+     select count(appId) from t_app_distribute <include refid="Example_Where_Clause" />
+  </select>
+  
+</mapper>

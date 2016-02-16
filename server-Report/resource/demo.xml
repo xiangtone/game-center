@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<context:property-placeholder  
+	location="classpath:jdbc.properties"   />
+ 
+  <!-- proxool连接池  -->
+<bean   id="dataSource"  
+	class="org.logicalcobwebs.proxool.ProxoolDataSource">
+	<property   name="alias"   value="${alias}"   />
+	<property   name="driver"   value="${driver}"   />
+	<property   name="driverUrl"   value="${driverUrl}"   />
+	<property   name="user"   value="${user}"   />
+	<property   name="password"   value="${password}"   />
+	<property   name="houseKeepingTestSql"  value="${house-keeping-test-sql}"   />
+	<property   name="maximumConnectionCount"  value="${maximum-connection-count}"   />
+	<property   name="minimumConnectionCount"  value="${minimum-connection-count}"   />
+	<property   name="prototypeCount"   value="${prototype-count}"   />
+	<property   name="simultaneousBuildThrottle"  value="${simultaneous-build-throttle}"   />
+	<property   name="trace"   value="${trace}"   />
+</bean>
+ 
+  
+<bean   id="sqlSessionFactory"  class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property   name="dataSource"   ref="dataSource"   />
+	<property   name="configLocation"  value="classpath:mybatis-config.xml" />
+</bean>
+  
+<bean   id="transactionManager"  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<property   name="dataSource"   ref="dataSource"   />
+</bean>
+ 
+
+  <!-- 注解式事务管理  -->
+<tx:annotation-driven   transaction-manager="transactionManager"   />
+  <!-- 自动扫描 mybatis mapper接口  -->
+<bean   name="mapperScannerConfigurer"  class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<property   name="basePackage"   value="rhino.persistence.mapper"   />
+	<property   name="sqlSessionFactory"   ref="sqlSessionFactory"   />
+</bean>
+ 
+  <!-- 配置新的的数据源  -->
+ 
+ 
+<bean   id="dataSource_1"  
+	class="org.logicalcobwebs.proxool.ProxoolDataSource">
+	<property   name="alias"   value="${db1.alias}"   />
+	<property   name="driver"   value="${driver}"   />
+	<property   name="driverUrl"   value="${db1.driverUrl}"   />
+	<property   name="user"   value="${db1.user}"   />
+	<property   name="password"   value="${db1.password}"   />
+	<property   name="houseKeepingTestSql"  value="${house-keeping-test-sql}"   />
+	<property   name="maximumConnectionCount" value="${maximum-connection-count}"   />
+	<property   name="minimumConnectionCount"  value="${minimum-connection-count}"   />
+	<property   name="prototypeCount"   value="${prototype-count}"   />
+	<property   name="simultaneousBuildThrottle"  value="${simultaneous-build-throttle}"   />
+	<property   name="trace"   value="${trace}"   />
+</bean>
+ 
+  
+<bean   id="sqlSessionFactory_1"  class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property   name="dataSource"   ref="dataSource_1"   />
+	<property   name="configLocation"  value="classpath:mybatis-config-db1.xml" />
+</bean>
+ 
+  
+<bean  id="transactionManager_1" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<property  name="dataSource"  ref="dataSource_1"   />
+</bean>
+ 
+  
+<tx:annotation-driven   transaction-manager="transactionManager_1"   />
+   <!-- 自动扫描 mybatis mapper接口  -->
+<bean   name="mapperScannerConfigurer_1"  class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<property   name="basePackage"   value=rhino.persistence.db1 " />
+	<property   name="sqlSessionFactory"   ref="sqlSessionFactory_1"   />
+</bean>
+
+  <!-- spring beans 组件扫描  -->
+<context:component-scan   base-package="rhino.domain"   />
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.reportforms.dao.CountryMapper" >
+  <resultMap id="BaseResultMap" type="com.reportforms.model.Country" />
+  
+  <sql id="Base_Column_List" >
+   	id,name,nameCn,createTime,url,state
+  </sql>
+  <!-- 获取所有国家信息 -->
+  <select id="query" resultMap="BaseResultMap" parameterType="paramsBean">
+    select 
+    <include refid="Base_Column_List" />
+    from mas_market.t_rave_country
+  </select>
+  
+  <!-- 根据ID查询国家信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select 
+    <include refid="Base_Column_List" />
+    from mas_market.t_rave_country
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+</mapper>

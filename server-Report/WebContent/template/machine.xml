@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="machine" title="预装设备激活统计" serviceName="clientMachineServiceImpl" method="query" countsName="queryAllCounts">
+	<properties name="Phone" title="手机号码" columnsWidth="5000"/>
+	<properties name="Imei" title="机器序列号" columnsWidth="5000"/>
+	<properties name="Mac" title="网卡(wifi)地址" columnsWidth="5000"/>
+	<properties name="Imsi" title="SIM卡号" columnsWidth="5000"/>
+	<properties name="DeviceModel" title="设备型号" columnsWidth="5000"/>
+	<properties name="DeviceVendor" title="设备厂商" columnsWidth="5000"/>
+	<properties name="DeviceTypeString" title="设备类型" columnsWidth="5000"/>
+	<properties name="NetType" title="网络类型" columnsWidth="5000"/>
+	<properties name="OsVersion" title="系统版本" columnsWidth="5000"/>
+	<properties name="AppVersionName" title="设备激活时上传zapp版本" columnsWidth="5000"/>
+	<properties name="AppVersionNameFirst" title="第一次启动zapp版本" columnsWidth="5000"/>
+	<properties name="Country" title="国家" columnsWidth="5000"/>
+	<properties name="Province" title="省份" columnsWidth="5000"/>
+	<properties name="City" title="城市" columnsWidth="5000"/>
+	<properties name="ActiveNum" title="上报次数" columnsWidth="5000"/>
+	<properties name="CreateTimeString" title="激活时间" columnsWidth="5000"/>
+	<properties name="UpdateTimeString" title="上报时间" columnsWidth="5000"/>
+	<properties name="ClientId" title="设备编号" columnsWidth="2500"/>
+	<properties name="ClientIdString" title="zApp状态(设备编号)" columnsWidth="2500"/>
+</model>

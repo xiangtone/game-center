@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reportforms.dao.AppSearchLogMapper">
+  <resultMap id="BaseResultMap" type="com.reportforms.model.AppSearchLog">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="clientId" jdbcType="INTEGER" property="clientId" />
+    <result column="userId" jdbcType="INTEGER" property="userId" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="searchNum" jdbcType="INTEGER" property="searchNum" />
+    <result column="searchCount" jdbcType="INTEGER" property="searchCount" />
+    <result column="state" jdbcType="BIT" property="state" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="commonColumns">
+  	<![CDATA[
+  		id,clientId,userId,userName,content,searchNum,state,createTime
+  	]]>
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="params.id != null and params.id != ''">
+  			id = #{params.id}
+  		</if>
+  		<if test="params.startTime != null and params.startTime != ''">
+  			<![CDATA[and createTime >= #{params.startTime}]]>
+  		</if>
+  		<if test="params.endTime != null and params.endTime != ''">
+  			<![CDATA[and createTime <= #{params.endTime}]]>
+  		</if>
+  	</trim>
+  </sql>
+  <select id="query" parameterType="paramsBean" resultMap="BaseResultMap">
+  	select 
+  	<include refid="commonColumns"/> 
+  	from mas_ws.app_search_log 
+  	<include refid="dynamicWhere"/>
+  	<trim>
+  		<if test="sort != null and order != null">
+  			order by ${sort} ${order}
+  		</if>
+  	</trim>
+  </select>
+  <select id="queryAllCounts" parameterType="paramsBean" resultType="java.lang.Integer">
+  	select count(id) from mas_ws.app_search_log
+  	<include refid="dynamicWhere"/>
+  </select>
+  <select id="queryByGroupBy" parameterType="paramsBean"  resultMap="BaseResultMap">
+  	select id,clientId,userId,userName,content,count(content) as searchCount,state,createTime,DATE_FORMAT(createTime,'%Y-%m-%d') AS newTime from mas_ws.app_search_log
+  	<include refid="dynamicWhere"/>
+  	group by ${params.groupBy}
+  	<trim>
+  		<if test="sort != null and order != null">
+  			order by ${sort} ${order}
+  		</if>
+  	</trim>
+  </select>
+  <select id="queryByGroupByCounts" parameterType="paramsBean" resultType="java.lang.Integer">
+  	select count(id) from (
+  	select id,clientId,userId,userName,content,count(content) as searchCount,state,createTime,DATE_FORMAT(createTime,'%Y-%m-%d') AS newTime from mas_ws.app_search_log
+  	<include refid="dynamicWhere"/>
+  	 group by ${params.groupBy}
+  	) AS new_table
+  </select>
+  <select id="queryByGroupByContent" parameterType="paramsBean"  resultMap="BaseResultMap">
+  	select content,count(content) as searchCount from (
+  	select id,clientId,userId,userName,content,count(content) as searchCount,state,createTime,DATE_FORMAT(createTime,'%Y-%m-%d') AS newTime from mas_ws.app_search_log
+  	<include refid="dynamicWhere"/>
+  	group by ${params.groupBy}
+  	) as new_table group by content order by searchCount desc
+  </select>
+  
+  <select id="queryByGroupByContentCounts" parameterType="paramsBean"  resultType="java.lang.Integer">
+  	select count(id) from (
+  	select id, content,count(content) as searchCount from (
+  	select id,clientId,userId,userName,content,count(content) as searchCount,state,createTime,DATE_FORMAT(createTime,'%Y-%m-%d') AS newTime from mas_ws.app_search_log
+  	<include refid="dynamicWhere"/>
+  	 group by ${params.groupBy}
+  	) as new_table group by content
+  	) as count_table
+  </select>
+  
+  <select id="queryByTop" parameterType="paramsBean"  resultMap="BaseResultMap">
+  	select id,clientId,userId,userName,content,count(content) as searchNum,state,createTime from mas_report.app_search_log
+  	<include refid="dynamicWhere"/>
+  	group by ${params.groupBy}
+  	<trim>
+  		<if test="sort != null and order != null">
+  			order by ${sort} ${order}
+  		</if>
+  	</trim>
+  </select>
+  <select id="queryByTopCounts" parameterType="paramsBean" resultType="java.lang.Integer">
+  	select count(${params.groupBy}) from (
+  	select ${params.groupBy} from mas_report.app_search_log
+  	<include refid="dynamicWhere"/>
+  	 group by ${params.groupBy}
+  	) AS new_table
+  </select>
+</mapper>

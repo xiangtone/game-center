@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="appdistribute" title="应用分发统计" serviceName="appDistributeServiceImpl" method="query" countsName="queryAllCounts">
+	<properties name="RealDowdload" title="实际下载量" columnsWidth="5000" isSums="true"/>
+	<properties name="PageOpen" title="浏览次数" columnsWidth="5000" isSums="true"/>
+	<properties name="AppId" title="应用ID" columnsWidth="5000"/>
+	<properties name="AppName" title="应用名称" columnsWidth="5000"/>
+	<properties name="CountryName" title="国家" columnsWidth="5000"/>
+	<properties name="CategoryName" title="应用分类" columnsWidth="5000"/>
+	<properties name="InitDowdload" title="初始下载量" columnsWidth="5000"/>
+	<properties name="UpdateNum" title="更新次数" columnsWidth="5000"/>
+	<properties name="VersionName" title="版本名称" columnsWidth="5000"/>
+	<properties name="Stars" title="星级" columnsWidth="5000"/>
+	<properties name="FileSize" title="文件大小" columnsWidth="5000"/>
+	<properties name="CreateTimeString" title="入库日期" columnsWidth="5000"/>
+	<properties name="UpdateTimeString" title="修改日期" columnsWidth="5000"/>
+	<properties name="HrHigerank" title="最高排名(Home RECOMMEND)" columnsWidth="5000"/>
+	<properties name="HrLowrank" title="最低排名(Home RECOMMEND)" columnsWidth="5000"/>
+	<properties name="HnHigerank" title="最高排名(Home NEW)" columnsWidth="5000"/>
+	<properties name="HnLowrank" title="最低排名(Home NEW)" columnsWidth="5000"/>
+	<properties name="HtHigerank" title="最高排名(Home TOP)" columnsWidth="5000"/>
+	<properties name="HtLowrank" title="最低排名(Home TOP)" columnsWidth="5000"/>
+	<properties name="HpHigerank" title="最高排名(Home POPULAR)" columnsWidth="5000"/>
+	<properties name="HpLowrank" title="最低排名(Home POPULAR)" columnsWidth="5000"/>
+	<properties name="AhHigerank" title="最高排名(App HOT)" columnsWidth="5000"/>
+	<properties name="AhLowrank" title="最低排名(App HOT)" columnsWidth="5000"/>
+	<properties name="AtHigerank" title="最高排名(App TOP)" columnsWidth="5000"/>
+	<properties name="AtLowrank" title="最低排名(App TOP)" columnsWidth="5000"/>
+	<properties name="AnHigerank" title="最高排名(App NEW)" columnsWidth="5000"/>
+	<properties name="AnLowrank" title="最低排名(App NEW)" columnsWidth="5000"/>
+	<properties name="GhHigerank" title="最高排名(Game HOT)" columnsWidth="5000"/>
+	<properties name="GhLowrank" title="最低排名(Game HOT)" columnsWidth="5000"/>
+	<properties name="GtHigerank" title="最高排名(Game TOP)" columnsWidth="5000"/>
+	<properties name="GtLowrank" title="最低排名(Game TOP)" columnsWidth="5000"/>
+	<properties name="GnHigerank" title="最高排名(Game NEW)" columnsWidth="5000"/>
+	<properties name="GnLowrank" title="最低排名(Game NEW)" columnsWidth="5000"/>
+	
+</model>

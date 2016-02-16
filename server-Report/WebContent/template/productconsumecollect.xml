@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="productconsumecollect" title="厂商消耗汇总" serviceName="cpAccountServiceImpl" method="queryByGroupBy" countsName="queryByGroupByCounts">
+	<properties name="Id" title="编号" columnsWidth="2500"/>
+	<properties name="CpId" title="厂商编号" columnsWidth="8000"/>
+	<properties name="CpName" title="厂商名称" columnsWidth="5000"/>
+	<properties name="AppId" title="产品编号" columnsWidth="8000"/>
+	<properties name="AppName" title="产品名称" columnsWidth="5000"/>
+	<properties name="OrderValue" title="消耗总额" columnsWidth="2500"/>
+</model>

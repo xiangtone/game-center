@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.reportforms.dao.ChannelInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.reportforms.model.Channel" ></resultMap>
+  <sql id="Base_Column_List" >
+    id,fatherId,fatherName,password,pwd,name,type,contacter,phone,email,address,provinceId,
+    description,remark,state,sort, createTime,operator
+  </sql>
+  
+  <select id="query" resultMap="BaseResultMap" parameterType="paramsBean" >
+    select id,fatherId,fatherName from mas_market.t_channel_info
+    <if test="params.channelId != null and params.channelId != ''" >
+       where id = #{params.channelId} or fatherId = #{params.channelId}
+    </if>
+  </select>
+  <select id="queryAll" resultMap="BaseResultMap">
+  	select id,fatherId,fatherName,name from mas_market.t_channel_info
+  </select>
+</mapper>

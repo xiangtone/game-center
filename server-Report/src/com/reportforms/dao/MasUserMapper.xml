@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.reportforms.dao.MasUserMapper">
+	<resultMap id="baseResultMap" type="com.reportforms.model.MasUser">
+		<id column="userId" property="userId" jdbcType="INTEGER" />
+		<result column="userName" property="userName" jdbcType="VARCHAR" />
+		<result column="userPwd" property="userPwd" jdbcType="VARCHAR" />
+		<result column="nickName" property="nickName" jdbcType="VARCHAR" />
+		<result column="sex" property="sex" jdbcType="INTEGER" />
+		<result column="age" property="age" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="state" property="state" jdbcType="BIT" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="realName" property="realName" jdbcType="VARCHAR" />
+		<result column="createTime" property="createTime" jdbcType="DATE" />
+		<result column="aValue" property="aValue" jdbcType="INTEGER" />
+		<result column="aValuePresent" property="aValuePresent" jdbcType="INTEGER" />
+		<result column="userState" property="userState" jdbcType="INTEGER" />
+		<result column="categoryId" property="categoryId" jdbcType="INTEGER" />
+		<result column="rechargeNum" property="rechargeNum" jdbcType="INTEGER" />
+		<result column="aValueAll" property="aValueAll" jdbcType="INTEGER" />
+		<result column="aValuePresentAll" property="aValuePresentAll" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="commonColumns">
+		userId,userName,userPwd,nickName,sex,age,phone,email,state,address,realName,createTime,
+		aValue,aValuePresent,userState,categoryId,rechargeNum,aValueAll,aValuePresentAll
+	</sql>
+	<sql id="dynamicWhere">
+		<trim prefix="where" prefixOverrides="and">
+			<if test="params.userId != null and params.userId != ''">
+				userId = #{params.userId}
+			</if>
+			<if test="params.userName != null and params.userName != ''">
+				and userName = #{params.userName}
+			</if>
+			<if test="params.startTime != null and params.startTime != ''">
+  				<![CDATA[and createTime > #{params.startTime}]]>
+			</if>
+			<if test="params.endTime != null and params.endTime != ''">
+  				<![CDATA[and createTime < #{params.endTime}]]>
+			</if>
+		</trim>
+	</sql>
+	<select id="query" parameterType="paramsBean" resultMap="baseResultMap">
+		select
+		<include refid="commonColumns" />
+		from mas_ws.mas_user
+		<include refid="dynamicWhere" />
+		<trim>
+			<if test="sort != null and order != null">
+				order by ${sort} ${order}
+			</if>
+		</trim>
+	</select>
+	<select id="queryAllCounts"  parameterType="paramsBean" resultType="java.lang.Integer">
+		select count(userId) from mas_ws.mas_user
+		<include refid="dynamicWhere" />
+	</select>
+</mapper>

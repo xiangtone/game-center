@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.reportforms.dao.HpAccountMapper">
+  <resultMap id="BaseResultMap" type="com.reportforms.model.HpAccount">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userId" jdbcType="INTEGER" property="userId" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <result column="cpId" jdbcType="INTEGER" property="cpId" />
+    <result column="appId" jdbcType="INTEGER" property="appId" />
+    <result column="channelId" jdbcType="INTEGER" property="channelId" />
+    <result column="IP" jdbcType="VARCHAR" property="country" />
+    <result column="orderId" jdbcType="VARCHAR" property="orderId" />
+    <result column="TrxID" jdbcType="VARCHAR" property="trxId" />
+    <result column="cardNo" jdbcType="VARCHAR" property="cardNo" />
+    <result column="rechargeType" jdbcType="VARCHAR" property="rechargeType" />
+    <result column="exchangeAValue" jdbcType="FLOAT" property="exchangeAValue" />
+    <result column="rechargeValue" jdbcType="FLOAT" property="rechargeValue" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="rechargeTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <!-- 
+    <result column="channelName" jdbcType="VARCHAR" property="channelName" />
+    <result column="appName" jdbcType="VARCHAR" property="appName" />
+    <result column="cpName" jdbcType="VARCHAR" property="cpName" />
+     -->
+  </resultMap>
+  <sql id="commonColumns">
+  	<![CDATA[
+  		id,userId,userName,cpId,appId,channelId,IP,orderId,
+  		TrxID,cardNO,rechargeType,exchangeAValue,
+  		rechargeValue,createTime,remark
+  	]]>
+  </sql>
+  <sql id="dynamicWhere">
+  	<trim prefix="where" prefixOverrides="and">
+  		<if test="params.userId != null">
+  			userId = #{params.userId}
+  		</if>
+  		<if test="params.userName != null and params.userName != '' ">
+  			and userName = #{params.userName}
+  		</if>
+  		<if test="params.cpId != null and params.cpId != ''">
+  			and cpId = #{params.cpId}
+  		</if>
+  		<if test="params.appId != null and params.appId != ''">
+  			and appId = #{params.appId}
+  		</if>
+  		<if test="params.channelId != null and params.channelId != '' ">
+  			and channelId = #{params.channelId}
+  		</if>
+  		<if test="params.country != null">
+  			and IP = #{params.country}
+  		</if>
+  		<if test="params.orderId != null">
+  			and orderId = #{params.orderId}
+  		</if>
+  		<if test="params.trxId != null">
+  			and TrxID = #{params.trxId}
+  		</if>
+  		<if test="params.cardNO != null">
+  			and cardNO = #{params.cardNO}
+  		</if>
+  		<if test="params.rechargeType != null">
+  			and rechargeType = #{params.rechargeType}
+  		</if>
+  		<if test="params.exchangeAValue != null">
+  			and exchangeAValue = #{params.exchangeAValue}
+  		</if>
+  		<if test="params.rechargeValue != null">
+  			and rechargeValue = #{params.rechargeValue}
+  		</if>
+  		<if test="params.startTime != null and params.startTime != ''">
+  			<![CDATA[and createTime > #{params.startTime}]]>
+  		</if>
+  		<if test="params.endTime != null and params.endTime != ''">
+  			<![CDATA[and createTime < #{params.endTime}]]>
+  		</if>
+  	</trim>
+  </sql>
+  <select id="query" parameterType="paramsBean" resultMap="BaseResultMap">
+  	select 
+  	<include refid="commonColumns"/> 
+  	from mas_ws.pay_recharge_success 
+  	<include refid="dynamicWhere"/>
+  	<trim>
+  		<if test="sort != null and order != null">
+  			order by ${sort} ${order}
+  		</if>
+  	</trim>
+  </select>
+  <select id="queryAllCounts" parameterType="paramsBean" resultType="java.lang.Integer">
+  	select count(id) from mas_ws.pay_recharge_success 
+  	<include refid="dynamicWhere"/>
+  </select>
+  <select id="queryByGroupBy" parameterType="paramsBean"  resultMap="BaseResultMap">
+  	select * from (
+  	select id,userId,userName,channelId,sum(exchangeAValue) as exchangeAValue,cpId,appId,createTime from mas_ws.pay_recharge_success
+  	<include refid="dynamicWhere"/>
+  	 group by ${params.groupBy}
+  	) as pay_recharge_success
+  	<trim>
+  		<if test="sort != null and order != null">
+  			order by ${sort} ${order}
+  		</if>
+  	</trim>
+  </select>
+  <select id="queryByGroupByCounts" parameterType="paramsBean" resultType="java.lang.Integer">
+  	select count(${params.groupBy}) from 
+  	(
+  	select ${params.groupBy} from mas_ws.pay_recharge_success
+  	<include refid="dynamicWhere"/>
+  	group by ${params.groupBy}
+  	) AS new_table
+  </select>
+</mapper>

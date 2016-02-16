@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="rechargecollect" title="充值渠道汇总" serviceName="hpAccountServiceImpl" method="queryByGroupBy" countsName="queryByGroupByCounts">
+	<properties name="Id" title="编号" columnsWidth="2500"/>
+	<properties name="ChannelId" title="渠道编号" columnsWidth="8000"/>
+	<properties name="ChannelName" title="渠道名称" columnsWidth="8000"/>
+	<properties name="ExchangeAValue" title="充值总额" columnsWidth="5000"/>
+</model>

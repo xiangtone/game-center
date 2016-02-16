@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="consumesum" title="账号消费汇总" serviceName="cpAccountServiceImpl" method="queryByGroupBy" countsName="queryByGroupByCounts">
+	<properties name="Id" title="编号" columnsWidth="2500"/>
+	<properties name="UserName" title="用户账号" columnsWidth="5000"/>
+	<properties name="OrderValue" title="消费总额" columnsWidth="2500"/>
+</model>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="imagedownload" title="图片下载统计" serviceName="imageDownLoadServiceImpl" method="queryByGroupBy" countsName="queryByGroupByCounts">
+	<properties name="DownloadNum" title="下载次数" columnsWidth="5000"  isSums="true"/>
+	<properties name="TheDate" title="时间" columnsWidth="5000"/>
+	<properties name="AppTypeString" title="应用类型" columnsWidth="5000"/>
+	<properties name="ImageId" title="图片编号" columnsWidth="5000"/>
+	<properties name="ImageName" title="图片名称" columnsWidth="5000"/>
+	<properties name="CategoryName" title="应用分类" columnsWidth="5000"/>
+</model>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="activatelog" title="平台启动日志" serviceName="clientActivateLogServiceImpl" method="query" countsName="queryAllCounts">
+	<properties name="Id" title="编号" columnsWidth="2500"/>
+	<properties name="ClientId" title="设备编号" columnsWidth="5000"/>
+	<properties name="UserName" title="用户名" columnsWidth="5000"/>
+	<properties name="AppId" title="应用编号" columnsWidth="5000"/>
+	<properties name="AppName" title="应用名称" columnsWidth="5000"/>
+	<properties name="ServerId" title="服务器编号" columnsWidth="5000"/>
+	<properties name="AppVersionName" title="zapp版本" columnsWidth="5000"/>
+	<properties name="Country" title="国家" columnsWidth="5000"/>
+	<properties name="Province" title="省份" columnsWidth="5000"/>
+	<properties name="City" title="城市" columnsWidth="5000"/>
+	<properties name="CreateTimeString" title="日期" columnsWidth="5000"/>
+</model>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model id="productconsumedetail" title="厂商消耗明细" serviceName="cpAccountServiceImpl" method="query" countsName="queryAllCounts">
+	<properties name="Id" title="编号" columnsWidth="2500"/>
+	<properties name="OrderId" title="订单号" columnsWidth="8000"/>
+	<properties name="CpId" title="厂商编号" columnsWidth="8000"/>
+	<properties name="CpName" title="厂商名称" columnsWidth="5000"/>
+	<properties name="AppId" title="产品编号" columnsWidth="8000"/>
+	<properties name="AppName" title="产品名称" columnsWidth="5000"/>
+	<properties name="OrderValue" title="消耗金额" columnsWidth="2500"/>
+	<properties name="RechargeTimeString" title="日期" columnsWidth="5000"/>
+</model>
