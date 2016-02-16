@@ -1,0 +1,18 @@
+url: https://mogpay.indomog.com/merchant/h2h_paywall/index.php 
+secret key:hx5RXc8GqVcwML2U 
+RMID:1310407814
+Alg:zym
+Due to Indomog's constraint, they can only give us 2 vouchers code for production :
+1. vn  : mogplay v20 
+   sn : 12042810000995 
+   sc : 2375821079461650 
+2. vn : mogplay v50 
+   sn : 12042810000994 
+   sc : 2372821879328790
+
+API 调用流程
+	4103
+	4206
+	30s内独占
+	time out 30s, 
+	4109确认是否失败--4206如果返回成功或失败,都不需要4109. 30s无任何反映,调4109.
