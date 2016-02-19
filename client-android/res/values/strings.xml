@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name">花生游戏中心</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">设置</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="confirm">Confirm</string>
@@ -12,7 +12,7 @@
     <string name="error_tips">Loading failed. Please try again.</string>
     <string name="empty_tips">No related resource.</string>
     <string name="exit">Exit</string>
-    <string name="exit_tips">Press the back-key twice to exit zApp.</string>
+    <string name="exit_tips">再次按下返回键退出</string>
     <string name="logout_tips">Do you really want to logout zApp?</string>
     <string name="update_notification_title"><xliff:g id="num">%1$s</xliff:g> App(s) got New Version!</string>
     <string name="share_tips">I found a great app \'<xliff:g id="appName">%1$s</xliff:g>\' on zApp. Get it from http://www.zapp365.com to download.</string>
@@ -41,20 +41,20 @@
     <string name="page_account_recharge">Recharge</string>
     <string name="page_apk_management">Apk Management</string>
     <string name="page_my_contents">My Contents</string>
-    <string name="page_settings">Settings</string>
+    <string name="page_settings">设置</string>
     <string name="page_favorite_apps">Favorite Apps</string>
-    <string name="page_feedback">FAQs</string>
+    <string name="page_feedback">常见问题解答</string>
     <string name="page_about">About</string>
     <string name="page_help">Help</string>
-    <string name="page_qr_scan">QR Code Scanner</string>
+    <string name="page_qr_scan">扫一扫</string>
     <string name="page_qr_scan_result">Scan Result</string>
-    <string name="page_share_title">Wi-Fi Share</string>
+    <string name="page_share_title">Wi-Fi共享</string>
     <string name="page_share_invite_to_install">Invitation</string>
     <string name="page_share_receive_history">History</string>
     <string name="page_my_questions">My Questions</string>
     <string name="page_wallpaper_ablum">Wallpaper Album</string>
     <string name="page_camera">Camera</string>
-    <string name="page_applocker">App Lock</string>
+    <string name="page_applocker">应用锁</string>
     <string name="page_applocker_unlock">Unlock</string>
     <string name="page_applocker_advance_settings">Advance Settings</string>
     <string name="page_applocker_wish_to_lock">Wish to Lock</string>
@@ -62,35 +62,35 @@
     <string name="page_skin">Skin</string>
 
     <!-- tab -->
-    <string name="home">Home</string>
-    <string name="apps">Apps</string>
-    <string name="games">Games</string>
-    <string name="ringtone">Ringtones</string>
-    <string name="wallpaper">Wallpapers</string>
-    <string name="home_recommend">RECOMMEND</string>
-    <string name="home_collection">COLLECTIONS</string>
-    <string name="home_must_have">MUST HAVE</string>
+    <string name="home">主页</string>
+    <string name="apps">应用</string>
+    <string name="games">游戏</string>
+    <string name="ringtone">铃声</string>
+    <string name="wallpaper">壁纸</string>
+    <string name="home_recommend">推荐</string>
+    <string name="home_collection">收藏</string>
+    <string name="home_must_have">必玩</string>
     <string name="home_new">NEW</string>
     <string name="home_top">TOP</string>
     <string name="home_popular">POPULAR</string>
-    <string name="app_categories">CATEGORIES</string>
-    <string name="app_hot">HOT</string>
-    <string name="app_top">TOP</string>
-    <string name="app_new">NEW</string>
-    <string name="game_categories">CATEGORIES</string>
-    <string name="game_hot">HOT</string>
-    <string name="game_top">TOP</string>
+    <string name="app_categories">分类</string>
+    <string name="app_hot">热门</string>
+    <string name="app_top">榜首</string>
+    <string name="app_new">最新</string>
+    <string name="game_categories">分类</string>
+    <string name="game_hot">热门</string>
+    <string name="game_top">榜首</string>
     <string name="game_popular">POPULAR</string>
-    <string name="game_new">NEW</string>
-    <string name="ringtone_categories">CATEGORIES</string>
-    <string name="ringtone_hot">HOT</string>
-    <string name="ringtone_top">TOP</string>
-    <string name="ringtone_new">NEW</string>
-    <string name="wallpaper_categories">CATEGORIES</string>
-    <string name="wallpaper_album">ALBUM</string>
-    <string name="wallpaper_top">TOP</string>
-    <string name="wallpaper_hot">HOT</string>
-    <string name="wallpaper_live">LIVE WALLPAPER</string>
+    <string name="game_new">最新</string>
+    <string name="ringtone_categories">分类</string>
+    <string name="ringtone_hot">热门</string>
+    <string name="ringtone_top">榜首</string>
+    <string name="ringtone_new">最新</string>
+    <string name="wallpaper_categories">分类</string>
+    <string name="wallpaper_album">合辑</string>
+    <string name="wallpaper_top">榜首</string>
+    <string name="wallpaper_hot">热门</string>
+    <string name="wallpaper_live">动态壁纸</string>
     <string name="resource_app">APPS&amp;GAMES</string>
     <string name="resource_pic">PICTURES</string>
     <string name="resource_music">MUSIC</string>
@@ -108,20 +108,20 @@
     <string name="apk_scan_tips">Amount of Apk:<xliff:g id="num">%1$s</xliff:g>&#160;&#160;&#160;&#160;Apk Space:<xliff:g id="size">%2$s</xliff:g></string>
 
     <!-- left_drawer -->
-    <string name="account">Account</string>
+    <string name="account">账户</string>
     <string name="new_tips">new</string>
-    <string name="login_tips">login&#8230;</string>
-    <string name="code_scan">QR Code Scanner</string>
-    <string name="share_free">Wi-Fi Share</string>
-    <string name="settings">Settings</string>
+    <string name="login_tips">登录&#8230;</string>
+    <string name="code_scan">扫一扫</string>
+    <string name="share_free">Wi-Fi共享</string>
+    <string name="settings">设置</string>
     <string name="favorite_app">Favorite Apps</string>
-    <string name="feed_back">FAQs</string>
-    <string name="help">Help</string>
-    <string name="about">About</string>
-    <string name="my_apps">My Apps</string>
-    <string name="my_contents">My Contents</string>
-    <string name="tools">Tools</string>
-    <string name="applocker">App Lock</string>
+    <string name="feed_back">常见问题解答</string>
+    <string name="help">帮助</string>
+    <string name="about">关于</string>
+    <string name="my_apps">我的应用</string>
+    <string name="my_contents">我的文件</string>
+    <string name="tools">工具</string>
+    <string name="applocker">应用锁</string>
 
     <!-- actionbar menu -->
     <string name="menu_search">Search</string>
@@ -327,7 +327,7 @@
     <string name="feedback_fail">Feedback failure, please try again!</string>
     <string name="upgrade_fail">Smart Update failed.</string>
     <string name="one_click_download_error">Failed to download all.</string>
-    <string name="check_new_version">Check New Version</string>
+    <string name="check_new_version">检测新版本</string>
     <string name="feedback_email">Email Address</string>
     <string name="feedback_send_btn_text">Send</string>
     <string name="one_click_btn_text">&#160;Download All</string>
@@ -345,7 +345,7 @@
     <!-- 资源管理 -->
     <string name="bot_tools_share">Share</string>
     <string name="bot_tools_cancel">Cancel</string>
-    <string name="music_setting">Settings</string>
+    <string name="music_setting">设置</string>
     <string name="music_dialog_title">Set as</string>
     <string name="pic_edit_back">BACK</string>
     <string name="share_tools">Send (<xliff:g id="SUM">%s</xliff:g>)</string>
@@ -362,7 +362,7 @@
     <string name="ringtones_set_failure">This file is damaged.</string>
     <string name="open_file_toast">Didn\'t find related software</string>
     <string name="cleaning">cleaning&#8230;</string>
-    <string name="storage">STORAGE</string>
+    <string name="storage">总存储量</string>
     <string name="ram">RAM</string>
     <string name="video">Video</string>
     <string name="videos">Videos</string>
@@ -412,7 +412,7 @@
     <string name="transfer_launch">Launch</string>
     <string name="transfer_open">Open</string>
     <string name="transfer_retry">Retry</string>
-    <string name="transfer_setting">Settings</string>
+    <string name="transfer_setting">设置</string>
     <string name="atw_invite_connect_zapp">Invite friends to connect this free Wi-Fi: </string>
     <string name="atw_wifi">Wi-Fi</string>
     <string name="atw_Installation_notes">Scan this code to download zApp for free.\nOr download it via</string>
@@ -471,7 +471,7 @@
     <string name="new_version_tips">This is the latest version.</string>
 
     <!-- 新手引导 -->
-    <string name="start_now">START NOW</string>
+    <string name="start_now">立即开启</string>
 
     <!-- My apps -->
     <string name="app_new_update">Update</string>
@@ -588,12 +588,12 @@
     <string name="http_request_success">http request success</string>
 
     <!-- Tools -->
-    <string name="tools_uninstall">UNINSTALL</string>
-    <string name="tools_qrcode_scanner">QR CODE SCANNER</string>
-    <string name="tools_wifi_share">WI-FI SHARE</string>
-    <string name="tools_apk_manage">APK MANAGEMENT</string>
-    <string name="tools_app_lock">APP LOCK</string>
-    <string name="tools_skin">SKIN</string>
+    <string name="tools_uninstall">卸载</string>
+    <string name="tools_qrcode_scanner">扫一扫</string>
+    <string name="tools_wifi_share">WI-FI共享</string>
+    <string name="tools_apk_manage">应用管理</string>
+    <string name="tools_app_lock">应用锁</string>
+    <string name="tools_skin">皮肤</string>
     <string name="tools_uninstall_desc">Here you can unistall apps freely!</string>
     <string name="tools_qrcode_scanner_desc">Scan whatever you want to know it better!</string>
     <string name="tools_wifi_share_desc">Share any files with friends without $ and data!</string>
@@ -617,7 +617,7 @@
     <string name="incoming_call_app_desc">Prevent others from answering incoming call</string>
     <string name="install_app_name">Install/Uninstall</string>
     <string name="install_app_desc">Prevent others from installing or uninstalling apps</string>
-    <string name="settings_app_name">Settings</string>
+    <string name="settings_app_name">设置</string>
     <string name="settings_app_desc">Prevent others from uninstalling or force-close App Lock</string>
     <string name="messages_app_name">Messages</string>
     <string name="messages_app_desc">Prevent others from checking Messages</string>
@@ -637,7 +637,7 @@
     <string name="app_lock_list_count_desc">app(s) got locked.</string>
     <string name="app_lock_list_nonelocked_desc">You didn\'t lock any apps. Try it now.</string>
     <string name="set_password">Set Password</string>
-    <string name="app_lock_title">App Lock</string>
+    <string name="app_lock_title">应用锁</string>
     <string name="app_lock_desc">When it is on, your apps can be locked with password.</string>
     <string name="app_lock_list_title">Locked App List</string>
     <string name="advance_setting_title">Advance Settings</string>
