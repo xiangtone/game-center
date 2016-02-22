@@ -13,7 +13,7 @@
 	<classpathentry kind="lib" path="libs/butterknife-6.1.0.jar"/>
 	<classpathentry kind="lib" path="libs/gson-1.7.1.jar"/>
 	<classpathentry kind="lib" path="libs/nineoldandroids-library-2.4.0.jar"/>
-	<classpathentry kind="lib" path="libs/TCL_DataEye_final_V1.0.1.001.jar"/>
+	<classpathentry kind="lib" path="E:/xtone/code-git/game-center/client-android/libs/DataEye_final_V1.0.1.001.jar"/>
 	<classpathentry kind="lib" path="libs/zxing.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
