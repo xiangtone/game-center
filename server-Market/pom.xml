@@ -20,26 +20,31 @@
 	    <artifactId>servlet</artifactId>
 	    <version>2-3</version>
 	</dependency>
+	
 	<dependency>
 	    <groupId>poi</groupId>
 	    <artifactId>poi</artifactId>
 	    <version>3.1-FINAL</version>
 	</dependency>
 	<dependency>
-	    <groupId>edu.psu.cse.siis</groupId>
-	    <artifactId>ic3</artifactId>
-	    <version>0.2.0</version>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>5.1.16</version>
 	</dependency>
-	
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+	    <version>1.5.8</version>
+	</dependency>
 	<dependency>
 	    <groupId>aspectj</groupId>
 	    <artifactId>aspectjweaver</artifactId>
 	    <version>1.5.4</version>
 	</dependency>
 	<dependency>
-	    <groupId>org.apache.poi</groupId>
-	    <artifactId>poi</artifactId>
-	    <version>3.8-beta4</version>
+	    <groupId>commons-codec</groupId>
+	    <artifactId>commons-codec</artifactId>
+	    <version>1.7</version>
 	</dependency>
 	<dependency>
 		<groupId>log4j</groupId>
@@ -72,34 +77,29 @@
 	    <version>7.0.68</version>
 	</dependency>
 	<dependency>
-	    <groupId>org.apache.servicemix.bundles</groupId>
-	    <artifactId>org.apache.servicemix.bundles.spring-dao</artifactId>
-	    <version>2.0.8_1</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.apache.servicemix.bundles</groupId>
-	    <artifactId>org.apache.servicemix.bundles.spring-tx</artifactId>
-	    <version>3.2.16.RELEASE_1</version>
-	</dependency>
-	<dependency>
-	    <groupId>org.apache.ibatis</groupId>
-	    <artifactId>ibatis-sqlmap</artifactId>
-	    <version>3.0-beta-7</version>
-	</dependency>
-	<dependency>
 	    <groupId>com.amazonaws</groupId>
 	    <artifactId>aws-java-sdk-core</artifactId>
 	    <version>1.8.12</version>
 	</dependency>
 	<dependency>
-	    <groupId>org.kite9</groupId>
-	    <artifactId>kite9-java-all</artifactId>
-	    <version>1.9</version>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jdbc</artifactId>
+		<version>3.1.1.RELEASE</version>
 	</dependency>
 	<dependency>
-	    <groupId>org.apache.servicemix.bundles</groupId>
-	    <artifactId>org.apache.servicemix.bundles.xstream</artifactId>
-	    <version>1.4.8_1</version>
+	    <groupId>stax</groupId>
+	    <artifactId>stax</artifactId>
+	    <version>1.2.0</version>
+	</dependency>
+	<dependency>
+		<groupId>xpp3</groupId>
+		<artifactId>xpp3_min</artifactId>
+		<version>1.1.4c</version>
+	</dependency>
+	<dependency>
+		<groupId>com.thoughtworks.xstream</groupId>
+		<artifactId>xstream</artifactId>
+		<version>1.4.2</version>
 	</dependency>
 	<dependency>
 	    <groupId>com.hynnet</groupId>
@@ -158,6 +158,42 @@
 	</dependency>
 	<dependency>
 		<groupId>org.springframework</groupId>
+		<artifactId>spring-context-support</artifactId>
+		<version>3.1.1.RELEASE</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-acl</artifactId>
+		<version>3.1.0.RELEASE</version>
+	</dependency>
+	<!-- 问题估计在 spring-security-web-->
+	<!--
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-web</artifactId>
+		<version>3.1.0.RELEASE</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-config</artifactId>
+		<version>3.1.0.RELEASE</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-taglibs</artifactId>
+		<version>3.1.0.RELEASE</version>
+	</dependency>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dependency>
+		<groupId>org.springframework</groupId>
 		<artifactId>spring-web</artifactId>
 		<version>3.2.15.RELEASE</version>
 	</dependency>
@@ -186,11 +222,38 @@
 		<artifactId>spring-security-web</artifactId>
 		<version>3.1.4.RELEASE</version>
 	</dependency>
+	
 	<dependency>
 	    <groupId>org.mybatis</groupId>
 	    <artifactId>mybatis-spring</artifactId>
 	    <version>1.2.4</version>
 	</dependency>
+	<dependency>
+	    <groupId>com.alibaba.druid</groupId>
+	    <artifactId>druid-wrapper</artifactId>
+	    <version>0.2.9</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.mybatis.pagination.plug</groupId>
+	    <artifactId>com.mybatis</artifactId>
+	    <version>1.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.servicemix.bundles</groupId>
+	    <artifactId>org.apache.servicemix.bundles.spring-dao</artifactId>
+	    <version>2.0.8_1</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.servicemix.bundles</groupId>
+	    <artifactId>org.apache.servicemix.bundles.spring-tx</artifactId>
+	    <version>3.2.16.RELEASE_1</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.ibatis</groupId>
+	    <artifactId>ibatis-sqlmap</artifactId>
+	    <version>3.0-beta-7</version>
+	</dependency>
+	 -->
   </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
