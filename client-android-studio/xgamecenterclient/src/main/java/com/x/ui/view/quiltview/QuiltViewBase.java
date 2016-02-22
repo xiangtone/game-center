@@ -57,7 +57,8 @@ public class QuiltViewBase extends GridLayout {
 	public void setupVertical() {
 		size = getBaseSizeVertical();
 		this.setColumnCount(columns);
-		this.setRowCount(-1);
+		//this.setRowCount(-1);
+		this.setRowCount(0);
 		this.setOrientation(this.HORIZONTAL);
 		FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
 				FrameLayout.LayoutParams.MATCH_PARENT,
