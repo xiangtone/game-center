@@ -10,13 +10,15 @@
         android:id="@+id/guideHomePageTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="@dimen/guide_homepage_marginbottom"
+        android:layout_gravity="bottom|center_horizontal"
         android:background="@drawable/guide_startnow"
-        android:paddingLeft="@dimen/guide_start_btn_padding"
-        android:paddingRight="@dimen/guide_start_btn_padding"
+        android:paddingTop="@dimen/guide_start_btn_padding_top_bottom"
+        android:paddingLeft="@dimen/guide_start_btn_padding_left_right"       
+        android:paddingBottom="@dimen/guide_start_btn_padding_top_bottom"
+        android:paddingRight="@dimen/guide_start_btn_padding_left_right"
         android:text="@string/start_now"
-        android:textColor="@color/white"
+        android:textColor="@drawable/guide_startnow_text_color"
         android:textSize="@dimen/guide_homepage_textsize" />
 
 </FrameLayout>
