@@ -18,12 +18,6 @@
             android:text="@string/home" />
 
         <RadioButton
-            android:id="@+id/mf_apps_tab_rb"
-            style="@style/main_footbar_radio"
-            android:drawableTop="@drawable/selector_rb_apps_bg"
-            android:text="@string/apps" />
-
-        <RadioButton
             android:id="@+id/mf_games_tab_rb"
             style="@style/main_footbar_radio"
             android:drawableTop="@drawable/selector_rb_games_bg"
@@ -40,6 +34,12 @@
             style="@style/main_footbar_radio"
             android:drawableTop="@drawable/selector_rb_wallpaper_bg"
             android:text="@string/wallpaper" />
+        
+        <RadioButton
+            android:id="@+id/mf_apps_tab_rb"
+            style="@style/main_footbar_radio" 
+            android:drawableTop="@drawable/selector_rb_apps_bg"
+            android:text="@string/me" />
     </RadioGroup>
 
 </FrameLayout>
