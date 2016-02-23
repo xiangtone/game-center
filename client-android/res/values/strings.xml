@@ -190,7 +190,7 @@
     <string name="rate_app">Rate this app:</string>
     <string name="rate_content">Write a comment</string>
     <string name="app_recommend">Related</string>
-    <string name="app_refresh">Refresh</string>
+    <string name="app_refresh">刷新</string>
     <string name="loading">加载中&#8230;</string>
     <string name="warm_tips">Warm Tips</string>
     <string name="app_comments_warm_tips">Giving comment is only available after downloading zApp. Download now?</string>
@@ -288,9 +288,9 @@
     <string name="dialog_app_exit_downloading"><xliff:g id="count">%1$s</xliff:g>  task(s) is downloading, confirm to exit?</string>
 
     <!-- search -->
-    <string name="option_search_apps">Apps</string>
-    <string name="option_search_ringtones">Ringtones</string>
-    <string name="option_search_wallpapers">Wallpapers</string>
+    <string name="option_search_apps">游戏</string>
+    <string name="option_search_ringtones">铃声</string>
+    <string name="option_search_wallpapers">壁纸</string>
     <!-- favorite app -->
     <string name="unfavorite">Unfavorite</string>
 
@@ -493,12 +493,12 @@
     <string name="feedback_first_tips">Dear User, let us know your feedback or problems and we would try our best to improve your experience with zApp.</string>
 
     <!-- search -->
-    <string name="search_refresh_text">Refresh</string>
-    <string name="ringtone_query_hint">Ringtones</string>
-    <string name="app_query_hint">Apps &amp; Games</string>
-    <string name="wallpaper_query_hint">Wallpapers</string>
-    <string name="search_result_tips">Results not found! Play with below related recommendations!</string>
-    <string name="search_tips">Please enter key words for search.</string>
+    <string name="search_refresh_text">刷新</string>
+    <string name="ringtone_query_hint">铃声</string>
+    <string name="app_query_hint">游戏</string>
+    <string name="wallpaper_query_hint">壁纸</string>
+    <string name="search_result_tips">没找到搜索结果!请尝试搜索以下建议词!</string>
+    <string name="search_tips">请输入搜索关键字。</string>
 
     <!-- Notification 通知栏 -->
     <string name="checking">Checking</string>

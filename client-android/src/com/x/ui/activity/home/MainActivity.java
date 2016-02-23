@@ -300,20 +300,22 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 						homeFragement = HomeFragment.newInstance(null);
 					}
 					switchFragments(homeFragement);
+					tabNum=0;
 					break;
-				// Apps
-				case R.id.mf_apps_tab_rb:
-					if (appsFragment == null) {
-						appsFragment = AppsFragment.newInstance(null);
-					}
-					switchFragments(appsFragment);
-					break;
+//				// Apps
+//				case R.id.mf_apps_tab_rb:
+//					if (appsFragment == null) {
+//						appsFragment = AppsFragment.newInstance(null);
+//					}
+//					switchFragments(appsFragment);
+//					break;
 				// Games
 				case R.id.mf_games_tab_rb:
 					if (gamesFragment == null) {
 						gamesFragment = GamesFragment.newInstance(null);
 					}
 					switchFragments(gamesFragment);
+					tabNum=1;
 					break;
 				// Ringtones
 				case R.id.mf_ringtones_tab_rb:
@@ -321,6 +323,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 						ringtonesFragment = RingtonesFragment.newInstance(null);
 					}
 					switchFragments(ringtonesFragment);
+					tabNum=2;
 					break;
 
 				// Wallpapers
@@ -329,6 +332,15 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 						wallpaperFragment = WallpaperFragment.newInstance(null);
 					}
 					switchFragments(wallpaperFragment);
+					tabNum=3;
+					break;
+				// Me
+				case R.id.mf_apps_tab_rb:
+					if (slideDragLayout.isOpened()) {
+						slideDragLayout.close();
+					} else {
+						slideDragLayout.open();
+					}					
 					break;
 				}
 			}
