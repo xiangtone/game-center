@@ -255,7 +255,7 @@
     <string name="clear_cache">清理缓存</string>
     <string name="cache">缓存</string>
     <string name="cache_size">缓存:0M</string>
-    <string name="app_country">定位</string>
+    <string name="app_country">国家</string>
     <string name="settings_only_download_wifi">Note: this resource can only be downloaded via Wi-Fi now. You could change it via the settings of zApp.</string>
     <string name="settings_display_mode">显示模式</string>
     <string name="display_in_list_mode">列表模式</string>

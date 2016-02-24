@@ -336,11 +336,16 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 					break;
 				// Me
 				case R.id.mf_apps_tab_rb:
-					if (slideDragLayout.isOpened()) {
-						slideDragLayout.close();
+//					if (slideDragLayout.isOpened()) {
+//						slideDragLayout.close();
+//					} else {
+//						slideDragLayout.open();
+//					}		
+					if (UserInfoManager.getInstence(mActivity).isLogin()) {
+						startActivity(new Intent(mActivity, AccountActivity.class));
 					} else {
-						slideDragLayout.open();
-					}					
+						startActivity(new Intent(mActivity, LoginActivity.class));
+					}
 					break;
 				}
 			}

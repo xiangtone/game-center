@@ -15,6 +15,8 @@ import java.net.URLEncoder;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.util.Log;
+
 import com.x.publics.http.model.AccordDownloadRequest;
 import com.x.publics.http.model.AppDownloadLogRequest;
 import com.x.publics.http.model.AppGamesCategoryRequest;
