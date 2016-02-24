@@ -53,7 +53,7 @@
     <string name="page_share_receive_history">History</string>
     <string name="page_my_questions">My Questions</string>
     <string name="page_wallpaper_ablum">Wallpaper Album</string>
-    <string name="page_camera">Camera</string>
+    <string name="page_camera">相机</string>
     <string name="page_applocker">应用锁</string>
     <string name="page_applocker_unlock">Unlock</string>
     <string name="page_applocker_advance_settings">Advance Settings</string>
@@ -170,10 +170,10 @@
     <!-- app management module -->
     <string name="manager_uninstall">卸载</string>
     <string name="manager_delete">Delete </string>
-    <string name="manager_manager">Manager</string>
-    <string name="manager_open">Launch</string>
+    <string name="manager_manager">管理</string>
+    <string name="manager_open">打开</string>
     <string name="manager_detail">详情</string>
-    <string name="manager_install">Install</string>
+    <string name="manager_install">安装</string>
 
     <!-- app detail module -->
     <string name="app_pause">Pause</string>
@@ -182,7 +182,7 @@
     <string name="app_ratings">Ratings</string>
     <string name="app_download">Download</string>
     <string name="app_upgrade">更新</string>
-    <string name="app_launch">Launch</string>
+    <string name="app_launch">打开</string>
     <string name="app_continue">Continue</string>
     <string name="app_connecting">Connecting</string>
     <string name="app_waiting">Waiting</string>
