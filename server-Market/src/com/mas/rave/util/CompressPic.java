@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
-
+/**
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGEncodeParam;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
@@ -113,12 +113,14 @@ public class CompressPic {
 								src.getScaledInstance(new_w, new_h,
 										Image.SCALE_SMOOTH), 0, 0, null);
 				FileOutputStream newimage = new FileOutputStream(img_midname); // 输出到文件流
-				JPEGImageEncoder encoder = JPEGCodec
-						.createJPEGEncoder(newimage);
-				JPEGEncodeParam jep = JPEGCodec.getDefaultJPEGEncodeParam(tag);
+				//JPEGImageEncoder encoder = JPEGCodec
+				//		.createJPEGEncoder(newimage);
+				//JPEGEncodeParam jep = JPEGCodec.getDefaultJPEGEncodeParam(tag);
+				ImageIO.write(tag, "jpeg", newimage);
+
 				/* 压缩质量 */
-				jep.setQuality(per, true);
-				encoder.encode(tag, jep);
+				//jep.setQuality(per, true);
+				//encoder.encode(tag, jep);
 				// encoder.encode(tag); //近JPEG编码
 				newimage.close();
 			}
@@ -130,8 +132,9 @@ public class CompressPic {
 
 	public static void main(String args[]) {
 		CompressPic com = new CompressPic();
-		String f = "d:\\4.png";
-		com.img_change(f, "aa");
+		String f = "C:/Users/Administrator/Downloads/hero0.png";
+		com.img_change(f, "abcabcabc");
+		System.out.println("压缩完成");
 	}
 
 }

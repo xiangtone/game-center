@@ -11,8 +11,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import com.mas.rave.exception.PictureToolException;
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
+
+//import com.sun.image.codec.jpeg.JPEGCodec;
+//import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 public class PictureTool { 
         private boolean isInitFlag = false; //         对象是否己经初始化 
@@ -207,12 +208,12 @@ public class PictureTool {
          */
         public void createThumbnail(String src,String dist,float width,float height){
          try{
+          System.out.println(src);
           File srcfile = new File(src);
           if(!srcfile.exists()){
         	  throw new PictureToolException("文件不存在");
           }
           BufferedImage image = ImageIO.read(srcfile);
-          
           //获得缩放的比例
           double ratio = 1.0;
           //判断如果高、宽都不大于设定值，则不处理
@@ -226,14 +227,13 @@ public class PictureTool {
           //计算新的图面宽度和高度
           int newWidth =(int)(image.getWidth()*ratio);
           int newHeight =(int)(image.getHeight()*ratio);
-          
           BufferedImage bfImage= new BufferedImage(newWidth,newHeight,BufferedImage.TYPE_INT_RGB);
           bfImage.getGraphics().drawImage(image.getScaledInstance(newWidth, newHeight,Image.SCALE_SMOOTH),0,0,null);
           
           FileOutputStream os = new FileOutputStream(dist);
-          JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os);
-          
-          encoder.encode(bfImage);
+          //JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os);
+          ImageIO.write(bfImage, "jpeg", os);
+          //encoder.encode(bfImage);
           os.close(); 
           System.out.println("创建缩略图成功");
          } catch(Exception e) {
@@ -244,8 +244,8 @@ public class PictureTool {
 
         	public static void main(String[] args) {
 
-        		String src = "H:\\resource\\apps\\All8\\Zoom Camera\\pic\\Zoom Camera_10.png";
-        		String dist = "H:\\resource\\apps\\All8\\Zoom Camera\\pic\\Zoom Camera11_10.jpg";
+        		String src = "F:/神魔官网/images/hero0.png";
+        		String dist = "C:/Users/Administrator/Downloads/hero0.png";
 	
         		PictureTool j = new PictureTool();
         		try {
