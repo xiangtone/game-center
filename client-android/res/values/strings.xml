@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">花生游戏中心</string>
+    <string name="app_name">花生游戏</string>
     <string name="action_settings">设置</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-    <string name="confirm">Confirm</string>
-    <string name="cancel">Cancel</string>
-    <string name="retry">Retry</string>
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
+    <string name="retry">重试</string>
     <string name="gohome">Go to Home page</string>
-    <string name="error_tips">Loading failed. Please try again.</string>
+    <string name="error_tips">读取失败，请重试。</string>
     <string name="empty_tips">No related resource.</string>
     <string name="exit">Exit</string>
     <string name="exit_tips">再次按下返回键退出</string>
     <string name="logout_tips">Do you really want to logout zApp?</string>
-    <string name="update_notification_title"><xliff:g id="num">%1$s</xliff:g> App(s) got New Version!</string>
+    <string name="update_notification_title"><xliff:g id="num">%1$s</xliff:g> 个应用有新版本!</string>
     <string name="share_tips">I found a great app \'<xliff:g id="appName">%1$s</xliff:g>\' on zApp. Get it from http://www.zapp365.com to download.</string>
     <string name="feedback_title">Your suggestions (within 500 characters)</string>
     <string name="feedback_content_hint">Please tell zApp the specifics of your problem or your suggestion.</string>
     <string name="feddback_email_hint">Please enter your email address.</string>
-    <string name="app_version">Version:</string>
-    <string name="app_size">Size:</string>
+    <string name="app_version">版本号:</string>
+    <string name="app_size">大小:</string>
     <string name="app_new_size">New size:</string>
     <string name="update_all">Update All</string>
     <string name="delete_all">Delete All</string>
@@ -29,9 +29,9 @@
     <string name="page_app_detail">App Details</string>
     <string name="page_download_management">Download Management</string>
     <string name="page_app_management">App Management</string>
-    <string name="page_my_apps">My Apps</string>
+    <string name="page_my_apps">我的应用</string>
     <string name="page_content_downloading">Download Management</string>
-    <string name="page_account_login">Login</string>
+    <string name="page_account_login">登录</string>
     <string name="page_account_register">Register</string>
     <string name="page_account_home">Account</string>
     <string name="page_account_modify_pwd">Reset Password</string>
@@ -40,7 +40,7 @@
     <string name="page_account_recharge_details">Recharge Details</string>
     <string name="page_account_recharge">Recharge</string>
     <string name="page_apk_management">Apk Management</string>
-    <string name="page_my_contents">My Contents</string>
+    <string name="page_my_contents">我的文件</string>
     <string name="page_settings">设置</string>
     <string name="page_favorite_apps">Favorite Apps</string>
     <string name="page_feedback">常见问题解答</string>
@@ -53,7 +53,7 @@
     <string name="page_share_receive_history">History</string>
     <string name="page_my_questions">My Questions</string>
     <string name="page_wallpaper_ablum">Wallpaper Album</string>
-    <string name="page_camera">Camera</string>
+    <string name="page_camera">相机</string>
     <string name="page_applocker">应用锁</string>
     <string name="page_applocker_unlock">Unlock</string>
     <string name="page_applocker_advance_settings">Advance Settings</string>
@@ -64,6 +64,7 @@
     <!-- tab -->
     <string name="home">主页</string>
     <string name="apps">应用</string>
+    <string name="me">我</string>
     <string name="games">游戏</string>
     <string name="ringtone">铃声</string>
     <string name="wallpaper">壁纸</string>
@@ -75,32 +76,32 @@
     <string name="home_popular">POPULAR</string>
     <string name="app_categories">分类</string>
     <string name="app_hot">热门</string>
-    <string name="app_top">榜首</string>
+    <string name="app_top">排行</string>
     <string name="app_new">最新</string>
     <string name="game_categories">分类</string>
     <string name="game_hot">热门</string>
-    <string name="game_top">榜首</string>
+    <string name="game_top">排行</string>
     <string name="game_popular">POPULAR</string>
     <string name="game_new">最新</string>
     <string name="ringtone_categories">分类</string>
     <string name="ringtone_hot">热门</string>
-    <string name="ringtone_top">榜首</string>
+    <string name="ringtone_top">排行</string>
     <string name="ringtone_new">最新</string>
     <string name="wallpaper_categories">分类</string>
     <string name="wallpaper_album">合辑</string>
-    <string name="wallpaper_top">榜首</string>
+    <string name="wallpaper_top">排行</string>
     <string name="wallpaper_hot">热门</string>
-    <string name="wallpaper_live">动态壁纸</string>
+    <string name="wallpaper_live">动态</string>
     <string name="resource_app">APPS&amp;GAMES</string>
-    <string name="resource_pic">PICTURES</string>
-    <string name="resource_music">MUSIC</string>
-    <string name="resource_video">VIDEOS</string>
-    <string name="resource_document">DOCUMENTS</string>
-    <string name="my_apps_new">NEW</string>
-    <string name="my_apps_all">ALL</string>
+    <string name="resource_pic">图片</string>
+    <string name="resource_music">音乐</string>
+    <string name="resource_video">视频</string>
+    <string name="resource_document">文档</string>
+    <string name="my_apps_new">最新</string>
+    <string name="my_apps_all">所有</string>
     <string name="downloading">DOWNLOADING(<xliff:g id="num">%1$s</xliff:g>)</string>
     <string name="download_history">DOWNLOAD HISTORY(<xliff:g id="num">%1$s</xliff:g>)</string>
-    <string name="update">UPDATE(<xliff:g id="num">%1$s</xliff:g>)</string>
+    <string name="update">更新(<xliff:g id="num">%1$s</xliff:g>)</string>
     <string name="installed">INSTALLED(<xliff:g id="num">%1$s</xliff:g>)</string>
     <string name="apk_uninstalled">NOT INSTALLED(<xliff:g id="num">%1$s</xliff:g>)</string>
     <string name="apk_installed">INSTALLED(<xliff:g id="num">%1$s</xliff:g>)</string>
@@ -135,8 +136,8 @@
     <string name="app_status_continue">Continue</string>
     <string name="app_status_launch">Launch</string>
     <string name="app_status_open">Open</string>
-    <string name="app_status_update">Update</string>
-    <string name="app_status_install">Install</string>
+    <string name="app_status_update">更新</string>
+    <string name="app_status_install">安装</string>
     <string name="app_status_installing">Installing</string>
     <string name="app_status_pause">Pause</string>
     <string name="toast_silent_install_failed">Failed to launch Silent Install.</string>
@@ -146,7 +147,7 @@
     <string name="sdcard_not_found">SD card is not found.</string>
     <string name="sdcard_cannot_use">SD card canot be used.</string>
     <string name="download_queue_is_full">Download queue is full.</string>
-    <string name="network_canot_work">Network unavailable.  Please try again later.</string>
+    <string name="network_canot_work">网络不可用，请稍后再试。</string>
     <string name="download_status_waiting">Waiting</string>
     <string name="download_status_paused">Paused</string>
     <string name="download_status_connecting">Connecting</string>
@@ -167,41 +168,41 @@
     <string name="download_too_many_downloads">Too many downloads, please try again later.</string>
 
     <!-- app management module -->
-    <string name="manager_uninstall">Uninstall</string>
-    <string name="manager_delete">Delete </string>
-    <string name="manager_manager">Manager</string>
-    <string name="manager_open">Launch</string>
-    <string name="manager_detail">Details</string>
-    <string name="manager_install">Install</string>
+    <string name="manager_uninstall">卸载</string>
+    <string name="manager_delete">删除 </string>
+    <string name="manager_manager">管理</string>
+    <string name="manager_open">打开</string>
+    <string name="manager_detail">详情</string>
+    <string name="manager_install">安装</string>
 
     <!-- app detail module -->
     <string name="app_pause">Pause</string>
-    <string name="app_install">Install</string>
+    <string name="app_install">安装</string>
     <string name="app_installing">Installing</string>
-    <string name="app_ratings">Ratings</string>
+    <string name="app_ratings">评级</string>
     <string name="app_download">Download</string>
-    <string name="app_upgrade">Update</string>
-    <string name="app_launch">Launch</string>
+    <string name="app_upgrade">更新</string>
+    <string name="app_launch">运行</string>
     <string name="app_continue">Continue</string>
     <string name="app_connecting">Connecting</string>
     <string name="app_waiting">Waiting</string>
-    <string name="app_average">Average</string>
-    <string name="rate_app">Rate this app:</string>
-    <string name="rate_content">Write a comment</string>
-    <string name="app_recommend">Related</string>
-    <string name="app_refresh">Refresh</string>
-    <string name="loading">Loading&#8230;</string>
-    <string name="warm_tips">Warm Tips</string>
-    <string name="app_comments_warm_tips">Giving comment is only available after downloading zApp. Download now?</string>
+    <string name="app_average">综合</string>
+    <string name="rate_app">评分:</string>
+    <string name="rate_content">在这里写评论</string>
+    <string name="app_recommend">推荐</string>
+    <string name="app_refresh">刷新</string>
+    <string name="loading">加载中&#8230;</string>
+    <string name="warm_tips">警告</string>
+    <string name="app_comments_warm_tips">只能在下载后评论. 现在下载?</string>
     <string name="load_error_tips">Failed to load. Please try again later.</string>
-    <string name="app_comments_text">Comments</string>
-    <string name="app_comment_btn_text">Comment</string>
-    <string name="app_description_text">Description</string>
+    <string name="app_comments_text">评论</string>
+    <string name="app_comment_btn_text">评论</string>
+    <string name="app_description_text">描述</string>
     <string name="app_issuer_recommend_text">More from this developer</string>
-    <string name="app_version_text">Version&#160;</string>
-    <string name="app_downloads_text">Downloads:&#160;</string>
-    <string name="app_source_text">Apps Source:&#160;</string>
-    <string name="app_commentstips_text">Please download this application first</string>
+    <string name="app_version_text">版本&#160;</string>
+    <string name="app_downloads_text">下载:&#160;</string>
+    <string name="app_source_text">来源:&#160;</string>
+    <string name="app_commentstips_text">请先安装游戏</string>
     <!-- app account module -->
     <string name="account_logout">Logout</string>
     <string name="recharge_details">Recharge Details</string>
@@ -243,37 +244,39 @@
     <string name="help_content14">App Lock is a reliable and strong security guard for all your apps and all secrets you want to lock from others. Give it a try and leave yourself alone.</string>
 
     <!-- Settings -->
-    <string name="image_no_download_title">Save 2G/3G/4G data</string>
-    <string name="image_no_download_tips">When this is on, there are no pictures loading via 2G/3G/4G.</string>
-    <string name="download_prompt_title">Prompt when download via 2G/3G/4G</string>
-    <string name="only_download_wifi_title">Download via Wi-Fi only</string>
-    <string name="system_setting">System Settings</string>
-    <string name="auto_install_after_download">Install after downloaded</string>
-    <string name="auto_download_fav_app_title">Automatically download favorite apps via Wi-Fi</string>
-    <string name="auto_download_update_app_title">Automatically download update apps via Wi-Fi</string>
-    <string name="clear_cache">Clear cache</string>
-    <string name="app_country">Location</string>
+    <string name="image_no_download_title">无图模式</string>
+    <string name="image_no_download_tips">打开后，使用移动数据访问时不显示图片。</string>
+    <string name="download_prompt_title">使用移动数据下载时给予提示</string>
+    <string name="only_download_wifi_title">只在WI-FI访问时下载</string>
+    <string name="system_setting">系统设置</string>
+    <string name="auto_install_after_download">下载后自动安装</string>
+    <string name="auto_download_fav_app_title">处于Wi-Fi网络时自动下载喜爱的应用</string>
+    <string name="auto_download_update_app_title">处于Wi-Fi网络时自动更新应用</string>
+    <string name="clear_cache">清理缓存</string>
+    <string name="cache">缓存</string>
+    <string name="cache_size">缓存:0M</string>
+    <string name="app_country">国家</string>
     <string name="settings_only_download_wifi">Note: this resource can only be downloaded via Wi-Fi now. You could change it via the settings of zApp.</string>
-    <string name="settings_display_mode">Display mode</string>
-    <string name="display_in_list_mode">List Mode</string>
-    <string name="display_in_fiche_mode">Fiche Mode</string>
-    <string name="list_mode_tips">Switch to list mode successfully!</string>
-    <string name="fiche_mode_tips">Switch to fiche mode successfully!</string>
-    <string name="traffic_control">Network Control</string>
-    <string name="download_update">Download &amp; Update</string>
+    <string name="settings_display_mode">显示模式</string>
+    <string name="display_in_list_mode">列表模式</string>
+    <string name="display_in_fiche_mode">图片模式</string>
+    <string name="list_mode_tips">成功切换到列表模式!</string>
+    <string name="fiche_mode_tips">成功切换到图片模式!</string>
+    <string name="traffic_control">网络设置</string>
+    <string name="download_update">下载与更新</string>
     <string name="silent_install">Silent Install</string>
     <string name="su_authorize">Authorizing&#8230;</string>
     <string name="su_authorize_failed">Failed to authorize.</string>
-    <string name="sound_effect_setting">Sound effects</string>
+    <string name="sound_effect_setting">音效</string>
 
     <!-- dialog -->
     <string name="dialog_download_prompt">Note: you are downloading in 2G/3G/4G environment.</string>
     <string name="dialog_download_prompt_download">Download</string>
-    <string name="dialog_download_prompt_cancle">Cancel</string>
+    <string name="dialog_download_prompt_cancle">取消</string>
     <string name="dialog_delete_prompt_one">Do you really want to delete this application?</string>
     <string name="dialog_delete_prompt_all">Do you really want to delete these selected <xliff:g id="count">%1$s</xliff:g> applications?</string>
     <string name="dialog_delete_prompt_all_single">Do you really want to delete this selected application?</string>
-    <string name="dialog_delete_download_prompt_one">Do you really want to delete this downloading task?</string>
+    <string name="dialog_delete_download_prompt_one">确定在手机中删除这个安装包吗?</string>
     <string name="dialog_delete_download_prompt_all">Do you really want to delete these selected <xliff:g id="count">%1$s</xliff:g> download tasks?</string>
     <string name="dialog_redownload_file_not_found">The file of \"<xliff:g id="appName">%1$s</xliff:g>\" had been deleted. Do you want to re-download?</string>
     <string name="dialog_redownload_app_not_found">The app  \"<xliff:g id="appName">%1$s</xliff:g>\" had been uninstalled. Do you want to re-download?</string>
@@ -285,9 +288,9 @@
     <string name="dialog_app_exit_downloading"><xliff:g id="count">%1$s</xliff:g>  task(s) is downloading, confirm to exit?</string>
 
     <!-- search -->
-    <string name="option_search_apps">Apps</string>
-    <string name="option_search_ringtones">Ringtones</string>
-    <string name="option_search_wallpapers">Wallpapers</string>
+    <string name="option_search_apps">游戏</string>
+    <string name="option_search_ringtones">铃声</string>
+    <string name="option_search_wallpapers">壁纸</string>
     <!-- favorite app -->
     <string name="unfavorite">Unfavorite</string>
 
@@ -310,14 +313,14 @@
     <!-- All Of Toast Tips -->
     <string name="sending">Sending…</string>
     <string name="choose_stars_tips">Please choose stars!</string>
-    <string name="comments_success_tips">Comment Successfully!</string>
-    <string name="write_comments_tips">Please write a comment!</string>
-    <string name="comments_fail_tips">Comment failure, please try again!</string>
+    <string name="comments_success_tips">发表评论成功!</string>
+    <string name="write_comments_tips">评论不能为空!</string>
+    <string name="comments_fail_tips">发表评论失败，请重试!</string>
     <string name="comments_error_tips">Account password is incorrect. Please enter it again.</string>
     <string name="No_more_data">No more data.</string>
-    <string name="add_favorite_success">Add favorite app successfully.</string>
+    <string name="add_favorite_success">成功添加为喜爱游戏.</string>
     <string name="favorite_over_size">Add favorite app count over size.</string>
-    <string name="cancel_favorite_success">Cancel favorite app successfully.</string>
+    <string name="cancel_favorite_success">成功取消喜爱游戏.</string>
     <string name="cancel_favorite_fail">Cancel favorite app failure.</string>
     <string name="account_no_login">Please login and try again!</string>
     <string name="write_feedback_tips">Please write your questions.</string>
@@ -341,17 +344,17 @@
     <string name="scan_br_result_tips">Scan results:&#160;<xliff:g id="result">%s</xliff:g></string>
     <string name="init_camera_error">Failed to launch camera.</string>
     <string name="scan_title_text">Scan Result</string>
-
+    
     <!-- 资源管理 -->
     <string name="bot_tools_share">Share</string>
-    <string name="bot_tools_cancel">Cancel</string>
+    <string name="bot_tools_cancel">取消</string>
     <string name="music_setting">设置</string>
     <string name="music_dialog_title">Set as</string>
     <string name="pic_edit_back">BACK</string>
     <string name="share_tools">Send (<xliff:g id="SUM">%s</xliff:g>)</string>
     <string name="picture_set_wallpaper">Set as Wallpaper</string>
     <string name="picture_rotate">Rotate</string>
-    <string name="picture_confirm">Confirm</string>
+    <string name="picture_confirm">确认</string>
     <string name="picture_share">Share</string>
     <string name="picture_set_wallpaper_succ">Succeed to set as wallpaper.</string>
     <string name="picture_set_wallpaper_fail">Fail to set as wallpaper.</string>
@@ -364,22 +367,22 @@
     <string name="cleaning">cleaning&#8230;</string>
     <string name="storage">总存储量</string>
     <string name="ram">RAM</string>
-    <string name="video">Video</string>
-    <string name="videos">Videos</string>
-    <string name="album">Album</string>
-    <string name="albums">Albums</string>
-    <string name="pictrue">Pictrue</string>
-    <string name="pictrues">Pictrues</string>
-    <string name="music">Music</string>
-    <string name="document">Document</string>
-    <string name="documents">Documents</string>
+    <string name="video">个视频</string>
+    <string name="videos">个视频</string>
+    <string name="album">个相册</string>
+    <string name="albums">个相册</string>
+    <string name="pictrue">张图片</string>
+    <string name="pictrues">张图片</string>
+    <string name="music">首音乐</string>
+    <string name="document">个文档</string>
+    <string name="documents">个文档</string>
     <string name="resource_del">Failed to delete.</string>
     <string name="resource_search">Searching&#8230;</string>
     <string name="resource_search_tips">Search results (<xliff:g id="SUM">%s</xliff:g>)</string>
     <string name="resource_search_no_tips">No results!</string>
     <string name="resource_search_empty">Key words cannot be empty!</string>
-    <string name="re_dialog_delete_prompt_sigin">Do you really want to delete this selected <xliff:g id="count">%1$s</xliff:g><xliff:g id="type">%2$s</xliff:g>?</string>
-    <string name="re_dialog_delete_prompt_all">Do you really want to delete these selected <xliff:g id="count">%1$s</xliff:g><xliff:g id="type">%2$s</xliff:g>?</string>
+    <string name="re_dialog_delete_prompt_sigin">确定从手机中删除选中的 <xliff:g id="count">%1$s</xliff:g><xliff:g id="type">%2$s</xliff:g>?</string>
+    <string name="re_dialog_delete_prompt_all">确定从手机中删除选中的 <xliff:g id="count">%1$s</xliff:g><xliff:g id="type">%2$s</xliff:g>?</string>
     <string name="storage_cache">Clean cache <xliff:g id="SUM">%s</xliff:g></string>
     <string name="storage_ram">Clean <xliff:g id="SUM">%s</xliff:g> memory space successfully.</string>
     <string name="storage_good">Your device is in perfert condition now.</string>
@@ -407,8 +410,8 @@
     <string name="website_url">www.zapp365.com</string>
     <string name="no_sms_tips">Failed to send SMS.</string>
     <string name="sharing_invitation_receivefiles">Invite friends to scan the code for receiving files.</string>
-    <string name="transfer_cancle">Cancel</string>
-    <string name="transfer_install">Install</string>
+    <string name="transfer_cancle">取消</string>
+    <string name="transfer_install">安装</string>
     <string name="transfer_launch">Launch</string>
     <string name="transfer_open">Open</string>
     <string name="transfer_retry">Retry</string>
@@ -451,14 +454,14 @@
     <string name="guide_btn_text">GUIDE ME</string>
 
     <!-- 平台升级（通知栏 & 内容提示） -->
-    <string name="new_version">New version</string>
+    <string name="new_version">新版本</string>
     <string name="platform_downloading">Downloading zApp</string>
     <string name="platform_ticker_text">Update zApp</string>
     <string name="launch_download">Start to download…</string>
     <string name="download_fail">Download failed.</string>
     <string name="download_success">Download successfully.</string>
     <string name="upgrade_reminder">Update Reminder</string>
-    <string name="dialog_btn_update">Update</string>
+    <string name="dialog_btn_update">更新</string>
     <string name="connection_timeout">Connection timed out. Please try again later.</string>
     <string name="platform_download_complete_title1">zApp update, install now!</string>
     <string name="platform_download_complete_title2">zApp Download Completed!</string>
@@ -474,10 +477,10 @@
     <string name="start_now">立即开启</string>
 
     <!-- My apps -->
-    <string name="app_new_update">Update</string>
+    <string name="app_new_update">更新</string>
     <string name="app_new_downloading">Downloading</string>
-    <string name="app_new_install">Ready to install</string>
-    <string name="app_new_update_all">Update All(<xliff:g id="num">%1$s</xliff:g>)</string>
+    <string name="app_new_install">未安装</string>
+    <string name="app_new_update_all">全部更新(<xliff:g id="num">%1$s</xliff:g>)</string>
     <string name="app_new_download_all">Download All(<xliff:g id="num">%1$s</xliff:g>)</string>
     <string name="app_new_pause_all">Pause All(<xliff:g id="num">%1$s</xliff:g>)</string>
 
@@ -490,12 +493,12 @@
     <string name="feedback_first_tips">Dear User, let us know your feedback or problems and we would try our best to improve your experience with zApp.</string>
 
     <!-- search -->
-    <string name="search_refresh_text">Refresh</string>
-    <string name="ringtone_query_hint">Ringtones</string>
-    <string name="app_query_hint">Apps &amp; Games</string>
-    <string name="wallpaper_query_hint">Wallpapers</string>
-    <string name="search_result_tips">Results not found! Play with below related recommendations!</string>
-    <string name="search_tips">Please enter key words for search.</string>
+    <string name="search_refresh_text">刷新</string>
+    <string name="ringtone_query_hint">铃声</string>
+    <string name="app_query_hint">游戏</string>
+    <string name="wallpaper_query_hint">壁纸</string>
+    <string name="search_result_tips">没找到搜索结果!请尝试搜索以下建议词!</string>
+    <string name="search_tips">请输入搜索关键字。</string>
 
     <!-- Notification 通知栏 -->
     <string name="checking">Checking</string>
@@ -509,11 +512,11 @@
     <string name="login_successful">Login successfully.</string>
     <string name="login_username_or_pwd_error">The email address or password is incorrect. Please try again.</string>
     <string name="login_failure">Login failed.</string>
-    <string name="login_username_text">Email Address</string>
-    <string name="login_password_text">Password</string>
-    <string name="login_btn_text">Login</string>
+    <string name="login_username_text">邮箱地址</string>
+    <string name="login_password_text">密码</string>
+    <string name="login_btn_text">登录</string>
     <string name="login_fail_network_error">Network unavailable.  Please try again later.</string>
-    <string name="register_btn_text">Register</string>
+    <string name="register_btn_text">注册</string>
     <string name="reg_registering">Registering...</string>
     <string name="reg_have_account">I already have an account.</string>
     <string name="reg_success">Registered successfully.</string>
@@ -534,7 +537,7 @@
     <string name="send_email_fail_network_error">Network unavailable.  Please try again later.</string>
     <string name="email_error">The email address you entered is incorrect. Please enter another one.</string>
     <string name="send_pwd_succcessful_title">registration successful</string>
-    <string name="find_password">Forgot password?</string>
+    <string name="find_password">忘记密码?</string>
     <string name="find_hint_text">Please enter the email address as registered to zApp, then a new password will be sent to your email box.</string>
     <string name="old_pwd">Old password</string>
     <string name="new_pwd">New password</string>
@@ -594,12 +597,12 @@
     <string name="tools_apk_manage">应用管理</string>
     <string name="tools_app_lock">应用锁</string>
     <string name="tools_skin">皮肤</string>
-    <string name="tools_uninstall_desc">Here you can unistall apps freely!</string>
-    <string name="tools_qrcode_scanner_desc">Scan whatever you want to know it better!</string>
-    <string name="tools_wifi_share_desc">Share any files with friends without $ and data!</string>
-    <string name="tools_apk_manage_desc">All your APKs are here. Sort them out!</string>
-    <string name="tools_app_lock_desc">A reliable &amp; strong SECURITY guard for all your apps!</string>
-    <string name="tools_skin_desc">Change distinctive skin, freshen your vision!</string>
+    <string name="tools_uninstall_desc">应用卸载</string>
+    <string name="tools_qrcode_scanner_desc">二维码扫描</string>
+    <string name="tools_wifi_share_desc">通过WI-FI与朋友分享文件</string>
+    <string name="tools_apk_manage_desc">安装包整理</string>
+    <string name="tools_app_lock_desc">应用保密设定</string>
+    <string name="tools_skin_desc">新皮肤选取</string>
 
     <!-- 应用锁 -->
     <string name="input_password">ENTER PASSWORD</string>

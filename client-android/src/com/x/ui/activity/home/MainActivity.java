@@ -300,20 +300,22 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 						homeFragement = HomeFragment.newInstance(null);
 					}
 					switchFragments(homeFragement);
+					tabNum=0;
 					break;
-				// Apps
-				case R.id.mf_apps_tab_rb:
-					if (appsFragment == null) {
-						appsFragment = AppsFragment.newInstance(null);
-					}
-					switchFragments(appsFragment);
-					break;
+//				// Apps
+//				case R.id.mf_apps_tab_rb:
+//					if (appsFragment == null) {
+//						appsFragment = AppsFragment.newInstance(null);
+//					}
+//					switchFragments(appsFragment);
+//					break;
 				// Games
 				case R.id.mf_games_tab_rb:
 					if (gamesFragment == null) {
 						gamesFragment = GamesFragment.newInstance(null);
 					}
 					switchFragments(gamesFragment);
+					tabNum=1;
 					break;
 				// Ringtones
 				case R.id.mf_ringtones_tab_rb:
@@ -321,6 +323,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 						ringtonesFragment = RingtonesFragment.newInstance(null);
 					}
 					switchFragments(ringtonesFragment);
+					tabNum=2;
 					break;
 
 				// Wallpapers
@@ -329,6 +332,20 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 						wallpaperFragment = WallpaperFragment.newInstance(null);
 					}
 					switchFragments(wallpaperFragment);
+					tabNum=3;
+					break;
+				// Me
+				case R.id.mf_apps_tab_rb:
+//					if (slideDragLayout.isOpened()) {
+//						slideDragLayout.close();
+//					} else {
+//						slideDragLayout.open();
+//					}		
+					if (UserInfoManager.getInstence(mActivity).isLogin()) {
+						startActivity(new Intent(mActivity, AccountActivity.class));
+					} else {
+						startActivity(new Intent(mActivity, LoginActivity.class));
+					}
 					break;
 				}
 			}
@@ -1186,21 +1203,25 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	};
 
 	protected void exit() {
-		if (isExit == false) {
-			isExit = true;
-			ToastUtil.show(this, this.getResources().getString(R.string.exit_tips), Toast.LENGTH_SHORT);
-			exitHandler.sendEmptyMessageDelayed(0, 2000);
+		if (slideDragLayout.isOpened()) {
+			slideDragLayout.close();
 		} else {
-			List<DownloadBean> hist = DownloadEntityManager.getInstance().getAllDownloading();
-			int count = hist.size();
-			if (count != 0) {
-				SharedPrefsUtil.putValue(this, "edcl_continue_download_cb", true);
-				showExitDialog(count);
+			if (isExit == false) {
+				isExit = true;
+				ToastUtil.show(this, this.getResources().getString(R.string.exit_tips), Toast.LENGTH_SHORT);
+				exitHandler.sendEmptyMessageDelayed(0, 2000);
 			} else {
-				this.finish();
-				// System.exit(0);
+				List<DownloadBean> hist = DownloadEntityManager.getInstance().getAllDownloading();
+				int count = hist.size();
+				if (count != 0) {
+					SharedPrefsUtil.putValue(this, "edcl_continue_download_cb", true);
+					showExitDialog(count);
+				} else {
+					this.finish();
+					// System.exit(0);
+				}
 			}
-		}
+		}	
 	}
 
 	protected void showExitDialog(int count) {

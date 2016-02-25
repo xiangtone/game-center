@@ -11,6 +11,18 @@
   <component name="ChangeListManager">
     <list default="true" id="3807b583-ac4d-4039-ba43-dd45d9fc8850" name="Default" comment="">
 <<<<<<< HEAD
+      <change type="DELETED" beforePath="E:\Git\game-center\client-android-studio\.idea\libraries\TCL_DataEye_final_V1_0_1_001.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\Git\game-center\client-android-studio\.idea\libraries\android_universal_image_loader_1_9_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\Git\game-center\client-android-studio\.idea\libraries\appcompat_v7_22_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\Git\game-center\client-android-studio\.idea\libraries\butterknife_6_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\Git\game-center\client-android-studio\.idea\libraries\gridlayout_v7_22_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\Git\game-center\client-android-studio\.idea\libraries\gson_1_7_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\Git\game-center\client-android-studio\.idea\libraries\nineoldandroids_library_2_4_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\Git\game-center\client-android-studio\.idea\libraries\support_annotations_22_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\Git\game-center\client-android-studio\.idea\libraries\support_v4_22_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="E:\Git\game-center\client-android-studio\.idea\libraries\zxing.xml" afterPath="" />
+=======
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
 =======
@@ -26,33 +38,26 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/zxing.xml" />
       <change type="DELETED" beforePath="E:\Git\game-center\client-android\res\drawable-hdpi\guide_startnow_normal.9.png" afterPath="" />
       <change type="DELETED" beforePath="E:\Git\game-center\client-android\res\drawable-hdpi\guide_startnow_pressed.9.png" afterPath="" />
+>>>>>>> master
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/drawable-sw600dp/guide1.jpg" afterPath="$PROJECT_DIR$/../client-android/res/drawable-sw600dp/guide1.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/drawable-xhdpi/guide1.jpg" afterPath="$PROJECT_DIR$/../client-android/res/drawable-xhdpi/guide1.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/drawable-sw600dp/guide2.jpg" afterPath="$PROJECT_DIR$/../client-android/res/drawable-sw600dp/guide2.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/drawable-xhdpi/guide2.jpg" afterPath="$PROJECT_DIR$/../client-android/res/drawable-xhdpi/guide2.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/drawable-sw600dp/guide3.jpg" afterPath="$PROJECT_DIR$/../client-android/res/drawable-sw600dp/guide3.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/drawable-xhdpi/guide3.jpg" afterPath="$PROJECT_DIR$/../client-android/res/drawable-xhdpi/guide3.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xgamecenterclient/src/main/res/drawable-hdpi/guide_startnow_normal.9.png" afterPath="$PROJECT_DIR$/xgamecenterclient/src/main/res/drawable-hdpi/guide_startnow_normal.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xgamecenterclient/src/main/res/drawable-hdpi/guide_startnow_pressed.9.png" afterPath="$PROJECT_DIR$/xgamecenterclient/src/main/res/drawable-hdpi/guide_startnow_pressed.9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/drawable-xhdpi/guide_tips_1.jpg" afterPath="$PROJECT_DIR$/../client-android/res/drawable-xhdpi/guide_tips_1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/drawable-xhdpi/guide_tips_2.jpg" afterPath="$PROJECT_DIR$/../client-android/res/drawable-xhdpi/guide_tips_2.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/drawable-xhdpi/guide_tips_3.jpg" afterPath="$PROJECT_DIR$/../client-android/res/drawable-xhdpi/guide_tips_3.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/values/colors.xml" afterPath="$PROJECT_DIR$/../client-android/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/values/dimens.xml" afterPath="$PROJECT_DIR$/../client-android/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/values-hdpi/dimens.xml" afterPath="$PROJECT_DIR$/../client-android/res/values-hdpi/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle.properties" afterPath="$PROJECT_DIR$/gradle.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/layout/guide_homepage3.xml" afterPath="$PROJECT_DIR$/../client-android/res/layout/guide_homepage3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/drawable/guide_startnow.xml" afterPath="$PROJECT_DIR$/../client-android/res/drawable/guide_startnow.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notifications4EveryWhere/notifications4EveryWhere.iml" afterPath="$PROJECT_DIR$/notifications4EveryWhere/notifications4EveryWhere.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/res/values/strings.xml" afterPath="$PROJECT_DIR$/../client-android/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Notifications4EveryWhere/project.properties" afterPath="$PROJECT_DIR$/../Notifications4EveryWhere/project.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android-support-v7-appcompat/project.properties" afterPath="$PROJECT_DIR$/../android-support-v7-appcompat/project.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../android-support-v7-gridlayout/project.properties" afterPath="$PROJECT_DIR$/../android-support-v7-gridlayout/project.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client-android/project.properties" afterPath="$PROJECT_DIR$/../client-android/project.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< HEAD
+=======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xgamecenterclient/xgamecenterclient.iml" afterPath="$PROJECT_DIR$/xgamecenterclient/xgamecenterclient.iml" />
 >>>>>>> dev-shirupan
+>>>>>>> master
     </list>
     <ignored path="client-android-studio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -145,6 +150,9 @@
         </entry>
       </file>
 <<<<<<< HEAD
+      <file leaf-file-name="gradle.properties" pinned="false" current-in-tab="true">
+=======
+<<<<<<< HEAD
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
@@ -152,9 +160,10 @@
               <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
 =======
       <file leaf-file-name="gradle.properties" pinned="false" current-in-tab="false">
+>>>>>>> master
         <entry file="file://$PROJECT_DIR$/gradle.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.038869258">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
 >>>>>>> dev-shirupan
               <folding />
@@ -162,10 +171,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccountHelper.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AccountHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/business/account/AccountHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46643108">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
               <folding>
                 <element signature="e#0#155#0" expanded="true" />
@@ -2024,6 +2033,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$/../../ad-inner-client/Walker_Client" value="1453704306177" />
+        <entry key="$PROJECT_DIR$" value="5822459273942" />
         <entry key="E:\Git\game-center\client-android-studio" value="5822459273942" />
         <entry key="E:\xtone\code-git\game-center\client-android-studio" value="5822254426605" />
       </map>
@@ -2380,11 +2390,11 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.abego.treelayout/org.abego.treelayout.core/1.0.1/6e1dd6f6efdb453c7b8ba35726c63fbf50cd7142/org.abego.treelayout.core-1.0.1-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.abego.treelayout/org.abego.treelayout.core/1.0.1/e31e79cba7a5414cf18fa69f3f0a2cf9ee997b61/org.abego.treelayout.core-1.0.1.jar" />
-                            <option value="D:/ADT/sdk/extras/android/m2repository/com/android/support/support-v4/22.1.1/support-v4-22.1.1.aar" />
+                            <option value="C:/ADT/sdk/extras/android/m2repository/com/android/support/support-v4/22.1.1/support-v4-22.1.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/1.7.1/697e3a1fa094a983cd12f7f6f61abf9c6ea52e2/gson-1.7.1.jar" />
-                            <option value="D:/ADT/sdk/extras/android/m2repository/com/android/support/appcompat-v7/22.1.1/appcompat-v7-22.1.1.aar" />
-                            <option value="D:/ADT/sdk/extras/android/m2repository/com/android/support/gridlayout-v7/22.1.0/gridlayout-v7-22.1.0.aar" />
-                            <option value="D:/ADT/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar" />
+                            <option value="C:/ADT/sdk/extras/android/m2repository/com/android/support/appcompat-v7/22.1.1/appcompat-v7-22.1.1.aar" />
+                            <option value="C:/ADT/sdk/extras/android/m2repository/com/android/support/gridlayout-v7/22.1.0/gridlayout-v7-22.1.0.aar" />
+                            <option value="C:/ADT/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.1/support-annotations-22.1.1.jar" />
                             <option value="$MODULE_DIR$/libs/android-universal-image-loader-1.9.1.3.jar" />
                             <option value="$MODULE_DIR$/libs/butterknife-6.1.0.jar" />
                             <option value="$MODULE_DIR$/libs/nineoldandroids-library-2.4.0.jar" />
@@ -2401,119 +2411,119 @@
               <option name="name" value="xgamecenterclient" />
               <option name="projectBuildClasspath">
                 <list>
-                  <option value="D:/ADT/gradle-2.8/src/announce" />
-                  <option value="D:/ADT/gradle-2.8/src/antlr" />
-                  <option value="D:/ADT/gradle-2.8/src/base-services" />
-                  <option value="D:/ADT/gradle-2.8/src/base-services-groovy" />
-                  <option value="D:/ADT/gradle-2.8/src/build-comparison" />
-                  <option value="D:/ADT/gradle-2.8/src/build-init" />
-                  <option value="D:/ADT/gradle-2.8/src/cli" />
-                  <option value="D:/ADT/gradle-2.8/src/code-quality" />
-                  <option value="D:/ADT/gradle-2.8/src/core" />
-                  <option value="D:/ADT/gradle-2.8/src/dependency-management" />
-                  <option value="D:/ADT/gradle-2.8/src/diagnostics" />
-                  <option value="D:/ADT/gradle-2.8/src/ear" />
-                  <option value="D:/ADT/gradle-2.8/src/ide" />
-                  <option value="D:/ADT/gradle-2.8/src/ide-native" />
-                  <option value="D:/ADT/gradle-2.8/src/internal-integ-testing" />
-                  <option value="D:/ADT/gradle-2.8/src/internal-testing" />
-                  <option value="D:/ADT/gradle-2.8/src/ivy" />
-                  <option value="D:/ADT/gradle-2.8/src/jacoco" />
-                  <option value="D:/ADT/gradle-2.8/src/javascript" />
-                  <option value="D:/ADT/gradle-2.8/src/jetty" />
-                  <option value="D:/ADT/gradle-2.8/src/language-groovy" />
-                  <option value="D:/ADT/gradle-2.8/src/language-java" />
-                  <option value="D:/ADT/gradle-2.8/src/language-jvm" />
-                  <option value="D:/ADT/gradle-2.8/src/language-native" />
-                  <option value="D:/ADT/gradle-2.8/src/language-scala" />
-                  <option value="D:/ADT/gradle-2.8/src/launcher" />
-                  <option value="D:/ADT/gradle-2.8/src/maven" />
-                  <option value="D:/ADT/gradle-2.8/src/messaging" />
-                  <option value="D:/ADT/gradle-2.8/src/model-core" />
-                  <option value="D:/ADT/gradle-2.8/src/model-groovy" />
-                  <option value="D:/ADT/gradle-2.8/src/native" />
-                  <option value="D:/ADT/gradle-2.8/src/open-api" />
-                  <option value="D:/ADT/gradle-2.8/src/osgi" />
-                  <option value="D:/ADT/gradle-2.8/src/platform-base" />
-                  <option value="D:/ADT/gradle-2.8/src/platform-jvm" />
-                  <option value="D:/ADT/gradle-2.8/src/platform-native" />
-                  <option value="D:/ADT/gradle-2.8/src/platform-play" />
-                  <option value="D:/ADT/gradle-2.8/src/plugin-development" />
-                  <option value="D:/ADT/gradle-2.8/src/plugin-use" />
-                  <option value="D:/ADT/gradle-2.8/src/plugins" />
-                  <option value="D:/ADT/gradle-2.8/src/publish" />
-                  <option value="D:/ADT/gradle-2.8/src/reporting" />
-                  <option value="D:/ADT/gradle-2.8/src/resources" />
-                  <option value="D:/ADT/gradle-2.8/src/resources-http" />
-                  <option value="D:/ADT/gradle-2.8/src/resources-s3" />
-                  <option value="D:/ADT/gradle-2.8/src/resources-sftp" />
-                  <option value="D:/ADT/gradle-2.8/src/scala" />
-                  <option value="D:/ADT/gradle-2.8/src/signing" />
-                  <option value="D:/ADT/gradle-2.8/src/sonar" />
-                  <option value="D:/ADT/gradle-2.8/src/test-kit" />
-                  <option value="D:/ADT/gradle-2.8/src/testing-native" />
-                  <option value="D:/ADT/gradle-2.8/src/tooling-api" />
-                  <option value="D:/ADT/gradle-2.8/src/tooling-api-builders" />
-                  <option value="D:/ADT/gradle-2.8/src/ui" />
-                  <option value="D:/ADT/gradle-2.8/src/wrapper" />
-                  <option value="D:/ADT/gradle-2.8/lib/ant-1.9.3.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/ant-launcher-1.9.3.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-base-services-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-base-services-groovy-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-cli-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-core-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-docs-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-launcher-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-messaging-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-model-core-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-model-groovy-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-native-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-open-api-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-resources-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-tooling-api-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-ui-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/gradle-wrapper-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/groovy-all-2.4.4.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-announce-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-antlr-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-build-comparison-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-build-init-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-code-quality-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-dependency-management-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-diagnostics-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-ear-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-ide-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-ide-native-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-ivy-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-jacoco-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-javascript-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-jetty-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-language-groovy-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-language-java-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-language-jvm-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-language-native-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-language-scala-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-maven-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-osgi-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-platform-base-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-platform-jvm-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-platform-native-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-platform-play-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-plugin-development-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-plugin-use-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-plugins-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-publish-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-reporting-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-resources-http-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-resources-s3-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-resources-sftp-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-scala-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-signing-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-sonar-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-test-kit-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-testing-native-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/gradle-tooling-api-builders-2.8.jar" />
-                  <option value="D:/ADT/gradle-2.8/lib/plugins/ivy-2.2.0.jar" />
+                  <option value="C:/ADT/gradle-2.8/src/announce" />
+                  <option value="C:/ADT/gradle-2.8/src/antlr" />
+                  <option value="C:/ADT/gradle-2.8/src/base-services" />
+                  <option value="C:/ADT/gradle-2.8/src/base-services-groovy" />
+                  <option value="C:/ADT/gradle-2.8/src/build-comparison" />
+                  <option value="C:/ADT/gradle-2.8/src/build-init" />
+                  <option value="C:/ADT/gradle-2.8/src/cli" />
+                  <option value="C:/ADT/gradle-2.8/src/code-quality" />
+                  <option value="C:/ADT/gradle-2.8/src/core" />
+                  <option value="C:/ADT/gradle-2.8/src/dependency-management" />
+                  <option value="C:/ADT/gradle-2.8/src/diagnostics" />
+                  <option value="C:/ADT/gradle-2.8/src/ear" />
+                  <option value="C:/ADT/gradle-2.8/src/ide" />
+                  <option value="C:/ADT/gradle-2.8/src/ide-native" />
+                  <option value="C:/ADT/gradle-2.8/src/internal-integ-testing" />
+                  <option value="C:/ADT/gradle-2.8/src/internal-testing" />
+                  <option value="C:/ADT/gradle-2.8/src/ivy" />
+                  <option value="C:/ADT/gradle-2.8/src/jacoco" />
+                  <option value="C:/ADT/gradle-2.8/src/javascript" />
+                  <option value="C:/ADT/gradle-2.8/src/jetty" />
+                  <option value="C:/ADT/gradle-2.8/src/language-groovy" />
+                  <option value="C:/ADT/gradle-2.8/src/language-java" />
+                  <option value="C:/ADT/gradle-2.8/src/language-jvm" />
+                  <option value="C:/ADT/gradle-2.8/src/language-native" />
+                  <option value="C:/ADT/gradle-2.8/src/language-scala" />
+                  <option value="C:/ADT/gradle-2.8/src/launcher" />
+                  <option value="C:/ADT/gradle-2.8/src/maven" />
+                  <option value="C:/ADT/gradle-2.8/src/messaging" />
+                  <option value="C:/ADT/gradle-2.8/src/model-core" />
+                  <option value="C:/ADT/gradle-2.8/src/model-groovy" />
+                  <option value="C:/ADT/gradle-2.8/src/native" />
+                  <option value="C:/ADT/gradle-2.8/src/open-api" />
+                  <option value="C:/ADT/gradle-2.8/src/osgi" />
+                  <option value="C:/ADT/gradle-2.8/src/platform-base" />
+                  <option value="C:/ADT/gradle-2.8/src/platform-jvm" />
+                  <option value="C:/ADT/gradle-2.8/src/platform-native" />
+                  <option value="C:/ADT/gradle-2.8/src/platform-play" />
+                  <option value="C:/ADT/gradle-2.8/src/plugin-development" />
+                  <option value="C:/ADT/gradle-2.8/src/plugin-use" />
+                  <option value="C:/ADT/gradle-2.8/src/plugins" />
+                  <option value="C:/ADT/gradle-2.8/src/publish" />
+                  <option value="C:/ADT/gradle-2.8/src/reporting" />
+                  <option value="C:/ADT/gradle-2.8/src/resources" />
+                  <option value="C:/ADT/gradle-2.8/src/resources-http" />
+                  <option value="C:/ADT/gradle-2.8/src/resources-s3" />
+                  <option value="C:/ADT/gradle-2.8/src/resources-sftp" />
+                  <option value="C:/ADT/gradle-2.8/src/scala" />
+                  <option value="C:/ADT/gradle-2.8/src/signing" />
+                  <option value="C:/ADT/gradle-2.8/src/sonar" />
+                  <option value="C:/ADT/gradle-2.8/src/test-kit" />
+                  <option value="C:/ADT/gradle-2.8/src/testing-native" />
+                  <option value="C:/ADT/gradle-2.8/src/tooling-api" />
+                  <option value="C:/ADT/gradle-2.8/src/tooling-api-builders" />
+                  <option value="C:/ADT/gradle-2.8/src/ui" />
+                  <option value="C:/ADT/gradle-2.8/src/wrapper" />
+                  <option value="C:/ADT/gradle-2.8/lib/ant-1.9.3.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/ant-launcher-1.9.3.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-base-services-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-base-services-groovy-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-cli-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-core-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-docs-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-launcher-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-messaging-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-model-core-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-model-groovy-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-native-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-open-api-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-resources-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-tooling-api-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-ui-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/gradle-wrapper-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/groovy-all-2.4.4.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-announce-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-antlr-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-build-comparison-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-build-init-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-code-quality-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-dependency-management-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-diagnostics-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-ear-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-ide-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-ide-native-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-ivy-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-jacoco-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-javascript-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-jetty-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-language-groovy-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-language-java-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-language-jvm-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-language-native-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-language-scala-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-maven-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-osgi-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-platform-base-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-platform-jvm-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-platform-native-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-platform-play-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-plugin-development-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-plugin-use-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-plugins-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-publish-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-reporting-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-resources-http-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-resources-s3-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-resources-sftp-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-scala-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-signing-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-sonar-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-test-kit-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-testing-native-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/gradle-tooling-api-builders-2.8.jar" />
+                  <option value="C:/ADT/gradle-2.8/lib/plugins/ivy-2.2.0.jar" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
                 </list>
@@ -2581,10 +2591,15 @@
     </navigator>
     <panes>
 <<<<<<< HEAD
+      <pane id="ProjectPane" />
+=======
+<<<<<<< HEAD
       <pane id="PackagesPane" />
 =======
 >>>>>>> dev-shirupan
+>>>>>>> master
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2602,16 +2617,6 @@
               <option name="myItemId" value="client-android-studio" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xgamecenterclient" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -2620,16 +2625,19 @@
       <pane id="Scope" />
 =======
       <pane id="Scope" />
+<<<<<<< HEAD
+=======
       <pane id="ProjectPane" />
       <pane id="PackagesPane" />
 >>>>>>> dev-shirupan
+>>>>>>> master
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="4d004f17ba7ea065" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="BY2SKG146K099332" />
     <property name="FullScreen" value="false" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
@@ -2850,11 +2858,16 @@
   </component>
   <component name="ToolWindowManager">
 <<<<<<< HEAD
+    <frame x="1" y="1" width="1918" height="1044" extended-state="0" />
+    <editor active="false" />
+=======
+<<<<<<< HEAD
     <frame x="-2" y="-2" width="1936" height="1056" extended-state="0" />
 =======
     <frame x="1" y="1" width="1918" height="1044" extended-state="1" />
 >>>>>>> dev-shirupan
     <editor active="true" />
+>>>>>>> master
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.49784714" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.4870829" order="7" side_tool="false" content_ui="tabs" />
@@ -2879,7 +2892,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32919955" sideWeight="0.49354145" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32919955" sideWeight="0.49354145" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.49784714" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.49784714" order="7" side_tool="false" content_ui="tabs" />
@@ -2887,8 +2900,11 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.50215286" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497309" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+<<<<<<< HEAD
+=======
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 >>>>>>> dev-shirupan
+>>>>>>> master
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2902,6 +2918,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -3332,21 +3349,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gradle.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/business/account/AccountHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46643108">
+        <state vertical-scroll-proportion="0.0">
           <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
           <folding>
             <element signature="e#0#155#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.038869258">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
