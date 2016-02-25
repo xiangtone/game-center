@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../common.jsp" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 T"E:/tomcat8/apache-tomcat-8.0.0-RC1/webapps/sMasMarket-test/WEB-INF/classes/jdbc.properties"ransitional//EN" "http:"resource/jdbc.properties"//www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<title>自营APP管理</title>
