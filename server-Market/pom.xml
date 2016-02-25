@@ -4,6 +4,9 @@
   <artifactId>x-game-center-manager</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   <dependencies>
   	<dependency>
 	    <groupId>commons-lang</groupId>
@@ -337,8 +340,14 @@
 		<artifactId>poi-ooxml-schemas</artifactId>
 		<version>3.10-FINAL-20140208</version>
 	</dependency>
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi</artifactId>
+	    <version>3.10-FINAL</version>
+	</dependency>
   </dependencies>
   <build>
+  <finalName>${final.name}</finalName>
     <sourceDirectory>src</sourceDirectory>
     <resources>
       <resource>
@@ -353,12 +362,6 @@
           <exclude>**/*.java</exclude>
         </excludes>
       </resource>
-      <resource>
-        <directory>resource</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
     </resources>
     <plugins>
       <plugin>
@@ -367,6 +370,7 @@
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
+          <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
       <plugin>
@@ -379,4 +383,23 @@
       </plugin>
     </plugins>
   </build>
+  <profiles>
+		<profile>
+			<id>product</id>
+			<properties>
+				<runtime.env>packageConfig\product</runtime.env>
+				<final.name>x-game-center-manager</final.name>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<runtime.env>packageConfig\test</runtime.env>
+				<final.name>x-game-center-manager-test</final.name>
+			</properties>
+		</profile>
+	</profiles>
 </project>

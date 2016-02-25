@@ -232,6 +232,7 @@ public class PictureTool {
           
           FileOutputStream os = new FileOutputStream(dist);
           JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os);
+          
           encoder.encode(bfImage);
           os.close(); 
           System.out.println("创建缩略图成功");
