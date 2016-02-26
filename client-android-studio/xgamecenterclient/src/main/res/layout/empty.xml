@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/empty_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/e_no_result_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/manager_ic_box"
+            android:gravity="center_horizontal"
+            android:text="@string/empty_tips"
+            android:textColor="@color/tab_text_color"
+            android:textSize="@dimen/text_big_size" />
+
+        <LinearLayout
+            android:id="@+id/e_home_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/selector_btn_and_progress_theme" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="6dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="6dp"
+                android:text="@string/gohome"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sub_title_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

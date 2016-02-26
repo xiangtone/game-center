@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_listview_app_item"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/til_top_rll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <FrameLayout
+            android:id="@+id/til_left_rl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" >
+
+            <ImageView
+                android:id="@+id/til_transfer_icon_iv"
+                android:layout_width="@dimen/app_cover_size"
+                android:layout_height="@dimen/app_cover_size"
+                android:layout_margin="@dimen/common_padding"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_screen_default_picture" />
+
+            <RelativeLayout
+                android:id="@+id/til_disk_bg"
+                android:layout_width="@dimen/app_cover_size"
+                android:layout_height="@dimen/app_cover_size"
+                android:layout_margin="@dimen/common_padding"
+                android:background="@drawable/ringtones_disk_bg"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/til_disk_def"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ringtones_disk_pic" />
+
+                <ImageView
+                    android:id="@+id/til_disk_pic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/til_disk_def"
+                    android:layout_alignLeft="@+id/til_disk_def"
+                    android:layout_alignRight="@+id/til_disk_def"
+                    android:layout_alignTop="@+id/til_disk_def"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/til_disk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ringtones_disk" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ringtones_disk_top" />
+
+                <ProgressBar
+                    android:id="@+id/til_load"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:indeterminate="false"
+                    android:indeterminateDrawable="@anim/ring_loading"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ringtones_disk_pic_mask" />
+
+                <ImageView
+                    android:id="@+id/til_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ringtones_play" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/til_right_panel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <View
+                android:id="@+id/til_divider"
+                style="@style/VerticalDividerStyle" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/til_transfer_install_tv"
+                    style="@style/DownloadTextviewStyle"
+                    android:drawableTop="@drawable/selector_install_btn"
+                    android:text="@string/transfer_install"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/til_transfer_cancle_tv"
+                    style="@style/DownloadTextviewStyle"
+                    android:drawableTop="@drawable/selector_delete_btn"
+                    android:text="@string/transfer_cancle" />
+
+                <TextView
+                    android:id="@+id/til_transfer_retry_tv"
+                    style="@style/DownloadTextviewStyle"
+                    android:drawableTop="@drawable/selector_download_btn"
+                    android:text="@string/transfer_retry"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/til_transfer_launch_tv"
+                    style="@style/DownloadTextviewStyle"
+                    android:drawableTop="@drawable/selector_launch_btn"
+                    android:text="@string/transfer_launch"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/til_transfer_open_tv"
+                    style="@style/DownloadTextviewStyle"
+                    android:drawableTop="@drawable/selector_launch_btn"
+                    android:text="@string/transfer_open"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/til_transfer_setting_tv"
+                    style="@style/DownloadTextviewStyle"
+                    android:drawableTop="@drawable/selector_settings_btn"
+                    android:text="@string/transfer_setting"
+                    android:visibility="invisible" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/common_padding"
+            android:layout_marginRight="@dimen/common_padding"
+            android:layout_toLeftOf="@id/til_right_panel"
+            android:layout_toRightOf="@id/til_left_rl"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/til_file_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/text_big_size" />
+            </RelativeLayout>
+
+            <ProgressBar
+                android:id="@+id/til_transfer_file_pb"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/progressbar_height"
+                android:layout_marginTop="@dimen/common_padding"
+                android:progressDrawable="@drawable/progress_bar_bg" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_padding" >
+
+                <TextView
+                    android:id="@+id/til_file_transfer_size_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/tab_text_color"
+                    android:textSize="@dimen/text_small_size" />
+
+                <TextView
+                    android:id="@+id/til_ring_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_toRightOf="@+id/til_file_transfer_size_tv"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/tab_text_color"
+                    android:textSize="@dimen/text_small_size"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/til_file_transfer_status_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/tab_text_color"
+                    android:textSize="@dimen/text_small_size" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

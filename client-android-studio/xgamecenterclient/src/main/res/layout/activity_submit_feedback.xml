@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/rl_title_bar"
+        layout="@layout/main_header" />
+
+    <RelativeLayout
+        android:id="@+id/normalRel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.x.ui.view.pulltorefresh.PullToRefreshListView
+            android:id="@+id/submit_fb_PullToLoadlv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/feedback_smfeedback_lvmarginbottom"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            android:fadingEdge="none"
+            android:fastScrollEnabled="false"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:listSelector="#00000000"
+            android:smoothScrollbar="true" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="4dp" >
+
+            <EditText
+                android:id="@+id/submit_fb_inputEt"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/feedback_smfeedback_send_height"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="@dimen/feedback_smfeedback_inputmarginright"
+                android:background="@drawable/ic_editor_box"
+                android:cursorVisible="true"
+                android:maxLength="1025"
+                android:padding="@dimen/text_margin_size"
+                android:singleLine="true"
+                android:textSize="@dimen/title_text_size" />
+
+            <Button
+                android:id="@+id/submit_fb_sendBtn"
+                android:layout_width="@dimen/feedback_smfeedback_send_witdth"
+                android:layout_height="@dimen/feedback_smfeedback_send_height"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/selector_btn_and_progress_theme"
+                android:gravity="center"
+                android:text="@string/feedback_send_btn_text"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <include
+        layout="@layout/error"
+        android:visibility="gone" />
+
+</LinearLayout>

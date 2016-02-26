@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.x.ui.view.drag.SlideDragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/am_slde_drag_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/zapp_user_bg" >
+
+    <include layout="@layout/fragment_slidingpane_menu" />
+
+    <include layout="@layout/fragment_slidingpane_home" />
+
+</com.x.ui.view.drag.SlideDragLayout>

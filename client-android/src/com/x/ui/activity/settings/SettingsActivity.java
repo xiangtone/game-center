@@ -134,9 +134,9 @@ public class SettingsActivity extends BaseActivity implements OnCheckedChangeLis
 	private Handler uiHandler = new Handler() {
 		public void handleMessage(Message msg) {
 			if (cacheSize == 0)
-				cacheSizeTv.setText("Cache: 0M");
+				cacheSizeTv.setText(ResourceUtil.getString(context, R.string.cache_size));
 			else
-				cacheSizeTv.setText("Cache:" + StorageUtils.size(cacheSize));
+				cacheSizeTv.setText(ResourceUtil.getString(context, R.string.cache) +":"+ StorageUtils.size(cacheSize));
 		};
 	};
 
@@ -355,7 +355,7 @@ public class SettingsActivity extends BaseActivity implements OnCheckedChangeLis
 				public void onClick(DialogInterface dialog, int which) {
 					dialog.dismiss();
 					StorageUtils.clearAppCache(context);
-					cacheSizeTv.setText("cache: 0M");
+					cacheSizeTv.setText(ResourceUtil.getString(context, R.string.cache_size));
 				}
 			};
 

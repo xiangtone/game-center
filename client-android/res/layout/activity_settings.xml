@@ -331,7 +331,7 @@
                         <TextView
                             android:id="@+id/as_cache_size_tv"
                             style="@style/settingdesTitleTextStyle"
-                            android:text="Cache:0M" />
+                            android:text="@string/cache_size" />
                     </LinearLayout>
                 </RelativeLayout>
 

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 服务端布局 -->
+
+    <LinearLayout
+        android:id="@+id/server_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/feedback_item_margin"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/serverIconIv"
+            android:layout_width="@dimen/feedback_smfeedback_icon_wh"
+            android:layout_height="@dimen/feedback_smfeedback_icon_wh"
+            android:background="@drawable/ic_head01" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/liaotiankuan_server"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/serverReplyTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_padding"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/tab_title_text_size" />
+
+            <TextView
+                android:id="@+id/serverTimeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_marginRight="@dimen/common_padding"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/sub_title_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 用户端布局 -->
+
+    <LinearLayout
+        android:id="@+id/user_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/feedback_item_margin"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:layout_width="@dimen/feedback_resend"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right" >
+
+            <ImageView
+                android:id="@+id/resendIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/feedback_resend"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/liantiankuan_user"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/submit_userQuestionTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/common_padding"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tab_title_text_size" />
+
+            <TextView
+                android:id="@+id/userTimeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|left"
+                android:layout_marginBottom="@dimen/feedback_time_tv"
+                android:layout_marginLeft="@dimen/common_padding"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sub_title_text_size" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/userIconIv"
+            android:layout_width="@dimen/feedback_smfeedback_icon_wh"
+            android:layout_height="@dimen/feedback_smfeedback_icon_wh"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@null" />
+    </LinearLayout>
+
+</LinearLayout>

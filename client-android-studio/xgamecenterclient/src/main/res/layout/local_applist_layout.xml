@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/flail_top_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/flail_catalog_tv"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/title_bg"
+        android:paddingBottom="5dip"
+        android:paddingLeft="5dip"
+        android:paddingTop="5dip"
+        android:text="A"
+        android:textColor="#454545" />
+
+    <RelativeLayout
+        android:id="@+id/flail_top_rl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_local_app_item_bg" >
+
+        <ImageView
+            android:id="@+id/flail_app_icon_iv"
+            android:layout_width="@dimen/app_cover_size"
+            android:layout_height="@dimen/app_cover_size"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/common_padding"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/flail_app_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/flail_app_icon_iv"
+            android:maxWidth="@dimen/app_name_widht"
+            android:singleLine="true"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/text_big_size" />
+    </RelativeLayout>
+
+</LinearLayout>

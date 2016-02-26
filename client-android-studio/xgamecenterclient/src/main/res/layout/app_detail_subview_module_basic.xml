@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/text_margin_size"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:padding="@dimen/common_padding" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center" >
+
+        <!-- loading -->
+
+        <include layout="@layout/loading" />
+        <!-- fail -->
+
+        <include layout="@layout/common_fail_result" />
+        <!-- pictures HorizontalScrollView -->
+
+        <include layout="@layout/common_horizontal_listview" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_small_margin_size" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/tv_app_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#787878"
+                android:textSize="@dimen/text_mid_size" />
+
+            <TextView
+                android:id="@+id/tv_app_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/tv_app_version"
+                android:textColor="#787878"
+                android:textSize="@dimen/text_mid_size" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/tv_app_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="#787878"
+                    android:textSize="@dimen/text_mid_size" />
+
+                <ImageView
+                    android:id="@+id/iv_patch_upgrade_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/upgrade_line"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_app_patch_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_padding"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textColor="@color/patch_upgrade_size_text_color"
+                android:textSize="@dimen/text_mid_size"
+                android:visibility="gone" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp" >
+
+        <TextView
+            android:id="@+id/tv_app_downloads"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#787878"
+            android:textSize="@dimen/text_mid_size" />
+
+        <TextView
+            android:id="@+id/tv_publish_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="#787878"
+            android:textSize="@dimen/text_mid_size" />
+    </RelativeLayout>
+
+</LinearLayout>

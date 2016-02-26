@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_recommend_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/text_margin_size"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:padding="@dimen/common_padding" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/app_recommend"
+            android:textColor="#363636"
+            android:textSize="@dimen/text_big_size" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/btn_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@drawable/selector_btn_refresh"
+                android:drawablePadding="@dimen/common_padding_small"
+                android:gravity="center"
+                android:text="@string/app_refresh"
+                android:textColor="#787878"
+                android:textSize="@dimen/text_mid_size" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <include layout="@layout/common_line_view" />
+
+    <include layout="@layout/recommend_gridview" />
+
+</LinearLayout>

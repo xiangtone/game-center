@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/uninstallapp_catalog_tv"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/transparent"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/common_padding"
+        android:textColor="#454545"
+        android:textSize="@dimen/text_big_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/app_information_bg"
+        android:orientation="horizontal" >
+
+        <!-- 左侧应用图标 -->
+
+        <ImageView
+            android:id="@+id/uninstallapp_lefticon_iv"
+            android:layout_width="@dimen/app_cover_size_small"
+            android:layout_height="@dimen/app_cover_size_small"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/uninstall_margin"
+            android:contentDescription="@null" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" >
+
+            <!-- 中间部分 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/uninstall_margin_right"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/common_padding"
+                android:paddingRight="@dimen/common_padding" >
+
+                <TextView
+                    android:id="@+id/uninstallapp_appName_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/uninstall_margin_bottom"
+                    android:singleLine="true"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/text_big_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/app_version"
+                        android:textColor="@color/tab_text_color"
+                        android:textSize="@dimen/text_small_size" />
+
+                    <TextView
+                        android:id="@+id/uninstallapp_version_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/tab_text_color"
+                        android:textSize="@dimen/text_small_size" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:background="#929292" />
+
+                    <TextView
+                        android:id="@+id/uninstallapp_size_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/tab_text_color"
+                        android:textSize="@dimen/text_small_size" />
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 右侧应用图标 -->
+
+            <TextView
+                android:id="@+id/uninstallapp_tv"
+                android:layout_width="@dimen/uninstall_margin_right"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/common_padding"
+                android:drawableTop="@drawable/selector_uninstall_btn"
+                android:gravity="center"
+                android:text="@string/manager_delete"
+                android:textColor="@color/tab_text_color"
+                android:textSize="@dimen/download_btn_text_size" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

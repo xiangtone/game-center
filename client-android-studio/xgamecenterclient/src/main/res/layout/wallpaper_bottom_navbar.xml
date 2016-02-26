@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- 壁纸设置 -->
+
+    <LinearLayout
+        android:id="@+id/btn_layout_wp_setting"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/wallpaper_bottom_navbar_height"
+        android:layout_alignParentBottom="true"
+        android:background="#60000000"
+        android:gravity="center"
+        android:padding="@dimen/common_padding"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:id="@+id/btn_wp_edit"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical|left" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/text_margin_size"
+                android:contentDescription="@null"
+                android:src="@drawable/selector_wallpaper_edit" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_set_as_wp"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/selector_wallpaper_pic"
+                android:gravity="center"
+                android:text="@string/picture_set_wallpaper"
+                android:textColor="@color/selector_btn_text_color"
+                android:textSize="@dimen/text_big_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_wp_share"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical|right" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/text_margin_size"
+                android:contentDescription="@null"
+                android:src="@drawable/selector_wallpaper_share" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- dowbload 下载按钮 -->
+
+    <RelativeLayout
+        android:id="@+id/btn_wp_download"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/wallpaper_bottom_navbar_height"
+        android:layout_alignParentBottom="true"
+        android:background="#60000000"
+        android:gravity="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_download"
+            android:gravity="center"
+            android:text="@string/app_download"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/text_big_size" />
+    </RelativeLayout>
+
+    <!-- pause 暂停按钮  下载中进度条 -->
+
+    <RelativeLayout
+        android:id="@+id/btn_wp_pause"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:id="@+id/pb_download_percent"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/wallpaper_bottom_navbar_height"
+            android:layout_centerInParent="true"
+            android:progressDrawable="@drawable/wp_detail_download_progress_bar" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" >
+
+            <ImageView
+                android:id="@+id/img_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ic_action_pause"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/img_pause"
+                android:text="@string/app_pause"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_big_size" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!-- waiting 等待按钮.. -->
+
+    <RelativeLayout
+        android:id="@+id/btn_wp_waiting"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:id="@+id/pb_waiting_percent"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/wallpaper_bottom_navbar_height"
+            android:layout_centerInParent="true"
+            android:progressDrawable="@drawable/progress_orange_bar_translucent_bg" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" >
+
+            <ImageView
+                android:id="@+id/img_waiting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ic_action_pause"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/img_waiting"
+                android:text="@string/app_waiting"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_big_size" />
+        </RelativeLayout>
+    </RelativeLayout>
+    
+    <!-- connecting 连接中按钮.. -->
+
+    <RelativeLayout
+        android:id="@+id/btn_wp_connecting"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:id="@+id/pb_connecting_percent"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/wallpaper_bottom_navbar_height"
+            android:layout_centerInParent="true"
+            android:progressDrawable="@drawable/wp_detail_download_progress_bar" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" >
+
+            <ImageView
+                android:id="@+id/img_connecting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ic_action_pause"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/img_connecting"
+                android:text="@string/app_connecting"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_big_size" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!-- continue 继续按钮 -->
+
+    <RelativeLayout
+        android:id="@+id/btn_wp_continue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:id="@+id/pb_continue_percent"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/wallpaper_bottom_navbar_height"
+            android:layout_centerInParent="true"
+            android:progressDrawable="@drawable/progress_orange_bar_translucent_bg" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" >
+
+            <ImageView
+                android:id="@+id/img_continue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ic_action_download"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/img_continue"
+                android:text="@string/app_continue"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_big_size" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

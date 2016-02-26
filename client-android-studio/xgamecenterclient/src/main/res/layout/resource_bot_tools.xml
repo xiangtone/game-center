@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/re_bot_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/re_bot_tools"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bot_tools_layout_h"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/re_bot_check"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <CheckBox
+                android:id="@+id/re_bot_all"
+                android:layout_width="@dimen/checkbox_w"
+                android:layout_height="@dimen/checkbox_h"
+                android:layout_marginLeft="@dimen/checkbox_margin"
+                android:button="@drawable/selector_option_btn"
+                android:clickable="false"
+                android:focusable="false" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="@dimen/bot_tools_view_h"
+            android:layout_gravity="center_vertical"
+            android:background="#cccccc" />
+
+        <ImageButton
+            android:id="@+id/re_bot_del"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@drawable/selector_res_delete_btn" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="@dimen/bot_tools_view_h"
+            android:layout_gravity="center_vertical"
+            android:background="#cccccc" />
+
+        <ImageButton
+            android:id="@+id/re_bot_share"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@drawable/selector_res_share_btn" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="@dimen/bot_tools_view_h"
+            android:layout_gravity="center_vertical"
+            android:background="#cccccc" />
+
+        <ImageButton
+            android:id="@+id/re_bot_back"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@null"
+            android:src="@drawable/selector_res_back_btn" />
+    </LinearLayout>
+
+</RelativeLayout>

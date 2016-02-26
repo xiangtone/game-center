@@ -103,7 +103,7 @@ public class CommentActivity extends Activity implements OnClickListener {
 		leftBtn.setOnClickListener(this);
 		rightBtn.setOnClickListener(this);
 		appName.setText(appInfoBean.getAppName());
-		appVersion.setText("Version " + appInfoBean.getVersionName());
+		appVersion.setText(ResourceUtil.getString(mContext, R.string.app_version_text)+" " + appInfoBean.getVersionName());
 		NetworkImageUtils.load(mContext, ImageType.NETWORK, appInfoBean.getLogo(),
 				R.drawable.ic_screen_default_picture, R.drawable.ic_screen_default_picture, appIcon);
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dil_expand_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/description_bg"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/dil_view_info_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_padding"
+        android:layout_marginRight="@dimen/common_padding"
+        android:layout_marginTop="@dimen/common_padding"
+        android:text="@string/download_view_app_info" />
+
+    <Button
+        android:id="@+id/dil_remove_download_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_padding"
+        android:layout_marginTop="@dimen/common_padding"
+        android:text="@string/download_cancle" />
+
+</LinearLayout>

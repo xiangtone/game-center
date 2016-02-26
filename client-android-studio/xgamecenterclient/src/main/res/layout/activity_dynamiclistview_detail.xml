@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/ll_top_view1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:background="#CD595A" >
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:contentDescription="@null"
+            android:padding="12dp"
+            android:src="@drawable/common_back" />
+
+        <FrameLayout
+            android:id="@+id/clock_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" >
+
+            <ImageView
+                android:id="@+id/clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/dynamic_clock" />
+
+            <ImageView
+                android:id="@+id/clock_hour_hand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/dynamic_hour_hand" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/clock_layout"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/dynamic_detail_tips"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_big_size"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <View
+            android:id="@+id/ll_top_view2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dynamic_background_height"
+            android:background="#CD595A" />
+
+        <com.x.ui.view.dynamic.DynamicListView
+            android:id="@+id/dynamiclistview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/transparent"
+            android:clickable="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            android:fadingEdge="none"
+            android:focusable="false"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="none"
+            android:smoothScrollbar="true" />
+    </FrameLayout>
+
+</LinearLayout>

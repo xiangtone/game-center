@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:round="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_module_top"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/module_top_height"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:padding="@dimen/common_padding" >
+
+        <ImageView
+            android:id="@+id/img_app_logo"
+            android:layout_width="@dimen/app_logo_size"
+            android:layout_height="@dimen/app_logo_size"
+            android:layout_margin="@dimen/text_small_margin_size"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_screen_default_picture" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:padding="@dimen/common_padding" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/hali_app_btn_ll"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:singleLine="true"
+                    android:textColor="#383838"
+                    android:textSize="@dimen/text_big_size"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_margin_size" >
+
+                    <RatingBar
+                        android:id="@+id/app_stars"
+                        style="@style/AppCommon.RatingBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true" />
+
+                    <TextView
+                        android:id="@+id/tv_comments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/text_small_margin_size"
+                        android:layout_toRightOf="@+id/app_stars"
+                        android:textColor="#383838"
+                        android:textSize="@dimen/text_mid_size" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/hali_app_btn_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="4dp" >
+
+                <TextView
+                    android:id="@+id/hali_app_download_btn"
+                    style="@style/DownloadTextviewStyle"
+                    android:drawableTop="@drawable/selector_download_btn"
+                    android:text="@string/app_status_normal" />
+
+                <LinearLayout
+                    android:id="@+id/hali_app_pause_ll"
+                    style="@style/DownloadProgressLayoutStyle"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <com.x.ui.view.RoundProgress
+                        android:id="@+id/hali_app_pause_rp"
+                        android:layout_width="@dimen/download_btn_width"
+                        android:layout_height="@dimen/download_btn_width"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@anim/download"
+                        round:backColor="@color/translucent"
+                        round:progressColor="@color/round_progress_color"
+                        round:thickness="2dp" />
+
+                    <TextView
+                        android:id="@+id/hali_app_pause_btn"
+                        style="@style/DownloadTextviewStyle"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingTop="2dp"
+                        android:text="@string/app_status_pause" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/hali_app_continue_btn"
+                    style="@style/DownloadTextviewStyle"
+                    android:drawableTop="@drawable/selector_continue_btn"
+                    android:text="@string/app_status_continue"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/hali_app_upgrade_btn"
+                    style="@style/DownloadTextviewStyle"
+                    android:drawableTop="@drawable/selector_upgrade_btn"
+                    android:text="@string/app_status_update"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/hali_app_launch_btn"
+                    style="@style/DownloadTextviewStyle"
+                    android:drawableTop="@drawable/selector_launch_btn"
+                    android:text="@string/app_status_launch"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/hali_app_install_btn"
+                    style="@style/DownloadTextviewStyle"
+                    android:drawableTop="@drawable/selector_install_btn"
+                    android:text="@string/app_status_install"
+                    android:visibility="gone" />
+            </FrameLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_top_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_appdetail_top_indicator"
+        android:visibility="invisible" />
+
+</FrameLayout>

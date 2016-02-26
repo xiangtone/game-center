@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_issuer_recommend_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:padding="@dimen/common_padding"
+    android:visibility="gone" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_issuer_recommend_text"
+        android:textColor="#363636"
+        android:textSize="@dimen/text_big_size" />
+
+    <include layout="@layout/common_line_view" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/issuer_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_gravity="center_vertical"
+        android:background="#ffffff" />
+
+</LinearLayout>

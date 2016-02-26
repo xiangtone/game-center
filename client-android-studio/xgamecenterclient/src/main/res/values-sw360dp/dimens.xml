@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- 540x960 -->
+    <dimen name="scanner_wifi_ap_code_btnMargin">15dp</dimen>
+    <dimen name="atw_scanner_width">150dp</dimen>
+    <dimen name="atw_scanner_height">150dp</dimen>
+    <dimen name="create_free_connection_margin_bottom">18dp</dimen>
+    <dimen name="create_free_connection_width">90dp</dimen>
+    <dimen name="create_free_connection_height">120dp</dimen>
+
+    <!-- applocker -->
+    <!-- keyboard -->
+    <dimen name="font_size_keyboard_number">45dp</dimen>
+    <dimen name="stars_box_height">35dp</dimen>
+    <dimen name="lock_logo_wight">60dp</dimen>
+    <dimen name="enter_pwd_text_size">22sp</dimen>
+    <dimen name="keyboard_delete_wight">35dp</dimen>
+    <dimen name="keyboard_delete_height">20dp</dimen>
+    <dimen name="stars_box_margin_top">20dp</dimen>
+    <dimen name="security_ok_btn_wight">200dp</dimen>
+    <dimen name="pwd_set_guide_wight">320dp</dimen>
+
+</resources>

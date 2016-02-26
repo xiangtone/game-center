@@ -198,7 +198,8 @@
     <dimen name="guide_tips_textmargin_top">47dp</dimen>
     <dimen name="guide_maringLeft">-38dp</dimen>
     <dimen name="guide_point_indication_padding">15dp</dimen>
-    <dimen name="guide_start_btn_padding">30dp</dimen>
+    <dimen name="guide_start_btn_padding_left_right">30dp</dimen>
+    <dimen name="guide_start_btn_padding_top_bottom">7dp</dimen>
 
     <!-- 公用对话框 -->
     <dimen name="title_text_margin">10dp</dimen>

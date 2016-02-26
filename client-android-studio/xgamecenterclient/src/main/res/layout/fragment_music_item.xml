@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_listview_app_item" >
+
+    <RelativeLayout
+        android:id="@+id/mus_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/mus_disk_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/ringtones_disk_bg" >
+
+            <ImageView
+                android:id="@+id/mus_disk_def"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ringtones_disk_pic" />
+
+            <ImageView
+                android:id="@+id/mus_disk_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/mus_disk_def"
+                android:layout_alignLeft="@+id/mus_disk_def"
+                android:layout_alignRight="@+id/mus_disk_def"
+                android:layout_alignTop="@+id/mus_disk_def"
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/mus_disk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ringtones_disk" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ringtones_disk_top" />
+
+            <ProgressBar
+                android:id="@+id/mus_load"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/mus_disk_def"
+                android:layout_alignLeft="@+id/mus_disk_def"
+                android:layout_alignRight="@+id/mus_disk_def"
+                android:layout_alignTop="@+id/mus_disk_def"
+                android:layout_centerVertical="true"
+                android:indeterminate="false"
+                android:indeterminateDrawable="@anim/ring_loading"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ringtones_disk_pic_mask" />
+
+            <ImageView
+                android:id="@+id/mus_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ringtones_play" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/mus_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/mus_disk_bg"
+            android:layout_toLeftOf="@+id/mus_setting"
+            android:layout_toRightOf="@+id/mus_disk_bg"
+            android:ellipsize="middle"
+            android:singleLine="true"
+            android:text="Exo.mp3"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/mus_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/mus_disk_bg"
+            android:layout_below="@+id/mus_name"
+            android:layout_toRightOf="@+id/mus_disk_bg"
+            android:textColor="@color/pic_title_bg"
+            android:text="00:99"
+            android:textSize="@dimen/text_big_size" />
+
+        <TextView
+            android:id="@+id/mus_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/mus_disk_bg"
+            android:layout_below="@+id/mus_name"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/mus_duration"
+            android:textColor="@color/pic_title_bg"
+            android:text="464KB"
+            android:textSize="@dimen/text_big_size" />
+
+        <Button
+            android:id="@+id/mus_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:drawableTop="@drawable/selector_settings_btn"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:text="@string/music_setting"
+            android:textColor="@color/pic_title_bg"
+            android:layout_marginRight="@dimen/common_padding"
+            android:textSize="12sp" />
+
+        <CheckBox
+            android:id="@+id/mus_check"
+            android:layout_width="@dimen/checkbox_w"
+            android:layout_height="@dimen/checkbox_h"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:button="@drawable/selector_option_btn"
+            android:clickable="false"
+            android:focusable="false"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</RelativeLayout>

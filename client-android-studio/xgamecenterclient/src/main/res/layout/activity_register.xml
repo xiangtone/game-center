@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <include
+            android:id="@+id/rl_title_bar"
+            layout="@layout/main_header" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="6" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_margin_size"
+                    android:text="@string/login_username_text"
+                    android:textSize="@dimen/tab_title_text_size" />
+
+                <com.x.ui.view.editview.ClearEditText
+                    android:id="@+id/et_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/account_edit_layout_height"
+                    android:layout_marginTop="@dimen/text_margin_size"
+                    android:background="@drawable/ic_editor_box"
+                    android:drawableRight="@drawable/account_delete_selector"
+                    android:padding="@dimen/text_margin_size"
+                    android:singleLine="true"
+                    android:textSize="@dimen/title_text_size" >
+                </com.x.ui.view.editview.ClearEditText>
+
+                <TextView
+                    android:id="@+id/tv_reg_un_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:textColor="@color/account_warn"
+                    android:textSize="@dimen/text_mid_size" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_big_size"
+                    android:text="@string/nickname_text"
+                    android:textSize="@dimen/tab_title_text_size" />
+
+                <com.x.ui.view.editview.ClearEditText
+                    android:id="@+id/et_nickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/account_edit_layout_height"
+                    android:layout_marginTop="@dimen/text_margin_size"
+                    android:background="@drawable/ic_editor_box"
+                    android:drawableRight="@drawable/account_delete_selector"
+                    android:padding="@dimen/text_margin_size"
+                    android:singleLine="true"
+                    android:textSize="@dimen/title_text_size" >
+                </com.x.ui.view.editview.ClearEditText>
+
+                <TextView
+                    android:id="@+id/tv_reg_nn_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:textColor="@color/account_warn"
+                    android:textSize="@dimen/text_mid_size" />
+
+                <TextView
+                    android:id="@+id/btn_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/account_btn_layout_height"
+                    android:layout_marginTop="@dimen/text_big_size"
+                    android:background="@drawable/selector_btn_and_progress_theme"
+                    android:gravity="center"
+                    android:padding="@dimen/text_margin_size"
+                    android:text="@string/register_btn_text"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/title_text_size" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="@dimen/text_margin_size" >
+
+                    <TextView
+                        android:id="@+id/tv_reg_login_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/text_margin_size"
+                        android:text="@string/reg_have_account"
+                        android:textColor="@color/selector_theme_text_link"
+                        android:textSize="@dimen/title_text_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="6" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

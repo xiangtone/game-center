@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/maa_top_ll"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <!-- 程序list上显示字母的模块 -->
+
+    <LinearLayout
+        android:id="@+id/ll_category_layout"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/common_padding"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/category_icon"
+            android:layout_width="3dp"
+            android:layout_height="30dp"
+            android:background="@drawable/title_bar"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/frequent_app_tv"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="@drawable/transparent"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/common_padding"
+            android:textColor="#454545"
+            android:textSize="@dimen/text_big_size" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/maa_top_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_listview_app_item" >
+
+        <ImageView
+            android:id="@+id/maa_app_icon_iv"
+            android:layout_width="@dimen/app_cover_size_small"
+            android:layout_height="@dimen/app_cover_size_small"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/common_padding"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:id="@+id/maa_right_panel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/applokcer_islock"
+                style="@style/CustomCheckboxTheme"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginRight="@dimen/common_padding_middle"
+                android:background="@drawable/app_lock_checkbox_selected"
+                android:checked="false"
+                android:clickable="false" />
+
+            <!-- </FrameLayout> -->
+
+        </LinearLayout>
+
+        <!-- xxxxx  中间程序名字的布局xxxxxxxx -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/maa_right_panel"
+            android:layout_toRightOf="@id/maa_app_icon_iv"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/common_padding"
+            android:paddingRight="@dimen/common_padding" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_padding" >
+
+                <!-- 程序名字 -->
+
+                <TextView
+                    android:id="@+id/maa_app_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="Candy Crush"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/text_big_size" />
+                <!-- 程序新版本 -->
+
+            </RelativeLayout>
+            <!-- app描述 名字： -->
+
+            <LinearLayout
+                android:id="@+id/maa_size_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_padding"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <!-- app描述 数据填充处 -->
+
+                    <TextView
+                        android:id="@+id/maa_app_size_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="abcdefg"
+                        android:textColor="@color/tab_text_color"
+                        android:textSize="@dimen/text_small_size" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

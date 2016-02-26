@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <!-- 第一行 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/btn_head1"
+                android:layout_width="@dimen/head_size"
+                android:layout_height="@dimen/head_size"
+                android:layout_gravity="center"
+                android:background="@drawable/selector_head_bg"
+                android:padding="@dimen/head_padding"
+                android:src="@drawable/ic_head01" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/btn_head2"
+                android:layout_width="@dimen/head_size"
+                android:layout_height="@dimen/head_size"
+                android:layout_gravity="center"
+                android:background="@drawable/selector_head_bg"
+                android:padding="@dimen/head_padding"
+                android:src="@drawable/ic_head02" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/btn_head3"
+                android:layout_width="@dimen/head_size"
+                android:layout_height="@dimen/head_size"
+                android:layout_gravity="center"
+                android:background="@drawable/selector_head_bg"
+                android:padding="@dimen/head_padding"
+                android:src="@drawable/ic_head03" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/btn_head4"
+                android:layout_width="@dimen/head_size"
+                android:layout_height="@dimen/head_size"
+                android:layout_gravity="center"
+                android:background="@drawable/selector_head_bg"
+                android:padding="@dimen/head_padding"
+                android:src="@drawable/ic_head04" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- 第二行 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/head_icon_margin_top" >
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/btn_head5"
+                android:layout_width="@dimen/head_size"
+                android:layout_height="@dimen/head_size"
+                android:layout_gravity="center"
+                android:background="@drawable/selector_head_bg"
+                android:padding="@dimen/head_padding"
+                android:src="@drawable/ic_head05" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/btn_head6"
+                android:layout_width="@dimen/head_size"
+                android:layout_height="@dimen/head_size"
+                android:layout_gravity="center"
+                android:background="@drawable/selector_head_bg"
+                android:padding="@dimen/head_padding"
+                android:src="@drawable/ic_head06" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/btn_head7"
+                android:layout_width="@dimen/head_size"
+                android:layout_height="@dimen/head_size"
+                android:layout_gravity="center"
+                android:background="@drawable/selector_head_bg"
+                android:padding="@dimen/head_padding"
+                android:src="@drawable/ic_head07" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/btn_head8"
+                android:layout_width="@dimen/head_size"
+                android:layout_height="@dimen/head_size"
+                android:layout_gravity="center"
+                android:background="@drawable/selector_head_bg"
+                android:padding="@dimen/head_padding"
+                android:src="@drawable/ic_head08" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- OK btn -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/share_btn_height"
+        android:layout_marginTop="@dimen/head_btn_margin_top"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/btn_ok"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/selector_btn_and_progress_theme"
+                android:text="@string/ok"
+                android:textColor="#fff"
+                android:textSize="@dimen/text_sub_large_size" />
+
+            <ImageView
+                android:id="@+id/iv_ok_pendant"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/ic_btn_pendant"
+                android:contentDescription="@null" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" />
+    </LinearLayout>
+
+</LinearLayout>

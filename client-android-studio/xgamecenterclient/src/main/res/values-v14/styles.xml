@@ -1,0 +1,67 @@
+<resources>
+
+    <!--
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.    -->
+    
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- API 14 theme customizations can go here. -->
+    </style>
+
+    <style name="launch.Theme" parent="@android:style/Theme.Light.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="zapp.Theme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="ViewpagerActionBarTheme" parent="zapp.Theme">
+        <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
+        <item name="vpiIconPageIndicatorStyle">@style/Widget.IconPageIndicator</item>
+    </style>
+
+    <!-- actionbar theme -->
+    <style name="myActionBarTheme" parent="@style/Theme.AppCompat.Light">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_back</item>
+        <item name="android:selectableItemBackground">@drawable/selector_actionbar_menu</item>
+        <item name="android:dropDownListViewStyle">@style/MyDropDownListView</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="android:titleTextStyle">@style/mytitleTextStyle</item>
+        <item name="android:background">@drawable/nav_bg</item>
+        <item name="android:icon">@drawable/logo</item>
+    </style>
+
+    <!-- style the items within the overflow menu -->
+    <style name="MyDropDownListView" parent="android:style/Widget.Holo.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selector_actionbar_list_item</item>
+    </style>
+
+    <style name="mytitleTextStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="CustomTabPageIndicator" parent="Widget.TabPageIndicator">
+        <item name="android:textAppearance">@style/CustomTabPageIndicator.Text</item>
+        <item name="android:textColor">@color/selector_tab_text_color</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:minWidth">50dp</item>
+        <item name="android:textSize">@dimen/tab_title_text_size</item>
+        <!-- <item name="android:divider">@drawable/custom_tab_indicator_divider</item> -->
+        <item name="android:dividerPadding">10dp</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:paddingLeft">@dimen/tab_title_padding</item>
+        <item name="android:paddingRight">@dimen/tab_title_padding</item>
+        <item name="android:fadingEdge">horizontal</item>
+        <item name="android:fadingEdgeLength">@dimen/tab_fade_edgelength</item>
+    </style>
+</resources>

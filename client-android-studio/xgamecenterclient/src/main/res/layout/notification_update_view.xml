@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/notification_bar_bg_selector"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/noti_content_margin" >
+
+        <ImageView
+            android:layout_width="@dimen/noti_icon_size"
+            android:layout_height="@dimen/noti_icon_size"
+            android:background="@drawable/mas_ic_launcher"
+            android:contentDescription="@null" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/noti_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fadingEdge="horizontal"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/noti_title_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/noti_time"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:gravity="right"
+                    android:textColor="#999999"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/noti_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="#999999"
+                android:textSize="@dimen/noti_sub_title_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/appicon_1"
+            style="@style/notiUpdateAllIconStyle"
+            android:layout_margin="4.0dp"
+            android:contentDescription="@null" />
+
+        <ImageView
+            android:id="@+id/appicon_2"
+            style="@style/notiUpdateAllIconStyle"
+            android:layout_margin="4.0dp"
+            android:contentDescription="@null" />
+
+        <ImageView
+            android:id="@+id/appicon_3"
+            style="@style/notiUpdateAllIconStyle"
+            android:layout_margin="4.0dp"
+            android:contentDescription="@null" />
+
+        <ImageView
+            android:id="@+id/appicon_4"
+            style="@style/notiUpdateAllIconStyle"
+            android:layout_margin="4.0dp"
+            android:contentDescription="@null" />
+
+        <ImageView
+            android:id="@+id/appicon_5"
+            style="@style/notiUpdateAllIconStyle"
+            android:layout_margin="4.0dp"
+            android:contentDescription="@null" />
+
+        <ImageView
+            android:id="@+id/appicon_6"
+            style="@style/notiUpdateAllIconStyle"
+            android:layout_margin="4.0dp"
+            android:contentDescription="@null" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#333333" />
+
+    <LinearLayout
+        android:id="@+id/btn_noti_update_all"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:background="@drawable/notification_btn_selector"
+        android:gravity="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_notification_update_all"
+            android:gravity="center"
+            android:text="@string/noti_update_all"
+            android:textColor="@color/white"
+            android:textSize="@dimen/noti_title_text_size" />
+    </LinearLayout>
+
+</LinearLayout>

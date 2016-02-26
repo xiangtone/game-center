@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/qr_code_scanner_padding"
+    android:paddingRight="@dimen/qr_code_scanner_padding" >
+
+    <!-- part1 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="3"
+        android:background="@drawable/wifi_apcode_above"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/common_padding" >
+
+        <TextView
+            android:id="@+id/tv_share_prompt"
+            style="@style/sharingTextStyle"
+            android:text="@string/sharing_scanner_prompt"
+            android:textColor="@color/selector_theme_text_link" />
+
+        <ImageView
+            android:id="@+id/iv_share_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/qr_code_scanner_margin"
+            android:background="@drawable/send_zero_date_sharing"
+            android:contentDescription="@null" />
+    </LinearLayout>
+
+    <!-- part2 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="@dimen/qr_code_scanner_margin_bottom"
+        android:layout_weight="1"
+        android:background="@drawable/wifi_apcode_bottom"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/qr_code_scanner_margin_top"
+            android:text="@string/sharing_invitation_receivefiles"
+            android:textSize="@dimen/text_big_size" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/scannerPicIv"
+                android:layout_width="@dimen/qr_code_size"
+                android:layout_height="@dimen/qr_code_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

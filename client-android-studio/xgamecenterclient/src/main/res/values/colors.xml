@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- theme color -->
+    <color name="app_theme_color">#8CB400</color>
+    <color name="background_light">#8CB400</color>
+    <color name="app_theme_slected_color">#C3D0B6</color>
+    <color name="translucence">#e0000000</color>
+    <color name="translucent">#00000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="link">#ff0083cd</color>
+    <color name="black">#ff000000</color>
+    <color name="backup_grey">#ff464646</color>
+    <color name="drwaer_item_pressed">#e9ffd1</color>
+    <color name="green">#8eaa1e</color>
+    <color name="link_textcolor">#c7f800</color>
+    <color name="gray">#787878</color>
+    <color name="flow_black_gray">#646464</color>
+    <color name="flow_light_gray">#C4C8CD</color>
+    <color name="blue">#ff2aaac1</color>
+    <color name="vpi__background_holo_dark">#ff000000</color>
+    <color name="vpi__background_holo_light">#fff3f3f3</color>
+    <color name="vpi__bright_foreground_holo_dark">@color/vpi__background_holo_light</color>
+    <color name="vpi__bright_foreground_holo_light">@color/vpi__background_holo_dark</color>
+    <color name="vpi__bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
+    <color name="vpi__bright_foreground_disabled_holo_light">#ffb2b2b2</color>
+    <color name="vpi__bright_foreground_inverse_holo_dark">@color/vpi__bright_foreground_holo_light</color>
+    <color name="vpi__bright_foreground_inverse_holo_light">@color/vpi__bright_foreground_holo_dark</color>
+    <color name="light_white">#FCFCFC</color>
+    <color name="light_green">#DFED96</color>
+    <color name="grid_app_name_color">#383838</color>
+    <color name="grid_app_size_color">#787878</color>
+    <color name="patch_upgrade_size_text_color">#ffba33</color>
+    
+    <!-- 1.1.1 -->
+    <color name="title_color">#333333</color>
+    <color name="title_color_selected">#8eaa1e</color>
+    <color name="tab_text_color">#9a9a9a</color>
+    <color name="update_color">#666666</color>
+    <color name="foot_title_color">#9b9b9b</color>
+    <color name="foot_title_color_selected">#8eaa1e</color>
+    <color name="left_drawer_title_color">#646464</color>
+    <color name="tab_title_color">#9b9b9b</color>
+    <color name="tab_title_color_selected">#8eaa1e</color>
+
+    <!-- 二维码模块 -->
+    <color name="no_color">#00000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#80000000</color>
+    <color name="popup_main_background">#b0000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="choose_eara_item_press_color">#f4f4f4</color>
+    <color name="canvas_rect_color">#4EBA0F</color>
+    <color name="url_link_color">#0099CC</color>
+    <color name="lucency">#00000000</color>
+    <color name="drap_bar_word_color">#ff3e7ec8</color>
+    <color name="update_blue">#ff3e81c8</color>
+
+    <!-- 资源管理 -->
+    <color name="pic_title_bg">#60181818</color>
+    <color name="pictrue_bg">#333333</color>
+    <color name="gd_selete_bg">#00ffffff</color>
+    <color name="pic_edit_bg1">#44000000</color>
+    <color name="pic_edit_bg2">#77000000</color>
+    <color name="atw_wifi_bg">#7d7e7b</color>
+    <color name="music_dur_bg">#60aabb00</color>
+    <color name="storage_tex_bg">#515151</color>
+    <color name="def_bg">#dfdfdf</color>
+
+    <!-- 公用对话框 -->
+    <color name="dialog_bg">#eeeeee</color>
+    <color name="dialog_stroke">#b3b3b3</color>
+
+    <!-- 新手引导 -->
+    <color name="view_page_bg">#000</color>
+    <color name="guide_green">#00B20F</color>
+
+    <!-- 通知栏 -->
+    <color name="light_blue">#66B3FF</color>
+    <color name="dark_black">#181818</color>
+
+    <!-- 一键下载 -->
+    <color name="one_click_normal_color">#8EAA1E</color>
+    <color name="one_click_press_color">#D1D3CD</color>
+    <color name="share_way_llbg">#f2f9e8</color>
+    <color name="account_warn">#ff6e00</color>
+    <color name="account_black">#383838</color>
+    <color name="account_red">#ff0000</color>
+
+    <!-- timepicker -->
+    <color name="white">#ffffff</color>
+    <color name="orange">#ff8a01</color>
+    <color name="deep_gray">#666666</color>
+    <color name="light_gray">#b3b3b3</color>
+    <color name="dark_orange">#c87000</color>
+    <color name="translucent_80_dark">#cc000000</color>
+    <color name="light_s_gray">#cccccc</color>
+    <color name="deep_s_gray">#454545</color>
+    <color name="deep_ss_gray">#333333</color>
+    <!-- 时间选择器 -->
+    <color name="split_line_gray">#B8B8B8</color>
+    <color name="picker_bar_bg">#F5F5F5</color>
+
+    <!-- applocker -->
+    <color name="applocker_background_light">#ffffffff</color>
+    <color name="enter_pwd_gray">#76838d</color>
+    <color name="applocker_keyboard_number">#727e87</color>
+    <color name="applocker_keyboard_pressed">#b3fbfbfb</color>
+    <color name="applocker_security_reminder">#464545</color>
+
+    <!-- circle -->
+    <color name="round_progress_color">#8eaa1e</color>
+    <color name="circle_color">#3fffffff</color>
+    <color name="circle_progress_color">#A9D428</color>
+    <color name="pointer_color">#A9D428</color>
+    <color name="pointer_halo_color">#A9D428</color>
+
+    <!-- account -->
+    <color name="account_text_normal_color">#8CB400</color>
+    <color name="account_text_pressed_color">#555555</color>
+
+    <!-- dynamiclistview -->
+    <color name="red_background_color">#db4c4c</color>
+    <color name="yellow_background_color">#df965a</color>
+    <color name="blue_background_color">#00a2ff</color>
+    <color name="green_background_color">#64b43c</color>
+    <color name="brown_background_color">#135057</color>
+<!-- sub categpry font  -->
+  <color name="sub_categpry_font_color">#363636</color>
+</resources>

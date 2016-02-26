@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_listview_app_item" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="@dimen/search_tips_item_padding" >
+
+        <ImageView
+            android:id="@+id/tips_icon"
+            android:layout_width="@dimen/search_tips_item_icon"
+            android:layout_height="@dimen/search_tips_item_icon"
+            android:background="@drawable/search_suggest"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/tv_tips_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/search_tips_item_margin_left"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="keywords"
+            android:textColor="#666666"
+            android:textSize="@dimen/text_big_size" />
+    </LinearLayout>
+
+</RelativeLayout>

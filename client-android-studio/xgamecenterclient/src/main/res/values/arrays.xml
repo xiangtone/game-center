@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	    <!-- 声音设置选项 -->
+	    <string-array name="music_settings">
+	        <item>Ringtones</item>
+	        <item>Notification</item>
+<!-- 	        <item>Alarm</item> -->
+	    </string-array>
+
+</resources>

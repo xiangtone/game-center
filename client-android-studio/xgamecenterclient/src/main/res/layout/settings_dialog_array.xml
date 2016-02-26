@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settings_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:gravity="center" >
+
+    <!-- 标识ID -->
+    <TextView
+        android:id="@+id/settings_id"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone" />    
+    
+    <TextView
+        android:id="@+id/settings_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/settings_check"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/settings_check"
+        android:gravity="center_vertical" />
+
+    <CheckBox
+        android:id="@+id/settings_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="4dp"
+        android:button="@drawable/selector_option_btn"
+        android:clickable="false"
+        android:focusable="false" />
+
+    <View
+        android:id="@+id/settings_view"
+        android:layout_width="wrap_content"
+        android:layout_height="0.1dp"
+        android:layout_below="@+id/settings_check"
+        android:background="#c8c8c8" />
+
+</RelativeLayout>

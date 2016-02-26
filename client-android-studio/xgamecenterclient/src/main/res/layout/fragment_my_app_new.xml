@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <com.x.ui.view.expendlistview.ActionSlideExpandableListView
+        android:id="@+id/fman_apps_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/fai_storage_ll"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@color/transparent"
+        android:divider="@color/transparent"
+        android:dividerHeight="1px"/>
+
+    <include
+        layout="@layout/empty"
+        android:visibility="gone" />
+
+    <include layout="@layout/loading" />
+
+</RelativeLayout>

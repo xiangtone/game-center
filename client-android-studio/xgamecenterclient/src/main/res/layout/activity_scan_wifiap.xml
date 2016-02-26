@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/rl_title_bar"
+        layout="@layout/main_header" />
+
+    <com.x.ui.view.TabPageIndicator
+        android:id="@+id/scan_hot_spot_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tab_unselected_holo" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/scan_hot_spot_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ScanHotspotActivity" />
+
+</LinearLayout>

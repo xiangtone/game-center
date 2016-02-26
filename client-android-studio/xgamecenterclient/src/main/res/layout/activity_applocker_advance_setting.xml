@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:su="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/applocker_srcub_backgroud"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/rl_title_bar"
+        layout="@layout/main_header" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_padding_middle"
+        android:layout_marginTop="@dimen/common_padding_middle" >
+
+        <TextView
+            android:id="@+id/promt_tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:text="@string/app_time_horizen"
+            android:textColor="@color/tab_text_color" />
+    </LinearLayout>
+    <!-- 时间控件 -->
+
+    <FrameLayout
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/from_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="right|center_vertical"
+                android:text="@string/select_time_from_tv"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/text_big_size" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3" />
+
+            <TextView
+                android:id="@+id/to_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center|center_vertical"
+                android:text="@string/select_time_to_tv"
+                android:textColor="@color/title_color"
+                android:textSize="@dimen/text_big_size" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <com.x.ui.view.ScrollerNumberPicker
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:clickable="false"
+                su:isEnable="false"
+                su:itemNumber="5"
+                su:lineColor="#7e000000"
+                su:maskHight="32dp"
+                su:noEmpty="true"
+                su:normalTextColor="#777"
+                su:normalTextSize="16sp"
+                su:selecredTextColor="#ffff0000"
+                su:selecredTextSize="26sp"
+                su:unitHight="40dp" />
+
+            <com.x.ui.view.ScrollerNumberPicker
+                android:id="@+id/from_time_hour"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="left|center_vertical"
+                su:itemNumber="5"
+                su:lineColor="#7e000000"
+                su:maskHight="32dp"
+                su:noEmpty="true"
+                su:normalTextColor="#777"
+                su:normalTextSize="14sp"
+                su:selecredTextColor="@color/title_color"
+                su:selecredTextSize="22sp"
+                su:unitHight="40dp" />
+
+            <com.x.ui.view.ScrollerNumberPicker
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:clickable="false"
+                android:scrollY="0dp"
+                su:isEnable="false"
+                su:itemNumber="5"
+                su:lineColor="#7e000000"
+                su:maskHight="32dp"
+                su:noEmpty="true"
+                su:normalTextColor="#777"
+                su:normalTextSize="14sp"
+                su:selecredTextColor="#ffff0000"
+                su:selecredTextSize="22sp"
+                su:unitHight="40dp" />
+
+            <com.x.ui.view.ScrollerNumberPicker
+                android:id="@+id/to_time_hour"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="left"
+                su:itemNumber="5"
+                su:lineColor="#7e000000"
+                su:maskHight="32dp"
+                su:noEmpty="true"
+                su:normalTextColor="#777"
+                su:normalTextSize="14sp"
+                su:selecredTextColor="@color/title_color"
+                su:selecredTextSize="22sp"
+                su:unitHight="40dp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- 修改密码 -->
+
+    <RelativeLayout
+        android:id="@+id/ll_reset_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/selector_applock_reset_password"
+        android:clickable="true" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/gray" />
+        <!-- 开关锁 图标 -->
+
+        <ImageView
+            android:id="@+id/applock_advance_setting_left_ico"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/common_padding_middle"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_lock" />
+
+        <!-- xxxxx  中间名字的布局xxxxxxxx -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/applock_advance_setting_left_ico"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/applock_advance_setting_left_ico"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/common_padding"
+            android:paddingRight="50dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/common_padding"
+                android:paddingRight="@dimen/common_padding" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/editpassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="false"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="@string/reset_password"
+                        android:textColor="@color/title_color"
+                        android:textSize="@dimen/text_big_size" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/maa_size_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_padding"
+                    android:orientation="horizontal" >
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/editpassword_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center_vertical"
+                            android:singleLine="false"
+                            android:text="@string/reset_password_desc"
+                            android:textColor="@color/tab_text_color"
+                            android:textSize="@dimen/text_mid_size" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/applock_main_list_right_ico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="18dp"
+            android:background="@drawable/ic_forward_expand" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray" />
+
+</LinearLayout>

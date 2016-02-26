@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/account_modify_bg_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <!-- start -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_margin_size"
+                android:layout_weight="5"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/iv_account_modify_head_portrait"
+                    android:layout_width="@dimen/head_size"
+                    android:layout_height="@dimen/head_size"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/selector_head_bg"
+                    android:contentDescription="@null"
+                    android:padding="@dimen/head_padding" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_margin_size"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:background="@color/account_red" >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/text_margin_size"
+                        android:layout_weight="2"
+                        android:orientation="horizontal" >
+
+                        <com.x.ui.view.editview.ClearEditText
+                            android:id="@+id/et_modify_nickname"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/account_edit_layout_height"
+                            android:background="@drawable/ic_share_device_name_bg"
+                            android:drawableRight="@drawable/account_delete_selector"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:padding="@dimen/text_margin_size"
+                            android:singleLine="true"
+                            android:textSize="@dimen/share_device_name_size" >
+                        </com.x.ui.view.editview.ClearEditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3" >
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- warn start -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5.5" />
+
+                    <TextView
+                        android:id="@+id/tv_modify_nn_hint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="2"
+                        android:gravity="left"
+                        android:textColor="@color/account_warn"
+                        android:textSize="@dimen/text_mid_size" />
+                </LinearLayout>
+                <!-- warn end -->
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/email"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/text_big_size" />
+
+                    <TextView
+                        android:id="@+id/tv_modify_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/text_big_size" />
+                </LinearLayout>
+            </LinearLayout>
+            <!-- end -->
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <include layout="@layout/account_head_selector_part" />
+    </LinearLayout>
+
+</LinearLayout>

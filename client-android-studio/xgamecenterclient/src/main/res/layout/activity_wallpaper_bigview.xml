@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pictrue_bg" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.x.ui.view.photo.PhotoView
+            android:id="@+id/photoview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null" />
+
+        <!-- 壁纸设置 -->
+
+        <LinearLayout
+            android:id="@+id/l_wp_setting"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/wallpaper_bottom_navbar_height"
+            android:layout_alignParentBottom="true"
+            android:background="#60000000"
+            android:padding="@dimen/common_padding"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:id="@+id/btn_wp_edit"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:gravity="center_vertical|left" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/text_margin_size"
+                    android:contentDescription="@null"
+                    android:src="@drawable/selector_wallpaper_edit" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_set_as_wp"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/selector_wallpaper_pic"
+                    android:gravity="center"
+                    android:text="@string/picture_set_wallpaper"
+                    android:textColor="@color/selector_btn_text_color"
+                    android:textSize="@dimen/text_big_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_wp_share"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:gravity="center_vertical|right" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/text_margin_size"
+                    android:contentDescription="@null"
+                    android:src="@drawable/selector_wallpaper_share" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/l_loading_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ProgressBar
+            android:id="@+id/l_loading_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:indeterminateDrawable="@drawable/loading_prograssbar" />
+
+        <TextView
+            android:id="@+id/tv_download_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l_loading_bar"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:paddingTop="10.0dip"
+            android:text="@string/loading"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+</FrameLayout>

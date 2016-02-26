@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/common_padding"
+    android:paddingRight="@dimen/common_padding" >
+
+    <com.x.ui.view.pulltorefresh.PullToRefreshWaterfallView
+        android:id="@+id/waterfallview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:id="@+id/waterfallcontainer"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:visibility="gone" />
+        </LinearLayout>
+    </com.x.ui.view.pulltorefresh.PullToRefreshWaterfallView>
+
+    <include
+        layout="@layout/error"
+        android:visibility="gone" />
+
+</LinearLayout>

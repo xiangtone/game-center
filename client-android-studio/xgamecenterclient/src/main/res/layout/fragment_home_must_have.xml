@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_drawable"
+    android:orientation="vertical" >
+
+    <!--
+         <com.x.ui.view.pulltorefresh.PullToRefreshExpandableListView
+        android:id="@+id/fhmh_must_have_app_lv"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    </com.x.ui.view.pulltorefresh.PullToRefreshExpandableListView>    -->
+
+    <com.x.ui.view.pulltorefresh.PullToRefreshExpandableStickyListView
+        android:id="@+id/fhmh_must_have_app_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@android:color/transparent"
+        android:scrollbars="none"
+        android:footerDividersEnabled="false" />
+
+    <include
+        layout="@layout/error"
+        android:visibility="gone" />
+
+</RelativeLayout>

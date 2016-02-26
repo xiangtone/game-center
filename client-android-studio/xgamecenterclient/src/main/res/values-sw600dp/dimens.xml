@@ -1,0 +1,257 @@
+<resources>
+
+    <dimen name="common_padding_small">1dp</dimen>
+    <dimen name="common_padding">4dp</dimen>
+    <dimen name="app_cover_size">72dp</dimen>
+    <dimen name="drawer_width">350dp</dimen>
+    <dimen name="grid_icon_size">135dp</dimen>
+    <dimen name="drawer_head_itme_height">100dp</dimen>
+    <dimen name="drawer_itme_height">80dp</dimen>
+    <dimen name="grdiview_spaceing">10dp</dimen>
+    <dimen name="tab_title_padding">24dp</dimen>
+    <dimen name="tab_fade_edgelength">8dp</dimen>
+    <dimen name="account_padding">18dp</dimen>
+    <dimen name="recharge_detail_text_width">200dp</dimen>
+    <dimen name="text_small_margin_size">5dp</dimen>
+    <dimen name="text_margin_size">10dp</dimen>
+    <dimen name="image_height">285dp</dimen>
+    <dimen name="image_width">180dp</dimen>
+    <dimen name="image_width_horizontal">420dp</dimen>
+    <dimen name="small_icon_size">40dp</dimen>
+    <dimen name="text_small_padding_size">5dp</dimen>
+    <dimen name="padding_size">30dp</dimen>
+    <dimen name="no_comment_icon">60dp</dimen>
+    <dimen name="management_gridview_spaceing">10dp</dimen>
+    <dimen name="progressbar_height">8dp</dimen>
+    <dimen name="rating_bar_height">34dp</dimen>
+    <dimen name="rating_bar_height_small">24px</dimen>
+    <dimen name="horizontal_progresssbar_height">45dp</dimen>
+    <dimen name="receive_listview_padingbottom">49dp</dimen>
+    <dimen name="banner_height">280dp</dimen>
+    <dimen name="banner_raius_height">2dp</dimen>
+    <dimen name="app_name_widht">160dp</dimen>
+    <dimen name="app_versionname_widht">80dp</dimen>
+    <dimen name="main_header_default_height">56dip</dimen>
+
+    <!-- text size -->
+    <dimen name="title_text_size">14sp</dimen>
+    <dimen name="sub_title_text_size">12sp</dimen>
+    <dimen name="tab_title_text_size">15sp</dimen>
+    <dimen name="text_big_size">16sp</dimen>
+    <dimen name="text_mid_size">11sp</dimen>
+    <dimen name="text_small_size">10sp</dimen>
+    <dimen name="text_large_size">30sp</dimen>
+    <dimen name="text_sub_large_size">18sp</dimen>
+    <dimen name="text_connecting_size">20sp</dimen>
+    <dimen name="share_text_size">18sp</dimen>
+    <dimen name="noti_title_text_size">16sp</dimen>
+    <dimen name="noti_sub_title_text_size">13sp</dimen>
+    <dimen name="left_drawer_big_text_size">18sp</dimen>
+    <dimen name="version_name_text_size">23sp</dimen>
+    <dimen name="about_page_selector_text_size">18sp</dimen>
+    <dimen name="share_icon_text_size">13sp</dimen>
+    <dimen name="share_file_tips_size">22sp</dimen>
+    <dimen name="share_device_name_size">20sp</dimen>
+    
+    
+
+    <!-- GridView Mode -->
+    <dimen name="gridview_icon_padding">10dp</dimen>
+
+    <!-- 二维码模块 -->
+    <dimen name="corner_width">10dp</dimen>
+    <dimen name="scan_text_size">22sp</dimen>
+    <dimen name="middle_line_width">13dp</dimen>
+    <dimen name="screen_rate_distance">25dp</dimen>
+    <dimen name="scan_text_margin_top">50dp</dimen>
+    <dimen name="qr_scan_frame_size">300dp</dimen>
+
+    <!-- 壁纸模块 -->
+    <dimen name="image_theme_height">280dp</dimen>
+    <dimen name="image_categories_height">260dp</dimen>
+    <dimen name="wallpaper_bottom_navbar_height">54dp</dimen>
+    <dimen name="wallpaper_bottom_navbar_height1">44dp</dimen>
+    <dimen name="wallpaper_gridview_item_padding">4dp</dimen>
+    <dimen name="wallpaper_icon_size">30dp</dimen>
+    <dimen name="common_dialog_size">180dp</dimen>
+    <dimen name="checkbox_w">40dp</dimen>
+    <dimen name="checkbox_h">35dp</dimen>
+    <dimen name="checkbox_margin">16dp</dimen>
+    <dimen name="one_click_download_padding">10dp</dimen>
+    <dimen name="grid_vertical_space">6dp</dimen>
+    <dimen name="grid_horizontal_space">3dp</dimen>
+    <dimen name="wallpaper_live_item_height">300dp</dimen>
+    <dimen name="wallpaper_live_Download_btn_size">30dp</dimen>
+
+    <dimen name="wallpaper_ablum_num_textview_width">85dp</dimen>
+    <dimen name="wallpaper_ablum_num_text_paddingright_size">3dp</dimen>
+     <dimen name="wallpaper_ablum_num_textview_marginbottom">10dp</dimen>
+     <dimen name="wp_ablum_num_text_size">13sp</dimen>
+
+    <!-- 零流量分享 -->
+    <dimen name="zerodatashare_marginTop">100dp</dimen>
+    <dimen name="share_deviceName_width">80dp</dimen>
+    <dimen name="share_deviceName_height">80dp</dimen>
+    <dimen name="sharing_invitelink_marginTop">22dp</dimen>
+    <dimen name="sharing_btn_width">260dp</dimen>
+    <dimen name="sharing_btn_height">55dp</dimen>
+    <dimen name="qr_connecting_width">129dp</dimen>
+    <dimen name="qr_connecting_height">20dp</dimen>
+    <dimen name="radiation_bg_margin">14dp</dimen>
+    <dimen name="qr_code_size">350dp</dimen>
+    <dimen name="qr_code_scanner_padding">20dp</dimen>
+    <dimen name="qr_code_scanner_margin">20dp</dimen>
+    <dimen name="qr_code_scanner_margin_bottom">100dp</dimen>
+    <dimen name="qr_code_scanner_margin_top">30dp</dimen>
+    <dimen name="srotage_show_size">12sp</dimen>
+    <dimen name="srotage_number_size">26sp</dimen>
+    <dimen name="srotage_number_per_size">13sp</dimen>
+    <dimen name="srotage_text_height">50dp</dimen>
+    <dimen name="atw_invite_connect_Uplay">80dp</dimen>
+    <dimen name="atw_wifi_height">60dp</dimen>
+    <dimen name="connecting_width">150dp</dimen>
+    <dimen name="share_btn_height">60dp</dimen>
+    <dimen name="share_btn_margin_top">30dp</dimen>
+    <dimen name="share_description_margin_top">20dp</dimen>
+    <dimen name="deviceName_width">65dp</dimen>
+    <dimen name="deviceName_height">65dp</dimen>
+    <dimen name="deviceName_satate_width">26dp</dimen>
+    <dimen name="deviceName_satate_height">26dp</dimen>
+    <dimen name="head_size">100dp</dimen>
+    <dimen name="head_padding">8dp</dimen>
+    <dimen name="head_btn_paddingleft">40dp</dimen>
+    <dimen name="head_btn_paddingtop">7dp</dimen>
+    <dimen name="head_icon_margin_top">25dp</dimen>
+    <dimen name="head_btn_margin_top">60dp</dimen>
+    <dimen name="share_icon_size">70dp</dimen>
+    <dimen name="share_icon_margin">30dp</dimen>
+    <dimen name="share_device_name_padding">3dp</dimen>
+    <dimen name="share_device_name_margin_top">30dp</dimen>
+    <dimen name="share_file_tips_margin_top">40dp</dimen>
+    <dimen name="share_icon_margin_bottom">20dp</dimen>
+    <dimen name="share_indicate_icon_margin_left">100dp</dimen>
+    <dimen name="share_app_check_size">38dp</dimen>
+
+    <!-- 分享方式 -->
+    <dimen name="sf_browser_width">380dp</dimen>
+    <dimen name="sf_browser_height">240dp</dimen>
+    <dimen name="share_free_margin_top">30dp</dimen>
+    <dimen name="sf_invitation_tips_marginbottom">20dp</dimen>
+    <dimen name="sf_iv_size">120dp</dimen>
+    <dimen name="sf_code_width">340dp</dimen>
+    <dimen name="sf_code_height">340dp</dimen>
+    <dimen name="share_free_textsize">18sp</dimen>
+    <dimen name="sf_marginMiddleTv">5dp</dimen>
+    <dimen name="sf_row_margin">10dp</dimen>
+    <dimen name="sf_item_margin">8dp</dimen>
+    <dimen name="sf_linearlayout_margin">80dp</dimen>
+
+    <!-- 资源管理 -->
+    <dimen name="pic_image_h">220dp</dimen>
+    <dimen name="folder_pic_image_h">260dp</dimen>
+    <dimen name="video_image_h">260dp</dimen>
+
+    <!-- 多国家 -->
+    <dimen name="country_icon_size">42dp</dimen>
+    <dimen name="country_listview_height">262dp</dimen>
+    <dimen name="country_bottom_bar_height">50dp</dimen>
+
+    <!-- 新手引导 -->
+    <dimen name="guide_homepage_textsize">25sp</dimen>
+    <dimen name="guide_homepage_marginbottom">80dp</dimen>
+    <dimen name="guide_tips_width">270dp</dimen>
+    <dimen name="guide_tips_height">185dp</dimen>
+    <dimen name="guide_tips_textmargin_top">160dp</dimen>
+    <dimen name="guide_maringLeft">-72dp</dimen>
+    <dimen name="guide_point_indication_padding">23dp</dimen>
+    <dimen name="guide_drawer_widthHeight">52dp</dimen>
+    <dimen name="guide_drawer_marginTop">15dp</dimen>
+    <dimen name="guide_drawer_marginLeft">-20dp</dimen>
+    <dimen name="guide_drawer_maringLeft">-8dp</dimen>
+    <dimen name="guide_drawer_tip_maringTop">-35dp</dimen>
+    <dimen name="guide_wifishare_marginTop">30dp</dimen>
+
+    <!-- 公用对话框 -->
+    <dimen name="green_line_size">3.2dp</dimen>
+    <dimen name="content_min_height">100dp</dimen>
+    <dimen name="content_margin">18dp</dimen>
+
+    <!-- 通知栏 -->
+    <dimen name="noti_content_margin">6dp</dimen>
+    <dimen name="noti_content_desc_margin">10dp</dimen>
+    <dimen name="noti_sub_title_margin_top">2dp</dimen>
+    <dimen name="noti_btn_padding">15dp</dimen>
+
+    <!-- 关于我们 -->
+    <dimen name="about_logo_width">155dp</dimen>
+    <dimen name="about_logo_height">190dp</dimen>
+    <dimen name="about_selector_item_paddingleft">18dp</dimen>
+    <dimen name="about_selector_item_paddingRight">18dp</dimen>
+    <dimen name="about_selector_item_paddingTop">15dp</dimen>
+    <dimen name="about_selector_item_paddingBottom">15dp</dimen>
+    <dimen name="about_selector_view_padding">40dp</dimen>
+
+    <!-- 账号 -->
+    <dimen name="account_modify_nickname_edittext_width">350dp</dimen>
+    <dimen name="account_send_success_main_layout_height">200dp</dimen>
+    <dimen name="account_btn_layout_height">40dp</dimen>
+    <dimen name="find_pwd_layout_marginTop">50dp</dimen>
+    <dimen name="account_edit_layout_height">45dp</dimen>
+    <dimen name="account_logout_layout_marginTop">40dp</dimen>
+
+    <!-- 搜索功能 -->
+    <dimen name="search_view_padding">12dp</dimen>
+    <dimen name="search_view_height">40dp</dimen>
+    <dimen name="keyword_view_padding">10dp</dimen>
+    <dimen name="keyword_icon_size">28dp</dimen>
+    <dimen name="keyword_layout_height">42dp</dimen>
+    <dimen name="keyword_divider_space">6dp</dimen>
+    <dimen name="keyword_item_text_padding">9dp</dimen>
+
+    <!-- account -->
+    <dimen name="login_marginTop">60dp</dimen>
+
+    <!-- settings -->
+    <dimen name="block_padding">12dp</dimen>
+    <!-- uninstall apps -->
+    <dimen name="uninstall_margin_bottom">10dp</dimen>
+
+    <!-- applocker -->
+    <!-- keyboard -->
+    <dimen name="font_size_keyboard_number">55dp</dimen>
+    <dimen name="stars_box_height">50dp</dimen>
+    <dimen name="lock_logo_wight">70dp</dimen>
+    <dimen name="enter_pwd_text_size">30sp</dimen>
+    <dimen name="keyboard_delete_wight">53dp</dimen>
+    <dimen name="keyboard_delete_height">30dp</dimen>
+    <dimen name="security_ok_btn_wight">400dp</dimen>
+    <dimen name="stars_box_margin_top">30dp</dimen>
+    <dimen name="pwd_set_guide_wight">450dp</dimen>
+
+    <!-- slidingpane menu -->
+    <dimen name="circular_size">200dp</dimen>
+    <dimen name="clean_ll_size">120dp</dimen>
+    <dimen name="circular_progress_loading_size">132dp</dimen>
+    <dimen name="slidingpane_width">360dp</dimen>
+    <dimen name="circular_view_margin_left">45dp</dimen>
+    <dimen name="circular_view_margin_top">30dp</dimen>
+    <dimen name="circular_view_margin_bottom">30dp</dimen>
+    <dimen name="storage_text_margin_left">26dp</dimen>
+    <dimen name="ram_text_margin_right">15dp</dimen>
+
+    <!-- DynamicListView -->
+    <dimen name="dynamic_item_padding">7.8dp</dimen>
+    <dimen name="dynamic_banner_height">102dp</dimen>
+    <dimen name="dynamic_background_height">120dp</dimen>
+    <dimen name="dynamic_banner_padding_top">11dp</dimen>
+    <dimen name="dynamiclistview_common_margin">10dp</dimen>
+    <dimen name="dynamiclistview_common_margintop">8dp</dimen>
+    <dimen name="dynamiclistview_detail_padding">14dp</dimen>
+    <dimen name="dynamiclistview_title1_textsize">15sp</dimen>
+    <dimen name="dynamiclistview_title2_textsize">20sp</dimen>
+
+    <!-- AppDetail -->
+    <dimen name="app_logo_size">80dp</dimen>
+    <dimen name="module_top_height">128dp</dimen>
+
+</resources>

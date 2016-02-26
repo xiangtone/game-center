@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.x.ui.view.MySlidingPaneLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ah_slidingpane_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/zapp_user_bg" >
+
+    <FrameLayout
+        android:id="@+id/ah_slidingpane_menu"
+        android:layout_width="@dimen/slidingpane_width"
+        android:layout_height="match_parent" />
+
+    <FrameLayout
+        android:id="@+id/ah_slidingpane_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</com.x.ui.view.MySlidingPaneLayout>

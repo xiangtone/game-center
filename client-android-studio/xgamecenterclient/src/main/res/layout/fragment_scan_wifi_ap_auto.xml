@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sharing_fl"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/app_bg_drawable" >
+
+    <ImageView
+        android:id="@+id/bg_imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <TextView
+        android:id="@+id/ahs_searching_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:text="@string/sharing_searching" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/img_my_head"
+            android:layout_width="@dimen/head_size"
+            android:layout_height="@dimen/head_size"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:id="@+id/ahs_fmNickName_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/apps_sharing"
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" />
+
+        <TextView
+            android:id="@+id/ahs_sharing_of_data_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ahs_scan_o"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/scan" />
+
+    <ImageView
+        android:id="@+id/ahs_scan_t"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/scan" />
+
+    <ImageView
+        android:id="@+id/ahs_scan_s"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/scan" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <!-- 收到的5个设备 -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.2" >
+
+                <LinearLayout
+                    android:id="@+id/ahs_receive_device_layout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="vertical"
+                    android:visibility="invisible" >
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal" >
+
+                        <ImageView
+                            android:id="@+id/img_1"
+                            style="@style/autoHotSpotIvStyle" />
+
+                        <ImageView
+                            android:id="@+id/ahs_receive_chioceDevice_iv1"
+                            style="@style/autoHotSpotIvChioceStyle"
+                            android:background="@drawable/ic_option_selected"
+                            android:visibility="invisible" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" >
+
+                        <com.x.publics.utils.MarqueeText
+                            android:id="@+id/ahs_receive_device_tv1"
+                            style="@style/marqueeTvStyle" />
+
+                        <TextView
+                            android:id="@+id/ahs_connection_stateTv1"
+                            style="@style/autoHotSpotTvStyle"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.2"
+                android:gravity="top"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/ahs_receive_device_layout2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:visibility="invisible" >
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal" >
+
+                        <ImageView
+                            android:id="@+id/img_2"
+                            style="@style/autoHotSpotIvStyle" />
+
+                        <ImageView
+                            android:id="@+id/ahs_receive_chioceDevice_iv2"
+                            style="@style/autoHotSpotIvChioceStyle"
+                            android:background="@drawable/ic_option_selected"
+                            android:visibility="invisible" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="vertical" >
+
+                        <com.x.publics.utils.MarqueeText
+                            android:id="@+id/ahs_receive_device_tv2"
+                            style="@style/marqueeTvStyle" />
+
+                        <TextView
+                            android:id="@+id/ahs_connection_stateTv2"
+                            style="@style/autoHotSpotTvStyle"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ahs_receive_device_layout3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:visibility="invisible" >
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal" >
+
+                        <ImageView
+                            android:id="@+id/img_3"
+                            style="@style/autoHotSpotIvStyle" />
+
+                        <ImageView
+                            android:id="@+id/ahs_receive_chioceDevice_iv3"
+                            style="@style/autoHotSpotIvChioceStyle"
+                            android:background="@drawable/ic_option_selected"
+                            android:visibility="invisible" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="vertical" >
+
+                        <com.x.publics.utils.MarqueeText
+                            android:id="@+id/ahs_receive_device_tv3"
+                            style="@style/marqueeTvStyle" />
+
+                        <TextView
+                            android:id="@+id/ahs_connection_stateTv3"
+                            style="@style/autoHotSpotTvStyle"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/ahs_receive_device_layout4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="-30dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:visibility="invisible" >
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal" >
+
+                        <ImageView
+                            android:id="@+id/img_4"
+                            style="@style/autoHotSpotIvStyle" />
+
+                        <ImageView
+                            android:id="@+id/ahs_receive_chioceDevice_iv4"
+                            style="@style/autoHotSpotIvChioceStyle"
+                            android:background="@drawable/ic_option_selected"
+                            android:visibility="invisible" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="vertical" >
+
+                        <com.x.publics.utils.MarqueeText
+                            android:id="@+id/ahs_receive_device_tv4"
+                            style="@style/marqueeTvStyle" />
+
+                        <TextView
+                            android:id="@+id/ahs_connection_stateTv4"
+                            style="@style/autoHotSpotTvStyle"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ahs_receive_device_layout5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_marginRight="-30dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:visibility="invisible" >
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal" >
+
+                        <ImageView
+                            android:id="@+id/img_5"
+                            style="@style/autoHotSpotIvStyle" />
+
+                        <ImageView
+                            android:id="@+id/ahs_receive_chioceDevice_iv5"
+                            style="@style/autoHotSpotIvChioceStyle"
+                            android:background="@drawable/ic_option_selected"
+                            android:visibility="invisible" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="vertical" >
+
+                        <com.x.publics.utils.MarqueeText
+                            android:id="@+id/ahs_receive_device_tv5"
+                            style="@style/marqueeTvStyle" />
+
+                        <TextView
+                            android:id="@+id/ahs_connection_stateTv5"
+                            style="@style/autoHotSpotTvStyle"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

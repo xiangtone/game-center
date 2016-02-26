@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:gravity="right|center_vertical"
+    android:paddingTop="@dimen/common_padding" >
+
+    <TextView
+        android:id="@+id/btn_load"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/selector_btn_load"
+        android:gravity="center_vertical"
+        android:text="More"
+        android:textColor="#787878"
+        android:textSize="@dimen/text_small_size" />
+
+</LinearLayout>

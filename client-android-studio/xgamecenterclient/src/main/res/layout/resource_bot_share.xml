@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/share_bot_tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bot_tools_layout_h"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/share_bot_all"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/share_bot_share"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/bot_tools_button_h"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_and_progress_theme"
+                android:text="@string/share_tools"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/share_bot_cancel"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/bot_tools_button_h"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/selector_btn_dark"
+                android:text="@string/bot_tools_cancel"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/share_bot_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:button="@drawable/selector_option_btn" />
+    </RelativeLayout>
+
+</RelativeLayout>
