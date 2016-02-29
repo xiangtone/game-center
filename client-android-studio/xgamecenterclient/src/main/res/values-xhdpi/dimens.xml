@@ -60,7 +60,7 @@
     <dimen name="ringtones_pic_size">54dp</dimen>
 
     <!-- 新手引导 -->
-    <dimen name="guide_homepage_marginbottom">45dp</dimen>
+    <dimen name="guide_homepage_marginbottom">60dp</dimen>
     <dimen name="sf_code_width">160dp</dimen>
     <dimen name="sf_code_height">160dp</dimen>
 

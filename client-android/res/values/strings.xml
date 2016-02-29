@@ -577,7 +577,7 @@
     <string name="next">Next</string>
 
     <!-- 异常提示 -->
-    <string name="nullPointerException ">Null Pointer Exception</string>
+    <string name="nullPointerException">Null Pointer Exception</string>
     <string name="unsupporte_dencoding_exception">Unsupported Encoding Exception</string>
     <string name="ioexception">IOException</string>
     <string name="illegal_state_exception">Illegal State Exception</string>

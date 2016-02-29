@@ -37,8 +37,6 @@
         <item name="android:windowAnimationStyle">@null</item>
     </style>
 
-
-
     <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar">
 
         <!-- Support library compatibility -->
