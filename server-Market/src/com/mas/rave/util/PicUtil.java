@@ -6,7 +6,6 @@ import java.io.FileInputStream;
 
 import javax.imageio.ImageIO;
 
-import com.aviyehuda.easyimage.Image;
 
 /**
  * 图片操作类

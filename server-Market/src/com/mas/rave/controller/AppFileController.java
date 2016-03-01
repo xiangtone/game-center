@@ -29,7 +29,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.analysisapk.util.ReadApkInfo;
 import com.mas.rave.common.MyCollectionUtils;
 import com.mas.rave.common.page.PaginationVo;
 import com.mas.rave.common.parser.AppBatchUploadEngine;
@@ -751,9 +750,9 @@ public class AppFileController {
 		if (StringUtils.isEmpty(parser.getVersionName()) || parser.getVersionName().contains("@7F")) {
 			url = url + "WEB-INF" + File.separator + "classes" + File.separator;
 			if("linux".equalsIgnoreCase(Constant.RUN_ENV)){
-				appFile.setVersionName(ReadApkInfo.getVersionName(Constant.LOCAL_FILE_PATH + appFile.getUrl(), url, 2));
+				appFile.setVersionName(com.mas.rave.util.ReadApkInfo.getVersionName(Constant.LOCAL_FILE_PATH + appFile.getUrl(), url, 2));
 			}else{
-				appFile.setVersionName(ReadApkInfo.getVersionName(Constant.LOCAL_FILE_PATH + appFile.getUrl(), url, 1));
+				appFile.setVersionName(com.mas.rave.util.ReadApkInfo.getVersionName(Constant.LOCAL_FILE_PATH + appFile.getUrl(), url, 1));
 			}
 		} else {
 			appFile.setVersionName(parser.getVersionName());
