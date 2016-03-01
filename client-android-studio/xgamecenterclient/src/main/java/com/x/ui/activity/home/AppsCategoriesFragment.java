@@ -187,7 +187,7 @@ public class AppsCategoriesFragment extends BaseFragment {
 	 */
 	private void getData(int page) {
 		pager = new Pager(page);
-		pager.setPs(5);
+//		pager.setPs(10);
 		int cat = getCt();
 		appGamesCategoryManager.getSubCategoriesList(context, mHandler, pager,
 				cat);

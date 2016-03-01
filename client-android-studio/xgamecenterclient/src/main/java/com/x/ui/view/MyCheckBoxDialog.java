@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.x.R;
 import com.x.business.skin.SkinConfigManager;
 import com.x.business.skin.SkinConstan;
+import com.x.publics.utils.ResourceUtil;
 import com.x.publics.utils.SharedPrefsUtil;
 import com.x.publics.utils.Utils;
 
@@ -29,7 +30,7 @@ public class MyCheckBoxDialog extends Dialog {
 
 	private static CheckBox cbExit;
 	private static View dividerLineView;
-	private static TextView btnLeft, btnRight, tvTitle, tvContent;
+	private static TextView btnLeft, btnRight, tvTitle, tvContent, tvExitContent;
 
 	public MyCheckBoxDialog(Context context) {
 		super(context);
@@ -112,6 +113,7 @@ public class MyCheckBoxDialog extends Dialog {
 			tvContent = (TextView) layout.findViewById(R.id.tv_content);
 			dividerLineView = layout.findViewById(R.id.divider_line);
 			cbExit = (CheckBox) layout.findViewById(R.id.exit_checkBox);
+			tvExitContent = (TextView) layout.findViewById(R.id.exit_checkBox_content);
 			cbExit.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 				@Override
@@ -124,6 +126,7 @@ public class MyCheckBoxDialog extends Dialog {
 			tvContent.setText(message);
 			btnLeft.setText(positiveButtonText);
 			btnRight.setText(negativeButtonText);
+			tvExitContent.setText(ResourceUtil.getString(mContext, R.string.dialog_app_exit_tips,ResourceUtil.getString(mContext, R.string.app_name)));
 			setSkinTheme();
 
 			if (positiveButtonClickListener != null) {

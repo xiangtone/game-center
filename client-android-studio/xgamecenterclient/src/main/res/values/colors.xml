@@ -73,7 +73,8 @@
 
     <!-- 新手引导 -->
     <color name="view_page_bg">#000</color>
-    <color name="guide_green">#00B20F</color>
+    <color name="guide_green_normal">#367F05</color>
+    <color name="guide_green_pressed">#5AA309</color>
 
     <!-- 通知栏 -->
     <color name="light_blue">#66B3FF</color>

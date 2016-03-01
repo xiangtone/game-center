@@ -283,7 +283,7 @@ public class SearchRingtonesFragment extends BaseFragment {
 
 				// 将refresh排在第一位
 				KeywordBean been = new KeywordBean();
-				been.setKeyword("Refresh");
+				been.setKeyword(ResourceUtil.getString(mActivity, R.string.search_refresh_text));
 				keywordList.add(been);
 				for (KeywordBean keywordBean : responseList) {
 					keywordList.add(keywordBean);

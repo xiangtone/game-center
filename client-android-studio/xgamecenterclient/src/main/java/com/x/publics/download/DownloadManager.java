@@ -72,7 +72,7 @@ public class DownloadManager {
 		}
 		if (Utils.getSettingModel(mContext).isOnlyWifiDownload()
 				&& !NetworkUtils.getNetworkInfo(mContext).equals(NetworkUtils.NETWORK_TYPE_WIFI)) {
-			ToastUtil.show(mContext, mContext.getResources().getString(R.string.settings_only_download_wifi),
+			ToastUtil.show(mContext,ResourceUtil.getString(mContext,R.string.settings_only_download_wifi,ResourceUtil.getString(mContext, R.string.app_name)),
 					Toast.LENGTH_SHORT);
 			return false;
 		}

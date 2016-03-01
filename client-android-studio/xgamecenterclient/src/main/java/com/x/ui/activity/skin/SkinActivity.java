@@ -72,6 +72,7 @@ public class SkinActivity extends BaseActivity implements OnClickListener {
 	private PullToRefreshListView pulltoRefreshLv;
 	private DownloadUiReceiver mDownloadUiReceiver;
 	private ArrayList<SkinInfoBean> skinList = new ArrayList<SkinInfoBean>();
+//	private ArrayList<SkinInfoBean> skinList = new ArrayList<SkinInfoBean>();
 
 	private TextView mTitleTv, mRetryTv;
 	private ImageView mGobackIv;
@@ -201,7 +202,9 @@ public class SkinActivity extends BaseActivity implements OnClickListener {
 		protected void onPostExecute(SkinListResponse response) {
 			super.onPostExecute(response);
 			skinList.clear();
-			skinList.addAll(response.skinlist);
+			//只显示默认皮肤
+//			skinList.addAll(response.skinlist);
+			skinList.add(response.skinlist.get(0));
 			skinAdapter.setList(skinList);
 			SkinConfigManager.getInstance().setSkinIsRead(mActivity, true);
 		}
