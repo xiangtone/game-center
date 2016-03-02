@@ -20,6 +20,7 @@ import com.x.business.statistic.DataEyeHelper;
 import com.x.db.applocker.AppLockerDBHelper;
 import com.x.db.dao.CommonLockerApp;
 import com.x.publics.model.AppLockerBean;
+import com.x.publics.utils.ResourceUtil;
 import com.x.publics.utils.SharedPrefsUtil;
 
 import android.content.ComponentName;
@@ -307,7 +308,7 @@ public class LockManager {
 				appLockerBean.setId(commonLockerApp.getId());
 				appLockerBean.setLockerSortType(commonLockerApp.getSortType());
 				appLockerBean.setPackageName(commonLockerApp.getPackageName());
-				appLockerBean.setLockerSortTypeName(AppLockerBean.lockerTypeName.GENERAL);
+				appLockerBean.setLockerSortTypeName(ResourceUtil.getString(context,R.string.app_lock_general));
 				appLockerBean.setLockerDesc(context.getString(R.string.third_party_app_desc));
 				appLockerBean.setAppName(commonLockerApp.getAppName());
 				appLockerBean.setLocked(commonLockerApp.isLocked);
@@ -320,7 +321,7 @@ public class LockManager {
 				//如果是推介应甿
 				if (commonLockerApp.getSortType() == AppLockerBean.lockerType.Recommend) {
 					
-					appLockerBean.setLockerSortTypeName(AppLockerBean.lockerTypeName.RECOMMEND);
+					appLockerBean.setLockerSortTypeName(ResourceUtil.getString(context,R.string.app_lock_recommend));
 					appLockerBean.setLockerDesc(LockHelper.getInstance(context).getLockAppDesc(commonLockerApp.getPackageName()));
 					appLockerBean.setAppName(LockHelper.getInstance(context).getLockAppName(commonLockerApp.getPackageName()));
 				}

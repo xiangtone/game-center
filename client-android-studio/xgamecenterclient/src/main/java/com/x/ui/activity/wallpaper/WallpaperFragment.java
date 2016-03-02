@@ -61,7 +61,7 @@ public class WallpaperFragment extends BaseFragment {
 	}
 
 	private void initViewPager(View view) {
-		String[] titles = { ResourceUtil.getString(mActivity, R.string.wallpaper_new),
+		String[] titles = { ResourceUtil.getString(mActivity, R.string.wallpaper_album),
 				ResourceUtil.getString(mActivity, R.string.wallpaper_hot),
 				ResourceUtil.getString(mActivity, R.string.wallpaper_categories) };
 		wallpaperFragmentPagerAdapter = new WallpaperFragmentPagerAdapter(this.getChildFragmentManager(), titles);
@@ -94,9 +94,9 @@ public class WallpaperFragment extends BaseFragment {
 			Fragment fragment = null;
 			switch (position) {
 			case 0:
-				fragment = WallpaperCategoryNewFragment.newInstance(null);
-				DataEyeManager.getInstance().module(ModuleName.WALLPAPER_NEW, true);
-				DataEyeManager.getInstance().source(StatisticConstan.SrcName.WALLPAPER_NEW, 0, null, 0L, null, null,
+				fragment = WallpaperAlbumFragment.newInstance(null);
+				DataEyeManager.getInstance().module(ModuleName.WALLPAPER_ALBUM, true);
+				DataEyeManager.getInstance().source(StatisticConstan.SrcName.WALLPAPER_ALBUM, 0, null, 0L, null, null,
 						false);
 				break;
 			case 1:
