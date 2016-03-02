@@ -85,6 +85,7 @@ public class FindPwdActivity extends BaseActivity implements OnClickListener, On
 		etUserName = (ClearEditText) findViewById(R.id.et_find_pwd_username);
 		//		tvUnClear = (TextView) findViewById(R.id.tv_find_pwd_un_clare);
 		tvUnHint = (TextView) findViewById(R.id.tv_find_pwd_un_hint);
+		tvFindHintText.setText(ResourceUtil.getString(context,R.string.find_hint_text,ResourceUtil.getString(context,R.string.app_name)));
 		btnNext.setOnClickListener(this);
 		//		tvUnClear.setOnClickListener(this) ;
 		etUserName.setOnFocusChangeListener(this);

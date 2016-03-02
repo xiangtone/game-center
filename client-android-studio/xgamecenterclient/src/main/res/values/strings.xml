@@ -25,6 +25,8 @@
     <string name="update_all">Update All</string>
     <string name="delete_all">全部删除</string>
 
+    <!-- 服务器-->
+    <string name="mas">#%5B;：mas</string>
     <!-- title -->
     <string name="page_app_detail">App Details</string>
     <string name="page_download_management">下载管理</string>
@@ -69,7 +71,7 @@
     <string name="ringtone">铃声</string>
     <string name="wallpaper">壁纸</string>
     <string name="home_recommend">推荐</string>
-    <string name="home_collection">收藏</string>
+    <string name="home_collection">精选</string>
     <string name="home_must_have">必玩</string>
     <string name="home_new">NEW</string>
     <string name="home_top">TOP</string>
@@ -92,6 +94,7 @@
     <string name="wallpaper_top">排行</string>
     <string name="wallpaper_hot">热门</string>
     <string name="wallpaper_live">动态</string>
+    <string name="wallpaper_new">最新</string>
     <string name="resource_app">应用和游戏</string>
     <string name="resource_pic">图片</string>
     <string name="resource_music">音乐</string>
@@ -390,107 +393,107 @@
     <!-- 零流量分享 -->
     <string name="sharing_search_friends">搜索朋友</string>
     <string name="sharing_qr_code">二维码</string>
-    <string name="sms_body">Welcome to use Wi-Fi Share! Without data flow, you can send and receive any files with friends. Install zApp then you can use it: http://www.zapp365.com/</string>
-    <string name="receive_recode_successfulreceived">Successfully received:\t</string>
+    <string name="sms_body">欢迎使用Wi-Fi分享!您可以使用Wi-Fi发送给朋友或者从朋友那里接收文件。点击即可下载<xliff:g>%1$s</xliff:g>: http://<xliff:g>%2$s</xliff:g></string>
+    <string name="receive_recode_successfulreceived">成功接收:\t</string>
     <string name="sharing_invite_friend"><u>Invite your friends to install zApp.</u></string>
-    <string name="sharing_searching">Searching with friends nearby&#8230;</string>
-    <string name="sharing_scanner_prompt"><u>Invite friends to launch QR Code first.</u></string>
-    <string name="sharing_next">Next</string>
-    <string name="sharing_invitation_title">Please choose a way to invite friends to install zApp.</string>
-    <string name="sharing_invitation_browserdownload">Please enter below URL to download zApp.</string>
-    <string name="sharing_invitation_scanorcode">Please ask friends to scan this QR Code.</string>
+    <string name="sharing_searching">搜索附近的人&#8230;</string>
+    <string name="sharing_scanner_prompt"><u>请让您的朋友打开扫一扫。</u></string>
+    <string name="sharing_next">下一步</string>
+    <string name="sharing_invitation_title">请先让您的朋友安装<xliff:g>%1$s</xliff:g>。</string>
+    <string name="sharing_invitation_browserdownload">请点击以下链接下载<xliff:g>%1$s</xliff:g>。</string>
+    <string name="sharing_invitation_scanorcode">请让您的朋友扫描二维码</string>
     <string name="sharing_invitation_sms2">短信</string>
-    <string name="sharing_invitation_browser">Browser</string>
-    <string name="sharing_invitation_orcode">QR Code</string>
-    <string name="sharing_invitation_tips">zApp is only available on Android Devices.</string>
-    <string name="sharing_how_to_accpect">Steps for your friends to receive files:</string>
-    <string name="sharing_prompt1">Make sure both of you have launched zApp.</string>
-    <string name="sharing_prompt1_of_link"><u>No zApp? Install now!</u></string>
-    <string name="sharing_prompt2">Click \"Receive\" inside Wi-Fi Share.</string>
+    <string name="sharing_invitation_browser">浏览器</string>
+    <string name="sharing_invitation_orcode">二维码</string>
+    <string name="sharing_invitation_tips">暂时只支持android设备。</string>
+    <string name="sharing_how_to_accpect">以下为接收文件步骤:</string>
+    <string name="sharing_prompt1">确保你们的<xliff:g>%1$s</xliff:g>在运行。</string>
+    <string name="sharing_prompt1_of_link"><u>没有<xliff:g>%1$s</xliff:g>?马上安装!</u></string>
+    <string name="sharing_prompt2">点击Wi-Fi共享中的\"接收\"。</string>
     <string name="website_url">www.zapp365.com</string>
-    <string name="no_sms_tips">Failed to send SMS.</string>
+    <string name="no_sms_tips">短信发送失败。</string>
     <string name="sharing_invitation_receivefiles">Invite friends to scan the code for receiving files.</string>
     <string name="transfer_cancle">取消</string>
     <string name="transfer_install">安装</string>
-    <string name="transfer_launch">Launch</string>
-    <string name="transfer_open">Open</string>
-    <string name="transfer_retry">Retry</string>
+    <string name="transfer_launch">运行</string>
+    <string name="transfer_open">打开</string>
+    <string name="transfer_retry">重试</string>
     <string name="transfer_setting">设置</string>
-    <string name="atw_invite_connect_zapp">Invite friends to connect this free Wi-Fi: </string>
+    <string name="atw_invite_connect_zapp">邀请朋友连接这个免费Wi-Fi: </string>
     <string name="atw_wifi">Wi-Fi</string>
-    <string name="atw_Installation_notes">Scan this code to download zApp for free.\nOr download it via</string>
-    <string name="atw_operation_tips">Please do not exit before download complete, or download will cancel.</string>
-    <string name="connection_failed">Connection failed.</string>
-    <string name="share_receive_percent"><xliff:g id="percent">%1$s</xliff:g> received.</string>
-    <string name="share_receive_save_stream"><xliff:g id="stream">%1$s</xliff:g> have already saved for you!</string>
-    <string name="dialog_cancle_zerodata_share">Are you sure to exit Wi-Fi Share?</string>
-    <string name="dialog_exit_zerodata_share">Are you sure to exit Wi-Fi Share?</string>
-    <string name="dialog_zerodata_exit">Exit</string>
-    <string name="dialog_hotspot_disabled_tips">Wi-Fi Hotspot is not activated. Create one?</string>
-    <string name="dialog_zerodata_receive_exit">Are you sure to exit Wi-Fi Share?</string>
-    <string name="dialog_zerodata_reconnect">Reconnecting&#8230;</string>
-    <string name="dialog_zerodata_out_of_client_tips">The devices you connected is outnumbered by five. Please wait a moment.</string>
-    <string name="dialog_zerodata_connect_error_tips">Fail to connect the server. Want to try again?</string>
+    <string name="atw_Installation_notes">扫码免费下载<xliff:g>%1$s</xliff:g>。\n或在此下载</string>
+    <string name="atw_operation_tips">请不要在下载完成之前退出，否则下载将会被取消。</string>
+    <string name="connection_failed">连接失败。</string>
+    <string name="share_receive_percent"><xliff:g id="percent">%1$s</xliff:g> 已接收。</string>
+    <string name="share_receive_save_stream"><xliff:g id="stream">%1$s</xliff:g> 已保存!</string>
+    <string name="dialog_cancle_zerodata_share">确定要退出Wi-Fi共享吗?</string>
+    <string name="dialog_exit_zerodata_share">确定要退出Wi-Fi共享吗?</string>
+    <string name="dialog_zerodata_exit">退出</string>
+    <string name="dialog_hotspot_disabled_tips">没有可用Wi-Fi热点，是否创建一个?</string>
+    <string name="dialog_zerodata_receive_exit">确定要退出Wi-Fi共享吗?</string>
+    <string name="dialog_zerodata_reconnect">正在重连&#8230;</string>
+    <string name="dialog_zerodata_out_of_client_tips">您连接的设备超过五个，请稍后再试。</string>
+    <string name="dialog_zerodata_connect_error_tips">连接服务器失败，是否重试?</string>
     <string name="sharenearby_intent">zApp</string>
-    <string name="share_history_file_size">Congratulations!\n<xliff:g id="size">%1$s</xliff:g> have already saved for you.</string>
-    <string name="share_history_file_not_exit">The received file \"<xliff:g id="fileName">%1$s</xliff:g>\" had been deleted.</string>
-    <string name="share_history_dialog_delete_all">Do you really want to delete these files?</string>
-    <string name="share_history_dialog_delete_one">Do you really want to delete this file?</string>
-    <string name="share_file_desc">&#160;have already been packed.</string>
-    <string name="share_file">&#160; file</string>
-    <string name="share_files">&#160; files</string>
-    <string name="share_file_with">&#160; file with &#160;</string>
-    <string name="share_files_with">&#160; files with &#160;</string>
-    <string name="shared">Shared &#160;</string>
-    <string name="share_connecting1">Connecting.</string>
-    <string name="share_connecting2">Connecting..</string>
-    <string name="share_connecting3">Connecting...</string>
-    <string name="connection_server_time_out">Connection failed. Please click again.</string>
+    <string name="share_history_file_size">恭喜!\n已为您保存<xliff:g id="size">%1$s</xliff:g>。</string>
+    <string name="share_history_file_not_exit">接收文件\"<xliff:g id="fileName">%1$s</xliff:g>\"已被删除。</string>
+    <string name="share_history_dialog_delete_all">确定要删除这些文件吗?</string>
+    <string name="share_history_dialog_delete_one">确定要删除这个文件吗?</string>
+    <string name="share_file_desc">&#160;已经打包</string>
+    <string name="share_file">&#160; 文件</string>
+    <string name="share_files">&#160; 文件</string>
+    <string name="share_file_with">&#160; 文件 &#160;</string>
+    <string name="share_files_with">&#160; 文件 &#160;</string>
+    <string name="shared">已分享 &#160;</string>
+    <string name="share_connecting1">连接中.</string>
+    <string name="share_connecting2">连接中..</string>
+    <string name="share_connecting3">连接中...</string>
+    <string name="connection_server_time_out">连接失败，请重试。</string>
     <string name="send">发送</string>
     <string name="receive">接收</string>
-    <string name="share_file_tips">Share files without data traffic!</string>
+    <string name="share_file_tips">无需流量即可分享文件!</string>
     <string name="invitation_btn_text">邀请</string>
     <string name="history_btn_text">历史记录</string>
     <string name="guide_btn_text">指南</string>
 
     <!-- 平台升级（通知栏 & 内容提示） -->
     <string name="new_version">新版本</string>
-    <string name="platform_downloading">Downloading zApp</string>
-    <string name="platform_ticker_text">Update zApp</string>
-    <string name="launch_download">Start to download…</string>
-    <string name="download_fail">Download failed.</string>
-    <string name="download_success">Download successfully.</string>
-    <string name="upgrade_reminder">Update Reminder</string>
+    <string name="platform_downloading">正在下载<xliff:g>%1$s</xliff:g></string>
+    <string name="platform_ticker_text">更新<xliff:g>%1$s</xliff:g></string>
+    <string name="launch_download">开始下载…</string>
+    <string name="download_fail">下载失败。</string>
+    <string name="download_success">下载成功。</string>
+    <string name="upgrade_reminder">更新提醒</string>
     <string name="dialog_btn_update">更新</string>
     <string name="connection_timeout">Connection timed out. Please try again later.</string>
-    <string name="platform_download_complete_title1">zApp update, install now!</string>
-    <string name="platform_download_complete_title2">zApp Download Completed!</string>
-    <string name="platform_download_complete_size">Size: &#160;</string>
-    <string name="notification_detail_btn_text">&#160;&#160;&#160;Details</string>
-    <string name="notification_install_btn_text">&#160;&#160;&#160;Install</string>
-    <string name="notification_open_btn_text">&#160;&#160;&#160;Launch</string>
-    <string name="notification_share_btn_text">&#160;&#160;&#160;Share</string>
-    <string name="noti_drag_tips">(Drag for more details)</string>
-    <string name="new_version_tips">This is the latest version.</string>
+    <string name="platform_download_complete_title1"><xliff:g>%1$s</xliff:g>更新成功，现在安装!</string>
+    <string name="platform_download_complete_title2"><xliff:g>%1$s</xliff:g>下载完成!</string>
+    <string name="platform_download_complete_size">大小: &#160;</string>
+    <string name="notification_detail_btn_text">&#160;&#160;&#160;详情</string>
+    <string name="notification_install_btn_text">&#160;&#160;&#160;安装</string>
+    <string name="notification_open_btn_text">&#160;&#160;&#160;运行</string>
+    <string name="notification_share_btn_text">&#160;&#160;&#160;分享</string>
+    <string name="noti_drag_tips">(拖动查看更多详情)</string>
+    <string name="new_version_tips">已是最新版本。</string>
 
     <!-- 新手引导 -->
     <string name="start_now">立即开启</string>
 
     <!-- My apps -->
     <string name="app_new_update">更新</string>
-    <string name="app_new_downloading">Downloading</string>
+    <string name="app_new_downloading">下载中</string>
     <string name="app_new_install">未安装</string>
     <string name="app_new_update_all">全部更新(<xliff:g id="num">%1$s</xliff:g>)</string>
-    <string name="app_new_download_all">Download All(<xliff:g id="num">%1$s</xliff:g>)</string>
-    <string name="app_new_pause_all">Pause All(<xliff:g id="num">%1$s</xliff:g>)</string>
+    <string name="app_new_download_all">全部更新(<xliff:g id="num">%1$s</xliff:g>)</string>
+    <string name="app_new_pause_all">全部暂停(<xliff:g id="num">%1$s</xliff:g>)</string>
 
     <!-- feedback -->
-    <string name="feedback_input_tips">Only 1024 characters are availble here.</string>
-    <string name="submit_feedback">My Questions</string>
-    <string name="feedback_warn_title">Your feedback got replied!</string>
-    <string name="feedback_warn_content">Click to check details.</string>
-    <string name="feedback_warn_tips">Your feedback got replied!</string>
-    <string name="feedback_first_tips">Dear User, let us know your feedback or problems and we would try our best to improve your experience with zApp.</string>
+    <string name="feedback_input_tips">最多可输入512个字。</string>
+    <string name="submit_feedback">我的问题</string>
+    <string name="feedback_warn_title">您反馈的问题得到了回复!</string>
+    <string name="feedback_warn_content">点击查看详情。</string>
+    <string name="feedback_warn_tips">您反馈的问题得到了回复!</string>
+    <string name="feedback_first_tips">亲爱的用户，请提交您的意见或问题，我们将尽力改善<xliff:g>%1$s</xliff:g>的用户体验。</string>
 
     <!-- search -->
     <string name="search_refresh_text">刷新</string>
@@ -501,80 +504,80 @@
     <string name="search_tips">请输入搜索关键字。</string>
 
     <!-- Notification 通知栏 -->
-    <string name="checking">Checking</string>
-    <string name="noti_update_all">&#160;Update All</string>
-    <string name="click_to_open">Click to launch</string>
-    <string name="app_no_exists_tips">The app did not exist. Please redownload again.</string>
+    <string name="checking">正在检查</string>
+    <string name="noti_update_all">&#160;全部更新</string>
+    <string name="click_to_open">点击运行</string>
+    <string name="app_no_exists_tips">游戏不存在，请重新下载。</string>
 
     <!-- account -->
-    <string name="login_in">Logging in...</string>
-    <string name="login">Login</string>
-    <string name="login_successful">Login successfully.</string>
-    <string name="login_username_or_pwd_error">The email address or password is incorrect. Please try again.</string>
-    <string name="login_failure">Login failed.</string>
+    <string name="login_in">正在登录...</string>
+    <string name="login">登录</string>
+    <string name="login_successful">登录成功。</string>
+    <string name="login_username_or_pwd_error">邮箱地址或者密码错误，请重试。</string>
+    <string name="login_failure">登录失败。</string>
     <string name="login_username_text">邮箱地址</string>
     <string name="login_password_text">密码</string>
     <string name="login_btn_text">登录</string>
-    <string name="login_fail_network_error">Network unavailable.  Please try again later.</string>
+    <string name="login_fail_network_error">网络异常，请稍后重试。</string>
     <string name="register_btn_text">注册</string>
-    <string name="reg_registering">Registering...</string>
-    <string name="reg_have_account">I already have an account.</string>
-    <string name="reg_success">Registered successfully.</string>
-    <string name="reg_fail_have_registered">This email address has already been registered.</string>
-    <string name="reg_fail_email_invalid">This email address is invalid. Please try another one.</string>
-    <string name="reg_fail">Failed to register.</string>
-    <string name="reg_fail_network_error">Network unavailable.  Please try again later.</string>
-    <string name="register">Register</string>
-    <string name="logout_success">Logout successfully.</string>
-    <string name="logout_fail">Logout failed.</string>
-    <string name="logout_fail_network_error">Network unavailable.  Please try again later.</string>
-    <string name="modify_nickname_success">Nickname modified successfully.</string>
-    <string name="modify_nickname_fail">Failed to modify nickname.</string>
-    <string name="modify_nickname_fail_network_error">Network error. Please try again later.</string>
-    <string name="modify_pwd_fail_network_error">Network error. Please try again later.</string>
-    <string name="send_email_succesful">Email sent successfully.</string>
-    <string name="send_email_error">Failed to send email.</string>
-    <string name="send_email_fail_network_error">Network unavailable.  Please try again later.</string>
-    <string name="email_error">The email address you entered is incorrect. Please enter another one.</string>
+    <string name="reg_registering">正在注册...</string>
+    <string name="reg_have_account">我已经有一个帐号</string>
+    <string name="reg_success">注册成功</string>
+    <string name="reg_fail_have_registered">邮箱地址已被注册。</string>
+    <string name="reg_fail_email_invalid">邮箱地址无效，请尝试其它邮箱。</string>
+    <string name="reg_fail">注册失败。</string>
+    <string name="reg_fail_network_error">网络异常，请稍后重试。</string>
+    <string name="register">注册</string>
+    <string name="logout_success">退出登录成功</string>
+    <string name="logout_fail">退出登录失败</string>
+    <string name="logout_fail_network_error">网络异常，请稍后重试。</string>
+    <string name="modify_nickname_success">昵称修改成功。</string>
+    <string name="modify_nickname_fail">昵称修改失败。</string>
+    <string name="modify_nickname_fail_network_error">网络错误，请稍后重试。</string>
+    <string name="modify_pwd_fail_network_error">网络错误，请稍后重试</string>
+    <string name="send_email_succesful">邮件发送成功。</string>
+    <string name="send_email_error">邮件发送失败。</string>
+    <string name="send_email_fail_network_error">网络异常，请稍后重试。</string>
+    <string name="email_error">您输入邮箱地址无效，请尝试输入其它邮箱地址。</string>
     <string name="send_pwd_succcessful_title">registration successful</string>
     <string name="find_password">忘记密码?</string>
-    <string name="find_hint_text">Please enter the email address as registered to zApp, then a new password will be sent to your email box.</string>
-    <string name="old_pwd">Old password</string>
-    <string name="new_pwd">New password</string>
+    <string name="find_hint_text">请输入在<xliff:g>%1$s</xliff:g>注册的邮箱地址,稍后我们将会把新密码发送至您的邮箱中。</string>
+    <string name="old_pwd">旧密码</string>
+    <string name="new_pwd">新密码</string>
     <string name="ok">OK</string>
-    <string name="display_pwd">Show password</string>
-    <string name="logouting">Logging out...</string>
-    <string name="logout">Logout</string>
-    <string name="mpwd_modify_pwd_success">Password reset successfully.</string>
-    <string name="mpwd_old_pwd_error">The old password is incorrect.</string>
-    <string name="mpwd_modify_fail">Failed to reset password.</string>
-    <string name="mpwd_forget_pwd">Forgot password?</string>
-    <string name="modify_success">Profile photo modified successfully.</string>
-    <string name="pwd_is_null">*Please enter your password.</string>
-    <string name="username_is_null">*Please enter your email address.</string>
-    <string name="pwd_cannot_contain_chinese">*Password cannot contain Chinese characters.</string>
-    <string name="pwd_char_count_greater_check">*Password must be longer than 6 characters.</string>
-    <string name="pwd_char_count_less_check">*Password must be less than 16 characters.</string>
-    <string name="username_char_count_less_check">*Email address must be less than 50 characters.</string>
-    <string name="username_no_email">*This must be a real email address.</string>
-    <string name="username_is_available">*The email address is available.</string>
-    <string name="send_pwd_success_case_login_find_pwd_title">New Password Sent Successfully</string>
-    <string name="send_pwd_success_case_login_find_pwd_msg">Please check your new password which has already been sent to your email box. Then you can login to zApp with this new password.</string>
-    <string name="send_pwd_success_case_login_find_pwd_btn_login">Login</string>
-    <string name="send_pwd_success_case_register_success_title">Registered Successfully</string>
-    <string name="send_pwd_success_case_register_success_msg">Congrats! You have registered successfully. Please check your new password which was generated automatically and has already been sent to your email box.Then you can login to zApp with this new password.</string>
-    <string name="send_pwd_success_case_register_success_btn_login">Login</string>
-    <string name="send_pwd_success_case_account_find_pwd_title">New Password Sent Successfully</string>
-    <string name="send_pwd_success_case_account_find_pwd_msg">Please check your new password which has already been sent to your email box. Then log in to zApp with this password.</string>
+    <string name="display_pwd">显示密码</string>
+    <string name="logouting">正在退出登录...</string>
+    <string name="logout">退出登录</string>
+    <string name="mpwd_modify_pwd_success">重置密码成功。</string>
+    <string name="mpwd_old_pwd_error">旧密码输入不正确。</string>
+    <string name="mpwd_modify_fail">重置密码失败。</string>
+    <string name="mpwd_forget_pwd">忘记密码?</string>
+    <string name="modify_success">头像修改成功。</string>
+    <string name="pwd_is_null">*请输入您的密码。</string>
+    <string name="username_is_null">*请输入您的邮箱地址。</string>
+    <string name="pwd_cannot_contain_chinese">*密码不能使用中文。</string>
+    <string name="pwd_char_count_greater_check">*密码长度不能少于6个字母。</string>
+    <string name="pwd_char_count_less_check">*密码长度不能多于16个字母。</string>
+    <string name="username_char_count_less_check">*邮箱地址不能多于50个字母.</string>
+    <string name="username_no_email">*请输入正确的邮箱地址。</string>
+    <string name="username_is_available">*邮箱地址不可用。</string>
+    <string name="send_pwd_success_case_login_find_pwd_title">新密码发送成功</string>
+    <string name="send_pwd_success_case_login_find_pwd_msg">请在邮箱中查看您的新密码，然后使用新密码登录<xliff:g>%1$s</xliff:g>。</string>
+    <string name="send_pwd_success_case_login_find_pwd_btn_login">登录</string>
+    <string name="send_pwd_success_case_register_success_title">注册成功</string>
+    <string name="send_pwd_success_case_register_success_msg">恭喜! 您已经注册成功。请在邮箱中查看自动为您生成的新密码，然后使用新密码登录<xliff:g>%1$s</xliff:g>。</string>
+    <string name="send_pwd_success_case_register_success_btn_login">登录</string>
+    <string name="send_pwd_success_case_account_find_pwd_title">新密码发送成功。</string>
+    <string name="send_pwd_success_case_account_find_pwd_msg">请在邮箱中查看您的新密码，然后使用新密码登录<xliff:g>%1$s</xliff:g>。</string>
     <string name="send_pwd_success_case_account_find_pwd_btn_ok">OK</string>
-    <string name="nickname_is_null">*Please enter your nickname.</string>
-    <string name="nickname_char_count_greater_check">*Nickname must be longer than 3 characters.</string>
-    <string name="nickname_char_count_less_check">*Nickname must be less than 30 characters.</string>
-    <string name="nickname_is_available">*The nickname is available.</string>
-    <string name="nickname_text">Nickname (3-30 characters)</string>
-    <string name="email">Email:&#160;</string>
-    <string name="change_password">Reset Password</string>
-    <string name="next">Next</string>
+    <string name="nickname_is_null">*请输入您的昵称。</string>
+    <string name="nickname_char_count_greater_check">*昵称不能少于3个字。</string>
+    <string name="nickname_char_count_less_check">*昵称不能超过30个字。</string>
+    <string name="nickname_is_available">*这个昵称不可使用。</string>
+    <string name="nickname_text">昵称 (3-30字之间)</string>
+    <string name="email">邮箱:&#160;</string>
+    <string name="change_password">重置密码</string>
+    <string name="next">下一步</string>
 
     <!-- 异常提示 -->
     <string name="nullPointerException">Null Pointer Exception</string>
@@ -605,61 +608,61 @@
     <string name="tools_skin_desc">新皮肤选取</string>
 
     <!-- 应用锁 -->
-    <string name="input_password">ENTER PASSWORD</string>
-    <string name="security_question">Security Questions</string>
-    <string name="security_answer">Answer</string>
-    <string name="wrong_answer">Wrong Answer</string>
-    <string name="favorite_color">What is my favorite colors?</string>
-    <string name="love_people">Who is my beloved one?</string>
-    <string name="birthday">When is my birthday?</string>
-    <string name="where_born">Where was I born?</string>
-    <string name="custom_question">Set my own question</string>
-    <string name="password_match_fail">*Passwords do not match, please try again.</string>
-    <string name="input_illegal">*Characters entered should be between 1 and 30.</string>
-    <string name="incoming_call_app_name">Incoming call</string>
-    <string name="incoming_call_app_desc">Prevent others from answering incoming call</string>
-    <string name="install_app_name">Install/Uninstall</string>
-    <string name="install_app_desc">Prevent others from installing or uninstalling apps</string>
+    <string name="input_password">密码输入</string>
+    <string name="security_question">安全问题</string>
+    <string name="security_answer">答案</string>
+    <string name="wrong_answer">错误答案</string>
+    <string name="favorite_color">我最喜欢什么颜色?</string>
+    <string name="love_people">我爱的人是谁?</string>
+    <string name="birthday">我的生日是哪天?</string>
+    <string name="where_born">我的出生地在哪?</string>
+    <string name="custom_question">设置我的问题</string>
+    <string name="password_match_fail">*密码不正确，请重试。</string>
+    <string name="input_illegal">*只能输入1～30个字。</string>
+    <string name="incoming_call_app_name">来电</string>
+    <string name="incoming_call_app_desc">防止别人打开来电显示</string>
+    <string name="install_app_name">应用管理</string>
+    <string name="install_app_desc">防止别人打开应用管理</string>
     <string name="settings_app_name">设置</string>
-    <string name="settings_app_desc">Prevent others from uninstalling or force-close App Lock</string>
-    <string name="messages_app_name">Messages</string>
-    <string name="messages_app_desc">Prevent others from checking Messages</string>
-    <string name="email_app_name">Email</string>
-    <string name="email_app_desc">Prevent others from checking Email</string>
-    <string name="gallery_app_name">Gallery</string>
-    <string name="gallery_app_desc">Prevent others from checking photos</string>
+    <string name="settings_app_desc">防止别人卸载或强制关闭应用程序锁</string>
+    <string name="messages_app_name">短信</string>
+    <string name="messages_app_desc">防止别人查看短信</string>
+    <string name="email_app_name">邮箱</string>
+    <string name="email_app_desc">防止别人查看邮件</string>
+    <string name="gallery_app_name">相册</string>
+    <string name="gallery_app_desc">防止别人查看相册</string>
     <string name="task_manager_app_name">Task Manager</string>
     <string name="task_manager_app_desc">Prevent others from force-closing apps</string>
-    <string name="third_party_app_desc">Third-party app</string>
-    <string name="find_remind">Please set a security question as tips for finding password.</string>
-    <string name="app_time_horizen">*Set the time whenever you want to lock apps.</string>
-    <string name="reset_password">Reset Password</string>
-    <string name="reset_password_desc">Reset password for the locked apps</string>
-    <string name="select_time_from_tv">From</string>
-    <string name="select_time_to_tv">To</string>
-    <string name="app_lock_list_count_desc">app(s) got locked.</string>
-    <string name="app_lock_list_nonelocked_desc">You didn\'t lock any apps. Try it now.</string>
-    <string name="set_password">Set Password</string>
+    <string name="third_party_app_desc">第三方应用</string>
+    <string name="find_remind">请设置一个安全问题作为找回密码的提示。</string>
+    <string name="app_time_horizen">*设置应用上锁时间。</string>
+    <string name="reset_password">重置密码</string>
+    <string name="reset_password_desc">重置应用锁的密码</string>
+    <string name="select_time_from_tv">从</string>
+    <string name="select_time_to_tv">到</string>
+    <string name="app_lock_list_count_desc">应用已上锁。</string>
+    <string name="app_lock_list_nonelocked_desc">没有锁定任何应用，赶紧试试吧。</string>
+    <string name="set_password">设置密码</string>
     <string name="app_lock_title">应用锁</string>
-    <string name="app_lock_desc">When it is on, your apps can be locked with password.</string>
-    <string name="app_lock_list_title">Locked App List</string>
-    <string name="advance_setting_title">Advance Settings</string>
-    <string name="advance_setting_desc">Here are more customization settings…</string>
-    <string name="app_lock_commonlock_locked_toast">Locked:</string>
-    <string name="app_lock_commonlock_unlocked_toast">Unlocked:</string>
-    <string name="password_unlock_fail">Password is incorrect.</string>
+    <string name="app_lock_desc">开启后，您的应用需要使用密码打开。</string>
+    <string name="app_lock_list_title">已上锁应用列表</string>
+    <string name="advance_setting_title">高级设置</string>
+    <string name="advance_setting_desc">更多自定义设置…</string>
+    <string name="app_lock_commonlock_locked_toast">已上锁:</string>
+    <string name="app_lock_commonlock_unlocked_toast">未上锁:</string>
+    <string name="password_unlock_fail">密码不正确。</string>
     <!-- 换肤 -->
-    <string name="skin_default_name">Green, the Beginner</string>
-    <string name="skin_default_description">Green smells like grass and rain, makes us take off...</string>
+    <string name="skin_default_name">绿色，初始设置</string>
+    <string name="skin_default_description">世界因我们而骄傲，我们因绿色而愉悦。</string>
 
     <!-- DynamicListView -->
-    <string name="country_title1">%1$s user just downloaded</string>
-    <string name="country_title2">User from %1$s</string>
-    <string name="dynamic_detail_tips">It\'s happening, right this moment.</string>
+    <string name="country_title1">%1$s 用户刚刚下载</string>
+    <string name="country_title2">用户来自 %1$s</string>
+    <string name="dynamic_detail_tips">正在刷新，稍等便好。</string>
 
     <!-- WallPaper -->
-    <string name="wallpaper_ablum_num_text"> Images</string>
+    <string name="wallpaper_ablum_num_text"> 图片</string>
     <!-- push notification -->
-    <string name="push_notification_tricker">you have a new message.</string>
+    <string name="push_notification_tricker">有新消息</string>
 
 </resources>

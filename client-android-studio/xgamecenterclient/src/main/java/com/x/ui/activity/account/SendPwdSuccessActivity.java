@@ -15,6 +15,7 @@ import com.x.business.skin.SkinConfigManager;
 import com.x.business.skin.SkinConstan;
 import com.x.business.statistic.DataEyeManager;
 import com.x.business.statistic.StatisticConstan.ModuleName;
+import com.x.publics.utils.ResourceUtil;
 import com.x.ui.activity.base.BaseActivity;
 
 public class SendPwdSuccessActivity extends BaseActivity implements OnClickListener {
@@ -67,17 +68,17 @@ public class SendPwdSuccessActivity extends BaseActivity implements OnClickListe
 		case AccountHelper.SKIP_CASE_ACCOUNT_FIND_PWD:
 			tvbtn.setText(R.string.send_pwd_success_case_account_find_pwd_btn_ok);
 			tvTitle.setText(R.string.send_pwd_success_case_account_find_pwd_title);
-			tvMsg.setText(R.string.send_pwd_success_case_account_find_pwd_msg);
+			tvMsg.setText(ResourceUtil.getString(context,R.string.send_pwd_success_case_account_find_pwd_msg,ResourceUtil.getString(context,R.string.app_name)));
 			break;
 		case AccountHelper.SKIP_CASE_LOGIN_FIND_PWD:
 			tvbtn.setText(R.string.send_pwd_success_case_login_find_pwd_btn_login);
 			tvTitle.setText(R.string.send_pwd_success_case_login_find_pwd_title);
-			tvMsg.setText(R.string.send_pwd_success_case_login_find_pwd_msg);
+			tvMsg.setText(ResourceUtil.getString(context,R.string.send_pwd_success_case_login_find_pwd_msg,ResourceUtil.getString(context,R.string.app_name)));
 			break;
 		case AccountHelper.SKIP_CASE_REGISTER_SUCCESS:
 			tvbtn.setText(R.string.send_pwd_success_case_register_success_btn_login);
 			tvTitle.setText(R.string.send_pwd_success_case_register_success_title);
-			tvMsg.setText(R.string.send_pwd_success_case_register_success_msg);
+			tvMsg.setText(ResourceUtil.getString(context,R.string.send_pwd_success_case_register_success_msg,ResourceUtil.getString(context,R.string.app_name)));
 			mTitleTv.setText(R.string.page_account_registered_successfully);
 			break;
 		default:

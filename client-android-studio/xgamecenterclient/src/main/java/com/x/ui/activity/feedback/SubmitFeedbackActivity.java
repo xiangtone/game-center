@@ -422,7 +422,7 @@ public class SubmitFeedbackActivity extends BaseActivity implements OnClickListe
 	private void addWarnData() {
 		if (conisLast == true) {
 			FeedbackDialogueBean feedbackDialogueBean = new FeedbackDialogueBean();
-			content = SubmitFeedbackActivity.this.getResources().getString(R.string.feedback_first_tips);
+			content = ResourceUtil.getString(context,R.string.feedback_first_tips,ResourceUtil.getString(context,R.string.app_name));
 			feedbackDialogueBean.setContent(content);
 			feedbackDialogueBean.setFeedbackType(2);
 			if (submitFbLv.isEmpty()) {

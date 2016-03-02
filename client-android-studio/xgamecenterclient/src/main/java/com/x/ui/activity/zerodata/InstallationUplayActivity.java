@@ -18,6 +18,7 @@ import com.x.business.skin.SkinConstan;
 import com.x.business.zerodata.connection.manager.ConnectHotspotManage;
 import com.x.business.zerodata.helper.ZeroDataConstant;
 import com.x.business.zerodata.helper.ZeroDataResourceHelper;
+import com.x.publics.utils.ResourceUtil;
 import com.x.publics.utils.ToastUtil;
 import com.x.publics.utils.Utils;
 import com.x.ui.activity.base.BaseActivity;
@@ -37,7 +38,7 @@ public class InstallationUplayActivity extends BaseActivity implements OnClickLi
 	private LinearLayout oneItem, twoItem, threeItem, fourItem;
 
 	private ImageView mGobackIv;
-	private TextView mTitleTv;
+	private TextView mTitleTv,mShareFreeTv;
 	private View mNavigationView, mTitleView, mTitlePendant;
 
 	@Override
@@ -68,8 +69,10 @@ public class InstallationUplayActivity extends BaseActivity implements OnClickLi
 		mNavigationView = findViewById(R.id.mh_navigate_ll);
 		mGobackIv = (ImageView) findViewById(R.id.mh_slidingpane_iv);
 		mTitleTv = (TextView) findViewById(R.id.mh_navigate_title_tv);
+		mShareFreeTv = (TextView) findViewById(R.id.shareFreeTv);
 		mGobackIv.setBackgroundResource(R.drawable.ic_back);
 		mTitleTv.setText(R.string.page_share_invite_to_install);
+		mShareFreeTv.setText(ResourceUtil.getString(context,R.string.sharing_invitation_title,ResourceUtil.getString(context,R.string.app_name)));
 		mNavigationView.setOnClickListener(this);
 	}
 
@@ -87,7 +90,7 @@ public class InstallationUplayActivity extends BaseActivity implements OnClickLi
 		threeItem.setOnClickListener(this);
 		fourItem.setOnClickListener(this);
 
-		browserStr = getResources().getString(R.string.sharing_invitation_browserdownload);
+		browserStr = ResourceUtil.getString(context,R.string.sharing_invitation_browserdownload,ResourceUtil.getString(context,R.string.app_name));
 		scanStr = getResources().getString(R.string.sharing_invitation_scanorcode);
 	}
 
@@ -121,7 +124,7 @@ public class InstallationUplayActivity extends BaseActivity implements OnClickLi
 				Uri smsToUri = Uri.parse("smsto:");
 				Intent smsIntent = new Intent(Intent.ACTION_SENDTO, smsToUri);
 				smsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				smsIntent.putExtra("sms_body", getResources().getText(R.string.sms_body));
+				smsIntent.putExtra("sms_body", ResourceUtil.getString(context,R.string.sms_body,ResourceUtil.getString(context,R.string.app_name),ResourceUtil.getString(context,R.string.website_url)));
 				startActivity(smsIntent);
 			} catch (Exception e) {
 				ToastUtil.show(this, R.string.no_sms_tips, Toast.LENGTH_SHORT);
