@@ -104,7 +104,7 @@
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-web</artifactId>
-	    <version>3.1.1.RELEASE</version>
+	    <version>3.2.16.RELEASE</version>
 	</dependency>
 	<dependency>
 	    <groupId>org.springframework</groupId>
@@ -127,9 +127,49 @@
 	    <version>1.0</version>
 	</dependency>
 	<dependency>
+	    <groupId>com.aspectjweaver</groupId>
+	    <artifactId>aspectjweaver</artifactId>
+	    <version>1.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.codehaus.groovy</groupId>
+	    <artifactId>groovy-all</artifactId>
+	    <version>2.2.1</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	    <version>1.0.1</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.mybatis.pagination.plug</groupId>
+	    <artifactId>mybatis_pagination_plug</artifactId>
+	    <version>1.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>commons-dbcp</groupId>
+	    <artifactId>commons-dbcp</artifactId>
+	    <version>1.4</version>
+	</dependency>
+	<dependency>
 	    <groupId>com.apkparser</groupId>
 	    <artifactId>apkparser</artifactId>
 	    <version>1.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>opensymphony</groupId>
+	    <artifactId>sitemesh</artifactId>
+	    <version>2.4</version>
+	</dependency>
+	<dependency>
+		<groupId>javax.servlet.jsp.jstl</groupId>
+		<artifactId>jstl-api</artifactId> 
+		<version>1.2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.glassfish.web</groupId>
+		<artifactId>jstl-impl</artifactId>
+		<version>1.2</version>
 	</dependency>
   </dependencies>
   <build>
