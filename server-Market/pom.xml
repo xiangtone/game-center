@@ -37,9 +37,14 @@
 	    <version>1.8.8</version>
 	</dependency>
 	<dependency>
-	    <groupId>org.slf4j</groupId>
-	    <artifactId>log4j-over-slf4j</artifactId>
-	    <version>1.7.18</version>
+	    <groupId>eu.agrosense.client</groupId>
+	    <artifactId>lib-slf4j-simple</artifactId>
+	    <version>1.7.6-NB80</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.mod4j.org.eclipse.xtext</groupId>
+	    <artifactId>log4j</artifactId>
+	    <version>1.2.15</version>
 	</dependency>
 	<dependency>
 	    <groupId>commons-io</groupId>
@@ -173,44 +178,62 @@
 	</dependency>
   </dependencies>
   <build>
-    <sourceDirectory>src</sourceDirectory>
-    <resources>
-      <resource>
-        <directory>src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
-      <resource>
-        <directory>aapt</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
-      <resource>
-        <directory>resource</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
-    </resources>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.6</version>
-        <configuration>
-          <warSourceDirectory>WebContent</warSourceDirectory>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
-      </plugin>
-    </plugins>
+    <finalName>${final.name}</finalName>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>aapt</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>resource</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
   </build>
+  <profiles>
+		<profile>
+			<id>product</id>
+			<properties>
+				<runtime.env>packageConfig\product</runtime.env>
+				<final.name>sMasMarket</final.name>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<runtime.env>packageConfig\test</runtime.env>
+				<final.name>sMasMarket-test</final.name>
+			</properties>
+		</profile>
+	</profiles>
 </project>
