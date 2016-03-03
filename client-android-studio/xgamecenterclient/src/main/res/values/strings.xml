@@ -143,7 +143,7 @@
     <string name="app_status_install">安装</string>
     <string name="app_status_installing">正在安装</string>
     <string name="app_status_pause">暂停</string>
-    <string name="toast_silent_install_failed">无法进行静默安装.</string>
+    <string name="toast_silent_install_failed">无法进行静默安装。</string>
 
     <!-- download module -->
     <string name="sdcard_no_memory">SD卡内存不足。</string>
@@ -558,7 +558,7 @@
     <string name="pwd_cannot_contain_chinese">*密码不能使用中文。</string>
     <string name="pwd_char_count_greater_check">*密码长度不能少于6个字母。</string>
     <string name="pwd_char_count_less_check">*密码长度不能多于16个字母。</string>
-    <string name="username_char_count_less_check">*邮箱地址不能多于50个字母.</string>
+    <string name="username_char_count_less_check">*邮箱地址不能多于50个字母。</string>
     <string name="username_no_email">*请输入正确的邮箱地址。</string>
     <string name="username_is_available">*邮箱地址不可用。</string>
     <string name="send_pwd_success_case_login_find_pwd_title">新密码发送成功</string>
