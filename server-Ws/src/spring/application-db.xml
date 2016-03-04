@@ -76,4 +76,6 @@
 	    <property name="basePackage" value="com.mas.market.mapper" />
 		<property name="sqlSessionFactory" ref="sqlPcSessionFactoryMarket" />
 	</bean>
+	
+	
 </beans>
