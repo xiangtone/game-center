@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.market.mapper.TAppTestinMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.market.pojo.TAppTestin" >
+    <id column="adaptId" property="adaptId" jdbcType="VARCHAR" />
+    <result column="reportUrl" property="reportUrl" jdbcType="VARCHAR" />
+    <result column="apkId" property="apkId" jdbcType="INTEGER" />
+    <result column="appId" property="appId" jdbcType="INTEGER" />
+    <result column="appName" property="appName" jdbcType="VARCHAR" />
+    <result column="packageName" property="packageName" jdbcType="VARCHAR" />
+    <result column="versionName" property="versionName" jdbcType="VARCHAR" />
+    <result column="versionCode" property="versionCode" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.reportUrl != null" >
+         and reportUrl = #{condition.reportUrl}
+      </if>
+      <if test="condition.apkId != null" >
+         and apkId = #{condition.apkId}
+      </if>
+      <if test="condition.appId != null" >
+         and appId = #{condition.appId}
+      </if>
+      <if test="condition.appName != null" >
+         and appName = #{condition.appName}
+      </if>
+      <if test="condition.packageName != null" >
+         and packageName = #{condition.packageName}
+      </if>
+      <if test="condition.versionName != null" >
+         and versionName = #{condition.versionName}
+      </if>
+      <if test="condition.versionCode != null" >
+         and versionCode = #{condition.versionCode}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.updateTime != null" >
+         and updateTime = #{condition.updateTime}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    adaptId, reportUrl, apkId, appId, appName, packageName, versionName, versionCode, 
+    createTime, updateTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_app_testin
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_testin
+    where adaptId = #{adaptId}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_app_testin
+    where adaptId = #{adaptId}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.market.pojo.Criteria" >
+    delete from t_app_testin
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.market.pojo.TAppTestin" >
+    insert into t_app_testin (adaptId, reportUrl, apkId, appId, appName, packageName, 
+      versionName, versionCode, createTime, updateTime)
+    values (#{adaptId}, #{reportUrl}, #{apkId}, #{appId}, #{appName}, #{packageName}, 
+      #{versionName}, #{versionCode}, #{createTime}, #{updateTime})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.market.pojo.TAppTestin" >
+    insert into t_app_testin
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="adaptId != null" >
+        adaptId,
+      </if>
+      <if test="reportUrl != null" >
+        reportUrl,
+      </if>
+      <if test="apkId != null" >
+        apkId,
+      </if>
+      <if test="appId != null" >
+        appId,
+      </if>
+      <if test="appName != null" >
+        appName,
+      </if>
+      <if test="packageName != null" >
+        packageName,
+      </if>
+      <if test="versionName != null" >
+        versionName,
+      </if>
+      <if test="versionCode != null" >
+        versionCode,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="adaptId != null" >
+        #{adaptId},
+      </if>
+      <if test="reportUrl != null" >
+        #{reportUrl},
+      </if>
+      <if test="apkId != null" >
+        #{apkId},
+      </if>
+      <if test="appId != null" >
+        #{appId},
+      </if>
+      <if test="appName != null" >
+        #{appName},
+      </if>
+      <if test="packageName != null" >
+        #{packageName},
+      </if>
+      <if test="versionName != null" >
+        #{versionName},
+      </if>
+      <if test="versionCode != null" >
+        #{versionCode},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.market.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from t_app_testin
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_app_testin
+    <set >
+      <if test="record.adaptId != null" >
+        adaptId = #{record.adaptId},
+      </if>
+      <if test="record.reportUrl != null" >
+        reportUrl = #{record.reportUrl},
+      </if>
+      <if test="record.apkId != null" >
+        apkId = #{record.apkId},
+      </if>
+      <if test="record.appId != null" >
+        appId = #{record.appId},
+      </if>
+      <if test="record.appName != null" >
+        appName = #{record.appName},
+      </if>
+      <if test="record.packageName != null" >
+        packageName = #{record.packageName},
+      </if>
+      <if test="record.versionName != null" >
+        versionName = #{record.versionName},
+      </if>
+      <if test="record.versionCode != null" >
+        versionCode = #{record.versionCode},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+      <if test="record.updateTime != null" >
+        updateTime = #{record.updateTime},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_app_testin
+    set adaptId = #{record.adaptId},
+      reportUrl = #{record.reportUrl},
+      apkId = #{record.apkId},
+      appId = #{record.appId},
+      appName = #{record.appName},
+      packageName = #{record.packageName},
+      versionName = #{record.versionName},
+      versionCode = #{record.versionCode},
+      createTime = #{record.createTime},
+      updateTime = #{record.updateTime}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.market.pojo.TAppTestin" >
+    update t_app_testin
+    <set >
+      <if test="reportUrl != null" >
+        reportUrl = #{reportUrl},
+      </if>
+      <if test="apkId != null" >
+        apkId = #{apkId},
+      </if>
+      <if test="appId != null" >
+        appId = #{appId},
+      </if>
+      <if test="appName != null" >
+        appName = #{appName},
+      </if>
+      <if test="packageName != null" >
+        packageName = #{packageName},
+      </if>
+      <if test="versionName != null" >
+        versionName = #{versionName},
+      </if>
+      <if test="versionCode != null" >
+        versionCode = #{versionCode},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime},
+      </if>
+    </set>
+    where adaptId = #{adaptId}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.market.pojo.TAppTestin" >
+    update t_app_testin
+    set reportUrl = #{reportUrl},
+      apkId = #{apkId},
+      appId = #{appId},
+      appName = #{appName},
+      packageName = #{packageName},
+      versionName = #{versionName},
+      versionCode = #{versionCode},
+      createTime = #{createTime},
+      updateTime = #{updateTime}
+    where adaptId = #{adaptId}
+  </update>
+</mapper>

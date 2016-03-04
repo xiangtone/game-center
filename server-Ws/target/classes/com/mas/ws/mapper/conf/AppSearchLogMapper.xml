@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.ws.mapper.AppSearchLogMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.ws.pojo.AppSearchLog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="clientId" property="clientId" jdbcType="INTEGER" />
+    <result column="userId" property="userId" jdbcType="INTEGER" />
+    <result column="userName" property="userName" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="searchNum" property="searchNum" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.clientId != null" >
+         and clientId = #{condition.clientId}
+      </if>
+      <if test="condition.userId != null" >
+         and userId = #{condition.userId}
+      </if>
+      <if test="condition.userName != null" >
+         and userName = #{condition.userName}
+      </if>
+      <if test="condition.content != null" >
+         and content = #{condition.content}
+      </if>
+      <if test="condition.searchNum != null" >
+         and searchNum = #{condition.searchNum}
+      </if>
+      <if test="condition.state != null" >
+         and state = #{condition.state}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, clientId, userId, userName, content, searchNum, state, createTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.ws.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from app_search_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from app_search_log
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from app_search_log
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.ws.pojo.Criteria" >
+    delete from app_search_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.ws.pojo.AppSearchLog" >
+    insert into app_search_log (id, clientId, userId, userName, content, searchNum, state, 
+      createTime)
+    values (#{id}, #{clientId}, #{userId}, #{userName}, #{content}, #{searchNum}, #{state}, 
+      #{createTime})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.ws.pojo.AppSearchLog" >
+    insert into app_search_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="clientId != null" >
+        clientId,
+      </if>
+      <if test="userId != null" >
+        userId,
+      </if>
+      <if test="userName != null" >
+        userName,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="searchNum != null" >
+        searchNum,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="clientId != null" >
+        #{clientId},
+      </if>
+      <if test="userId != null" >
+        #{userId},
+      </if>
+      <if test="userName != null" >
+        #{userName},
+      </if>
+      <if test="content != null" >
+        #{content},
+      </if>
+      <if test="searchNum != null" >
+        #{searchNum},
+      </if>
+      <if test="state != null" >
+        #{state},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.ws.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from app_search_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update app_search_log
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.clientId != null" >
+        clientId = #{record.clientId},
+      </if>
+      <if test="record.userId != null" >
+        userId = #{record.userId},
+      </if>
+      <if test="record.userName != null" >
+        userName = #{record.userName},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content},
+      </if>
+      <if test="record.searchNum != null" >
+        searchNum = #{record.searchNum},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update app_search_log
+    set id = #{record.id},
+      clientId = #{record.clientId},
+      userId = #{record.userId},
+      userName = #{record.userName},
+      content = #{record.content},
+      searchNum = #{record.searchNum},
+      state = #{record.state},
+      createTime = #{record.createTime}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.ws.pojo.AppSearchLog" >
+    update app_search_log
+    <set >
+      <if test="clientId != null" >
+        clientId = #{clientId},
+      </if>
+      <if test="userId != null" >
+        userId = #{userId},
+      </if>
+      <if test="userName != null" >
+        userName = #{userName},
+      </if>
+      <if test="content != null" >
+        content = #{content},
+      </if>
+      <if test="searchNum != null" >
+        searchNum = #{searchNum},
+      </if>
+      <if test="state != null" >
+        state = #{state},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.ws.pojo.AppSearchLog" >
+    update app_search_log
+    set clientId = #{clientId},
+      userId = #{userId},
+      userName = #{userName},
+      content = #{content},
+      searchNum = #{searchNum},
+      state = #{state},
+      createTime = #{createTime}
+    where id = #{id}
+  </update>
+</mapper>

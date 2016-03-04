@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.market.mapper.TPayIndomogMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.market.pojo.TPayIndomog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="mogValue" property="mogValue" jdbcType="INTEGER" />
+    <result column="channelId" property="channelId" jdbcType="INTEGER" />
+    <result column="cpId" property="cpId" jdbcType="INTEGER" />
+    <result column="appId" property="appId" jdbcType="INTEGER" />
+    <result column="aValuePresent" property="aValuePresent" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.mogValue != null" >
+         and mogValue = #{condition.mogValue}
+      </if>
+      <if test="condition.channelId != null" >
+         and channelId = #{condition.channelId}
+      </if>
+      <if test="condition.cpId != null" >
+         and cpId = #{condition.cpId}
+      </if>
+      <if test="condition.appId != null" >
+         and appId = #{condition.appId}
+      </if>
+      <if test="condition.aValuePresent != null" >
+         and aValuePresent = #{condition.aValuePresent}
+      </if>
+      <if test="condition.remark != null" >
+         and remark = #{condition.remark}
+      </if>
+      <if test="condition.state != null" >
+         and state = #{condition.state}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.updateTime != null" >
+         and updateTime = #{condition.updateTime}
+      </if>
+      <if test="condition.operator != null" >
+         and operator = #{condition.operator}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, mogValue, channelId, cpId, appId, aValuePresent, remark, state, createTime, updateTime, 
+    operator
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_pay_indomog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_pay_indomog
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_pay_indomog
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.market.pojo.Criteria" >
+    delete from t_pay_indomog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.market.pojo.TPayIndomog" >
+    insert into t_pay_indomog (id, mogValue, channelId, cpId, appId, aValuePresent, remark, 
+      state, createTime, updateTime, operator)
+    values (#{id}, #{mogValue}, #{channelId}, #{cpId}, #{appId}, #{aValuePresent}, #{remark}, 
+      #{state}, #{createTime}, #{updateTime}, #{operator})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.market.pojo.TPayIndomog" >
+    insert into t_pay_indomog
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mogValue != null" >
+        mogValue,
+      </if>
+      <if test="channelId != null" >
+        channelId,
+      </if>
+      <if test="cpId != null" >
+        cpId,
+      </if>
+      <if test="appId != null" >
+        appId,
+      </if>
+      <if test="aValuePresent != null" >
+        aValuePresent,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="mogValue != null" >
+        #{mogValue},
+      </if>
+      <if test="channelId != null" >
+        #{channelId},
+      </if>
+      <if test="cpId != null" >
+        #{cpId},
+      </if>
+      <if test="appId != null" >
+        #{appId},
+      </if>
+      <if test="aValuePresent != null" >
+        #{aValuePresent},
+      </if>
+      <if test="remark != null" >
+        #{remark},
+      </if>
+      <if test="state != null" >
+        #{state},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+      <if test="operator != null" >
+        #{operator},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.market.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from t_pay_indomog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_pay_indomog
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.mogValue != null" >
+        mogValue = #{record.mogValue},
+      </if>
+      <if test="record.channelId != null" >
+        channelId = #{record.channelId},
+      </if>
+      <if test="record.cpId != null" >
+        cpId = #{record.cpId},
+      </if>
+      <if test="record.appId != null" >
+        appId = #{record.appId},
+      </if>
+      <if test="record.aValuePresent != null" >
+        aValuePresent = #{record.aValuePresent},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+      <if test="record.updateTime != null" >
+        updateTime = #{record.updateTime},
+      </if>
+      <if test="record.operator != null" >
+        operator = #{record.operator},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_pay_indomog
+    set id = #{record.id},
+      mogValue = #{record.mogValue},
+      channelId = #{record.channelId},
+      cpId = #{record.cpId},
+      appId = #{record.appId},
+      aValuePresent = #{record.aValuePresent},
+      remark = #{record.remark},
+      state = #{record.state},
+      createTime = #{record.createTime},
+      updateTime = #{record.updateTime},
+      operator = #{record.operator}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.market.pojo.TPayIndomog" >
+    update t_pay_indomog
+    <set >
+      <if test="mogValue != null" >
+        mogValue = #{mogValue},
+      </if>
+      <if test="channelId != null" >
+        channelId = #{channelId},
+      </if>
+      <if test="cpId != null" >
+        cpId = #{cpId},
+      </if>
+      <if test="appId != null" >
+        appId = #{appId},
+      </if>
+      <if test="aValuePresent != null" >
+        aValuePresent = #{aValuePresent},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark},
+      </if>
+      <if test="state != null" >
+        state = #{state},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.market.pojo.TPayIndomog" >
+    update t_pay_indomog
+    set mogValue = #{mogValue},
+      channelId = #{channelId},
+      cpId = #{cpId},
+      appId = #{appId},
+      aValuePresent = #{aValuePresent},
+      remark = #{remark},
+      state = #{state},
+      createTime = #{createTime},
+      updateTime = #{updateTime},
+      operator = #{operator}
+    where id = #{id}
+  </update>
+  <select id="selectByExchange" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select * from `mas_market`.`t_pay_indomog` where 
+    channelId=#{condition.channelId} or cpId=#{condition.cpId} or appId=#{condition.appId}
+    or (channelId=0 and cpId=0 and appId=0) and state = true
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+</mapper>

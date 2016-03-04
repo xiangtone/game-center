@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.market.mapper.TResImageMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.market.pojo.TResImage" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="raveId" property="raveId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pinyin" property="pinyin" jdbcType="VARCHAR" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="biglogo" property="biglogo" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="width" property="width" jdbcType="INTEGER" />
+    <result column="length" property="length" jdbcType="INTEGER" />
+    <result column="fileSize" property="fileSize" jdbcType="INTEGER" />
+    <result column="free" property="free" jdbcType="INTEGER" />
+    <result column="stars" property="stars" jdbcType="INTEGER" />
+    <result column="categoryId" property="categoryId" jdbcType="INTEGER" />
+    <result column="categoryName" property="categoryName" jdbcType="VARCHAR" />
+    <result column="brief" property="brief" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="initDowdload" property="initDowdload" jdbcType="INTEGER" />
+    <result column="realDowdload" property="realDowdload" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.raveId != null" >
+         and raveId = #{condition.raveId}
+      </if>
+      <if test="condition.name != null" >
+         and name = #{condition.name}
+      </if>
+      <if test="condition.pinyin != null" >
+         and pinyin = #{condition.pinyin}
+      </if>
+      <if test="condition.logo != null" >
+         and logo = #{condition.logo}
+      </if>
+      <if test="condition.biglogo != null" >
+         and biglogo = #{condition.biglogo}
+      </if>
+      <if test="condition.url != null" >
+         and url = #{condition.url}
+      </if>
+      <if test="condition.width != null" >
+         and width = #{condition.width}
+      </if>
+      <if test="condition.length != null" >
+         and length = #{condition.length}
+      </if>
+      <if test="condition.fileSize != null" >
+         and fileSize = #{condition.fileSize}
+      </if>
+      <if test="condition.free != null" >
+         and free = #{condition.free}
+      </if>
+      <if test="condition.stars != null" >
+         and stars = #{condition.stars}
+      </if>
+      <if test="condition.categoryId != null" >
+         and categoryId = #{condition.categoryId}
+      </if>
+      <if test="condition.categoryName != null" >
+         and categoryName = #{condition.categoryName}
+      </if>
+      <if test="condition.brief != null" >
+         and brief = #{condition.brief}
+      </if>
+      <if test="condition.description != null" >
+         and description = #{condition.description}
+      </if>
+      <if test="condition.initDowdload != null" >
+         and initDowdload = #{condition.initDowdload}
+      </if>
+      <if test="condition.realDowdload != null" >
+         and realDowdload = #{condition.realDowdload}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.updateTime != null" >
+         and updateTime = #{condition.updateTime}
+      </if>
+      <if test="condition.state != null" >
+         and state = #{condition.state}
+      </if>
+      <if test="condition.operator != null" >
+         and operator = #{condition.operator}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, raveId, name, pinyin, logo, biglogo, url, width, length, fileSize, free, stars, 
+    categoryId, categoryName, brief, description, initDowdload, realDowdload, createTime, 
+    updateTime, state, operator
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_res_image
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_res_image
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_res_image
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.market.pojo.Criteria" >
+    delete from t_res_image
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.market.pojo.TResImage" >
+    insert into t_res_image (id, raveId, name, pinyin, logo, biglogo, url, width, 
+      length, fileSize, free, stars, categoryId, categoryName, brief, 
+      description, initDowdload, realDowdload, createTime, updateTime, 
+      state, operator)
+    values (#{id}, #{raveId}, #{name}, #{pinyin}, #{logo}, #{biglogo}, #{url}, #{width}, 
+      #{length}, #{fileSize}, #{free}, #{stars}, #{categoryId}, #{categoryName}, #{brief}, 
+      #{description}, #{initDowdload}, #{realDowdload}, #{createTime}, #{updateTime}, 
+      #{state}, #{operator})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.market.pojo.TResImage" >
+    insert into t_res_image
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="raveId != null" >
+        raveId,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="pinyin != null" >
+        pinyin,
+      </if>
+      <if test="logo != null" >
+        logo,
+      </if>
+      <if test="biglogo != null" >
+        biglogo,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="width != null" >
+        width,
+      </if>
+      <if test="length != null" >
+        length,
+      </if>
+      <if test="fileSize != null" >
+        fileSize,
+      </if>
+      <if test="free != null" >
+        free,
+      </if>
+      <if test="stars != null" >
+        stars,
+      </if>
+      <if test="categoryId != null" >
+        categoryId,
+      </if>
+      <if test="categoryName != null" >
+        categoryName,
+      </if>
+      <if test="brief != null" >
+        brief,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="initDowdload != null" >
+        initDowdload,
+      </if>
+      <if test="realDowdload != null" >
+        realDowdload,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="raveId != null" >
+        #{raveId},
+      </if>
+      <if test="name != null" >
+        #{name},
+      </if>
+      <if test="pinyin != null" >
+        #{pinyin},
+      </if>
+      <if test="logo != null" >
+        #{logo},
+      </if>
+      <if test="biglogo != null" >
+        #{biglogo},
+      </if>
+      <if test="url != null" >
+        #{url},
+      </if>
+      <if test="width != null" >
+        #{width},
+      </if>
+      <if test="length != null" >
+        #{length},
+      </if>
+      <if test="fileSize != null" >
+        #{fileSize},
+      </if>
+      <if test="free != null" >
+        #{free},
+      </if>
+      <if test="stars != null" >
+        #{stars},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId},
+      </if>
+      <if test="categoryName != null" >
+        #{categoryName},
+      </if>
+      <if test="brief != null" >
+        #{brief},
+      </if>
+      <if test="description != null" >
+        #{description},
+      </if>
+      <if test="initDowdload != null" >
+        #{initDowdload},
+      </if>
+      <if test="realDowdload != null" >
+        #{realDowdload},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+      <if test="state != null" >
+        #{state},
+      </if>
+      <if test="operator != null" >
+        #{operator},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.market.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from t_res_image
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_res_image
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.raveId != null" >
+        raveId = #{record.raveId},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name},
+      </if>
+      <if test="record.pinyin != null" >
+        pinyin = #{record.pinyin},
+      </if>
+      <if test="record.logo != null" >
+        logo = #{record.logo},
+      </if>
+      <if test="record.biglogo != null" >
+        biglogo = #{record.biglogo},
+      </if>
+      <if test="record.url != null" >
+        url = #{record.url},
+      </if>
+      <if test="record.width != null" >
+        width = #{record.width},
+      </if>
+      <if test="record.length != null" >
+        length = #{record.length},
+      </if>
+      <if test="record.fileSize != null" >
+        fileSize = #{record.fileSize},
+      </if>
+      <if test="record.free != null" >
+        free = #{record.free},
+      </if>
+      <if test="record.stars != null" >
+        stars = #{record.stars},
+      </if>
+      <if test="record.categoryId != null" >
+        categoryId = #{record.categoryId},
+      </if>
+      <if test="record.categoryName != null" >
+        categoryName = #{record.categoryName},
+      </if>
+      <if test="record.brief != null" >
+        brief = #{record.brief},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description},
+      </if>
+      <if test="record.initDowdload != null" >
+        initDowdload = #{record.initDowdload},
+      </if>
+      <if test="record.realDowdload != null" >
+        realDowdload = #{record.realDowdload},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+      <if test="record.updateTime != null" >
+        updateTime = #{record.updateTime},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state},
+      </if>
+      <if test="record.operator != null" >
+        operator = #{record.operator},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_res_image
+    set id = #{record.id},
+      raveId = #{record.raveId},
+      name = #{record.name},
+      pinyin = #{record.pinyin},
+      logo = #{record.logo},
+      biglogo = #{record.biglogo},
+      url = #{record.url},
+      width = #{record.width},
+      length = #{record.length},
+      fileSize = #{record.fileSize},
+      free = #{record.free},
+      stars = #{record.stars},
+      categoryId = #{record.categoryId},
+      categoryName = #{record.categoryName},
+      brief = #{record.brief},
+      description = #{record.description},
+      initDowdload = #{record.initDowdload},
+      realDowdload = #{record.realDowdload},
+      createTime = #{record.createTime},
+      updateTime = #{record.updateTime},
+      state = #{record.state},
+      operator = #{record.operator}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.market.pojo.TResImage" >
+    update t_res_image
+    <set >
+      <if test="raveId != null" >
+        raveId = #{raveId},
+      </if>
+      <if test="name != null" >
+        name = #{name},
+      </if>
+      <if test="pinyin != null" >
+        pinyin = #{pinyin},
+      </if>
+      <if test="logo != null" >
+        logo = #{logo},
+      </if>
+      <if test="biglogo != null" >
+        biglogo = #{biglogo},
+      </if>
+      <if test="url != null" >
+        url = #{url},
+      </if>
+      <if test="width != null" >
+        width = #{width},
+      </if>
+      <if test="length != null" >
+        length = #{length},
+      </if>
+      <if test="fileSize != null" >
+        fileSize = #{fileSize},
+      </if>
+      <if test="free != null" >
+        free = #{free},
+      </if>
+      <if test="stars != null" >
+        stars = #{stars},
+      </if>
+      <if test="categoryId != null" >
+        categoryId = #{categoryId},
+      </if>
+      <if test="categoryName != null" >
+        categoryName = #{categoryName},
+      </if>
+      <if test="brief != null" >
+        brief = #{brief},
+      </if>
+      <if test="description != null" >
+        description = #{description},
+      </if>
+      <if test="initDowdload != null" >
+        initDowdload = #{initDowdload},
+      </if>
+      <if test="realDowdload != null" >
+        realDowdload = #{realDowdload},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime},
+      </if>
+      <if test="state != null" >
+        state = #{state},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.market.pojo.TResImage" >
+    update t_res_image
+    set raveId = #{raveId},
+      name = #{name},
+      pinyin = #{pinyin},
+      logo = #{logo},
+      biglogo = #{biglogo},
+      url = #{url},
+      width = #{width},
+      length = #{length},
+      fileSize = #{fileSize},
+      free = #{free},
+      stars = #{stars},
+      categoryId = #{categoryId},
+      categoryName = #{categoryName},
+      brief = #{brief},
+      description = #{description},
+      initDowdload = #{initDowdload},
+      realDowdload = #{realDowdload},
+      createTime = #{createTime},
+      updateTime = #{updateTime},
+      state = #{state},
+      operator = #{operator}
+    where id = #{id}
+  </update>
+  <select id="categorylist" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select  <include refid="Base_Column_List" />  from t_res_image 
+    where state = true
+  	<if test="condition.raveId != null and condition.raveId ==1" >
+       and raveId = 1
+    </if>
+    <if test="condition.raveId != null and condition.raveId !=1" >
+       and (raveId = 1 or raveId = #{condition.raveId})
+    </if>
+    <if test="condition.categoryIds != null">
+  		  	and categoryId in
+  		  	<foreach collection="condition.categoryIds" item="categoryId" open="(" close=")" separator=",">
+  				#{categoryId}
+  			</foreach>
+  	</if>
+  	<if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="searchImage" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select  <include refid="Base_Column_List" />  from t_res_image
+	where state = true
+      <if test="condition.nameLike != null" >
+           and (instr(name,#{condition.nameLike})>0 or instr(`anotherName`,#{condition.nameLike})>0 )
+      </if>
+      <if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+      </if>
+      <if test="condition.raveId != null and condition.raveId !=1" >
+           and (raveId = 1 or raveId = #{condition.raveId})
+      </if>
+    order by name = #{condition.nameLike} desc,
+	if(instr(concat('#',`anotherName`,'#'),concat('#',#{condition.nameLike},'#'))>0,3,if(instr(`name`,#{condition.nameLike})=1,2,INSTR(CONCAT('#',`anotherName`),CONCAT('#',#{condition.nameLike}))>0) ) DESC,
+	realDowdload desc,initDowdload desc
+	<include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <update id="updateDownLoad" parameterType="com.mas.market.pojo.Criteria" >
+  	UPDATE `mas_market`.`t_res_image` SET realDowdload = (realDowdload+1) WHERE id = #{condition.id}
+  </update>
+  <select id="keywordImageList" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select t1.* from t_res_image t1 join t_search_keyword_reslist t2 on(t1.id=t2.resId)
+   <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.searchId != null" >
+           and searchId = #{condition.searchId}
+      </if>
+   </trim>
+    order by t2.sort desc,t2.createTime desc
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="searchImageTip" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select  <include refid="Base_Column_List" />  from t_res_image
+   <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.nameLike != null" >
+           and (instr(name,#{condition.nameLike})>0 or instr(`anotherName`,#{condition.nameLike})>0 )
+      </if>
+      <if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+      </if>
+      <if test="condition.raveId != null and condition.raveId !=1" >
+           and (raveId = 1 or raveId = #{condition.raveId})
+      </if>
+   </trim>
+    order by name = #{condition.nameLike} desc,
+	if(instr(concat('#',`anotherName`,'#'),concat('#',#{condition.nameLike},'#'))>0,3,if(instr(`name`,#{condition.nameLike})=1,2,INSTR(CONCAT('#',`anotherName`),CONCAT('#',#{condition.nameLike}))>0) ) DESC,
+	realDowdload desc,initDowdload desc
+	<include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  
+  <select id="searchImageByArray" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select  <include refid="Base_Column_List" />  from t_res_image
+	where state = true
+      <if test="condition.nameLike0 != null" >
+           and (
+           		instr(name,#{condition.nameLike0})>0 or instr(`anotherName`,#{condition.nameLike0})>0 
+           		<if test="condition.nameLike1 != null" >
+           			or instr(name,#{condition.nameLike1})>0 or instr(`anotherName`,#{condition.nameLike1})>0 
+           		</if>
+           		<if test="condition.nameLike2 != null" >
+           			or instr(name,#{condition.nameLike2})>0 or instr(`anotherName`,#{condition.nameLike2})>0 
+           		</if>
+           		)
+      </if>
+      <if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+      </if>
+      <if test="condition.raveId != null and condition.raveId !=1" >
+           and (raveId = 1 or raveId = #{condition.raveId})
+      </if>
+    order by 
+   	<if test="condition.nameLike0 != null" >
+    	name = #{condition.nameLike0} desc,
+    	if(instr(concat('#',`anotherName`,'#'),concat('#',#{condition.nameLike0},'#'))>0,3,if(instr(`name`,#{condition.nameLike0})=1,2,INSTR(CONCAT('#',`anotherName`),CONCAT('#',#{condition.nameLike0}))>0) ) DESC,
+    </if>
+    <if test="condition.nameLike1 != null" >
+    	name = #{condition.nameLike1} desc,
+    	if(instr(concat('#',`anotherName`,'#'),concat('#',#{condition.nameLike1},'#'))>0,3,if(instr(`name`,#{condition.nameLike1})=1,2,INSTR(CONCAT('#',`anotherName`),CONCAT('#',#{condition.nameLike1}))>0) ) DESC,
+    </if>
+    <if test="condition.nameLike2 != null" >
+    	name = #{condition.nameLike2} desc,
+    	if(instr(concat('#',`anotherName`,'#'),concat('#',#{condition.nameLike2},'#'))>0,3,if(instr(`name`,#{condition.nameLike2})=1,2,INSTR(CONCAT('#',`anotherName`),CONCAT('#',#{condition.nameLike2}))>0) ) DESC,
+    </if>
+    <!-- 
+    <if test="condition.nameLike0 != null" >
+    	if(instr(concat('#',`anotherName`,'#'),concat('#',#{condition.nameLike0},'#'))>0,3,if(instr(`name`,#{condition.nameLike0})=1,2,INSTR(CONCAT('#',`anotherName`),CONCAT('#',#{condition.nameLike0}))>0) ) DESC,
+    </if>
+    <if test="condition.nameLike1 != null" >
+    	if(instr(concat('#',`anotherName`,'#'),concat('#',#{condition.nameLike1},'#'))>0,3,if(instr(`name`,#{condition.nameLike1})=1,2,INSTR(CONCAT('#',`anotherName`),CONCAT('#',#{condition.nameLike1}))>0) ) DESC,
+    </if>
+    <if test="condition.nameLike2 != null" >
+    	if(instr(concat('#',`anotherName`,'#'),concat('#',#{condition.nameLike2},'#'))>0,3,if(instr(`name`,#{condition.nameLike2})=1,2,INSTR(CONCAT('#',`anotherName`),CONCAT('#',#{condition.nameLike2}))>0) ) DESC,
+    </if>
+     -->
+	realDowdload desc,
+	initDowdload desc
+	<include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  
+</mapper>

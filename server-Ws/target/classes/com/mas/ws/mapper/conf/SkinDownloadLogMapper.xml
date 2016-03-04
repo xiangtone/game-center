@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.ws.mapper.SkinDownloadLogMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.ws.pojo.SkinDownloadLog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="clinetId" property="clinetId" jdbcType="INTEGER" />
+    <result column="imei" property="imei" jdbcType="VARCHAR" />
+    <result column="skinId" property="skinId" jdbcType="INTEGER" />
+    <result column="skinName" property="skinName" jdbcType="VARCHAR" />
+    <result column="packageName" property="packageName" jdbcType="VARCHAR" />
+    <result column="versionName" property="versionName" jdbcType="VARCHAR" />
+    <result column="versionCode" property="versionCode" jdbcType="INTEGER" />
+    <result column="IP" property="IP" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.clinetId != null" >
+         and clinetId = #{condition.clinetId}
+      </if>
+      <if test="condition.imei != null" >
+         and imei = #{condition.imei}
+      </if>
+      <if test="condition.skinId != null" >
+         and skinId = #{condition.skinId}
+      </if>
+      <if test="condition.skinName != null" >
+         and skinName = #{condition.skinName}
+      </if>
+      <if test="condition.packageName != null" >
+         and packageName = #{condition.packageName}
+      </if>
+      <if test="condition.versionName != null" >
+         and versionName = #{condition.versionName}
+      </if>
+      <if test="condition.versionCode != null" >
+         and versionCode = #{condition.versionCode}
+      </if>
+      <if test="condition.IP != null" >
+         and IP = #{condition.IP}
+      </if>
+      <if test="condition.country != null" >
+         and country = #{condition.country}
+      </if>
+      <if test="condition.province != null" >
+         and province = #{condition.province}
+      </if>
+      <if test="condition.city != null" >
+         and city = #{condition.city}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, clinetId, imei, skinId, skinName, packageName, versionName, versionCode, IP, 
+    country, province, city, createTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.ws.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from skin_download_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from skin_download_log
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from skin_download_log
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.ws.pojo.Criteria" >
+    delete from skin_download_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.ws.pojo.SkinDownloadLog" >
+    insert into skin_download_log (id, clinetId, imei, skinId, skinName, packageName, versionName, 
+      versionCode, IP, country, province, city, createTime)
+    values (#{id}, #{clinetId}, #{imei}, #{skinId}, #{skinName}, #{packageName}, #{versionName}, 
+      #{versionCode}, #{IP}, #{country}, #{province}, #{city}, #{createTime})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.ws.pojo.SkinDownloadLog" >
+    insert into skin_download_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="clinetId != null" >
+        clinetId,
+      </if>
+      <if test="imei != null" >
+        imei,
+      </if>
+      <if test="skinId != null" >
+        skinId,
+      </if>
+      <if test="skinName != null" >
+        skinName,
+      </if>
+      <if test="packageName != null" >
+        packageName,
+      </if>
+      <if test="versionName != null" >
+        versionName,
+      </if>
+      <if test="versionCode != null" >
+        versionCode,
+      </if>
+      <if test="IP != null" >
+        IP,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="clinetId != null" >
+        #{clinetId},
+      </if>
+      <if test="imei != null" >
+        #{imei},
+      </if>
+      <if test="skinId != null" >
+        #{skinId},
+      </if>
+      <if test="skinName != null" >
+        #{skinName},
+      </if>
+      <if test="packageName != null" >
+        #{packageName},
+      </if>
+      <if test="versionName != null" >
+        #{versionName},
+      </if>
+      <if test="versionCode != null" >
+        #{versionCode},
+      </if>
+      <if test="IP != null" >
+        #{IP},
+      </if>
+      <if test="country != null" >
+        #{country},
+      </if>
+      <if test="province != null" >
+        #{province},
+      </if>
+      <if test="city != null" >
+        #{city},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.ws.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from skin_download_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update skin_download_log
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.clinetId != null" >
+        clinetId = #{record.clinetId},
+      </if>
+      <if test="record.imei != null" >
+        imei = #{record.imei},
+      </if>
+      <if test="record.skinId != null" >
+        skinId = #{record.skinId},
+      </if>
+      <if test="record.skinName != null" >
+        skinName = #{record.skinName},
+      </if>
+      <if test="record.packageName != null" >
+        packageName = #{record.packageName},
+      </if>
+      <if test="record.versionName != null" >
+        versionName = #{record.versionName},
+      </if>
+      <if test="record.versionCode != null" >
+        versionCode = #{record.versionCode},
+      </if>
+      <if test="record.IP != null" >
+        IP = #{record.IP},
+      </if>
+      <if test="record.country != null" >
+        country = #{record.country},
+      </if>
+      <if test="record.province != null" >
+        province = #{record.province},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update skin_download_log
+    set id = #{record.id},
+      clinetId = #{record.clinetId},
+      imei = #{record.imei},
+      skinId = #{record.skinId},
+      skinName = #{record.skinName},
+      packageName = #{record.packageName},
+      versionName = #{record.versionName},
+      versionCode = #{record.versionCode},
+      IP = #{record.IP},
+      country = #{record.country},
+      province = #{record.province},
+      city = #{record.city},
+      createTime = #{record.createTime}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.ws.pojo.SkinDownloadLog" >
+    update skin_download_log
+    <set >
+      <if test="clinetId != null" >
+        clinetId = #{clinetId},
+      </if>
+      <if test="imei != null" >
+        imei = #{imei},
+      </if>
+      <if test="skinId != null" >
+        skinId = #{skinId},
+      </if>
+      <if test="skinName != null" >
+        skinName = #{skinName},
+      </if>
+      <if test="packageName != null" >
+        packageName = #{packageName},
+      </if>
+      <if test="versionName != null" >
+        versionName = #{versionName},
+      </if>
+      <if test="versionCode != null" >
+        versionCode = #{versionCode},
+      </if>
+      <if test="IP != null" >
+        IP = #{IP},
+      </if>
+      <if test="country != null" >
+        country = #{country},
+      </if>
+      <if test="province != null" >
+        province = #{province},
+      </if>
+      <if test="city != null" >
+        city = #{city},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.ws.pojo.SkinDownloadLog" >
+    update skin_download_log
+    set clinetId = #{clinetId},
+      imei = #{imei},
+      skinId = #{skinId},
+      skinName = #{skinName},
+      packageName = #{packageName},
+      versionName = #{versionName},
+      versionCode = #{versionCode},
+      IP = #{IP},
+      country = #{country},
+      province = #{province},
+      city = #{city},
+      createTime = #{createTime}
+    where id = #{id}
+  </update>
+</mapper>

@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.market.mapper.TAppFileMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.market.pojo.TAppFile" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="appId" property="appId" jdbcType="INTEGER" />
+    <result column="appName" property="appName" jdbcType="VARCHAR" />
+    <result column="channelId" property="channelId" jdbcType="INTEGER" />
+    <result column="cpId" property="cpId" jdbcType="INTEGER" />
+    <result column="apkKey" property="apkKey" jdbcType="VARCHAR" />
+    <result column="serverId" property="serverId" jdbcType="INTEGER" />
+    <result column="upgradeType" property="upgradeType" jdbcType="INTEGER" />
+    <result column="packageName" property="packageName" jdbcType="VARCHAR" />
+    <result column="versionCode" property="versionCode" jdbcType="INTEGER" />
+    <result column="versionName" property="versionName" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="path" property="path" jdbcType="VARCHAR" />
+    <result column="osType" property="osType" jdbcType="INTEGER" />
+    <result column="resolution" property="resolution" jdbcType="VARCHAR" />
+    <result column="fileSize" property="fileSize" jdbcType="INTEGER" />
+    <result column="cpChannelCode" property="cpChannelCode" jdbcType="VARCHAR" />
+    <result column="updateInfo" property="updateInfo" jdbcType="VARCHAR" />
+    <result column="language" property="language" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="haslist" property="haslist" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.appId != null" >
+         and appId = #{condition.appId}
+      </if>
+      <if test="condition.appName != null" >
+         and appName = #{condition.appName}
+      </if>
+      <if test="condition.channelId != null" >
+         and channelId = #{condition.channelId}
+      </if>
+      <if test="condition.cpId != null" >
+         and cpId = #{condition.cpId}
+      </if>
+      <if test="condition.apkKey != null" >
+         and apkKey = #{condition.apkKey}
+      </if>
+      <if test="condition.serverId != null" >
+         and serverId = #{condition.serverId}
+      </if>
+      <if test="condition.upgradeType != null" >
+         and upgradeType = #{condition.upgradeType}
+      </if>
+      <if test="condition.packageName != null" >
+         and packageName = #{condition.packageName}
+      </if>
+      <if test="condition.versionCode != null" >
+         and versionCode = #{condition.versionCode}
+      </if>
+      <if test="condition.versionName != null" >
+         and versionName = #{condition.versionName}
+      </if>
+      <if test="condition.url != null" >
+         and url = #{condition.url}
+      </if>
+      <if test="condition.path != null" >
+         and path = #{condition.path}
+      </if>
+      <if test="condition.osType != null" >
+         and osType = #{condition.osType}
+      </if>
+      <if test="condition.resolution != null" >
+         and resolution = #{condition.resolution}
+      </if>
+      <if test="condition.fileSize != null" >
+         and fileSize = #{condition.fileSize}
+      </if>
+      <if test="condition.cpChannelCode != null" >
+         and cpChannelCode = #{condition.cpChannelCode}
+      </if>
+      <if test="condition.updateInfo != null" >
+         and updateInfo = #{condition.updateInfo}
+      </if>
+      <if test="condition.language != null" >
+         and language = #{condition.language}
+      </if>
+      <if test="condition.remark != null" >
+         and remark = #{condition.remark}
+      </if>
+      <if test="condition.state != null" >
+         and state = #{condition.state}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.updateTime != null" >
+         and updateTime = #{condition.updateTime}
+      </if>
+      <if test="condition.haslist != null" >
+         and haslist = #{condition.haslist}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, appId, appName, channelId, cpId, apkKey, serverId, upgradeType, packageName, 
+    versionCode, versionName, url, path, osType, resolution, fileSize, cpChannelCode, 
+    updateInfo, language, remark, state, createTime, updateTime,
+    haslist
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_app_file
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_file
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_app_file
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.market.pojo.Criteria" >
+    delete from t_app_file
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.market.pojo.TAppFile" >
+    insert into t_app_file (id, appId, appName, channelId, cpId, apkKey, serverId, 
+      upgradeType, packageName, versionCode, versionName, url, path, 
+      osType, resolution, fileSize, cpChannelCode, updateInfo, language, 
+      remark, state, createTime, updateTime,haslist)
+    values (#{id}, #{appId}, #{appName}, #{channelId}, #{cpId}, #{apkKey}, #{serverId}, 
+      #{upgradeType}, #{packageName}, #{versionCode}, #{versionName}, #{url}, #{path}, 
+      #{osType}, #{resolution}, #{fileSize}, #{cpChannelCode}, #{updateInfo}, #{language}, 
+      #{remark}, #{state}, #{createTime}, #{updateTime},#{haslist})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.market.pojo.TAppFile" >
+    insert into t_app_file
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="appId != null" >
+        appId,
+      </if>
+      <if test="appName != null" >
+        appName,
+      </if>
+      <if test="channelId != null" >
+        channelId,
+      </if>
+      <if test="cpId != null" >
+        cpId,
+      </if>
+      <if test="apkKey != null" >
+        apkKey,
+      </if>
+      <if test="serverId != null" >
+        serverId,
+      </if>
+      <if test="upgradeType != null" >
+        upgradeType,
+      </if>
+      <if test="packageName != null" >
+        packageName,
+      </if>
+      <if test="versionCode != null" >
+        versionCode,
+      </if>
+      <if test="versionName != null" >
+        versionName,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="path != null" >
+        path,
+      </if>
+      <if test="osType != null" >
+        osType,
+      </if>
+      <if test="resolution != null" >
+        resolution,
+      </if>
+      <if test="fileSize != null" >
+        fileSize,
+      </if>
+      <if test="cpChannelCode != null" >
+        cpChannelCode,
+      </if>
+      <if test="updateInfo != null" >
+        updateInfo,
+      </if>
+      <if test="language != null" >
+        language,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="haslist != null" >
+        haslist,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="appId != null" >
+        #{appId},
+      </if>
+      <if test="appName != null" >
+        #{appName},
+      </if>
+      <if test="channelId != null" >
+        #{channelId},
+      </if>
+      <if test="cpId != null" >
+        #{cpId},
+      </if>
+      <if test="apkKey != null" >
+        #{apkKey},
+      </if>
+      <if test="serverId != null" >
+        #{serverId},
+      </if>
+      <if test="upgradeType != null" >
+        #{upgradeType},
+      </if>
+      <if test="packageName != null" >
+        #{packageName},
+      </if>
+      <if test="versionCode != null" >
+        #{versionCode},
+      </if>
+      <if test="versionName != null" >
+        #{versionName},
+      </if>
+      <if test="url != null" >
+        #{url},
+      </if>
+      <if test="path != null" >
+        #{path},
+      </if>
+      <if test="osType != null" >
+        #{osType},
+      </if>
+      <if test="resolution != null" >
+        #{resolution},
+      </if>
+      <if test="fileSize != null" >
+        #{fileSize},
+      </if>
+      <if test="cpChannelCode != null" >
+        #{cpChannelCode},
+      </if>
+      <if test="updateInfo != null" >
+        #{updateInfo},
+      </if>
+      <if test="language != null" >
+        #{language},
+      </if>
+      <if test="remark != null" >
+        #{remark},
+      </if>
+      <if test="state != null" >
+        #{state},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+      <if test="haslist != null" >
+        #{haslist},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.market.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from t_app_file
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_app_file
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.appId != null" >
+        appId = #{record.appId},
+      </if>
+      <if test="record.appName != null" >
+        appName = #{record.appName},
+      </if>
+      <if test="record.channelId != null" >
+        channelId = #{record.channelId},
+      </if>
+      <if test="record.cpId != null" >
+        cpId = #{record.cpId},
+      </if>
+      <if test="record.apkKey != null" >
+        apkKey = #{record.apkKey},
+      </if>
+      <if test="record.serverId != null" >
+        serverId = #{record.serverId},
+      </if>
+      <if test="record.upgradeType != null" >
+        upgradeType = #{record.upgradeType},
+      </if>
+      <if test="record.packageName != null" >
+        packageName = #{record.packageName},
+      </if>
+      <if test="record.versionCode != null" >
+        versionCode = #{record.versionCode},
+      </if>
+      <if test="record.versionName != null" >
+        versionName = #{record.versionName},
+      </if>
+      <if test="record.url != null" >
+        url = #{record.url},
+      </if>
+      <if test="record.path != null" >
+        path = #{record.path},
+      </if>
+      <if test="record.osType != null" >
+        osType = #{record.osType},
+      </if>
+      <if test="record.resolution != null" >
+        resolution = #{record.resolution},
+      </if>
+      <if test="record.fileSize != null" >
+        fileSize = #{record.fileSize},
+      </if>
+      <if test="record.cpChannelCode != null" >
+        cpChannelCode = #{record.cpChannelCode},
+      </if>
+      <if test="record.updateInfo != null" >
+        updateInfo = #{record.updateInfo},
+      </if>
+      <if test="record.language != null" >
+        language = #{record.language},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+      <if test="record.updateTime != null" >
+        updateTime = #{record.updateTime},
+      </if>
+      <if test="record.haslist != null" >
+        haslist = #{record.haslist},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_app_file
+    set id = #{record.id},
+      appId = #{record.appId},
+      appName = #{record.appName},
+      channelId = #{record.channelId},
+      cpId = #{record.cpId},
+      apkKey = #{record.apkKey},
+      serverId = #{record.serverId},
+      upgradeType = #{record.upgradeType},
+      packageName = #{record.packageName},
+      versionCode = #{record.versionCode},
+      versionName = #{record.versionName},
+      url = #{record.url},
+      path = #{record.path},
+      osType = #{record.osType},
+      resolution = #{record.resolution},
+      fileSize = #{record.fileSize},
+      cpChannelCode = #{record.cpChannelCode},
+      updateInfo = #{record.updateInfo},
+      language = #{record.language},
+      remark = #{record.remark},
+      state = #{record.state},
+      createTime = #{record.createTime},
+      updateTime = #{record.updateTime},
+      haslist = #{record.haslist}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.market.pojo.TAppFile" >
+    update t_app_file
+    <set >
+      <if test="appId != null" >
+        appId = #{appId},
+      </if>
+      <if test="appName != null" >
+        appName = #{appName},
+      </if>
+      <if test="channelId != null" >
+        channelId = #{channelId},
+      </if>
+      <if test="cpId != null" >
+        cpId = #{cpId},
+      </if>
+      <if test="apkKey != null" >
+        apkKey = #{apkKey},
+      </if>
+      <if test="serverId != null" >
+        serverId = #{serverId},
+      </if>
+      <if test="upgradeType != null" >
+        upgradeType = #{upgradeType},
+      </if>
+      <if test="packageName != null" >
+        packageName = #{packageName},
+      </if>
+      <if test="versionCode != null" >
+        versionCode = #{versionCode},
+      </if>
+      <if test="versionName != null" >
+        versionName = #{versionName},
+      </if>
+      <if test="url != null" >
+        url = #{url},
+      </if>
+      <if test="path != null" >
+        path = #{path},
+      </if>
+      <if test="osType != null" >
+        osType = #{osType},
+      </if>
+      <if test="resolution != null" >
+        resolution = #{resolution},
+      </if>
+      <if test="fileSize != null" >
+        fileSize = #{fileSize},
+      </if>
+      <if test="cpChannelCode != null" >
+        cpChannelCode = #{cpChannelCode},
+      </if>
+      <if test="updateInfo != null" >
+        updateInfo = #{updateInfo},
+      </if>
+      <if test="language != null" >
+        language = #{language},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark},
+      </if>
+      <if test="state != null" >
+        state = #{state},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime},
+      </if>
+      <if test="haslist != null" >
+        haslist = #{haslist},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.market.pojo.TAppFile" >
+    update t_app_file
+    set appId = #{appId},
+      appName = #{appName},
+      channelId = #{channelId},
+      cpId = #{cpId},
+      apkKey = #{apkKey},
+      serverId = #{serverId},
+      upgradeType = #{upgradeType},
+      packageName = #{packageName},
+      versionCode = #{versionCode},
+      versionName = #{versionName},
+      url = #{url},
+      path = #{path},
+      osType = #{osType},
+      resolution = #{resolution},
+      fileSize = #{fileSize},
+      cpChannelCode = #{cpChannelCode},
+      updateInfo = #{updateInfo},
+      language = #{language},
+      remark = #{remark},
+      state = #{state},
+      createTime = #{createTime},
+      updateTime = #{updateTime},
+      haslist = #{haslist}
+    where id = #{id}
+  </update>
+  <select id="getApkPatch" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select url,fileSize from `t_app_file_patch` where apkId = #{condition.apkId} and `lowMD5` = #{condition.md5}
+    	 and `lowVersionCode` = #{condition.lowVersionCode} and `versionCode` = #{condition.versionCode}
+    	 <if test="condition.lowFileSize != null" >
+        	and `lowFileSize` = #{condition.lowFileSize}
+     	 </if>
+  </select>
+  <select id="getApkForUpgrade" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    SELECT t1.id, t1.appId, t1.appName, t1.channelId,t1.cpId, t1.apkKey, t2.fileSize as serverId, 
+      t1.upgradeType, t1.packageName, t1.versionCode, t1.versionName,ifnull(t2.url,t1.path) as path, t1.url, 
+      t1.osType, t1.resolution, t1.fileSize, t1.cpChannelCode, t1.updateInfo, t1.language, 
+      t1.remark, t1.state, t1.createTime, t1.updateTime,IF(t2.url IS NULL,FALSE,TRUE) AS haslist
+    from `t_app_file` t1 
+    LEFT JOIN (select url,apkId,versionCode,fileSize from `t_app_file_patch`
+    <trim prefix="where" prefixOverrides="and|or" >
+     <if test="condition.md5 != null" >
+        and `lowMD5` = #{condition.md5}
+     </if>
+     <if test="condition.versionCode != null" >
+        and `lowVersionCode` = #{condition.versionCode}
+     </if>
+    </trim>
+    ) t2 ON(t1.`id`=t2.`apkId` and t1.versionCode=t2.versionCode) 
+    WHERE t1.apkKey = #{condition.apkKey} and t1.appId = #{condition.appId} and t1.state = true
+  </select>
+  <select id="getZappForUpgrade" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+  SELECT IFNULL(t2.url,t1.path) AS path, t1.url,t2.fileSize AS serverId,IF(t2.url IS NULL,FALSE,TRUE) AS haslist,
+      IFNULL(t3.upgradeType,t1.upgradeType) AS upgradeType,IFNULL(t3.updateInfo,t1.updateInfo) AS updateInfo,
+      t1.id,t1.appId,t1.appName,t1.channelId,t1.apkKey,t1.packageName,t1.cpId,
+      t1.versionCode,t1.versionName,t1.osType,t1.resolution,t1.fileSize,t1.language, 
+      t1.remark, t1.state, t1.createTime, t1.updateTime,t1.cpChannelCode
+    FROM `t_app_file` t1 
+    LEFT JOIN (SELECT url,apkId,versionCode,fileSize FROM `t_app_file_patch`
+     <trim prefix="where" prefixOverrides="and|or" >
+     <if test="condition.md5 != null" >
+        and `lowMD5` = #{condition.md5} and `lowVersionCode` = #{condition.versionCode}
+     </if>
+    </trim>
+	      ) t2 ON(t1.`id`=t2.`apkId` AND t1.versionCode=t2.versionCode) 
+    LEFT JOIN (SELECT upgradeType,updateInfo,apkKey,versionCode FROM `t_app_file_zappupdate`
+    <trim prefix="where" prefixOverrides="and|or" >
+     <if test="condition.versionCode != null" >
+        and `versionCode` = #{condition.versionCode}
+     </if>
+    </trim>
+	      ) t3 ON(t1.`apkKey`=t3.`apkKey`)
+    WHERE t1.apkKey = #{condition.apkKey} and t1.appId = #{condition.appId} and t1.state = true
+    </select>
+    <select id="getApkForAppId" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    	select id, appId, appName, packageName, versionCode, versionName, url from `t_app_file` where appId = #{condition.appId}
+  	</select>
+  	
+  	<!-- 获取apk更新公共接口 -->
+  	<select id="getCommonApkUpgrade" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+	  	SELECT IFNULL(t2.url,t1.path) AS path, t1.url,t2.fileSize AS serverId,IF(t2.url IS NULL,FALSE,TRUE) AS haslist,
+	      t1.upgradeType,t1.updateInfo,t1.id,t1.appId,t1.appName,t1.packageName,
+	      t1.versionCode,t1.versionName,t1.osType,t1.resolution,t1.fileSize,t1.language, 
+	      t1.remark, t1.state, t1.createTime, t1.updateTime,t1.cpChannelCode
+	    FROM `t_own_app_file` t1 
+	    LEFT JOIN (SELECT url,apkId,versionCode,fileSize FROM `t_own_app_file_patch`
+	     <trim prefix="where" prefixOverrides="and|or" >
+	     <if test="condition.md5 != null" >
+	        and `lowMD5` = #{condition.md5} and `lowVersionCode` = #{condition.versionCode}
+	     </if>
+	    </trim>
+		      ) t2 ON(t1.`id`=t2.`apkId` AND t1.versionCode=t2.versionCode)
+	    WHERE t1.packageName = #{condition.packageName} and t1.state = true
+    </select>
+    
+    <select id="getDownloadInfo" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+	  	SELECT t1.url,t1.upgradeType,t1.updateInfo,t1.id,t1.appId,t1.appName,t1.packageName,
+	      t1.versionCode,t1.versionName,t1.fileSize,t1.state,t1.createTime, t1.updateTime
+	    FROM `t_own_app_file` t1 
+	    WHERE t1.packageName = #{condition.packageName} and t1.state = true
+	    ORDER BY t1.versionCode desc
+	    LIMIT 0,1
+    </select>
+</mapper>

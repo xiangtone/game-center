@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.market.mapper.TClientAppInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.market.pojo.TClientAppInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="clientId" property="clientId" jdbcType="INTEGER" />
+    <result column="appName" property="appName" jdbcType="VARCHAR" />
+    <result column="appPackageName" property="appPackageName" jdbcType="VARCHAR" />
+    <result column="appVersionName" property="appVersionName" jdbcType="VARCHAR" />
+    <result column="appVersionCode" property="appVersionCode" jdbcType="INTEGER" />
+    <result column="appMD5" property="appMD5" jdbcType="VARCHAR" />
+    <result column="svAppVersionCode" property="svAppVersionCode" jdbcType="INTEGER" />
+    <result column="svAppVersionName" property="svAppVersionName" jdbcType="VARCHAR" />
+    <result column="isUpdate" property="isUpdate" jdbcType="BIT" />
+    <result column="isPatch" property="isPatch" jdbcType="BIT" />
+    <result column="atUse" property="atUse" jdbcType="BIT" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.clientId != null" >
+         and clientId = #{condition.clientId}
+      </if>
+      <if test="condition.appName != null" >
+         and appName = #{condition.appName}
+      </if>
+      <if test="condition.appPackageName != null" >
+         and appPackageName = #{condition.appPackageName}
+      </if>
+      <if test="condition.appVersionName != null" >
+         and appVersionName = #{condition.appVersionName}
+      </if>
+      <if test="condition.appVersionCode != null" >
+         and appVersionCode = #{condition.appVersionCode}
+      </if>
+      <if test="condition.appMD5 != null" >
+         and appMD5 = #{condition.appMD5}
+      </if>
+      <if test="condition.svAppVersionCode != null" >
+         and svAppVersionCode = #{condition.svAppVersionCode}
+      </if>
+      <if test="condition.svAppVersionName != null" >
+         and svAppVersionName = #{condition.svAppVersionName}
+      </if>
+      <if test="condition.isUpdate != null" >
+         and isUpdate = #{condition.isUpdate}
+      </if>
+      <if test="condition.isPatch != null" >
+         and isPatch = #{condition.isPatch}
+      </if>
+      <if test="condition.atUse != null" >
+         and atUse = #{condition.atUse}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.updateTime != null" >
+         and updateTime = #{condition.updateTime}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, clientId, appName, appPackageName, appVersionName, appVersionCode, appMD5, svAppVersionCode, 
+    svAppVersionName, isUpdate, isPatch, atUse, createTime, updateTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_client_app_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_client_app_info
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_client_app_info
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.market.pojo.Criteria" >
+    delete from t_client_app_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.market.pojo.TClientAppInfo" >
+    insert into t_client_app_info (id, clientId, appName, appPackageName, appVersionName, appVersionCode, 
+      appMD5, svAppVersionCode, svAppVersionName, isUpdate, isPatch, atUse, 
+      createTime, updateTime)
+    values (#{id}, #{clientId}, #{appName}, #{appPackageName}, #{appVersionName}, #{appVersionCode}, 
+      #{appMD5}, #{svAppVersionCode}, #{svAppVersionName}, #{isUpdate}, #{isPatch}, #{atUse}, 
+      #{createTime}, #{updateTime})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.market.pojo.TClientAppInfo" >
+    insert into t_client_app_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="clientId != null" >
+        clientId,
+      </if>
+      <if test="appName != null" >
+        appName,
+      </if>
+      <if test="appPackageName != null" >
+        appPackageName,
+      </if>
+      <if test="appVersionName != null" >
+        appVersionName,
+      </if>
+      <if test="appVersionCode != null" >
+        appVersionCode,
+      </if>
+      <if test="appMD5 != null" >
+        appMD5,
+      </if>
+      <if test="svAppVersionCode != null" >
+        svAppVersionCode,
+      </if>
+      <if test="svAppVersionName != null" >
+        svAppVersionName,
+      </if>
+      <if test="isUpdate != null" >
+        isUpdate,
+      </if>
+      <if test="isPatch != null" >
+        isPatch,
+      </if>
+      <if test="atUse != null" >
+        atUse,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="clientId != null" >
+        #{clientId},
+      </if>
+      <if test="appName != null" >
+        #{appName},
+      </if>
+      <if test="appPackageName != null" >
+        #{appPackageName},
+      </if>
+      <if test="appVersionName != null" >
+        #{appVersionName},
+      </if>
+      <if test="appVersionCode != null" >
+        #{appVersionCode},
+      </if>
+      <if test="appMD5 != null" >
+        #{appMD5},
+      </if>
+      <if test="svAppVersionCode != null" >
+        #{svAppVersionCode},
+      </if>
+      <if test="svAppVersionName != null" >
+        #{svAppVersionName},
+      </if>
+      <if test="isUpdate != null" >
+        #{isUpdate},
+      </if>
+      <if test="isPatch != null" >
+        #{isPatch},
+      </if>
+      <if test="atUse != null" >
+        #{atUse},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.market.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from t_client_app_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_client_app_info
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.clientId != null" >
+        clientId = #{record.clientId},
+      </if>
+      <if test="record.appName != null" >
+        appName = #{record.appName},
+      </if>
+      <if test="record.appPackageName != null" >
+        appPackageName = #{record.appPackageName},
+      </if>
+      <if test="record.appVersionName != null" >
+        appVersionName = #{record.appVersionName},
+      </if>
+      <if test="record.appVersionCode != null" >
+        appVersionCode = #{record.appVersionCode},
+      </if>
+      <if test="record.appMD5 != null" >
+        appMD5 = #{record.appMD5},
+      </if>
+      <if test="record.svAppVersionCode != null" >
+        svAppVersionCode = #{record.svAppVersionCode},
+      </if>
+      <if test="record.svAppVersionName != null" >
+        svAppVersionName = #{record.svAppVersionName},
+      </if>
+      <if test="record.isUpdate != null" >
+        isUpdate = #{record.isUpdate},
+      </if>
+      <if test="record.isPatch != null" >
+        isPatch = #{record.isPatch},
+      </if>
+      <if test="record.atUse != null" >
+        atUse = #{record.atUse},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+      <if test="record.updateTime != null" >
+        updateTime = #{record.updateTime},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_client_app_info
+    set id = #{record.id},
+      clientId = #{record.clientId},
+      appName = #{record.appName},
+      appPackageName = #{record.appPackageName},
+      appVersionName = #{record.appVersionName},
+      appVersionCode = #{record.appVersionCode},
+      appMD5 = #{record.appMD5},
+      svAppVersionCode = #{record.svAppVersionCode},
+      svAppVersionName = #{record.svAppVersionName},
+      isUpdate = #{record.isUpdate},
+      isPatch = #{record.isPatch},
+      atUse = #{record.atUse},
+      createTime = #{record.createTime},
+      updateTime = #{record.updateTime}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.market.pojo.TClientAppInfo" >
+    update t_client_app_info
+    <set >
+      <if test="clientId != null" >
+        clientId = #{clientId},
+      </if>
+      <if test="appName != null" >
+        appName = #{appName},
+      </if>
+      <if test="appPackageName != null" >
+        appPackageName = #{appPackageName},
+      </if>
+      <if test="appVersionName != null" >
+        appVersionName = #{appVersionName},
+      </if>
+      <if test="appVersionCode != null" >
+        appVersionCode = #{appVersionCode},
+      </if>
+      <if test="appMD5 != null" >
+        appMD5 = #{appMD5},
+      </if>
+      <if test="svAppVersionCode != null" >
+        svAppVersionCode = #{svAppVersionCode},
+      </if>
+      <if test="svAppVersionName != null" >
+        svAppVersionName = #{svAppVersionName},
+      </if>
+      <if test="isUpdate != null" >
+        isUpdate = #{isUpdate},
+      </if>
+      <if test="isPatch != null" >
+        isPatch = #{isPatch},
+      </if>
+      <if test="atUse != null" >
+        atUse = #{atUse},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.market.pojo.TClientAppInfo" >
+    update t_client_app_info
+    set clientId = #{clientId},
+      appName = #{appName},
+      appPackageName = #{appPackageName},
+      appVersionName = #{appVersionName},
+      appVersionCode = #{appVersionCode},
+      appMD5 = #{appMD5},
+      svAppVersionCode = #{svAppVersionCode},
+      svAppVersionName = #{svAppVersionName},
+      isUpdate = #{isUpdate},
+      isPatch = #{isPatch},
+      atUse = #{atUse},
+      createTime = #{createTime},
+      updateTime = #{updateTime}
+    where id = #{id}
+  </update>
+</mapper>

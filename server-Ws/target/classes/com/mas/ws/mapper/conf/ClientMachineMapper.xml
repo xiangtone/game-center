@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.ws.mapper.ClientMachineMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.ws.pojo.ClientMachine" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="clientId" property="clientId" jdbcType="INTEGER" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="imei" property="imei" jdbcType="VARCHAR" />
+    <result column="mac" property="mac" jdbcType="VARCHAR" />
+    <result column="imsi" property="imsi" jdbcType="VARCHAR" />
+    <result column="smsc" property="smsc" jdbcType="VARCHAR" />
+    <result column="deviceModel" property="deviceModel" jdbcType="VARCHAR" />
+    <result column="deviceVendor" property="deviceVendor" jdbcType="VARCHAR" />
+    <result column="deviceType" property="deviceType" jdbcType="INTEGER" />
+    <result column="netType" property="netType" jdbcType="VARCHAR" />
+    <result column="osVersion" property="osVersion" jdbcType="VARCHAR" />
+    <result column="osVersionName" property="osVersionName" jdbcType="VARCHAR" />
+    <result column="osAddtional" property="osAddtional" jdbcType="VARCHAR" />
+    <result column="serviceSupplier" property="serviceSupplier" jdbcType="VARCHAR" />
+    <result column="resolution" property="resolution" jdbcType="VARCHAR" />
+    <result column="screenWidth" property="screenWidth" jdbcType="INTEGER" />
+    <result column="screenHeight" property="screenHeight" jdbcType="INTEGER" />
+    <result column="screenDensity" property="screenDensity" jdbcType="REAL" />
+    <result column="appPackageName" property="appPackageName" jdbcType="VARCHAR" />
+    <result column="appVersionName" property="appVersionName" jdbcType="VARCHAR" />
+    <result column="appVersionCode" property="appVersionCode" jdbcType="INTEGER" />
+    <result column="appPackageNameFirst" property="appPackageNameFirst" jdbcType="VARCHAR" />
+    <result column="appVersionNameFirst" property="appVersionNameFirst" jdbcType="VARCHAR" />
+    <result column="appVersionCodeFirst" property="appVersionCodeFirst" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="IP" property="IP" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="activeNum" property="activeNum" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.mas.ws.pojo.ClientMachineWithBLOBs" extends="BaseResultMap" >
+    <result column="activeCreateTime" property="activeCreateTime" jdbcType="LONGVARCHAR" />
+    <result column="activeUpdateTime" property="activeUpdateTime" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+      <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.clientId != null" >
+         and clientId = #{condition.clientId}
+      </if>
+      <if test="condition.phone != null" >
+         and phone = #{condition.phone}
+      </if>
+      <if test="condition.imei != null" >
+         and imei = #{condition.imei}
+      </if>
+      <if test="condition.mac != null" >
+         and mac = #{condition.mac}
+      </if>
+      <if test="condition.imsi != null" >
+         and imsi = #{condition.imsi}
+      </if>
+      <if test="condition.smsc != null" >
+         and smsc = #{condition.smsc}
+      </if>
+      <if test="condition.deviceModel != null" >
+         and deviceModel = #{condition.deviceModel}
+      </if>
+      <if test="condition.deviceVendor != null" >
+         and deviceVendor = #{condition.deviceVendor}
+      </if>
+      <if test="condition.deviceType != null" >
+         and deviceType = #{condition.deviceType}
+      </if>
+      <if test="condition.netType != null" >
+         and netType = #{condition.netType}
+      </if>
+      <if test="condition.osVersion != null" >
+         and osVersion = #{condition.osVersion}
+      </if>
+      <if test="condition.osVersionName != null" >
+         and osVersionName = #{condition.osVersionName}
+      </if>
+      <if test="condition.osAddtional != null" >
+         and osAddtional = #{condition.osAddtional}
+      </if>
+      <if test="condition.serviceSupplier != null" >
+         and serviceSupplier = #{condition.serviceSupplier}
+      </if>
+      <if test="condition.resolution != null" >
+         and resolution = #{condition.resolution}
+      </if>
+      <if test="condition.screenWidth != null" >
+         and screenWidth = #{condition.screenWidth}
+      </if>
+      <if test="condition.screenHeight != null" >
+         and screenHeight = #{condition.screenHeight}
+      </if>
+      <if test="condition.screenDensity != null" >
+         and screenDensity = #{condition.screenDensity}
+      </if>
+      <if test="condition.appPackageName != null" >
+         and appPackageName = #{condition.appPackageName}
+      </if>
+      <if test="condition.appVersionName != null" >
+         and appVersionName = #{condition.appVersionName}
+      </if>
+      <if test="condition.appVersionCode != null" >
+         and appVersionCode = #{condition.appVersionCode}
+      </if>
+      <if test="condition.appPackageNameFirst != null" >
+         and appPackageNameFirst = #{condition.appPackageNameFirst}
+      </if>
+      <if test="condition.appVersionNameFirst != null" >
+         and appVersionNameFirst = #{condition.appVersionNameFirst}
+      </if>
+      <if test="condition.appVersionCodeFirst != null" >
+         and appVersionCodeFirst = #{condition.appVersionCodeFirst}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.updateTime != null" >
+         and updateTime = #{condition.updateTime}
+      </if>
+      <if test="condition.remark != null" >
+         and remark = #{condition.remark}
+      </if>
+      <if test="condition.IP != null" >
+         and IP = #{condition.IP}
+      </if>
+      <if test="condition.country != null" >
+         and country = #{condition.country}
+      </if>
+      <if test="condition.province != null" >
+         and province = #{condition.province}
+      </if>
+      <if test="condition.city != null" >
+         and city = #{condition.city}
+      </if>
+      <if test="condition.activeNum != null" >
+         and activeNum = #{condition.activeNum}
+      </if>
+      <if test="condition.activeCreateTime != null" >
+         and activeCreateTime = #{condition.activeCreateTime}
+      </if>
+      <if test="condition.activeUpdateTime != null" >
+         and activeUpdateTime = #{condition.activeUpdateTime}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    Id, clientId, phone, imei, mac, imsi, smsc, deviceModel, deviceVendor, deviceType, 
+    netType, osVersion, osVersionName, osAddtional, serviceSupplier, resolution, screenWidth, 
+    screenHeight, screenDensity, appPackageName, appVersionName, appVersionCode, appPackageNameFirst, 
+    appVersionNameFirst, appVersionCodeFirst, createTime, updateTime, remark, IP, country, 
+    province, city, activeNum
+  </sql>
+  <sql id="Blob_Column_List" >
+    activeCreateTime, activeUpdateTime
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.mas.ws.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from client_machine
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.ws.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from client_machine
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from client_machine
+    where Id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from client_machine
+    where Id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.ws.pojo.Criteria" >
+    delete from client_machine
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.ws.pojo.ClientMachineWithBLOBs" >
+    insert into client_machine (Id, clientId, phone, imei, mac, imsi, smsc, deviceModel, 
+      deviceVendor, deviceType, netType, osVersion, osVersionName, osAddtional, 
+      serviceSupplier, resolution, screenWidth, screenHeight, screenDensity, 
+      appPackageName, appVersionName, appVersionCode, appPackageNameFirst, 
+      appVersionNameFirst, appVersionCodeFirst, createTime, updateTime, remark, 
+      IP, country, province, city, activeNum, activeCreateTime, activeUpdateTime
+      )
+    values (#{id}, #{clientId}, #{phone}, #{imei}, #{mac}, #{imsi}, #{smsc}, #{deviceModel}, 
+      #{deviceVendor}, #{deviceType}, #{netType}, #{osVersion}, #{osVersionName}, #{osAddtional}, 
+      #{serviceSupplier}, #{resolution}, #{screenWidth}, #{screenHeight}, #{screenDensity}, 
+      #{appPackageName}, #{appVersionName}, #{appVersionCode}, #{appPackageNameFirst}, 
+      #{appVersionNameFirst}, #{appVersionCodeFirst}, #{createTime}, #{updateTime}, #{remark}, 
+      #{IP}, #{country}, #{province}, #{city}, #{activeNum}, #{activeCreateTime}, #{activeUpdateTime}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.ws.pojo.ClientMachineWithBLOBs" >
+    insert into client_machine
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="clientId != null" >
+        clientId,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="imei != null" >
+        imei,
+      </if>
+      <if test="mac != null" >
+        mac,
+      </if>
+      <if test="imsi != null" >
+        imsi,
+      </if>
+      <if test="smsc != null" >
+        smsc,
+      </if>
+      <if test="deviceModel != null" >
+        deviceModel,
+      </if>
+      <if test="deviceVendor != null" >
+        deviceVendor,
+      </if>
+      <if test="deviceType != null" >
+        deviceType,
+      </if>
+      <if test="netType != null" >
+        netType,
+      </if>
+      <if test="osVersion != null" >
+        osVersion,
+      </if>
+      <if test="osVersionName != null" >
+        osVersionName,
+      </if>
+      <if test="osAddtional != null" >
+        osAddtional,
+      </if>
+      <if test="serviceSupplier != null" >
+        serviceSupplier,
+      </if>
+      <if test="resolution != null" >
+        resolution,
+      </if>
+      <if test="screenWidth != null" >
+        screenWidth,
+      </if>
+      <if test="screenHeight != null" >
+        screenHeight,
+      </if>
+      <if test="screenDensity != null" >
+        screenDensity,
+      </if>
+      <if test="appPackageName != null" >
+        appPackageName,
+      </if>
+      <if test="appVersionName != null" >
+        appVersionName,
+      </if>
+      <if test="appVersionCode != null" >
+        appVersionCode,
+      </if>
+      <if test="appPackageNameFirst != null" >
+        appPackageNameFirst,
+      </if>
+      <if test="appVersionNameFirst != null" >
+        appVersionNameFirst,
+      </if>
+      <if test="appVersionCodeFirst != null" >
+        appVersionCodeFirst,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="IP != null" >
+        IP,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="activeNum != null" >
+        activeNum,
+      </if>
+      <if test="activeCreateTime != null" >
+        activeCreateTime,
+      </if>
+      <if test="activeUpdateTime != null" >
+        activeUpdateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="clientId != null" >
+        #{clientId},
+      </if>
+      <if test="phone != null" >
+        #{phone},
+      </if>
+      <if test="imei != null" >
+        #{imei},
+      </if>
+      <if test="mac != null" >
+        #{mac},
+      </if>
+      <if test="imsi != null" >
+        #{imsi},
+      </if>
+      <if test="smsc != null" >
+        #{smsc},
+      </if>
+      <if test="deviceModel != null" >
+        #{deviceModel},
+      </if>
+      <if test="deviceVendor != null" >
+        #{deviceVendor},
+      </if>
+      <if test="deviceType != null" >
+        #{deviceType},
+      </if>
+      <if test="netType != null" >
+        #{netType},
+      </if>
+      <if test="osVersion != null" >
+        #{osVersion},
+      </if>
+      <if test="osVersionName != null" >
+        #{osVersionName},
+      </if>
+      <if test="osAddtional != null" >
+        #{osAddtional},
+      </if>
+      <if test="serviceSupplier != null" >
+        #{serviceSupplier},
+      </if>
+      <if test="resolution != null" >
+        #{resolution},
+      </if>
+      <if test="screenWidth != null" >
+        #{screenWidth},
+      </if>
+      <if test="screenHeight != null" >
+        #{screenHeight},
+      </if>
+      <if test="screenDensity != null" >
+        #{screenDensity},
+      </if>
+      <if test="appPackageName != null" >
+        #{appPackageName},
+      </if>
+      <if test="appVersionName != null" >
+        #{appVersionName},
+      </if>
+      <if test="appVersionCode != null" >
+        #{appVersionCode},
+      </if>
+      <if test="appPackageNameFirst != null" >
+        #{appPackageNameFirst},
+      </if>
+      <if test="appVersionNameFirst != null" >
+        #{appVersionNameFirst},
+      </if>
+      <if test="appVersionCodeFirst != null" >
+        #{appVersionCodeFirst},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+      <if test="remark != null" >
+        #{remark},
+      </if>
+      <if test="IP != null" >
+        #{IP},
+      </if>
+      <if test="country != null" >
+        #{country},
+      </if>
+      <if test="province != null" >
+        #{province},
+      </if>
+      <if test="city != null" >
+        #{city},
+      </if>
+      <if test="activeNum != null" >
+        #{activeNum},
+      </if>
+      <if test="activeCreateTime != null" >
+        #{activeCreateTime},
+      </if>
+      <if test="activeUpdateTime != null" >
+        #{activeUpdateTime},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.ws.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from client_machine
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update client_machine
+    <set >
+      <if test="record.id != null" >
+        Id = #{record.id},
+      </if>
+      <if test="record.clientId != null" >
+        clientId = #{record.clientId},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone},
+      </if>
+      <if test="record.imei != null" >
+        imei = #{record.imei},
+      </if>
+      <if test="record.mac != null" >
+        mac = #{record.mac},
+      </if>
+      <if test="record.imsi != null" >
+        imsi = #{record.imsi},
+      </if>
+      <if test="record.smsc != null" >
+        smsc = #{record.smsc},
+      </if>
+      <if test="record.deviceModel != null" >
+        deviceModel = #{record.deviceModel},
+      </if>
+      <if test="record.deviceVendor != null" >
+        deviceVendor = #{record.deviceVendor},
+      </if>
+      <if test="record.deviceType != null" >
+        deviceType = #{record.deviceType},
+      </if>
+      <if test="record.netType != null" >
+        netType = #{record.netType},
+      </if>
+      <if test="record.osVersion != null" >
+        osVersion = #{record.osVersion},
+      </if>
+      <if test="record.osVersionName != null" >
+        osVersionName = #{record.osVersionName},
+      </if>
+      <if test="record.osAddtional != null" >
+        osAddtional = #{record.osAddtional},
+      </if>
+      <if test="record.serviceSupplier != null" >
+        serviceSupplier = #{record.serviceSupplier},
+      </if>
+      <if test="record.resolution != null" >
+        resolution = #{record.resolution},
+      </if>
+      <if test="record.screenWidth != null" >
+        screenWidth = #{record.screenWidth},
+      </if>
+      <if test="record.screenHeight != null" >
+        screenHeight = #{record.screenHeight},
+      </if>
+      <if test="record.screenDensity != null" >
+        screenDensity = #{record.screenDensity},
+      </if>
+      <if test="record.appPackageName != null" >
+        appPackageName = #{record.appPackageName},
+      </if>
+      <if test="record.appVersionName != null" >
+        appVersionName = #{record.appVersionName},
+      </if>
+      <if test="record.appVersionCode != null" >
+        appVersionCode = #{record.appVersionCode},
+      </if>
+      <if test="record.appPackageNameFirst != null" >
+        appPackageNameFirst = #{record.appPackageNameFirst},
+      </if>
+      <if test="record.appVersionNameFirst != null" >
+        appVersionNameFirst = #{record.appVersionNameFirst},
+      </if>
+      <if test="record.appVersionCodeFirst != null" >
+        appVersionCodeFirst = #{record.appVersionCodeFirst},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+      <if test="record.updateTime != null" >
+        updateTime = #{record.updateTime},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark},
+      </if>
+      <if test="record.IP != null" >
+        IP = #{record.IP},
+      </if>
+      <if test="record.country != null" >
+        country = #{record.country},
+      </if>
+      <if test="record.province != null" >
+        province = #{record.province},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city},
+      </if>
+      <if test="record.activeNum != null" >
+        activeNum = #{record.activeNum},
+      </if>
+      <if test="record.activeCreateTime != null" >
+        activeCreateTime = #{record.activeCreateTime},
+      </if>
+      <if test="record.activeUpdateTime != null" >
+        activeUpdateTime = #{record.activeUpdateTime},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update client_machine
+    set Id = #{record.id},
+      clientId = #{record.clientId},
+      phone = #{record.phone},
+      imei = #{record.imei},
+      mac = #{record.mac},
+      imsi = #{record.imsi},
+      smsc = #{record.smsc},
+      deviceModel = #{record.deviceModel},
+      deviceVendor = #{record.deviceVendor},
+      deviceType = #{record.deviceType},
+      netType = #{record.netType},
+      osVersion = #{record.osVersion},
+      osVersionName = #{record.osVersionName},
+      osAddtional = #{record.osAddtional},
+      serviceSupplier = #{record.serviceSupplier},
+      resolution = #{record.resolution},
+      screenWidth = #{record.screenWidth},
+      screenHeight = #{record.screenHeight},
+      screenDensity = #{record.screenDensity},
+      appPackageName = #{record.appPackageName},
+      appVersionName = #{record.appVersionName},
+      appVersionCode = #{record.appVersionCode},
+      appPackageNameFirst = #{record.appPackageNameFirst},
+      appVersionNameFirst = #{record.appVersionNameFirst},
+      appVersionCodeFirst = #{record.appVersionCodeFirst},
+      createTime = #{record.createTime},
+      updateTime = #{record.updateTime},
+      remark = #{record.remark},
+      IP = #{record.IP},
+      country = #{record.country},
+      province = #{record.province},
+      city = #{record.city},
+      activeNum = #{record.activeNum},
+      activeCreateTime = #{record.activeCreateTime},
+      activeUpdateTime = #{record.activeUpdateTime}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update client_machine
+    set Id = #{record.id},
+      clientId = #{record.clientId},
+      phone = #{record.phone},
+      imei = #{record.imei},
+      mac = #{record.mac},
+      imsi = #{record.imsi},
+      smsc = #{record.smsc},
+      deviceModel = #{record.deviceModel},
+      deviceVendor = #{record.deviceVendor},
+      deviceType = #{record.deviceType},
+      netType = #{record.netType},
+      osVersion = #{record.osVersion},
+      osVersionName = #{record.osVersionName},
+      osAddtional = #{record.osAddtional},
+      serviceSupplier = #{record.serviceSupplier},
+      resolution = #{record.resolution},
+      screenWidth = #{record.screenWidth},
+      screenHeight = #{record.screenHeight},
+      screenDensity = #{record.screenDensity},
+      appPackageName = #{record.appPackageName},
+      appVersionName = #{record.appVersionName},
+      appVersionCode = #{record.appVersionCode},
+      appPackageNameFirst = #{record.appPackageNameFirst},
+      appVersionNameFirst = #{record.appVersionNameFirst},
+      appVersionCodeFirst = #{record.appVersionCodeFirst},
+      createTime = #{record.createTime},
+      updateTime = #{record.updateTime},
+      remark = #{record.remark},
+      IP = #{record.IP},
+      country = #{record.country},
+      province = #{record.province},
+      city = #{record.city},
+      activeNum = #{record.activeNum}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.ws.pojo.ClientMachineWithBLOBs" >
+    update client_machine
+    <set >
+      <if test="clientId != null" >
+        clientId = #{clientId},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone},
+      </if>
+      <if test="imei != null" >
+        imei = #{imei},
+      </if>
+      <if test="mac != null" >
+        mac = #{mac},
+      </if>
+      <if test="imsi != null" >
+        imsi = #{imsi},
+      </if>
+      <if test="smsc != null" >
+        smsc = #{smsc},
+      </if>
+      <if test="deviceModel != null" >
+        deviceModel = #{deviceModel},
+      </if>
+      <if test="deviceVendor != null" >
+        deviceVendor = #{deviceVendor},
+      </if>
+      <if test="deviceType != null" >
+        deviceType = #{deviceType},
+      </if>
+      <if test="netType != null" >
+        netType = #{netType},
+      </if>
+      <if test="osVersion != null" >
+        osVersion = #{osVersion},
+      </if>
+      <if test="osVersionName != null" >
+        osVersionName = #{osVersionName},
+      </if>
+      <if test="osAddtional != null" >
+        osAddtional = #{osAddtional},
+      </if>
+      <if test="serviceSupplier != null" >
+        serviceSupplier = #{serviceSupplier},
+      </if>
+      <if test="resolution != null" >
+        resolution = #{resolution},
+      </if>
+      <if test="screenWidth != null" >
+        screenWidth = #{screenWidth},
+      </if>
+      <if test="screenHeight != null" >
+        screenHeight = #{screenHeight},
+      </if>
+      <if test="screenDensity != null" >
+        screenDensity = #{screenDensity},
+      </if>
+      <if test="appPackageName != null" >
+        appPackageName = #{appPackageName},
+      </if>
+      <if test="appVersionName != null" >
+        appVersionName = #{appVersionName},
+      </if>
+      <if test="appVersionCode != null" >
+        appVersionCode = #{appVersionCode},
+      </if>
+      <if test="appPackageNameFirst != null" >
+        appPackageNameFirst = #{appPackageNameFirst},
+      </if>
+      <if test="appVersionNameFirst != null" >
+        appVersionNameFirst = #{appVersionNameFirst},
+      </if>
+      <if test="appVersionCodeFirst != null" >
+        appVersionCodeFirst = #{appVersionCodeFirst},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark},
+      </if>
+      <if test="IP != null" >
+        IP = #{IP},
+      </if>
+      <if test="country != null" >
+        country = #{country},
+      </if>
+      <if test="province != null" >
+        province = #{province},
+      </if>
+      <if test="city != null" >
+        city = #{city},
+      </if>
+      <if test="activeNum != null" >
+        activeNum = #{activeNum},
+      </if>
+      <if test="activeCreateTime != null" >
+        activeCreateTime = #{activeCreateTime},
+      </if>
+      <if test="activeUpdateTime != null" >
+        activeUpdateTime = #{activeUpdateTime},
+      </if>
+    </set>
+    where Id = #{id}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mas.ws.pojo.ClientMachineWithBLOBs" >
+    update client_machine
+    set clientId = #{clientId},
+      phone = #{phone},
+      imei = #{imei},
+      mac = #{mac},
+      imsi = #{imsi},
+      smsc = #{smsc},
+      deviceModel = #{deviceModel},
+      deviceVendor = #{deviceVendor},
+      deviceType = #{deviceType},
+      netType = #{netType},
+      osVersion = #{osVersion},
+      osVersionName = #{osVersionName},
+      osAddtional = #{osAddtional},
+      serviceSupplier = #{serviceSupplier},
+      resolution = #{resolution},
+      screenWidth = #{screenWidth},
+      screenHeight = #{screenHeight},
+      screenDensity = #{screenDensity},
+      appPackageName = #{appPackageName},
+      appVersionName = #{appVersionName},
+      appVersionCode = #{appVersionCode},
+      appPackageNameFirst = #{appPackageNameFirst},
+      appVersionNameFirst = #{appVersionNameFirst},
+      appVersionCodeFirst = #{appVersionCodeFirst},
+      createTime = #{createTime},
+      updateTime = #{updateTime},
+      remark = #{remark},
+      IP = #{IP},
+      country = #{country},
+      province = #{province},
+      city = #{city},
+      activeNum = #{activeNum},
+      activeCreateTime = #{activeCreateTime},
+      activeUpdateTime = #{activeUpdateTime}
+    where Id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.ws.pojo.ClientMachine" >
+    update client_machine
+    set clientId = #{clientId},
+      phone = #{phone},
+      imei = #{imei},
+      mac = #{mac},
+      imsi = #{imsi},
+      smsc = #{smsc},
+      deviceModel = #{deviceModel},
+      deviceVendor = #{deviceVendor},
+      deviceType = #{deviceType},
+      netType = #{netType},
+      osVersion = #{osVersion},
+      osVersionName = #{osVersionName},
+      osAddtional = #{osAddtional},
+      serviceSupplier = #{serviceSupplier},
+      resolution = #{resolution},
+      screenWidth = #{screenWidth},
+      screenHeight = #{screenHeight},
+      screenDensity = #{screenDensity},
+      appPackageName = #{appPackageName},
+      appVersionName = #{appVersionName},
+      appVersionCode = #{appVersionCode},
+      appPackageNameFirst = #{appPackageNameFirst},
+      appVersionNameFirst = #{appVersionNameFirst},
+      appVersionCodeFirst = #{appVersionCodeFirst},
+      createTime = #{createTime},
+      updateTime = #{updateTime},
+      remark = #{remark},
+      IP = #{IP},
+      country = #{country},
+      province = #{province},
+      city = #{city},
+      activeNum = #{activeNum}
+    where Id = #{id}
+  </update>
+ <!-- 
+  <update id="updateByImeiSelective" parameterType="com.mas.ws.pojo.ClientMachineWithBLOBs" >
+    update client_machine set
+      activeCreateTime = CONCAT(activeCreateTime,',',#{activeCreateTime}),
+      activeUpdateTime = CONCAT(activeUpdateTime,',',#{activeUpdateTime}),
+      activeNum = activeNum+1
+    where imei = #{imei}
+  </update>
+ -->
+  <update id="updateByImeiSelective" parameterType="com.mas.ws.pojo.ClientMachineWithBLOBs" >
+    update client_machine set
+      activeNum = activeNum+1
+    where imei = #{imei}
+  </update>
+</mapper>
