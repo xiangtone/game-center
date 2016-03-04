@@ -262,9 +262,9 @@
     <string name="settings_only_download_wifi">注：这个资源只能在WI-FI网络下载，可在<xliff:g id="appName">%1$s</xliff:g>中更改设置。</string>
     <string name="settings_display_mode">显示模式</string>
     <string name="display_in_list_mode">列表模式</string>
-    <string name="display_in_fiche_mode">图片模式</string>
+    <string name="display_in_fiche_mode">网格模式</string>
     <string name="list_mode_tips">成功切换到列表模式!</string>
-    <string name="fiche_mode_tips">成功切换到图片模式!</string>
+    <string name="fiche_mode_tips">成功切换到网格模式!</string>
     <string name="traffic_control">网络设置</string>
     <string name="download_update">下载与更新</string>
     <string name="silent_install">静默安装</string>
@@ -353,6 +353,8 @@
     <string name="bot_tools_cancel">取消</string>
     <string name="music_setting">设置</string>
     <string name="music_dialog_title">设置为</string>
+    <string name="dialog_ringtones">手机铃声</string>
+    <string name="dialog_notification">通知铃声</string>
     <string name="pic_edit_back">返回</string>
     <string name="share_tools">发送(<xliff:g id="SUM">%s</xliff:g>)</string>
     <string name="picture_set_wallpaper">设置为壁纸</string>
