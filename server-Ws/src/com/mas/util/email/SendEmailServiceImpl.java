@@ -38,7 +38,7 @@ public class SendEmailServiceImpl implements SendEmailService {
 	        	}else if(emailList.size()==1){
 	        		message.setTo(emailList.get(0));
 	        	} 
-	            message.setFrom("developer@qq.com");
+	            message.setFrom("gamecenter@bjxiangtone.com");
 				Map<String,Object> model = new HashMap<String,Object>();
 	            model.put("password", password);
 	            model.put("nickname", nickname);

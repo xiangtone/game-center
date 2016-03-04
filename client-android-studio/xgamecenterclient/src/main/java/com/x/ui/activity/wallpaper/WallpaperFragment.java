@@ -62,7 +62,6 @@ public class WallpaperFragment extends BaseFragment {
 
 	private void initViewPager(View view) {
 		String[] titles = { ResourceUtil.getString(mActivity, R.string.wallpaper_album),
-				ResourceUtil.getString(mActivity, R.string.wallpaper_live),
 				ResourceUtil.getString(mActivity, R.string.wallpaper_hot),
 				ResourceUtil.getString(mActivity, R.string.wallpaper_categories) };
 		wallpaperFragmentPagerAdapter = new WallpaperFragmentPagerAdapter(this.getChildFragmentManager(), titles);
@@ -101,12 +100,9 @@ public class WallpaperFragment extends BaseFragment {
 						false);
 				break;
 			case 1:
-				fragment = WallpaperLiveFragment.newInstance(null);
-				break;
-			case 2:
 				fragment = WallpaperNewFragment.newInstance(null);
 				break;
-			case 3:
+			case 2:
 				fragment = WallpaperCategoriesFragment.newInstance(null);
 				break;
 			}

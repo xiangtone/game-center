@@ -20,8 +20,8 @@ public class AppLockerBean implements Comparable<AppLockerBean>{
 	}
 
 	public class lockerTypeName {
-		public static final String RECOMMEND = "Recommend";
-		public static final String GENERAL = "General";
+		public static final String RECOMMEND = "";
+		public static final String GENERAL = "";
 	}
 	
 	/** 
