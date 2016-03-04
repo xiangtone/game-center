@@ -1,70 +1,70 @@
-/**   
-* @Title: ApkManagerActivity.java
-* @Package com.x.activity
-* @Description: TODO 
+/**
+ * @Title: ApkManagerActivity.java
+ * @Package com.x.activity
+ * @Description: TODO
 
-* @date 2014-2-14 上午11:37:07
-* @version V1.0   
-*/
+ * @date 2014-2-14 上午11:37:07
+ * @version V1.0
+ */
 
 package com.x.ui.activity.apkman;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
+		import java.io.File;
+		import java.util.ArrayList;
+		import java.util.LinkedList;
+		import java.util.List;
+		import java.util.Queue;
+		import java.util.Random;
+		import java.util.Timer;
+		import java.util.TimerTask;
 
-import android.annotation.SuppressLint;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+		import android.annotation.SuppressLint;
+		import android.content.BroadcastReceiver;
+		import android.content.Context;
+		import android.content.Intent;
+		import android.content.IntentFilter;
+		import android.content.pm.ApplicationInfo;
+		import android.content.pm.PackageInfo;
+		import android.content.pm.PackageManager;
+		import android.os.Bundle;
+		import android.os.Handler;
+		import android.os.Message;
+		import android.support.v4.app.Fragment;
+		import android.support.v4.app.FragmentManager;
+		import android.support.v4.app.FragmentPagerAdapter;
+		import android.support.v4.view.PagerAdapter;
+		import android.support.v4.view.ViewPager;
+		import android.util.Log;
+		import android.view.View;
+		import android.view.View.OnClickListener;
+		import android.view.ViewGroup;
+		import android.widget.Button;
+		import android.widget.FrameLayout;
+		import android.widget.ImageView;
+		import android.widget.ProgressBar;
+		import android.widget.TextView;
 
-import com.x.R;
-import com.x.AmineApplication;
-import com.x.business.skin.SkinConfigManager;
-import com.x.business.skin.SkinConstan;
-import com.x.business.statistic.DataEyeManager;
-import com.x.business.statistic.StatisticConstan.ModuleName;
-import com.x.publics.download.BroadcastManager;
-import com.x.publics.model.ApkInfoBean;
-import com.x.publics.utils.MyIntents;
-import com.x.publics.utils.ResourceUtil;
-import com.x.publics.utils.StorageUtils;
-import com.x.ui.activity.base.BaseActivity;
-import com.x.ui.view.TabPageIndicator;
+		import com.x.R;
+		import com.x.AmineApplication;
+		import com.x.business.skin.SkinConfigManager;
+		import com.x.business.skin.SkinConstan;
+		import com.x.business.statistic.DataEyeManager;
+		import com.x.business.statistic.StatisticConstan.ModuleName;
+		import com.x.publics.download.BroadcastManager;
+		import com.x.publics.model.ApkInfoBean;
+		import com.x.publics.utils.MyIntents;
+		import com.x.publics.utils.ResourceUtil;
+		import com.x.publics.utils.StorageUtils;
+		import com.x.ui.activity.base.BaseActivity;
+		import com.x.ui.view.TabPageIndicator;
 
 /**
-* @ClassName: ApkManagerActivity
-* @Description: TODO 
+ * @ClassName: ApkManagerActivity
+ * @Description: TODO
 
-* @date 2014-2-14 上午11:37:07
-* 
-*/
+ * @date 2014-2-14 上午11:37:07
+ *
+ */
 
 public class ApkManagementActivity extends BaseActivity implements OnClickListener {
 
@@ -140,10 +140,10 @@ public class ApkManagementActivity extends BaseActivity implements OnClickListen
 	}
 
 	/**
-	* @Title: initNavigation 
-	* @Description: 初始化导航栏 
-	* @param     
-	* @return void
+	 * @Title: initNavigation
+	 * @Description: 初始化导航栏
+	 * @param
+	 * @return void
 	 */
 	private void initNavigation() {
 		mTitleView = findViewById(R.id.rl_title_bar);
@@ -175,13 +175,13 @@ public class ApkManagementActivity extends BaseActivity implements OnClickListen
 		DataEyeManager.getInstance().module(ModuleName.APK_MANAGEMENT, true);
 	}
 
-	/** 
-	* @Title: initViewPager 
-	* @Description: 初始化viewpager 
-	* @param      
-	* @return void    
-	* @throws 
-	*/
+	/**
+	 * @Title: initViewPager
+	 * @Description: 初始化viewpager
+	 * @param
+	 * @return void
+	 * @throws
+	 */
 	private void initViewPager() {
 		installTips = ResourceUtil.getString(context, R.string.apk_installed, "0");
 		unInstallTips = ResourceUtil.getString(context, R.string.apk_uninstalled, "0");
@@ -221,12 +221,12 @@ public class ApkManagementActivity extends BaseActivity implements OnClickListen
 		public Fragment getItem(int position) {
 			Fragment fragment = null;
 			switch (position) {
-			case 0:
-				fragment = ApkUninstalledFragment.newInstance(null);
-				break;
-			case 1:
-				fragment = ApkInstalledFragment.newInstance(null);
-				break;
+				case 0:
+					fragment = ApkUninstalledFragment.newInstance(null);
+					break;
+				case 1:
+					fragment = ApkInstalledFragment.newInstance(null);
+					break;
 			}
 			return fragment;
 		}
@@ -259,78 +259,78 @@ public class ApkManagementActivity extends BaseActivity implements OnClickListen
 			if (isSearchCancel)
 				return;
 			switch (msg.what) {
-			case 0:
-				if (!isSearchDone) {
-					String tips = (String) msg.obj;
-					scanTipsTv.setText(ResourceUtil.getString(context, R.string.apk_scanning, searchIngPath));
-					Log.d("Scanning", tips);
-				}
-				break;
-			case 1:
-				AmineApplication.apkInstallFileList = new ArrayList<ApkInfoBean>(apkInstallTempList);
-				AmineApplication.apkUninstallFileList = new ArrayList<ApkInfoBean>(apkUninstallTempList);
-				installTips = ResourceUtil.getString(context, R.string.apk_installed, ""
-						+ AmineApplication.apkInstallFileList.size());
-				unInstallTips = ResourceUtil.getString(context, R.string.apk_uninstalled, ""
-						+ AmineApplication.apkUninstallFileList.size());
-				titleList.clear();
-				titleList.add(unInstallTips);
-				titleList.add(installTips);
-				//				mApksPagerAdapter.notifyDataSetChanged();
-				sendScanRefreshBroadcast();
-				indicator.notifyDataSetChanged();
-				break;
-			case 2:
-				AmineApplication.apkInstallFileList = new ArrayList<ApkInfoBean>(apkInstallTempList);
-				AmineApplication.apkUninstallFileList = new ArrayList<ApkInfoBean>(apkUninstallTempList);
-				installTips = ResourceUtil.getString(context, R.string.apk_installed, ""
-						+ AmineApplication.apkInstallFileList.size());
-				unInstallTips = ResourceUtil.getString(context, R.string.apk_uninstalled, ""
-						+ AmineApplication.apkUninstallFileList.size());
-				titleList.clear();
-				titleList.add(unInstallTips);
-				titleList.add(installTips);
-				//				mApksPagerAdapter.notifyDataSetChanged();
-				sendScanRefreshBroadcast();
-				indicator.notifyDataSetChanged();
+				case 0:
+					if (!isSearchDone) {
+						String tips = (String) msg.obj;
+						scanTipsTv.setText(ResourceUtil.getString(context, R.string.apk_scanning, searchIngPath));
+						Log.d("Scanning", tips);
+					}
+					break;
+				case 1:
+					AmineApplication.apkInstallFileList = new ArrayList<ApkInfoBean>(apkInstallTempList);
+					AmineApplication.apkUninstallFileList = new ArrayList<ApkInfoBean>(apkUninstallTempList);
+					installTips = ResourceUtil.getString(context, R.string.apk_installed, ""
+							+ AmineApplication.apkInstallFileList.size());
+					unInstallTips = ResourceUtil.getString(context, R.string.apk_uninstalled, ""
+							+ AmineApplication.apkUninstallFileList.size());
+					titleList.clear();
+					titleList.add(unInstallTips);
+					titleList.add(installTips);
+					//				mApksPagerAdapter.notifyDataSetChanged();
+					sendScanRefreshBroadcast();
+					indicator.notifyDataSetChanged();
+					break;
+				case 2:
+					AmineApplication.apkInstallFileList = new ArrayList<ApkInfoBean>(apkInstallTempList);
+					AmineApplication.apkUninstallFileList = new ArrayList<ApkInfoBean>(apkUninstallTempList);
+					installTips = ResourceUtil.getString(context, R.string.apk_installed, ""
+							+ AmineApplication.apkInstallFileList.size());
+					unInstallTips = ResourceUtil.getString(context, R.string.apk_uninstalled, ""
+							+ AmineApplication.apkUninstallFileList.size());
+					titleList.clear();
+					titleList.add(unInstallTips);
+					titleList.add(installTips);
+					//				mApksPagerAdapter.notifyDataSetChanged();
+					sendScanRefreshBroadcast();
+					indicator.notifyDataSetChanged();
 
-				int totalNum2 = AmineApplication.apkInstallFileList.size()
-						+ AmineApplication.apkUninstallFileList.size();
-				long totalSize2 = 0;
-				for (ApkInfoBean apkInfoBean : AmineApplication.apkInstallFileList) {
-					totalSize2 += apkInfoBean.getFileSize();
-				}
-				for (ApkInfoBean apkInfoBean : AmineApplication.apkUninstallFileList) {
-					totalSize2 += apkInfoBean.getFileSize();
-				}
-				scanTipsTv.setText(ResourceUtil.getString(context, R.string.apk_scan_tips, "" + totalNum2, ""
-						+ StorageUtils.size(totalSize2)));
-				rescanBtn.setVisibility(View.VISIBLE);
-				//扫描完毕，设置进度条充满
-				scanFra.setVisibility(View.GONE);
-				progress.setVisibility(View.GONE);
-				timer.cancel();
-				timer2.cancel();
-				timer3.cancel();
-				sendScanFinishBroadcast();
-				break;
-			case 3://更新进度条
+					int totalNum2 = AmineApplication.apkInstallFileList.size()
+							+ AmineApplication.apkUninstallFileList.size();
+					long totalSize2 = 0;
+					for (ApkInfoBean apkInfoBean : AmineApplication.apkInstallFileList) {
+						totalSize2 += apkInfoBean.getFileSize();
+					}
+					for (ApkInfoBean apkInfoBean : AmineApplication.apkUninstallFileList) {
+						totalSize2 += apkInfoBean.getFileSize();
+					}
+					scanTipsTv.setText(ResourceUtil.getString(context, R.string.apk_scan_tips, "" + totalNum2, ""
+							+ StorageUtils.size(totalSize2)));
+					rescanBtn.setVisibility(View.VISIBLE);
+					//扫描完毕，设置进度条充满
+					scanFra.setVisibility(View.GONE);
+					progress.setVisibility(View.GONE);
+					timer.cancel();
+					timer2.cancel();
+					timer3.cancel();
+					sendScanFinishBroadcast();
+					break;
+				case 3://更新进度条
 
-				updateProgress();
-				break;
-			default:
-				break;
+					updateProgress();
+					break;
+				default:
+					break;
 			}
 		};
 	};
 
-	/** 
-	* @Title: startScanFile 
-	* @Description: 扫描文件 
-	* @param      
-	* @return void    
-	* @throws 
-	*/
+	/**
+	 * @Title: startScanFile
+	 * @Description: 扫描文件
+	 * @param
+	 * @return void
+	 * @throws
+	 */
 	private void startScanFile() {
 		scanApkFile();
 	}
@@ -453,10 +453,10 @@ public class ApkManagementActivity extends BaseActivity implements OnClickListen
 	}
 
 	/**
-	* 获取apk包的信息：版本号，名称，图标等
-	* @param absPath apk包的绝对路径
-	* @param context 
-	*/
+	 * 获取apk包的信息：版本号，名称，图标等
+	 * @param absPath apk包的绝对路径
+	 * @param context
+	 */
 	public void makeApkInfo(String absPath, Context context, ApkInfoBean apkInfoBean) {
 		PackageManager pm = context.getPackageManager();
 		PackageInfo pkgInfo = pm.getPackageArchiveInfo(absPath, PackageManager.GET_ACTIVITIES);
@@ -522,14 +522,14 @@ public class ApkManagementActivity extends BaseActivity implements OnClickListen
 
 	}
 
-	/** 
-	* @Title: makeNewData 
-	* @Description: 重装数据 
-	* @param @param paths
-	* @param @param list     
-	* @return void    
-	* @throws 
-	*/
+	/**
+	 * @Title: makeNewData
+	 * @Description: 重装数据
+	 * @param @param paths
+	 * @param @param list
+	 * @return void
+	 * @throws
+	 */
 
 	private void makeNewData(ArrayList<String> paths, ArrayList<ApkInfoBean> list) {
 		for (String path : paths) {
@@ -542,15 +542,15 @@ public class ApkManagementActivity extends BaseActivity implements OnClickListen
 		}
 	}
 
-	/** 
-	* @Title: makeNewData 
-	* @Description: 重装数据  
-	* @param @param paths
-	* @param @param list
-	* @param @param list2     
-	* @return void    
-	* @throws 
-	*/
+	/**
+	 * @Title: makeNewData
+	 * @Description: 重装数据
+	 * @param @param paths
+	 * @param @param list
+	 * @param @param list2
+	 * @return void
+	 * @throws
+	 */
 
 	private void makeNewData(ArrayList<String> paths, ArrayList<ApkInfoBean> list, ArrayList<ApkInfoBean> list2) {
 		for (String path : paths) {
@@ -565,13 +565,13 @@ public class ApkManagementActivity extends BaseActivity implements OnClickListen
 		}
 	}
 
-	/** 
-	* @Title: registerBroadcastReceiver 
-	* @Description: 注册广播 
-	* @param      
-	* @return void    
-	* @throws 
-	*/
+	/**
+	 * @Title: registerBroadcastReceiver
+	 * @Description: 注册广播
+	 * @param
+	 * @return void
+	 * @throws
+	 */
 
 	private void registerBroadcastReceiver() {
 		deleteApkUiReceiver = new DeleteApkUiReceiver();
@@ -581,13 +581,13 @@ public class ApkManagementActivity extends BaseActivity implements OnClickListen
 		inited = true;
 	}
 
-	/** 
-	* @Title: unregisterReceiver 
-	* @Description: 注销广播 
-	* @param      
-	* @return void    
-	* @throws 
-	*/
+	/**
+	 * @Title: unregisterReceiver
+	 * @Description: 注销广播
+	 * @param
+	 * @return void
+	 * @throws
+	 */
 
 	private void unregisterReceiver() {
 		BroadcastManager.unregisterReceiver(deleteApkUiReceiver);
@@ -614,10 +614,10 @@ public class ApkManagementActivity extends BaseActivity implements OnClickListen
 	}
 
 	/**
-	* @Title: updateProgress 
-	* @Description: 更新进度条
-	* @param     
-	* @return void
+	 * @Title: updateProgress
+	 * @Description: 更新进度条
+	 * @param
+	 * @return void
 	 */
 	private void updateProgress() {
 		tempData = tempData + ascending;
@@ -650,20 +650,20 @@ public class ApkManagementActivity extends BaseActivity implements OnClickListen
 	@Override
 	public void onClick(View arg0) {
 		switch (arg0.getId()) {
-		case R.id.mh_navigate_ll:
-			onBackPressed();
-			break;
+			case R.id.mh_navigate_ll:
+				onBackPressed();
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
-	/** 
-	* @Title: setSkinTheme 
-	* @Description: TODO 
-	* @return void    
-	*/
+	/**
+	 * @Title: setSkinTheme
+	 * @Description: TODO
+	 * @return void
+	 */
 	private void setSkinTheme() {
 		SkinConfigManager.getInstance().setTitleSkin(context, mTitleView, mNavigationView, mTitlePendant, null);
 		SkinConfigManager.getInstance().setViewBackground(context, loadingLogo, SkinConstan.LOADING_LOGO);

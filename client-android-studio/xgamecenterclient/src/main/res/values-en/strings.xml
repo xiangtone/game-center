@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">花生游戏中心</string>
+    <string name="action_settings">Settings</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="retry">Retry</string>
+    <string name="gohome">Go to Home page</string>
+    <string name="error_tips">Loading failed. Please try again.</string>
+    <string name="empty_tips">No related resource.</string>
+    <string name="exit">Exit</string>
+    <string name="exit_tips">Press the back-key twice to exit zApp.</string>
+    <string name="logout_tips">Do you really want to logout zApp?</string>
+    <string name="update_notification_title"><xliff:g id="num">%1$s</xliff:g> App(s) got New Version!</string>
+    <string name="share_tips">I found a great app \'<xliff:g id="appName">%1$s</xliff:g>\' on zApp. Get it from http://www.zapp365.com to download.</string>
+    <string name="feedback_title">Your suggestions (within 500 characters)</string>
+    <string name="feedback_content_hint">Please tell zApp the specifics of your problem or your suggestion.</string>
+    <string name="feddback_email_hint">Please enter your email address.</string>
+    <string name="app_version">Version:</string>
+    <string name="app_size">Size:</string>
+    <string name="app_new_size">New size:</string>
+    <string name="update_all">Update All</string>
+    <string name="delete_all">Delete All</string>
+
+    <!-- title -->
+    <string name="page_app_detail">App Details</string>
+    <string name="page_download_management">Download Management</string>
+    <string name="page_app_management">App Management</string>
+    <string name="page_my_apps">My Apps</string>
+    <string name="page_content_downloading">Download Management</string>
+    <string name="page_account_login">Login</string>
+    <string name="page_account_register">Register</string>
+    <string name="page_account_home">Account</string>
+    <string name="page_account_modify_pwd">Reset Password</string>
+    <string name="page_account_registered_successfully">Registered Successfully</string>
+    <string name="page_account_forget_password">Forgot Password</string>
+    <string name="page_account_recharge_details">Recharge Details</string>
+    <string name="page_account_recharge">Recharge</string>
+    <string name="page_apk_management">Apk Management</string>
+    <string name="page_my_contents">My Contents</string>
+    <string name="page_settings">Settings</string>
+    <string name="page_favorite_apps">Favorite Apps</string>
+    <string name="page_feedback">FAQs</string>
+    <string name="page_about">About</string>
+    <string name="page_help">Help</string>
+    <string name="page_qr_scan">QR Code Scanner</string>
+    <string name="page_qr_scan_result">Scan Result</string>
+    <string name="page_share_title">Wi-Fi Share</string>
+    <string name="page_share_invite_to_install">Invitation</string>
+    <string name="page_share_receive_history">History</string>
+    <string name="page_my_questions">My Questions</string>
+    <string name="page_wallpaper_ablum">Wallpaper Album</string>
+    <string name="page_camera">Camera</string>
+    <string name="page_applocker">App Lock</string>
+    <string name="page_applocker_unlock">Unlock</string>
+    <string name="page_applocker_advance_settings">Advance Settings</string>
+    <string name="page_applocker_wish_to_lock">Wish to Lock</string>
+    <string name="page_applocker_find_password">Forgot password?</string>
+    <string name="page_skin">Skin</string>
+
+    <!-- tab -->
+    <string name="home">Home</string>
+    <string name="apps">Apps</string>
+    <string name="games">Games</string>
+    <string name="ringtone">Ringtones</string>
+    <string name="wallpaper">Wallpapers</string>
+    <string name="home_recommend">RECOMMEND</string>
+    <string name="home_collection">COLLECTIONS</string>
+    <string name="home_must_have">MUST HAVE</string>
+    <string name="home_new">NEW</string>
+    <string name="home_top">TOP</string>
+    <string name="home_popular">POPULAR</string>
+    <string name="app_categories">CATEGORIES</string>
+    <string name="app_hot">HOT</string>
+    <string name="app_top">TOP</string>
+    <string name="app_new">NEW</string>
+    <string name="game_categories">CATEGORIES</string>
+    <string name="game_hot">HOT</string>
+    <string name="game_top">TOP</string>
+    <string name="game_popular">POPULAR</string>
+    <string name="game_new">NEW</string>
+    <string name="ringtone_categories">CATEGORIES</string>
+    <string name="ringtone_hot">HOT</string>
+    <string name="ringtone_top">TOP</string>
+    <string name="ringtone_new">NEW</string>
+    <string name="wallpaper_categories">CATEGORIES</string>
+    <string name="wallpaper_album">ALBUM</string>
+    <string name="wallpaper_top">TOP</string>
+    <string name="wallpaper_hot">HOT</string>
+    <string name="wallpaper_live">LIVE WALLPAPER</string>
+    <string name="resource_app">APPS&amp;GAMES</string>
+    <string name="resource_pic">PICTURES</string>
+    <string name="resource_music">MUSIC</string>
+    <string name="resource_video">VIDEOS</string>
+    <string name="resource_document">DOCUMENTS</string>
+    <string name="my_apps_new">NEW</string>
+    <string name="my_apps_all">ALL</string>
+    <string name="downloading">DOWNLOADING(<xliff:g id="num">%1$s</xliff:g>)</string>
+    <string name="download_history">DOWNLOAD HISTORY(<xliff:g id="num">%1$s</xliff:g>)</string>
+    <string name="update">UPDATE(<xliff:g id="num">%1$s</xliff:g>)</string>
+    <string name="installed">INSTALLED(<xliff:g id="num">%1$s</xliff:g>)</string>
+    <string name="apk_uninstalled">NOT INSTALLED(<xliff:g id="num">%1$s</xliff:g>)</string>
+    <string name="apk_installed">INSTALLED(<xliff:g id="num">%1$s</xliff:g>)</string>
+    <string name="apk_scanning">Scanning:<xliff:g id="path">%1$s</xliff:g></string>
+    <string name="apk_scan_tips">Amount of Apk:<xliff:g id="num">%1$s</xliff:g>&#160;&#160;&#160;&#160;Apk Space:<xliff:g id="size">%2$s</xliff:g></string>
+
+    <!-- left_drawer -->
+    <string name="account">Account</string>
+    <string name="new_tips">new</string>
+    <string name="login_tips">login&#8230;</string>
+    <string name="code_scan">QR Code Scanner</string>
+    <string name="share_free">Wi-Fi Share</string>
+    <string name="settings">Settings</string>
+    <string name="favorite_app">Favorite Apps</string>
+    <string name="feed_back">FAQs</string>
+    <string name="help">Help</string>
+    <string name="about">About</string>
+    <string name="my_apps">My Apps</string>
+    <string name="my_contents">My Contents</string>
+    <string name="tools">Tools</string>
+    <string name="applocker">App Lock</string>
+
+    <!-- actionbar menu -->
+    <string name="menu_search">Search</string>
+    <string name="menu_download">Download Manager</string>
+    <string name="menu_scan">Receive Scan</string>
+
+    <!-- app list module -->
+    <string name="app_status_normal">Download</string>
+    <string name="app_status_waiting">Waiting</string>
+    <string name="app_status_connecting">Connecting</string>
+    <string name="app_status_continue">Continue</string>
+    <string name="app_status_launch">Launch</string>
+    <string name="app_status_open">Open</string>
+    <string name="app_status_update">Update</string>
+    <string name="app_status_install">Install</string>
+    <string name="app_status_installing">Installing</string>
+    <string name="app_status_pause">Pause</string>
+    <string name="toast_silent_install_failed">Failed to launch Silent Install.</string>
+
+    <!-- download module -->
+    <string name="sdcard_no_memory">SD Card runs out of memory.</string>
+    <string name="sdcard_not_found">SD card is not found.</string>
+    <string name="sdcard_cannot_use">SD card canot be used.</string>
+    <string name="download_queue_is_full">Download queue is full.</string>
+    <string name="network_canot_work">Network unavailable.  Please try again later.</string>
+    <string name="download_status_waiting">Waiting</string>
+    <string name="download_status_paused">Paused</string>
+    <string name="download_status_connecting">Connecting</string>
+    <string name="download_status_finished">Finished</string>
+    <string name="download_status_network_error">Netwrok error</string>
+    <string name="download_status_memory_error">Storage space is running out.</string>
+    <string name="download_status_io_error">IO error</string>
+    <string name="download_status_server_error">Resource unfound</string>
+    <string name="download_status_illega_error">Illegal download url</string>
+    <string name="download_status_error">Something wrong happened</string>
+    <string name="download_view_app_info">App info</string>
+    <string name="download_cancle">Delete task</string>
+    <string name="download_notification_title"><xliff:g id="num">%1$s</xliff:g> task(s) is currently downloading!</string>
+    <string name="download_notification_sub_content">Click to check the download list.</string>
+    <string name="install_notification_title"><xliff:g id="num">%1$s</xliff:g> task(s) download completed.</string>
+    <string name="install_notification_sub_content">Download completed. Click for more information.</string>
+    <string name="download_failed_tips"><xliff:g id="reason">%1$s</xliff:g>,download <xliff:g id="appName">%2$s</xliff:g> failed.</string>
+    <string name="download_too_many_downloads">Too many downloads, please try again later.</string>
+
+    <!-- app management module -->
+    <string name="manager_uninstall">Uninstall</string>
+    <string name="manager_delete">Delete </string>
+    <string name="manager_manager">Manager</string>
+    <string name="manager_open">Launch</string>
+    <string name="manager_detail">Details</string>
+    <string name="manager_install">Install</string>
+
+    <!-- app detail module -->
+    <string name="app_pause">Pause</string>
+    <string name="app_install">Install</string>
+    <string name="app_installing">Installing</string>
+    <string name="app_ratings">Ratings</string>
+    <string name="app_download">Download</string>
+    <string name="app_upgrade">Update</string>
+    <string name="app_launch">Launch</string>
+    <string name="app_continue">Continue</string>
+    <string name="app_connecting">Connecting</string>
+    <string name="app_waiting">Waiting</string>
+    <string name="app_average">Average</string>
+    <string name="rate_app">Rate this app:</string>
+    <string name="rate_content">Write a comment</string>
+    <string name="app_recommend">Related</string>
+    <string name="app_refresh">Refresh</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="warm_tips">Warm Tips</string>
+    <string name="app_comments_warm_tips">Giving comment is only available after downloading zApp. Download now?</string>
+    <string name="load_error_tips">Failed to load. Please try again later.</string>
+    <string name="app_comments_text">Comments</string>
+    <string name="app_comment_btn_text">Comment</string>
+    <string name="app_description_text">Description</string>
+    <string name="app_issuer_recommend_text">More from this developer</string>
+    <string name="app_version_text">Version&#160;</string>
+    <string name="app_downloads_text">Downloads:&#160;</string>
+    <string name="app_source_text">Apps Source:&#160;</string>
+    <string name="app_commentstips_text">Please download this application first</string>
+    <!-- app account module -->
+    <string name="account_logout">Logout</string>
+    <string name="recharge_details">Recharge Details</string>
+    <string name="recharge">Recharge</string>
+    <string name="recharge_amount">Recharge Amount</string>
+    <string name="payment_channel">Payment Channel</string>
+    <string name="order_number">Order Number</string>
+    <string name="order_time">Order Time</string>
+    <string name="recharge_link_tips">No recharge details yet. Want to recharge?</string>
+
+    <!-- help 在内容管理后台中使用 -->
+    <string name="help_q1"><b>What is zApp?</b></string>
+    <string name="help_content1">zApp is your all-in-one mobile assistant! \nOn one hand, zApp devotes to providing you with the latest and most popular apps and games no matter in your country and around the world, which helps you be the fashion among your friends. \nOn the other hand, zApp tries the best to assist you manage your smart phone in an easiest way, sorting out all your files.</string>
+    <string name="help_q2"><b>How do I update my zApp?</b></string>
+    <string name="help_content2">Every time zApp updates, there is a reminder for you to get the latest version of it. Then you can download it by clicking “Update”. \nCertainly, you can also get the latest one directly via www.zapp365.com.</string>
+    <string name="help_q3"><b>Why do I create a zApp account?</b></string>
+    <string name="help_content3">zApp accounts can offer you a bunch of privilege to play with on zApp, including all apps, games and customizations.\nPlus, you can download, install and manage your apps &amp; games through zApp. Quite convenient!</string>
+    <string name="help_q4"><b>Why can\'t I login?</b></string>
+    <string name="help_content4">If you’re having trouble logging into zApp:\n1. Make sure you have the latest version of zApp; if not, update it.\n2. Delete the app, then reinstall it.\n3. Try logging in from a strong Wi-Fi/mobile data (3G/4G) environment, then try again.</string>
+    <string name="help_q5"><b>How to download and install apps &amp; games by zApp?</b></string>
+    <string name="help_content5">You can download Android Apps and digital content to your device using zApp. As long as you have a strong Wi-Fi or mobile data (3G/4G) connection on your device, your apps will start downloading immediately.\n1. Select the apps or games you want to download on zApp.\n2. Click Download. When download complete, there is a prompt to remind you of installing them.\n3. Click Install, then they will be installed accordingly.</string>
+    <string name="help_q6"><b>How to update apps &amp; games by zApp?</b></string>
+    <string name="help_content6">Via zApp, you can update apps or allow apps to be updated automatically in Wi-Fi environment.\n1. Open Left Sidebar after zApp is launched.\n2.  Click My Apps to view apps for update availability. \n3. Select apps to Update. \nAlso, in the settings of zApp, you can choose to “Automatically download update apps via Wi-Fi”. Then apps will be updated via W-Fi as soon as they get update availability.</string>
+    <string name="help_q7"><b>Why there is a block installation of apps from unknown sources when I install apps and games?</b></string>
+    <string name="help_content7">It is about the settings of your mobile phone. \nAs soon as you choose to “allow install of non-Play Store applications” in the Device Administration of Settings, you can install any apps and games you download.</string>
+    <string name="help_q8"><b>What is the purpose of "Storage" and "RAM" shown in the Left Sidebar?</b></string>
+    <string name="help_content8">Both “Storage” and “RAM” are to clean up and speed up your mobile phone in order to offer you a better user experience. So, click the circle and enjoy the faster speed.</string>
+    <string name="help_q9"><b>What is My Apps?</b></string>
+    <string name="help_content9">My Apps is to assist you sort out all apps installed. There are two tabs named “NEW” and “ALL”. You could update apps needed in NEW and delete or launch an app in ALL.</string>
+    <string name="help_q10"><b>What is My Contents?</b></string>
+    <string name="help_content10">My Contents is customized for you to manage all your files in the most convenient way, including all your pictures, music, videos and documents in your phone.</string>
+    <string name="help_q11"><b>What is Tools?</b></string>
+    <string name="help_content11">Tools contain those fancy and practical ones you will use often, even daily, such as QR Code Scanner, Wi-Fi Share and App Lock. More tools will be upcoming soon…</string>
+    <string name="help_q12"><b>What is Wi-Fi Share?</b></string>
+    <string name="help_content12">Wi-Fi Share is an awesome function!\nVia it, you can share any files with friends directly and quickly, without any data flow and it is FREE!</string>
+    <string name="help_q13"><b>How to use Wi-Fi Share?</b></string>
+    <string name="help_content13">Firstly, make sure both you and your friends have launched zApp.\nNext, stand within a certain distance.\nAt last, use Wi-Fi Share to send or receive files.\nSo easy!</string>
+    <string name="help_q14"><b>What is App Lock?</b></string>
+    <string name="help_content14">App Lock is a reliable and strong security guard for all your apps and all secrets you want to lock from others. Give it a try and leave yourself alone.</string>
+
+    <!-- Settings -->
+    <string name="image_no_download_title">Save 2G/3G/4G data</string>
+    <string name="image_no_download_tips">When this is on, there are no pictures loading via 2G/3G/4G.</string>
+    <string name="download_prompt_title">Prompt when download via 2G/3G/4G</string>
+    <string name="only_download_wifi_title">Download via Wi-Fi only</string>
+    <string name="system_setting">System Settings</string>
+    <string name="auto_install_after_download">Install after downloaded</string>
+    <string name="auto_download_fav_app_title">Automatically download favorite apps via Wi-Fi</string>
+    <string name="auto_download_update_app_title">Automatically download update apps via Wi-Fi</string>
+    <string name="clear_cache">Clear cache</string>
+    <string name="app_country">Location</string>
+    <string name="settings_only_download_wifi">Note: this resource can only be downloaded via Wi-Fi now. You could change it via the settings of zApp.</string>
+    <string name="settings_display_mode">Display mode</string>
+    <string name="display_in_list_mode">List Mode</string>
+    <string name="display_in_fiche_mode">Fiche Mode</string>
+    <string name="list_mode_tips">Switch to list mode successfully!</string>
+    <string name="fiche_mode_tips">Switch to fiche mode successfully!</string>
+    <string name="traffic_control">Network Control</string>
+    <string name="download_update">Download &amp; Update</string>
+    <string name="silent_install">Silent Install</string>
+    <string name="su_authorize">Authorizing&#8230;</string>
+    <string name="su_authorize_failed">Failed to authorize.</string>
+    <string name="sound_effect_setting">Sound effects</string>
+
+    <!-- dialog -->
+    <string name="dialog_download_prompt">Note: you are downloading in 2G/3G/4G environment.</string>
+    <string name="dialog_download_prompt_download">Download</string>
+    <string name="dialog_download_prompt_cancle">Cancel</string>
+    <string name="dialog_delete_prompt_one">Do you really want to delete this application?</string>
+    <string name="dialog_delete_prompt_all">Do you really want to delete these selected <xliff:g id="count">%1$s</xliff:g> applications?</string>
+    <string name="dialog_delete_prompt_all_single">Do you really want to delete this selected application?</string>
+    <string name="dialog_delete_download_prompt_one">Do you really want to delete this downloading task?</string>
+    <string name="dialog_delete_download_prompt_all">Do you really want to delete these selected <xliff:g id="count">%1$s</xliff:g> download tasks?</string>
+    <string name="dialog_redownload_file_not_found">The file of \"<xliff:g id="appName">%1$s</xliff:g>\" had been deleted. Do you want to re-download?</string>
+    <string name="dialog_redownload_app_not_found">The app  \"<xliff:g id="appName">%1$s</xliff:g>\" had been uninstalled. Do you want to re-download?</string>
+    <string name="dialog_redownload_incremental_upgrade">The smart update failed. Do you want to re-download the smart update package of \"<xliff:g id="appName">%1$s</xliff:g>\"?</string>
+    <string name="dialog_redownload_full_dose">The smart update failed. Do you want to re-download the original package of  \"<xliff:g id="appName">%1$s</xliff:g>\"?</string>
+    <string name="dialog_delete_download_prompt_all_single">Do you really want to delete this selected download task?</string>
+    <string name="dialog_delete_cache">Are you sure you want to clear cache?</string>
+    <string name="dialog_app_exit_tips">Continue the downloading after exiting zApp?</string>
+    <string name="dialog_app_exit_downloading"><xliff:g id="count">%1$s</xliff:g>  task(s) is downloading, confirm to exit?</string>
+
+    <!-- search -->
+    <string name="option_search_apps">Apps</string>
+    <string name="option_search_ringtones">Ringtones</string>
+    <string name="option_search_wallpapers">Wallpapers</string>
+    <!-- favorite app -->
+    <string name="unfavorite">Unfavorite</string>
+
+    <!-- recharge -->
+    <string name="card_recharging">Recharging&#8230;</string>
+    <string name="card_number_is_null">Card ID is null.</string>
+    <string name="card_number_is_not_numbers">Card ID must be arabic numerals.</string>
+    <string name="card_number_char_count_greater_check">Card ID must be greater than 16 digits.</string>
+    <string name="card_number_char_count_less_check">Card ID must be  less than 32 digits.</string>
+    <string name="card_input_hint_text">Please enter the MOGPlay Card ID.</string>
+    <string name="card_tips_hint_text">(Tips: V20=200 K-coins)</string>
+    <string name="card_input_title_text">Card ID : </string>
+    <string name="card_recharge_successfully">Recharge successfully.</string>
+    <string name="card_recharge_failure">Recharge failed.</string>
+    <string name="recharge_btn_text">OK</string>
+    <string name="recharge_tips_text_part1">Welcome to zApp,</string>
+    <string name="recharge_tips_text_part2">\nyou have already successfully recharged with&#160;</string>
+    <string name="recharge_tips_text_part3">&#160;K-coins !</string>
+
+    <!-- All Of Toast Tips -->
+    <string name="sending">Sending…</string>
+    <string name="choose_stars_tips">Please choose stars!</string>
+    <string name="comments_success_tips">Comment Successfully!</string>
+    <string name="write_comments_tips">Please write a comment!</string>
+    <string name="comments_fail_tips">Comment failure, please try again!</string>
+    <string name="comments_error_tips">Account password is incorrect. Please enter it again.</string>
+    <string name="No_more_data">No more data.</string>
+    <string name="add_favorite_success">Add favorite app successfully.</string>
+    <string name="favorite_over_size">Add favorite app count over size.</string>
+    <string name="cancel_favorite_success">Cancel favorite app successfully.</string>
+    <string name="cancel_favorite_fail">Cancel favorite app failure.</string>
+    <string name="account_no_login">Please login and try again!</string>
+    <string name="write_feedback_tips">Please write your questions.</string>
+    <string name="write_email_tips">Please enter your email address.</string>
+    <string name="incorrect_email_format">Incorrect email address format.</string>
+    <string name="feedback_success">Thanks for your feedback!</string>
+    <string name="feedback_fail">Feedback failure, please try again!</string>
+    <string name="upgrade_fail">Smart Update failed.</string>
+    <string name="one_click_download_error">Failed to download all.</string>
+    <string name="check_new_version">Check New Version</string>
+    <string name="feedback_email">Email Address</string>
+    <string name="feedback_send_btn_text">Send</string>
+    <string name="one_click_btn_text">&#160;Download All</string>
+
+    <!-- 二维码扫描 -->
+    <string name="scan_failure_tips">Failed to scan.</string>
+    <string name="scan_prepare">The camera is preparing&#8230; </string>
+    <string name="scan_text">Align QR Code within the frame to scan !</string>
+    <string name="no_browser_tips">No browsers are in your device. Please install one and try again !</string>
+    <string name="scan_qr_result_tips">Got a link after scanning:&#160;<xliff:g id="result">%s</xliff:g>, Open it?</string>
+    <string name="scan_br_result_tips">Scan results:&#160;<xliff:g id="result">%s</xliff:g></string>
+    <string name="init_camera_error">Failed to launch camera.</string>
+    <string name="scan_title_text">Scan Result</string>
+
+    <!-- 资源管理 -->
+    <string name="bot_tools_share">Share</string>
+    <string name="bot_tools_cancel">Cancel</string>
+    <string name="music_setting">Settings</string>
+    <string name="music_dialog_title">Set as</string>
+    <string name="pic_edit_back">BACK</string>
+    <string name="share_tools">Send (<xliff:g id="SUM">%s</xliff:g>)</string>
+    <string name="picture_set_wallpaper">Set as Wallpaper</string>
+    <string name="picture_rotate">Rotate</string>
+    <string name="picture_confirm">Confirm</string>
+    <string name="picture_share">Share</string>
+    <string name="picture_set_wallpaper_succ">Succeed to set as wallpaper.</string>
+    <string name="picture_set_wallpaper_fail">Fail to set as wallpaper.</string>
+    <string name="share_toast">Please select a file to share.</string>
+    <string name="wallpaper_edit_dia">Save the edited picture?</string>
+    <string name="wallpaper_edit_save">Save successfully!</string>
+    <string name="ringtones_set_succ">Set successfully!</string>
+    <string name="ringtones_set_failure">This file is damaged.</string>
+    <string name="open_file_toast">Didn\'t find related software</string>
+    <string name="cleaning">cleaning&#8230;</string>
+    <string name="storage">STORAGE</string>
+    <string name="ram">RAM</string>
+    <string name="video">Video</string>
+    <string name="videos">Videos</string>
+    <string name="album">Album</string>
+    <string name="albums">Albums</string>
+    <string name="pictrue">Pictrue</string>
+    <string name="pictrues">Pictrues</string>
+    <string name="music">Music</string>
+    <string name="document">Document</string>
+    <string name="documents">Documents</string>
+    <string name="resource_del">Failed to delete.</string>
+    <string name="resource_search">Searching&#8230;</string>
+    <string name="resource_search_tips">Search results (<xliff:g id="SUM">%s</xliff:g>)</string>
+    <string name="resource_search_no_tips">No results!</string>
+    <string name="resource_search_empty">Key words cannot be empty!</string>
+    <string name="re_dialog_delete_prompt_sigin">Do you really want to delete this selected <xliff:g id="count">%1$s</xliff:g><xliff:g id="type">%2$s</xliff:g>?</string>
+    <string name="re_dialog_delete_prompt_all">Do you really want to delete these selected <xliff:g id="count">%1$s</xliff:g><xliff:g id="type">%2$s</xliff:g>?</string>
+    <string name="storage_cache">Clean cache <xliff:g id="SUM">%s</xliff:g></string>
+    <string name="storage_ram">Clean <xliff:g id="SUM">%s</xliff:g> memory space successfully.</string>
+    <string name="storage_good">Your device is in perfert condition now.</string>
+
+    <!-- 零流量分享 -->
+    <string name="sharing_search_friends">SEARCH FRIENDS</string>
+    <string name="sharing_qr_code">QR CODE</string>
+    <string name="sms_body">Welcome to use Wi-Fi Share! Without data flow, you can send and receive any files with friends. Install zApp then you can use it: http://www.zapp365.com/</string>
+    <string name="receive_recode_successfulreceived">Successfully received:\t</string>
+    <string name="sharing_invite_friend"><u>Invite your friends to install zApp.</u></string>
+    <string name="sharing_searching">Searching with friends nearby&#8230;</string>
+    <string name="sharing_scanner_prompt"><u>Invite friends to launch QR Code first.</u></string>
+    <string name="sharing_next">Next</string>
+    <string name="sharing_invitation_title">Please choose a way to invite friends to install zApp.</string>
+    <string name="sharing_invitation_browserdownload">Please enter below URL to download zApp.</string>
+    <string name="sharing_invitation_scanorcode">Please ask friends to scan this QR Code.</string>
+    <string name="sharing_invitation_sms2">SMS</string>
+    <string name="sharing_invitation_browser">Browser</string>
+    <string name="sharing_invitation_orcode">QR Code</string>
+    <string name="sharing_invitation_tips">zApp is only available on Android Devices.</string>
+    <string name="sharing_how_to_accpect">Steps for your friends to receive files:</string>
+    <string name="sharing_prompt1">Make sure both of you have launched zApp.</string>
+    <string name="sharing_prompt1_of_link"><u>No zApp? Install now!</u></string>
+    <string name="sharing_prompt2">Click \"Receive\" inside Wi-Fi Share.</string>
+    <string name="website_url">www.zapp365.com</string>
+    <string name="no_sms_tips">Failed to send SMS.</string>
+    <string name="sharing_invitation_receivefiles">Invite friends to scan the code for receiving files.</string>
+    <string name="transfer_cancle">Cancel</string>
+    <string name="transfer_install">Install</string>
+    <string name="transfer_launch">Launch</string>
+    <string name="transfer_open">Open</string>
+    <string name="transfer_retry">Retry</string>
+    <string name="transfer_setting">Settings</string>
+    <string name="atw_invite_connect_zapp">Invite friends to connect this free Wi-Fi: </string>
+    <string name="atw_wifi">Wi-Fi</string>
+    <string name="atw_Installation_notes">Scan this code to download zApp for free.\nOr download it via</string>
+    <string name="atw_operation_tips">Please do not exit before download complete, or download will cancel.</string>
+    <string name="connection_failed">Connection failed.</string>
+    <string name="share_receive_percent"><xliff:g id="percent">%1$s</xliff:g> received.</string>
+    <string name="share_receive_save_stream"><xliff:g id="stream">%1$s</xliff:g> have already saved for you!</string>
+    <string name="dialog_cancle_zerodata_share">Are you sure to exit Wi-Fi Share?</string>
+    <string name="dialog_exit_zerodata_share">Are you sure to exit Wi-Fi Share?</string>
+    <string name="dialog_zerodata_exit">Exit</string>
+    <string name="dialog_hotspot_disabled_tips">Wi-Fi Hotspot is not activated. Create one?</string>
+    <string name="dialog_zerodata_receive_exit">Are you sure to exit Wi-Fi Share?</string>
+    <string name="dialog_zerodata_reconnect">Reconnecting&#8230;</string>
+    <string name="dialog_zerodata_out_of_client_tips">The devices you connected is outnumbered by five. Please wait a moment.</string>
+    <string name="dialog_zerodata_connect_error_tips">Fail to connect the server. Want to try again?</string>
+    <string name="sharenearby_intent">zApp</string>
+    <string name="share_history_file_size">Congratulations!\n<xliff:g id="size">%1$s</xliff:g> have already saved for you.</string>
+    <string name="share_history_file_not_exit">The received file \"<xliff:g id="fileName">%1$s</xliff:g>\" had been deleted.</string>
+    <string name="share_history_dialog_delete_all">Do you really want to delete these files?</string>
+    <string name="share_history_dialog_delete_one">Do you really want to delete this file?</string>
+    <string name="share_file_desc">&#160;have already been packed.</string>
+    <string name="share_file">&#160; file</string>
+    <string name="share_files">&#160; files</string>
+    <string name="share_file_with">&#160; file with &#160;</string>
+    <string name="share_files_with">&#160; files with &#160;</string>
+    <string name="shared">Shared &#160;</string>
+    <string name="share_connecting1">Connecting.</string>
+    <string name="share_connecting2">Connecting..</string>
+    <string name="share_connecting3">Connecting...</string>
+    <string name="connection_server_time_out">Connection failed. Please click again.</string>
+    <string name="send">Send</string>
+    <string name="receive">Receive</string>
+    <string name="share_file_tips">Share files without data traffic!</string>
+    <string name="invitation_btn_text">INVITATION</string>
+    <string name="history_btn_text">HISTORY</string>
+    <string name="guide_btn_text">GUIDE ME</string>
+
+    <!-- 平台升级（通知栏 & 内容提示） -->
+    <string name="new_version">New version</string>
+    <string name="platform_downloading">Downloading zApp</string>
+    <string name="platform_ticker_text">Update zApp</string>
+    <string name="launch_download">Start to download…</string>
+    <string name="download_fail">Download failed.</string>
+    <string name="download_success">Download successfully.</string>
+    <string name="upgrade_reminder">Update Reminder</string>
+    <string name="dialog_btn_update">Update</string>
+    <string name="connection_timeout">Connection timed out. Please try again later.</string>
+    <string name="platform_download_complete_title1">zApp update, install now!</string>
+    <string name="platform_download_complete_title2">zApp Download Completed!</string>
+    <string name="platform_download_complete_size">Size: &#160;</string>
+    <string name="notification_detail_btn_text">&#160;&#160;&#160;Details</string>
+    <string name="notification_install_btn_text">&#160;&#160;&#160;Install</string>
+    <string name="notification_open_btn_text">&#160;&#160;&#160;Launch</string>
+    <string name="notification_share_btn_text">&#160;&#160;&#160;Share</string>
+    <string name="noti_drag_tips">(Drag for more details)</string>
+    <string name="new_version_tips">This is the latest version.</string>
+
+    <!-- 新手引导 -->
+    <string name="start_now">START NOW</string>
+
+    <!-- My apps -->
+    <string name="app_new_update">Update</string>
+    <string name="app_new_downloading">Downloading</string>
+    <string name="app_new_install">Ready to install</string>
+    <string name="app_new_update_all">Update All(<xliff:g id="num">%1$s</xliff:g>)</string>
+    <string name="app_new_download_all">Download All(<xliff:g id="num">%1$s</xliff:g>)</string>
+    <string name="app_new_pause_all">Pause All(<xliff:g id="num">%1$s</xliff:g>)</string>
+
+    <!-- feedback -->
+    <string name="feedback_input_tips">Only 1024 characters are availble here.</string>
+    <string name="submit_feedback">My Questions</string>
+    <string name="feedback_warn_title">Your feedback got replied!</string>
+    <string name="feedback_warn_content">Click to check details.</string>
+    <string name="feedback_warn_tips">Your feedback got replied!</string>
+    <string name="feedback_first_tips">Dear User, let us know your feedback or problems and we would try our best to improve your experience with zApp.</string>
+
+    <!-- search -->
+    <string name="search_refresh_text">Refresh</string>
+    <string name="ringtone_query_hint">Ringtones</string>
+    <string name="app_query_hint">Apps &amp; Games</string>
+    <string name="wallpaper_query_hint">Wallpapers</string>
+    <string name="search_result_tips">Results not found! Play with below related recommendations!</string>
+    <string name="search_tips">Please enter key words for search.</string>
+
+    <!-- Notification 通知栏 -->
+    <string name="checking">Checking</string>
+    <string name="noti_update_all">&#160;Update All</string>
+    <string name="click_to_open">Click to launch</string>
+    <string name="app_no_exists_tips">The app did not exist. Please redownload again.</string>
+
+    <!-- account -->
+    <string name="login_in">Logging in...</string>
+    <string name="login">Login</string>
+    <string name="login_successful">Login successfully.</string>
+    <string name="login_username_or_pwd_error">The email address or password is incorrect. Please try again.</string>
+    <string name="login_failure">Login failed.</string>
+    <string name="login_username_text">Email Address</string>
+    <string name="login_password_text">Password</string>
+    <string name="login_btn_text">Login</string>
+    <string name="login_fail_network_error">Network unavailable.  Please try again later.</string>
+    <string name="register_btn_text">Register</string>
+    <string name="reg_registering">Registering...</string>
+    <string name="reg_have_account">I already have an account.</string>
+    <string name="reg_success">Registered successfully.</string>
+    <string name="reg_fail_have_registered">This email address has already been registered.</string>
+    <string name="reg_fail_email_invalid">This email address is invalid. Please try another one.</string>
+    <string name="reg_fail">Failed to register.</string>
+    <string name="reg_fail_network_error">Network unavailable.  Please try again later.</string>
+    <string name="register">Register</string>
+    <string name="logout_success">Logout successfully.</string>
+    <string name="logout_fail">Logout failed.</string>
+    <string name="logout_fail_network_error">Network unavailable.  Please try again later.</string>
+    <string name="modify_nickname_success">Nickname modified successfully.</string>
+    <string name="modify_nickname_fail">Failed to modify nickname.</string>
+    <string name="modify_nickname_fail_network_error">Network error. Please try again later.</string>
+    <string name="modify_pwd_fail_network_error">Network error. Please try again later.</string>
+    <string name="send_email_succesful">Email sent successfully.</string>
+    <string name="send_email_error">Failed to send email.</string>
+    <string name="send_email_fail_network_error">Network unavailable.  Please try again later.</string>
+    <string name="email_error">The email address you entered is incorrect. Please enter another one.</string>
+    <string name="send_pwd_succcessful_title">registration successful</string>
+    <string name="find_password">Forgot password?</string>
+    <string name="find_hint_text">Please enter the email address as registered to zApp, then a new password will be sent to your email box.</string>
+    <string name="old_pwd">Old password</string>
+    <string name="new_pwd">New password</string>
+    <string name="ok">OK</string>
+    <string name="display_pwd">Show password</string>
+    <string name="logouting">Logging out...</string>
+    <string name="logout">Logout</string>
+    <string name="mpwd_modify_pwd_success">Password reset successfully.</string>
+    <string name="mpwd_old_pwd_error">The old password is incorrect.</string>
+    <string name="mpwd_modify_fail">Failed to reset password.</string>
+    <string name="mpwd_forget_pwd">Forgot password?</string>
+    <string name="modify_success">Profile photo modified successfully.</string>
+    <string name="pwd_is_null">*Please enter your password.</string>
+    <string name="username_is_null">*Please enter your email address.</string>
+    <string name="pwd_cannot_contain_chinese">*Password cannot contain Chinese characters.</string>
+    <string name="pwd_char_count_greater_check">*Password must be longer than 6 characters.</string>
+    <string name="pwd_char_count_less_check">*Password must be less than 16 characters.</string>
+    <string name="username_char_count_less_check">*Email address must be less than 50 characters.</string>
+    <string name="username_no_email">*This must be a real email address.</string>
+    <string name="username_is_available">*The email address is available.</string>
+    <string name="send_pwd_success_case_login_find_pwd_title">New Password Sent Successfully</string>
+    <string name="send_pwd_success_case_login_find_pwd_msg">Please check your new password which has already been sent to your email box. Then you can login to zApp with this new password.</string>
+    <string name="send_pwd_success_case_login_find_pwd_btn_login">Login</string>
+    <string name="send_pwd_success_case_register_success_title">Registered Successfully</string>
+    <string name="send_pwd_success_case_register_success_msg">Congrats! You have registered successfully. Please check your new password which was generated automatically and has already been sent to your email box.Then you can login to zApp with this new password.</string>
+    <string name="send_pwd_success_case_register_success_btn_login">Login</string>
+    <string name="send_pwd_success_case_account_find_pwd_title">New Password Sent Successfully</string>
+    <string name="send_pwd_success_case_account_find_pwd_msg">Please check your new password which has already been sent to your email box. Then log in to zApp with this password.</string>
+    <string name="send_pwd_success_case_account_find_pwd_btn_ok">OK</string>
+    <string name="nickname_is_null">*Please enter your nickname.</string>
+    <string name="nickname_char_count_greater_check">*Nickname must be longer than 3 characters.</string>
+    <string name="nickname_char_count_less_check">*Nickname must be less than 30 characters.</string>
+    <string name="nickname_is_available">*The nickname is available.</string>
+    <string name="nickname_text">Nickname (3-30 characters)</string>
+    <string name="email">Email:&#160;</string>
+    <string name="change_password">Reset Password</string>
+    <string name="next">Next</string>
+
+    <!-- 异常提示 -->
+    <string name="nullPointerException">Null Pointer Exception</string>
+    <string name="unsupporte_dencoding_exception">Unsupported Encoding Exception</string>
+    <string name="ioexception">IOException</string>
+    <string name="illegal_state_exception">Illegal State Exception</string>
+    <string name="connection_pool_timeout_exception">Connection Timeout Exception</string>
+    <string name="client_protocol_exception">Client Protocol Exception</string>
+    <string name="exception">Exception</string>
+    <string name="no_network_connection">No network connection</string>
+    <string name="network_connection_error">network connection error</string>
+    <string name="parameter_is_not_valid">Parameter is not valid</string>
+    <string name="http_request_fail">http request fail</string>
+    <string name="http_request_success">http request success</string>
+
+    <!-- Tools -->
+    <string name="tools_uninstall">UNINSTALL</string>
+    <string name="tools_qrcode_scanner">QR CODE SCANNER</string>
+    <string name="tools_wifi_share">WI-FI SHARE</string>
+    <string name="tools_apk_manage">APK MANAGEMENT</string>
+    <string name="tools_app_lock">APP LOCK</string>
+    <string name="tools_skin">SKIN</string>
+    <string name="tools_uninstall_desc">Here you can unistall apps freely!</string>
+    <string name="tools_qrcode_scanner_desc">Scan whatever you want to know it better!</string>
+    <string name="tools_wifi_share_desc">Share any files with friends without $ and data!</string>
+    <string name="tools_apk_manage_desc">All your APKs are here. Sort them out!</string>
+    <string name="tools_app_lock_desc">A reliable &amp; strong SECURITY guard for all your apps!</string>
+    <string name="tools_skin_desc">Change distinctive skin, freshen your vision!</string>
+
+    <!-- 应用锁 -->
+    <string name="input_password">ENTER PASSWORD</string>
+    <string name="security_question">Security Questions</string>
+    <string name="security_answer">Answer</string>
+    <string name="wrong_answer">Wrong Answer</string>
+    <string name="favorite_color">What is my favorite colors?</string>
+    <string name="love_people">Who is my beloved one?</string>
+    <string name="birthday">When is my birthday?</string>
+    <string name="where_born">Where was I born?</string>
+    <string name="custom_question">Set my own question</string>
+    <string name="password_match_fail">*Passwords do not match, please try again.</string>
+    <string name="input_illegal">*Characters entered should be between 1 and 30.</string>
+    <string name="incoming_call_app_name">Incoming call</string>
+    <string name="incoming_call_app_desc">Prevent others from answering incoming call</string>
+    <string name="install_app_name">Install/Uninstall</string>
+    <string name="install_app_desc">Prevent others from installing or uninstalling apps</string>
+    <string name="settings_app_name">Settings</string>
+    <string name="settings_app_desc">Prevent others from uninstalling or force-close App Lock</string>
+    <string name="messages_app_name">Messages</string>
+    <string name="messages_app_desc">Prevent others from checking Messages</string>
+    <string name="email_app_name">Email</string>
+    <string name="email_app_desc">Prevent others from checking Email</string>
+    <string name="gallery_app_name">Gallery</string>
+    <string name="gallery_app_desc">Prevent others from checking photos</string>
+    <string name="task_manager_app_name">Task Manager</string>
+    <string name="task_manager_app_desc">Prevent others from force-closing apps</string>
+    <string name="third_party_app_desc">Third-party app</string>
+    <string name="find_remind">Please set a security question as tips for finding password.</string>
+    <string name="app_time_horizen">*Set the time whenever you want to lock apps.</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_password_desc">Reset password for the locked apps</string>
+    <string name="select_time_from_tv">From</string>
+    <string name="select_time_to_tv">To</string>
+    <string name="app_lock_list_count_desc">app(s) got locked.</string>
+    <string name="app_lock_list_nonelocked_desc">You didn\'t lock any apps. Try it now.</string>
+    <string name="set_password">Set Password</string>
+    <string name="app_lock_title">App Lock</string>
+    <string name="app_lock_desc">When it is on, your apps can be locked with password.</string>
+    <string name="app_lock_list_title">Locked App List</string>
+    <string name="advance_setting_title">Advance Settings</string>
+    <string name="advance_setting_desc">Here are more customization settings…</string>
+    <string name="app_lock_commonlock_locked_toast">Locked:</string>
+    <string name="app_lock_commonlock_unlocked_toast">Unlocked:</string>
+    <string name="password_unlock_fail">Password is incorrect.</string>
+    <!-- 换肤 -->
+    <string name="skin_default_name">Green, the Beginner</string>
+    <string name="skin_default_description">Green smells like grass and rain, makes us take off...</string>
+
+    <!-- DynamicListView -->
+    <string name="country_title1">%1$s user just downloaded</string>
+    <string name="country_title2">User from %1$s</string>
+    <string name="dynamic_detail_tips">It\'s happening, right this moment.</string>
+
+    <!-- WallPaper -->
+    <string name="wallpaper_ablum_num_text"> Images</string>
+    <!-- push notification -->
+    <string name="push_notification_tricker">you have a new message.</string>
+
+</resources>

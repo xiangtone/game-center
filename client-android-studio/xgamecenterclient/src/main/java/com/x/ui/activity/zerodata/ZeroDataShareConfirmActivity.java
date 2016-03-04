@@ -28,7 +28,7 @@ import com.x.ui.activity.resource.ResourceManagementActivity;
 
 public class ZeroDataShareConfirmActivity extends BaseActivity implements OnClickListener {
 
-	private TextView swLinkTv;
+	private TextView swLinkTv,swTv;
 	private TextView swPackageFileTv;
 	private Context context;
 	private String tips;
@@ -111,8 +111,11 @@ public class ZeroDataShareConfirmActivity extends BaseActivity implements OnClic
 		stepOne = (ImageView) findViewById(R.id.step_one);
 		stepTwo = (ImageView) findViewById(R.id.step_two);
 		swLinkTv = (TextView) findViewById(R.id.sw_prompt_of_link_Tv);
+		swTv = (TextView) findViewById(R.id.sw_prompt_Tv);
 		btnNext = findViewById(R.id.btn_next);
 		swPackageFileTv = (TextView) findViewById(R.id.sw_packageFile_tv);
+		swLinkTv.setText(ResourceUtil.getString(context,R.string.sharing_prompt1_of_link,ResourceUtil.getString(context,R.string.app_name)));
+		swTv.setText(ResourceUtil.getString(context,R.string.sharing_prompt1,ResourceUtil.getString(context,R.string.app_name)));
 		btnNext.setOnClickListener(this);
 		swLinkTv.setOnClickListener(this);
 	}

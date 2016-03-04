@@ -68,6 +68,7 @@
                 android:contentDescription="@null" />
 
             <TextView
+                android:id="@+id/sw_prompt_Tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"

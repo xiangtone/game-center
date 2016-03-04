@@ -195,7 +195,7 @@ public class UpgradeManager {
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, new Intent(),
 				PendingIntent.FLAG_UPDATE_CURRENT);
 		builder = UpgradeManager.newBaseNotify(context, R.drawable.tiker_bar_icon,
-				ResourceUtil.getString(context, R.string.platform_ticker_text), large, pendingIntent);
+				ResourceUtil.getString(context, R.string.platform_ticker_text,ResourceUtil.getString(context, R.string.app_name)), large, pendingIntent);
 
 		// 启动下载线程
 		updateCurrentApp(context, dowloadUrl, null);
@@ -300,11 +300,11 @@ public class UpgradeManager {
 		if (actionId == START_IN_BACKGROUND) {
 			remoteViews = new RemoteViews(context.getPackageName(), R.layout.custom_notification_big_view1);
 			remoteViews.setTextViewText(R.id.noti_title,
-					ResourceUtil.getString(context, R.string.platform_download_complete_title1));
+					ResourceUtil.getString(context, R.string.platform_download_complete_title1,ResourceUtil.getString(context, R.string.app_name)));
 		} else {
 			remoteViews = new RemoteViews(context.getPackageName(), R.layout.custom_notification_big_view2);
 			remoteViews.setTextViewText(R.id.noti_title,
-					ResourceUtil.getString(context, R.string.platform_download_complete_title2));
+					ResourceUtil.getString(context, R.string.platform_download_complete_title2,ResourceUtil.getString(context, R.string.app_name)));
 		}
 
 		remoteViews.setImageViewResource(R.id.noti_icon, R.drawable.mas_ic_launcher);
@@ -1090,7 +1090,7 @@ public class UpgradeManager {
 	public static NotificationCompat.Builder newBaseNotify(Context ctx, int smallIcon,
 			String ticker, Bitmap large, PendingIntent pi) {
 		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-				ctx).setContentTitle(ResourceUtil.getString(ctx, R.string.platform_downloading))
+				ctx).setContentTitle(ResourceUtil.getString(ctx, R.string.platform_downloading,ResourceUtil.getString(ctx, R.string.app_name)))
 				.setWhen(System.currentTimeMillis()).setContentText("0K/0MB").setContentInfo("0%")
 				.setSmallIcon(smallIcon).setContentIntent(pi).setLargeIcon(large).setTicker(ticker);
 		return mBuilder;
