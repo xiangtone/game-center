@@ -71,7 +71,9 @@
 						<tr onMouseOver="chgTrColor(this)" onMouseOut="chgTrColor(this)">
 							<td align="center"><input type="checkbox" name="recordId" value="${obj.id}"/></td>
 							<td align="center">
-								${obj.id }
+								<a href="${ctx}/appComment/${obj.id }">
+									${obj.id }
+								</a>
 							</td>
 							<td align="center">
 								${fn:escapeXml(obj.name)}(${obj.appId })

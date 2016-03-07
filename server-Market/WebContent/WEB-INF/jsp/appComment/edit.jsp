@@ -119,9 +119,10 @@
 					type : "POST",
 					dataType : "json",
 					 success: function(response){
-						var data = eval("("+response+")");
+						var data = eval(response);
 		        		if(data.flag==0){
-		        			$.alert('修改评论成功', function(){window.location.href = "list";});
+		        			alert("修改评论成功！");
+		        			window.location.href = "list";
 	            		}else{
 	                		$.alert('修改失败,请重新输入');
 	                		$("#butsubmit_id").attr("disabled","false");

@@ -134,6 +134,7 @@
 							<td align="center" width="200">
 								${obj.recommend }
 							</td>
+							<!-- 排序值  -->
 							<td align="center">
 								<input type="text" id="sort_${obj.id }" value="${fn:escapeXml(obj.sort) }" readonly="readonly" maxlength="9" style="width:30px;"/>
 							</td>
