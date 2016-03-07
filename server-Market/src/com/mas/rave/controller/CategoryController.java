@@ -128,11 +128,15 @@ public class CategoryController {
 			// 设置查询条件
 			List<Category> categorys = categoryService.getCategorys(1);
 			request.setAttribute("fatherIds", categorys);
+			log.debug("str:"+str+"firstId:"+firstId+"secondId:"+secondId+"name:"+name+"state:"+state+"raveId:"+raveId);
+			log.debug("str:"+str+"firstId:"+firstId+"secondId:"+secondId+"name:"+name+"state:"+state+"raveId:"+raveId);
+			log.debug("str:"+str+"firstId:"+firstId+"secondId:"+secondId+"name:"+name+"state:"+state+"raveId:"+raveId);
 		} catch (Exception e) {
 			log.error("CategoryController list", e);
 			PaginationVo<Category> result = new PaginationVo<Category>(null, 0, 10, 1);
 			request.setAttribute("result", result);
 		}
+		
 		return "category/list";
 	}
 

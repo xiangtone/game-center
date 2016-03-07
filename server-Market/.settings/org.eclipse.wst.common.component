@@ -2,8 +2,12 @@
     <wb-module deploy-name="x-game-center-manager">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/resource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/aapt"/>
+<<<<<<< HEAD
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/resource"/>
+        <property name="java-output-path" value="/x-game-center-manager/build/classes"/>
+=======
+>>>>>>> master
         <property name="context-root" value="sMasMarket"/>
         <property name="java-output-path" value="/x-game-center-manager/build/classes"/>
     </wb-module>

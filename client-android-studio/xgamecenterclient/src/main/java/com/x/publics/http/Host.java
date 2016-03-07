@@ -105,11 +105,11 @@ public class Host {
 	 * @return
 	 */
 	public static String getHostHint() {
-		if (Host.URL.equals(host[0])) {
-			return "[zapp-server:mas]";
-		} else if (Host.URL.equals(host[1])) {
-			return "[zapp-server:hongkong]";
-		}
+//		if (Host.URL.equals(host[0])) {
+//			return "[zapp-server:mas]";
+//		} else if (Host.URL.equals(host[1])) {
+//			return "[zapp-server:hongkong]";
+//		}
 		return "";
 	}
 

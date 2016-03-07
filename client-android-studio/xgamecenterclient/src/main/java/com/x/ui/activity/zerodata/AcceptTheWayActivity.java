@@ -151,7 +151,7 @@ public class AcceptTheWayActivity extends BaseActivity implements OnClickListene
 		int ssidLength = SSID.length();
 		int urlLength = serverUrl.length();
 		String strSsid = this.getResources().getString(R.string.atw_invite_connect_zapp);
-		String strUrl = this.getResources().getString(R.string.atw_Installation_notes);
+		String strUrl = ResourceUtil.getString(context, R.string.atw_Installation_notes, ResourceUtil.getString(context, R.string.app_name));
 		SpannableStringBuilder inviteBuilder = new SpannableStringBuilder(strSsid + " [" + SSID + "]");
 
 		// set text color
