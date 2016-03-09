@@ -89,22 +89,27 @@
 							${fn:escapeXml(obj.nameCn) }(${fn:escapeXml(obj.name) })
 						</td>
 						<td align="center">
-							<c:if test="${obj.appAlbum.id == 4 }">
+							<!--<c:if test="${obj.appAlbum.id == 4 }">
 							<a name="ringtonesalbummanage" href="#" onclick="ringtonesalbummanage(${obj.columnId})">分发</a>
 							</c:if>
 							<c:if test="${obj.appAlbum.id == 5 }">
 							<a name="wallpaperalbummanage" href="#" onclick="wallpaperalbummanage(${obj.columnId})">分发</a>
-							</c:if>
-							<c:if test="${obj.appAlbum.id < 4}">
-							<c:if test="${ obj.columnId!=45}">
-							<a name="albummanage" href="#" onclick="albumhand(${obj.columnId})">手动排行</a>&nbsp;|&nbsp;
-							<a name="albummanage" href="#" onclick="albummanage(${obj.columnId})">分发管理</a>
-							&nbsp;|&nbsp;<a name="showOperant" href="#" onclick="showOperant(${obj.columnId})">生效列表</a>
-							</c:if>
+							</c:if>-->
+							<!--<c:if test="${obj.appAlbum.id < 4}">-->
+							<!--<c:if test="${ obj.columnId!=45}">
+								<a name="albummanage" href="#" onclick="albumhand(${obj.columnId})">手动排行</a>&nbsp;|&nbsp;
+								<a name="albummanage" href="#" onclick="albummanage(${obj.columnId})">分发管理</a>
+								&nbsp;|&nbsp;
+								<a name="showOperant" href="#" onclick="showOperant(${obj.columnId})">生效列表</a>
+							<!--</c:if>
 							<c:if test="${ obj.columnId==45}">
 							 <a name="albummanage" href="#" onclick="albummanageLiveWallpaper(${obj.columnId})">分发管理</a>
-							</c:if>							
-							</c:if>
+							</c:if>						
+							</c:if>-->	
+							<a name="albummanage" href="#" onclick="albumhand(${obj.columnId})">手动排行</a>&nbsp;|&nbsp;
+							<a name="albummanage" href="#" onclick="albummanage(${obj.columnId})">分发管理</a>
+								&nbsp;|&nbsp;
+							<a name="showOperant" href="#" onclick="showOperant(${obj.columnId})">生效列表</a>
 						</td>
 						</tr>
 					</c:forEach>

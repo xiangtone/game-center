@@ -49,6 +49,14 @@ $(document).ready(function(){
 		}
 		$(this).val(newVal);  
     }).css("ime-mode", "disabled");*/
+	
+	//声明整数的正则表达式
+	function isNum(a)
+	{
+		//var reg=/^(([a-z]+[0-9]+)|([0-9]+[a-z]+))[a-z0-9]*$/i;
+		var reg = /^[0-9]*[1-9][0-9]*$/i;
+		return reg.test(a);
+	}
    
 	/**
 	 * 编辑排序
@@ -82,6 +90,14 @@ $(document).ready(function(){
 			//检查是否输入是合法的整数
 			if(isNaN(sort)){
 				$.messager.alert("提示:","排序序号输入不正确,请检查!");
+				sorts.removeAttr("readonly");
+				return;
+			}else if (sort<0) {
+				$.messager.alert("提示:","排序序号不能小于0!");
+				sorts.removeAttr("readonly");
+				return;
+			}else if (!(isNum(sort))) {
+				$.messager.alert("提示:","排序序号不能是小数!");
 				sorts.removeAttr("readonly");
 				return;
 			}
