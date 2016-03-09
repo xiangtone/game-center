@@ -1,0 +1,8 @@
+TPayIndomogMapper.xml  selectByExchange
+
+TAppCommentMapper.xml selectByStarsGroup updateStarsByComment Example_Where_Clause(userIdNotEq)
+
+TAppAlbumResMapper.xml  getAppsForUpdate  searchApps appDetailByApkId searchRecommend
+
+TResMusicMapper.xml  nameLike	updateDownLoad
+TResImageMapper.xml  nameLike	updateDownLoad

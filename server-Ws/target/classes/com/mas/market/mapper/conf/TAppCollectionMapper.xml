@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.market.mapper.TAppCollectionMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.market.pojo.TAppCollection" >
+    <id column="collectionId" property="collectionId" jdbcType="INTEGER" />
+    <result column="raveId" property="raveId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="nameCn" property="nameCn" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="bigicon" property="bigicon" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.raveId != null" >
+         and raveId = #{condition.raveId}
+      </if>
+      <if test="condition.name != null" >
+         and name = #{condition.name}
+      </if>
+      <if test="condition.nameCn != null" >
+         and nameCn = #{condition.nameCn}
+      </if>
+      <if test="condition.icon != null" >
+         and icon = #{condition.icon}
+      </if>
+      <if test="condition.bigicon != null" >
+         and bigicon = #{condition.bigicon}
+      </if>
+      <if test="condition.description != null" >
+         and description = #{condition.description}
+      </if>
+      <if test="condition.sort != null" >
+         and sort = #{condition.sort}
+      </if>
+      <if test="condition.state != null" >
+         and state = #{condition.state}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.updateTime != null" >
+         and updateTime = #{condition.updateTime}
+      </if>
+      <if test="condition.operator != null" >
+         and operator = #{condition.operator}
+      </if>
+      <if test="condition.type != null" >
+         and type = #{condition.type}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    collectionId, raveId, name, nameCn, icon, bigicon, description, sort, state, createTime, 
+    updateTime, operator, type
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_app_collection
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_app_collection
+    where collectionId = #{collectionId}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_app_collection
+    where collectionId = #{collectionId}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.market.pojo.Criteria" >
+    delete from t_app_collection
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.market.pojo.TAppCollection" >
+    insert into t_app_collection (collectionId, raveId, name, nameCn, icon, bigicon, description, 
+      sort, state, createTime, updateTime, operator, type)
+    values (#{collectionId}, #{raveId}, #{name}, #{nameCn}, #{icon}, #{bigicon}, #{description}, 
+      #{sort}, #{state}, #{createTime}, #{updateTime}, #{operator}, #{type})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.market.pojo.TAppCollection" >
+    insert into t_app_collection
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="collectionId != null" >
+        collectionId,
+      </if>
+      <if test="raveId != null" >
+        raveId,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="nameCn != null" >
+        nameCn,
+      </if>
+      <if test="icon != null" >
+        icon,
+      </if>
+      <if test="bigicon != null" >
+        bigicon,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="collectionId != null" >
+        #{collectionId},
+      </if>
+      <if test="raveId != null" >
+        #{raveId},
+      </if>
+      <if test="name != null" >
+        #{name},
+      </if>
+      <if test="nameCn != null" >
+        #{nameCn},
+      </if>
+      <if test="icon != null" >
+        #{icon},
+      </if>
+      <if test="bigicon != null" >
+        #{bigicon},
+      </if>
+      <if test="description != null" >
+        #{description},
+      </if>
+      <if test="sort != null" >
+        #{sort},
+      </if>
+      <if test="state != null" >
+        #{state},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+      <if test="operator != null" >
+        #{operator},
+      </if>
+      <if test="type != null" >
+        #{type},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.market.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from t_app_collection
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_app_collection
+    <set >
+      <if test="record.collectionId != null" >
+        collectionId = #{record.collectionId},
+      </if>
+      <if test="record.raveId != null" >
+        raveId = #{record.raveId},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name},
+      </if>
+      <if test="record.nameCn != null" >
+        nameCn = #{record.nameCn},
+      </if>
+      <if test="record.icon != null" >
+        icon = #{record.icon},
+      </if>
+      <if test="record.bigicon != null" >
+        bigicon = #{record.bigicon},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description},
+      </if>
+      <if test="record.sort != null" >
+        sort = #{record.sort},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+      <if test="record.updateTime != null" >
+        updateTime = #{record.updateTime},
+      </if>
+      <if test="record.operator != null" >
+        operator = #{record.operator},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_app_collection
+    set collectionId = #{record.collectionId},
+      raveId = #{record.raveId},
+      name = #{record.name},
+      nameCn = #{record.nameCn},
+      icon = #{record.icon},
+      bigicon = #{record.bigicon},
+      description = #{record.description},
+      sort = #{record.sort},
+      state = #{record.state},
+      createTime = #{record.createTime},
+      updateTime = #{record.updateTime},
+      operator = #{record.operator},
+      type = #{record.type}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.market.pojo.TAppCollection" >
+    update t_app_collection
+    <set >
+      <if test="raveId != null" >
+        raveId = #{raveId},
+      </if>
+      <if test="name != null" >
+        name = #{name},
+      </if>
+      <if test="nameCn != null" >
+        nameCn = #{nameCn},
+      </if>
+      <if test="icon != null" >
+        icon = #{icon},
+      </if>
+      <if test="bigicon != null" >
+        bigicon = #{bigicon},
+      </if>
+      <if test="description != null" >
+        description = #{description},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort},
+      </if>
+      <if test="state != null" >
+        state = #{state},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator},
+      </if>
+      <if test="type != null" >
+        type = #{type},
+      </if>
+    </set>
+    where collectionId = #{collectionId}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.market.pojo.TAppCollection" >
+    update t_app_collection
+    set raveId = #{raveId},
+      name = #{name},
+      nameCn = #{nameCn},
+      icon = #{icon},
+      bigicon = #{bigicon},
+      description = #{description},
+      sort = #{sort},
+      state = #{state},
+      createTime = #{createTime},
+      updateTime = #{updateTime},
+      operator = #{operator},
+      type = #{type}
+    where collectionId = #{collectionId}
+  </update>
+  <select id="collection" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_app_collection where state = true and type = 1
+    <if test="condition.raveId != null and condition.raveId ==1" >
+	       and raveId = 1
+    </if>
+    <if test="condition.raveId != null and condition.raveId !=1" >
+       and (raveId = 1 or raveId = #{condition.raveId})
+    </if>
+      order by sort desc,createTime desc
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+</mapper>

@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.ws.mapper.ClientActivateLogMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.ws.pojo.ClientActivateLog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="clientId" property="clientId" jdbcType="INTEGER" />
+    <result column="imei" property="imei" jdbcType="VARCHAR" />
+    <result column="mac" property="mac" jdbcType="VARCHAR" />
+    <result column="cpId" property="cpId" jdbcType="INTEGER" />
+    <result column="appId" property="appId" jdbcType="INTEGER" />
+    <result column="apkKey" property="apkKey" jdbcType="VARCHAR" />
+    <result column="channelId" property="channelId" jdbcType="INTEGER" />
+    <result column="serverId" property="serverId" jdbcType="INTEGER" />
+    <result column="userId" property="userId" jdbcType="INTEGER" />
+    <result column="userName" property="userName" jdbcType="VARCHAR" />
+    <result column="userPwd" property="userPwd" jdbcType="VARCHAR" />
+    <result column="IP" property="IP" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="DOUBLE" />
+    <result column="longitude" property="longitude" jdbcType="DOUBLE" />
+    <result column="cellId" property="cellId" jdbcType="INTEGER" />
+    <result column="lac" property="lac" jdbcType="INTEGER" />
+    <result column="mcc" property="mcc" jdbcType="INTEGER" />
+    <result column="mnc" property="mnc" jdbcType="INTEGER" />
+    <result column="sessionId" property="sessionId" jdbcType="VARCHAR" />
+    <result column="appPackageName" property="appPackageName" jdbcType="VARCHAR" />
+    <result column="appVersionName" property="appVersionName" jdbcType="VARCHAR" />
+    <result column="appVersionCode" property="appVersionCode" jdbcType="INTEGER" />
+    <result column="masPackageName" property="masPackageName" jdbcType="VARCHAR" />
+    <result column="masVersionName" property="masVersionName" jdbcType="VARCHAR" />
+    <result column="masVersionCode" property="masVersionCode" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.clientId != null" >
+         and clientId = #{condition.clientId}
+      </if>
+      <if test="condition.imei != null" >
+         and imei = #{condition.imei}
+      </if>
+      <if test="condition.mac != null" >
+         and mac = #{condition.mac}
+      </if>
+      <if test="condition.cpId != null" >
+         and cpId = #{condition.cpId}
+      </if>
+      <if test="condition.appId != null" >
+         and appId = #{condition.appId}
+      </if>
+      <if test="condition.apkKey != null" >
+         and apkKey = #{condition.apkKey}
+      </if>
+      <if test="condition.channelId != null" >
+         and channelId = #{condition.channelId}
+      </if>
+      <if test="condition.serverId != null" >
+         and serverId = #{condition.serverId}
+      </if>
+      <if test="condition.userId != null" >
+         and userId = #{condition.userId}
+      </if>
+      <if test="condition.userName != null" >
+         and userName = #{condition.userName}
+      </if>
+      <if test="condition.userPwd != null" >
+         and userPwd = #{condition.userPwd}
+      </if>
+      <if test="condition.IP != null" >
+         and IP = #{condition.IP}
+      </if>
+      <if test="condition.country != null" >
+         and country = #{condition.country}
+      </if>
+      <if test="condition.province != null" >
+         and province = #{condition.province}
+      </if>
+      <if test="condition.city != null" >
+         and city = #{condition.city}
+      </if>
+      <if test="condition.latitude != null" >
+         and latitude = #{condition.latitude}
+      </if>
+      <if test="condition.longitude != null" >
+         and longitude = #{condition.longitude}
+      </if>
+      <if test="condition.cellId != null" >
+         and cellId = #{condition.cellId}
+      </if>
+      <if test="condition.lac != null" >
+         and lac = #{condition.lac}
+      </if>
+      <if test="condition.mcc != null" >
+         and mcc = #{condition.mcc}
+      </if>
+      <if test="condition.mnc != null" >
+         and mnc = #{condition.mnc}
+      </if>
+      <if test="condition.sessionId != null" >
+         and sessionId = #{condition.sessionId}
+      </if>
+      <if test="condition.appPackageName != null" >
+         and appPackageName = #{condition.appPackageName}
+      </if>
+      <if test="condition.appVersionName != null" >
+         and appVersionName = #{condition.appVersionName}
+      </if>
+      <if test="condition.appVersionCode != null" >
+         and appVersionCode = #{condition.appVersionCode}
+      </if>
+      <if test="condition.masPackageName != null" >
+         and masPackageName = #{condition.masPackageName}
+      </if>
+      <if test="condition.masVersionName != null" >
+         and masVersionName = #{condition.masVersionName}
+      </if>
+      <if test="condition.masVersionCode != null" >
+         and masVersionCode = #{condition.masVersionCode}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, clientId, imei, mac, cpId, appId, apkKey, channelId, serverId, userId, userName, 
+    userPwd, IP, country, province, city, latitude, longitude, cellId, lac, mcc, mnc, 
+    sessionId, appPackageName, appVersionName, appVersionCode, masPackageName, masVersionName, 
+    masVersionCode, createTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.ws.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from client_activate_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from client_activate_log
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from client_activate_log
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.ws.pojo.Criteria" >
+    delete from client_activate_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.ws.pojo.ClientActivateLog" >
+    insert into client_activate_log (id, clientId, imei, mac, cpId, appId, apkKey, channelId, 
+      serverId, userId, userName, userPwd, IP, country, province, 
+      city, latitude, longitude, cellId, lac, mcc, mnc, sessionId, 
+      appPackageName, appVersionName, appVersionCode, masPackageName, masVersionName, 
+      masVersionCode, createTime)
+    values (#{id}, #{clientId}, #{imei}, #{mac}, #{cpId}, #{appId}, #{apkKey}, #{channelId}, 
+      #{serverId}, #{userId}, #{userName}, #{userPwd}, #{IP}, #{country}, #{province}, 
+      #{city}, #{latitude}, #{longitude}, #{cellId}, #{lac}, #{mcc}, #{mnc}, #{sessionId}, 
+      #{appPackageName}, #{appVersionName}, #{appVersionCode}, #{masPackageName}, #{masVersionName}, 
+      #{masVersionCode}, #{createTime})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.ws.pojo.ClientActivateLog" >
+    insert into client_activate_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="clientId != null" >
+        clientId,
+      </if>
+      <if test="imei != null" >
+        imei,
+      </if>
+      <if test="mac != null" >
+        mac,
+      </if>
+      <if test="cpId != null" >
+        cpId,
+      </if>
+      <if test="appId != null" >
+        appId,
+      </if>
+      <if test="apkKey != null" >
+        apkKey,
+      </if>
+      <if test="channelId != null" >
+        channelId,
+      </if>
+      <if test="serverId != null" >
+        serverId,
+      </if>
+      <if test="userId != null" >
+        userId,
+      </if>
+      <if test="userName != null" >
+        userName,
+      </if>
+      <if test="userPwd != null" >
+        userPwd,
+      </if>
+      <if test="IP != null" >
+        IP,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+      <if test="cellId != null" >
+        cellId,
+      </if>
+      <if test="lac != null" >
+        lac,
+      </if>
+      <if test="mcc != null" >
+        mcc,
+      </if>
+      <if test="mnc != null" >
+        mnc,
+      </if>
+      <if test="sessionId != null" >
+        sessionId,
+      </if>
+      <if test="appPackageName != null" >
+        appPackageName,
+      </if>
+      <if test="appVersionName != null" >
+        appVersionName,
+      </if>
+      <if test="appVersionCode != null" >
+        appVersionCode,
+      </if>
+      <if test="masPackageName != null" >
+        masPackageName,
+      </if>
+      <if test="masVersionName != null" >
+        masVersionName,
+      </if>
+      <if test="masVersionCode != null" >
+        masVersionCode,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id},
+      </if>
+      <if test="clientId != null" >
+        #{clientId},
+      </if>
+      <if test="imei != null" >
+        #{imei},
+      </if>
+      <if test="mac != null" >
+        #{mac},
+      </if>
+      <if test="cpId != null" >
+        #{cpId},
+      </if>
+      <if test="appId != null" >
+        #{appId},
+      </if>
+      <if test="apkKey != null" >
+        #{apkKey},
+      </if>
+      <if test="channelId != null" >
+        #{channelId},
+      </if>
+      <if test="serverId != null" >
+        #{serverId},
+      </if>
+      <if test="userId != null" >
+        #{userId},
+      </if>
+      <if test="userName != null" >
+        #{userName},
+      </if>
+      <if test="userPwd != null" >
+        #{userPwd},
+      </if>
+      <if test="IP != null" >
+        #{IP},
+      </if>
+      <if test="country != null" >
+        #{country},
+      </if>
+      <if test="province != null" >
+        #{province},
+      </if>
+      <if test="city != null" >
+        #{city},
+      </if>
+      <if test="latitude != null" >
+        #{latitude},
+      </if>
+      <if test="longitude != null" >
+        #{longitude},
+      </if>
+      <if test="cellId != null" >
+        #{cellId},
+      </if>
+      <if test="lac != null" >
+        #{lac},
+      </if>
+      <if test="mcc != null" >
+        #{mcc},
+      </if>
+      <if test="mnc != null" >
+        #{mnc},
+      </if>
+      <if test="sessionId != null" >
+        #{sessionId},
+      </if>
+      <if test="appPackageName != null" >
+        #{appPackageName},
+      </if>
+      <if test="appVersionName != null" >
+        #{appVersionName},
+      </if>
+      <if test="appVersionCode != null" >
+        #{appVersionCode},
+      </if>
+      <if test="masPackageName != null" >
+        #{masPackageName},
+      </if>
+      <if test="masVersionName != null" >
+        #{masVersionName},
+      </if>
+      <if test="masVersionCode != null" >
+        #{masVersionCode},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.ws.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from client_activate_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update client_activate_log
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id},
+      </if>
+      <if test="record.clientId != null" >
+        clientId = #{record.clientId},
+      </if>
+      <if test="record.imei != null" >
+        imei = #{record.imei},
+      </if>
+      <if test="record.mac != null" >
+        mac = #{record.mac},
+      </if>
+      <if test="record.cpId != null" >
+        cpId = #{record.cpId},
+      </if>
+      <if test="record.appId != null" >
+        appId = #{record.appId},
+      </if>
+      <if test="record.apkKey != null" >
+        apkKey = #{record.apkKey},
+      </if>
+      <if test="record.channelId != null" >
+        channelId = #{record.channelId},
+      </if>
+      <if test="record.serverId != null" >
+        serverId = #{record.serverId},
+      </if>
+      <if test="record.userId != null" >
+        userId = #{record.userId},
+      </if>
+      <if test="record.userName != null" >
+        userName = #{record.userName},
+      </if>
+      <if test="record.userPwd != null" >
+        userPwd = #{record.userPwd},
+      </if>
+      <if test="record.IP != null" >
+        IP = #{record.IP},
+      </if>
+      <if test="record.country != null" >
+        country = #{record.country},
+      </if>
+      <if test="record.province != null" >
+        province = #{record.province},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city},
+      </if>
+      <if test="record.latitude != null" >
+        latitude = #{record.latitude},
+      </if>
+      <if test="record.longitude != null" >
+        longitude = #{record.longitude},
+      </if>
+      <if test="record.cellId != null" >
+        cellId = #{record.cellId},
+      </if>
+      <if test="record.lac != null" >
+        lac = #{record.lac},
+      </if>
+      <if test="record.mcc != null" >
+        mcc = #{record.mcc},
+      </if>
+      <if test="record.mnc != null" >
+        mnc = #{record.mnc},
+      </if>
+      <if test="record.sessionId != null" >
+        sessionId = #{record.sessionId},
+      </if>
+      <if test="record.appPackageName != null" >
+        appPackageName = #{record.appPackageName},
+      </if>
+      <if test="record.appVersionName != null" >
+        appVersionName = #{record.appVersionName},
+      </if>
+      <if test="record.appVersionCode != null" >
+        appVersionCode = #{record.appVersionCode},
+      </if>
+      <if test="record.masPackageName != null" >
+        masPackageName = #{record.masPackageName},
+      </if>
+      <if test="record.masVersionName != null" >
+        masVersionName = #{record.masVersionName},
+      </if>
+      <if test="record.masVersionCode != null" >
+        masVersionCode = #{record.masVersionCode},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update client_activate_log
+    set id = #{record.id},
+      clientId = #{record.clientId},
+      imei = #{record.imei},
+      mac = #{record.mac},
+      cpId = #{record.cpId},
+      appId = #{record.appId},
+      apkKey = #{record.apkKey},
+      channelId = #{record.channelId},
+      serverId = #{record.serverId},
+      userId = #{record.userId},
+      userName = #{record.userName},
+      userPwd = #{record.userPwd},
+      IP = #{record.IP},
+      country = #{record.country},
+      province = #{record.province},
+      city = #{record.city},
+      latitude = #{record.latitude},
+      longitude = #{record.longitude},
+      cellId = #{record.cellId},
+      lac = #{record.lac},
+      mcc = #{record.mcc},
+      mnc = #{record.mnc},
+      sessionId = #{record.sessionId},
+      appPackageName = #{record.appPackageName},
+      appVersionName = #{record.appVersionName},
+      appVersionCode = #{record.appVersionCode},
+      masPackageName = #{record.masPackageName},
+      masVersionName = #{record.masVersionName},
+      masVersionCode = #{record.masVersionCode},
+      createTime = #{record.createTime}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.ws.pojo.ClientActivateLog" >
+    update client_activate_log
+    <set >
+      <if test="clientId != null" >
+        clientId = #{clientId},
+      </if>
+      <if test="imei != null" >
+        imei = #{imei},
+      </if>
+      <if test="mac != null" >
+        mac = #{mac},
+      </if>
+      <if test="cpId != null" >
+        cpId = #{cpId},
+      </if>
+      <if test="appId != null" >
+        appId = #{appId},
+      </if>
+      <if test="apkKey != null" >
+        apkKey = #{apkKey},
+      </if>
+      <if test="channelId != null" >
+        channelId = #{channelId},
+      </if>
+      <if test="serverId != null" >
+        serverId = #{serverId},
+      </if>
+      <if test="userId != null" >
+        userId = #{userId},
+      </if>
+      <if test="userName != null" >
+        userName = #{userName},
+      </if>
+      <if test="userPwd != null" >
+        userPwd = #{userPwd},
+      </if>
+      <if test="IP != null" >
+        IP = #{IP},
+      </if>
+      <if test="country != null" >
+        country = #{country},
+      </if>
+      <if test="province != null" >
+        province = #{province},
+      </if>
+      <if test="city != null" >
+        city = #{city},
+      </if>
+      <if test="latitude != null" >
+        latitude = #{latitude},
+      </if>
+      <if test="longitude != null" >
+        longitude = #{longitude},
+      </if>
+      <if test="cellId != null" >
+        cellId = #{cellId},
+      </if>
+      <if test="lac != null" >
+        lac = #{lac},
+      </if>
+      <if test="mcc != null" >
+        mcc = #{mcc},
+      </if>
+      <if test="mnc != null" >
+        mnc = #{mnc},
+      </if>
+      <if test="sessionId != null" >
+        sessionId = #{sessionId},
+      </if>
+      <if test="appPackageName != null" >
+        appPackageName = #{appPackageName},
+      </if>
+      <if test="appVersionName != null" >
+        appVersionName = #{appVersionName},
+      </if>
+      <if test="appVersionCode != null" >
+        appVersionCode = #{appVersionCode},
+      </if>
+      <if test="masPackageName != null" >
+        masPackageName = #{masPackageName},
+      </if>
+      <if test="masVersionName != null" >
+        masVersionName = #{masVersionName},
+      </if>
+      <if test="masVersionCode != null" >
+        masVersionCode = #{masVersionCode},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.ws.pojo.ClientActivateLog" >
+    update client_activate_log
+    set clientId = #{clientId},
+      imei = #{imei},
+      mac = #{mac},
+      cpId = #{cpId},
+      appId = #{appId},
+      apkKey = #{apkKey},
+      channelId = #{channelId},
+      serverId = #{serverId},
+      userId = #{userId},
+      userName = #{userName},
+      userPwd = #{userPwd},
+      IP = #{IP},
+      country = #{country},
+      province = #{province},
+      city = #{city},
+      latitude = #{latitude},
+      longitude = #{longitude},
+      cellId = #{cellId},
+      lac = #{lac},
+      mcc = #{mcc},
+      mnc = #{mnc},
+      sessionId = #{sessionId},
+      appPackageName = #{appPackageName},
+      appVersionName = #{appVersionName},
+      appVersionCode = #{appVersionCode},
+      masPackageName = #{masPackageName},
+      masVersionName = #{masVersionName},
+      masVersionCode = #{masVersionCode},
+      createTime = #{createTime}
+    where id = #{id}
+  </update>
+</mapper>

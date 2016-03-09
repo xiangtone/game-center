@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.market.mapper.TClientSkinMapper" >
+  <resultMap id="BaseResultMap" type="com.mas.market.pojo.TClientSkin" >
+    <id column="skinId" property="skinId" jdbcType="INTEGER" />
+    <result column="skinName" property="skinName" jdbcType="VARCHAR" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="packageName" property="packageName" jdbcType="VARCHAR" />
+    <result column="versionName" property="versionName" jdbcType="VARCHAR" />
+    <result column="versionCode" property="versionCode" jdbcType="INTEGER" />
+    <result column="apkUrl" property="apkUrl" jdbcType="VARCHAR" />
+    <result column="apkSize" property="apkSize" jdbcType="INTEGER" />
+    <result column="downLoadNum" property="downLoadNum" jdbcType="INTEGER" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="BIT" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.skinName != null" >
+         and skinName = #{condition.skinName}
+      </if>
+      <if test="condition.logo != null" >
+         and logo = #{condition.logo}
+      </if>
+      <if test="condition.description != null" >
+         and description = #{condition.description}
+      </if>
+      <if test="condition.packageName != null" >
+         and packageName = #{condition.packageName}
+      </if>
+      <if test="condition.versionName != null" >
+         and versionName = #{condition.versionName}
+      </if>
+      <if test="condition.versionCode != null" >
+         and versionCode = #{condition.versionCode}
+      </if>
+      <if test="condition.apkUrl != null" >
+         and apkUrl = #{condition.apkUrl}
+      </if>
+      <if test="condition.apkSize != null" >
+         and apkSize = #{condition.apkSize}
+      </if>
+      <if test="condition.downLoadNum != null" >
+         and downLoadNum = #{condition.downLoadNum}
+      </if>
+      <if test="condition.sort != null" >
+         and sort = #{condition.sort}
+      </if>
+      <if test="condition.state != null" >
+         and state = #{condition.state}
+      </if>
+      <if test="condition.createTime != null" >
+         and createTime = #{condition.createTime}
+      </if>
+      <if test="condition.updateTime != null" >
+         and updateTime = #{condition.updateTime}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    skinId, skinName, logo, description, packageName, versionName, versionCode, apkUrl, 
+    apkSize, downLoadNum, sort, state, createTime, updateTime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mas.market.pojo.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_client_skin
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_client_skin
+    where skinId = #{skinId}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_client_skin
+    where skinId = #{skinId}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mas.market.pojo.Criteria" >
+    delete from t_client_skin
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mas.market.pojo.TClientSkin" >
+    insert into t_client_skin (skinId, skinName, logo, description, packageName, versionName, 
+      versionCode, apkUrl, apkSize, downLoadNum, sort, state, createTime, 
+      updateTime)
+    values (#{skinId}, #{skinName}, #{logo}, #{description}, #{packageName}, #{versionName}, 
+      #{versionCode}, #{apkUrl}, #{apkSize}, #{downLoadNum}, #{sort}, #{state}, #{createTime}, 
+      #{updateTime})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mas.market.pojo.TClientSkin" >
+    insert into t_client_skin
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="skinId != null" >
+        skinId,
+      </if>
+      <if test="skinName != null" >
+        skinName,
+      </if>
+      <if test="logo != null" >
+        logo,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="packageName != null" >
+        packageName,
+      </if>
+      <if test="versionName != null" >
+        versionName,
+      </if>
+      <if test="versionCode != null" >
+        versionCode,
+      </if>
+      <if test="apkUrl != null" >
+        apkUrl,
+      </if>
+      <if test="apkSize != null" >
+        apkSize,
+      </if>
+      <if test="downLoadNum != null" >
+        downLoadNum,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="createTime != null" >
+        createTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="skinId != null" >
+        #{skinId},
+      </if>
+      <if test="skinName != null" >
+        #{skinName},
+      </if>
+      <if test="logo != null" >
+        #{logo},
+      </if>
+      <if test="description != null" >
+        #{description},
+      </if>
+      <if test="packageName != null" >
+        #{packageName},
+      </if>
+      <if test="versionName != null" >
+        #{versionName},
+      </if>
+      <if test="versionCode != null" >
+        #{versionCode},
+      </if>
+      <if test="apkUrl != null" >
+        #{apkUrl},
+      </if>
+      <if test="apkSize != null" >
+        #{apkSize},
+      </if>
+      <if test="downLoadNum != null" >
+        #{downLoadNum},
+      </if>
+      <if test="sort != null" >
+        #{sort},
+      </if>
+      <if test="state != null" >
+        #{state},
+      </if>
+      <if test="createTime != null" >
+        #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mas.market.pojo.Criteria" resultType="java.lang.Integer" >
+    select count(*) from t_client_skin
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_client_skin
+    <set >
+      <if test="record.skinId != null" >
+        skinId = #{record.skinId},
+      </if>
+      <if test="record.skinName != null" >
+        skinName = #{record.skinName},
+      </if>
+      <if test="record.logo != null" >
+        logo = #{record.logo},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description},
+      </if>
+      <if test="record.packageName != null" >
+        packageName = #{record.packageName},
+      </if>
+      <if test="record.versionName != null" >
+        versionName = #{record.versionName},
+      </if>
+      <if test="record.versionCode != null" >
+        versionCode = #{record.versionCode},
+      </if>
+      <if test="record.apkUrl != null" >
+        apkUrl = #{record.apkUrl},
+      </if>
+      <if test="record.apkSize != null" >
+        apkSize = #{record.apkSize},
+      </if>
+      <if test="record.downLoadNum != null" >
+        downLoadNum = #{record.downLoadNum},
+      </if>
+      <if test="record.sort != null" >
+        sort = #{record.sort},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state},
+      </if>
+      <if test="record.createTime != null" >
+        createTime = #{record.createTime},
+      </if>
+      <if test="record.updateTime != null" >
+        updateTime = #{record.updateTime},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_client_skin
+    set skinId = #{record.skinId},
+      skinName = #{record.skinName},
+      logo = #{record.logo},
+      description = #{record.description},
+      packageName = #{record.packageName},
+      versionName = #{record.versionName},
+      versionCode = #{record.versionCode},
+      apkUrl = #{record.apkUrl},
+      apkSize = #{record.apkSize},
+      downLoadNum = #{record.downLoadNum},
+      sort = #{record.sort},
+      state = #{record.state},
+      createTime = #{record.createTime},
+      updateTime = #{record.updateTime}
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mas.market.pojo.TClientSkin" >
+    update t_client_skin
+    <set >
+      <if test="skinName != null" >
+        skinName = #{skinName},
+      </if>
+      <if test="logo != null" >
+        logo = #{logo},
+      </if>
+      <if test="description != null" >
+        description = #{description},
+      </if>
+      <if test="packageName != null" >
+        packageName = #{packageName},
+      </if>
+      <if test="versionName != null" >
+        versionName = #{versionName},
+      </if>
+      <if test="versionCode != null" >
+        versionCode = #{versionCode},
+      </if>
+      <if test="apkUrl != null" >
+        apkUrl = #{apkUrl},
+      </if>
+      <if test="apkSize != null" >
+        apkSize = #{apkSize},
+      </if>
+      <if test="downLoadNum != null" >
+        downLoadNum = #{downLoadNum},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort},
+      </if>
+      <if test="state != null" >
+        state = #{state},
+      </if>
+      <if test="createTime != null" >
+        createTime = #{createTime},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime},
+      </if>
+    </set>
+    where skinId = #{skinId}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mas.market.pojo.TClientSkin" >
+    update t_client_skin
+    set skinName = #{skinName},
+      logo = #{logo},
+      description = #{description},
+      packageName = #{packageName},
+      versionName = #{versionName},
+      versionCode = #{versionCode},
+      apkUrl = #{apkUrl},
+      apkSize = #{apkSize},
+      downLoadNum = #{downLoadNum},
+      sort = #{sort},
+      state = #{state},
+      createTime = #{createTime},
+      updateTime = #{updateTime}
+    where skinId = #{skinId}
+  </update>
+  <update id="updateSkinDownLoad" parameterType="com.mas.market.pojo.TClientSkin" >
+    update t_client_skin set downLoadNum = downLoadNum + 1  where packageName = #{packageName}
+  </update>
+</mapper>
