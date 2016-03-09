@@ -69,11 +69,11 @@
 	    <artifactId>commons-dbcp</artifactId>
 	    <version>1.4</version>
 	</dependency>
-	<dependency>
+	<!-- <dependency>
 		<groupId>org.mybatis</groupId>
 		<artifactId>mybatis-spring</artifactId>
 		<version>1.1.1</version>
-	</dependency>
+	</dependency> -->
 	<dependency>
 	    <groupId>org.apache.servicemix.bundles</groupId>
 	    <artifactId>org.apache.servicemix.bundles.mybatis</artifactId>
@@ -132,7 +132,22 @@
 	<dependency>
 	    <groupId>org.mybatis</groupId>
 	    <artifactId>mybatis</artifactId>
-	    <version>3.0.5</version>
+	    <version>3.2.5</version>
+	</dependency>
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis-spring</artifactId>
+		<version>1.2.2</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	    <version>1.0.1</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.mybatis.pagination.plug</groupId>
+	    <artifactId>mybatis_pagination_plug</artifactId>
+	    <version>1.0</version>
 	</dependency>
 	<dependency>
 	    <groupId>org.lucee</groupId>
