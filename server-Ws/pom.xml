@@ -139,6 +139,7 @@
 		<artifactId>mybatis-spring</artifactId>
 		<version>1.2.2</version>
 	</dependency>
+	<!-- 
 	<dependency>
 	    <groupId>org.mybatis</groupId>
 	    <artifactId>mybatis-spring</artifactId>
@@ -148,7 +149,7 @@
 	    <groupId>com.mybatis.pagination.plug</groupId>
 	    <artifactId>mybatis_pagination_plug</artifactId>
 	    <version>1.0</version>
-	</dependency>
+	</dependency> -->
 	<dependency>
 	    <groupId>org.lucee</groupId>
 	    <artifactId>commons-io</artifactId>
