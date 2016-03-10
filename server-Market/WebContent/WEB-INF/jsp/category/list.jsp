@@ -228,7 +228,7 @@
 					data:{'id':id},
 					dataType:"json",
 					success:function(response){
-						var data = eval("("+response+")");
+						var data = eval(response);
 						if(data.flag == "0"){
 							alert("删除成功！");
 							//window.location.reload();

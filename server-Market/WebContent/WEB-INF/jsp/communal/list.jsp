@@ -163,10 +163,10 @@
 							</td>
 							<td align="center">
 							<c:if test="${obj.packageName==null }"> 
-							   <a href="${ctx }/communalFile/list/${obj.id}"><font color="red">apk管理</font></a>
+							   <a href="${ctx }/communalFile/list/${obj.id}?page=${result.currentPage}"><font color="red">apk管理</font></a>
 							</c:if>
 							<c:if test="${obj.packageName!=null }"> 
-							   <a href="${ctx }/communalFile/list/${obj.id}">apk管理</a>
+							   <a href="${ctx }/communalFile/list/${obj.id}?page=${result.currentPage}">apk管理</a>
 							</c:if>	
 								<a href="${ctx }/communal/add/2/${obj.id}">截图</a>
 								<a href="info/${obj.id }">详情</a>
