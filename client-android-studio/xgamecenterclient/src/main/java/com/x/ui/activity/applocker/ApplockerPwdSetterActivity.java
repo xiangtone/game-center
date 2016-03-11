@@ -497,7 +497,7 @@ public class ApplockerPwdSetterActivity extends BaseActivity implements View.OnC
 		case UPDATE_STATE_SECURITY:
 			//			Toast.makeText(ApplockerPwdSetter.this, "" + starsCtrl[0], Toast.LENGTH_SHORT).show();
 			setViews();
-			inputGuideStepTwoIv.setImageResource(R.drawable.ic_security_question_unselected);
+			inputGuideStepTwoIv.setImageResource(R.drawable.ic_confirm_password_unselected);
 			if (comparePwd()) {
 				inputGuideStepThreeIv.setImageResource(R.drawable.ic_security_question);
 				inputState++;
