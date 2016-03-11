@@ -186,7 +186,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/selector_item_theme"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/ld_my_apps_tv"
@@ -217,7 +218,8 @@
                     android:id="@+id/btn_my_contents_ll2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/selector_item_theme" >
+                    android:background="@drawable/selector_item_theme"
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/ld_my_contents_tv"
@@ -246,7 +248,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/selector_item_theme"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <TextView
                         style="@style/leftDrawerTitleBigTextStyle"
@@ -273,7 +276,8 @@
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:gravity="bottom" >
+                    android:gravity="bottom"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:id="@+id/btn_settings_ll2"
