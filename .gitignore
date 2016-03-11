@@ -8,3 +8,5 @@
 
 *.iml
 
+/server-Ws/target/m2e-wtp
+/server-Ws/target/classes
