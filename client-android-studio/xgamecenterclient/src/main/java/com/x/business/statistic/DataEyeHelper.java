@@ -14,15 +14,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import android.content.Context;
+
 import android.os.Environment;
-import android.text.TextUtils;
 import android.util.Log;
-import com.dataeye.DCZApp;
-import com.x.business.account.AccountManager;
+
 import com.x.business.statistic.StatisticConstan.FileType;
 import com.x.publics.http.Host;
-import com.x.publics.model.DownloadBean;
 import com.x.publics.utils.StorageUtils;
 import com.x.publics.utils.Constan.MediaType;
 
