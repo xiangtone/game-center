@@ -522,11 +522,12 @@ public class ResourceManagementActivity extends BaseActivity implements OnClickL
 	@Override
 	public void onBackPressed() {
 		if (mode == NativeResourceConstant.DEF_MODE) {//从资源管理进入
-			SharedPrefsUtil.putValue(this, "resFirst", false);
-			String parentActivityN = getIntent().getStringExtra("activity_name");
-			if (parentActivityN == null) {
-				startActivity(new Intent(this, MainActivity.class));
-			}
+//			SharedPrefsUtil.putValue(this, "resFirst", false);
+//			String parentActivityN = getIntent().getStringExtra("activity_name");
+//			if (parentActivityN == null) {
+//				startActivity(new Intent(this, MainActivity.class));
+//			}
+			ResourceManagementActivity.this.finish();
 		} else if (mode == NativeResourceConstant.SHARE_MODE) {//从零流量分享进入
 			SharedPrefsUtil.putValue(this, "shareFirst", false);
 			exitZeroDataShare();

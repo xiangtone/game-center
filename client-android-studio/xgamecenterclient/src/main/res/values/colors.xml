@@ -112,7 +112,7 @@
     <!-- circle -->
     <color name="round_progress_color">#8eaa1e</color>
     <color name="circle_color">#3fffffff</color>
-    <color name="circle_progress_color">#A9D428</color>
+    <color name="circle_progress_color">#57A109</color>
     <color name="pointer_color">#A9D428</color>
     <color name="pointer_halo_color">#A9D428</color>
 

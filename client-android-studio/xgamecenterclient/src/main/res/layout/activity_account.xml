@@ -180,6 +180,131 @@
                         android:textColor="@color/selector_theme_text_link"
                         android:textSize="@dimen/title_text_size" />
                 </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_my_apps_ll2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_item_theme"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/ld_my_apps_tv"
+                        style="@style/leftDrawerTitleBigTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:drawableLeft="@drawable/slidingmenu_ic_apps"
+                        android:text="@string/my_apps"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ld_my_apps_tips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/notification"
+                        android:contentDescription="@null"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="@dimen/text_small_size"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_my_contents_ll2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_item_theme"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/ld_my_contents_tv"
+                        style="@style/leftDrawerTitleBigTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:drawableLeft="@drawable/slidingmenu_ic_contents"
+                        android:text="@string/my_contents"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/ld_my_contents_tips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="4dp"
+                        android:background="@drawable/new_tip"
+                        android:contentDescription="@null"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_tools_ll2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_item_theme"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        style="@style/leftDrawerTitleBigTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:drawableLeft="@drawable/slidingmenu_ic_tools"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@string/tools"
+                        android:textColor="@color/black" />
+
+                    <ImageView
+                        android:id="@+id/ld_tools_tips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="4dp"
+                        android:background="@drawable/new_tip"
+                        android:contentDescription="@null"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="bottom"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/btn_settings_ll2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selector_item_theme" >
+
+                        <TextView
+                            style="@style/leftDrawerTitleBigTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:drawableLeft="@drawable/slidingmenu_ic_settings"
+                            android:text="@string/settings"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/ld_settings_tips"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="4dp"
+                            android:background="@drawable/new_tip"
+                            android:contentDescription="@null"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -188,6 +313,7 @@
                 android:layout_weight="3"
                 android:orientation="vertical" />
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout

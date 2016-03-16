@@ -205,7 +205,7 @@
 							<td class="name"></td>
 							<td class="btn">
 								<input type="submit" class="bigbutsubmit" value="提交"  id="butsubmit_id"/>
-								<input type="button" class="bigbutsubmit" onclick="javascript:window.location.href='list';" value="返回"/>
+								<input type="button" class="bigbutsubmit" onclick="javascript:window.location.href='list?';" value="返回"/>
 							</td>
 						</tr>
 					</tfoot>

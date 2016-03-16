@@ -21,3 +21,5 @@ hs_err_pid*
 
 *.iml
 
+/server-Ws/target/m2e-wtp
+/server-Ws/target/classes
