@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
@@ -25,6 +26,7 @@ import com.x.business.skin.SkinConstan;
 import com.x.business.statistic.DataEyeManager;
 import com.x.business.statistic.StatisticConstan.ModuleName;
 import com.x.business.zerodata.helper.ZeroDataResourceHelper;
+import com.x.db.resource.NativeResourceConstant;
 import com.x.publics.http.model.MasUser;
 import com.x.publics.utils.NetworkUtils;
 import com.x.publics.utils.ProgressDialogUtil;
@@ -34,6 +36,10 @@ import com.x.publics.utils.Utils;
 import com.x.ui.activity.base.BaseActivity;
 import com.x.ui.activity.home.HomeActivity;
 import com.x.ui.activity.home.MainActivity;
+import com.x.ui.activity.myApps.MyAppsActivity;
+import com.x.ui.activity.resource.ResourceManagementActivity;
+import com.x.ui.activity.settings.SettingsActivity;
+import com.x.ui.activity.tools.ToolsActivity;
 
 public class AccountActivity extends BaseActivity implements OnClickListener, OnFocusChangeListener {
 
@@ -42,7 +48,8 @@ public class AccountActivity extends BaseActivity implements OnClickListener, On
 	private EditText etModifyNickname;
 	private TextView btnLogout, tvInfoNickname;;
 	private static final int[] btns = new int[] { R.id.btn_head1, R.id.btn_head2, R.id.btn_head3, R.id.btn_head4,
-			R.id.btn_head5, R.id.btn_head6, R.id.btn_head7, R.id.btn_head8 };
+			R.id.btn_head5, R.id.btn_head6, R.id.btn_head7, R.id.btn_head8, R.id.btn_my_apps_ll2, R.id.btn_my_contents_ll2,
+			R.id.btn_tools_ll2, R.id.btn_settings_ll2 };
 	private String modifyNickName, nickName;
 	private int modifyHeadPortraitIndex = -1;
 	private MasUser user;
@@ -229,80 +236,99 @@ public class AccountActivity extends BaseActivity implements OnClickListener, On
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.mh_navigate_ll:
-			onBackPressed();
-			break;
-		case R.id.iv_account_head_portrait:
-			showModifyLLAccountPart(true);
-			focusModifyView();
-			break;
-		//		case R.id.tv_modify_nn_clare: 
-		//			etModifyNickname.setText("") ;
-		//			break ;
-		case R.id.iv_modify:
-			showModifyLLAccountPart(true);
-			focusModifyView();
-			break;
-		case R.id.btn_logout:
-			if (!NetworkUtils.isNetworkAvailable(AccountActivity.this)) {
-				ToastUtil.show(AccountActivity.this,
-						AccountActivity.this.getResources().getString(R.string.network_canot_work), Toast.LENGTH_SHORT);
-				return;
-			}
-			//			disEnabledBtn() ;
-			ProgressDialogUtil.openProgressDialog(context, ResourceUtil.getString(context, R.string.logouting),
-					ResourceUtil.getString(context, R.string.logouting), false);
-			LogoutManager logoutManager = new LogoutManager(AccountActivity.this, mHandler);
-			logoutManager.logout();
-			//			enabledBtn() ;
-			break;
-		case R.id.btn_ok:
-			doModifyUserInfo();
-			break;
-		case R.id.tv_modify_change_pwd_link:
-			//			disEnabledBtn() ;
-			startActivity(new Intent(this, ModifyPwdActivity.class));
-			break;
-		// 头像1	
-		case R.id.btn_head1:
-			setHeadPortrait(0);
-			modifyHeadPortraitIndex = 0;
-			break;
-		// 头像2	
-		case R.id.btn_head2:
-			setHeadPortrait(1);
-			modifyHeadPortraitIndex = 1;
-			break;
-		// 头像3	
-		case R.id.btn_head3:
-			setHeadPortrait(2);
-			modifyHeadPortraitIndex = 2;
-			break;
-		// 头像4	
-		case R.id.btn_head4:
-			setHeadPortrait(3);
-			modifyHeadPortraitIndex = 3;
-			break;
-		// 头像5	
-		case R.id.btn_head5:
-			setHeadPortrait(4);
-			modifyHeadPortraitIndex = 4;
-			break;
-		// 头像6	
-		case R.id.btn_head6:
-			setHeadPortrait(5);
-			modifyHeadPortraitIndex = 5;
-			break;
-		// 头像7	
-		case R.id.btn_head7:
-			setHeadPortrait(6);
-			modifyHeadPortraitIndex = 6;
-			break;
-		// 头像8
-		case R.id.btn_head8:
-			setHeadPortrait(7);
-			modifyHeadPortraitIndex = 7;
-			break;
+			case R.id.mh_navigate_ll:
+				onBackPressed();
+				break;
+			case R.id.iv_account_head_portrait:
+				showModifyLLAccountPart(true);
+				focusModifyView();
+				break;
+			//		case R.id.tv_modify_nn_clare:
+			//			etModifyNickname.setText("") ;
+			//			break ;
+			case R.id.iv_modify:
+				showModifyLLAccountPart(true);
+				focusModifyView();
+				break;
+			case R.id.btn_logout:
+				if (!NetworkUtils.isNetworkAvailable(AccountActivity.this)) {
+					ToastUtil.show(AccountActivity.this,
+							AccountActivity.this.getResources().getString(R.string.network_canot_work), Toast.LENGTH_SHORT);
+					return;
+				}
+				//			disEnabledBtn() ;
+				ProgressDialogUtil.openProgressDialog(context, ResourceUtil.getString(context, R.string.logouting),
+						ResourceUtil.getString(context, R.string.logouting), false);
+				LogoutManager logoutManager = new LogoutManager(AccountActivity.this, mHandler);
+				logoutManager.logout();
+				//			enabledBtn() ;
+				break;
+			case R.id.btn_ok:
+				doModifyUserInfo();
+				break;
+			case R.id.tv_modify_change_pwd_link:
+				//			disEnabledBtn() ;
+				startActivity(new Intent(this, ModifyPwdActivity.class));
+				break;
+			// 头像1
+			case R.id.btn_head1:
+				setHeadPortrait(0);
+				modifyHeadPortraitIndex = 0;
+				break;
+			// 头像2
+			case R.id.btn_head2:
+				setHeadPortrait(1);
+				modifyHeadPortraitIndex = 1;
+				break;
+			// 头像3
+			case R.id.btn_head3:
+				setHeadPortrait(2);
+				modifyHeadPortraitIndex = 2;
+				break;
+			// 头像4
+			case R.id.btn_head4:
+				setHeadPortrait(3);
+				modifyHeadPortraitIndex = 3;
+				break;
+			// 头像5
+			case R.id.btn_head5:
+				setHeadPortrait(4);
+				modifyHeadPortraitIndex = 4;
+				break;
+			// 头像6
+			case R.id.btn_head6:
+				setHeadPortrait(5);
+				modifyHeadPortraitIndex = 5;
+				break;
+			// 头像7
+			case R.id.btn_head7:
+				setHeadPortrait(6);
+				modifyHeadPortraitIndex = 6;
+				break;
+			// 头像8
+			case R.id.btn_head8:
+				setHeadPortrait(7);
+				modifyHeadPortraitIndex = 7;
+				break;
+			case R.id.btn_my_apps_ll2:
+				Intent myAppsIntent = new Intent(context, MyAppsActivity.class);
+				myAppsIntent.putExtra("activity_name", context.getClass().getName());
+				startActivity(myAppsIntent);
+				break;
+
+			case R.id.btn_my_contents_ll2:
+				Intent resourceintent = new Intent(context, ResourceManagementActivity.class);
+				resourceintent.putExtra("MODE", NativeResourceConstant.DEF_MODE);
+				startActivity(resourceintent);
+				break;
+
+			case R.id.btn_tools_ll2:
+				startActivity(new Intent(context, ToolsActivity.class));
+				break;
+
+			case R.id.btn_settings_ll2:
+				startActivity(new Intent(context, SettingsActivity.class));
+				break;
 		default:
 			break;
 		}
@@ -469,7 +495,13 @@ public class AccountActivity extends BaseActivity implements OnClickListener, On
 		DataEyeManager.getInstance().module(ModuleName.ACCOUNT_MAIN, false);
 	}
 
-	/** 
+	@Override
+	protected void onDestroy() {
+		Log.i("account","Destroy");
+		super.onDestroy();
+	}
+
+	/**
 	* @Title: setSkinTheme 
 	* @Description: TODO 
 	* @return void    
