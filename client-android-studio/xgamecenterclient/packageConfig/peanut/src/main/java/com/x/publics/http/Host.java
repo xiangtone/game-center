@@ -22,11 +22,7 @@ import android.os.Environment;
  */
 
 public class Host {
-	public static String URL = "";
-	public static String[] host = {"http://192.168.0.53:8080/",// mas
-			"http://192.168.0.53:8080/",// hongkong
-			"http://192.168.0.53:8080/"
-			};
+	public static String URL = "http://192.168.0.53:8080/x-game-center-service-test/";
 	// 配置本地测试服务器
 	public static final String uplay_mas = "uplay_mas.bin";
 	// 配置香港测试服务器
@@ -45,13 +41,13 @@ public class Host {
 	 * @return
 	 */
 	public static void initHost() {
-		if (isCheckFileExists(uplay_mas)) {
-			URL = host[0];
-		} else if (isCheckFileExists(uplay_hongkong)) {
-			URL = host[1];
-		} else {
-			URL = host[2];
-		}
+//		if (isCheckFileExists(uplay_mas)) {
+//			URL = host[0];
+//		} else if (isCheckFileExists(uplay_hongkong)) {
+//			URL = host[1];
+//		} else {
+//			URL = host[2];
+//		}
 
 	}
 
@@ -63,13 +59,13 @@ public class Host {
 	 * @throws
 	 */
 	public static int getZappDomain() {
-		if (URL.equals(host[0])) {
-			return 0;
-		} else if (URL.equals(host[1])) {
-			return 1;
-		} else {
+//		if (URL.equals(host[0])) {
+//			return 0;
+//		} else if (URL.equals(host[1])) {
+//			return 1;
+//		} else {
 			return 2;
-		}
+//		}
 	}
 
 	/**
