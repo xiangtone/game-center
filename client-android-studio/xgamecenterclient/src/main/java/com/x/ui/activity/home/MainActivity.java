@@ -48,6 +48,7 @@ import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+import com.account.util.AccountService;
 import com.x.R;
 import com.x.business.account.UserInfoManager;
 import com.x.business.audio.AudioEffectManager;
@@ -336,12 +337,15 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 //						slideDragLayout.close();
 //					} else {
 //						slideDragLayout.open();
-//					}							
-					if (UserInfoManager.getInstence(mActivity).isLogin()) {
-						startActivity(new Intent(mActivity, AccountActivity.class));
-					} else {
-						startActivity(new Intent(mActivity, LoginActivity.class));
-					}
+//					}
+
+//					if (UserInfoManager.getInstence(mActivity).isLogin()) {
+//						startActivity(new Intent(mActivity, AccountActivity.class));
+//					} else {
+//						startActivity(new Intent(mActivity, LoginActivity.class));
+//					}
+
+					AccountService.getInstances().showWebDialog(mActivity, "http://192.168.1.222:8080/x-account-server/");
 					group.check(R.id.mf_home_tab_rb);
 					break;
 				}

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="account">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/xgamecenterclient/libs/account.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

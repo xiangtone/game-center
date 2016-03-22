@@ -7,4 +7,4 @@
 /client-android-studio/.gradle/
 
 *.iml
-
+*.apk

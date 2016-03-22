@@ -19,12 +19,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f100e319-cd6c-45f6-922c-b2a6f5df7181" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/ui/activity/account/AccountActivity.java" afterPath="$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/ui/activity/account/AccountActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/ui/activity/resource/ResourceManagementActivity.java" afterPath="$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/ui/activity/resource/ResourceManagementActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xgamecenterclient/src/main/res/layout/activity_account.xml" afterPath="$PROJECT_DIR$/xgamecenterclient/src/main/res/layout/activity_account.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xgamecenterclient/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/xgamecenterclient/src/main/res/values/colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/ui/activity/home/MainActivity.java" afterPath="$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/ui/activity/home/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xgamecenterclient/build.gradle" afterPath="$PROJECT_DIR$/xgamecenterclient/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xgamecenterclient/xgamecenterclient.iml" afterPath="$PROJECT_DIR$/xgamecenterclient/xgamecenterclient.iml" />
     </list>
     <ignored path="client-android-studio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,12 +56,67 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/ui/activity/home/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33266532">
-              <caret line="1187" column="25" selection-start-line="1187" selection-start-column="25" selection-end-line="1187" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.3565737">
+              <caret line="347" column="119" selection-start-line="347" selection-start-column="119" selection-end-line="347" selection-end-column="119" />
               <folding>
                 <element signature="e#0#154#0" expanded="true" />
                 <element signature="imports" expanded="true" />
+                <element signature="e#7513#7529#0" expanded="true" />
+                <element signature="e#7592#7606#0" expanded="true" />
+                <element signature="e#7667#7681#0" expanded="true" />
+                <element signature="e#9672#11393#0" expanded="true" />
+                <element signature="e#11392#11393#0" expanded="true" />
+                <element signature="e#20263#21678#0" expanded="true" />
+                <element signature="e#21677#21678#0" expanded="true" />
+                <element signature="e#21729#21951#0" expanded="true" />
+                <element signature="e#21950#21951#0" expanded="true" />
+                <element signature="e#23203#24156#0" expanded="true" />
+                <element signature="e#24155#24156#0" expanded="true" />
+                <element signature="e#24202#24321#0" expanded="true" />
+                <element signature="e#24320#24321#0" expanded="true" />
+                <element signature="e#24389#26053#0" expanded="true" />
+                <element signature="e#26052#26053#0" expanded="true" />
+                <element signature="e#26121#26368#0" expanded="true" />
+                <element signature="e#26367#26368#0" expanded="true" />
+                <element signature="e#26402#26978#0" expanded="true" />
+                <element signature="e#26977#26978#0" expanded="true" />
+                <element signature="e#28200#29059#0" expanded="true" />
+                <element signature="e#29058#29059#0" expanded="true" />
+                <element signature="e#29178#29561#0" expanded="true" />
+                <element signature="e#29560#29561#0" expanded="true" />
+                <element signature="e#29676#30039#0" expanded="true" />
+                <element signature="e#30038#30039#0" expanded="true" />
+                <element signature="e#31174#31617#0" expanded="true" />
+                <element signature="e#31433#31599#0" expanded="true" />
+                <element signature="e#31598#31599#0" expanded="true" />
+                <element signature="e#31616#31617#0" expanded="true" />
+                <element signature="e#33718#33760#0" expanded="true" />
+                <element signature="e#36037#36162#0" expanded="true" />
+                <element signature="e#36161#36162#0" expanded="true" />
+                <element signature="e#36335#36384#0" expanded="true" />
+                <element signature="e#36933#36951#0" expanded="true" />
+                <element signature="e#36975#37053#0" expanded="true" />
+                <element signature="e#37094#37139#0" expanded="true" />
+                <element signature="e#37141#37284#0" expanded="true" />
+                <element signature="e#37283#37284#0" expanded="true" />
+                <element signature="e#37325#37371#0" expanded="true" />
+                <element signature="e#37377#37688#0" expanded="true" />
+                <element signature="e#37687#37688#0" expanded="true" />
+                <element signature="e#40326#40554#0" expanded="true" />
+                <element signature="e#40553#40554#0" expanded="true" />
+                <element signature="e#41270#41483#0" expanded="true" />
+                <element signature="e#41482#41483#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/xgamecenterclient/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.785714">
+              <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,7 +124,7 @@
       <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xgamecenterclient/src/main/res/layout/activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6">
+            <state vertical-scroll-proportion="0.0">
               <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
               <folding />
             </state>
@@ -83,7 +137,7 @@
       <file leaf-file-name="fragment_slidingpane_home.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xgamecenterclient/src/main/res/layout/fragment_slidingpane_home.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6">
+            <state vertical-scroll-proportion="0.0">
               <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
               <folding />
             </state>
@@ -96,7 +150,7 @@
       <file leaf-file-name="main_header.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xgamecenterclient/src/main/res/layout/main_header.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6666667">
+            <state vertical-scroll-proportion="0.0">
               <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="39" />
               <folding />
             </state>
@@ -3642,7 +3696,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="E:\Git\game-center\client-android-studio" value="5829330862186" />
+        <entry key="E:\Git\game-center\client-android-studio" value="5830628577490" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -3917,6 +3971,7 @@
                             <option value="$MODULE_DIR$/libs/nineoldandroids-library-2.4.0.jar" />
                             <option value="$MODULE_DIR$/libs/TCL_DataEye_final_V1.0.1.001.jar" />
                             <option value="$MODULE_DIR$/libs/zxing.jar" />
+                            <option value="$MODULE_DIR$/libs/account.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/xgamecenterclient" />
@@ -4064,7 +4119,6 @@
         <option value="$PROJECT_DIR$/xgamecenterclient/build/intermediates/manifests/full/vanggame/debug/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/xgamecenterclient/src/main/res/layout/fragment_slidingpane_menu.xml" />
-        <option value="$PROJECT_DIR$/xgamecenterclient/build.gradle" />
         <option value="$PROJECT_DIR$/xgamecenterclient/packageConfig/youqu/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/ui/activity/zerodata/InstallationUplayActivity.java" />
         <option value="$PROJECT_DIR$/xgamecenterclient/src/main/res/layout/activity_sharing_way.xml" />
@@ -4093,6 +4147,7 @@
         <option value="$PROJECT_DIR$/xgamecenterclient/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/ui/activity/account/AccountActivity.java" />
         <option value="$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/ui/activity/resource/ResourceManagementActivity.java" />
+        <option value="$PROJECT_DIR$/xgamecenterclient/build.gradle" />
         <option value="$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/ui/activity/home/MainActivity.java" />
       </list>
     </option>
@@ -4166,154 +4221,12 @@
               <option name="myItemId" value="client-android-studio" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xgamecenterclient" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xgamecenterclient" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="x" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xgamecenterclient" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="x" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xgamecenterclient" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="x" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xgamecenterclient" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="x" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xgamecenterclient" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -4321,6 +4234,10 @@
               <option name="myItemId" value="client-android-studio" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -4343,28 +4260,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="xgamecenterclient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xgamecenterclient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -4382,126 +4277,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xgamecenterclient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="x" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xgamecenterclient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="outputs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xgamecenterclient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="intermediates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client-android-studio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xgamecenterclient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
+              <option name="myItemId" value="libs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -4627,6 +4408,7 @@
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/xgamecenterclient/libs/account.jar" />
       <envs />
       <method />
     </configuration>
@@ -4740,22 +4522,20 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.49354145" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.3573735" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497309" sideWeight="0.3405018" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.35575888" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497309" sideWeight="0.3488372" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37091318" sideWeight="0.46555436" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3697858" sideWeight="0.46986008" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11786868" sideWeight="0.5125448" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37091318" sideWeight="0.53444564" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32992464" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3697858" sideWeight="0.5301399" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.4913886" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.4956943" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.6264801" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497309" sideWeight="0.6594982" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.26318622" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497309" sideWeight="0.6511628" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32992464" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11786868" sideWeight="0.4874552" order="3" side_tool="true" content_ui="tabs" />
@@ -4767,6 +4547,8 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497309" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32992464" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.26318622" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -4787,13 +4569,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/business/zerodata/connection/helper/ZeroDataConnectHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.010600707">
-          <caret line="136" column="28" selection-start-line="136" selection-start-column="28" selection-end-line="136" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/publics/http/model/PlatFormInitResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.028268551">
@@ -5053,7 +4828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5088,7 +4862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="49.448013">
           <caret line="1258" column="18" selection-start-line="1258" selection-start-column="18" selection-end-line="1258" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5115,9 +4888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.678572">
           <caret line="499" column="22" selection-start-line="499" selection-start-column="22" selection-end-line="499" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -5136,7 +4906,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28857717">
           <caret line="439" column="60" selection-start-line="439" selection-start-column="60" selection-end-line="439" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5152,7 +4921,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41117764">
           <caret line="527" column="68" selection-start-line="527" selection-start-column="68" selection-end-line="527" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -5169,7 +4937,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xgamecenterclient/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6">
+        <state vertical-scroll-proportion="0.0">
           <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
           <folding />
         </state>
@@ -5180,7 +4948,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xgamecenterclient/src/main/res/layout/fragment_slidingpane_home.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6">
+        <state vertical-scroll-proportion="0.0">
           <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
           <folding />
         </state>
@@ -5191,7 +4959,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xgamecenterclient/src/main/res/layout/main_header.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6666667">
+        <state vertical-scroll-proportion="0.0">
           <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="39" />
           <folding />
         </state>
@@ -5200,13 +4968,66 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/xgamecenterclient/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.785714">
+          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/xgamecenterclient/src/main/java/com/x/ui/activity/home/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33266532">
-          <caret line="1187" column="25" selection-start-line="1187" selection-start-column="25" selection-end-line="1187" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.3565737">
+          <caret line="347" column="119" selection-start-line="347" selection-start-column="119" selection-end-line="347" selection-end-column="119" />
           <folding>
             <element signature="e#0#154#0" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="e#7513#7529#0" expanded="true" />
+            <element signature="e#7592#7606#0" expanded="true" />
+            <element signature="e#7667#7681#0" expanded="true" />
+            <element signature="e#9672#11393#0" expanded="true" />
+            <element signature="e#11392#11393#0" expanded="true" />
+            <element signature="e#20263#21678#0" expanded="true" />
+            <element signature="e#21677#21678#0" expanded="true" />
+            <element signature="e#21729#21951#0" expanded="true" />
+            <element signature="e#21950#21951#0" expanded="true" />
+            <element signature="e#23203#24156#0" expanded="true" />
+            <element signature="e#24155#24156#0" expanded="true" />
+            <element signature="e#24202#24321#0" expanded="true" />
+            <element signature="e#24320#24321#0" expanded="true" />
+            <element signature="e#24389#26053#0" expanded="true" />
+            <element signature="e#26052#26053#0" expanded="true" />
+            <element signature="e#26121#26368#0" expanded="true" />
+            <element signature="e#26367#26368#0" expanded="true" />
+            <element signature="e#26402#26978#0" expanded="true" />
+            <element signature="e#26977#26978#0" expanded="true" />
+            <element signature="e#28200#29059#0" expanded="true" />
+            <element signature="e#29058#29059#0" expanded="true" />
+            <element signature="e#29178#29561#0" expanded="true" />
+            <element signature="e#29560#29561#0" expanded="true" />
+            <element signature="e#29676#30039#0" expanded="true" />
+            <element signature="e#30038#30039#0" expanded="true" />
+            <element signature="e#31174#31617#0" expanded="true" />
+            <element signature="e#31433#31599#0" expanded="true" />
+            <element signature="e#31598#31599#0" expanded="true" />
+            <element signature="e#31616#31617#0" expanded="true" />
+            <element signature="e#33718#33760#0" expanded="true" />
+            <element signature="e#36037#36162#0" expanded="true" />
+            <element signature="e#36161#36162#0" expanded="true" />
+            <element signature="e#36335#36384#0" expanded="true" />
+            <element signature="e#36933#36951#0" expanded="true" />
+            <element signature="e#36975#37053#0" expanded="true" />
+            <element signature="e#37094#37139#0" expanded="true" />
+            <element signature="e#37141#37284#0" expanded="true" />
+            <element signature="e#37283#37284#0" expanded="true" />
+            <element signature="e#37325#37371#0" expanded="true" />
+            <element signature="e#37377#37688#0" expanded="true" />
+            <element signature="e#37687#37688#0" expanded="true" />
+            <element signature="e#40326#40554#0" expanded="true" />
+            <element signature="e#40553#40554#0" expanded="true" />
+            <element signature="e#41270#41483#0" expanded="true" />
+            <element signature="e#41482#41483#0" expanded="true" />
           </folding>
         </state>
       </provider>
