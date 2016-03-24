@@ -27,7 +27,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.analysisapk.util.ReadApkInfo;
 import com.mas.rave.common.MyCollectionUtils;
 import com.mas.rave.common.page.PaginationVo;
 import com.mas.rave.common.web.RequestUtils;
@@ -294,9 +293,9 @@ public class AppSkinController {
 		if (StringUtils.isEmpty(parser.getVersionName()) || parser.getVersionName().contains("@7F")) {
 			url = url + "WEB-INF" + File.separator + "classes" + File.separator;
 			if ("linux".equalsIgnoreCase(Constant.RUN_ENV)) {
-				skin.setVersionName(ReadApkInfo.getVersionName(Constant.LOCAL_FILE_PATH + skin.getApkUrl(), url, 2));
+				skin.setVersionName(com.mas.rave.util.ReadApkInfo.getVersionName(Constant.LOCAL_FILE_PATH + skin.getApkUrl(), url, 2));
 			} else {
-				skin.setVersionName(ReadApkInfo.getVersionName(Constant.LOCAL_FILE_PATH + skin.getApkUrl(), url, 1));
+				skin.setVersionName(com.mas.rave.util.ReadApkInfo.getVersionName(Constant.LOCAL_FILE_PATH + skin.getApkUrl(), url, 1));
 			}
 		} else {
 			skin.setVersionName(parser.getVersionName());

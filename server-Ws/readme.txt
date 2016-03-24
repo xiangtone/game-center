@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=mybatis_pagination_plug.jar -DgroupId=com.mybatis.pagination.plug -DartifactId=mybatis_pagination_plug -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true

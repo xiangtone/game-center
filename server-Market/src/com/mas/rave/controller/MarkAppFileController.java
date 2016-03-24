@@ -28,7 +28,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.analysisapk.util.ReadApkInfo;
 import com.mas.rave.common.MyCollectionUtils;
 import com.mas.rave.common.page.PaginationVo;
 import com.mas.rave.common.parser.AppBatchUploadEngine;
@@ -56,6 +55,7 @@ import com.mas.rave.util.FileAddresUtil;
 import com.mas.rave.util.FileUtil;
 import com.mas.rave.util.MD5;
 import com.mas.rave.util.RandNum;
+import com.mas.rave.util.ReadApkInfo;
 import com.mas.rave.util.StringUtil;
 import com.mas.rave.util.s3.S3Util;
 import com.molon.android.parser.ApkManifestParser;

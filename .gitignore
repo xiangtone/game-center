@@ -1,3 +1,16 @@
+#java below
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
 /server-Indomog/bin
 /server-Market/build
 /server-Ws/build
@@ -7,6 +20,8 @@
 /client-android-studio/.gradle
 
 *.iml
+*.apk
 
-/client-android-studio/.idea
-/client-android-studio/local.properties
+/server-Ws/target/m2e-wtp
+/server-Ws/target/classes
+

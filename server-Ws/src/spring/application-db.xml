@@ -60,12 +60,12 @@
 	</bean>
 	<!-- MyBatis(ibatis3) sqlSessionFactory11 -->
 	<bean id="sqlPcSessionFactoryLog" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSourceLog" />
-		<property name="mapperLocations" value="classpath*:com/mas/ws/mapper/conf/*.xml" />
-	</bean>
+		<property name="dataSource" ref="dataSourceLog"/>
+		<property name="mapperLocations" value="classpath*:com/mas/ws/mapper/conf/*.xml"/>
+	</bean> 
 	<bean id="sqlPcSessionFactoryMarket" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSourceMarket" />
-		<property name="mapperLocations" value="classpath*:com/mas/market/mapper/conf/*.xml" />
+		<property name="dataSource" ref="dataSourceMarket"/>
+		<property name="mapperLocations" value="classpath*:com/mas/market/mapper/conf/*.xml"/>
 	</bean>
 	<!-- 接口编程  -->
 	<bean name="mapperScannerConfigurerLog" class="org.mybatis.spring.mapper.MapperScannerConfigurer">    
@@ -76,4 +76,6 @@
 	    <property name="basePackage" value="com.mas.market.mapper" />
 		<property name="sqlSessionFactory" ref="sqlPcSessionFactoryMarket" />
 	</bean>
+	
+	
 </beans>

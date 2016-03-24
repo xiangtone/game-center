@@ -107,7 +107,7 @@ public class CommunalController {
 		try {
 			String name = request.getParameter("name");
 			String packageName = request.getParameter("packageName");
-
+			System.out.println(packageName);
 			// 获取 状态
 			// String state = request.getParameter("state");
 			String countryId = request.getParameter("countryId");
@@ -360,6 +360,11 @@ public class CommunalController {
 	@RequestMapping("/{id}")
 	public String showEdit(HttpServletRequest request, @PathVariable("id") Integer id, Model model) {
 		try {
+			log.debug("                          "
+					+ "加载单个APP运行了！               "
+					+ "                           "
+					+ "                           "
+					+ "                            ");
 			AppInfo communal = appService.getApp(id);
 			// communal.setName(communal.getName().replaceAll("\"",
 			// "&quot;").replaceAll("'", "&apos;"));
@@ -373,6 +378,9 @@ public class CommunalController {
 			List<Channel> channels = channelService.getChannels(200000);
 			request.setAttribute("channels", channels);
 			String page = request.getParameter("page");
+			log.debug("                   "
+					+ "                     "
+					+ "什么鬼：       "+page);
 			// System.out.println("######page="+page);
 			request.setAttribute("page", page);
 			// 所有应用分类信息
