@@ -836,11 +836,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			switch (msg.what) {
 			case HANDLER_MENU_ID:
 				if (isMyAppsNew || isSettingsNew || isToolsNew || isMyContentsNew) {
-					mTipsView.setVisibility(View.VISIBLE);
+
 					int count = updateList.size() + downloadingList.size() + unInstallList.size();
 					if (count == 0) {
 						return;
 					}
+					mTipsView.setVisibility(View.VISIBLE);
 					if (count <= 99) {
 						mTipsView.setText("" + count);
 					} else {
