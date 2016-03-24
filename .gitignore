@@ -20,6 +20,7 @@ hs_err_pid*
 /client-android-studio/.gradle/
 
 *.iml
+*.apk
 
 /server-Ws/target/m2e-wtp
 /server-Ws/target/classes
