@@ -66,6 +66,7 @@ import com.x.db.DownloadEntityManager;
 import com.x.db.resource.NativeResourceConstant;
 import com.x.publics.download.BroadcastManager;
 import com.x.publics.download.upgrade.UpgradeManager;
+import com.x.publics.http.Host;
 import com.x.publics.http.model.AppsUpgradeResponse;
 import com.x.publics.http.model.FeedbackWarnResponse;
 import com.x.publics.http.model.MasUser;
@@ -345,7 +346,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 //						startActivity(new Intent(mActivity, LoginActivity.class));
 //					}
 
-					AccountService.getInstances().showWebDialog(mActivity, "http://192.168.1.222:8080/x-account-server/");
+					AccountService.getInstances().showWebDialog(mActivity, Host.accountUrl);
 					group.check(R.id.mf_home_tab_rb);
 					break;
 				}

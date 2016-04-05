@@ -19,6 +19,10 @@ android {
             java.srcDirs = ['packageConfig/peanut/src/main/java']
             res.srcDirs = ['packageConfig/peanut/src/main/res']
         }
+        n8wan{
+            java.srcDirs = ['packageConfig/n8wan/src/main/java']
+            res.srcDirs = ['packageConfig/n8wan/src/main/res']
+        }
         vanggame{
             java.srcDirs = ['packageConfig/vanggame/src/main/java']
             res.srcDirs = ['packageConfig/vanggame/src/main/res']
@@ -41,6 +45,9 @@ android {
         }
         peanut {
             applicationId = 'com.xgame.peanut'
+        }
+        n8wan {
+            applicationId = 'com.xgame.n8wan'
         }
     }
 
