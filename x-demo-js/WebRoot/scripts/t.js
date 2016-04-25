@@ -3,11 +3,19 @@ if (typeof dcodeIO === 'undefined' || !dcodeIO.ProtoBuf) {
 			"ProtoBuf.js is not present. Please see www/index.html for manual setup instructions."));
 }
 var ProtoBuf = dcodeIO.ProtoBuf;
-var builder = ProtoBuf.loadProtoFile("Apps.proto");
+var builder = ProtoBuf.loadProtoFile("Packet.proto");
+// var builder = ProtoBuf.loadProtoFile("Apps.proto");
 var ReqGlobalConfig = builder.build("ReqGlobalConfig");
 var RspGlobalConfig = builder.build("RspGlobalConfig");
-var reqMsg = new ReqGlobalConfig();
-reqMsg.setGroupsCacheVer('1');
+var ReqPacket = builder.build("ReqPacket");
+var RspPacket = builder.build("RspPacket");
+// var reqMsg = new ReqGlobalConfig();
+// reqMsg.setGroupsCacheVer('1');
+var reqMsg = new ReqPacket();
+reqMsg.setMask(1);
+reqMsg.setUdi("1");
+reqMsg.setReqNo(1);
+reqMsg.setClientId(1);
 var contentPb = new Uint8Array(reqMsg.toArrayBuffer());
 
 url = "http://115.159.125.75/appstore_api";
@@ -25,8 +33,9 @@ xhr.onload = function() {
 				// do something
 				console.log(byteArray[i]);
 			}
-			var rspMsg = RspGlobalConfig.decode(arrayBuffer);
-			console.log(rspMsg.rescode);
+			// var rspMsg = RspGlobalConfig.decode(arrayBuffer);
+			var rspMsg = RspPacket.decode(arrayBuffer);
+			console.log(rspMsg);
 		}
 	}
 }
