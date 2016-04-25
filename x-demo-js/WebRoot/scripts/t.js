@@ -19,7 +19,7 @@ xhr.onload = function() {
 	if (this.status == 200) {
 		var arrayBuffer = xhr.response;
 		if (arrayBuffer) {
-			console.log("a");
+			console.log(arrayBuffer.toString());
 			var byteArray = new Uint8Array(arrayBuffer);
 			for (var i = 0; i < byteArray.byteLength; i++) {
 				// do something
