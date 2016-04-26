@@ -112,21 +112,21 @@ function searchData(searchString, pageIndex) {
 	return syncSearchData;
 }
 
-//应用推荐data
-function recommData(appId, appClass, appType, pageIndex){
+// 应用推荐data
+function recommData(appId, appClass, appType, pageIndex) {
 	var pageIndex = arguments[3] ? arguments[3] : 1;
 	var syncRecommData = {
-			"header" : syncHead,
-			"api" : "ReqRecommApp",
-			"params" : {
-				"appId" : appId,
-				"appClass" : appClass,
-				"appType" : appType,
-				"pageSize" : 3,
-				"pageIndex" : pageIndex
-			}
+		"header" : syncHead,
+		"api" : "ReqRecommApp",
+		"params" : {
+			"appId" : appId,
+			"appClass" : appClass,
+			"appType" : appType,
+			"pageSize" : 3,
+			"pageIndex" : pageIndex
 		}
-		return syncRecommData;
+	}
+	return syncRecommData;
 }
 
 function matchGroupInfo(groupList, groupClass, groupType, orderType,
@@ -174,11 +174,12 @@ var configSuccessFun = {
 		configData = data.data.groupInfo;
 		console.log("group data success");
 		// 获取热门(groupType = 4108)、最新(1200)、必备(3202)
-//		requestGroupElement();
+		requestGroupElement();
 
 		// getTopics();
 
 		// getClassifys();
+//		getHotwords();
 	}
 }
 
@@ -214,13 +215,18 @@ function requestGroupElement(group) {
 	// var group = matchGroupInfo(configData, 12, 1200, 2, true); //最新
 	// var group = matchGroupInfo(configData, 32, 3202, null, true); //必备
 	// var group = matchGroupInfo(configData, 12, 1200, 0, true); //排行
+	// var group = matchGroupInfo(configData, 41, 4104, 0, false); //搜索热词
 
-	var group = group ? group : matchGroupInfo(configData, 12, 1200, 0, true);
-	sendRequest(groupElems(group.groupId), groupSuccess = {
-		success : function(data) {
-			console.log(data);
-		}
-	});
+	var group = group ? group : matchGroupInfo(configData, 41, 4104, 0, true);
+	sendRequest(
+			groupElems(group.groupId),
+			groupSuccess = {
+				success : function(data) {
+					console
+							.log("------------this is GroupElement log-----------------");
+					console.log(data);
+				}
+			});
 }
 
 // 获取专题列表(groupClass = 32)
