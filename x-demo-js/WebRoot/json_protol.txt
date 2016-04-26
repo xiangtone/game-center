@@ -1,0 +1,67 @@
+1、单个协议请求的body数据格式：
+请求：
+{
+    "header": {
+        "udi": "a=1&b=1",
+	"chnNo":"",
+	"chnPos":"",
+	"clientId":"",
+	"clientPos":"",
+	"clientVer":""
+	
+    },
+    "api": "ReqGlobalConfig",
+    "params": {}
+}
+响应：
+{
+    "rescode": 0,
+    "resmsg": "successs",
+    "data": {}
+}
+
+2、多个协议请求的body数据格式
+请求：
+{
+    "header": {
+        "udi": "a=1&b=1",
+	"chnNo":"",
+	"chnPos":"",
+	"clientId":"",
+	"clientPos":"",
+	"clientVer":""
+	
+    },
+    "apilist": [
+        {
+            "api": "ReqGroupElems",
+            "params": {
+                "groupid": 1
+            }
+        },
+        {
+            "api": "ReqGroupElems",
+            "params": {
+                "groupid": 2
+            }
+        }
+    ]
+}
+
+响应：
+{
+    "rescode": 0,
+    "resmsg": "successs",
+    "reslist": [
+        {
+            "rescode": 0,
+            "resmsg": "successs",
+            "data": {}
+        },
+        {
+            "rescode": 0,
+            "resmsg": "successs",
+            "data": {}
+        }
+    ]
+}
