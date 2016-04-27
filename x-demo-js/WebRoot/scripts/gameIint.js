@@ -1,27 +1,30 @@
-if (typeof dcodeIO === 'undefined' || !dcodeIO.ProtoBuf) {
-    throw (new Error(
-			"ProtoBuf.js is not present. Please see www/index.html for manual setup instructions."));
-}
-var ProtoBuf = dcodeIO.ProtoBuf;
-var builderPacket = ProtoBuf.loadProtoFile("Packet.txt");
-var builderApps = ProtoBuf.loadProtoFile("Apps.txt");
-var ReqGlobalConfig = builderApps.build("ReqGlobalConfig");
-var RspGlobalConfig = builderApps.build("RspGlobalConfig");
-var ReqPacket = builderPacket.build("ReqPacket");
-var RspPacket = builderPacket.build("RspPacket");
-// var reqMsg = new ReqGlobalConfig();
-// reqMsg.setGroupsCacheVer('1');
-var reqMsg = new ReqPacket();
-reqMsg.setMask(1);
-reqMsg.setUdi("1");
-reqMsg.setAction("ReqGlobalConfig")
-reqMsg.setReqNo(0);
-reqMsg.setClientId(3);
+﻿var configData = null;
+var pageDone = false;
 
-var params = new ReqGlobalConfig();
+$(document).ready(function () {
+    $(window).scroll(window_onscroll);
+});
 
-reqMsg.setParams(new Uint8Array(params.toArrayBuffer()))
-var contentPb = new Uint8Array(reqMsg.toArrayBuffer());
+//var ProtoBuf = dcodeIO.ProtoBuf;
+//var builderPacket = ProtoBuf.loadProtoFile("Packet.txt");
+//var builderApps = ProtoBuf.loadProtoFile("Apps.txt");
+//var ReqGlobalConfig = builderApps.build("ReqGlobalConfig");
+//var RspGlobalConfig = builderApps.build("RspGlobalConfig");
+//var ReqPacket = builderPacket.build("ReqPacket");
+//var RspPacket = builderPacket.build("RspPacket");
+//// var reqMsg = new ReqGlobalConfig();
+//// reqMsg.setGroupsCacheVer('1');
+//var reqMsg = new ReqPacket();
+//reqMsg.setMask(1);
+//reqMsg.setUdi("1");
+//reqMsg.setAction("ReqGlobalConfig")
+//reqMsg.setReqNo(0);
+//reqMsg.setClientId(3);
+
+//var params = new ReqGlobalConfig();
+
+//reqMsg.setParams(new Uint8Array(params.toArrayBuffer()))
+//var contentPb = new Uint8Array(reqMsg.toArrayBuffer());
 
 url = "http://115.159.125.75/appstore_api";
 // var xhr = new XMLHttpRequest();
@@ -177,6 +180,9 @@ var configSuccessFun = {
         // 获取热门(groupType = 4108)、最新(1200)、必备(3202)
         requestGroupElement();
 
+        if (pageDone && typeof page_onload != "undefined") {
+            page_onload();
+        }
         // getTopics();
 
         // getClassifys();
@@ -186,22 +192,23 @@ var configSuccessFun = {
 
 // 获取分组列表
 sendRequest(syncConfigData, configSuccessFun);
+//console.warn("init...");
 
-// 搜索
-sendRequest(searchData("hello"), searchSuccess = {
-    success: function (data) {
-        console.log("------------this is search log-----------------");
-        console.log(data);
-    }
-})
+//// 搜索
+//sendRequest(searchData("hello"), searchSuccess = {
+//    success: function (data) {
+//        console.log("------------this is search log-----------------");
+//        console.log(data);
+//    }
+//})
 
-// 获取应用推荐
-sendRequest(recommData(133636), recommmSuccess = {
-    success: function (data) {
-        console.log("------------this is recomm log-----------------");
-        console.log(data);
-    }
-})
+//// 获取应用推荐
+//sendRequest(recommData(133636), recommmSuccess = {
+//    success: function (data) {
+//        console.log("------------this is recomm log-----------------");
+//        console.log(data);
+//    }
+//})
 
 /*
  * 注意************banner 广告位可能跳转详情、分类、专题、 几乎所有数据请求都依赖于 globalConfig 请求 数据分页
@@ -250,4 +257,28 @@ function getClassifys() {
         console.log(matchList);
         return matchList;
     }
+}
+
+function showList(data) {
+    var html = "<table>";
+    for (var i = 0; i < data.length; i++) {
+        var item = data[i];
+        html += "<tr><td class='td_img'><a href='game_details.html#appid=" + item.appId
+               + "'><img class='logo_img' src='" + item.iconUrl + "' alt='" + item.showName + "'/></a></td>"
+               + "<td class='td_h'><a href='game_details.html#appid=" + item.appId + "'><h4>" + item.showName + "</h4>"
+               + "<h5><img src='imgs/star-" + (item.recommLevel / 2) + ".png' alt='等级'> </h5>"
+               + "<h5><span>" + item.downTimes + "</span>人下载 &nbsp;&nbsp;<span>" + (item.mainPackSize / 1048576.0).toFixed(2) + "</span>MB</h5></a>"
+               + "</td><td><a href='javascript:void(0);' onclick='getApk(" + item.appId + ");' ><button class='btn btn-warning btn-sm'>下载</button></a></td></tr>";
+    }
+
+    return html + "</table>";
+
+}
+
+function getApk(appid) {
+    alert("下载APK");
+}
+
+function window_onscroll() {
+   
 }

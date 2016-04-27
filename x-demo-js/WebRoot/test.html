@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>demo</title>
+    <script src="scripts/jquery-2.1.3.min.js"></script>
+    <script src="scripts/Long.min.js"></script>
+    <script src="scripts/ByteBufferAB.min.js"></script>
+    <script src="scripts/ProtoBuf.min.js"></script>
+    <script src="http://the-x.cn/scripts/Base64.js"></script>
+    <script type="text/javascript">
+        if (typeof dcodeIO === 'undefined' || !dcodeIO.ProtoBuf) {
+            throw (new Error(
+                    "ProtoBuf.js is not present. Please see www/index.html for manual setup instructions."));
+        }
+        var ProtoBuf = dcodeIO.ProtoBuf;
+        var builder = ProtoBuf.loadProtoFile("Packet.txt");
+        var RspPacket = builder.build("ReqPacket");
+
+
+        var msg = new RspPacket();
+        //msg.setGroupsCacheVer('1');
+        msg.setMask(0);
+        msg.setAction("RegUser_V2");
+        msg.setUdi("0");
+        msg.setParams(null);
+        msg.setReqNo(0);
+        msg.setClientId(1);
+
+
+        //var contentPb = Base64.decode(msg.toBase64()); //new Uint8Array(msg.toArrayBuffer());
+        var contentPb = new Uint8Array(msg.toArrayBuffer());
+        var RspGlobalConfig = builder.build("RspPacket");
+        var result = "080010001A00";
+        
+
+        $.ajax({
+            type: "post",
+            url: "http://115.159.125.75/appstore_api",
+            async: true,
+            data: contentPb,
+            //dataType: "binary",
+            dataType: "text",
+            success: function (e) {
+                result = e;
+
+                //console.log(msg);
+            },
+            error: ajaxNetworkError
+        });
+        function ajaxNetworkError(XMLHttpRequest, textStatus, errorThrown) {
+            // alert("ajaxNetworkError:" + XMLHttpRequest.status + "-" +
+            // XMLHttpRequest.readyState + "-" + textStatus);
+            console.log("ajaxNetworkError:" + XMLHttpRequest.status + "-"
+                    + XMLHttpRequest.readyState + "-" + textStatus + "-");
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+

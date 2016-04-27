@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>游戏中心</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scale=1,user-scalable=no" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet" />
+    <link href="css/hsgame.css" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <!--<script src="js/respond.js"></script>-->
+    <script src="scripts/jquery-2.1.4.min.js"></script>
+    <script src="scripts/gameIint.js"></script>
+
+    <script src="scripts/gameCenter.js"></script>   
+
+    <link rel="stylesheet" href="Content/swiper.min.css">
+    <style>
+        .swiper-container {
+            width: 100%;
+            overflow:hidden;
+            padding-bottom:2%;
+        }
+        .swiper-slide {
+            display: -ms-flexbox;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+
+        }
+        /*.btt{position:absolute; color:#000;background: rgba(0,0,0,0.6); width:100%;text-align:center;z-index:1;left: 0;
+            bottom:0; color:#FFF; font-size:12px; display:block;}*/
+        .iconwz{line-height:18px; font-size:14px; display:block; text-align:center; width:100%; margin-top:5%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+        .wangame{font-size:12px; color:#a7a7a7; display:block; text-align:center; width:100%; margin-bottom:5%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    </style>
+
+</head>
+
+<body>
+
+    <div id="myCarousel" class="carousel slide c_serch">
+        <!--<a class="carousel_serch"  href="search.html">搜索</a>-->
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <a href=""><img class="img" src="imgs/805-322.jpg" alt="First slide"></a>
+                <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+                <a href=""><img class="img" src="imgs/805x322.jpg" alt="Second slide"></a>
+                <div class="carousel-caption"></div>
+            </div>
+            <div class="item">
+                <a href=""><img class="img" src="imgs/8057322.jpg" alt="Third slide"></a>
+                <div class="carousel-caption"></div>
+            </div>
+        </div>
+        <!-- 轮播（Carousel）导航 -->
+        <!-- <a class="carousel-control left" href="#myCarousel"
+            data-slide="prev">&lsaquo;</a>
+         <a class="carousel-control right" href="#myCarousel"
+            data-slide="next">&rsaquo;</a>-->
+    </div>
+    <div class="clearfix"></div>
+    <nav class="game_nav">
+        <ul>
+            <li>
+                <a href="first_publish.html">
+                    <figure class="nav_bt">
+                        <img src="imgs/award.png" alt="首发">
+                        <figcaption>首发</figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li>
+                <a href="hotgame.html">
+                    <figure class="nav_bt">
+                        <img src="imgs/gamepad.png" alt="热门">
+                        <figcaption>热门</figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li>
+                <a href="subject.html">
+                    <figure class="nav_bt">
+                        <img src="imgs/thumbnails.png" alt="专题">
+                        <figcaption>专题</figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li>
+                <a href="necessary.html">
+                    <figure class="nav_bt">
+                        <img src="imgs/adapter.png" alt="必备">
+                        <figcaption>必备</figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li>
+                <a href="classification.html">
+                    <figure class="nav_bt">
+                        <img src="imgs/folder.png" alt="分类">
+                        <figcaption>分类</figcaption>
+                    </figure>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!--推荐-->
+    <div class="recommend">
+        <div class="r_title">
+            <h1>
+                推荐
+                <em>地铁游戏</em>
+            </h1>
+            <a href="hotgame.html">更多</a>
+        </div>
+
+        <script type="text/javascript" src="Scripts/jquery1.8.3.js"></script>
+        <script src="Scripts/swiper-3.3.1.jquery.min.js"></script>
+        <div class="subway">
+            <ul>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="game_details.html" class="icon"><img src="Picture/150_1461125674.jpg" /></a>
+                            <p class="iconwz">僵尸围城</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="game_details.html" class="icon"><img src="Picture/150_1461125674.jpg" /></a>
+                            <p class="iconwz">僵尸围城</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="game_details.html" class="icon"><img src="Picture/150_1461125674.jpg" /></a>
+                            <p class="iconwz">僵尸围城</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="game_details.html" class="icon"><img src="Picture/150_1461125674.jpg" /></a>
+                            <p class="iconwz">僵尸围城</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="game_details.html" class="icon"><img src="Picture/150_1461125674.jpg" /></a>
+                            <p class="iconwz">僵尸围城</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="game_details.html" class="icon"><img src="Picture/150_1461125674.jpg" /></a>
+                            <p class="iconwz">僵尸围城</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="game_details.html" class="icon"><img src="Picture/150_1461125674.jpg" /></a>
+                            <p class="iconwz">僵尸围城</p>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+
+
+
+        <div>
+
+
+        </div>
+    </div>
+
+
+    <script>
+
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            slidesPerView: 3.7,
+            paginationClickable: true,
+            spaceBetween: 25,
+            freeMode: true
+        });
+
+        var _czc = _czc || [];
+        _czc.push(["_setAccount", "1257177080"]);
+    </script>
+
+
+    <div style="clear:both;display:none;height:0;width:0;border:none;"></div>
+
+
+
+
+    <div class="container">
+        <a href="game_details.html"><img class="item>img" style="width:100%" src="imgs/role.png" alt="banner"></a>
+
+    </div>
+
+    <div style="clear:both;display:none;height:0;width:0;border:none;"></div>
+
+    <div class="recommend_g">
+        <div class="r_title">
+            <h1>
+                精品
+                <em>猜你喜欢</em>
+            </h1>
+            <a href="hotgame.html">更多</a>
+        </div>
+        <ul class="g_game">
+            <li class="g_game_li">
+                <figure>
+
+                    <img src="imgs/皇室战争.png" alt="皇室战争">
+
+                    <figcaption>
+
+                        <h4>皇室战争东方闪电</h4>
+                        <h5> <span class="type1">推荐</span>  <span class="type2">官方</span>      </h5>
+                        <h6> <i id="">16723</i>人下载 &nbsp;<i id="">32.1</i>M</h6>
+                        <h6> </h6>
+                    </figcaption>
+                </figure>
+                <div class="g_game_r">
+                    <a style="display: block" href="game_details.html"><button class="btn btn-danger btn-sm btn_new">马上下载</button></a>
+                </div>
+            </li>
+            <li class="g_game_li">
+                <figure>
+
+                    <img src="imgs/皇室战争.png" alt="皇室战争">
+
+                    <figcaption>
+
+                        <h4>皇室战争东方闪电</h4>
+                        <h5> <span class="type1">推荐</span>  <span class="type2">官方</span>      </h5>
+                        <h6> <i id="">6723</i>人下载</h6>
+                        <h6> </h6>
+                    </figcaption>
+                </figure>
+                <div class="g_game_r">
+                    <a style="display: block" href="game_details.html"><button class="btn btn-danger btn-sm btn_new">马上下载</button></a>
+                </div>
+            </li>
+            <li class="g_game_li">
+                <figure>
+
+                    <img src="imgs/皇室战争.png" alt="皇室战争">
+
+                    <figcaption>
+
+                        <h4>皇室战争东方闪电</h4>
+                        <h5> <span class="type1">推荐</span>  <span class="type2">官方</span>      </h5>
+                        <h6> <i id="">6723</i>人下载</h6>
+                        <h6> <i id="">32.1</i>MB</h6>
+                    </figcaption>
+                </figure>
+                <div class="g_game_r">
+                    <a style="display: block" href="game_details.html"><button class="btn btn-danger btn-sm btn_new">马上下载</button></a>
+                </div>
+            </li>
+            <li class="g_game_li">
+                <figure>
+
+                    <img src="imgs/皇室战争.png" alt="皇室战争">
+
+                    <figcaption>
+
+                        <h4>皇室战争东方闪电</h4>
+                        <h5> <span class="type1">推荐</span>  <span class="type2">官方</span>      </h5>
+                        <h6> <i id="">6723</i>人下载</h6>
+                        <h6> <i id="">32.1</i>MB</h6>
+                    </figcaption>
+                </figure>
+                <div class="g_game_r">
+                    <a style="display: block" href="game_details.html"><button class="btn btn-danger btn-sm btn_new">马上下载</button></a>
+                </div>
+            </li>
+            <li class="g_game_li">
+                <figure>
+
+                    <img src="imgs/皇室战争.png" alt="皇室战争">
+
+                    <figcaption>
+
+                        <h4>皇室战争东方闪电</h4>
+                        <h5> <span class="type1">推荐</span>  <span class="type2">官方</span>      </h5>
+                        <h6> <i id="">6723</i>人下载</h6>
+                        <h6> <i id="">32.1</i>MB</h6>
+                    </figcaption>
+                </figure>
+                <div class="g_game_r">
+                    <a style="display: block" href="game_details.html"><button class="btn btn-danger btn-sm btn_new">马上下载</button></a>
+                </div>
+            </li>
+        </ul>
+
+
+    </div>
+
+
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        $('.carousel').carousel({
+            interval: 3000
+        });
+    </script>
+
+</body>
+
+</html>
