@@ -259,6 +259,26 @@ function getClassifys() {
     }
 }
 
+//获取应用详情
+function getGameDetails(appId, successFun) {
+	var syncAppDetailData = {
+		"header" : syncHead,
+		"api" : "ReqAppInfo",
+		"params" : {
+			"appId" : appId,
+			"packId" : 0,
+
+		}
+	}
+	sendRequest(syncAppDetailData, successFun);
+}
+
+
+//获取应用推荐
+function getappRecomm(appId, callback){
+	sendRequest(recommData(appId), callback);
+}
+
 function showList(data) {
     var html = "<table>";
     for (var i = 0; i < data.length; i++) {
@@ -266,11 +286,10 @@ function showList(data) {
         html += "<tr><td class='td_img'><a href='game_details.html#appid=" + item.appId
                + "'><img class='logo_img' src='" + item.iconUrl + "' alt='" + item.showName + "'/></a></td>"
                + "<td class='td_h'><a href='game_details.html#appid=" + item.appId + "'><h4>" + item.showName + "</h4>"
-               + "<h5><img src='imgs/star-" + (item.recommLevel / 2) + ".png' alt='等级'> </h5>"
+               + "<h5><img src='imgs/star-" + (Math.round(item.recommLevel / 2)) + ".png' alt='等级'> </h5>"
                + "<h5><span>" + item.downTimes + "</span>人下载 &nbsp;&nbsp;<span>" + (item.mainPackSize / 1048576.0).toFixed(2) + "</span>MB</h5></a>"
                + "</td><td><a href='javascript:void(0);' onclick='getApk(" + item.appId + ");' ><button class='btn btn-warning btn-sm'>下载</button></a></td></tr>";
     }
-
     return html + "</table>";
 
 }
