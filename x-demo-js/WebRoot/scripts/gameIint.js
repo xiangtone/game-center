@@ -237,26 +237,17 @@ function requestGroupElement(group) {
 			});
 }
 
-// 获取专题列表(groupClass = 32)
-function getTopics() {
-    var groupList = matchGroupInfo(configData, 32, null, null, false); // 专题列表
-    console.log(groupList);
-    // 获取单个专题------逐个获取
-    requestGroupElement(groupList[0]);
-}
 
 // 分类数据(groupClass = 12, groupType > 1200)
 function getClassifys() {
-    if (configData) {
-        var matchList = [];
-        $.each(configData, function (i, groupInfo) {
-            if (groupInfo.groupClass == 12 && groupInfo.groupType > 1200) {
-                matchList.push(groupInfo);
-            }
-        })
-        console.log(matchList);
-        return matchList;
-    }
+    var matchList = [];
+    $.each(configData, function (i, groupInfo) {
+        if (groupInfo.groupClass == 12 && groupInfo.groupType > 1200) {
+            matchList.push(groupInfo);
+        }
+    })
+    return matchList;
+
 }
 
 function showList(data) {
@@ -266,7 +257,7 @@ function showList(data) {
         html += "<tr><td class='td_img'><a href='game_details.html#appid=" + item.appId
                + "'><img class='logo_img' src='" + item.iconUrl + "' alt='" + item.showName + "'/></a></td>"
                + "<td class='td_h'><a href='game_details.html#appid=" + item.appId + "'><h4>" + item.showName + "</h4>"
-               + "<h5><img src='imgs/star-" + (item.recommLevel / 2) + ".png' alt='等级'> </h5>"
+               + "<h5><img src='imgs/star-" + (item.recommLevel / 2).toFixed() + ".png' alt='等级'> </h5>"
                + "<h5><span>" + item.downTimes + "</span>人下载 &nbsp;&nbsp;<span>" + (item.mainPackSize / 1048576.0).toFixed(2) + "</span>MB</h5></a>"
                + "</td><td><a href='javascript:void(0);' onclick='getApk(" + item.appId + ");' ><button class='btn btn-warning btn-sm'>下载</button></a></td></tr>";
     }
