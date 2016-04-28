@@ -280,5 +280,9 @@ function getApk(appid) {
 }
 
 function window_onscroll() {
-   
+    var offset = $(document).height() - $(window).scrollTop() - $(window).height();
+    if (offset < 100) {
+        if (typeof (page_onbottom) != "undefined")
+            page_onbottom();
+    }
 }

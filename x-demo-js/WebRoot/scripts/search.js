@@ -1,7 +1,10 @@
-﻿function page_onload() {
+﻿var pageData = { "isLoading": false, "newPageCnt": null, "keyword": null, "pageIndex": 1 };
+
+function page_onload() {
     //matchGroupInfo(configData, 41, 4104, 0, false);
     if (configData == null)
         return;
+
     var gi = matchGroupInfo(configData, 41, 4104, 0, true); //搜索热词
 
     groupElems(gi.groupId),
@@ -52,15 +55,43 @@ function keyword_onclick(sender, e) {
 }
 
 function frm_onsubmit(sender, e) {
-    location.href = "#" + sender["keyword"].value;
-    var data = searchData(sender["keyword"].value, 0);
+    location.href = "#keyword=" + sender["keyword"].value;
+    pageData.pageIndex = 1;
+    pageData.keyword = sender["keyword"].value;
+    pageData.newPageCnt = null;
+    $("#result").html("loading...");
+    var k = $(".hot_words");
+    if (k != null)
+        k.remove();
+    $("#result").css("display", "");
+    doSearch();
+}
 
+function doSearch() {
+    var data = searchData(pageData.keyword, pageData.pageIndex++);
     sendRequest(data, { success: onSearchData });
-
 }
 
 function onSearchData(e) {
+    var cnt = pageData.newPageCnt == null ? $("#result") : pageData.newPageCnt
+    if (e.data == null || e.data.groupElemInfo == null || e.data.groupElemInfo.length == 0) {
+        cnt.html("没有更多了……");
+        return;
+    }
     var html = showList(e.data.groupElemInfo);
-    $("#result").html(html);
-    $(".hot_words").remove();
+    cnt.html(html);
+    pageData.isLoading = false;
+}
+
+
+
+
+function page_onbottom() {
+    if (pageData.isLoading || pageData.keyword == null)
+        return;
+    pageData.isLoading = true;
+
+    var div = $("<div>loading...</div>").appendTo("#result");
+    pageData.newPageCnt = div;
+    doSearch();
 }
