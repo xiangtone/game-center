@@ -1,53 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title>必备</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scale=1,user-scalable=no" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
-    <link href="css/font-awesome-ie7.min.css" rel="stylesheet" />
-    <link href="css/hsgame.css" rel="stylesheet" media="screen" />
-    <!--[if lt IE 9]>
+<meta charset="utf-8" />
+<title>必备</title>
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scale=1,user-scalable=no" />
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/font-awesome.min.css" rel="stylesheet" />
+<link href="css/font-awesome-ie7.min.css" rel="stylesheet" />
+<link href="css/hsgame.css" rel="stylesheet" media="screen" />
+<!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <![endif]-->
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <script src="scripts/gameIint.js"></script>
-    <script src="scripts/listpage.js"></script>
-    <script type="text/javascript">
-        function getMatchGroupInfo() {
-            return matchGroupInfo(configData, 32, 3202, null, true);
-        }
-        
-        function setGroupPic(){
-        	var matchGroup = getMatchGroupInfo();
-            $(".nec_bg").children("img").attr("src", matchGroup.groupPicUrl);
-        }
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="scripts/gameIint.js"></script>
+<script src="scripts/listpage.js"></script>
+<script type="text/javascript">
+	var list_onload = page_onload;
+</script>
+<script type="text/javascript">
+	function page_onload() {
+		var matchGroup = getMatchGroupInfo();
+		$(".nec_bg").children("img").attr("src", matchGroup.groupPicUrl);
+		var groupDesc = matchGroup.groupDesc;
+		console.log(groupDesc.charCodeAt());
+		$(".nec_h4").first().html(groupDesc.replace(/\r\n/g, '<br/>'));
+		
+		list_onload();
+	}
 
-    </script>
+</script>
+<script type="text/javascript">
+	function getMatchGroupInfo() {
+		return matchGroupInfo(configData, 32, 3202, null, true);
+	}
+</script>
+
 </head>
 <body>
-    <div class="head">
-        <a href="game_center.html"><i class="fa fa-chevron-left">游戏中心</i></a>
-        <a class="game_search" href="search.html">搜索 </a>
+	<div class="head">
+		<a href="game_center.html"><i class="fa fa-chevron-left">游戏中心</i></a>
+		<a class="game_search" href="search.html">搜索 </a>
 
-    </div>
-
-
-    <div class="nec_bg">
-        <img src="" alt="背景" />
-
-    </div>
-
-    <h4 class="nec_h4">经典游戏合集，编辑精心筛选</h4>
-    <h4 class="nec_h4 " style="border-bottom: 1px #d8d8d8 solid">希望能让你大声欢呼：好玩到下载不过来！</h4>
+	</div>
 
 
-    <div class="hot_game_tb" id="result">
-    </div>
+	<div class="nec_bg">
+		<img src="" alt="背景" />
+
+	</div>
+
+	<h4 class="nec_h4"></h4>
+	<!-- <h4 class="nec_h4 " style="border-bottom: 1px #d8d8d8 solid">希望能让你大声欢呼：好玩到下载不过来！</h4> -->
 
 
-    <script type="text/javascript">pageDone = true; page_onload(); setGroupPic()</script>
+	<div class="hot_game_tb" id="result"></div>
+
+
+	<script type="text/javascript">
+		pageDone = true;
+		page_onload();
+	</script>
 
 </body>
 </html>

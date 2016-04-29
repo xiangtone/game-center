@@ -2,16 +2,17 @@
 
 function initAppInfo() {
 	//解析id获取游戏详情
-	var searchString = location.search;
-	appId = searchString.substring(searchString.lastIndexOf("=") + 1, searchString.length);
-//	var rx = /(\?)id=(\d+)/
-//	var mc = rx.exec(location.search);
-//	var appId = 0;
-//	if (mc != null) {
-//		appId = parseInt(mc[2]);
-//		if (isNaN(appId))
-//			appId = 0;
-//	}
+
+	
+	var rx = /[&|#?]((appId)|(appid)|(id))=[\d]*/
+		var mc = rx.exec(location.href);
+		var appId = 0;
+		if (mc != null) {
+//			id = parseInt(mc[0]);
+			appId = mc[0].replace(/[^0-9]/ig,"");
+			if (isNaN(appId))
+				appId = 0;
+		}
 	
 
 	getGameDetails(appId, { success: getappInfo });

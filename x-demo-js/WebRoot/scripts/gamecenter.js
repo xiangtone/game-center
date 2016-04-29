@@ -134,8 +134,8 @@ function getTableRow(e) {
 
     for (var i = 0; i < e.length; i++) {
         var item = e[i]; //<tr><td class='td_img'><a href='game_details.html#appid=" + item.appId
-        html += "<li class='g_game_li'><figure><img src='" + item.iconUrl + "' alt='" + item.showName + "'><figcaption>"
-               + "<h4>" + item.showName + "</h4><h5>";
+        html += "<li class='g_game_li'><a href='game_details.html#appId=" + item.appId+"'><figure><img src='" + item.iconUrl + "' alt='" + item.showName + "' >" +
+        		"<figcaption><h4>" + item.showName + "</h4><h5>";
 
         for (var f = 0 ; f < 8; f++) {
             if ((item.recommFlag & (Math.pow(2, f))) != 0)
@@ -144,12 +144,17 @@ function getTableRow(e) {
 
         // <span class='type1'>推荐</span>
         html += "</h5><h6><i>" + item.downTimes + "</i>人下载</h6><h6><i>" + (item.mainPackSize / 1048576.0).toFixed(2) + "</i>MB</h6>"
-                + "</figcaption></figure><div class='g_game_r'>"
+                + "</figcaption></figure></a><div class='g_game_r'>"
                 + "<a style='display: block' href='game_details.html#appId=" + item.appId
                 + "'><button class='btn btn-danger btn-sm btn_new'>马上下载</button></a></div></li>";
     }
     html += "";
     return html;
+}
+
+function clickAppDeail(){
+//	alert("hello");
+	alert(item.showName);
 }
 
 function page_onbottom() {
