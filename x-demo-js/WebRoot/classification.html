@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>分类</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scale=1,user-scalable=no
+" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet" />
+    <link href="css/hsgame.css" rel="stylesheet" media="screen" />
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="scripts/gameIint.js"></script>
+
+    <script type="text/javascript">
+
+        function page_onload() {
+            if (configData == null)
+                return;
+
+            var cls = getClassifys();
+            //cls = [{ "groupType": 1207, "groupDesc": "", "groupPicUrl": "http://nwfs-10004401.file.myqcloud.com/M00/03/A0/CmlPclaDQduEak67AAAAAECuYdI508.png", "orderType": 0, "groupClass": 12, "groupName": "儿童益智", "recommWord": "悟空识字、萌宠泡泡龙大作战、儿童口算益智游戏、宝宝早教机", "startTime": "20150605111924", "orderNo": 11, "endTime": "22221231000000", "groupId": 88 }, { "groupType": 1208, "groupDesc": "", "groupPicUrl": "http://nwfs-10004401.file.myqcloud.com/M00/03/A0/CmlPclaDQWSEQVJkAAAAAFpy90Q312.png", "orderType": 0, "groupClass": 12, "groupName": "塔防守卫", "recommWord": "植物大战僵尸2、英雄塔防、火线战场、星河防线", "startTime": "20150605111924", "orderNo": 8, "endTime": "22221231000000", "groupId": 89 }, { "groupType": 1209, "groupDesc": "", "groupPicUrl": "http://nwfs-10004401.file.myqcloud.com/M00/03/A0/CmlPclaDQTOECe9pAAAAAOB5u2M121.png", "orderType": 0, "groupClass": 12, "groupName": "体育格斗", "recommWord": "火柴人联盟、触屏足球大战、街头篮球高手、鬼剑传奇", "startTime": "20150605111924", "orderNo": 5, "endTime": "22221231000000", "groupId": 90 }, { "groupType": 1201, "groupDesc": "", "groupPicUrl": "http://nwfs-10004401.file.myqcloud.com/M00/03/A0/CmlPclaDQcWEeXW_AAAAAO6uJMM162.png", "orderType": 0, "groupClass": 12, "groupName": "休闲时间", "recommWord": "猪猪侠之百变联盟、猫和老鼠官方手游、饥饿鲨：进化、进击的原始人", "startTime": "20150605111924", "orderNo": 2, "endTime": "22221231000000", "groupId": 82 }, { "groupType": 1202, "groupDesc": "", "groupPicUrl": "http://nwfs-10004401.file.myqcloud.com/M00/03/A0/CmlPclaDQeaEY-gAAAAAAFlZRpE937.png", "orderType": 0, "groupClass": 12, "groupName": "跑酷竞速", "recommWord": "僵尸尖叫、天天跑酷新年版、熊出没之熊大快跑、铠甲勇士之英雄传说", "startTime": "20150605111924", "orderNo": 4, "endTime": "22221231000000", "groupId": 83 }, { "groupType": 1205, "groupDesc": "", "groupPicUrl": "http://nwfs-10004401.file.myqcloud.com/M00/03/A0/CmlPclaDQfKEGle-AAAAAEye91k970.png", "orderType": 0, "groupClass": 12, "groupName": "动作射击", "recommWord": "奔跑吧兄弟3-撕名牌大战、热血征途OL、最终僵尸大战、飞机大战", "startTime": "20150605111924", "orderNo": 6, "endTime": "22221231000000", "groupId": 86 }, { "groupType": 1203, "groupDesc": "", "groupPicUrl": "http://nwfs-10004401.file.myqcloud.com/M00/03/A0/CmlPclaDQZ6EClqYAAAAAGgCYec372.png", "orderType": 0, "groupClass": 12, "groupName": "宝石消除", "recommWord": "开心消消乐、熊小米泡泡大战、疯狂泡泡龙II、俄罗斯方块_单机版", "startTime": "20150605111924", "orderNo": 7, "endTime": "22221231000000", "groupId": 84 }, { "groupType": 1204, "groupDesc": "", "groupPicUrl": "http://nwfs-10004401.file.myqcloud.com/M00/03/A0/CmlPclaDQUiEA7s5AAAAALhX3yg456.png", "orderType": 0, "groupClass": 12, "groupName": "网络游戏", "recommWord": "天天炫舞、神魔2.0、全民神将、全民枪战", "startTime": "20150605111924", "orderNo": 3, "endTime": "22221231000000", "groupId": 85 }, { "groupType": 1211, "groupDesc": "", "groupPicUrl": "http://nwfs-10004401.file.myqcloud.com/M00/03/A0/CmlPclaDQamEUy0hAAAAAFo7Iu0314.png", "orderType": 0, "groupClass": 12, "groupName": "经营策略", "recommWord": "和风物语、三国武将塔防、iQuarium - 口袋水族馆、果宝三国", "startTime": "20150605111924", "orderNo": 9, "endTime": "22221231000000", "groupId": 92 }, { "groupType": 1206, "groupDesc": "", "groupPicUrl": "http://nwfs-10004401.file.myqcloud.com/M00/03/A0/CmlPclaDQdKEOT8KAAAAAK_oeS8058.png", "orderType": 0, "groupClass": 12, "groupName": "扑克棋牌", "recommWord": "百旺跑胡子、途游德州扑克、波克德州扑克、拖拉机 升级", "startTime": "20150605111924", "orderNo": 10, "endTime": "22221231000000", "groupId": 87 }, { "groupType": 1210, "groupDesc": "", "groupPicUrl": "http://nwfs-10004401.file.myqcloud.com/M00/03/A0/CmlPclaDQYaEdwIGAAAAAJiEYD4537.png", "orderType": 0, "groupClass": 12, "groupName": "角色扮演", "recommWord": "拯救小师妹、君临天下、爱养成2、步步惊仙", "startTime": "20150605111924", "orderNo": 1, "endTime": "22221231000000", "groupId": 91 }];
+            var ul = "<ul class='game_type_ul'>"
+            for (var i = 0; i < cls.length; i++) {
+                var item = cls[i];
+
+                ul += "<li class='game_type_li'><a href='classdetail.html#id=" + item.groupId + "'>"
+                    + "<h1 class='game_type_li_h1'><i></i><em>" + item.groupName + "</em></h1>"
+                    + "<p class='game_type_li_p'>" + item.groupName + "</p></a></li>";
+            }
+            if (cls.length % 2) {
+                ul += "<li class='game_type_li' style='border: none'></li>"
+            }
+            ul += "</ul>";
+            $("#result").html(ul);
+        }
+
+    </script>
+
+
+
+
+</head>
+<body>
+    <div class="head">
+        <a href="game_center.html"><i class="fa fa-chevron-left">游戏中心</i></a>
+        <a class="game_search" href="search.html">搜索 </a>
+    </div>
+
+    <div class="game_classification" id="result">
+        Loading...
+        <!--<ul class="game_type_ul">
+            <li class="game_type_li">
+                <a href="roleplaying_game.html">
+                    <h1 class="game_type_li_h1"><i></i><em>角色扮演</em></h1>
+                    <p class="game_type_li_p">拯救小师妹、君临天下、爱养成2...</p>
+                </a>
+            </li>
+            <li class="game_type_li">
+                <a href="leisuretime_game.html">
+                    <h1 class="game_type_li_h1"><i></i><em>休闲时间</em></h1>
+                    <p class="game_type_li_p">猪猪侠之百变联盟、猫和老鼠官方手游...</p>
+                </a>
+            </li>
+            <li class="game_type_li">
+                <a href="net_game.html">
+                    <h1 class="game_type_li_h1"><i></i><em>网络游戏</em></h1>
+                    <p class="game_type_li_p">天天炫舞、神魔2.0、全民神将、全民抢战...</p>
+                </a>
+            </li>
+            <li class="game_type_li">
+                <a href="runing_game.html">
+                    <h1 class="game_type_li_h1"><i></i><em>跑酷竞速</em></h1>
+                    <p class="game_type_li_p">僵尸尖叫、天天跑酷新年版、熊出没之...</p>
+                </a>
+            </li>
+            <li class="game_type_li">
+                <a href="sport_game.html">
+                    <h1 class="game_type_li_h1"><i></i><em>体育格斗</em></h1>
+                    <p class="game_type_li_p">火柴人联盟、触屏足球大战、街头篮球...</p>
+                </a>
+            </li>
+
+            <li class="game_type_li">
+                <a href="action_game.html">
+                    <h1 class="game_type_li_h1"><i></i><em>动作射击</em></h1>
+                    <p class="game_type_li_p">奔跑吧兄弟3-撕名牌大战、热血征途OL、飞机大战...</p>
+                </a>
+            </li>
+
+            <li class="game_type_li">
+                <a href="elminate_game.html">
+                    <h1 class="game_type_li_h1"><i></i><em>宝石消除</em></h1>
+                    <p class="game_type_li_p">开心消消乐、熊小米泡泡大战、水果连连看...</p>
+                </a>
+            </li>
+
+            <li class="game_type_li">
+                <a href="defense_game.html">
+                    <h1 class="game_type_li_h1"><i></i><em>塔防守卫</em></h1>
+                    <p class="game_type_li_p">植物大战僵尸2、英雄塔防、火线战场...</p>
+                </a>
+            </li>
+
+            <li class="game_type_li">
+                <a href="managment_game.html">
+                    <h1 class="game_type_li_h1"><i></i><em>经营策略</em></h1>
+                    <p class="game_type_li_p">和风物语、三国武将塔防、iQuarium...</p>
+                </a>
+            </li>
+
+            <li class="game_type_li">
+                <a href="poker_game.html">
+                    <h1 class="game_type_li_h1"><i></i><em>扑克棋牌</em></h1>
+                    <p class="game_type_li_p">百旺跑胡子、途游德州扑克、波克德州...</p>
+                </a>
+            </li>
+
+            <li class="game_type_li">
+                <a href="puzzle_game.html">
+                    <h1 class="game_type_li_h1"><i></i><em>儿童益智</em></h1>
+                    <p class="game_type_li_p">悟空识字、萌宠泡泡龙大作战、儿童口...</p>
+                </a>
+            </li>
+
+            <!-- 站位符号- ->
+            <li class="game_type_li" style="border: none">
+                <a href="#">
+                    <h1 class="game_type_li_h1"></h1>
+                    <p class="game_type_li_p"></p>
+                </a>
+            </li>
+        </ul>-->
+    </div>
+    <script type="text/javascript">pageDone = true; page_onload();</script>
+
+</body>
+</html>
