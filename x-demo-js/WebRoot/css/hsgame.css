@@ -191,10 +191,10 @@ and (max-device-width : 1024px)  { .item_img {height: 2.88rem}}
 .aniu{width:50%;display:block; border:1rem solid #CCC;border-radius:5rem; text-align:center; line-height:0.20rem; text-decoration:none; margin:0 auto;}
 
 /*精品游戏*/
-.recommend_g{width: 100%;height:4.80rem;margin: 0.05rem auto 0 auto;background: #fff}
+.recommend_g{width: 100%;margin: 0.05rem auto 0 auto;background: #fff}
 .g_game{width: 96%;margin: 0.15rem auto;border-top: solid 0.01rem #d8d8d8;border-left: solid 0.01rem #d8d8d8;border-right: solid 0.01rem #d8d8d8;background: #fff}
 .g_game_li{width:100%;height:0.80rem;border-bottom: solid 0.01rem #d8d8d8;background: #fff}
-.g_game_li figure{width:70%;height:0.80rem;padding: 0.08rem 0 0.08rem 0.12rem;float: left}
+.g_game_li figure{width:75%;height:0.80rem;padding: 0.08rem 0 0.08rem 0.12rem;float: left}
 .g_game_li figure>img{width: 0.64rem;height: 0.64rem;display: block;float: left}
 .g_game_li figure>figcaption{width: 1.26rem;;height: 0.64rem;float: left;text-align: left;text-indent: 0.1rem;overflow: hidden}
 .g_game_li figure>figcaption>h4{margin: 0 auto;font-size: 0.14rem;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
@@ -210,7 +210,7 @@ and (max-device-width : 1024px)  { .item_img {height: 2.88rem}}
 
 .g_game_li figure>figcaption>h6{margin: 0 auto 0 auto;font-size: 0.12rem;color: #999}
 .g_game_li figure>figcaption>h6>i{font-style: normal}
-.g_game_r{width: 30%;height: 0.80rem;float: left;text-align: center;}
+.g_game_r{width: 25%;height: 0.80rem;float: left;text-align: center;}
 .g_game_r>a{margin-top:0.25rem}
 
 
@@ -266,7 +266,7 @@ color: #666;font-size: 0.14rem;
 /*必备*/
 .nec_bg{width: 100%;background: #ffffff;}
 .nec_bg img{width: 100%;overflow: hidden}
-.nec_h4{font-size: 0.14rem;color: #333;height: auto;background: #ffffff;padding: 0.05rem 0.15rem;margin: 0 auto;}
+.nec_h4{font-size: 0.14rem;color: #333;height: auto;background: #ffffff;padding: 0.05rem 0.15rem 0 0.15rem;margin: 0 auto;line-height: 1.5;}
 
 
 
@@ -275,7 +275,7 @@ color: #666;font-size: 0.14rem;
     box-shadow: 0 1px 2px #ccc;}
 .subject_li figure{width: 100%;height: auto;border: 1px #d8d8d8 solid;background: #ffffff}
 .subject_li img{width: 100%;}
-.sub_h4{;font-size: 0.14rem;color: #666;padding: 0.06rem 0.12rem}
+.sub_h4{;font-size: 0.14rem;color: #666;padding: 0.06rem 0.12rem;margin: 0}
 .sub_p{font-size: 0.12rem;color: #999;padding: 0.02rem 0.12rem 0.08rem 0.12rem}
 
 /*分类*/
@@ -288,3 +288,5 @@ color: #666;font-size: 0.14rem;
 .game_type_li_h1 em{padding-left: 0.07rem;font-style: normal}
 .game_type_li_h1 i{height:100%;background:#f39800;padding:0.03rem 0.02rem}
 .game_type_li_p{overflow: hidden;color: #999;font-size: 0.12rem;padding: 0.03rem 0.04rem;text-align: left}
+
+
