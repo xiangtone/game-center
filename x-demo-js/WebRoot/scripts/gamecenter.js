@@ -164,7 +164,7 @@ function JinpinInit(e) {
     for (var i = 0; i < e.length; i++) {
         var item = e[i]; //<tr><td class='td_img'><a href='game_details.html#appid=" + item.appId
         html += "<li class='g_game_li'><figure><img src='" + item.iconUrl + "' alt='" + item.showName + "'><figcaption>"
-               + "<h4>" + item.recommWord + "</h4><h5>";
+               + "<h4>" + item.showName + "</h4><h5>";
 
         for (var f = 0 ; f < 8; f++) {
             if ((item.recommFlag & (Math.pow(2 , f))) != 0)

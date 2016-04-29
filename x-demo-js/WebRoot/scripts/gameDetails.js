@@ -54,10 +54,10 @@ function getappRecommSuccess(data){
 	for(i = 0; i < data.data.groupElemInfo.length && i < 3; i++){
 		var item = data.data.groupElemInfo[i];
 		html += "<li><a href='#'>" +
-				"<img class='logo_img' src='" + item.iconUrl + "' alt='" +item.showName + "'/><p>"+ item.showName + "</p></a></li>"
+				"<img src='" + item.iconUrl + "' alt='" +item.showName + "'/><p>"+ item.showName + "</p></a></li>"
 	}
 	
-	$(".recommend_g.app_details_re").html(html);
+	$(".app_details_regames").html(html);
 	
 
 }
