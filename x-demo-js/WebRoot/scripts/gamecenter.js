@@ -1,4 +1,4 @@
-﻿var pageData = { "isLoading": false, "pageIndex": 1, "newPageCnt": null };
+﻿var pageData = { "isLoading": false, "pageIndex": 1, "newPageCnt": null, "inited": false };
 
 function page_onload() {
     if (configData == null) {
@@ -50,62 +50,34 @@ function OnData(e) {
     //        ]
     //    }, "rescode": 0, "resmsg": "\u83b7\u53d6\u6210\u529f"
     //};
-	console.log("-------------------------onDate-------------" + pageData.pageIndex);
-	console.log(e);
-	
+    console.log("-------------------------onDate-------------" + pageData.pageIndex);
+    console.log(e);
+
     var banner = [];
     var ad = [];
     var other = [];
-    for (var i = 0; i < e.data.groupElemInfo.length; i++) {
-        var item = e.data.groupElemInfo[i];
-        if (item.posId == 1)
-            banner.push(item);
-        else if (item.showType == 1 && ad.length < 2)
-            ad.push(item);
-        else
-            other.push(item);
+    if (e.data != null && e.data.groupElemInfo != null) {
+        for (var i = 0; i < e.data.groupElemInfo.length; i++) {
+            var item = e.data.groupElemInfo[i];
+            if (item.posId == 1)
+                banner.push(item);
+            else if (item.showType == 1 && ad.length < 2)
+                ad.push(item);
+            else
+                other.push(item);
+        }
     }
-
-    BannerInit(banner);
-    BannerAdInit(ad);
+    if (!pageData.inited) {
+        BannerInit(banner);
+        BannerAdInit(ad);
+        pageData.inited = true;
+    }
     JinpinInit(other);
 }
 
 function BannerInit(e) {
-    //e = [{
-    //    "posId": 1,
-    //    "iconUrl": "http://hsfs-10029187.file.myqcloud.com/M00/00/03/CmnJpFcUTzqEcLwxAAAAAFneTgQ847.png",
-    //    "recommWord": "让您可以更加真实的体验这个魔幻世界。",
-    //    "recommFlag": 3,
-    //    "thumbPicUrl": "",
-    //    "orderNo": 25,
-    //    "jumpGroupId": 0,
-    //    "elemType": 1,
-    //    "mainPackId": 215168,
-    //    "recommLevel": 5,
-    //    "mainVerCode": 104000,
-    //    "mainVerName": "1.2.0",
-    //    "jumpLinkId": 0,
-    //    "showType": 1,
-    //    "packName": "com.xcqy.shiyuegamekkkwan",
-    //    "downTimes": 3222,
-    //    "adsPicUrl": "http://hsfs-10029187.file.myqcloud.com/M00/00/04/CmnJpFcUUqWEdZFnAAAAAPUY56Q921.jpg",
-    //    "mainSignCode": "0fdad1f58075d73b31783ca354a85ef6",
-    //    "jumpGroupType": 0,
-    //    "appTypeName": "角色扮演",
-    //    "startTime": "20160418112000",
-    //    "appId": 146173,
-    //    "groupId": 101,
-    //    "mainPackSize": 160614358,
-    //    "jumpOrderType": 0,
-    //    "jumpLinkUrl": "",
-    //    "publishTime": "20260418112000",
-    //    "endTime": "20260418112000",
-    //    "showName": "星辰奇缘"
-    //}
-    //];
-
-
+    if (pageData.inited)
+        return;
     var ol = "<ol class='carousel-indicators'>";
     var div = "<div class='carousel-inner'>";
     for (var i = 0; i < e.length; i++) {
@@ -119,28 +91,6 @@ function BannerInit(e) {
     div += "</div>";
     $("#myCarousel").html(ol + div);
 
-    //    <li data-target='#myCarousel' data-slide-to='0' class='active'></li>
-    //    <li data-target='#myCarousel' data-slide-to='1'></li>
-    //    <li data-target='#myCarousel' data-slide-to='2'></li>
-    //</ol>
-    //<!-- 轮播（Carousel）项目 -->
-    //<div class='carousel-inner'>
-    //    <div class='item active'>
-    //        <a href=''><img class='img' src='imgs/805-322.jpg' alt='First slide'></a>
-    //        <div class='carousel-caption'></div>
-    //    </div>
-    //    <div class='item'>
-    //        <a href=''><img class='img' src='imgs/805x322.jpg' alt='Second slide'></a>
-    //        <div class='carousel-caption'></div>
-    //    </div>
-    //    <div class='item'>
-    //        <a href=''><img class='img' src='imgs/8057322.jpg' alt='Third slide'></a>
-    //        <div class='carousel-caption'></div>
-    //    </div>
-    //</div>";
-
-
-
 
     $('.carousel').carousel({
         interval: 3000
@@ -149,8 +99,10 @@ function BannerInit(e) {
 }
 
 function BannerAdInit(e) {
+    if (pageData.inited)
+        return;
+
     var html = "";
-    //<a href="game_details.html"><img class="item_img" style="width:100%" src="imgs/350x210.jpg" alt="banner"></a>
     for (var i = 0; i < e.length || e < 2; i++) {
         var item = e[i];// { "posId": -1, "iconUrl": "http://hsfs-10029187.file.myqcloud.com/M00/00/00/CmnJpFcExPSAX3mAAAAY2_HAQwg966.png", "recommWord": "\u597d\u73a9\u4e0d\u7d2f\u3001\u5feb\u4e50\u4ea4\u53cb", "recommFlag": 128, "thumbPicUrl": "", "orderNo": 0, "jumpGroupId": 0, "elemType": 1, "mainPackId": 215130, "recommLevel": 5, "mainVerCode": 67, "mainVerName": "1.7.25.67", "jumpLinkId": 0, "showType": 0, "packName": "com.wk.union.qihoo", "downTimes": 230000, "adsPicUrl": "", "mainSignCode": "9dca71dc5ce78cf329653923dc482b6c", "jumpGroupType": 0, "appTypeName": "\u7f51\u7edc\u6e38\u620f", "startTime": "20160406161400", "appId": 146135, "groupId": 101, "mainPackSize": 153495161, "jumpOrderType": 0, "jumpLinkUrl": "", "publishTime": "20260406161400", "endTime": "20260406161400", "showName": "\u4ed9\u8bed" };
         html += "<a href='game_details.html#appid=" + item.appId + "'><img class='item_img' style='width:100%' src='" + item.adsPicUrl + "' alt='" + item.showName + "'></a>";
@@ -160,23 +112,23 @@ function BannerAdInit(e) {
 }
 
 function JinpinInit(e) {
+    var cnt = pageData.newPageCnt == null ? $(".g_game") : pageData.newPageCnt;
+    if (e == null || e.length == 0) {
+        cnt.html("没有更多了……");
+        return;
+    }
     pageData.isLoading = false;
-var cnt = pageData.newPageCnt == null ? $(".g_game") : pageData.newPageCnt;
-	    if (e == null || e.length == 0) {
-	    	cnt.html("没有更多了……");
-	        return;
-	    }
-	    var html = getTableRow(e);
-	    if (pageData.newPageCnt == null) {
-		    cnt.html(html);
-		}else{
-			cnt.before(html);
-			cnt.remove();
-		}
+    var html = getTableRow(e);
+    if (pageData.newPageCnt == null) {
+        cnt.html(html);
+    } else {
+        cnt.before(html);
+        cnt.remove();
+    }
 
 }
 
-function getTableRow(e){
+function getTableRow(e) {
     var html = "";
     var falgs = ["官方", "推荐", "首发", "免费", "礼包", "活动", "内测", "热门"];
 
@@ -186,7 +138,7 @@ function getTableRow(e){
                + "<h4>" + item.showName + "</h4><h5>";
 
         for (var f = 0 ; f < 8; f++) {
-            if ((item.recommFlag & (Math.pow(2 , f))) != 0)
+            if ((item.recommFlag & (Math.pow(2, f))) != 0)
                 html += "<span class='type" + f + "'>" + falgs[f] + "</span>";
         }
 
