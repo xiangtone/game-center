@@ -145,8 +145,9 @@ function getTableRow(e) {
         // <span class='type1'>推荐</span>
         html += "</h5><h6><i>" + item.downTimes + "</i>人下载</h6><h6><i>" + (item.mainPackSize / 1048576.0).toFixed(2) + "</i>MB</h6>"
                 + "</figcaption></figure></a><div class='g_game_r'>"
-                + "<a style='display: block' href='game_details.html#appId=" + item.appId
-                + "'><button class='btn btn-danger btn-sm btn_new'>马上下载</button></a></div></li>";
+                + "<a style='display: block'  href='javascript:void(0);' onclick='getApk("
+				+ item.appId
+				+ ");' ><button class='btn btn-danger btn-sm btn_new'>马上下载</button></a></div></li>";
     }
     html += "";
     return html;
