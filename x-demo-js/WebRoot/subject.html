@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>专题</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scale=1,user-scalable=no
+" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet" />
+    <link href="css/hsgame.css" rel="stylesheet" media="screen" />
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="scripts/gameIint.js"></script>
+
+    <script type="text/javascript">
+
+        function page_onload() {
+            if (configData == null)
+                return;
+            var glist = matchGroupInfo(configData, 32, null, null, false);
+            showSubjectList(glist);
+        }
+
+        function showSubjectList(glist) {
+ 
+
+            var ul = "<ul>"
+            for (var i = 0; i < glist.length; i++) {
+                var item = glist[i];
+                ul += "<a href='subjectdetail.html#id=" + i + "'><figure><img src='" + item.groupPicUrl + "' alt='" + item.groupName + "' /><figcaption>"
+                    + "<h4 class='sub_h4'>" + item.groupName + "</h4><p class='sub_p'>" + item.groupDesc + "</p>"
+                    + "</figcaption></figure></a></li>";
+            }
+            ul += "</ul>";
+            $("#result").html(ul);
+        }
+
+    </script>
+</head>
+<body>
+    <div class="head">
+        <a href="game_center.html"><i class="fa fa-chevron-left">游戏中心</i></a>
+        <a class="game_search" href="search.html">搜索 </a>
+    </div>
+
+    <div id="result">
+        Loading...
+    </div>
+    <!--<ul>
+        <li class="subject_li">
+            <a href="movie.html">
+                <figure>
+                    <img src="imgs/moive.jpg" alt="电影游戏" />
+                    <figcaption>
+                        <h4 class="sub_h4">电影改编游戏集</h4>
+                        <p class="sub_p">经典电影剧情再现</p>
+                    </figcaption>
+                </figure>
+            </a>
+        </li>
+        <li class="subject_li">
+            <a href="child_world.html">
+                <figure>
+                    <img src="imgs/儿童大世界.jpg" alt="儿童大世界" />
+                    <figcaption>
+                        <h4 class="sub_h4">儿童大世界</h4>
+                        <p class="sub_p">这是一个属于小朋友们的大世界，各种好玩的儿童游戏等你来玩，让你重回儿童时代</p>
+                    </figcaption>
+                </figure>
+            </a>
+        </li>
+        <li class="subject_li">
+            <a href="pet.html">
+                <figure>
+                    <img src="imgs/mengbaochongwu.jpg" alt="萌宝宠物" />
+                    <figcaption>
+                        <h4 class="sub_h4">萌宝宠物</h4>
+                        <p class="sub_p">萌宝和他的小伙伴们一起来玩游戏哦</p>
+                    </figcaption>
+                </figure>
+            </a>
+        </li>
+        <li class="subject_li">
+            <a href="three_kingdom.html">
+                <figure>
+                    <img src="imgs/三国.jpg" alt="三国合集" />
+                    <figcaption>
+                        <h4 class="sub_h4">三国游戏集</h4>
+                        <p class="sub_p">桃园刘关张，赤壁大战，六出祁山。 一系列三国题材的游戏带你回到那个英雄辈出的时代。</p>
+                    </figcaption>
+                </figure>
+            </a>
+        </li>
+        <li class="subject_li">
+            <a href="super_hero.html">
+                <figure>
+                    <img src="imgs/nishiwodesuperhero.jpg" alt="你是我的超级英雄" />
+                    <figcaption>
+                        <h4 class="sub_h4">你是我的超级英雄</h4>
+                        <p class="sub_p">实现你的英雄梦</p>
+                    </figcaption>
+                </figure>
+            </a>
+        </li>
+        <li class="subject_li">
+            <a href="popular.html">
+                <figure>
+                    <img src="imgs/zuishouhuanying.jpg" alt="最受欢迎的小游戏" />
+                    <figcaption>
+                        <h4 class="sub_h4">最受欢迎的小游戏</h4>
+                        <p class="sub_p">duang~~喜欢玩单机的亲们，小编为你们网罗了目前最好玩的单机小游戏，这么多总有一款是你喜欢的</p>
+                    </figcaption>
+                </figure>
+            </a>
+        </li>
+        <li class="subject_li">
+            <a href="holmes.html">
+                <figure>
+                    <img src="imgs/fuermosi.jpg" alt="人人都是福尔摩斯" />
+                    <figcaption>
+                        <h4 class="sub_h4">人人都是福尔摩斯</h4>
+                        <p class="sub_p">任何破绽都逃不过福尔摩斯的双眼</p>
+                    </figcaption>
+                </figure>
+            </a>
+        </li>
+        <li class="subject_li">
+            <a href="necessary.html">
+                <figure>
+                    <img src="imgs/nec_bg.png" alt="编辑推荐" />
+                    <figcaption>
+                        <h4 class="sub_h4">编辑推荐，豪华游戏</h4>
+                        <p class="sub_p">经典游戏合集，编辑精心筛选。 希望能让你大声欢呼：好玩到下载不过来！</p>
+                    </figcaption>
+                </figure>
+            </a>
+        </li>
+    </ul>-->
+
+    <script type="text/javascript">pageDone = true; page_onload();</script>
+
+</body>
+</html>
