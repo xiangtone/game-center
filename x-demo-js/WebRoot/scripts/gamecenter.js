@@ -1,4 +1,5 @@
-﻿
+﻿var pageData = { "isLoading": false, "pageIndex": 1, "newPageCnt": null };
+
 function page_onload() {
     if (configData == null) {
         pageDone = true;
@@ -6,11 +7,10 @@ function page_onload() {
     }
 
     var gi = matchGroupInfo(configData, 41, 4102, null, true); //获取首页分组数据
-    groupElems(gi.groupId);
     sendRequest(groupElems(gi.groupId), groupSuccess = { success: OnData });
+    pageData.newPageCnt = null;
 
-    var gi = matchGroupInfo(configData, 41, 4101, null, true); //获取首页分组数据
-    groupElems(gi.groupId);
+    var gi = matchGroupInfo(configData, 41, 4101, null, true); //获取推荐分组数据
     sendRequest(groupElems(gi.groupId), groupSuccess = { success: tuijianOnData });
 
 
@@ -50,6 +50,9 @@ function OnData(e) {
     //        ]
     //    }, "rescode": 0, "resmsg": "\u83b7\u53d6\u6210\u529f"
     //};
+	console.log("-------------------------onDate-------------" + pageData.pageIndex);
+	console.log(e);
+	
     var banner = [];
     var ad = [];
     var other = [];
@@ -157,7 +160,23 @@ function BannerAdInit(e) {
 }
 
 function JinpinInit(e) {
+    pageData.isLoading = false;
+var cnt = pageData.newPageCnt == null ? $(".g_game") : pageData.newPageCnt;
+	    if (e == null || e.length == 0) {
+	    	cnt.html("没有更多了……");
+	        return;
+	    }
+	    var html = getTableRow(e);
+	    if (pageData.newPageCnt == null) {
+		    cnt.html(html);
+		}else{
+			cnt.before(html);
+			cnt.remove();
+		}
 
+}
+
+function getTableRow(e){
     var html = "";
     var falgs = ["官方", "推荐", "首发", "免费", "礼包", "活动", "内测", "热门"];
 
@@ -177,8 +196,22 @@ function JinpinInit(e) {
                 + "<a style='display: block' href='game_details.html#appId=" + item.appId
                 + "'><button class='btn btn-danger btn-sm btn_new'>马上下载</button></a></div></li>";
     }
+    html += "";
+    return html;
+}
 
+function page_onbottom() {
+    if (pageData.isLoading)
+        return;
+    pageData.isLoading = true;
 
-    $(".g_game").html(html);
+    var li = $("<li>loading...</li>").appendTo(".g_game");
+    pageData.newPageCnt = li;
+    nextPage();
+}
+
+function nextPage() {
+    var gi = matchGroupInfo(configData, 41, 4102, null, true); //获取首页分组数据
+    sendRequest(groupElems(gi.groupId, pageData.pageIndex++), groupSuccess = { success: OnData });
 
 }
