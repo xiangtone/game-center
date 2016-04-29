@@ -61,13 +61,17 @@ function getappRecommSuccess(data){
 	var html = "";
 	for(i = 0; i < data.data.groupElemInfo.length && i < 3; i++){
 		var item = data.data.groupElemInfo[i];
-		html += "<li><a href='#'>" +
+		html += "<li><a href='game_details.html#appId=" + item.appId+"' onclick='windowRefresh()'>" +
 				"<img src='" + item.iconUrl + "' alt='" +item.showName + "'/><p>"+ item.showName + "</p></a></li>"
 	}
 	
 	$(".app_details_regames").html(html);
 	
 
+}
+
+function windowRefresh(){
+	location.reload();
 }
 
 initAppInfo();
