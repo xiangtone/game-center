@@ -238,6 +238,7 @@ function requestGroupElement(group) {
 			});
 }
 
+
 // 分类数据(groupClass = 12, groupType > 1200)
 function getClassifys() {
 	var matchList = [];

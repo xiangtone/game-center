@@ -16,6 +16,9 @@ function page_onload() {
 
 
 }
+
+
+
 function tuijianOnData(e) {
     //var icons = [];
     //for (var i = 0; i < e.data.groupElemInfo.length; i++) {
@@ -84,7 +87,7 @@ function BannerInit(e) {
         var item = e[i];
         ol += "<li data-target='#myCarousel' data-slide-to='" + i + "'" + (i == 0 ? " class='active'" : "") + "></li>";
         div += "<div class='item" + (i == 0 ? " active" : "") + "'>"
-                + "<a href=''><img class='img' src='" + item.adsPicUrl + "' alt='" + item.showName + "'></a>"
+                + "<a href='game_details.html#appid=" + item.appId + "'><img class='img' src='" + item.adsPicUrl + "' alt='" + item.showName + "'></a>"
                 + "<div class='carousel-caption'></div></div>"
     }
     ol += "</ol>";
@@ -110,6 +113,11 @@ function BannerAdInit(e) {
 
     $("#adbanner").html(html);
 }
+
+
+
+
+
 
 function JinpinInit(e) {
     var cnt = pageData.newPageCnt == null ? $(".g_game") : pageData.newPageCnt;
@@ -146,7 +154,7 @@ function getTableRow(e) {
         html += "</h5><h6><i>" + item.downTimes + "</i>人下载</h6><h6><i>" + (item.mainPackSize / 1048576.0).toFixed(2) + "</i>MB</h6>"
                 + "</figcaption></figure></a><div class='g_game_r'>"
                 + "<a style='display: block' href='game_details.html#appId=" + item.appId
-                + "'><button class='btn btn-danger btn-sm btn_new'>马上下载</button></a></div></li>";
+                + "'><button class='btn btn-danger btn-sm btn_new'>下载</button></a></div></li>";
     }
     html += "";
     return html;
