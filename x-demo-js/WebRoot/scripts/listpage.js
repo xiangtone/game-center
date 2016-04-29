@@ -7,7 +7,6 @@ function page_onload() {
     }
 
     var gi = getMatchGroupInfo();
-    groupElems(gi.groupId);
     sendRequest(groupElems(gi.groupId), groupSuccess = { success: OnData });
     pageData.newPageCnt = null;
 }

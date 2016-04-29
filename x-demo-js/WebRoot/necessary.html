@@ -18,6 +18,12 @@
         function getMatchGroupInfo() {
             return matchGroupInfo(configData, 32, 3202, null, true);
         }
+        
+        function setGroupPic(){
+        	var matchGroup = getMatchGroupInfo();
+            $(".nec_bg").children("img").attr("src", matchGroup.groupPicUrl);
+        }
+
     </script>
 </head>
 <body>
@@ -29,7 +35,7 @@
 
 
     <div class="nec_bg">
-        <img src="imgs/nec_bg.png" alt="背景" />
+        <img src="" alt="背景" />
 
     </div>
 
@@ -41,7 +47,7 @@
     </div>
 
 
-    <script type="text/javascript">pageDone = true; page_onload();</script>
+    <script type="text/javascript">pageDone = true; page_onload(); setGroupPic()</script>
 
 </body>
 </html>

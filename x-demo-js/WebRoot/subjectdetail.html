@@ -17,35 +17,10 @@
     <script src="scripts/listpage.js"></script>
     <script type="text/javascript">
         var list_onload = page_onload;
-        var mgi = null;
     </script>
-    <script type="text/javascript">
+    <script src="scripts/sbujectdetail.js"></script>
 
-        function page_onload() {
-            if (configData == null)
-                return;
-            var rx = /(&|#)id=(\d+)/
-            var mc = rx.exec(location.href);
-            var id = 0;
-            if (mc != null) {
-                id = parseInt(mc[2]);
-                if (isNaN(id))
-                    id = 0;
-            }
 
-            var glist = matchGroupInfo(configData, 32, null, null, false);
-            mgi = glist[id];
-
-            $(".nec_bg").html("<img src='" + mgi.groupPicUrl + "'/>");
-            document.title = mgi.groupName + " - " + document.title;
-            list_onload();
-        }
-
-        function getMatchGroupInfo() {
-            return mgi;
-        }
-
-    </script>
 </head>
 <body>
     <div class="head">
@@ -57,6 +32,8 @@
     <div class="nec_bg">
         <!--<img src="imgs/moive.jpg" alt="背景" />-->
     </div>
+    <h4 class="nec_h4"></h4>
+    <!-- <h4 class="nec_h4 " style="border-bottom: 1px #d8d8d8 solid">希望能让你大声欢呼：好玩到下载不过来！</h4> -->
 
     <div class="hot_game_tb" id="result">
         Loading...

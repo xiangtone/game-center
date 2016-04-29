@@ -26,7 +26,7 @@ $(document).ready(function () {
 //reqMsg.setParams(new Uint8Array(params.toArrayBuffer()))
 //var contentPb = new Uint8Array(reqMsg.toArrayBuffer());
 
-url = "http://115.159.125.75/appstore_api";
+//url = "http://115.159.125.75/appstore_api";
 // var xhr = new XMLHttpRequest();
 // xhr.open("post", url, true);
 // // xhr.responseType = "blob";

@@ -4,7 +4,14 @@ function initAppInfo() {
 	//解析id获取游戏详情
 	var searchString = location.search;
 	appId = searchString.substring(searchString.lastIndexOf("=") + 1, searchString.length);
-	
+//	var rx = /(\?)id=(\d+)/
+//	var mc = rx.exec(location.search);
+//	var appId = 0;
+//	if (mc != null) {
+//		appId = parseInt(mc[2]);
+//		if (isNaN(appId))
+//			appId = 0;
+//	}
 	
 
 	getGameDetails(appId, { success: getappInfo });
@@ -21,7 +28,7 @@ function getappInfo(data){
 			"<h4>" + data.data.showName + "</h4>" +
 			"<h5><span>" + data.data.downTimes + "</span></h5>"+
 			"<h5 id=''><img src='imgs/star-" +(Math.round(data.data.recommLevel / 2))+ ".png' alt='等级'> </h5>"+
-			"</figcaption></figure><a  class='game_Detil_download' href='#'>  免费下载（<span id=''>" + (data.data.packSize/ 1048576.0).toFixed(2) +"</span>MB）</a>";
+			"</figcaption></figure><a  class='game_Detil_download' href='" + data.data.packUrl + "'>  免费下载（<span id=''>" + (data.data.packSize/ 1048576.0).toFixed(2) +"</span>MB）</a>";
 	$("div.game_Detil").html(html);
 	
 	data.data.updateDesc == "" ? $("div#update_detail").hide() : $("div#update_detail p").html(data.data.updateDesc);
