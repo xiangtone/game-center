@@ -294,7 +294,8 @@ function getApk(appid) {
 
 function window_onscroll() {
     var offset = $(document).height() - $(window).scrollTop() - $(window).height();
-    if (offset < 100) {
+//    var offset = $(document).scrollTop() + $(document).clientHeight() -  $(document).scrollHeight();
+    if (Math.abs(offset) < 100) {
         if (typeof (page_onbottom) != "undefined")
             page_onbottom();
     }
