@@ -283,6 +283,9 @@ function showList(data) {
     }
     return html + "</table>";
 
+
+
+
 }
 
 function getApk(appid) {
@@ -296,3 +299,5 @@ function window_onscroll() {
             page_onbottom();
     }
 }
+
+

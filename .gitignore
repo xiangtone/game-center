@@ -22,5 +22,7 @@ hs_err_pid*
 *.iml
 *.apk
 
+.idea/
+
 /server-Ws/target/m2e-wtp
 /server-Ws/target/classes

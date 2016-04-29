@@ -1,3 +1,4 @@
+@charset "utf-8";
 html{font-size:625%}
 body,h1,h2,h3,p,ul,ol,font-face-format,fieldset,figure{margin:0;padding:0;font-size: 0.16rem;}
 ul,ol{list-style:none outside none;}
@@ -12,7 +13,7 @@ a:hover{
 
 body{
     font-size:12px;
-    font-family:'寰蒋闆呴粦','Helvetica', 'Hiragino Sans GB', 'Microsoft Yahei', '寰蒋闆呴粦', Arial, sans-serif;
+    font-family:'微软雅黑','Helvetica', 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
 
 }
 ul{
@@ -43,13 +44,13 @@ img{width: 100%;
 /*index*/
 .btn_new{background: #f36922;border-color:#f36922 }
 
-/*杞挱鍥緊l鏍峰紡*/
+/*轮播图ol样式*/
 body{background: #f5f5f5}
 .carousel-indicators {position: absolute;
     bottom: 0.01rem;
     margin-bottom:0.02rem;}
 
-/*娓告垙涓績s鐨勬帹鑽愶紝min.css*/
+/*游戏中心s的推荐，min.css*/
 .swiper-container {
     position:relative;
     overflow:hidden;
@@ -114,7 +115,7 @@ body{background: #f5f5f5}
     position:relative
 }
 
-/*娓告垙涓績banner鐨勯�傞厤*/
+/*游戏中心banner的适配*/
 @media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){/* 鍏煎iphone5 */ .item_img {height: 1.48rem}    }
 @media only screen and (max-device-width :480px){ .item_img {height: 1.48rem}   }
 @media only screen and (min-device-width :481px){.item_img {height: 1.48rem}  }
@@ -138,25 +139,25 @@ body{background: #f5f5f5}
 and (min-device-width : 768px)
 and (max-device-width : 1024px)  { .item_img {height: 2.88rem}}
 
-/*杞挱鍥句笂鐨勬悳绱�*/
+/*轮播图上的搜索*/
 .c_serch{position: relative}
 .carousel_serch{position: absolute;right:0.12rem;top:0.10rem;color: #fff;font-size: 0.16rem;z-index: 999}
 
 .carousel-indicators li{width:0.15rem;height:0.05rem;margin:0;border: none;background:rgba(255,255,255,0.4);border-radius:0 }
 .carousel-indicators .active{width:0.15rem;height:0.05rem;margin:0;background:rgba(255,203,62,0.7)}
 
-/*nav鏍峰紡*/
+/*nav样式*/
 .game_nav{width:100%;height: 0.75rem;background:white;border-bottom:solid 0.01rem #d8d8d8 }
 .game_nav ul{width:100%;height: 0.75rem;}
 .game_nav ul>li{width: 20%;height:0.75rem;text-align: center;float: left;}
 .nav_bt img{;width:0.32rem;height: 0.32rem;margin-top:0.10rem;}
 .nav_bt figcaption{font-size: 0.14rem;margin-top:0.05rem;color: #333}
 
-/*head涓婄殑鎼滅储*/
+/*head上的搜索*/
 .game_search{font-size: 0.15rem;position: absolute;right: 0.1rem;}
 /*banner*/
 .container{padding: 0 0;margin: 0.10rem auto}
-/*鎺ㄨ崘*/
+/*推荐*/
 .recommend{width: 100%;height:auto;margin: 0.08rem 0;background: white}
 .r_title{width: 100%;height:0.40rem;border-bottom: solid 0.01rem #d8d8d8;}
 .r_title h1{margin:0;width:1.20rem;border-bottom:solid 0.01rem yellow;height: 0.40rem;line-height: 0.40rem;font-size: 0.18rem;text-indent: 0.12rem;color: #333;float: left}
@@ -189,7 +190,7 @@ and (max-device-width : 1024px)  { .item_img {height: 2.88rem}}
 .wangame{font-size:0.12rem; color:#a7a7a7; display:block; text-align:center; width:100%; margin-bottom:5%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .aniu{width:50%;display:block; border:1rem solid #CCC;border-radius:5rem; text-align:center; line-height:0.20rem; text-decoration:none; margin:0 auto;}
 
-/*绮惧搧娓告垙*/
+/*精品游戏*/
 .recommend_g{width: 100%;height:4.80rem;margin: 0.05rem auto 0 auto;background: #fff}
 .g_game{width: 96%;margin: 0.15rem auto;border-top: solid 0.01rem #d8d8d8;border-left: solid 0.01rem #d8d8d8;border-right: solid 0.01rem #d8d8d8;background: #fff}
 .g_game_li{width:100%;height:0.80rem;border-bottom: solid 0.01rem #d8d8d8;background: #fff}
@@ -213,7 +214,7 @@ and (max-device-width : 1024px)  { .item_img {height: 2.88rem}}
 .g_game_r>a{margin-top:0.25rem}
 
 
-/*娓告垙璇︽儏椤甸潰*/
+/*游戏详情页面*/
 .game_Detil{width: 100%;height:1.40rem;margin: 0 auto;border-bottom: solid 0.01rem #d8d8d8;background: white;text-align: center;padding-top:0.15rem;}
 .game_Detil figure{width: 3.00rem;height:0.64rem;margin: 0 0 0 0.15rem;text-align: center}
 .game_Detil figure>figcaption{width:2.26rem;height:0.64rem;float: left;text-align: left;padding-left:0.10rem}
@@ -223,31 +224,33 @@ and (max-device-width : 1024px)  { .item_img {height: 2.88rem}}
 .game_Detil figure>figcaption>h5>img{width: 0.58rem;height: 0.10rem;}
 .game_Detil_download{width: 90%;display: block;height: 0.32rem;background: #f39800;border-radius: 0.05rem;margin:0.12rem auto 0.08rem auto;text-align: center;color: #fff;line-height: 0.32rem;font-size: 0.14rem;}
 
-/*娓告垙璇︽儏椤甸潰-搴旂敤鍗囩骇*/
+/*游戏详情页面-应用升级*/
 .app_details{width: 100%;height:auto;margin: 0.05rem auto 0 auto;padding-bottom:0.2rem;background: #fff;}
 .app_details_summary{font-size: 0.16rem;padding-left: 0.12rem;color: #333;padding-top: 0.1rem;}
 .p_details{font-size: 0.14rem;color: #888;padding: 0.1rem 0.1rem;}
 .app_details_h{width: 100%;height:auto;margin: 0.05rem auto;padding:0.1rem 0;background: #fff}
 .p_details_h{font-size: 0.14rem;color: #888;padding: 0.02rem 0.1rem;margin: 0.01rem 0}
 
-/*娓告垙璇︽儏椤甸潰- 澶у鍦ㄧ帺*/
+/*热门游戏*/
 .app_details_re{height: 1.5rem;}
 .app_details_regames{width: 100%;height:auto;margin-top: 0.15rem;}
 .app_details_regames li{width:33%;text-align: center;float: left}
 .app_details_regames li>a>img{width: 0.64rem;height: 0.64rem;}
 .app_details_regames li>a>p{font-size: 0.14rem;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;color: #666}
 
-/*鐑棬娓告垙*/
+/*热门*/
 .hot_game_tb{width: 100%;height: auto;background: #ffffff;padding-top: 0.2rem}
 .hot_game_tb table{width: 100%;background: #ffffff;}
 .hot_game_tb tr{width: 100%;height: 0.8rem;border-bottom: solid 1px #d8d8d8;background: #ffffff}
-.td_img{padding:0  0.1rem;width: 0.84rem}
+.hot_game_tb tr>td:nth-child(2){width: 1.56rem;height: 0.8rem;overflow: hidden}
+.td_img{padding:0  0.1rem;width: 0.84rem;text-align: center}
 .logo_img{width: 0.64rem;height: 0.64rem;}
-.td_h h4{font-size: 0.16rem;color: #333;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;margin: 0 0}
+.td_h h4{font-size: 0.14rem;color: #333;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;margin: 0 0;width: 1.56rem;}
 .td_h h5{font-size: 0.12rem;color: #999;padding: 0.02rem 0;margin: 0 0}
 .td_h h5>img{width: 0.58rem;height: 0.10rem;}
+.hot_game_tb tr>td:last-child{text-align: center;width:0.8rem;height: 0.8rem}
 
-/*鎼滅储*/
+/*热词*/
 .hot_words{width: 90%;margin: 0.1rem auto;height: auto;background: #ffffff;border-radius: 0.05rem;}
 .hot_words h3{padding: 0.08rem 0.12rem;border-bottom: 1px solid #d8d8d8;color: red;font-size: 0.14rem;width:90%;margin: 0 auto}
 .hot_words table{width: 100%;text-align: center;margin-top: 0.1rem;}
@@ -260,14 +263,14 @@ color: #666;font-size: 0.14rem;
     margin: 0.05rem;!important;}
 
 
-/*蹇呭*/
+/*必备*/
 .nec_bg{width: 100%;background: #ffffff;}
 .nec_bg img{width: 100%;overflow: hidden}
 .nec_h4{font-size: 0.14rem;color: #333;height: auto;background: #ffffff;padding: 0.05rem 0.15rem;margin: 0 auto;}
 
 
 
-/*涓撻*/
+/*专题*/
 .subject_li{width:90%;height: auto;margin: 0.15rem auto;-moz-box-shadow: 0 2px 2px #888888; /* 鑰佺殑 Firefox */
     box-shadow: 0 1px 2px #ccc;}
 .subject_li figure{width: 100%;height: auto;border: 1px #d8d8d8 solid;background: #ffffff}
@@ -275,7 +278,7 @@ color: #666;font-size: 0.14rem;
 .sub_h4{;font-size: 0.14rem;color: #666;padding: 0.06rem 0.12rem}
 .sub_p{font-size: 0.12rem;color: #999;padding: 0.02rem 0.12rem 0.08rem 0.12rem}
 
-/*鍒嗙被*/
+/*分类*/
 .game_classification{width: 100%;height: auto;background: #fff;}
 .game_type_ul{width: 100%;padding: 0.2rem 0;display: -webkit-flex; /* Safari */ display: flex;flex-direction:row;flex-wrap:wrap;justify-content:center;	}
 .game_type_li{;margin: 0.05rem 0.03rem;border: solid 0.01rem  #f39800;border-radius:0.05rem ;
