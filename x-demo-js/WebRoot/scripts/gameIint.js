@@ -75,7 +75,7 @@ var syncHead = {
 	"udi" : "a=1&b=1",
 	"chnNo" : "",
 	"chnPos" : "",
-	"clientId" : "",
+	"clientId" : 12,
 	"clientPos" : "",
 	"clientVer" : ""
 }
@@ -176,68 +176,32 @@ var configSuccessFun = {
 	success : function(data) {
 		// console.log(data.data.groupInfo);
 		configData = data.data.groupInfo;
+		if(window.localStorage){
+			window.localStorage.setItem("globalData", JSON.stringify(data.data.groupInfo));
+		}
 		console.log("group data success");
 		console.log(configData);
-		// 获取热门(groupType = 4108)、最新(1200)、必备(3202)
-		// requestGroupElement();
-
+		console.log("pageDone " + pageDone);
 		if (pageDone && typeof page_onload != "undefined") {
 			page_onload();
 		}
-		// getTopics();
 
-		// getClassifys();
-		// getHotwords();
 	}
 }
 
+
 // 获取分组列表
-sendRequest(syncConfigData, configSuccessFun);
-// console.warn("init...");
+// sendRequest(syncConfigData, configSuccessFun);
 
-// // 搜索
-// sendRequest(searchData("hello"), searchSuccess = {
-// success: function (data) {
-// console.log("------------this is search log-----------------");
-// console.log(data);
-// }
-// })
-
-// // 获取应用推荐
-// sendRequest(recommData(133636), recommmSuccess = {
-// success: function (data) {
-// console.log("------------this is recomm log-----------------");
-// console.log(data);
-// }
-// })
-
-/*
- * 注意************banner 广告位可能跳转详情、分类、专题、 几乎所有数据请求都依赖于 globalConfig 请求 数据分页
- * 
- */
-
-// 获取热门(groupClass = 41, groupType = 4108)、最新(12, 1200, 2)、必备(32,
-// 3202)，同属于专题，有可能有主题图片，有可能没有
-function requestGroupElement(group) {
-	// var group = matchGroupInfo(configData, 41, 4102, null, true); //获取首页分组数据
-	// var group = matchGroupInfo(configData, 41, 4108, null, true); //热门
-	// var group = matchGroupInfo(configData, 12, 1200, 2, true); //最新
-	// var group = matchGroupInfo(configData, 32, 3202, null, true); //必备
-	// var group = matchGroupInfo(configData, 12, 1200, 0, true); //排行
-	// var group = matchGroupInfo(configData, 41, 4104, 0, false); //搜索热词
-
-	var group = group ? group : matchGroupInfo(configData, 41, 4104, 0, true);
-	sendRequest(
-			groupElems(group.groupId),
-			groupSuccess = {
-				success : function(data) {
-					console
-							.log("------------this is GroupElement log-----------------");
-					console.log(data);
-				}
-			});
+function initGlobalData(hardRefresh){
+	if(window.localStorage && !hardRefresh){
+		configData = JSON.parse(window.localStorage.getItem("globalData"));
+		if (typeof configData == "undefined")
+			sendRequest(syncConfigData, configSuccessFun);
+	}else{
+		sendRequest(syncConfigData, configSuccessFun);
+	}
 }
-
 
 // 分类数据(groupClass = 12, groupType > 1200)
 function getClassifys() {

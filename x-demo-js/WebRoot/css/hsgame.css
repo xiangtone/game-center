@@ -2,7 +2,7 @@
 html{font-size:625%}
 body,h1,h2,h3,p,ul,ol,font-face-format,fieldset,figure{margin:0;padding:0;font-size: 0.16rem;}
 ul,ol{list-style:none outside none;}
-div,figure,figcaption,{box-sizing: border-box;}
+div,figure,figcaption{box-sizing: border-box;}
 a{
     color:#333;
 }

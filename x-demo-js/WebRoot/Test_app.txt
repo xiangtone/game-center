@@ -1,4 +1,0 @@
-﻿syntax = "proto2";
-message ReqGlobalConfig{
-	optional string groupsCacheVer = 1;	 
-}

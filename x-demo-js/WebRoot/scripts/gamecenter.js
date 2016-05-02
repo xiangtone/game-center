@@ -1,4 +1,4 @@
-var pageData = { "isLoading": false, "pageIndex": 1, "newPageCnt": null, "inited": false };
+var pageData = { "isLoading": false, "pageIndex": 1, "newPageCnt": null, "inited": false, "pageRefresh": true};
 
 function page_onload() {
     if (configData == null) {
@@ -7,7 +7,7 @@ function page_onload() {
     }
 
     var gi = matchGroupInfo(configData, 41, 4102, null, true); //获取首页分组数据
-    sendRequest(groupElems(gi.groupId), groupSuccess = { success: OnData });
+    sendRequest(groupElems(gi.groupId, pageData.pageIndex++), groupSuccess = { success: OnData });
     pageData.newPageCnt = null;
 
     var gi = matchGroupInfo(configData, 41, 4101, null, true); //获取推荐分组数据
@@ -62,15 +62,15 @@ function OnData(e) {
     if (e.data != null && e.data.groupElemInfo != null) {
         for (var i = 0; i < e.data.groupElemInfo.length; i++) {
             var item = e.data.groupElemInfo[i];
-            if(pageData.inited){
+            if(pageData.inited && item.posId >= 2){
             	other.push(item);
             	continue;
             }
             if (item.posId == 1)
                 banner.push(item);
-            else if (item.showType == 1 && ad.length < 2)
+            else if (item.posId >=2 && item.showType == 1 && ad.length < 2)
                 ad.push(item);
-            else
+            else if (item.posId >= 2)
                 other.push(item);
         }
     }
