@@ -91,7 +91,7 @@ function BannerInit(e) {
         var item = e[i];
         ol += "<li data-target='#myCarousel' data-slide-to='" + i + "'" + (i == 0 ? " class='active'" : "") + "></li>";
         div += "<div class='item" + (i == 0 ? " active" : "") + "'>"
-                + "<a href='game_details.html#appid=" + item.appId + "#title=" +document.title+ "'><img class='img' src='" + item.adsPicUrl + "' alt='" + item.showName + "'></a>"
+                + "<a href='game_details.html?appid=" + item.appId + "#title=" +document.title+ "'><img class='img' src='" + item.adsPicUrl + "' alt='" + item.showName + "'></a>"
                 + "<div class='carousel-caption'></div></div>"
     }
     ol += "</ol>";
@@ -112,7 +112,7 @@ function BannerAdInit(e) {
     var html = "";
     for (var i = 0; i < e.length && i < 2; i++) {
         var item = e[i];// { "posId": -1, "iconUrl": "http://hsfs-10029187.file.myqcloud.com/M00/00/00/CmnJpFcExPSAX3mAAAAY2_HAQwg966.png", "recommWord": "\u597d\u73a9\u4e0d\u7d2f\u3001\u5feb\u4e50\u4ea4\u53cb", "recommFlag": 128, "thumbPicUrl": "", "orderNo": 0, "jumpGroupId": 0, "elemType": 1, "mainPackId": 215130, "recommLevel": 5, "mainVerCode": 67, "mainVerName": "1.7.25.67", "jumpLinkId": 0, "showType": 0, "packName": "com.wk.union.qihoo", "downTimes": 230000, "adsPicUrl": "", "mainSignCode": "9dca71dc5ce78cf329653923dc482b6c", "jumpGroupType": 0, "appTypeName": "\u7f51\u7edc\u6e38\u620f", "startTime": "20160406161400", "appId": 146135, "groupId": 101, "mainPackSize": 153495161, "jumpOrderType": 0, "jumpLinkUrl": "", "publishTime": "20260406161400", "endTime": "20260406161400", "showName": "\u4ed9\u8bed" };
-        html += "<a href='game_details.html#appid=" + item.appId +"#title=" +document.title+ "'><img class='item_img' style='width:100%' src='" + item.adsPicUrl + "' alt='" + item.showName + "'></a>";
+        html += "<a href='game_details.html?appid=" + item.appId +"#title=" +document.title+ "'><img class='item_img' style='width:100%' src='" + item.adsPicUrl + "' alt='" + item.showName + "'></a>";
     }
 
     $("#adbanner").html(html);
@@ -146,8 +146,8 @@ function getTableRow(e) {
     var falgs = ["官方", "推荐", "首发", "免费", "礼包", "活动", "内测", "热门"];
 
     for (var i = 0; i < e.length; i++) {
-        var item = e[i]; //<tr><td class='td_img'><a href='game_details.html#appid=" + item.appId
-        html += "<li class='g_game_li'><a href='game_details.html#appId=" + item.appId+"#title=" +document.title+"'><figure><img src='" + item.iconUrl + "' alt='" + item.showName + "' >" +
+        var item = e[i]; //<tr><td class='td_img'><a href='game_details.html?appid=" + item.appId
+        html += "<li class='g_game_li'><a href='game_details.html?appId=" + item.appId+"#title=" +document.title+"'><figure><img src='" + item.iconUrl + "' alt='" + item.showName + "' >" +
         		"<figcaption><h4>" + item.showName + "</h4><h5>";
 
         for (var f = 0 ; f < 8; f++) {

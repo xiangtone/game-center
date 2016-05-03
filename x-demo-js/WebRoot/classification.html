@@ -14,6 +14,7 @@
     <script src="js/html5shiv.js"></script>
     <![endif]-->
     <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="http://sdk.talkingdata.com/app/h5/v1?appid=BD537D84B909BE7962F046A0AA0CBD8C&vn=花生web&vc=16.05.03"></script>
     <script src="scripts/gameIint.js"></script>
 
     <script type="text/javascript">
@@ -28,7 +29,7 @@
             for (var i = 0; i < cls.length; i++) {
                 var item = cls[i];
 
-                ul += "<li class='game_type_li'><a href='classdetail.html#id=" + item.groupId + "'>"
+                ul += "<li class='game_type_li'><a href='classdetail.html?id=" + item.groupId + "'>"
                     + "<h1 class='game_type_li_h1'><i></i><em>" + item.groupName + "</em></h1>"
                     + "<p class='game_type_li_p'>" + item.recommWord + "</p></a></li>";
             }

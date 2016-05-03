@@ -260,14 +260,14 @@ function showList(data) {
     var html = "<table>";
     for (var i = 0; i < data.length; i++) {
         var item = data[i];
-        html += "<tr><td class='td_img'><a href='game_details.html#appid="
+        html += "<tr><td class='td_img'><a href='game_details.html?appid="
             + item.appId
             + "#title=" + document.title + "'><img class='logo_img' src='"
             + item.iconUrl
             + "' alt='"
             + item.showName
             + "'/></a></td>"
-            + "<td class='td_h'><a href='game_details.html#appid="
+            + "<td class='td_h'><a href='game_details.html?appid="
             + item.appId
             + "#title=" + document.title + "'><h4>"
             + item.showName

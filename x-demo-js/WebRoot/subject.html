@@ -13,10 +13,12 @@
     <script src="js/html5shiv.js"></script>
     <![endif]-->
     <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="http://sdk.talkingdata.com/app/h5/v1?appid=BD537D84B909BE7962F046A0AA0CBD8C&vn=花生web&vc=16.05.03"></script>
     <script src="scripts/gameIint.js"></script>
     <script type="text/javascript">
         initGlobalData(false);
     </script>
+
     <script type="text/javascript">
 
         function page_onload() {
@@ -32,7 +34,7 @@
             var ul = "<ul>"
             for (var i = 0; i < glist.length; i++) {
                 var item = glist[i];
-                ul += "<a href='subjectdetail.html#id=" + i + "#title=" +document.title+ "'><figure><img src='" + item.groupPicUrl + "' alt='" + item.groupName + "' /><figcaption>"
+                ul += "<a href='subjectdetail.html?id=" + i + "#title=" +document.title+ "'><figure><img src='" + item.groupPicUrl + "' alt='" + item.groupName + "' /><figcaption>"
                     + "<h4 class='sub_h4'>" + item.groupName + "</h4><p class='sub_p'>" + item.groupDesc + "</p>"
                     + "</figcaption></figure></a></li>";
             }

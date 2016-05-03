@@ -61,19 +61,13 @@ function getappRecommSuccess(data){
 	var html = "";
 	for(i = 0; i < data.data.groupElemInfo.length && i < 3; i++){
 		var item = data.data.groupElemInfo[i];
-		html += "<li><a href='game_details.html#appId=" + item.appId+ "#title=" +document.title+ "' onclick='windowRefresh()'>" +
+		html += "<li><a href='game_details.html?appId=" + item.appId+ "#title=" +document.title+ "'>" +
 				"<img src='" + item.iconUrl + "' alt='" +item.showName + "'/><p>"+ item.showName + "</p></a></li>"
 	}
 	
 	$(".app_details_regames").html(html);
 	
 
-}
-var indexId = 110316;
-
-function windowRefresh(){
-	location.reload();
-	// window.location.href = "game_details.html#appId=" + indexId+++ "#title=" +document.title;
 }
 
 initAppInfo();
