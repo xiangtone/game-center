@@ -29,8 +29,8 @@
 </head>
 <body>
     <div class="head">
-        <a href="game_center.html"><i class="fa fa-chevron-left">游戏中心</i></a>
-        <a class="game_search" href="search.html">搜索 </a>
+        <a href="javascript:goBack();"><i class="fa fa-chevron-left">游戏中心</i></a>
+        <a class="game_search" href="javascript:goSearch();">搜索 </a>
     </div>
 
     <div class="hot_game_tb" id="result">
@@ -152,6 +152,6 @@
 
         </table> -->
     </div>
-    <script type="text/javascript">pageDone = true; page_onload();</script>
+    <script type="text/javascript">pageDone = true; page_onload();setBackTitle();</script>
 </body>
 </html>

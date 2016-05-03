@@ -32,7 +32,7 @@
             var ul = "<ul>"
             for (var i = 0; i < glist.length; i++) {
                 var item = glist[i];
-                ul += "<a href='subjectdetail.html#id=" + i + "'><figure><img src='" + item.groupPicUrl + "' alt='" + item.groupName + "' /><figcaption>"
+                ul += "<a href='subjectdetail.html#id=" + i + "#title=" +document.title+ "'><figure><img src='" + item.groupPicUrl + "' alt='" + item.groupName + "' /><figcaption>"
                     + "<h4 class='sub_h4'>" + item.groupName + "</h4><p class='sub_p'>" + item.groupDesc + "</p>"
                     + "</figcaption></figure></a></li>";
             }
@@ -44,8 +44,8 @@
 </head>
 <body>
     <div class="head">
-        <a href="game_center.html"><i class="fa fa-chevron-left">游戏中心</i></a>
-        <a class="game_search" href="search.html">搜索 </a>
+        <a href="javascript:goBack();"><i class="fa fa-chevron-left">游戏中心</i></a>
+        <a class="game_search" href="javascript:goSearch();">搜索 </a>
     </div>
 
     <div id="result">
@@ -142,7 +142,7 @@
         </li>
     </ul>-->
 
-    <script type="text/javascript">pageDone = true; page_onload();</script>
+    <script type="text/javascript">pageDone = true; page_onload();setBackTitle();</script>
 
 </body>
 </html>
