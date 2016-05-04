@@ -4,7 +4,7 @@
 function page_onload() {
 	if (configData == null)
 		return;
-	var rx = /(&|#)id=(\d+)/
+	var rx = /(&|#?)id=(\d+)/
 	var mc = rx.exec(location.href);
 	var id = 0;
 	if (mc != null) {

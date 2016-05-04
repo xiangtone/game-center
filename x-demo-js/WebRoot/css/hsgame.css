@@ -281,7 +281,13 @@ color: #666;font-size: 0.14rem;
 
 /*分类*/
 .game_classification{width: 100%;height: auto;background: #fff;}
-.game_type_ul{width: 100%;padding: 0.2rem 0;display: -webkit-flex; /* Safari */ display: flex;flex-direction:row;flex-wrap:wrap;justify-content:space-around;	}
+.game_type_ul{width: 100%;padding: 0.2rem 0;display: -webkit-flex; /* Safari */ display: flex;
+    flex-direction:row;
+-webkit-flex-flow: row;
+    flex-wrap:wrap;
+-webkit-flex-wrap: wrap;
+    justify-content:space-around;
+    -webkit-justify-content: space-around;}
 .game_type_li{;margin: 0.05rem 0.03rem;border: solid 0.01rem  #f39800;border-radius:0.05rem ;width: 40%;height: 1.2rem;text-align: center;}
 .game_type_li_h1{color: #333;font-size: 0.16rem;padding: 0.09rem;text-align: left }
 .game_type_li_h1 em{padding-left: 0.07rem;font-style: normal}

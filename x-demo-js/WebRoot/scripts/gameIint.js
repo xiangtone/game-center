@@ -75,7 +75,7 @@ var syncHead = {
     "udi": "a=1&b=1",
     "chnNo": "",
     "chnPos": "",
-    "clientId": 12,
+    "clientId": "",
     "clientPos": "",
     "clientVer": ""
 }
@@ -209,14 +209,14 @@ function setBackTitle() {
     //设置back title
     //取出title
     var rx = /[&|#?](title)=[^&|#?]*/
-    var mc = rx.exec(location.href);
+    var mc = rx.exec(decodeURI(location.href));
     var title = "";
     if (mc != null) {
 //			id = parseInt(mc[0]);
         title = mc[0].replace(/[&|#?](title)=/ig, "");
         if (title != "") {
             // try {
-            $(".fa.fa-chevron-left").html(title);
+            $(".fa").html(title);
             // } catch (e) {
             //     console.log("head not found");
             // }
