@@ -315,7 +315,7 @@ function getApk(appid, posId) {
                     elemIF.src = apkUrl;
                     elemIF.style.display = "none";
                     document.body.appendChild(elemIF);
-                    pushDown(posId);
+                    pushDown(posId, data.data);
                 } catch (e) {
 
                 }
@@ -324,8 +324,10 @@ function getApk(appid, posId) {
 
 }
 
-function pushDown(posId) {
-    TDAPP.onEvent("列表点击下载", posId);
+function pushDown(posId, item) {
+    var kv = {"appName": item.showName, "packName": item.packName};
+    TDAPP.onEvent("列表点击下载", posId, kv);
+
 }
 
 function goBack() {
