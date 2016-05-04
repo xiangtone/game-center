@@ -202,7 +202,7 @@ function initGlobalData(hardRefresh) {
         sendRequest(syncConfigData, configSuccessFun);
     }
 
-    // setBackTitle();
+    getPosIdPush();
 }
 
 function setBackTitle() {
@@ -220,6 +220,19 @@ function setBackTitle() {
             // } catch (e) {
             //     console.log("head not found");
             // }
+        }
+
+    }
+}
+
+function getPosIdPush() {
+    var rx = /[&|#?](posId)=[\d]*/
+    var mc = rx.exec(decodeURI(location.href));
+    var id = 0;
+    if (mc != null) {
+        id = mc[0].replace(/[&|#?](posId)=/ig, "");
+        if (!isNaN(id)){
+            TDAPP.onEvent("页面点击", id);
         }
 
     }
@@ -256,20 +269,20 @@ function getappRecomm(appId, callback) {
     sendRequest(recommData(appId), callback);
 }
 
-function showList(data) {
+function showList(data, totalPos) {
     var html = "<table>";
     for (var i = 0; i < data.length; i++) {
         var item = data[i];
         html += "<tr><td class='td_img'><a href='game_details.html?appid="
             + item.appId
-            + "#title=" + document.title + "'><img class='logo_img' src='"
+            + "#title=" + document.title + "#posId="+ (totalPos) +"'><img class='logo_img' src='"
             + item.iconUrl
             + "' alt='"
             + item.showName
             + "'/></a></td>"
             + "<td class='td_h'><a href='game_details.html?appid="
             + item.appId
-            + "#title=" + document.title + "'><h4>"
+            + "#title=" + document.title + "#posId="+ (totalPos) +"'><h4>"
             + item.showName
             + "</h4>"
             + "<h5><img src='imgs/star-"
@@ -280,15 +293,14 @@ function showList(data) {
             + "</span>人下载 &nbsp;&nbsp;<span>"
             + (item.mainPackSize / 1048576.0).toFixed(2)
             + "</span>MB</h5></a>"
-            + "</td><td><a href='javascript:void(0);' onclick='getApk("
-            + item.appId
-            + ");' ><button class='btn btn-warning btn-sm'>下载</button></a></td></tr>";
+            + "</td><td><a href='javascript:void(0);' onclick='getApk(" + item.appId +"," + totalPos+ ");' >"
+            +"<button class='btn btn-warning btn-sm'>下载</button></a></td></tr>";
     }
     return html + "</table>";
 
 }
 
-function getApk(appid) {
+function getApk(appid, posId) {
 //	alert("下载APK" + appid);
     getGameDetails(
         appid,
@@ -303,12 +315,17 @@ function getApk(appid) {
                     elemIF.src = apkUrl;
                     elemIF.style.display = "none";
                     document.body.appendChild(elemIF);
+                    pushDown(posId);
                 } catch (e) {
 
                 }
             }
         });
 
+}
+
+function pushDown(posId) {
+    TDAPP.onEvent("列表点击下载", posId);
 }
 
 function goBack() {

@@ -34,7 +34,7 @@
             var ul = "<ul>"
             for (var i = 0; i < glist.length; i++) {
                 var item = glist[i];
-                ul += "<a href='subjectdetail.html?id=" + i + "#title=" +document.title+ "'><figure><img src='" + item.groupPicUrl + "' alt='" + item.groupName + "' /><figcaption>"
+                ul += "<a href='subjectdetail.html?id=" + i + "#title=" +document.title+ "#posId="+ (7000000) +"'><figure><img src='" + item.groupPicUrl + "' alt='" + item.groupName + "' /><figcaption>"
                     + "<h4 class='sub_h4'>" + item.groupName + "</h4><p class='sub_p'>" + item.groupDesc + "</p>"
                     + "</figcaption></figure></a></li>";
             }

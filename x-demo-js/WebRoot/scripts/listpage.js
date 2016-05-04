@@ -35,7 +35,7 @@ function OnData(e) {
         cnt.css({"color":"#999","font-size":"0.14rem","padding":"0.15rem 0","text-align": "center"});
         return;
     }
-    var html = showList(e.data.groupElemInfo);
+    var html = showList(e.data.groupElemInfo, getCurrentPos());
     cnt.html(html);
     pageData.isLoading = false;
 
