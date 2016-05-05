@@ -78,7 +78,7 @@ function onSearchData(e) {
         cnt.html("没有更多了……");
         return;
     }
-    var html = showList(e.data.groupElemInfo);
+    var html = showList(e.data.groupElemInfo, 8000000);
     cnt.html(html);
     pageData.isLoading = false;
 }

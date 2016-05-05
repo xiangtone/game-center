@@ -19,12 +19,13 @@
     <script type="text/javascript">
         initGlobalData(false);
         var list_onload = page_onload;
+        var mgi = null;
     </script>
     <script type="text/javascript">
         function page_onload() {
             if (configData == null)
                 return;
-            var rx = /(&|#)id=(\d+)/
+            var rx = /(&|#?)id=(\d+)/
             var mc = rx.exec(location.href);
             var id = 0;
             if (mc != null) {
@@ -32,7 +33,7 @@
                 if (isNaN(id))
                     id = 0;
             }
-            
+
             $.each(configData, function (i, groupInfo) {
                 if (groupInfo.groupId == id) {
                     mgi = groupInfo;
@@ -48,6 +49,9 @@
 
         function getMatchGroupInfo() {
 			return mgi;
+        }
+        function getCurrentPos() {
+            return 6100000;
         }
 
     </script>
