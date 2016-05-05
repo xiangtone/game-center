@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>牛玩反馈  » 首页</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script type="text/javascript" src="/static/js/jquery-1.11.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/common.css">
+    <script type="text/javascript" src="/static/js/common.js"></script>
+    <style type="text/css">
+        body {font-size: 14px; }
+    </style>
+    {% block head %}
+    {{ header }}
+    {% end %}
+</head>
+
+<body >
+    <div id="container">
+        <div class="title">
+            {% block title %}
+
+            {% end %}
+        </div>
+        <div class="clear"></div>
+        <div class="bdiv" style="margin-top:64px;">
+        {% block body %}
+
+        {% end %}
+        </div>
+    </div>
+
+
+
+    {% block foot %}
+    {{ foot }}
+    {% end %}
+</body>
+</html>
