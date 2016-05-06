@@ -217,7 +217,7 @@ function setBackTitle() {
         if (title != "") {
             // try {
             title = decodeURI(title);
-            $(".fa").html(title);
+            $(".fa").html('返回');
             // } catch (e) {
             //     console.log("head not found");
             // }
@@ -286,8 +286,10 @@ function showList(data, totalPos) {
             + "#title=" + document.title + "#posId="+ (totalPos) +"'><h4>"
             + item.showName
             + "</h4>"
-        + "<div class='star' style='width:60px;margin:3px 0;'>"
-        + "<h5 class='star star_y' style='height:12px;width:" + (item.recommLevel * 10) + "%;'></h5></div>"
+        + "<h5><img src='imgs/star-"
+        + (item.recommLevel / 2).toFixed()
+        + ".png' alt='等级'> </h5>"
+        + "<h5><span>"
 
         + "<h5><span>"
             + item.downTimes
