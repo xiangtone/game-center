@@ -2,14 +2,11 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
-<title>游戏详情</title>
-<meta name="viewport" content= "width=device-width,initial-scale=1,maximum-scale=1.0,user-scale=1,user-scalable=no
-"/>
+    <title>游戏详情</title>
+<meta name="viewport" content= "width=device-width,initial-scale=1,maximum-scale=1.0,user-scale=1,user-scalable=no"/>
 <link href="css/bootstrap.min.css" rel="stylesheet"/>
 
 
-<!--<link href="css/font-awesome.min.css" rel="stylesheet"/>
-<link href="css/font-awesome-ie7.min.css" rel="stylesheet"/>-->
 	<link href="css/hsgame.css" rel="stylesheet"/>
 <!--[if lt IE 9]>
     <script type="text/javascript"  src="js/html5shiv.js"></script>
@@ -27,13 +24,13 @@
     <style>
         /*游戏截图 Demo Styles */
 
- .swiper-container {
+        .swiper-container {
             width: 100%;
-            height: 3.2rem;
+            height: auto;
             color: #fff;
             text-align: center;
         }
-  
+
 
         .pagination {margin: 0 0;
             position: absolute;
@@ -41,6 +38,9 @@
             right: 0.1rem;
             bottom: 0.05rem;
         }
+        .details_img img{width: 80%;height: auto}
+
+
         .swiper-pagination-switch {
             display: inline-block;
             width: 0.08rem;
@@ -56,9 +56,7 @@
             background: #fff;
         }
 
-</style>
-
-
+    </style>
 
 </head>
 
@@ -72,45 +70,58 @@
 </div>
 
          <div class="game_Detil">
-<!--                 <figure>
+                 <figure>
 					<img src="imgs/皇室战争.png" alt="皇室战争">
 					<figcaption>
 						<h4>皇家战争</h4>
                          <h5><span>1345</span>人下载</h5>
-						<h5 id=""><img src="imgs/组-5.png" alt="等级"> </h5>
+						<h5 id=""><img src="imgs/star-5.png" alt="等级"> </h5>
 					</figcaption>
 				</figure>
 
-			 <a  class="game_Detil_download" href="#">  免费下载（<span id="">32.1</span>MB）</a> -->
+			 <a  class="game_Detil_download" href="#">  免费下载（<span id="">32.1</span>MB）</a>
 
 
 		 </div>
 
 
+    <div class="gift_img">
+        <a  id="ourapp" href=" http://appstore.api.huashenggame.com/redirect?pn=com.hykj.gamecenter" onclick="pushDownHuaS(5000000)"> <img  id="bg" src="imgs/bg.png" alt=""/>
+            <img style="width: 80px;height: 80px;" id="gif" src="imgs/gif.gif" alt=""/> </a>
+
+    </div>
+
 
 
 <div class="swiper-container">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide red-slide">
-            <img style="width: 80%;height: auto;"src="" alt="1"/>
+    <div class="swiper-wrapper"">
+        <div class="swiper-slide details_img">
+            <img src="" alt="1"/>
         </div>
-        <div class="swiper-slide blue-slide">
-            <img style="width: 80%;height: auto;" src="i" alt="2"/>
+        <div class="swiper-slide details_img">
+            <img  src="i" alt="2"/>
         </div>
-        <div class="swiper-slide orange-slide">
-            <img style="width: 80%;height: auto;" src="" alt="3"/>
+        <div class="swiper-slide details_img">
+            <img src="" alt="3"/>
         </div>
-        <div class="swiper-slide green-slide">
-            <img style="width: 80%;height: auto;" src="i" alt="4"/>
+        <div class="swiper-slide details_img">
+            <img  src="i" alt="4"/>
         </div>
-        <div class="swiper-slide pink-slide">
-            <img  style="width: 80%;height: auto;"src="" alt="5"/>
+        <div class="swiper-slide details_img">
+            <img src="" alt="5"/>
         </div>
     </div>
     <div class="pagination"></div>
 </div>
 
 <script src="./dist/idangerous.swiper.min.js"></script>
+
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+    })
+    mySwiper.container[0].style.height=300;
+    //mySwiper.container.css({opacity: 0.1});
+</script>
 <script>
     var mySwiper = new Swiper('.swiper-container',{
         pagination: '.pagination',
@@ -121,18 +132,19 @@
 </script>
 
 
+
 <div class="app_details" id="update_detail">
     <details close>
         <summary class="app_details_summary">升级介绍</summary>
-        <p class="p_details" >这里会是一段升级介绍,这里会是一段升级介绍这里会是一段升级介绍这里会是一段升级介绍这里会是一段升级介绍这里会是一段升级介绍这里会是一段升级介绍</p>
+        <p class="p_details" ></p>
     </details>
 
 </div>
 
 <div class="app_details" id="apk_detail">
-    <details close>
+    <details open>
         <summary class="app_details_summary">应用介绍</summary>
-        <p class="p_details">这里会是一段升级介绍,这里会是一段升级介绍这里会是一段升级介绍这里会是一段升级介绍这里会是一段升级介绍这里会是一段升级介绍这里会是一段升级介绍</p>
+        <p class="p_details"></p>
     </details>
 
 </div>
@@ -181,6 +193,22 @@
     <script type=text/javascript>
         setBackTitle();
     </script>
+<script>
+    $(document).ready(function(){
+        $(".swiper-container").css("height",$(".details_img img").height());
+        $(".swiper-wrapper").css("height",$(".details_img img").height());
+        $(".swiper-slide").css("height",$(".details_img img").height());
+    });
+</script>
+<script>
+    $(document).load(function(){
+        $(".swiper-container").css("height",$(".details_img img").height());
+        $(".swiper-wrapper").css("height",$(".details_img img").height());
+        $(".swiper-slide").css("height",$(".details_img img").height());
+    });
+</script>
+
+
 
 </body>
 

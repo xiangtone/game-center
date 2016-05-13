@@ -2,9 +2,8 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
-    <title>游戏中心</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scale=1,user-scalable=no
-" />
+    <title>花生游戏中心</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scale=1,user-scalable=no" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 
   <!--  <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -24,6 +23,19 @@
         <script type="text/javascript"  src="js/html5shiv.js"></script>
     <![endif]-->
     <!--<script src="js/respond.js"></script>-->
+
+
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $("#close").click(function(){
+                $("#ourapp").hide("slow");
+            });
+        });
+    </script>
+
+
+
+
 
 
     <link rel="stylesheet" href="Content/swiper.min.css">
@@ -75,31 +87,10 @@
 
 <body>
 
-    <div id="myCarousel" class="carousel slide c_serch">
-<!--         <a class="carousel_serch"  href="search.html">搜索</a>
-        轮播（Carousel）指标
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        轮播（Carousel）项目
-        <div class="carousel-inner">
-            <div class="item active">
-                <a href=""><img class="img" src="imgs/805-322.jpg" alt="First slide"></a>
-                <div class="carousel-caption"></div>
-            </div>
-            <div class="item">
-                <a href=""><img class="img" src="imgs/805x322.jpg" alt="Second slide"></a>
-                <div class="carousel-caption"></div>
-            </div>
-            <div class="item">
-                <a href=""><img class="img" src="imgs/8057322.jpg" alt="Third slide"></a>
-                <div class="carousel-caption"></div>
-            </div>
-        </div> -->
-    </div>
+
     <div class="clearfix"></div>
+
+    <!--导航nav-->
     <nav class="game_nav">
         <ul>
             <li>
@@ -145,8 +136,34 @@
         </ul>
     </nav>
 
+<!--轮播图-->
+    <div id="myCarousel" class="carousel slide c_serch">
+        <!--         <a class="carousel_serch"  href="search.html">搜索</a>
+                轮播（Carousel）指标
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                轮播（Carousel）项目
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <a href=""><img class="img" src="imgs/805-322.jpg" alt="First slide"></a>
+                        <div class="carousel-caption"></div>
+                    </div>
+                    <div class="item">
+                        <a href=""><img class="img" src="imgs/805x322.jpg" alt="Second slide"></a>
+                        <div class="carousel-caption"></div>
+                    </div>
+                    <div class="item">
+                        <a href=""><img class="img" src="imgs/8057322.jpg" alt="Third slide"></a>
+                        <div class="carousel-caption"></div>
+                    </div>
+                </div> -->
+    </div>
+
     <!--推荐-->
-    <div class="recommend">
+    <div  style="margin: 0.08rem 0 0.08rem 0" class="recommend">
         <div class="r_title">
             <h1>
                 推荐
@@ -304,7 +321,13 @@
 
     </div>
 
+    <div class="ourapp"><img src="imgs/peanut1024.png" alt=""/> 地铁wifi随你蹭&nbsp;花生精品随你玩
+        <div class="right">
+            <a id="download" href="http://appstore.api.huashenggame.com/redirect?pn=com.hykj.gamecenter" onclick="pushDownHuaS(1000000)">安卓下载</a>
+            <a id="close">  <img src="imgs/close.png" alt=""/> </a></div>
+    </div>
 
+    <a href="#0" class="cd-top">top</a>
 
     <!--<script src="js/jquery-2.1.4.min.js"></script>
     -->
@@ -314,6 +337,21 @@
         setBackTitle();
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#close").click(function(){
+                $(".ourapp").hide("slow");
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#download").click(function(){
+                $(".ourapp").hide("slow");
+            });
+        });
+    </script>
 </body>
 
 </html>

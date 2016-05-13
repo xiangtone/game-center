@@ -333,6 +333,13 @@ function pushDown(posId, item) {
 
 }
 
+function pushDownHuaS(posId) {
+    var kv = {"appName": "花生游戏中心", "packName": "com.hykj.gamecenter"};
+    TDAPP.onEvent("列表点击下载", posId, kv);
+}
+
+
+
 function goBack() {
     // history.back();
     history.go(-1);
