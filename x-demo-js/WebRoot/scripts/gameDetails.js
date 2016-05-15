@@ -3,6 +3,11 @@
 function initAppInfo() {
 	//解析id获取游戏详情
 
+
+
+
+
+
 	
 	var rx = /[&|#?]((appId)|(appid)|(id))=[\d]*/
 		var mc = rx.exec(location.href);
@@ -41,13 +46,29 @@ function getappInfo(data){
     "<h6 class='p_details_h'>版本号：<span id=''>"+ data.data.verCode +"</span></h6>";
 	
 	$(".app_details_h").html(appdetails);
-	
+
+
 
  	var imgs = $(".swiper-slide").children("img");
 	for(var i = 0; i < 5 && i < imgs.length; i++){
 		imgs[i].src = data.data.appPicUrl[i];
-	}
+
+        $(document).ready(function(){
+            $(".swiper-container").css("height",$(".details_img img").height());
+            $(".swiper-wrapper").css("height",$(".details_img img").height());
+            $(".swiper-slide").css("height",$(".details_img img").height());
+        });
+
+        $(document).load(function(){
+            $(".swiper-container").css("height",$(".details_img img").height());
+            $(".swiper-wrapper").css("height",$(".details_img img").height());
+            $(".swiper-slide").css("height",$(".details_img img").height());
+        });
+
+    }
 }
+
+
 
 function getTimeString(time){
 	var newTime = "";
@@ -66,8 +87,7 @@ function getappRecommSuccess(data){
 	}
 	
 	$(".app_details_regames").html(html);
-	
-
 }
+
 
 initAppInfo();

@@ -109,54 +109,106 @@ body{background: #f5f5f5}
     -webkit-flex-shrink:0;
     -ms-flex:0 0 auto;
     flex-shrink:0;
-    width:100%;
-    height:100%;
+    width:45%;
+    height:auto;
+    overflow: hidden;
     position:relative
 }
 
+
+.details_img{width: 80%;height: auto}
 .item_img{margin: 0.1rem 0;}
-/*游戏中心banner的适配*/
-@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){/* 鍏煎iphone5 */ .item_img {height: 1.48rem}    }
-@media only screen and (max-device-width :480px){ .item_img {height: 1.48rem}   }
-@media only screen and (min-device-width :481px){.item_img {height: 1.48rem}  }
 
-/*6*/
-@media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){.item_img {height: 1.58rem}  }
-
-/*6+*/
-@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){.item_img {height: 1.68rem} }
-
-/*榄呮棌*/
-@media only screen and (min-device-width :1080px) and (-webkit-min-device-pixel-ratio : 2.5){.item_img {height: 1.68rem} }
-
-/*mate7*/
-@media only screen and (min-device-width :1080px) and (-webkit-min-device-pixel-ratio : 3){.item_img {height: 1.68rem} }
-
-/*4 4s*/
-@media only screen and (device-height :480px) and (-webkit-device-pixel-ratio:2){.item_img {height: 1.28rem} }
-
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)  { .item_img {height: 2.88rem}}
 
 /*轮播图上的搜索*/
-.c_serch{position: relative}
+.c_serch{position: relative;margin-top: 0.75rem}
 .carousel_serch{position: absolute;right:0.12rem;top:0.10rem;color: #fff;font-size: 0.16rem;z-index: 999}
 
 .carousel-indicators li{width:0.15rem;height:0.05rem;margin:0;border: none;background:rgba(255,255,255,0.4);border-radius:0 }
 .carousel-indicators .active{width:0.15rem;height:0.05rem;margin:0;background:rgba(255,203,62,0.7)}
 
 /*nav样式*/
-.game_nav{width:100%;height: 0.75rem;background:white;border-bottom:solid 0.01rem #d8d8d8 }
+.game_nav{width:100%;height: 0.75rem;background:white;border-bottom:solid 0.01rem #d8d8d8;position: fixed;top:0;z-index: 999; }
 .game_nav ul{width:100%;height: 0.75rem;}
 .game_nav ul>li{width: 20%;height:0.75rem;text-align: center;float: left;}
 .nav_bt img{;width:0.32rem;height: 0.32rem;margin-top:0.10rem;}
 .nav_bt figcaption{font-size: 0.14rem;margin-top:0.05rem;color: #333}
 
+/*返回顶部*/
+
+.cd-top {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    bottom: 80px;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    /* image replacement properties */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: rgba(232, 98, 86, 0.8)  url(../imgs/back_top.png)no-repeat center 50%;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.cd-top.cd-is-visible {
+    /* the button becomes visible */
+    visibility: visible;
+    opacity: 1;
+}
+.cd-top.cd-fade-out {
+    /* ����û��������¹���,�����ť��͸���Ȼ��ø�� */
+    opacity: .8;
+}
+.no-touch .cd-top:hover {
+    background-color: #e86256;
+    opacity: 1;
+}
+@media only screen and (min-width: 768px) {
+    .cd-top {
+        right: 20px;
+        bottom: 30px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .cd-top {
+        height: 60px;
+        width: 60px;
+        right: 30px;
+        bottom: 30px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*head上的搜索*/
 .game_search{font-size: 0.15rem;position: absolute;right: 0.1rem;}
 /*banner*/
-.container{padding: 0 0;margin: 0.10rem auto}
+.container{padding: 0 0;margin: 0 auto}
 /*推荐*/
 .recommend{width: 100%;height:auto;margin: 0.08rem 0;background: white}
 .r_title{width: 100%;height:0.40rem;border-bottom: solid 0.01rem #d8d8d8;}
@@ -191,31 +243,37 @@ and (max-device-width : 1024px)  { .item_img {height: 2.88rem}}
 .aniu{width:50%;display:block; border:1rem solid #CCC;border-radius:5rem; text-align:center; line-height:0.20rem; text-decoration:none; margin:0 auto;}
 
 /*精品游戏*/
-.recommend_g{width: 100%;margin: 0.05rem auto 0 auto;background: #fff}
-.g_game{width: 96%;margin: 0.15rem auto 0 auto;/*border-top: solid 0.01rem #d8d8d8;border-left: solid 0.01rem #d8d8d8;border-right: solid 0.01rem #d8d8d8;*/background: #fff}
-.g_game_li{width:100%;height:0.80rem;border-bottom: solid 0.01rem #d8d8d8;background: #fff}
-.g_game_li figure{width:75%;height:0.80rem;padding: 0.08rem 0 0.08rem 0.08rem;float: left}
-.g_game_li figure>img{width: 0.64rem;height: 0.64rem;display: block;float: left}
-.g_game_li figure>figcaption{width: 1.26rem;height: 0.64rem;float: left;text-align: left;text-indent: 0.1rem;overflow: hidden}
-.g_game_li figure>figcaption>h4{margin: 0 auto;font-size: 0.14rem;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;height: 0.16rem;line-height: 0.16rem}
-.g_game_li figure>figcaption>h5{margin: 0.04rem auto;font-size: 0.12rem;}
-.type0{background:#a0cb00;color: #fff;padding:0.01rem 0.03rem;font-size: 0.12rem;margin-right:0.05rem;}
-.type1{background:#80c269;color: #fff;padding:0.01rem 0.03rem;font-size: 0.12rem;margin-right:0.05rem;}
-.type2{background:#00a0e9;color: #fff;padding:0.01rem 0.03rem;font-size: 0.12rem;margin-right:0.05rem;}
-.type3{background:#f39800;color: #fff;padding:0.01rem 0.03rem;font-size: 0.12rem;margin-right:0.05rem;}
-.type4{background:#f2bc04;color: #fff;padding:0.01rem 0.03rem;font-size: 0.12rem;margin-right:0.05rem;}
-.type5{background:#cf1d59;color: #fff;padding:0.01rem 0.03rem;font-size: 0.12rem;margin-right:0.05rem;}
-.type6{background:#a82ebd;color: #fff;padding:0.01rem 0.03rem;font-size: 0.12rem;margin-right:0.05rem;}
-.type7{background:#e72a2c;color: #fff;padding:0.01rem 0.03rem;font-size: 0.12rem;margin-right:0.05rem;}
+.recommend_g{width: 100%;margin: 0 auto 0 auto;background: #fff}
+.g_game{width: 96%;margin: 0.1rem auto 0 auto;/*border-top: solid 0.01rem #d8d8d8;border-left: solid 0.01rem #d8d8d8;border-right: solid 0.01rem #d8d8d8;*/background: #fff}
+.g_game_li{width:100%;height:0.84rem;border-bottom: solid 0.01rem #d8d8d8;background: #fff}
+.li_figure{width:75%;height:0.84rem;padding: 0.08rem 0 0.08rem 0.08rem;float: left}
+.li_figure img{width: 0.64rem;height: 0.64rem;display: block;float: left}
+.li_figure_figcaption{width: 1.46rem;display:block;height: 0.64rem;float: left;text-align: left;text-indent: 0.1rem;overflow: hidden}
+.li_figure_figcaption h4{margin: 0 auto;font-size: 0.13rem;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;height: 0.16rem;line-height: 0.16rem}
+.li_figure_figcaption h5{margin: 0.04rem auto;font-size: 0.12rem;}
+.type0{background:#a0cb00;color: #fff;padding:0.00rem 0.02rem;font-size: 0.12rem;margin-right:0.05rem;}
+.type1{background:#80c269;color: #fff;padding:0.00rem 0.02rem;font-size: 0.12rem;margin-right:0.05rem;}
+.type2{background:#00a0e9;color: #fff;padding:0.00rem 0.02rem;font-size: 0.12rem;margin-right:0.05rem;}
+.type3{background:#f39800;color: #fff;padding:0.00rem 0.02rem;font-size: 0.12rem;margin-right:0.05rem;}
+.type4{background:#f2bc04;color: #fff;padding:0.00rem 0.02rem;font-size: 0.12rem;margin-right:0.05rem;}
+.type5{background:#cf1d59;color: #fff;padding:0.00rem 0.02rem;font-size: 0.12rem;margin-right:0.05rem;}
+.type6{background:#a82ebd;color: #fff;padding:0.00rem 0.02rem;font-size: 0.12rem;margin-right:0.05rem;}
+.type7{background:#e72a2c;color: #fff;padding:0.00rem 0.02rem;font-size: 0.12rem;margin-right:0.05rem;}
 
-.g_game_li figure>figcaption>h6{margin: 0 auto 0 auto;font-size: 0.12rem;color: #999}
-.g_game_li figure>figcaption>h6>i{font-style: normal}
+.li_figure_figcaption h6{margin: 0 auto 0 auto;font-size: 0.12rem;color: #999;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.li_figure_figcaption h6>i{font-style: normal}
 .g_game_r{width: 25%;height: 0.80rem;float: left;text-align: center;}
 .g_game_r>a{margin-top:0.25rem}
+.ourapp{width: 100%;height: 0.42rem;background: rgba(0,0,0, 0.8);position: fixed;bottom:0;z-index: 999;font-size: 0.12rem;color: #999;line-height: 0.42rem;}
+.ourapp img{width: 0.32rem;height: 0.32rem;margin-left:0.08rem; }
+
+#download{padding: 0.03rem 0.08rem;color:#569b34; border:1px solid #569b34;border-radius:0.02rem; font-size: 0.12rem;height: 0.42rem }
+.right{position: absolute;right: 0;top:0;}
+#close img{margin-left:0.00rem}
 
 
 /*游戏详情页面*/
-.game_Detil{width: 100%;height:1.40rem;margin: 0 auto;border-bottom: solid 0.01rem #d8d8d8;background: white;text-align: center;padding-top:0.15rem;}
+.game_Detil{width: 100%;height:1.40rem;margin: 0 auto;background: white;text-align: center;padding-top:0.15rem;}
 .game_Detil figure{width: 3.00rem;height:0.64rem;margin: 0 0 0 0.15rem;text-align: center}
 .game_Detil figure>figcaption{width:2.26rem;height:0.64rem;float: left;text-align: left;padding-left:0.10rem}
 .game_Detil figure>figcaption>h4{font-size: 0.16rem;color: #333;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;margin: 0.02rem 0}
@@ -223,6 +281,12 @@ and (max-device-width : 1024px)  { .item_img {height: 2.88rem}}
 .game_Detil img{width:0.64rem;height: 0.64rem;display: block;float: left}
 .game_Detil figure>figcaption>h5>img{width: 0.58rem;height: 0.10rem;}
 .game_Detil_download{width: 90%;display: block;height: 0.32rem;background: #f39800;border-radius: 0.05rem;margin:0.12rem auto 0.08rem auto;text-align: center;color: #fff;line-height: 0.32rem;font-size: 0.14rem;}
+
+/*礼包*/
+
+.gift_img{width:100%;height:0.64rem;position: relative;border-bottom: solid 0.01rem #d8d8d8;margin:0 auto;}
+#bg{width: 100%;}
+#gif{width: 0.8rem;height:0.8rem;position: absolute;left: 0.1rem;top:-0.2rem;}
 
 /*游戏详情页面-应用升级*/
 .app_details{width: 100%;height:auto;margin: 0.05rem auto 0 auto;padding-bottom:0.2rem;background: #fff;}
@@ -318,3 +382,27 @@ color: #666;font-size: 0.14rem;
 .fa{font-size: 0.14rem;color:#333}
 .head img{width: 0.22rem;height: 0.35rem;float: left;line-height: 35px;}
 
+
+/*游戏中心banner的适配*/
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){/* 鍏煎iphone5 */ .item_img {height: 1.48rem}  .li_figure_figcaption{width: 1.50rem}  }
+@media only screen and (max-device-width :480px){ .item_img {height: 1.48rem}   }
+@media only screen and (min-device-width :481px){.item_img {height: 1.48rem}  }
+
+/*6*/
+@media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){.item_img {height: 1.58rem}  .li_figure_figcaption{width: 1.96rem} }
+
+/*6+*/
+@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){.item_img {height: 1.68rem}  .li_figure_figcaption{width: 2.26rem} }
+
+/*榄呮棌*/
+@media only screen and (min-device-width :1080px) and (-webkit-min-device-pixel-ratio : 2.5){.item_img {height: 1.68rem} }
+
+/*mate7*/
+@media only screen and (min-device-width :1080px) and (-webkit-min-device-pixel-ratio : 3){.item_img {height: 1.68rem} }
+
+/*4 4s*/
+@media only screen and (device-height :480px) and (-webkit-device-pixel-ratio:2){.item_img {height: 1.28rem} }
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)  { .item_img {height: 2.88rem}  .li_figure_figcaption{width: 1.96rem}}

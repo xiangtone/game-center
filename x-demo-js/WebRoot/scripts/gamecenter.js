@@ -69,7 +69,7 @@ function OnData(e) {
             }
             if (item.posId == 1)
                 banner.push(item);
-            else if (item.posId >=2 && item.showType == 1 && ad.length < 1)
+            else if (item.posId >=2 && item.showType == 1 && ad.length < 0)
                 ad.push(item);
             else if (item.posId >= 2)
                 other.push(item);
@@ -148,8 +148,8 @@ function getTableRow(e) {
 
     for (var i = 0; i < e.length; i++) {
         var item = e[i]; //<tr><td class='td_img'><a href='game_details.html?appid=" + item.appId
-        html += "<li class='g_game_li'><a href='game_details.html?appId=" + item.appId+"#title=" +document.title+"#posId="+ (1000000) +"'><figure><img src='" + item.iconUrl + "' alt='" + item.showName + "' >" +
-        		"<figcaption><h4>" + item.showName + "</h4><h5>";
+        html += "<li class='g_game_li'><a href='game_details.html?appId=" + item.appId+"#title=" +document.title+"#posId="+ (1000000) +"'><figure class='li_figure'><img src='" + item.iconUrl + "' alt='" + item.showName + "' >" +
+        		"<figcaption class='li_figure_figcaption'><h4>" + item.showName + "</h4><h5>";
 
         for (var f = 0 ; f < 8; f++) {
             if ((item.recommFlag & (Math.pow(2, f))) != 0)
@@ -157,10 +157,10 @@ function getTableRow(e) {
         }
 
         // <span class='type1'>推荐</span>
-        html += "</h5><h6><i>" + item.downTimes + "</i>人下载</h6><h6><i>" + (item.mainPackSize / 1048576.0).toFixed(2) + "</i>MB</h6>"
+        html += "</h5><h6><i>" + item.downTimes + "</i>人下载      &nbsp;&nbsp;        <i>" + (item.mainPackSize / 1048576.0).toFixed(2) + "</i>MB              </h6><h6>"+item.recommWord+"</h6>"
                 + "</figcaption></figure></a><div class='g_game_r'>"
                 + "<a style='display: block'  href='javascript:void(0);' onclick='getApk("+ item.appId +"," + 1000000+ ");' >"
-                +"<button class='btn btn-danger btn-sm btn_new'>马上下载</button></a></div></li>";
+                +"<button class='btn btn-danger btn-sm btn_new'>下载</button></a></div></li>";
     }
     html += "";
     return html;
@@ -186,3 +186,37 @@ function nextPage() {
     sendRequest(groupElems(gi.groupId, pageData.pageIndex++), groupSuccess = { success: OnData });
 
 }
+
+
+
+
+jQuery(document).ready(function($){
+    // browser window scroll (in pixels) after which the "back to top" link is shown
+    var offset = 300,
+    //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+        offset_opacity = 800,
+    //duration of the top scrolling animation (in ms)
+        scroll_top_duration = 500,
+    //grab the "back to top" link
+        $back_to_top = $('.cd-top');
+
+    //hide or show the "back to top" link
+    $(window).scroll(function(){
+        ( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+        if( $(this).scrollTop() > offset_opacity ) {
+            $back_to_top.addClass('cd-fade-out');
+        }
+    });
+
+    //smooth scroll to top
+    $back_to_top.on('click', function(event){
+        event.preventDefault();
+        $('body,html').animate({
+                scrollTop: 0 ,
+            }, scroll_top_duration
+        );
+    });
+
+});
+
+
