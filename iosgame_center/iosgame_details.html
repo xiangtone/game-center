@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>游戏详情</title>
+    <meta name="viewport" content= "width=device-width,initial-scale=1,maximum-scale=1.0,user-scale=1,user-scalable=no"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/hsgame.css" rel="stylesheet"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript"  src="js/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript"  src="js/respond.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="scripts/gameDetails.js"></script>
+    <link rel="stylesheet" href="./dist/idangerous.swiper.css">
+    <style>
+        /*游戏截图 Demo Styles */
+
+        .swiper-container {
+            width: 100%;
+            height: auto;
+            color: #fff;
+            text-align: center;
+        }
+
+
+        .pagination {margin: 0 0;
+            position: absolute;
+            z-index: 20;
+            right: 0.1rem;
+            bottom: 0.05rem;
+        }
+        .details_img img{width: 80%;height: auto}
+        .swiper-pagination-switch {
+            display: inline-block;
+            width: 0.08rem;
+            height: 0.08rem;
+            border-radius: 0.08rem;
+            background: #555;
+            margin-right: 0.05rem;
+            opacity: 0.8;
+
+            cursor: pointer;
+        }
+        .swiper-active-switch {
+            background: #fff;
+        }
+
+    </style>
+
+
+</head>
+<body>
+<div class="head">
+    <div class="head_left">
+        <a href="javascript:goBack();"> <img src="imgs/back.png" alt=""/>   <i class="fa">游戏中心</i></a>
+    </div>
+ <!--   <a class="game_search"href="javascript:goSearch();"> 搜索 </a>-->
+
+</div>
+
+<div class="game_Detil">
+                     <figure>
+                        <img src="imgs/皇室战争.png" alt="皇室战争">
+                        <figcaption>
+                            <h4 style="margin-top:0.1rem ">皇家战争</h4>
+                             <h5>一款无与伦比的卡片战争游戏</h5>
+                        </figcaption>
+                    </figure>
+                 <a  class="game_Detil_download" href="https://itunes.apple.com/cn/app/zhuo-yao-you-ren-zhang-2016zui/id1055284673?mt=8" > 前往App store下载</a>
+</div>
+
+
+<!--
+<script type="text/javascript">
+    window.location = "mqq:open";
+    setTimeout(
+            function(){
+                window.location="http://itunes.apple.com/cn/app/qq-2011/id444934666?mt=8";
+            }, 30);
+    }
+</script>-->
+
+
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide details_img">
+            <img src="imgs/g.png" alt="1"/>
+        </div>
+
+        <div class="swiper-slide details_img">
+            <img src="imgs/g.png" alt="1"/>
+        </div>
+
+        <div class="swiper-slide details_img">
+            <img src="imgs/g.png" alt="1"/>
+        </div>
+
+        <div class="swiper-slide details_img">
+            <img src="imgs/g.png" alt="1"/>
+        </div>
+
+        <div class="swiper-slide details_img">
+            <img src="imgs/g.png" alt="1"/>
+        </div>
+    </div>
+    <div class="pagination"></div>
+</div>
+
+<script src="./dist/idangerous.swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        pagination: '.pagination',
+        paginationClickable: true,
+        freeMode: true,
+        freeModeFluid: true
+    })
+</script>
+
+
+<!--<div class="app_details" id="update_detail">
+    <details close>
+        <summary class="app_details_summary">升级介绍</summary>
+        <p class="p_details" ></p>
+    </details>
+
+</div>-->
+
+<div class="app_details" id="apk_detail">
+    <details open>
+        <summary class="app_details_summary">应用介绍</summary>
+        <p class="p_details"> 这里会是一大段的文字介绍多很多的介绍这里会是一大段的文字介绍多很多的介绍这里会是一大段的文字介绍多很多的介绍这里会是一大段的文字介绍多很多的介绍</p>
+    </details>
+
+</div>
+
+<div class="app_details_h">
+
+    <h6 class="p_details_h">开发商：<span id="">   华影科技  </span></h6>
+ <!--   <h6 class="p_details_h">更新日期：<time id="">   2016-3-2  </time></h6>
+    <h6 class="p_details_h">版本号：<span id="">   2.03.6  </span></h6>-->
+</div>
+
+
+<script>
+    $(document).load(function(){
+        $(".swiper-container").css("height",$(".details_img img").height());
+        $(".swiper-wrapper").css("height",$(".details_img img").height());
+        });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $(".swiper-container").css("height",$(".details_img img").height());
+        $(".swiper-wrapper").css("height",$(".details_img img").height());
+    });
+</script>
+
+<script>
+    $(document).load(function(){
+        $(".swiper-container").css("height",$(".details_img img").height());
+        $(".swiper-wrapper").css("height",$(".details_img img").height());
+    });
+</script>
+<script type=text/javascript>
+    page_onload();
+</script>
+
+</body>
+</html>
