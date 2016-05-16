@@ -1,7 +1,13 @@
- Python:
+#python:
 *.py[cod]
 *.so
 *.egg
 *.egg-info
-dist
-build
+dist/
+build/
+*.pyc
+.idea/*
+.git/*
+error/*
+icons/*
+cgi-bin/*

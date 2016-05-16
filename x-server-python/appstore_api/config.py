@@ -47,7 +47,7 @@ GLOBAL_SETTINGS = {
     "redis": {
         'db': 1,
         'host':'127.0.0.1',
-        'port':55501
+        'port':34644
     },
     'logger': {
         'syslog': {
@@ -60,10 +60,11 @@ GLOBAL_SETTINGS = {
         #},
     },
     "db": {
-        'name': 'appstore',
+        'name': 'appstorios',
         'user': 'root',
-        'psw': 'AP2IJDqB5yt5',
-        'host':"127.0.0.1:55511"
+        # 'psw': 'AP2IJDqB5yt5',
+        'psw': 'oddshou',
+        'host':"127.0.0.1:42010"
     },
     "stat": {
         "svcid": 10,
