@@ -37,7 +37,7 @@ var syncHead = {
 
 var syncConfigData = {
     "header": syncHead,
-    "api": "ReqAppList",
+    "api": "ReqIosAppInfo",
     "params": {}
 }
 
