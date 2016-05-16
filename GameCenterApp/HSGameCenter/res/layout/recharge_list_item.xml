@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/item"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/recharge_item_minheight"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="@dimen/rechage_item_margin_left">
+
+        <ImageView
+            android:id="@+id/item_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/rechage_item_margin_left"
+            android:layout_marginTop="@dimen/rechage_item_margin_top"
+            android:layout_marginRight="@dimen/rechage_item_margin_left"
+            android:layout_marginBottom="@dimen/rechage_item_margin_top"
+            android:contentDescription="@string/recharge_item_icondes" />
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            style="@style/NuiTextAppearance.Medium"
+            android:singleLine="true" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
+            android:layout_height="1px" />
+
+        <TextView
+            android:id="@+id/item_time"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/nui_text_color_black_60"
+            style="@style/NuiTextAppearance.Small" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/rechage_item_margin_left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recharge_item_order_desb"
+            android:textColor="@color/nui_text_color_black_60"
+            style="@style/NuiTextAppearance.Small" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_order"
+            android:textColor="@color/nui_text_color_black_60"
+            style="@style/NuiTextAppearance.Small" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/item_linear_vi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/rechage_item_margin_left"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recharge_item_order_desa"
+            android:textColor="@color/nui_text_color_black_60"
+            style="@style/NuiTextAppearance.Small" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_order_vi"
+            android:textColor="@color/nui_text_color_black_60"
+            style="@style/NuiTextAppearance.Small" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/rechage_item_margin_top"
+        android:layout_marginBottom="@dimen/rechage_item_margin_left"
+        android:layout_marginLeft="@dimen/rechage_item_margin_left"
+        android:layout_marginRight="@dimen/rechage_item_margin_left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="@string/recharge_item_count_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/nui_text_color_black_60"
+            style="@style/NuiTextAppearance.Small" />
+
+        <TextView
+            android:id="@+id/item_count"
+            android:gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/nui_text_color_black_60"
+            style="@style/NuiTextAppearance.Small" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1.0"
+            android:layout_height="1px" />
+
+        <RelativeLayout
+            android:id="@+id/item_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp">
+
+            <Button
+                android:id="@+id/item_state"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="center_horizontal|center_vertical"
+                style="@style/NuiTextAppearance.Small"
+                android:singleLine="true" />
+
+            <ProgressBar
+                android:id="@+id/progressLogin"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:indeterminateDrawable="@drawable/loading_icon"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/item_divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_view_divider_width"
+        android:background="@drawable/app_info_header_horizontal_line" />
+
+</LinearLayout>
+
+
+

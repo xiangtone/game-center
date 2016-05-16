@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">花生遊戲</string>
+    <string name="cs_accountname">遊戲中心帳戶</string>
+    <string name="setting_only_wifi_download">只在WIFI環境時才會下載遊戲</string>
+    <string name="setting_feedback_submit_hint">在此寫下您對遊戲中心的意見與建議，我們會儘快回復您</string>
+    <string name="setting_about_version">
+        遊戲中心
+        <xliff:g id="version">%s</xliff:g>
+    </string>
+    <string name="setting_clean_cache">清除游戏中心緩存 </string>
+    <string name="title_section_update">遊戲升級</string>
+    <string name="no_donwload_label">"暫無下載遊戲" </string>
+    <string name="no_update_label">"您的全部遊戲都已經是最新版本" </string>
+    <string name="click_exit_label">"再按一次退出遊戲中心" </string>
+    <string name="search_no_result">對不起，未能找到您想要的遊戲&#8230;</string>
+    <string name="first_launch_update_notify_apps">您有多款遊戲可以升級</string>
+    <string name="first_launch_update_notify_apps_content">遊戲中心檢測到您有多款遊戲可以升級</string>
+    <string name="update_notify_apps">
+        您有
+        <xliff:g
+            example="10"
+            id="count">%d</xliff:g>
+        款遊戲可以升級
+    </string>
+    <string name="app_manager_navigation_app_upgade_tab_title">遊戲升級</string>
+    <string name="app_user_comment_tip">安裝遊戲后才能評星</string>
+    <string name="game_center_out_tip">
+        <xliff:g id="dlcount">%d</xliff:g>
+        個遊戲正在下載，確定要退出嗎？
+    </string>
+    <string name="appstore_update_text">有新版遊戲中心可以升級，點此查看詳情</string>
+    <string name="tip_clean_cache">確定要清除遊戲中心緩存的所有資料嗎？</string>
+    <string name="onekeytip">
+        <xliff:g
+            example="0"
+            id="count">%d</xliff:g>
+        個遊戲可以升級到最新版本
+    </string>
+
+    <string name="consume_error_title">遊戲中心與登錄的遊戲賬號不同,無法支付。如需支付,請重新登錄此賬號:%1$s。</string>
+    <string name="consume_error_title2">遊戲中心無登錄賬號,無法支付。如需支付,請重新登錄此賬號:%1$s。</string>
+    <string name="improper_report">遊戲舉報</string>
+    <string name="improper_reported">舉報遊戲</string>
+    <string-array name="appinfo_menu_array_one">
+        <item>舉報遊戲</item>
+    </string-array>
+
+    <string-array name="appinfo_menu_array_two">
+        <item>舉報遊戲</item>
+        <item>查看權限</item>
+    </string-array>
+	
+	<string name="person_balance">餘額: %1$s Zen幣</string>
+    <string name="recharge_description">請選擇充值金額(1人民幣= 10Zen幣)：</string>
+    <string name="recharge_text_desp">Zen幣預計10分鐘內到賬</string>
+    <string name="recharge_text_finish">
+        您的帳戶成功充值
+        <xliff:g
+            id="count"
+            example="0">%d</xliff:g>
+        Zen幣
+    </string>
+    <string name="recharge_item_count_unit">Zen幣</string>
+</resources>

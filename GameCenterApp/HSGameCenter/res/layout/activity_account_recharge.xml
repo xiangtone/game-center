@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/detail_background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.hykj.gamecenter.ui.widget.CSCommonActionBar
+        android:id="@+id/ActionBar"
+        style="@style/ActionBar"
+        cs:comm_showLogo="false"
+        cs:comm_showManage="false"
+        cs:comm_showReturn="true"
+        cs:comm_showRightEdit="false"
+        cs:comm_showSetting="false"
+        cs:comm_showTitle="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/recharge_text_height"
+        android:gravity="left|center_vertical"
+        android:layout_marginLeft="@dimen/normal_margin_padding_medium"
+        android:text="@string/recharge_description"
+        android:textColor="@color/nui_text_color_black_60"
+        style="@style/NuiTextAppearance.Small" />
+
+    <View style="@style/ViewDividerHorizontalTwo" />
+
+    <ListView
+        android:id="@+id/account_recharge_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:headerDividersEnabled="false"
+        android:visibility="gone" />
+
+    <com.hykj.gamecenter.ui.widget.CSLoadingView
+        android:id="@+id/cs_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <View
+        android:layout_width="1px"
+        android:layout_weight="1.0"
+        android:layout_height="0dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/normal_margin_padding_little"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/nui_text_color_black_60"
+            style="@style/NuiTextAppearance.Small"
+            android:text="@string/recharge_customer_hotline" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            style="@style/NuiTextAppearance.Small"
+            android:autoLink="email|phone|web"
+            android:text="@string/recharge_customer_hotlinenum" />
+
+    </LinearLayout>
+
+</LinearLayout>

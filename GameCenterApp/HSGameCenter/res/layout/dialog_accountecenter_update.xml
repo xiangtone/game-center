@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/csl_cs_alert_dialog_width"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/rectround_white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/normal_margin_padding_bigger4"
+        android:layout_marginRight="@dimen/normal_margin_padding_bigger4"
+        android:layout_marginTop="@dimen/normal_margin_padding_bigger"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.GrayLable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/download_title"
+            android:textColor="@color/csl_black_cc"
+            android:layout_marginBottom="@dimen/normal_margin_padding_bigger"
+            android:textSize="@dimen/csl_dialog_title_text_size" />
+
+        <TextView
+            android:id="@+id/update_hint"
+            style="@style/TextAppearance.GrayHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/download_msg"
+            android:layout_marginBottom="@dimen/normal_margin_padding_bigger"
+            android:textColor="@color/csl_black_cc"
+            android:textSize="@dimen/csl_dialog_content_text_size"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/normal_margin_padding_bigger4"
+        android:layout_marginLeft="@dimen/normal_margin_padding_bigger4"
+        android:layout_marginRight="@dimen/normal_margin_padding_bigger4"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/download_btn"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/csl_cs_alert_dialog_btn_height"
+            android:layout_weight="1"
+            android:background="@drawable/btn_green_selector"
+            android:text="@string/download"
+            android:textColor="@color/btn_green_color"
+            android:layout_marginRight="12dp"
+            android:textSize="@dimen/csl_dialog_content_text_size" />
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/csl_cs_alert_dialog_btn_height"
+            android:layout_weight="1"
+            android:background="@drawable/btn_green_green_selector"
+            android:text="@string/cancel"
+            android:textColor="@color/cs_white"
+            android:textSize="@dimen/csl_dialog_content_text_size" />
+    </LinearLayout>
+
+</LinearLayout>

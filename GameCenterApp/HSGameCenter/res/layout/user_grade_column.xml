@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RatingBar
+            android:id="@+id/app_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            style="@style/RatingBar"
+            android:numStars="5"
+            android:rating="3" />
+        <TextView
+            android:id="@+id/avg_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:textColor="@color/csl_black"
+            android:textSize="@dimen/csl_text_size_large" />
+
+        <TextView
+            android:id="@+id/app_comment_sum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/csl_black_7f"
+            android:layout_marginLeft="12dp"
+            android:textSize="@dimen/csl_text_size_large" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/starLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="1dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/star_gray_five" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/star_gray_four" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/star_gray_three" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/star_gray_two" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/star_gray_one" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:layout_alignParentRight="true">
+            <Button
+                android:id="@+id/comment_button"
+                android:layout_width="72dp"
+                android:layout_height="39dp"
+                style="@style/SomeGreenButton"
+                android:text="@string/app_user_comment_button"
+                android:textSize="@dimen/normal_button_text_size" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/commentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/button"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="12dp"
+            android:visibility="visible"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/app_comment_num_five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/csl_black_4c"
+                android:text="@string/app_user_comment_default_num" />
+            <TextView
+                android:id="@+id/app_comment_num_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/csl_black_4c"
+                android:text="@string/app_user_comment_default_num" />
+            <TextView
+                android:id="@+id/app_comment_num_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/csl_black_4c"
+                android:text="@string/app_user_comment_default_num" />
+            <TextView
+                android:id="@+id/app_comment_num_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/csl_black_4c"
+                android:text="@string/app_user_comment_default_num" />
+            <TextView
+                android:id="@+id/app_comment_num_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/csl_black_4c"
+                android:text="@string/app_user_comment_default_num" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/starLevel"
+            android:layout_toLeftOf="@id/commentCount"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical">
+            <ProgressBar
+                android:id="@+id/user_comment_progress_five"
+                style="@style/ProgressBarGray"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:max="100" />
+            <ProgressBar
+                android:id="@+id/user_comment_progress_four"
+                style="@style/ProgressBarGray"
+                android:layout_width="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_height="6dp"
+                android:max="100" />
+            <ProgressBar
+                android:id="@+id/user_comment_progress_three"
+                style="@style/ProgressBarGray"
+                android:layout_width="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_height="6dp"
+                android:max="100" />
+
+            <ProgressBar
+                android:id="@+id/user_comment_progress_two"
+                style="@style/ProgressBarGray"
+                android:layout_width="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_height="6dp"
+                android:max="100" />
+            <ProgressBar
+                android:id="@+id/user_comment_progress_one"
+                style="@style/ProgressBarGray"
+                android:layout_width="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_height="6dp"
+                android:max="100" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
+
+    

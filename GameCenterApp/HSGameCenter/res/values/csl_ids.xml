@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="csl_cs_actionbar_homeup_image"/>
+    <item type="id" name="csl_cs_actionbar_homeup_title"/>
+    <item type="id" name="csl_cs_actionbar_homeup_button"/>
+    <item type="id" name="csl_cs_actionbar_title" />
+    <item type="id" name="csl_cs_actionbar_setting_image" />
+    <item type="id" name="csl_cs_actionbar_search_image" />
+    <item type="id" name="csl_cs_actionbar_search_button" />
+    <item type="id" name="csl_cs_actionbar_search_edit" />
+    <item type="id" name="csl_cs_actionbar_recharge_button" />
+    <item type="id" name="csl_cs_list_dialog_textview"/>
+    <item type="id" name="csl_cs_list_dialog_checked"></item>
+</resources>

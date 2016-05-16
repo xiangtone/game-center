@@ -1,0 +1,521 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ============== -->
+    <!-- 字体风格 -->
+    <!-- ============== -->
+    <style name="TextAppearance" />
+
+    <!-- 正常通用字体 -->
+    <style name="TextAppearance.Normal">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textColorHighlight">#FFFF9200</item>
+        <item name="android:textColorHint">?android:attr/textColorHint</item>
+        <item name="android:textColorLink">#5C5CFF</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- 正常通用大字体 -->
+    <style name="TextAppearance.Large">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <!-- 正常通用中字体 -->
+    <style name="TextAppearance.Medium">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- 正常通用小字体 -->
+    <style name="TextAppearance.Small">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style
+        name="TextAppearance.GrayTitle"
+        parent="TextAppearance">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/csl_cs_sf_gray</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.GrayTip"
+        parent="TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/csl_cs_sf_gray_tip</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.GrayHigh"
+        parent="TextAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/csl_cs_sf_gray_high</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.White"
+        parent="TextAppearance">
+        <item name="android:textSize">@dimen/csl_text_size_large</item>
+        <item name="android:textColor">@color/cs_white</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.GrayHighBig"
+        parent="TextAppearance">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/csl_cs_sf_gray_high</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.GrayLow"
+        parent="TextAppearance">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/csl_cs_sf_gray_low</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- csActionBarTile字体 -->
+    <style
+        name="TextAppearance.CSActionBarTitle"
+        parent="TextAppearance">
+        <item name="android:textSize">@dimen/csl_cs_header_bar_title_size</item>
+        <item name="android:textColor">@color/csl_actionbar_text_color</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.CSActionBarHomeUpTitle"
+        parent="TextAppearance">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/csl_cs_actionbar_homeup_title</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- search edit text style -->
+    <style
+        name="TextAppearance.CSActionBarSearchEdit"
+        parent="TextAppearance">
+        <item name="android:textSize">@dimen/csl_text_size_middle</item>
+        <item name="android:textColor">@color/csl_cs_actionbar_search</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- PageTitleStrip -->
+    <style
+        name="TextAppearance.PagerTitleStrip"
+        parent="TextAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/csl_pagertitlestrip_text</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- username text -->
+    <style
+        name="TextAppearance.UserName"
+        parent="TextAppearance">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/csl_cs_infobar_username</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- userlevel text -->
+    <style
+        name="TextAppearance.UserLevel"
+        parent="TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/csl_cs_infobar_userlevel</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- infobar button text -->
+    <style
+        name="TextAppearance.InfoBarButton"
+        parent="TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.Function"
+        parent="TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.BalanceNumber"
+        parent="TextAppearance">
+        <item name="android:textSize">80sp</item>
+        <item name="android:textColor">@color/csl_cs_infobar_balance_number</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style
+        name="TextAppearance.BalanceUnit"
+        parent="TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/csl_cs_infobar_balance_number</item>
+    </style>
+
+    <style
+        name="TextAppearance.CSListHeader"
+        parent="TextAppearance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/csl_cs_list_header_text</item>
+    </style>
+
+    <style
+        name="TextAppearance.NavigatorMenuItem"
+        parent="TextAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/csl_cs_sf_gray_tip</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.SettingDetailItem"
+        parent="TextAppearance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/csl_cs_actionbar_search</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.SubmitEditorText"
+        parent="TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/csl_cs_submit_editor_text_color</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- =========================================================================================================== -->
+    <!-- 控件风格 -->
+    <!-- =========================================================================================================== -->
+    <style name="CS" />
+
+    <style name="CS.Widget" />
+
+    <!-- -->
+    <!-- CSActionBar related styles -->
+    <!-- -->
+    <style name="CS.Widget.CSActionBar">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:background">@color/csl_black</item>
+        <item name="android:layout_height">@dimen/csl_cs_action_bar_height</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="showTitle">true</item>
+        <item name="showHomeUpTitle">true</item>
+    </style>
+
+    <!-- 中间显示的title -->
+    <style
+        name="CS.Widget.CSActionBar.Title"
+        parent="@style/CS.Widget">
+        <item name="android:textAppearance">@style/TextAppearance.CSActionBarTitle</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- 左边显示的返回title -->
+    <style
+        name="CS.Widget.CSActionBar.HomeUpTitle"
+        parent="@style/CS.Widget.CSActionBar.Title">
+        <item name="android:textAppearance">@style/TextAppearance.CSActionBarHomeUpTitle</item>
+    </style>
+
+    <!-- -->
+    <!-- PageTitleStrip -->
+    <!-- -->
+    <style
+        name="CS.Widget.PageTitleStrip"
+        parent="@style/CS.Widget">
+        <item name="android:background">@color/csl_pagertitlestrip_background</item>
+        <item name="android:textAppearance">@style/TextAppearance.PagerTitleStrip</item>
+        <item name="android:layout_height">@dimen/csl_cs_pagetitlestrip_height</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <!-- username textView -->
+    <style
+        name="CS.Widget.UserNameTextView"
+        parent="@style/CS.Widget">
+        <item name="android:textAppearance">@style/TextAppearance.UserName</item>
+        <item name="android:shadowColor">@color/csl_cs_infobar_username_shadow</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!-- userLevel textView -->
+    <style
+        name="CS.Widget.UserLevelTextView"
+        parent="@style/CS.Widget">
+        <item name="android:textAppearance">@style/TextAppearance.UserLevel</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!-- infobar button ,ps:button上设置textColor在textAppearance里引用不起作用 -->
+
+
+    <!-- infobar 右边的function文字 -->
+    <style
+        name="CS.Widget.FunctionTextView"
+        parent="@style/CS.Widget">
+        <item name="android:textAppearance">@style/TextAppearance.Function</item>
+        <item name="android:textColor">@color/csls_infobar_function_text</item>
+        <!-- shadow不支持指定一个select -->
+        <item name="android:shadowColor">@color/csl_cs_infobar_function_text_shadow</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style
+        name="CS.Widget.BalanceNumberTextView"
+        parent="@style/CS.Widget">
+        <item name="android:textAppearance">@style/TextAppearance.BalanceNumber</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:typeface">serif</item>
+    </style>
+
+    <style
+        name="CS.Widget.BalanceUnitTextView"
+        parent="@style/CS.Widget">
+        <item name="android:textAppearance">@style/TextAppearance.BalanceUnit</item>
+    </style>
+
+    <!-- ====================== -->
+    <!-- ====== list ========== -->
+    <!-- ====================== -->
+    <style
+        name="CS.Widget.CSList"
+        parent="@style/CS.Widget">
+        <item name="android:divider">@drawable/csl_list_divider_horizontal_line</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:scrollbarDefaultDelayBeforeFade">500</item>
+        <item name="android:scrollbarStyle">insideInset</item>
+    </style>
+
+    <!-- ====================== -->
+    <!-- ====== Progress ====== -->
+    <!-- ====================== -->
+    <style
+        name="CS.Widget.Progress.Small"
+        parent="@style/CS.Widget">
+        <item name="android:indeterminateDrawable">@drawable/csls_progress_small_gray</item>
+        <item name="android:minWidth">@dimen/csl_cs_progress_small_heigth</item>
+        <item name="android:maxWidth">@dimen/csl_cs_progress_small_heigth</item>
+        <item name="android:minHeight">@dimen/csl_cs_progress_small_heigth</item>
+        <item name="android:maxHeight">@dimen/csl_cs_progress_small_heigth</item>
+    </style>
+
+    <style
+        name="CS.Widget.CSListHeaderTextView"
+        parent="@style/CS.Widget">
+        <item name="android:textAppearance">@style/TextAppearance.CSListHeader</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!-- ============== -->
+    <!-- view区域风格 -->
+    <!-- ============== -->
+    <style name="CS.ViewGroup" />
+
+    <style
+        name="CS.ViewGroup.InfoBar"
+        parent="@style/CS.ViewGroup">
+        <item name="android:background">@color/csl_cs_infobar_backgroud</item>
+        <item name="android:layout_height">@dimen/csl_cs_infobar_height</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <!-- ============== -->
+    <!-- submiteditor -->
+    <!-- ============== -->
+    <style
+        name="CS.Widget.SubmitEditor"
+        parent="CS.Widget">
+        <item name="android:textAppearance">@style/TextAppearance.SubmitEditorText</item>
+        <item name="android:background">@color/csl_pad_submit_editor_bg</item>
+    </style>
+
+    <!-- ============== -->
+    <!-- button -->
+    <!-- ============== -->
+
+
+    <!-- allen 2.0 通用btn样式 -->
+    <style
+        name="RedButton"
+        parent="CS.Widget">
+        <item name="android:background">@drawable/csls_button_red_edit</item>
+        <item name="android:textSize">@dimen/csl_button_text_size</item>
+        <item name="android:textColor">@color/csl_white</item>
+        <item name="android:shadowColor">@color/cs_sf_gray_shadow</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:minHeight">@dimen/csl_button_zero_height</item>
+        <item name="android:minWidth">@dimen/csl_button_min_width</item>
+    </style>
+
+    <!-- <style name="BlueButton" parent="CS.Widget"> <item name="android:background">@drawable/csls_button_blue_edit</item> 
+        <item name="android:textSize">@dimen/csl_button_text_size</item> <item name="android:textColor">@color/csl_white</item> 
+        <item name="android:shadowColor">@color/cs_sf_gray_shadow</item> <item name="android:shadowDy">1</item> 
+        <item name="android:shadowRadius">1</item> <item name="android:singleLine">true</item> 
+        <item name="android:minHeight">@dimen/csl_button_zero_height</item> <item 
+        name="android:minWidth">@dimen/csl_button_min_width</item> </style> -->
+
+    <!-- <item name="android:background">@drawable/csls_button_transparent_green_edit</item> -->
+    <style
+        name="TransparentGreenButton"
+        parent="CS.Widget">
+        <item name="android:background">@drawable/btn_green_selector</item>
+        <item name="android:textSize">@dimen/csl_button_text_size</item>
+        <item name="android:textColor">@color/btn_green_color</item>
+
+        <item name="android:singleLine">true</item>
+        <item name="android:minHeight">@dimen/csl_button_zero_height</item>
+        <item name="android:minWidth">@dimen/csl_button_min_width</item>
+    </style>
+
+    <!-- <style name="GreenButton" parent="CS.Widget"> <item name="android:background">@drawable/csls_button_green_edit</item> 
+        <item name="android:textSize">@dimen/csl_button_text_size</item> <item name="android:textColor">@color/csl_white</item> 
+        <item name="android:shadowColor">@color/cs_sf_gray_shadow</item> <item name="android:shadowDy">1</item> 
+        <item name="android:shadowRadius">1</item> <item name="android:singleLine">true</item> 
+        <item name="android:minHeight">@dimen/csl_button_zero_height</item> <item 
+        name="android:minWidth">@dimen/csl_button_min_width</item> </style> -->
+
+    <!-- <style name="WhiteButton" parent="CS.Widget"> <item name="android:background">@drawable/csls_button_white_edit</item> 
+        <item name="android:textSize">@dimen/csl_button_text_size</item> <item name="android:textColor">@color/csl_black_cc</item> 
+        <item name="android:shadowColor">@color/cs_sf_gray_shadow</item> <item name="android:shadowDy">1</item> 
+        <item name="android:shadowRadius">1</item> <item name="android:singleLine">true</item> 
+        <item name="android:minHeight">@dimen/csl_button_zero_height</item> <item 
+        name="android:minWidth">@dimen/csl_button_min_width</item> </style> -->
+
+    <style
+        name="SomeGreenButton"
+        parent="CS.Widget">
+        <item name="android:background">@drawable/csls_button_some_green_edit</item>
+        <item name="android:textSize">@dimen/csl_button_text_size</item>
+        <item name="android:textColor">@color/csl_white</item>
+        <item name="android:shadowColor">@color/cs_sf_gray_shadow</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:minHeight">@dimen/csl_button_zero_height</item>
+        <item name="android:minWidth">@dimen/csl_button_min_width</item>
+    </style>
+
+    <!-- <style name="YellowButton" parent="CS.Widget"> <item name="android:background">@drawable/csls_button_yellow_edit</item> 
+        <item name="android:textSize">@dimen/csl_button_text_size</item> <item name="android:textColor">@color/csl_white</item> 
+        <item name="android:shadowColor">@color/cs_sf_gray_shadow</item> <item name="android:shadowDy">1</item> 
+        <item name="android:shadowRadius">1</item> <item name="android:singleLine">true</item> 
+        <item name="android:minHeight">@dimen/csl_button_zero_height</item> <item 
+        name="android:minWidth">@dimen/csl_button_min_width</item> </style> -->
+
+    <style
+        name="NoShadowRedButton"
+        parent="CS.Widget">
+        <item name="android:background">@drawable/csls_button_red_edit</item>
+        <item name="android:textSize">@dimen/csl_button_text_size</item>
+        <item name="android:textColor">@color/csl_white</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:minHeight">@dimen/csl_button_zero_height</item>
+        <item name="android:minWidth">@dimen/csl_button_min_width</item>
+    </style>
+
+    <style
+        name="NoShadowBlueButton"
+        parent="CS.Widget">
+        <item name="android:background">@drawable/csls_button_blue_edit</item>
+        <item name="android:textSize">@dimen/csl_button_text_size</item>
+        <item name="android:textColor">@color/csl_white</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:minHeight">@dimen/csl_button_zero_height</item>
+        <item name="android:minWidth">@dimen/csl_button_min_width</item>
+    </style>
+
+    <style
+        name="NoShadowGreenButton"
+        parent="CS.Widget">
+        <item name="android:background">@drawable/csls_button_green_edit</item>
+        <item name="android:textSize">@dimen/csl_button_text_size</item>
+        <item name="android:textColor">@color/csl_white</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:minHeight">@dimen/csl_button_zero_height</item>
+        <item name="android:minWidth">@dimen/csl_button_min_width</item>
+    </style>
+
+    <style
+        name="NoShadowDownloadListGreenButton"
+        parent="CS.Widget">
+        <item name="android:textSize">@dimen/csl_button_text_size</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:minHeight">@dimen/csl_button_zero_height</item>
+        <item name="android:minWidth">@dimen/csl_button_min_width</item>
+    </style>
+
+    <!-- <style name="NoShadowYellowButton" parent="CS.Widget"> <item name="android:background">@drawable/csls_button_yellow_edit</item> 
+        <item name="android:textSize">@dimen/csl_button_text_size</item> <item name="android:textColor">@color/csl_white</item> 
+        <item name="android:singleLine">true</item> <item name="android:minHeight">@dimen/csl_button_zero_height</item> 
+        <item name="android:minWidth">@dimen/csl_button_min_width</item> </style> -->
+
+    <style
+        name="NoShadowWhiteButton"
+        parent="CS.Widget">
+        <item name="android:background">@drawable/csls_button_white_edit</item>
+        <item name="android:textSize">@dimen/csl_button_text_size</item>
+        <item name="android:textColor">@color/csl_black_7f</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:minHeight">@dimen/csl_button_zero_height</item>
+        <item name="android:minWidth">@dimen/csl_button_min_width</item>
+    </style>
+
+    <style
+        name="NoShadowDownloadListWhiteButton"
+        parent="CS.Widget">
+        <item name="android:textSize">@dimen/csl_button_text_size</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:minHeight">@dimen/csl_button_zero_height</item>
+        <item name="android:minWidth">@dimen/csl_button_min_width</item>
+    </style>
+
+    <style
+        name="CSAlertDialog"
+        parent="CS.Widget">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:minHeight">@dimen/csl_button_min_height</item>
+        <item name="android:minWidth">@dimen/csl_button_min_width</item>
+    </style>
+
+    <style name="MyDialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:minHeight">@dimen/csl_button_min_height</item>
+        <item name="android:minWidth">@dimen/csl_button_min_width</item>
+    </style>
+
+    <!-- <style name="ImageDownloadProgressBar" parent="@android:style/Widget.ProgressBar.Horizontal"> 
+        <item name="android:indeterminate">false</item> <item name="android:progressDrawable">@drawable/csl_image_progress_horizontal</item> 
+        <item name="android:indeterminateDrawable">@drawable/csl_progress_bar_highlight</item> 
+        <item name="android:minHeight">@dimen/csl_button_min_height</item> <item 
+        name="android:minWidth">@dimen/csl_button_min_width</item> </style> -->
+
+</resources>

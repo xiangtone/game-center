@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/csl_cs_padding_size"
+    android:layout_marginRight="@dimen/csl_cs_padding_size"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/normal_margin_padding_medium"
+        android:text="@string/game_recommend"
+        android:textColor="@color/csl_black_cc"
+        android:textSize="@dimen/nui_text_size_large" />
+
+    <com.hykj.gamecenter.ui.widget.GridViewNoScroll
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="@dimen/gridview_margin_bottom" >
+    </com.hykj.gamecenter.ui.widget.GridViewNoScroll>
+
+</LinearLayout>

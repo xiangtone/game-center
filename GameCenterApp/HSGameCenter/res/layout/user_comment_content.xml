@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="15dp"
+    android:paddingTop="12dp"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:id="@+id/comment_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/csl_black"
+        android:lineSpacingExtra="5dp"
+        android:textSize="@dimen/csl_text_size_large"
+        android:maxLines="10"/>
+    
+    <RelativeLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="10dp">
+       
+        <TextView 
+            android:id="@+id/vesion_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"            
+            android:layout_marginRight="12dp"
+            android:layout_alignParentBottom="true"
+            android:textSize="@dimen/csl_text_size_small"
+            android:textColor="@color/csl_black_4c"/> 
+        <RatingBar 
+            android:id="@+id/app_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:layout_toRightOf="@id/vesion_name" 
+            android:layout_alignBottom="@id/vesion_name" 
+            android:paddingBottom="4dp"         
+            android:numStars="5"
+            android:stepSize="0.5"
+            style="@style/RatingBar"/>     
+        
+        <TextView 
+            android:id="@+id/comment_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/csl_text_size_small"
+            android:textColor="@color/csl_black_4c"/>
+        
+         <TextView 
+            android:id="@+id/product_model"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/comment_date"
+            android:layout_alignBottom="@id/comment_date"
+            android:layout_marginRight="12dp"
+            android:textSize="@dimen/csl_text_size_small"
+            android:textColor="@color/csl_black_4c"/>
+        
+         <TextView 
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/product_model"
+            android:layout_alignBottom="@id/product_model"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/csl_green"
+            android:textSize="@dimen/csl_text_size_small"/>
+    </RelativeLayout>   
+
+    <View android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/comment_listview_divider"/>
+</LinearLayout>

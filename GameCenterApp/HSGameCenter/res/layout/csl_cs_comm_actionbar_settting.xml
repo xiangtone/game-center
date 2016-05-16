@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical" 
+        android:layout_marginRight="0dp">
+
+        <ImageView
+            android:id="@+id/setting_icon"
+     		android:layout_width="@dimen/csl_actionbar_imagebutton_size"
+        	android:layout_height="@dimen/csl_actionbar_imagebutton_size"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/csls_comm_actionbar_setting_icon" />
+
+        <ImageView
+            android:id="@+id/setting_tip_view"
+            android:layout_width="@dimen/tip_point_update_size"
+            android:layout_height="@dimen/tip_point_update_size"
+            android:layout_gravity="top|right"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/shape_message_tips_bg"
+            android:gravity="center"
+            android:paddingLeft="2dp"
+            android:paddingRight="3dp" />
+    </FrameLayout>
+
+</merge>

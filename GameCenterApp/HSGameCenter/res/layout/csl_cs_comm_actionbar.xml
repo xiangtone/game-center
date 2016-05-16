@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/csl_cs_action_bar_height"
+    android:background="@color/actionbar_bg_color" >
+
+    <!-- 左边操作按钮 -->
+    <LinearLayout
+        android:id="@+id/left_function_icons"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal" >
+        
+    </LinearLayout>
+
+    <com.hykj.gamecenter.ui.widget.CSRoundCornerImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/csl_cs_action_bar_logo_size"
+        android:layout_height="@dimen/csl_cs_action_bar_logo_size"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="24dp"
+        android:src="@drawable/csl_comm_actionbar_logo" />
+
+    <TextView
+        android:id="@+id/logo_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="72dp"
+        android:gravity="center_vertical"
+        android:text="@string/csl_comm_actionbar_heanline"
+        android:textColor="@color/csl_white"
+        android:textSize="@dimen/csl_text_size_xlarge" />
+
+    <TextView
+        android:id="@+id/actionbar_title"
+        style="@style/CS.Widget.CSActionBar.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:maxEms="10"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/right_function_icons"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal" >
+        
+    </LinearLayout>
+
+</merge>

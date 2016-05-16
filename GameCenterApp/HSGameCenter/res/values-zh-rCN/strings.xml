@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="home_hot_app_label">上升最快</string>
+    <string name="home_topic_game_label">精品专题</string>
+    <string name="home_hot_game_label">热门游戏</string>
+    <string name="home_must_app_label">平板必备</string>
+    <string name="home_recommed_label">推荐</string>
+    <string name="home_rank_label">排行</string>
+    <string name="home_classily_label">分类</string>
+    <string name="home_game_label">游戏</string>
+    <string name="home_my_label">我的</string>
+    <string name="home_manager">管理</string>
+    <string name="setting_about_cs">游戏中心</string>
+    <string name="setting_office_web"></string>
+    <string name="tel_number"></string>
+    <string name="setting_show_about">关于 </string>
+    <string name="local_game_label">单机游戏</string>
+    <string name="local_game_label_sel">单机游戏 精选</string>
+    <string name="topic_spec_label">专题详情</string>
+    <string name="action_bar_heanline">游戏中心</string>
+    <string name="no_data_and_server_error">服务器出错，数据未获取</string>
+    <string name="right_up">即将上线，敬请期待</string>
+    <string name="must_game_label">必备游戏</string>
+    <string name="action_bar_return">返回</string>
+    <string name="setting_about_remind">扫一扫，精品应用每日推，更有豪华礼包送</string>
+    <string name="do_no_wifi_do_download">   您设置了‘仅在WIFI环境时下载’，在3G网络下无法下载，请连接WIFI或修改设置后重试。</string>
+    <string name="do_setting">去设置</string>
+    <string name="do_kown">继续</string>
+    <string name="do_3g_download">您正使用移动数据网络，继续下载可能会产生流量费用，是否继续？</string>
+    <string name="do_yes">继续</string>
+    <string name="do_no">取消</string>
+    <!-- 帐号中心相关数据 -->
+
+    <string name="cs_accounttype">com.hykj.account</string>
+    <string name="download_title">安装帐号中心</string>
+    <string name="download_msg">您还没有安装帐号中心，是否立即安装</string>
+    <string name="download_is_online">正在下载帐号中心，请稍候&#8230;</string>
+    <string name="download_checkupdate_noupdate">获取帐号中心失败，请稍后再试</string>
+    <string name="title_fmt">管理帐户</string>
+    <string name="key1_action">帐户中心</string>
+    <string name="key1_summary">管理CS帐户</string>
+
+    <string name="setting_only_wifi_download_detail_text"></string>
+    <string name="setting_wifiauto_download">WIFI闲时自动下载游戏</string>
+    <string name="setting_wifiauto_download_detail_text"></string>
+    <string name="setting_downloaded_tosetup">下载完成后直接启动安装</string>
+    <string name="setting_setup_delete_package">安装成功后自动删除安装包</string>
+    <string name="setting_boot_download_unfinish_download">启动后自动下载未完成任务</string>
+    <string name="setting_downloaded_voice_tips">下载完成后声音提示</string>
+
+    <string name="setting_check_update_text">版本升级</string>
+    <string name="setting_auto_update_text">自动升级</string>
+    <string name="setting_auto_update_details_text">WiFi网络下，待机时自动升级</string>
+    <string name="setting_delete_pkg_details_text">安装完成后自动删除安装包</string>
+    <string name="setting_check_update_details_text">
+        当前版本
+        <xliff:g
+            id="name"
+            example="01.00">%s</xliff:g>
+    </string>
+
+    <string name="web_game_label">网络游戏</string>
+    <string name="web_game_label_sel">网络游戏 精选</string>
+    <string name="newest_game_label">新品推荐</string>
+    <string name="newest_app_label">新品推荐</string>
+    <string name="nice_app_label">精品应用</string>
+    <string name="nice_game_label">精品游戏</string>
+    <string name="topic_game_label">精品专题</string>
+    <string name="view_game_label">"查看全部&amp;gt;"</string>
+    <string name="game_detail_label">应用详情</string>
+    <string name="game_manage_label">管理中心</string>
+    <string name="title_section_download">下载管理</string>
+
+    <string name="error_msg_net_fail">当前无网络连接，请检查网络后重试</string>
+    <string name="refresh_retry_btn">点击重试</string>
+    <string name="tip_last_page">已经到底了</string>
+    <string name="install">"安装"</string>
+    <string name="installed">"已安装"</string>
+    <string name="installing">"正在安装"</string>
+    <string name="installing_donwload">"下载完成，等待安装"</string>
+    <string name="install_succeed">
+        <xliff:g id="name">%s</xliff:g>
+        已安装成功
+    </string>
+    <string name="pause">"暂停"</string>
+    <string name="pauseing">"已暂停"</string>
+    <string name="download">"下载"</string>
+    <string name="downloading">"下载中"</string>
+    <string name="reload">"重试"</string>
+    <string name="reloading">"安装失败，存储空间不足"</string>
+    <string name="delete">"删除"</string>
+    <string name="delete_succeed">"已删除任务:"</string>
+    <string name="deleted">"无法找到已下载文件，请重试"</string>
+    <string name="update_app">"更新"</string>
+    <string name="cancel">"取消"</string>
+    <string name="detail_download_label"> "下 载 : "</string>
+    <string name="detail_size_label"> "大 小 : "</string>
+    <string name="detail_developer_label">"开 发 商 : "</string>
+    <string name="detail_date_label"> "更新日期 : "</string>
+    <string name="detail_version_label"> "版 本 : "</string>
+    <string name="waiting">"等待中"</string>
+    <!-- download list fragment -->
+    <string name="download_tip_preparing">"准备下载…"</string>
+    <string name="download_tip_waiting">"排队等待中…"</string>
+    <string name="download_tip_loading" />
+    <string name="download_current_length">
+        "已下载：
+        <xliff:g
+            id="currentLength"
+            example="12MB">%s </xliff:g>
+        <xliff:g
+            id="percent"
+            example="20%"> %d%%</xliff:g>
+        "
+    </string>
+    <string name="download_tip_network_error1">"网络出错请"</string>
+    <string name="download_tip_network_error2">""</string>
+    <string name="download_tip_file_error">"安装包下载出错"</string>
+    <string name="download_tip_server_error">"请稍后再试"</string>
+    <string name="download_tip_file_noexist">"安装包已下架"</string>
+    <string name="download_tip_no_freesapce1">"存储空间不足"</string>
+    <string name="download_tip_no_freesapce2">"后重试"</string>
+    <string name="download_tip_file_deleted">"无法找到安装包"</string>
+    <string name="download_tip_same_id">"请重新升级"</string>
+    <string name="detail_app_update_title">升级说明</string>
+    <string name="detail_app_info_title">应用介绍</string>
+    <string name="detail_show_more">更多</string>
+    <string name="detail_hide_more">收起</string>
+    <string name="detail_app_pic_title">应用截图</string>
+    <string name="detail_app_info">"让我们一起牛B哄哄地玩耍吧"</string>
+    <string name="detail_snapshot_loading">正在努力加载&#8230;</string>
+    <string name="download_info">"11.21MB"</string>
+    <string name="file_not_exist">安装包已不存在</string>
+    <string name="error_get_appdetail">获取应用信息失败，请稍后重试</string>
+    <string name="current_version_label_unkown">"未知"</string>
+    <string name="update_version_label">"版本：" </string>
+    <string name="loading">正在努力加载&#8230;</string>
+    <string name="searching">正在搜索&#8230;</string>
+    <string name="back_label">"返回：" </string>
+
+    <string name="get_detail_fail">"无法获取下载信息，请稍后再试" </string>
+    <string name="group_app_count">
+        <xliff:g
+            id="number"
+            example="88">%d</xliff:g>
+        款
+    </string>
+    <string name="topic_app_count">
+        应用数量：
+        <xliff:g
+            id="number"
+            example="88">%s</xliff:g>
+        款
+    </string>
+    <string name="topic_tip">
+        专题介绍：
+        <xliff:g
+            id="number"
+            example="88">%s</xliff:g>
+    </string>
+
+    <!-- search -->
+    <string name="clear_search_history">清除搜索记录</string>
+    <string name="hot_games">附近的人都在下</string>
+    <string name="hot_search">全民热搜</string>
+    <!-- 自更新相关 -->
+    <string name="checkupdate_noupdate">当前版本已是最新版本</string>
+    <string name="checkupdate">检查更新</string>
+    <string name="update">立即升级</string>
+    <!-- string name="update_title">发现新版本，赶紧去升级吧！</string> -->
+    <string name="update_title">检测到新版本</string>
+    <string name="update_later">以后再说</string>
+    <!-- string name="update_notify_start">正在下载升级包</string> <string name="update_notify_end">升级包已下载完成</string> -->
+    <string name="update_notify_start">正在下载新版本</string>
+    <string name="update_notify_end">新版本下载完成</string>
+    <string name="update_notify_end_text">点击安装升级包</string>
+    <string name="update_notify_error">升级包下载失败，请稍后再试</string>
+    <string name="update_notify_error_text">当前无网络连接，请检查网络并稍候再试</string>
+    <!-- 更新通知栏 -->
+
+    <string name="download_notify_apps">
+        <xliff:g
+            id="count"
+            example="10">%d</xliff:g>
+        款应用正在下载
+    </string>
+    <string name="download_notify_apps_hint">点击查看下载列表</string>
+    <!-- 首页引导界面 -->
+    <string name="storage_full_msg">存储空间已满，无法安装</string>
+    <!-- 设置界面 -->
+    <string name="setting_reponsy_daclare">
+        <u>免责声明</u>
+    </string>
+    <string name="setting_copy_right_daclare"></string>
+    <string name="setting_copy_right_own"></string>
+    <!-- 2.0详情界面 -->
+    <string name="app_software_detail_app_version_tag">版本: </string>
+    <string name="app_software_detail_app_language_tag">语言: </string>
+    <string name="app_software_detail_app_size_tag">大小: </string>
+    <string name="app_software_detail_app_update_tag">更新: </string>
+    <string name="app_software_detail_app_developer_tag">开发商: </string>
+    <string name="app_software_detail_app_upgrade_tag">升级介绍</string>
+    <string name="app_software_detail_app_business_tag">应用介绍</string>
+    <string name="app_software_detail_upgrade_info_show_more">更多</string>
+    <string name="app_info_size_flag">
+        <xliff:g
+            id="count"
+            example="10">%d</xliff:g>
+        M
+    </string>
+    <string name="app_info_navigation_software_detail_tab_title">应用详情</string>
+    <string name="app_info_navigation_user_evaluate_tab_title">用户评价</string>
+    <string name="no_user_evaluate">暂无评论。少年，你要不要评论一下？</string>
+    <!-- 管理中心 -->
+    <string name="app_manager_navigation_download_tab_title">下载管理</string>
+
+    <string name="app_manager_bar_right_btn_edit">编辑</string>
+    <string name="app_manager_bar_right_btn_upgrade">全部升级</string>
+    <string name="app_manager_bar_left_btn_del_num">
+        已选中
+        <xliff:g
+            id="count"
+            example="10">%d</xliff:g>
+        任务
+    </string>
+    <string name="app_manager_bar_right_btn_finish">完成</string>
+    <string name="immediate_clean">立即清理</string>
+    <string name="check_network">检查</string>
+    <string name="no_upgrade_details">暂无升级详情</string>
+    <string name="have_upgrade_details">请查看升级详情</string>
+    <string name="is_in_downloadtask_list">已经在下载队列中&#8230;</string>
+    <string name="unable_to_remove_the_task">正在安装，无法删除任务</string>
+    <string name="success_to_remove_count_task">
+        已成功删除
+        <xliff:g
+            id="count"
+            example="10">%d</xliff:g>
+        个下载任务
+    </string>
+    <string name="please_to_select_task">任务选择</string>
+    <!-- 2.0通用 -->
+    <string name="app_install">安装</string>
+    <string name="app_installed">已安装</string>
+    <string name="app_pause">暂停</string>
+    <string name="app_redownload">重下</string>
+    <string name="app_retry">重试</string>
+    <string name="app_wait_to_install">待安装</string>
+    <string name="app_waiting">等待中</string>
+    <string name="app_installing">正在安装</string>
+    <string name="app_download">下载</string>
+    <string name="app_upgrade">升级</string>
+    <string name="app_downloading">下载中</string>
+    <string name="app_fail">失败</string>
+    <string name="app_resume">继续</string>
+    <string name="app_update">更新</string>
+    <string name="app_open">打开</string>
+    <string name="app_delete">删除</string>
+    <!-- 2.0排行界面 -->
+    <string name="topic_app_fragement_more_button">查看更多</string>
+    <string name="topic_app_fragement_webgame">最受欢迎网游</string>
+    <string name="topic_app_fragement_pcgame">最受欢迎单机</string>
+    <string name="app_setting_about_button_text">确定</string>
+    <!-- 2.0评论界面 -->
+    <string name="app_user_comment_grade">
+        平均
+        <xliff:g id="grade">%1$1.1f</xliff:g>
+        分
+    </string>
+    <string name="app_user_comment_sum">
+        共
+        <xliff:g id="sum">%d</xliff:g>
+        次评星
+    </string>
+    <string name="app_user_comment_num">
+        <xliff:g id="num">%d</xliff:g>
+        次
+    </string>
+    <string name="app_user_comment_button">评论</string>
+    <string name="app_user_no_comment_button">我要评论</string>
+    <string name="app_user_comment_current_version">当前版本</string>
+    <string name="app_user_comment_old_version">旧版本</string>
+    <string name="app_user_comment_title">用户评论</string>
+    <string name="app_user_comment_tab">点击星星选择评分</string>
+    <string name="app_user_comment_hint">请输入评论的内容</string>
+    <string name="app_user_no_comment_hint">不输入评论内容，真的没办法提交评论&#8230;</string>
+    <string name="app_user_comment_submit">提交</string>
+    <string name="app_user_comment_char_number">
+        <xliff:g id="name">%d</xliff:g>
+        /150
+    </string>
+    <string name="app_user_comment_no">暂无用户评论</string>
+    <string name="app_user_comment_default_num">0次</string>
+    <string name="app_user_comment_anonymous">游客</string>
+
+    <string name="app_user_comment_download">下载</string>
+    <string name="app_user_comment_new_title">
+        撰写评论：
+        <xliff:g id="writecomment">%s</xliff:g>
+    </string>
+    <string name="app_user_comment_update_title">
+        更新评论：
+        <xliff:g id="updatecomment">%s</xliff:g>
+    </string>
+    <string name="app_user_comment_submit_net_error">网络不给力啊老湿,请检查网络后重试</string>
+    <string name="app_user_comment_submiting">正在提交&#8230;</string>
+    <string name="app_user_comment_product_model">
+        (
+        <xliff:g id="name">%s</xliff:g>
+        )
+    </string>
+
+    <string-array name="app_comment_recommend_game_graphics">
+        <item>界面非常简洁</item>
+        <item>界面真是太漂亮了</item>
+        <item>界面非常精美</item>
+    </string-array>
+    <string-array name="app_comment_recommend_game_play">
+        <item>功能简单实用</item>
+        <item>功能非常全面</item>
+        <item>功能设计不错，好用</item>
+    </string-array>
+    <string-array name="app_comment_recommend_game_operate">
+        <item>速度很快</item>
+        <item>使用方便</item>
+        <item>操作流畅，很爽</item>
+    </string-array>
+    <string-array name="app_comment_recommend_game_player">
+        <item>很好的应用，推荐下载</item>
+        <item>朋友推荐我玩的，不错</item>
+        <item>身边使用的朋友很多</item>
+    </string-array>
+    <string-array name="app_comment_recommend_game_stability">
+        <item>应用很稳定</item>
+        <item>稳定的操作体验，很赞</item>
+        <item>应用优化不错，稳定</item>
+    </string-array>
+    <string-array name="app_comment_recommend_game_story">
+        <item>很喜欢这款应用</item>
+        <item>应用非常棒</item>
+        <item>很喜欢，绿色无广告</item>
+    </string-array>
+
+    <!-- 首页 -->
+
+    <string name="game_center_in_tip">
+        您还有
+        <xliff:g id="dlcount">%d</xliff:g>
+        个应用未下载完成或安装，是否继续？
+    </string>
+    <string name="imediate_to_handle">立即处理</string>
+    <string name="wait_to_handle">稍后处理</string>
+    <string name="show_more">更多</string>
+    <!-- 下载暂停原因 -->
+    <string name="not_wifi_stop">非wifi情况下，系统将任务加入下载队列之后，自动暂停下载任务</string>
+    <string name="user_active_stop">用户主动暂停</string>
+    <string name="game_classify_title">游戏分类</string>
+    <string name="app_classify_title">应用分类</string>
+
+    <string name="install_immediatelly">马上安装</string>
+    <string name="skip">跳过</string>
+    <string name="novice_guidance_install">
+        安装 (
+        <xliff:g
+            id="count"
+            example="0">%d</xliff:g>
+        )
+    </string>
+    <string name="hotapps">热门</string>
+    <string name="newestapps">最新</string>
+    <string name="subjectapps">专题</string>
+    <string name="requiredapps">必备</string>
+    <string name="setting">设置</string>
+
+    <string name="clean_cache">清除缓存</string>
+    <string name="do_clean">清除</string>
+    <string name="apps">应用</string>
+    <string name="games">游戏</string>
+    <string name="onekeyupdate">一键升级</string>
+
+    <string name="recommend_head">官方推荐</string>
+    <string name="net_exception">网络异常，请重试</string>
+    <string
+        name="long_string"
+        translatable="false">looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong</string>
+    <!-- 个人中心 -->
+    <string name="persional_center">个人中心</string>
+    <string name="quick_login">快速登录</string>
+    <string name="person_recharge">充值</string>
+    <string name="person_recharge_history">充值记录</string>
+    <string name="person_consume_history">消费记录</string>
+    <string name="person_account_manage">账号管理</string>
+    <string name="title_activity_person_login">PersonLogin</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="intput_mobile">请输入手机号</string>
+    <string name="input_captcha">请输入验证码</string>
+    <string name="login">登录</string>
+    <string name="get_captcha">获取验证码</string>
+    <string name="get_captcha_after">%1$s 秒后重新获取</string>
+    <string name="title_activity_sdk">SDKActivity</string>
+    <string name="main_sf_login_hint">您还没有登录帐号</string>
+    <string name="recharge_now">立即充值</string>
+    <string name="pay_right">确认支付</string>
+    <string name="pay_charge">%1$s 支付确认</string>
+    <string name="balance_not_enough">%1$s 余额不足</string>
+    <string name="tips">提示</string>
+    <string name="back_game">返回游戏</string>
+    <string name="re_login">重新登录</string>
+    <string name="title_activity_consume_history">ConsumeHistory</string>
+
+    <string name="title_activity_account_manager">AccountManagerActivity</string>
+    <string name="title_username">用户名</string>
+    <string name="title_account_exit">退出登录</string>
+    <string name="title_activity_rename">RenameActivity</string>
+    <string name="title_rename">用户名修改</string>
+    <string name="btn_title_modify">修改</string>
+    <string name="edit_hint_account">请输入用户名(2&#8211;24位字符)</string>
+    <string name="title_exit">退出提示</string>
+    <string name="content_exit">确定要退出当前登录的账号吗？</string>
+    <string name="exit">退出</string>
+    <string name="user_aggrement_accept">登录表示您同意《用户服务协议》</string>
+    <string name="user_aggrement">用户服务协议</string>
+
+    <!-- all Toast -->
+    <string name="toast_name_not_null">用户名不能为空</string>
+    <string name="toast_name_has_used">此用户名已被占用</string>
+    <string name="toast_name_less">用户名长度错误</string>
+    <string name="toast_name_cannot_allnumber">不支持纯数字的用户名,请重新输入</string>
+    <string name="toast_not_useful_account">请输入有效的手机号码</string>
+    <string name="toast_validate_error">验证码错误</string>
+    <string name="toast_rename_succeed">用户名修改成功</string>
+    <string name="toast_name_not_accept">用户名不符合规则</string>
+    <string name="toast_balance_not_enough">余额不足,请先充值</string>
+    <string name="toast_game_login_succeed">%1$s,欢迎进入游戏</string>
+    <string name="toast_consume_succeed">支付成功</string>
+    <string name="toast_third_login_failed">第三方登录失败</string>
+    <string name="toast_not_install_qq">未安装QQ或者版本过低，请下载最新版本</string>
+    <string name="toast_not_install_mm">未安装微信或者版本过低，请下载最新版本</string>
+    <!-- tips -->
+    <string name="toast_error_openid">您的账号已在另一台设备上登录。如非本人操作，请重新登录</string>
+
+    <!-- 1.1 -->
+    <string name="title_other_login">其他方式登录：</string>
+    <string name="title_activity_wxentry">WXEntryActivity</string>
+
+    <!-- 个人中心 充值模块 -->
+
+    <string name="recharge_description_mobile">支持移动、联通、电信充值卡，请选择面额：</string>
+    <string name="recharge_customer_hotline">客服热线：</string>
+    <string name="recharge_customer_hotlinenum">0755&#8211;86720985</string>
+    <string name="recharge_customer_des">本服务由牛玩智能科技有限公司提供</string>
+    <string name="recharge_actionbar_help_title">充值帮助说明</string>
+    <string name="consume_actionbar_help_title">消费帮助说明</string>
+    <string name="recharge_account">账户充值</string>
+    <string name="recharge_history">充值记录</string>
+    <string name="consume_history">消费记录</string>
+    <string name="recharge_history_nodata">暂无充值记录</string>
+    <string name="consume_history_nodata">暂无消费记录</string>
+    <string name="recharge_yuan">元</string>
+    <string name="pay_bill_button">充值</string>
+    <string name="pay_bill_paying_now">立即充值</string>
+    <string name="pay_bill_paying_button">正在充值中&#8230;</string>
+    <string name="recharge_pay_failed">支付失败</string>
+    <string name="recharge_pay_unit">充值金额(元)：</string>
+    <string name="recharge_pay_card">卡号：</string>
+    <string name="recharge_pay_password">密码：</string>
+    <string name="recharge_pay_cardhint">请输入充值卡号码</string>
+    <string name="recharge_pay_passwordhint">请输入充值卡密码</string>
+    <string name="recharge_pay_mobile_desa">温馨提示：</string>
+    <string name="recharge_pay_mobile_desb">1.请保证选择的充值卡面额与实际面额一致，否则可能会导致充值失败</string>
+    <string name="recharge_pay_mobile_desc">2.一张有效的卡号密码只支持一次性充值，不可多次充值</string>
+    <string name="recharge_pay_union_desb">现已支持招商银行、平安银行、建设银行、工商银行等银行的借记卡或信用卡充值。
+    </string>
+    <string name="recharge_pay_hint">单笔金额为1~1000元</string>
+    <string name="recharge_item_icondes">icon</string>
+    <string name="recharge_item_arrowdes">arrow</string>
+    <string name="recharge_style_alipay">支付宝</string>
+    <string name="recharge_style_wechatpay">微信支付</string>
+    <string name="recharge_style_unionpay">银行卡</string>
+    <string name="recharge_style_mobilepay">手机充值</string>
+    <string name="recharge_text_success">充值成功</string>
+    <string name="recharge_text_failed">充值失败</string>
+    <string name="recharge_text_done">预计10分钟内到账。</string>
+    <string name="alipay_error_msg_payfailed">订单支付失败</string>
+    <string name="alipay_error_msg_paycancled">订单已取消，请稍后再试。</string>
+    <string name="alipay_error_msg_netfailed">网络连接出错</string>
+    <string name="alipay_error_msg_payconfirm">支付结果确认中</string>
+    <string name="wechat_pay_notsupport">未安装微信或者版本过低，暂不支持微信支付。请下载新版微信后重试。</string>
+    <string name="recharge_text_finished">"您的账户已成功充值"</string>
+    <string name="recharge_item_count_des">充值金额：</string>
+    <string name="recharge_item_order_desa">充值卡号：</string>
+    <string name="recharge_item_order_desb">订单号码：</string>
+    <string name="consume_item_order_desa">消费金额：</string>
+    <string name="consume_item_order_desb">购买商品：</string>
+
+    <!-- 2015.8.4 -->
+    <string name="search_search_hot">全民热搜</string>
+    <string name="text_downtimes_wan">
+        <xliff:g
+            id="count"
+            example="0">%s</xliff:g>
+        万人下载
+    </string>
+    <string name="text_downtimes_thousand">
+        <xliff:g
+            id="count"
+            example="0">%s</xliff:g>
+        千人下载
+    </string>
+    <string name="text_downtimes_other">
+        下载
+        <xliff:g id="count">%s</xliff:g>
+        次
+    </string>
+
+    <string-array name="hot_words_list">
+        <!-- <item>宝剑</item> <item>超级大宝剑</item> <item>宝剑1号</item> <item>宝剑66666666</item> 
+            <item>愤怒的宝剑</item> <item>宝剑塔防</item> <item>宝剑爱消除</item> <item>宝剑跑酷</item> 
+            <item>宝剑疯了</item> <item>萌萌哒1</item> <item>萌萌哒2</item> <item>萌萌哒666666</item> -->
+        <item>斗地主</item>
+        <item>单机游戏</item>
+        <item>跑酷</item>
+        <item>植物大战僵尸</item>
+        <item>三国</item>
+        <item>塔防</item>
+        <item>神庙逃亡</item>
+        <item>愤怒的小鸟</item>
+        <item>网络游戏</item>
+        <item>天天爱消除</item>
+        <item>扑克棋牌</item>
+        <item>捕鱼</item>
+    </string-array>
+
+    <string name="safe_safe">安全</string>
+    <string name="safe_adv">有广告</string>
+    <string name="safe_noadv">无广告</string>
+    <string name="safe_free">免费</string>
+    <string name="safe_nofree">道具收费</string>
+    <string name="rating5">5星</string>
+    <string name="rating4">4星</string>
+    <string name="rating3">3星</string>
+    <string name="rating2">2星</string>
+    <string name="rating1">1星</string>
+    <string name="grage_title">应用评星</string>
+    <string name="grade_app">我要评星</string>
+    <string name="already_grade">您已评星</string>
+    <string name="person_user_feedback">用户反馈</string>
+    <string name="lable_feedback">请留下您的联系方式，以便我们及时与您联系</string>
+    <string name="hint_feedback">请输入反馈内容，字数控制在140内</string>
+    <string name="btn_text_submit">提交反馈</string>
+    <string name="title_feedback">用户反馈</string>
+    <string name="toast_feedback_succeed">感谢反馈，我们会及时为您跟进</string>
+    <string name="toast_feedback_needed">请输入反馈内容</string>
+    <string name="submit">提交</string>
+    <string name="rating_please">轻点星星来评分</string>
+    <string-array name="rating_hint">
+        <item>轻点星星来评分</item>
+        <item>不好玩</item>
+        <item>不喜欢</item>
+        <item>还可以</item>
+        <item>挺好玩</item>
+        <item>超好玩</item>
+    </string-array>
+    <string name="toast_thank_rate">提交成功，感谢您的评星</string>
+    <string name="game_recommend">大家都在玩</string>
+    <!-- 注意，以下为全角空格 -->
+    <string name="more">&#8230;　　</string>
+
+    <!-- 2015.8.27 -->
+    <string name="check_title_continue">退出仍下载安装进行中的任务</string>
+    <string name="title_activity_feedback">FeedbackActivity</string>
+
+    <string name="improper_detail">权限详情</string>
+    <string name="improper_detail_view">查看权限</string>
+    <string-array name="improper_report_list">
+        <item>强制广告</item>
+        <item>无法安装</item>
+        <item>质量不好</item>
+        <item>版本较旧</item>
+        <item>恶意扣费</item>
+        <item>携带病毒</item>
+    </string-array>
+
+    <!-- 2015.09.07 -->
+    <string name="download_title_continue">进行中</string>
+    <string name="download_title_finished">已完成</string>
+    <string name="improper_report_hint">更多描述&#8230;</string>
+    <string name="improper_report_start">提交举报</string>
+    <string name="improper_report_again">%1$s 秒后再次提交</string>
+    <string name="no_improper_detail">暂无权限详情</string>
+    <string name="improper_report_neterror">未连接网络或网络异常，请检查后重试</string>
+    <string name="improper_report_result">感谢举报，我们会及时为您跟进</string>
+    <string name="improper_report_tip">请选择或输入举报内容</string>
+
+    <string name="no_hint_later">下次不再提示</string>
+    <string name="wifi_download_tips">你目前在WIFI环境下，请放心下载</string>
+    <string name="download_all">一键下载</string>
+    <string name="first_start_tips">欢迎使用游戏中心。为了向您提供全面的服务，需使用如下权限：
+访问互联网，将产生数据流量。数据流量费由运营商收取，具体资费标准请咨询当地网络运营商。
+查看、改变网络或WLAN状态权限。
+管理账户列表、防止休眠权限。
+读/写/应用程序、存储数据权限。
+安装/卸载应用程序、文件权限。
+获取大致位置信息(基于网络)权限
+上述操作，若未经用户允许，本软件绝不会对用户联系人信息、通话记录、应用软件等进行扫描，也不会收集、处理或泄露个人隐私信息。
+选择“确定”即表示您已清楚了解本软件所调用的权限并同意使用本软件。</string>
+    <string name="ok">确定</string>
+
+    <!-- 2015.12.28 -->
+    <string name="downloading_percent">
+        下载中
+        <xliff:g
+            id="count"
+            example="0">%s</xliff:g>
+        "%%"
+    </string>
+
+    <string name="first_publish">首发</string>
+    <string name="first_beta">内测</string>
+    <string name="first_compaign">活动</string>
+    <string name="first_official">官方</string>
+    <string name="first_gift">礼包</string>
+    <string name="search_common_hint">搜索游戏</string>
+
+</resources>

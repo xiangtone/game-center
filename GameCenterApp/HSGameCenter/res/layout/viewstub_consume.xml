@@ -1,0 +1,137 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="22dp"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/rectround_white"
+        android:padding="@dimen/normal_margin_padding_bigger4"
+        android:paddingTop="@dimen/normal_margin_padding_bigger" >
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/normal_margin_padding_bigger"
+            android:textSize="@dimen/nui_text_size_large"
+            android:text="@string/app_name" />
+
+        <LinearLayout
+            android:id="@+id/layoutInfoFrame"
+            android:layout_width="@dimen/csl_cs_alert_dialog_width"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textTitle"
+            android:orientation="vertical"
+             >
+             <LinearLayout 
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 >
+                 <TextView 
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="商品: "
+                    android:textSize="@dimen/nui_text_size_small"
+                     />
+                 <TextView 
+                     android:id="@+id/textAppName"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:singleLine="true"
+                     android:ellipsize="end"
+                     android:text="梦幻西游"
+                     android:textSize="@dimen/nui_text_size_small"
+                     />
+                 
+             </LinearLayout>
+             <LinearLayout 
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 >
+                 <TextView 
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="售价: "
+                    android:textSize="@dimen/nui_text_size_small"
+                     />
+                 <TextView 
+                     android:id="@+id/textPrice"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:singleLine="true"
+                     android:ellipsize="end"
+                     android:text="6金币"
+                     android:textColor="@color/normal_blue"
+                     android:textSize="@dimen/nui_text_size_small"
+                     />
+                 
+             </LinearLayout>
+             <LinearLayout 
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 >
+                 <TextView 
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="余额: "
+                    android:textSize="@dimen/nui_text_size_small"
+                     />
+                 <TextView 
+                     android:id="@+id/textBalance"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:singleLine="true"
+                     android:ellipsize="end"
+                     android:text="0金币"
+                     android:textSize="@dimen/nui_text_size_small"
+                     />
+                 
+             </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="@dimen/csl_cs_alert_dialog_width"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layoutInfoFrame"
+            android:layout_marginTop="@dimen/normal_margin_padding_medium" >
+
+            <Button
+                android:id="@+id/btnPayRecharge"
+                style="@style/NoShadowGreenButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/csl_cs_alert_dialog_btn_height"
+                android:gravity="center"
+                android:text="@string/recharge_now"
+				android:background="@drawable/btn_green_green_selector"
+                android:textSize="@dimen/nui_text_size_small" />
+
+            <ProgressBar
+                android:id="@+id/progressPayRecharge"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/btn_loginh"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="4dp"
+                android:indeterminateDrawable="@drawable/loading_icon"
+                android:visibility="gone" />
+        </FrameLayout>
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/imgPayRechargeClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:background="@drawable/close_right_selector" />
+
+</FrameLayout>

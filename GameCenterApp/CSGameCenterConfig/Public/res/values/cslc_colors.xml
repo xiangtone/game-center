@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<color name="csl_cs_green">#1096ee</color>
+	
+	<color name="csl_green">#1096ee</color>
+    
+    	<color name="csl_tab_indicator_color">#1096ee</color>
+
+	<!-- tab divider color -->
+	<color name="csl_tab_divider_color">#4d4e54</color>
+
+
+	<color name="csl_tab_text_default_color">#ffffff</color>
+	<color name="csl_tab_text_selector_color">#ffffff</color>
+
+</resources>

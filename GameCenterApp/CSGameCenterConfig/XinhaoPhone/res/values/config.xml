@@ -1,0 +1,18 @@
+<resources>
+
+    <bool name="config_debug_mode">false</bool>
+    
+    <!-- 显示actionBar上logoIcon:true.显示,false.不显示-->
+    <bool name="action_bar_show_logo_icon" >true</bool>
+    <!-- 显示actionBar上logoTitle:true.显示,false.不显示-->
+    <bool name="action_bar_show_logo_title" >true</bool>
+    <!-- 显示actionBar上indicate:true.显示,false.不显示-->
+    <bool name="action_bar_show_indicate" >true</bool>
+    <!-- 显示actionBar上indicate的类型:1.画图片0.画直线-->
+    <integer name="action_bar_indicate_type" >0</integer>
+    <!-- 显示actionBar上underline:true.画,false.不画-->
+    <bool name="action_bar_draw_underline">true</bool>
+    <!-- 设备类型:0.平板 1.手机-->
+    <integer name="devices_type" >1</integer>
+
+</resources>

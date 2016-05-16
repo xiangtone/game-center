@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  xmlns:appstore="http://schemas.android.com/apk/res-auto"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  android:layout_gravity="center_horizontal"
+			  android:orientation="vertical">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+
+			<FrameLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				>
+				<!-- android:layout_height="@dimen/recommend_headview_adv_height" -->
+				<RelativeLayout
+					android:id="@+id/relativeLayoutAdv"
+					style="@style/HomePage"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+
+					<com.hykj.gamecenter.ui.HorizonScrollLayout
+						android:id="@+id/top_ad_1"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:background="@color/recommend_bg_color"
+						appstore:RATIO_X="2"
+						appstore:RATIO_Y="2"
+						>
+					</com.hykj.gamecenter.ui.HorizonScrollLayout>
+
+					<com.hykj.gamecenter.ui.DotProgressBar
+						android:id="@+id/top_ad_dot"
+						android:layout_width="wrap_content"
+						android:layout_height="10dp"
+						android:layout_alignParentBottom="true"
+						android:layout_alignParentRight="true"
+						android:layout_marginBottom="5dp"
+						android:layout_marginRight="10dp"/>
+				</RelativeLayout>
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:orientation="horizontal"
+					android:weightSum="3">
+
+					<FrameLayout
+						android:layout_width="0dp"
+						android:layout_height="match_parent"
+						android:layout_weight="2"
+						android:background="@color/transparent"
+						android:visibility="gone">
+
+						<TextView
+							android:layout_width="match_parent"
+							android:layout_height="match_parent"
+							android:background="@color/transparent"
+							android:visibility="invisible"/>
+
+						<com.hykj.gamecenter.ui.DotProgressBar
+							android:id="@+id/top_ad_dot3"
+							android:layout_width="wrap_content"
+							android:layout_height="10dp"
+							android:layout_gravity="center_horizontal|bottom"
+							android:layout_marginBottom="5dp"/>
+					</FrameLayout>
+
+					<LinearLayout
+						android:id="@+id/entry_category"
+						android:layout_width="0dp"
+						android:layout_height="match_parent"
+						android:layout_weight="1"
+						android:background="@color/csl_black_7f"
+						android:orientation="vertical"
+						android:weightSum="2"
+						>
+
+						<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="0dp"
+							android:layout_weight="1"
+							android:background="@color/csl_black_7f"
+							android:orientation="horizontal"
+							android:weightSum="2"
+							>
+
+							<ImageView
+								android:id="@+id/entry_favourite"
+								android:layout_width="0dp"
+								android:layout_height="match_parent"
+								android:layout_weight="1"
+								android:background="@drawable/btn_entry_hot_selector"/>
+
+							<ImageView
+								android:id="@+id/entry_newestapp"
+								android:layout_width="0dp"
+								android:layout_height="match_parent"
+								android:layout_weight="1"
+								android:background="@drawable/btn_entry_newestapp_selector"/>
+						</LinearLayout>
+
+						<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="0dp"
+							android:layout_weight="1"
+							android:background="@color/csl_black_7f"
+							android:orientation="horizontal"
+							android:weightSum="2"
+							>
+
+							<ImageView
+								android:id="@+id/entry_subject"
+								android:layout_width="0dp"
+								android:layout_height="match_parent"
+								android:layout_weight="1"
+								android:background="@drawable/btn_entry_subject_selector"/>
+
+							<ImageView
+								android:id="@+id/entry_essential"
+								android:layout_width="0dp"
+								android:layout_height="match_parent"
+								android:layout_weight="1"
+								android:background="@drawable/btn_entry_essential_selector"/>
+						</LinearLayout>
+					</LinearLayout>
+
+					<FrameLayout
+						android:id="@+id/adv_info_framelayout"
+						android:layout_width="0dp"
+						android:layout_height="match_parent"
+						android:layout_weight="3"
+						android:background="@color/csl_black_7f"
+						android:visibility="gone">
+
+						<LinearLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center_vertical"
+							android:layout_marginLeft="@dimen/csl_cs_padding_size"
+							android:orientation="vertical">
+
+							<TextView
+								android:id="@+id/adv_name"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:ellipsize="end"
+								android:gravity="center_vertical"
+								android:singleLine="true"
+								android:textColor="@color/csl_white"
+								android:textSize="@dimen/csl_text_size_large"/>
+
+							<TextView
+								android:id="@+id/adv_desc"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_marginTop="@dimen/csl_cs_padding_size"
+								android:ellipsize="end"
+								android:gravity="center_vertical"
+								android:maxLines="5"
+								android:textColor="@color/csl_white"
+								android:textSize="@dimen/csl_text_size_small"/>
+						</LinearLayout>
+
+						<com.hykj.gamecenter.ui.DotProgressBar
+							android:id="@+id/top_ad_dot2"
+							android:layout_width="wrap_content"
+							android:layout_height="10dp"
+							android:layout_gravity="bottom|right"
+							android:layout_marginBottom="5dp"
+							android:layout_marginRight="5dp"
+							android:visibility="gone"/>
+					</FrameLayout>
+				</LinearLayout>
+			</FrameLayout>
+
+			<LinearLayout
+				android:id="@+id/layout_portait_category"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/entry_height_onda"
+				android:minHeight="@dimen/entry_height_onda"
+				android:orientation="horizontal"
+				android:paddingBottom="@dimen/entry_padding_top_onda"
+				android:paddingLeft="@dimen/entry_padding_left_onda"
+				android:paddingRight="@dimen/entry_padding_left_onda"
+				android:paddingTop="@dimen/entry_padding_top_onda">
+				<!-- android:minHeight="@dimen/subject_entry_height" -->
+
+				<RelativeLayout
+					android:id="@+id/entry_favourite"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:background="@drawable/btn_favourite_left_selector">
+
+						<TextView
+							style="@style/entry_text_little"
+							android:drawableLeft="@drawable/img_entry_favourite_hot"
+							android:layout_centerInParent="true"
+							android:text="@string/hotapps"/>
+
+
+				</RelativeLayout>
+
+				<RelativeLayout
+					android:id="@+id/entry_newestapp"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:background="@drawable/btn_newest_middle_selector">
+
+						<TextView
+							style="@style/entry_text_little"
+							android:drawableLeft="@drawable/img_entry_favourite_new"
+							android:layout_centerInParent="true"
+							android:text="@string/newestapps"/>
+
+				</RelativeLayout>
+
+				<RelativeLayout
+					android:id="@+id/entry_subject"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:background="@drawable/btn_newest_middle_selector">
+
+						<TextView
+							style="@style/entry_text_little"
+							android:drawableLeft="@drawable/img_entry_favourite_subject"
+							android:layout_centerInParent="true"
+							android:text="@string/subjectapps"/>
+
+
+				</RelativeLayout>
+
+				<RelativeLayout
+					android:id="@+id/entry_essential"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					android:layout_weight="1"
+					android:background="@drawable/btn_essential_right_selector">
+
+					<TextView
+						style="@style/entry_text_little"
+						android:layout_centerInParent="true"
+						android:drawableLeft="@drawable/img_entry_favourite_essential"
+						android:text="@string/requiredapps"/>
+
+				</RelativeLayout>
+
+			</LinearLayout>
+		</LinearLayout>
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/horizon_scroll_mask"
+			android:visibility="gone"/>
+	</FrameLayout>
+
+	<include
+		layout="@layout/group_head_view"
+		android:visibility="gone"/>
+
+	<TextView
+		android:id="@+id/list_item_divider"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/list_view_divider_width"
+		android:layout_marginLeft="@dimen/list_view_item_spacing"
+		android:layout_marginRight="@dimen/list_view_item_spacing"
+		android:background="@drawable/app_info_header_horizontal_line"/>
+
+</LinearLayout>

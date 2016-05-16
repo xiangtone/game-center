@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:minHeight="@dimen/settings_navigator_menu_item_height"
+    android:paddingLeft="@dimen/list_view_item_spacing"
+    android:paddingRight="@dimen/list_view_item_spacing"
+    android:descendantFocusability="blocksDescendants">
+   
+    <View 
+        android:layout_height="match_parent"
+        android:layout_width="1dp"
+        android:background="@color/csl_white"/>
+    
+    <LinearLayout 
+        android:layout_width="72dp" 
+        android:layout_height="match_parent"
+        android:background="#fafafa"
+        android:gravity="center">
+        <ImageView 
+	        android:id="@+id/item_label"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:src="@drawable/icon_about"
+	        android:visibility="gone"/>
+    </LinearLayout>
+    
+    <View 
+        android:layout_height="match_parent"
+        android:layout_width="1dp"
+        android:background="@color/background"/>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/setting_background_item">
+        <TextView
+	        android:id="@+id/setting_text"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:duplicateParentState="true"
+	        android:textColor="@color/cc_black"
+        	android:textSize="@dimen/setting_details_text_size"/>
+    
+    
+	    <ImageView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:layout_alignParentRight="true"
+	        android:duplicateParentState="true"
+	        android:src="@drawable/icon_arrow" />
+    </RelativeLayout>
+    
+    
+</LinearLayout>

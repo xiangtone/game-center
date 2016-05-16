@@ -1,0 +1,23 @@
+<com.hykj.gamecenter.ui.widget.InterceptTouchFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/csl_cs_padding_size"
+    android:paddingRight="@dimen/csl_cs_padding_size"
+    android:background="@color/background" >
+
+    <include
+        android:id="@+id/loading_interface"
+        layout="@layout/csl_cs_general_loading" />
+    
+    <ListView
+        android:id="@+id/app_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:groupIndicator="@null"
+        android:listSelector="@color/background"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:visibility="gone" />
+
+</com.hykj.gamecenter.ui.widget.InterceptTouchFrameLayout>

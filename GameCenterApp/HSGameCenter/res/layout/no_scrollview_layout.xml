@@ -1,0 +1,18 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<FrameLayout
+		android:id="@+id/scrollview"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:overScrollMode="never"
+		android:scrollbars="none">
+
+		<LinearLayout
+			android:id="@+id/gallery_container"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:orientation="vertical"/>
+	</FrameLayout>
+
+</merge>

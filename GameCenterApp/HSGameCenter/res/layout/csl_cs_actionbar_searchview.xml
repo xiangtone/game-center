@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/csl_cs_actionbar_searchview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:visibility="gone" >
+
+    <ImageView
+        android:id="@+id/return_icon"
+        android:layout_width="@dimen/csl_actionbar_imagebutton_size"
+        android:layout_height="@dimen/csl_actionbar_imagebutton_size"
+        android:layout_marginLeft="@dimen/csl_cs_padding_half_size"
+        android:gravity="center"
+        android:src="@drawable/csls_comm_actionbar_return" />
+
+    <RelativeLayout
+        android:id="@+id/csl_listview_header_content"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/csl_actionbar_imagebutton_size"
+        android:layout_marginLeft="@dimen/csl_cs_padding_half_size"
+        android:layout_marginRight="@dimen/csl_cs_padding_half_size"
+        android:layout_weight="1" >
+
+        <EditText
+            android:id="@id/csl_cs_actionbar_search_edit"
+            style="?attr/plCSActionBarSearchEditTextAppearance"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/csl_cs_header_bar_btn_height"
+            android:background="@drawable/shape_rect_framework"
+            android:layout_centerVertical="true"
+            android:hint="@string/csl_search_hint"
+            android:imeOptions="flagNoExtractUi|actionSearch"
+            android:maxLength="27"
+            android:paddingStart="40dp"
+            android:singleLine="true"
+            android:textColorHint="@color/csl_black_4c" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/csl_ab_bt_search" />
+
+        <ImageView
+            android:id="@+id/csl_cs_actionbar_clear_image"
+            android:layout_width="@dimen/csl_actionbar_imagebutton_size"
+            android:layout_height="@dimen/csl_actionbar_imagebutton_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/csls_actionbar_clear_icon" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/csl_actionbar_imagebutton_size"
+        android:layout_marginLeft="@dimen/csl_cs_padding_half_size"
+        android:layout_marginRight="@dimen/csl_cs_padding_size"
+        android:gravity="center"
+        android:visibility="gone" >
+
+        <Button
+            android:id="@id/csl_cs_actionbar_search_button"
+            style="@style/NoShadowGreenButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/csl_search"
+            android:textColor="@color/cs_white"
+            android:textSize="@dimen/csl_text_size_middle" />
+
+        <Button
+            android:id="@id/csl_cs_actionbar_homeup_button"
+            style="@style/NoShadowWhiteButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/csl_back"
+            android:textColor="@color/csl_black_7f"
+            android:textSize="@dimen/csl_text_size_middle" />
+    </FrameLayout>
+
+</LinearLayout>

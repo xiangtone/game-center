@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recharge_list_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/detail_background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.hykj.gamecenter.ui.widget.CSCommonActionBar
+        android:id="@+id/ActionBar"
+        style="@style/ActionBar"
+        cs:comm_showLogo="false"
+        cs:comm_showManage="false"
+        cs:comm_showReturn="true"
+        cs:comm_showRightEdit="false"
+        cs:comm_showSetting="true"
+        cs:comm_showTitle="true" />
+
+    <FrameLayout
+        android:id="@+id/fragment_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+    <!-- <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"> 
+        <com.niuwan.gamecenter.ui.widget.CSLoadingView android:id="@+id/cs_loading" 
+        android:layout_width="match_parent" android:layout_height="match_parent" 
+        /> </FrameLayout> -->
+
+</LinearLayout>

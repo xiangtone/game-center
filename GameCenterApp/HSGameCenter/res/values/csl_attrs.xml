@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  -->
+    <declare-styleable name="CSTheme">
+
+        <!-- actionbar -->
+        <attr name="plCSActionBarTileTextAppearance" format="reference" />
+        <attr name="plCSActionBarHomeUpTitleTextAppearance" format="reference" />
+        <attr name="plCSActionBarSearchEditTextAppearance" format="reference" />
+        <attr name="plCSActionBarStyle" format="reference" />
+        <attr name="plCSActionBarTitleStyle" format="reference" />
+        <attr name="plCSActionBarHomeUpTitleStyle" format="reference" />
+        <!-- infobar -->
+        <attr name="plCSInfoBarUserNameTextView" format="reference" />
+        <attr name="plCSInfoBarUserLevelTextView" format="reference" />
+        <attr name="plCSInfoBarButton" format="reference" />
+        <attr name="plCSInfoBarFunctionTextView" format="reference" />
+        <attr name="plCSInfoBarBalanceNumberTextView" format="reference" />
+        <attr name="plCSInfoBarBalanceUnitTextView" format="reference" />
+        <attr name="plFooterBarStyle" format="reference" />
+        <attr name="plHeaderBarStyle" format="reference" />
+        <!-- List -->
+        <attr name="plCSListStyle" format="reference" />
+
+        <!-- progress -->
+        <attr name="plCSProgrssSmall" format="reference" />
+        <!-- pullrefreshHeader -->
+        <attr name="plCSListHeaderTextView" format="reference" />
+        <!-- button -->
+        <attr name="plCSNormalButton" format="reference" />
+    </declare-styleable>
+
+    <!--  -->
+    <declare-styleable name="CSActionBar">
+
+        <!-- 中间显示的title -->
+        <attr name="title" format="string" />
+        <!-- 是否显示title ,当attchView=searchView时，不显示title -->
+        <attr name="showTitle" format="boolean" />
+        <!-- 在hometoUp图标右边显示的title -->
+        <attr name="homeUpTitle" format="string" />
+        <!-- 是否显示homeup title -->
+        <attr name="showHomeUpTitle" format="boolean" />
+        <attr name="attchView">
+            <enum name="noneView" value="0" />
+            <enum name="buttonView" value="1" />
+            <enum name="searchView" value="2" />
+        </attr>
+        <!-- 当选buttonView时，下边选项生效 -->
+        <attr name="attchButtons">
+
+            <!-- Match no patterns (default). -->
+            <flag name="none" value="0x00" />
+            <!-- Match search button -->
+            <flag name="search" value="0x01" />
+            <!-- Match setting button. -->
+            <flag name="setting" value="0x02" />
+            <!-- Match recharge button. -->
+            <flag name="recharge" value="0x04" />
+            <!-- Match all patterns (equivalent to search|setting|recharge|). -->
+            <flag name="all" value="0x07" />
+        </attr>
+    </declare-styleable>
+    
+    <!--  add at 20140113 -->
+    <declare-styleable name="CSCommonActionBar">
+        <!-- 中间显示的title -->
+        <attr name="comm_title" format="string" />
+        <!-- 是否显示title ,当attchView=searchView时，不显示title -->
+        <attr name="comm_showTitle" format="boolean" />
+        <!-- 是否显示logo -->
+        <attr name="comm_showLogo" format="boolean" />
+        <!-- 是否显示logo title -->
+        <attr name="comm_showLogoTitle" format="boolean" />
+        <!-- logo title -->
+        <attr name="comm_logoTitle" format="string" />
+        <!-- logo icon -->
+        <attr name="comm_logoIcon" format="reference" />
+        <!-- 是否显示设置按钮，默认显示 -->
+        <attr name="comm_showSetting" format="boolean" />
+        <!-- 是否显示下载管理按钮，默认显示 -->
+        <attr name="comm_showManage" format="boolean" />
+        <!-- 是否显示搜索按钮，默认不显示 -->
+        <attr name="comm_showSearch" format="boolean" />
+        <!-- 是否编辑，默认不显示 -->
+        <attr name="comm_showRightEdit" format="boolean" />
+        <attr name="comm_showRightEditIcon" format="boolean"/>
+        <attr name="comm_showRightEditButton" format="boolean"/>
+        <!-- 左边是否编辑，默认不显示 -->
+        <attr name="comm_showLeftEdit" format="boolean" />
+        <!-- 左边是否显示返回键，默认不显示 -->
+        <attr name="comm_showReturn" format="boolean" />
+    </declare-styleable>
+    
+    <!--  add at 20140114 -->
+    <!-- 导航页签 PagerSlidingTabStrip -->
+    <declare-styleable name="CSPagerSlidingTabStrip">
+        <attr name="indicatorColor" format="color" />
+        <attr name="underlineColor" format="color" />
+        <attr name="dividerColor" format="color" />
+        <attr name="indicatorHeight" format="dimension" />
+        <attr name="underlineHeight" format="dimension" />
+        <attr name="dividerPadding" format="dimension" />
+        <attr name="tabPaddingLeftRight" format="dimension" />
+        <attr name="scrollOffset" format="dimension" />
+        <attr name="tabBackground" format="reference" />
+        <attr name="shouldExpand" format="boolean" />
+        <attr name="textAllCaps" format="boolean" />
+    </declare-styleable>
+    
+    <!--  add at 20140113 -->
+    <declare-styleable name="CSTabActionBar">
+        <!-- 中间显示的title -->
+        <attr name="tab_title" format="string" />
+         <!-- 是否显示title ,当为编辑模式时，显示title -->
+        <attr name="tab_showTitle" format="boolean" />
+        <!-- 是否显示logo -->
+        <attr name="tab_showLogo" format="boolean" />
+        <!-- logo title -->
+        <attr name="tab_logoTitle" format="string" />
+        <!-- 是否显示logo title  -->
+        <attr name="tab_showLogoTitle" format="boolean"/>
+        <!-- logo icon -->
+        <attr name="tab_logoIcon" format="reference" />
+        <attr name="tab_rightEditIcon" format="reference" />
+        <!-- 是否显示 Tab 默认显示-->
+        <attr name="tab_showTabStrip" format="boolean"/>
+        <!-- 是否显示搜索按钮，默认不显示 -->
+        <attr name="tab_showSearch" format="boolean" />
+        <!-- 是否编辑，默认不显示 -->
+        <attr name="tab_showRightEdit" format="boolean" />
+        <!-- 左边是否编辑，默认不显示 -->
+        <attr name="tab_showLeftEdit" format="boolean" />
+        <!-- 左边是否显示返回键，默认不显示 -->
+        <attr name="tab_showReturn" format="boolean" />
+        <!-- 是否显示设置按钮，默认不显示 -->
+        <attr name="tab_showSetting" format="boolean" />
+        <!-- 是否显示下载管理按钮，默认不显示 -->
+        <attr name="tab_showManage" format="boolean" />
+        
+    </declare-styleable>
+    
+    <declare-styleable name="CSFooterBar">
+        <attr name="copy" format="string"/>
+        <attr name="move" format="string"/>
+        <attr name="delete" format="string"/>
+        <attr name="rename" format="string"/>
+        <attr name="send" format="string"/>
+        <attr name="info" format="string"/>
+        <attr name="create_folder" format="string"/>
+        <attr name="more" format="string"></attr>
+    </declare-styleable>
+ 
+    <!-- 自定义动画button -->
+    <declare-styleable name="CSKeyButtonView">
+        <!-- key code to send when pressed; if absent or 0, no key is sent -->
+        <attr name="keyCode" format="integer" />
+        <!-- does this button generate longpress / repeat events? -->
+        <attr name="keyRepeat" format="boolean" />
+        <!-- drawable to use for a swelling, glowing background on press -->
+        <attr name="glowBackground" format="reference" />
+    </declare-styleable>
+    
+    
+    <declare-styleable name="CSHeaderBar">
+        <attr name="left_title" format="string"/>
+        <attr name="right_title" format="string"/>
+        <attr name="header_title" format="string"/>
+    </declare-styleable>
+    
+    <declare-styleable name="CSWheeView">
+        <attr name="currentItemSize" format="dimension" />
+        <attr name="labelSize" format="dimension" />
+    </declare-styleable>
+
+</resources>

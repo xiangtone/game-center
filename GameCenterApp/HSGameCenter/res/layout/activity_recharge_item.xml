@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/item"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/setting_background_item"
+    android:minHeight="@dimen/recharge_item_minheight">
+
+    <ImageView
+        android:id="@+id/item_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/normal_margin_padding_medium"
+        android:layout_marginRight="@dimen/recharge_price_row_margin_item"
+        android:src="@drawable/icon_alipay"
+        android:contentDescription="@string/recharge_item_icondes" />
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/item_icon"
+        android:textColor="@color/black"
+        style="@style/NuiTextAppearance.Medium" />
+
+</RelativeLayout>
+
+
+

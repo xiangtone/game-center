@@ -1,0 +1,52 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/translucent_background"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <!-- <include layout="@layout/viewstub_person_login" /> -->
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="4dp"
+        android:indeterminateDrawable="@drawable/loading_icon"
+        />
+
+    <ViewStub
+        android:id="@+id/viewstubPersonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="13dp"
+        android:layout="@layout/viewstub_person_login" />
+
+    <ViewStub
+        android:id="@+id/viewstubConsume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="13dp"
+        android:layout="@layout/viewstub_consume" />
+
+    <RelativeLayout
+        android:id="@+id/layoutLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/translucent_background"
+        android:clickable="true"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="4dp"
+            android:indeterminateDrawable="@drawable/loading_icon"
+            android:indeterminateDuration="800" 
+            />
+    </RelativeLayout>
+
+</FrameLayout>

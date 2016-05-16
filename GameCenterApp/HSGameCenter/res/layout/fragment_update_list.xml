@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hykj.gamecenter.ui.widget.InterceptTouchFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background" >
+<LinearLayout
+    	android:id="@+id/update_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <!--  android:layout_marginBottom="@dimen/onekey_update_layout_height" -->
+    <ListView
+        android:id="@android:id/list"
+        style="@style/AppDownloadList"
+        android:divider="@drawable/list_divider_holo_light"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:listSelector="@color/transparent"
+        android:overScrollMode="never"
+        android:scrollbars="none" 
+        />
+       <TextView 
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/border_width"
+        android:gravity="center_vertical"
+        android:layout_gravity="bottom|center_vertical"
+        android:background="@drawable/list_divider_holo_light"/>
+    
+    <!-- android:layout_gravity="bottom|center_vertical" -->
+        <RelativeLayout
+        android:id="@+id/onekeyupdatelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/onekey_update_layout_height"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/list_view_item_spacing"
+        android:paddingRight="@dimen/list_view_item_spacing"
+        android:layout_gravity="bottom">
+
+        <TextView 
+         android:id="@+id/onekeytip"
+         android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:text="@string/onekeytip"
+        	android:gravity="left"
+        	android:textColor="@color/black"
+        	android:textSize="@dimen/normal_button_text_size"
+        	android:layout_alignParentLeft="true"
+        	android:layout_centerVertical="true"/>
+
+         <Button
+             android:id="@+id/onekeyupdate"
+         	android:layout_width="wrap_content"
+        	android:layout_height="@dimen/normal_btn_height"
+			android:layout_alignParentRight="true"
+        	android:layout_centerVertical="true"
+        	android:text="@string/onekeyupdate"
+        	android:gravity="center"
+        	android:paddingLeft="@dimen/csl_cs_padding_size"
+        	android:paddingRight="@dimen/csl_cs_padding_size"
+        	android:background="@drawable/btn_green_green_selector"
+        	android:textColor="@color/white"
+        	android:textSize="@dimen/normal_button_text_size"/>
+        </RelativeLayout>
+        
+</LinearLayout>
+    <LinearLayout
+        android:id="@android:id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/icon_no_update" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="50dp"
+            android:text="@string/no_update_label"
+            android:textColor="@color/csl_black_4c"
+            android:textSize="@dimen/csl_text_size_large" />
+    </LinearLayout>
+
+</com.hykj.gamecenter.ui.widget.InterceptTouchFrameLayout>

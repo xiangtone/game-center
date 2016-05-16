@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.hykj.gamecenter.ui.widget.CSCommonActionBar
+        android:id="@+id/ActionBar"
+        style="@style/ActionBar"
+        cs:comm_showLogo="false"
+        cs:comm_showManage="false"
+        cs:comm_showReturn="true"
+        cs:comm_showRightEdit="false"
+        cs:comm_showSetting="false"
+        cs:comm_showTitle="true" />
+
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="@dimen/normal_margin_padding_little6"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="@dimen/normal_margin_padding_little6" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:padding="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="@dimen/report_bottom_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/feedback_edt_minh"
+        android:background="@drawable/login_et_frame_bg"
+        android:gravity="top|left"
+        android:maxLength="140"
+        style="@style/NuiTextAppearance.Medium"
+        android:hint="@string/improper_report_hint" />
+
+    <Button
+        android:id="@+id/btnReport"
+        style="@style/GreenButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_loginh"
+        android:layout_marginLeft="@dimen/recharge_price_row_margin"
+        android:layout_marginRight="@dimen/recharge_price_row_margin"
+        android:text="@string/improper_report_start" />
+
+
+</LinearLayout>

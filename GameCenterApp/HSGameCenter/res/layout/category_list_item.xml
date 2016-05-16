@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:paddingBottom="@dimen/normal_margin_padding_micro">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rect_framework_selector"
+        android:gravity="center_vertical"
+        android:padding="@dimen/normal_margin_padding_micro">
+
+        <View
+            android:id="@+id/imgTitle"
+            android:layout_width="4dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="@dimen/normal_margin_padding_micro"
+            android:background="@color/color_green" />
+
+        <TextView
+            android:id="@+id/group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_margin_padding_micro"
+            android:layout_toEndOf="@id/imgTitle"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textColor="@color/csl_black_cc"
+            android:textSize="@dimen/text_size_middle" />
+
+        <TextView
+            android:id="@+id/group_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgTitle"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:minLines="2"
+            android:textColor="@color/csl_black_7f"
+            android:textSize="@dimen/csl_text_size_middle" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/item_background"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/list_item_padding_bottom">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/item_background"
+            android:gravity="center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/list_view_item_spacing">
+
+                <ImageView
+                    android:id="@+id/app_icon"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_gravity="center"
+                    android:src="@drawable/app_icon_default" />
+
+                <ImageView
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:src="@drawable/icon_mask" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/category_info_block"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:duplicateParentState="true"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/csl_black_cc"
+                    android:textSize="@dimen/nui_text_size_micro" />
+
+                <TextView
+                    android:id="@+id/app_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/csl_black_7f"
+                    android:textSize="@dimen/nui_text_size_micro"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:id="@+id/app_other_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp">
+
+                    <!-- 下载次数 -->
+
+                    <TextView
+                        android:id="@+id/app_download"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/csl_black_7f"
+                        android:singleLine="true"
+                        android:textSize="@dimen/nui_text_size_micro" />
+                    <!-- app大小 -->
+
+                    <TextView
+                        android:id="@+id/app_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:layout_toRightOf="@+id/app_download"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/csl_black_7f"
+                        android:textSize="@dimen/nui_text_size_micro" />
+                </RelativeLayout>
+
+                <RatingBar
+                    android:id="@+id/app_rating"
+                    style="@style/RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:numStars="5"
+                    android:rating="3" />
+                <TextView
+                    android:id="@+id/app_recommendInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/csl_black_7f"
+                    android:textSize="@dimen/nui_text_size_micro" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/edit_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/csls_icon_check"
+            android:button="@null"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/csl_cs_padding_size" />
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/list_item_divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_view_divider_width"
+        android:background="@drawable/app_info_header_horizontal_line"
+        android:layout_marginTop="@dimen/list_item_padding_bottom" />
+</LinearLayout>
+

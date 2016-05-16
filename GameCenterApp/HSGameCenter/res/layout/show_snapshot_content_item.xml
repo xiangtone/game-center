@@ -1,0 +1,167 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_top"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="3dp"
+    android:layout_marginRight="3dp"
+    android:layout_weight="1"
+    android:background="@drawable/item_frame_bg" >
+
+    <!--       android:background="@drawable/homepage_default_big_image" add this the top will has a white edge-->
+    <com.hykj.gamecenter.ui.widget.SnapshotImageView
+        android:id="@+id/app_snapshot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="#f7f7f7"
+        android:duplicateParentState="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/homepage_default_big_image" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="center_horizontal"
+        android:background="#eae9e9"
+        android:duplicateParentState="true"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/app_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/app_snapshot"
+        android:layout_marginRight="10dp"
+        android:gravity="center_horizontal"
+        android:singleLine="true"
+        android:textColor="@color/csl_white"
+        android:textSize="@dimen/csl_text_size_small"
+        android:visibility="gone" />
+
+    <!--
+    <com.niuwan.gamecenter.ui.widget.CSProgressButton
+        android:id="@+id/app_progress_button"
+        android:layout_width="@dimen/icon_size"
+        android:layout_height="@dimen/icon_size"
+        android:layout_gravity="center"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="115dp"
+        android:scaleType="fitXY"
+        android:visibility="invisible" >
+    </com.niuwan.gamecenter.ui.widget.CSProgressButton>
+    -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_snapshot" >
+
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:ellipsize="end"
+            android:paddingTop="5dp"
+            android:singleLine="true"
+            android:textColor="@color/csl_black"
+            android:textSize="@dimen/csl_text_size_large" />
+
+        <RatingBar
+            android:id="@+id/app_rating"
+            style="@style/RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/app_name"
+            android:layout_below="@+id/app_name"
+            android:background="@null"
+            android:numStars="5"
+            android:rating="3"
+            android:stepSize="0.5" />
+
+        <com.hykj.gamecenter.ui.widget.OnWifiDownLoadButton
+            android:id="@+id/app_install"
+            style="@style/NoShadowGreenButton"
+            android:layout_width="72dp"
+            android:layout_height="36dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/app_name"
+            android:layout_marginRight="10dp"
+            android:enabled="true"
+            android:includeFontPadding="false"
+            android:longClickable="false"
+            android:soundEffectsEnabled="true"
+            android:text="@string/app_download"
+            android:textColor="@color/csl_white" 
+            android:textSize="@dimen/normal_button_text_size"/>
+
+        <com.hykj.gamecenter.ui.widget.OnWifiDownLoadButton
+            android:id="@+id/app_installing"
+            style="@style/NoShadowBlueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/app_name"
+            android:layout_marginRight="10dp"
+            android:includeFontPadding="false"
+            android:longClickable="false"
+            android:text="@string/app_pause"
+            android:textColor="@color/csl_white"
+            android:textSize="@dimen/normal_button_text_size"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/installed_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/app_name"
+            android:layout_marginRight="10dp"
+            android:includeFontPadding="false"
+            android:paddingBottom="4dp"
+            android:paddingRight="7dp"
+            android:paddingTop="4dp"
+            android:singleLine="true"
+            android:text="@string/app_installed"
+            android:textColor="@color/csl_black_4c"
+            android:textSize="@dimen/csl_text_size_small"
+            android:visibility="gone" />
+
+        <com.hykj.gamecenter.ui.widget.OnWifiDownLoadButton
+            android:id="@+id/app_openorupdate"
+            style="@style/NoShadowWhiteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/app_name"
+            android:layout_marginRight="10dp"
+            android:includeFontPadding="false"
+            android:longClickable="false"
+            android:text="@string/app_open"
+            android:textColor="@color/csl_black_4c"
+            android:textSize="@dimen/normal_button_text_size"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/app_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/app_name"
+            android:layout_below="@+id/app_rating"
+            android:layout_toLeftOf="@id/app_install"
+            android:ellipsize="end"
+            android:paddingBottom="12dp"
+            android:paddingTop="2dp"
+            android:singleLine="true"
+            android:textColor="@color/csl_black_7f"
+            android:textSize="@dimen/csl_text_size_small" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_mask" />
+
+</RelativeLayout>

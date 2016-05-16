@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/right_icon"
+            android:layout_width="@dimen/csl_actionbar_imagebutton_size"
+            android:layout_height="@dimen/csl_actionbar_imagebutton_size"
+            android:layout_marginRight="0dp"
+            android:src="@drawable/csls_tab_actionbar_right_edit"
+            android:visibility="gone" />
+        
+        <ImageView
+            android:id="@+id/right_button"
+            android:layout_width="@dimen/csl_actionbar_imagebutton_size"
+            android:layout_height="@dimen/csl_actionbar_imagebutton_size"
+            android:layout_marginRight="0dp"
+            android:src="@drawable/csls_tab_actionbar_update_all"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</merge>

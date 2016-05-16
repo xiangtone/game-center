@@ -1,0 +1,54 @@
+<resources>
+
+    <bool name="config_debug_mode">false</bool>
+    
+    <!-- 显示actionBar上logoIcon:true.显示,false.不显示-->
+    <bool name="action_bar_show_logo_icon" >true</bool>
+    <!-- 显示actionBar上logoTitle:true.显示,false.不显示-->
+    <bool name="action_bar_show_logo_title" >true</bool>
+    <!-- 显示actionBar上indicate:true.显示,false.不显示-->
+    <bool name="action_bar_show_indicate" >true</bool>
+    <!-- 显示actionBar上indicate的类型:1.画图片0.画直线-->
+    <integer name="action_bar_indicate_type" >0</integer>
+    <!-- 显示actionBar上underline:true.画,false.不画-->
+    <bool name="action_bar_draw_underline">true</bool>
+    <!-- 设备类型:0.平板 1.手机-->
+    <integer name="devices_type" >1</integer>
+	<integer name="client_id">12</integer>
+
+    <string name="alipay_partner">2088021819767304</string>
+    <string name="alipay_seller">sxs@niuwan.cc</string>
+    <string name="alipay_rsa_private">MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBALjLlZq6Y9hv2YXCUwEcRWfvY67QZzi9/mfFPStif5IKjmuTjlRW5rN9+Xoec05KC71BLe/7j/af6eOde1E16ROnGoK0IlPyc1yWSu9RKVoOsK5DIqxZt/0oceSxqZgWGA06iJRalKVa+TlZbwh6OwCUN7jVNFGGHBB/stqxqjOnAgMBAAECgYEAh/XxekfMkj+o0QrqOxTr086DjujyKQNQnFS37qWnqnFt26RSwaa2UjVLShgBSgacoH/GJpz1jMSXNsp1IokBlBvT3wS838tDwYrfPTtVYhiz5UDjxr2tM+d3GRKM4RlbTfEjXRmhFIW2fukYo5NNLhMZA0cTN9NQnOWe5iEz9mECQQD0UD6tbnUpDuQLwTdsXbr1prlnjvFMUTKANI0LHPYiAaWNmx3x77XvHtanSSmar1crZ8PmMP78aJrTbt5SHdLvAkEAwaKBe4RD1L73sZPsDyC7Nwk5WmX032caDu+Up8gF/8lyPQ4tO1hVP3kjdxnmaaJmLr6zJuUsADCbhAtDcSHKyQJABgB6qbQO+MU+4PMMM4NR9nr0DxE56FAOV4vy8xTxDwDPWl03LRxgcdFmIJHxjbVFBPH1pBAME5NWSl9s4sOMzQJAAsxJWLKRlFpqE9vSVmmfquzsMj0066F+w+Z8XGxMgeS0TOOOjcP5/1/NvmPWa4JYPaatygsXtqz9IkxTXigh2QJBAIix0BT4NDM2UxOS1u7e4tS7VLs95hCf0x2RXyAwOwlx/dPUgm9UgNUX0rcpDqjUaa0Q3G3PsGhsdwkUHTyC4BY=</string>
+
+    <!-- 以下参数为第三方登录及支付使用 以下为华硕版本 注意 qq 和信鸽需要改 AndroidManifest文件-->
+    <!--xinge id  2100166907-->
+    <!--xinge key A4T1CGH5J83F-->
+    <string name="weixin_app_id">wx380b8664b7e36848</string>
+    <string name="weixin_app_secret">076a6f7777a921794358e0c3a5971dcf</string>
+    <string name="qq_app_id">1104770960</string>
+    <string name="bugly_appid">900025542</string>
+    <string name="weibo_appkey">2381914778</string>
+    <string name="wechatpay_appid">wx5c5d736c6e36f416</string>
+    <string name="user_aggrement_url">http://uac.api.niuwan.cc/userdeal</string>
+    <string name="recharge_help_url">http://pay.api.niuwan.cc/gamehelp</string>
+    <string name="consume_help_url">http://pay.api.niuwan.cc/gamehelp</string>
+
+
+
+    <!--昂达版本-->
+    <!--xinge id  2100171548-->
+    <!--xinge key A6Q9Z42H7ZKI-->
+<!--    <string name="weixin_app_id">wxca6a7344a7ad01f2</string>
+    <string name="weixin_app_secret">52e93010b5d05df7821bae4e9796037a</string>
+    <string name="qq_app_id">1104937281</string>
+    <string name="bugly_appid">900014376</string>
+    <string name="weibo_appkey">2381914778</string>
+    <string name="wechatpay_appid">wxca6a7344a7ad01f2</string>
+    <string name="user_aggrement_url">"http://uac.api.niuwan.cc/shopuserdeal"</string>
+    <string name="recharge_help_url">"http://pay.api.niuwan.cc/shophelp"</string>
+    <string name="consume_help_url">"http://pay.api.niuwan.cc/shophelp"</string>-->
+
+
+
+
+</resources>

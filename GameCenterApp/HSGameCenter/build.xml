@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- #####根据产品的不同，请指定project的name##### -->
+<project
+	name="HSGameCenter"
+	basedir="."
+	default="release.all">
+
+	<!-- ******************************************************* -->
+	<!-- **************** 基本的变量设置，请不要改动************ -->
+	<!-- ******************************************************* -->
+
+	<property environment="env"/>
+
+	<condition
+		property="sdk.dir"
+		value="${env.ANDROID_HOME}">
+
+		<isset property="env.ANDROID_HOME"/>
+	</condition>
+	<!-- 检查android sdk是否有设置环境变量 -->
+
+	<fail
+		message="sdk.dir 缺失，请设置android sdk的路径到环境变量ANDROID_HOME"
+		unless="sdk.dir"/>
+
+	<!-- 导入产品定义的变量 -->
+
+	<import file="${sdk.dir}/tools/ant/variable.xml"/>
+
+	<!-- 设置混淆，如果不需要混淆，请注释下边的语句，具体的混淆定义请在同一级目录下的proguard-project.txt文件中设置 -->
+
+	<property
+		name="proguard.config"
+		value="${sdk.dir}/tools/proguard/proguard-android.txt:proguard-project.txt"/>
+
+	<!-- 取当前目录的父目录的父目录 -->
+
+	<property
+		name="product.all.path"
+		location="../../.."/>
+	<!-- 取当前目录的父目录 -->
+
+	<property
+		name="product.parent.path"
+		location=".."/>
+
+	<property
+		name="product.path"
+		value="${product.parent.path}\${ant.project.name}"/>
+	<!-- 定义product的config目录与product目录平行，用于放置编译时要copy的资源代码等文件 -->
+
+	<property
+		name="product.config.path"
+		value="${product.parent.path}\${ant.project.name}Config"/>
+	<!-- cslib path -->
+
+	<property
+		name="cslib.path"
+		value="${product.all.path}\csLib\csLib"/>
+
+	<property
+		name="cslib.config.path"
+		value="${product.all.path}\csLib\csLibConfig"/>
+
+	<target name="-product-pre-build"/>
+
+	<target name="-print-all-path">
+
+		<echo level="info">
+			[product.all.path] =${product.all.path}
+		</echo>
+
+		<echo level="info">
+			[product.parent.path] =${product.parent.path}
+		</echo>
+
+		<echo level="info">
+			[product.path] =${product.path}
+		</echo>
+
+		<echo level="info">
+			[product.config.path] =${product.config.path}
+		</echo>
+
+		<echo level="info">
+			[cslib.path] =${cslib.path}
+		</echo>
+
+		<echo level="info">
+			[cslib.config.path] =${cslib.config.path}
+		</echo>
+	</target>
+
+	<!-- ####################################################################################### -->
+	<!-- ################ 要编译的产品设置，请根据项目的具体情况进行设置 ############ -->
+	<!-- ################ 以下内容可以进行编辑 ############ -->
+	<!-- ####################################################################################### -->
+
+
+	<!-- 产品的主版本号，用于更新versionName的版本号 -->
+	<!-- 版本号命名规则 -->
+	<!-- versionName="4.07.18.10" 4 为主版本号，下边的product.major.version 变量来定义,一位，为当前的年号最后一位数字
+		07.18 为次版本号，由系统根据编译的当前日期来决定，07为月（两位），18为日（两位） 10 为渠道号，由下边target中的param.channel
+		参数来决定 -->
+
+	<property
+		name="product.major.version"
+		value="6"/>
+	<!-- ************************常用目录变量****************** ${product.parent.path}
+		当前工程 ${product.path} 当前工程所在的目录，也是本xml文件所在的目录 ${product.config.path} 当前工程对应的Config目录，与当前工程在同一级目录，命名为”工程目录名+Config“
+		如下边工程antTest所示的目录结构： E:\WORKCODE\antTest ├─antTest └─antTestConfig ${product.all.path}
+		= E:\WORKCODE ${product.parent.path} = E:\WORKCODE\antTest ${product.path}
+		= E:\WORKCODE\antTest\antTest ${product.config.path} = E:\WORKCODE\antTest\antTestConfig
+		************************常用操作********************** A.copy目录： copy-dir 参数：
+		from：要copy目录的路径 to： 目标目录名 excludes： 要排除的文件类型，多个类型之前以','分割，指定的规则同时适用于文件名与目录名
+		"*.png" : 排除在当前目录下以png结尾的所有文件或目录，但注意如果以'.png'字符结尾 的目录下有其它文件不在exclude范围内，则这个目录也会被copy；
+		"**/*.png" : 排除在当前目录及其子目录下的以png结尾的所有文件或目录，注意同上； "**/*.png,**/*.txt" : 排除在当前目录及其子目录下的以png及txt结尾的所有文件或目录；
+		"**/*svn*" : 排除在当前目录及其子目录下的以包含svn的所有文件或目录,但如果包含'svn'字符 的目录下有其它文件不在exclude范围内，则这个目录也会被copy；
+		"*dpi/*" : 排除当前目录中包含'dpi'字符目录下的所有文件，注意当前目录中包含'dpi'字符的目录会被创建； "**/dpi/*" :
+		排除当前目录中及其子目录中包含'dpi'字符目录下的所有文件，注意当前目录中包含'dpi'字符的目录会被创建； "*dpi/*,*dpi" :排除当前目录中包含'dpi'字符目录下的所有文件以及当前目录中包含'dpi'的目录；
+		"**/*dpi/" :排除当前目录中及其子目录中包含'dpi'字符的目录及其这些目录下的所有文件 排除整个目录重点使用："**/*dpi/" 排除文件重点使用："**/*.png"
+		overwrite：是否覆盖，默认为true <copy-dir from="${product.path}/res" to="${product.config.path}/test"
+		excludes="**/*.png,**/*dpi"/> copy ${product.path}/res目录所有内容到${product.config.path}下，
+		如果test目录不存在，则创建test目录，如果存在，则直接copy到test目录下， 其中以'.png'结尾的文件或目录，以dpi结尾的文件或目录不copy，
+		'**/'意思是包括子目录 B.copy文件： copy-file 参数： from：要copy的文件 to： 目标文件名 overwrite：是否覆盖，默认为true
+		<copy-file from="${product.path}/build.xml" to="${product.path}/build_cpfile.tmp"/>
+		C.delete文件及目录： <delete file="/lib/ant.jar"/> deletes the file /lib/ant.jar.
+		<delete dir="lib"/> deletes the lib directory, including all files and subdirectories
+		of lib. <delete> <fileset dir="." includes="**/*.bak"/> </delete> deletes
+		all files with the extension .bak from the current directory and any subdirectories.
+		<delete includeEmptyDirs="true"> <fileset dir="build"/> </delete> deletes
+		all files and subdirectories of build, including build itself. <delete includeemptydirs="true">
+		<fileset dir="build" includes="**/*"/> </delete> deletes all files and subdirectories
+		of build, without build itself. <delete includeemptydirs="true"> <fileset
+		dir="src" includes="**/.svn/" defaultexcludes="false"/> </delete> deletes
+		the subversion metadata directories under src. Because .svn is on of the
+		default excludes you have to use the defaultexcludes flag, otherwise Ant
+		wont delete these directories and the files in it. D.replace文件中的指定字符： <replace
+		dir="${product.path}/src" token="com.abcd.R" value="com.android.deskclock.R"></replace>
+		替换${product.path}/src目录下及其子目录下，所有'com.abcd.R'字符串为'com.android.deskclock.R'
+		如果需要更加复杂的替换匹配，请用ReplaceRegExp，具体 http://ant.apache.org/manual/ 具体参考：http://ant.apache.org/manual/ -->
+
+
+	<!-- 定义要编译的产品个数列表 ，请根据下边target的数量来增减value的值 ，每一个值用‘#’隔开，编译时系统会根据value里的数量来进行编译
+		，不需要编译的target可以不放到value里 -->
+
+<!--	    <property
+			name="product.all.target.list"
+			value="product.asus.phone" />-->
+	<property
+		name="product.all.target.list"
+		value="product.asus.phone"/>
+<!--	 product.xinhao.pad#product.ployer.12#product.xinhao.phone#-->
+
+	<target
+		name="product.onda.pad"
+		description="onda sdk4.2">
+		<copy-dir
+			from="${product.config.path}/Onda/res"
+			to="${product.path}/res"/>
+
+		<copy-file
+			from="${product.config.path}/Onda/AndroidManifest.xml"
+			to="${product.path}/AndroidManifest.xml"/>
+
+		<property
+			name="param.target.packname"
+			value="com.cs.appstore"/>
+
+		<antcall target="-replace-packname">
+
+			<param
+				name="param.new.packname"
+				value="${param.target.packname}"/>
+
+			<param
+				name="param.current.packname"
+				value="${packname.default}"/>
+		</antcall>
+
+		<!-- 请保证下边的antcall一定是本target的最后一句 -->
+
+		<antcall target="-release.version">
+
+			<!-- ######android sdk版本 必须指定###### -->
+
+			<param
+				name="param.android.sdk"
+				value="4.4"/>
+			<!-- ######渠道号 必须指定###### -->
+
+			<param
+				name="param.channel"
+				value="${channel.onda.pad}"/>
+			<!-- 方案商 可选指定 -->
+
+			<param
+				name="param.design.house"
+				value="${design.house.all}"/>
+			<!-- 品牌商 可选指定 -->
+
+			<param
+				name="param.brand"
+				value="${brand.onda}"/>
+			<!-- 主控芯片商 可选指定 -->
+
+			<param
+				name="param.system.chip"
+				value="${system.chip.marvell}"/>
+			<!-- 屏幕分辨率 可选指定 -->
+
+			<param
+				name="param.screen.resolution"
+				value="${screen.resolution.all}"/>
+			<!-- 屏幕物理尺寸 可选指定 -->
+
+			<param
+				name="param.screen.size"
+				value="${screen.size.all}"/>
+		</antcall>
+	</target>
+
+	<target
+		name="product.ployer.12"
+		description="ployer sdk4.2">
+
+		<!-- 添加针对这个版本的相关配置复制操作 -->
+
+		<!-- <copy-dir from="${product.all.path}/CSLib/csLib/src" to="${product.path}/src"
+			/> <copy-dir from="${product.all.path}/CSLib/csLib/res" to="${product.path}/res"
+			/> <copy-dir from="${product.all.path}/CSLib/csLib/libs" to="${product.path}/libs"
+			/> <replace dir="${product.path}/src/cs" token="com.cs.R" value="com.niuwan.gamecenter.R"
+			> </replace> -->
+
+		<!-- 请保证下边的antcall一定是本target的最后一句 -->
+
+		<antcall target="-release.version">
+
+			<!-- ######android sdk版本 必须指定###### -->
+
+			<param
+				name="param.android.sdk"
+				value="4.4"/>
+			<!-- ######渠道号 必须指定###### -->
+
+			<param
+				name="param.channel"
+				value="${channel.ployer}"/>
+			<!-- 方案商 可选指定 -->
+
+			<param
+				name="param.design.house"
+				value="${design.house.inet}"/>
+			<!-- 品牌商 可选指定 -->
+
+			<param
+				name="param.brand"
+				value="${brand.ployer}"/>
+			<!-- 主控芯片商 可选指定 -->
+
+			<param
+				name="param.system.chip"
+				value="${system.chip.marvell}"/>
+			<!-- 屏幕分辨率 可选指定 -->
+
+			<param
+				name="param.screen.resolution"
+				value="${screen.resolution.all}"/>
+			<!-- 屏幕物理尺寸 可选指定 -->
+
+			<param
+				name="param.screen.size"
+				value="${screen.size.all}"/>
+		</antcall>
+	</target>
+
+	<target
+		name="product.xinhao.phone"
+		description="xinhao phone sdk4.4">
+
+		<!-- 添加针对这个版本的相关配置复制操作 -->
+		<copy-dir
+			from="${product.config.path}/XinhaoPhone/res"
+			to="${product.path}/res"/>
+		<!-- <copy-dir from="${product.all.path}/CSLib/csLibConfig/XinhaoPhone/res"
+			to="${product.path}/res" /> -->
+
+		<!-- <copy-dir from="${product.all.path}/CSLib/csLib/src" to="${product.path}/src"
+			/> <copy-dir from="${product.all.path}/CSLib/csLib/res" to="${product.path}/res"
+			/> <copy-dir from="${product.all.path}/CSLib/csLib/libs" to="${product.path}/libs"
+			/> <copy-dir from="${product.config.path}/XinhaoPhone/res" to="${product.path}/res"
+			/> <replace dir="${product.path}/src/cs" token="com.cs.R" value="com.niuwan.gamecenter.R"
+			> </replace> -->
+
+		<!-- 请保证下边的antcall一定是本target的最后一句 -->
+
+		<antcall target="-release.version">
+
+			<!-- ######android sdk版本 必须指定###### -->
+
+			<param
+				name="param.android.sdk"
+				value="4.4"/>
+			<!-- ######渠道号 必须指定###### -->
+
+			<param
+				name="param.channel"
+				value="${channel.xinhao.phone}"/>
+			<!-- 方案商 可选指定 -->
+
+			<param
+				name="param.design.house"
+				value="${design.house.all}"/>
+			<!-- 品牌商 可选指定 -->
+
+			<param
+				name="param.brand"
+				value="${brand.xinhao.phone}"/>
+			<!-- 主控芯片商 可选指定 -->
+
+			<param
+				name="param.system.chip"
+				value="${system.chip.qualcomm}"/>
+			<!-- 屏幕分辨率 可选指定 -->
+
+			<param
+				name="param.screen.resolution"
+				value="${screen.resolution.all}"/>
+			<!-- 屏幕物理尺寸 可选指定 -->
+
+			<param
+				name="param.screen.size"
+				value="${screen.size.all}"/>
+		</antcall>
+	</target>
+	<target
+		name="product.asus.phone"
+		description="asus phone sdk4.4">
+
+		<!-- 添加针对这个版本的相关配置复制操作 -->
+		<!-- 华硕的配置信息使用鑫豪的 -->
+		<copy-dir
+			from="${product.config.path}/Asus/res"
+			to="${product.path}/res"/>
+		<copy-file
+			from="${product.config.path}/Asus/AndroidManifest.xml"
+			to="${product.path}/AndroidManifest.xml"/>
+
+		<!-- <copy-dir from="${product.all.path}/CSLib/csLibConfig/XinhaoPhone/res"
+			to="${product.path}/res" /> <copy-dir from="${product.all.path}/CSLib/csLib/src"
+			to="${product.path}/src" /> <copy-dir from="${product.all.path}/CSLib/csLib/res"
+			to="${product.path}/res" /> <copy-dir from="${product.all.path}/CSLib/csLib/libs"
+			to="${product.path}/libs" /> <replace dir="${product.path}/src/cs" token="com.cs.R"
+			value="com.niuwan.gamecenter.R" > </replace> -->
+
+		<!-- 请保证下边的antcall一定是本target的最后一句 -->
+
+		<antcall target="-release.version">
+
+			<!-- ######android sdk版本 必须指定###### -->
+
+			<param
+				name="param.android.sdk"
+				value="4.4"/>
+			<!-- ######渠道号 必须指定###### -->
+
+			<param
+				name="param.channel"
+				value="${channel.asus}"/>
+			<!-- 方案商 可选指定 -->
+
+			<param
+				name="param.design.house"
+				value="${design.house.all}"/>
+			<!-- 品牌商 可选指定 -->
+
+			<param
+				name="param.brand"
+				value="${brand.online.asus}"/>
+			<!-- 主控芯片商 可选指定 -->
+
+			<param
+				name="param.system.chip"
+				value="${system.chip.qualcomm}"/>
+			<!-- 屏幕分辨率 可选指定 -->
+
+			<param
+				name="param.screen.resolution"
+				value="${screen.resolution.all}"/>
+			<!-- 屏幕物理尺寸 可选指定 -->
+
+			<param
+				name="param.screen.size"
+				value="${screen.size.all}"/>
+		</antcall>
+	</target>
+
+	<!-- ################ 替换包名 ############ -->
+
+	<property
+		name="packname.default"
+		value="com.hykj.gamecenter"/>
+
+	<property
+		name="product.new.packname"
+		value="${packname.default}"/>
+
+	<property
+		name="product.current.packname"
+		value="${packname.default}"/>
+
+	<target name="-replace-packname">
+
+		<if>
+
+			<condition>
+
+				<isset property="param.new.packname"/>
+			</condition>
+
+			<then>
+
+				<var
+					name="product.new.packname"
+					value="${param.new.packname}"/>
+			</then>
+		</if>
+
+		<if>
+
+			<condition>
+
+				<isset property="param.current.packname"/>
+			</condition>
+
+			<then>
+
+				<var
+					name="product.current.packname"
+					value="${param.current.packname}"/>
+			</then>
+		</if>
+
+		<echo level="info">
+			product.new.packname =${product.new.packname}
+		</echo>
+
+		<echo level="info">
+			product.current.packname =${product.current.packname}
+		</echo>
+
+		<replace
+			dir="${product.path}/src"
+			encoding="utf-8"
+			excludes="**/sdk/"
+			token="${product.current.packname}"
+			value="${product.new.packname}">
+		</replace>
+		<replace
+			dir="${product.path}/src"
+			encoding="utf-8"
+			token="${product.new.packname}.sdk"
+			value="${product.current.packname}.sdk">
+		</replace>
+
+		<replace
+			dir="${product.path}/res"
+			encoding="utf-8"
+			token="${product.current.packname}"
+			value="${product.new.packname}">
+		</replace>
+
+		<replace
+			encoding="utf-8"
+			file="${product.path}/AndroidManifest.xml"
+			token="${product.current.packname}"
+			value="${product.new.packname}">
+		</replace>
+	</target>
+
+	<!-- ####################################################################################### -->
+	<!-- ################ 以上内容可以进行编辑 ！！！ ############ -->
+	<!-- ####################################################################################### -->
+
+
+	<!-- ******************************************************* -->
+	<!-- **************** 导入系统的编译脚本，请不要改动******** -->
+	<!-- ******************************************************* -->
+
+	<import file="${sdk.dir}/tools/ant/buildPro_gamecenter.xml"/>
+
+</project>

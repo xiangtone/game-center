@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/csl_button_corners_radius" />
+
+            <solid android:color="@color/cs_btn_green_press" />
+
+            <padding android:bottom="5dp" android:left="@dimen/csl_cs_padding_half_size" android:right="@dimen/csl_cs_padding_half_size" android:top="5dp" />
+
+            <stroke android:width="1px" android:color="@color/cs_btn_green_stroke" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/csl_button_corners_radius" />
+
+            <solid android:color="@color/cs_btn_green_normal" />
+
+            <padding android:bottom="5dp" android:left="@dimen/csl_cs_padding_half_size" android:right="@dimen/csl_cs_padding_half_size" android:top="5dp" />
+
+            <stroke android:width="1px" android:color="@color/cs_btn_green_stroke" />
+        </shape>
+    </item>
+    <!-- item android:drawable="@drawable/csl_button_green_press" android:state_pressed="true"></item -->
+    <!-- item android:drawable="@drawable/csl_button_green"/-->
+
+</selector>

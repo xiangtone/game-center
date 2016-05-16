@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sjhd.gamecenter"
+    android:versionCode="1"
+    android:versionName="6.04.05.70">
+    <!-- ############# every change you should config for all platform ################-->
+    <!-- asus permisson -->
+    <uses-permission android:name="com.asus.permission.MARKETS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_STORAGE" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.DELETE_PACKAGES" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCOUNT_MANAGER" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.GET_TOP_ACTIVITY_INFO" />
+
+    <!-- <uses-feature android:name="android.hardware.camera" android:required="false" 
+        /> <uses-permission android:name="android.permission.CAMERA" /> <uses-permission 
+        android:name="android.hardware.camera.autofocus" /> -->
+
+
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:name="com.sjhd.gamecenter.App"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/App_FullScreen_NoActionBar"
+        android:uiOptions="splitActionBarWhenNarrow">
+        <activity
+            android:name="com.sjhd.gamecenter.activity.HomePageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="user"
+            android:windowSoftInputMode="adjustPan">
+
+            <!-- android:launchMode="singleInstance" -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action
+                    android:name="com.sjhd.gamecenter.activity.HomePageActivity" />
+
+                <data
+                    android:host="appstore"
+                    android:path="/homepage"
+                    android:scheme="cs">
+                </data>
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.SettingListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="user"
+            android:launchMode="singleTask"
+            android:theme="@style/Translucent">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.GameClassifyActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="user">
+            <intent-filter>
+                <action
+                    android:name="com.sjhd.gamecenter.activity.GameClassifyActivity" />
+
+                <data
+                    android:host="appstore"
+                    android:path="/gameclassify"
+                    android:scheme="cs">
+                </data>
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.SettingAboutActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="user"
+            android:launchMode="singleTask"
+            android:theme="@style/Translucent">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.SearchActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="user"
+            android:theme="@style/Translucent"
+            >
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.CSLoadingActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="user">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.GroupAppListActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="user"
+            android:theme="@style/Translucent">
+            <intent-filter>
+                <action
+                    android:name="com.sjhd.gamecenter.activity.GroupAppListActivity" />
+
+                <data
+                    android:host="appstore"
+                    android:path="/groupapplist"
+                    android:scheme="cs">
+                </data>
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- android:theme="@android:style/Theme.Translucent" -->
+        <activity
+            android:name="com.sjhd.gamecenter.activity.GroupListActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="user"
+            android:theme="@style/Translucent">
+            <intent-filter>
+                <action
+                    android:name="com.sjhd.gamecenter.activity.GroupListActivity" />
+
+                <data
+                    android:host="appstore"
+                    android:path="/groupapp"
+                    android:scheme="cs">
+                </data>
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.AppManageActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:launchMode="singleTask"
+            android:screenOrientation="user"
+            android:theme="@style/Translucent">
+            <intent-filter>
+                <action
+                    android:name="com.sjhd.gamecenter.activity.AppManageActivity" />
+
+                <data
+                    android:host="appstore"
+                    android:path="/appmanage"
+                    android:scheme="cs" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.sjhd.gamecenter.activity.AppManageActivity$NotificationMessageReceiver">
+            <intent-filter>
+                <action
+                    android:name="com.sjhd.gamecenter.activity.AppManageActivity.NotificationMessageReceiver" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.sjhd.gamecenter.broadcast.WifiUpdateReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.sjhd.gamecenter.activity.ImageGalleryActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:process=":imagegallery">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.PadAppInfoActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="user"
+            android:theme="@style/detail_dialog">
+            <intent-filter>
+                <action
+                    android:name="com.sjhd.gamecenter.activity.PadAppInfoActivity" />
+
+                <data
+                    android:host="appstore"
+                    android:path="/appinfo"
+                    android:scheme="cs">
+                </data>
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.PhoneAppInfoActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:exported="true"
+            android:screenOrientation="user">
+            <intent-filter>
+                <action
+                    android:name="com.sjhd.gamecenter.activity.PhoneAppInfoActivity" />
+
+                <data
+                    android:host="appstore"
+                    android:path="/appinfo"
+                    android:scheme="cs">
+                </data>
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.WriteCommentActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateVisible|adjustResize|adjustPan">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.RechargeActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="user"
+            android:taskAffinity="com.sjhd.gamecenter.sdk">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.RechargeListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="user">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.ConsumeListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="user">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.WeChatPayActivity"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:taskAffinity="com.sjhd.gamecenter.sdk"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            android:screenOrientation="user">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.ImproperReportActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="user">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.ImproperDetailActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="user">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.Html5HelpActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="user">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.UnionPayActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            android:screenOrientation="user">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.AliPayActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="user"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            android:taskAffinity="com.sjhd.gamecenter.sdk" />
+        <activity
+            android:name="com.sjhd.gamecenter.activity.MobilePayActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="user"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            android:taskAffinity="com.sjhd.gamecenter.sdk" />
+
+        <provider
+            android:name="com.sjhd.gamecenter.db.CSACContentProvider"
+            android:authorities="com.cs.pad.gcdb"
+            android:exported="false"
+            android:multiprocess="false" />
+
+        <!-- <receiver android:name="com.niuwan.gamecenter.broadcast.WifiUpdateReceiver" 
+            > <intent-filter> <action android:name="android.net.conn.CONNECTIVITY_CHANGE" 
+            /> <action android:name="android.net.wifi.WIFI_STATE_CHANGED" /> <action 
+            android:name="android.net.wifi.STATE_CHANGE" /> <category android:name="android.intent.category.HOME" 
+            /> </intent-filter> </receiver> -->
+
+        <service
+            android:name="com.sjhd.gamecenter.download.DownloadService"
+            android:process=":dl"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.sjhd.gamecenter.download.service.action" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.sjhd.gamecenter.broadcast.RefreshUnreadNumService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="appstore.refresh.unread.num.service.action" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.sjhd.gamecenter.services.MonitorAppsUpdateService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.android.services.MonitorAppsUpdateService" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.sjhd.gamecenter.receiver.MonitorAppsUpdateServiceManagerReceiver"
+            android:enabled="true"
+            android:exported="false"
+            android:label="MonitorAppsUpdateServiceManagerReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="TA_APPKEY"
+            android:value="ACF7V3JE76TE" />
+        <meta-data
+            android:name="InstallChannel"
+            android:value="play" />
+
+        <activity
+            android:name="com.sjhd.gamecenter.activity.PersonalActivtiy"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="user">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.PersonLogin"
+            android:label="@string/title_activity_person_login"
+            android:screenOrientation="user"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden">
+        </activity>
+
+        <!-- alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+        </activity>
+
+        <!-- alipay sdk end -->
+
+        <service
+            android:name="com.sjhd.gamecenter.services.CSAuthenticatorService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/cs_authenticator" />
+        </service>
+        <service
+            android:name="com.sjhd.gamecenter.services.SDKService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.sjhd.sdk.service" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="com.sjhd.gamecenter.db.CSSFContentProvider"
+            android:authorities="com.cs.pad.sfdb"
+            android:exported="false"
+            android:multiprocess="false" />
+        <!-- android:theme="@style/App_Login_FullScreen_NoActionBar" -->
+        <activity
+            android:name="com.sjhd.gamecenter.account.SDKActivity"
+            android:configChanges="orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.sjhd.gamecenter.sdk"
+            android:theme="@style/Translucent"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="com.sjhd.sdklogin" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.AccountManagerActivity"
+            android:label="@string/title_activity_account_manager"
+            android:screenOrientation="user">
+        </activity>
+        <activity
+            android:name="com.sjhd.gamecenter.activity.RenameActivity"
+            android:label="@string/title_activity_rename"
+            android:screenOrientation="user"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            >
+        </activity>
+        <activity
+            android:name="com.payeco.android.plugin.PayecoPluginLoadingActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.payeco.android.plugin.PayecoCameraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.payeco.android.plugin.PayecoVedioActivity"
+            android:process="com.payeco.android.plugin.vedio"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2">
+                </action>
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="DhNxS47YIr3CNdocGoAcy1ts" />
+
+        <activity
+            android:name="com.sjhd.gamecenter.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/title_activity_wxentry"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent">
+        </activity>
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1104937281" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.sjhd.gamecenter.activity.FeedbackActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_feedback">
+        </activity>
+
+                <receiver
+					android:name="com.tencent.android.tpush.XGPushReceiver"
+					android:process=":xg_service_v2" >
+					<intent-filter android:priority="0x7fffffff" >
+						<action android:name="com.tencent.android.tpush.action.SDK" />
+						<action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE" />
+						<action android:name="android.intent.action.USER_PRESENT" />
+						<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+
+						<action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+						<action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+						<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+					</intent-filter>
+				</receiver>
+
+				<receiver android:name="com.sjhd.gamecenter.receiver.MessageReceiver" >
+					<intent-filter>
+						<action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" />
+						<action android:name="com.tencent.android.tpush.action.FEEDBACK" />
+					</intent-filter>
+				</receiver>
+
+				<activity
+					android:name="com.tencent.android.tpush.XGPushActivity"
+					android:exported="true" >
+					<intent-filter>
+						<action android:name="android.intent.action" />
+					</intent-filter>
+				</activity>
+
+				<service
+					android:name="com.tencent.android.tpush.service.XGPushService"
+					android:exported="true"
+					android:persistent="true"
+					android:process=":xg_service_v2" />
+
+				<service
+					android:name="com.tencent.android.tpush.rpc.XGRemoteService"
+					android:exported="true" >
+					<intent-filter>
+						<action android:name="com.sjhd.gamecenter.PUSH_ACTION" />
+					</intent-filter>
+				</service>
+
+				<meta-data
+					android:name="XG_V2_ACCESS_ID"
+					android:value="2100166907" />
+				<meta-data
+					android:name="XG_V2_ACCESS_KEY"
+					android:value="A4T1CGH5J83F" />
+    </application>
+
+</manifest>

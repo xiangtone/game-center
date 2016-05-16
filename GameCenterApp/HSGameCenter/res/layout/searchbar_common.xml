@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:layout_width="match_parent"
+			  android:layout_height="@dimen/csl_cs_action_bar_height"
+			  android:layout_gravity="center"
+			  android:gravity="center_vertical"
+			  android:background="@color/transparent"
+			  android:orientation="horizontal">
+
+	<LinearLayout
+		android:id="@+id/layoutSearch"
+		android:layout_width="wrap_content"
+		android:layout_height="@dimen/csl_cs_header_bar_btn_height"
+		android:layout_marginLeft="@dimen/normal_margin_padding_medium"
+		android:layout_weight="1"
+		android:background="@drawable/shape_rect_framework"
+		android:gravity="center_vertical"
+		android:orientation="horizontal"
+		>
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="8dp"
+			android:src="@drawable/csl_ab_bt_search"
+			/>
+
+		<TextView
+			android:id="@+id/textRecommed"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:ellipsize="end"
+			android:singleLine="true"
+			android:text="@string/search_common_hint"
+			android:textColor="@color/color_hint"
+			android:textSize="@dimen/nui_text_size_medium"
+			/>
+
+	</LinearLayout>
+
+<!--	<ImageView
+		android:id="@+id/imgRight"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/normal_margin_padding_little"
+		android:layout_marginRight="@dimen/normal_margin_padding_little"
+		android:background="@drawable/csl_ab_bt_mine"/>-->
+
+	<FrameLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_vertical"
+		android:layout_marginLeft="@dimen/normal_margin_padding_little"
+		android:layout_marginRight="@dimen/normal_margin_padding_little"
+		>
+
+		<ImageView
+			android:id="@+id/setting_icon"
+			android:layout_width="@dimen/csl_actionbar_imagebutton_size"
+			android:layout_height="@dimen/csl_actionbar_imagebutton_size"
+			android:layout_gravity="center_vertical"
+			android:src="@drawable/csls_comm_actionbar_newset_icon" />
+
+		<ImageView
+			android:id="@+id/setting_tip_view"
+			android:layout_width="@dimen/tip_point_update_size"
+			android:layout_height="@dimen/tip_point_update_size"
+			android:layout_gravity="top|right"
+			android:layout_marginRight="10dp"
+			android:layout_marginTop="6dp"
+			android:background="@drawable/shape_message_tips_bg"
+			android:gravity="center"
+			android:paddingLeft="2dp"
+			android:paddingRight="3dp" />
+	</FrameLayout>
+
+</LinearLayout>

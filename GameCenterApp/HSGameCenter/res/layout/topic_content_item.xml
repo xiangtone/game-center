@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<LinearLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/topic_content_item"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical">
+	    <FrameLayout
+       	android:layout_width="match_parent"
+    	android:layout_height="@dimen/sbuject_topic_image_height">
+	    <com.hykj.gamecenter.ui.widget.SubjectImageView
+	        android:id="@+id/topic_item"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+			android:layout_marginLeft="@dimen/subject_margin_left"
+			android:layout_marginRight="@dimen/subject_margin_left"
+	        android:duplicateParentState="true"
+	        android:scaleType="centerCrop"
+	        android:background="@drawable/banner_icon_default"
+	        android:layout_gravity="center_horizontal"
+	        android:gravity="left"/>
+
+   <View
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:background="@drawable/horizon_scroll_mask"
+       android:visibility="gone" />
+  </FrameLayout> 
+   	    <TextView 
+	        android:id="@+id/item_title"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+			android:textColor="@color/csl_black_cc"
+			android:layout_marginLeft="@dimen/subject_margin_left"
+	        android:layout_marginTop="@dimen/subject_adapter_view_item_spacing"
+			android:textSize="@dimen/text_size_middle"
+            android:gravity="left"
+	        />
+	</LinearLayout>
+

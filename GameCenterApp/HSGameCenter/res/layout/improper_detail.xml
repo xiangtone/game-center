@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.hykj.gamecenter.ui.widget.CSCommonActionBar
+        android:id="@+id/ActionBar"
+        style="@style/ActionBar"
+        cs:comm_showLogo="false"
+        cs:comm_showManage="false"
+        cs:comm_showReturn="true"
+        cs:comm_showRightEdit="false"
+        cs:comm_showSetting="false"
+        cs:comm_showTitle="true" />
+
+    <com.hykj.gamecenter.ui.widget.CSLoadingView
+        android:id="@+id/cs_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ListView
+        android:id="@+id/app_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:listSelector="@color/transparent"
+        android:overScrollMode="never" />
+
+    <RelativeLayout
+        android:id="@+id/download_expandlist_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/no_improper_detail"
+            android:textColor="@color/csl_black_4c"
+            android:textSize="@dimen/nui_text_size_large" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:state_pressed="true"
+            >
+        <shape android:shape="rectangle">
+            <corners android:topRightRadius="@dimen/button_corners_radius_onda" />
+
+            <solid android:color="@color/cs_btn_gray_press" />
+
+            <padding android:bottom="5dp" android:left="@dimen/csl_cs_padding_half_size" android:right="@dimen/csl_cs_padding_half_size" android:top="5dp" />
+
+            <stroke android:width="1px" android:color="@color/cs_btn_black_stroke" />
+        </shape>
+    </item>
+    <item android:state_enabled="false"
+        >
+        <shape android:shape="rectangle">
+            <corners android:topRightRadius="@dimen/button_corners_radius_onda" />
+
+            <solid android:color="@color/cs_btn_black_disable" />
+
+            <padding android:bottom="5dp" android:left="@dimen/csl_cs_padding_half_size" android:right="@dimen/csl_cs_padding_half_size" android:top="5dp" />
+
+            <stroke android:width="1px" android:color="@color/cs_btn_black_stroke" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle"
+           >
+            <corners android:topRightRadius="@dimen/button_corners_radius_onda" />
+
+            <solid android:color="@color/cs_btn_black_normal" />
+
+            <padding android:bottom="5dp" android:left="@dimen/csl_cs_padding_half_size" android:right="@dimen/csl_cs_padding_half_size" android:top="5dp" />
+
+            <stroke android:width="1px" android:color="@color/cs_btn_black_stroke" />
+        </shape>
+    </item>
+    <!-- item android:drawable="@drawable/csl_button_white_press" android:state_pressed="true"/>
+    <item android:drawable="@drawable/csl_button_white_disabled" android:state_enabled="false"/>
+    <item android:drawable="@drawable/csl_button_white"/-->
+
+</selector>

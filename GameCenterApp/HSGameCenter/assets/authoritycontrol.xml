@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+ <Worksheet>
+  
+   <Row>
+    <Cell><Name  Type="String">访问登记属性</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">ACCESS_CHECKIN_PROPERTIES</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用对登记服务上传的属性拥有读取/写入权限(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s19"><Name  Type="String">(基於网络的)粗略位置</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">ACCESS_COARSE_LOCATION</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许一个程序通过像Cell Tower(移动基站)或Wifi热点等网络位置来源来获取大概位置</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s19"><Name  Type="String">精准的(GPS)位置</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">ACCESS_FINE_LOCATION</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许一个程序通过像GPS、Cell Tower、Wifi等位置信息源获取精确位置</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Name  Type="String">访问定位额外命令</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">ACCESS_LOCATION_EXTRA_COMMANDS</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用访问额外的位置提供程序命令。此权限可让该应用干扰GPS或其他位置源的运行(LocationManager.setExtraCommand()需要此权限)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s19"><Name  Type="String">获取模拟定位信息</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">ACCESS_MOCK_LOCATION</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">创建用于测试的模拟位置源或安装新的位置提供程序。此权限可让该应用覆盖由其他位置源（如 GPS）或位置提供程序返回的位置和/或状态信息。</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">获取网络状态</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">ACCESS_NETWORK_STATE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用查看网络连接的相关信息，例如存在和连接的网络。</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">访问Surface Flinger</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">ACCESS_SURFACE_FLINGER</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许程序使用Surface Flinger底层特性(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">获取WiFi状态</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">ACCESS_WIFI_STATE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用查看 WLAN 网络的相关信息，例如是否启用了 WLAN 以及连接的 WLAN 设备的名称</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">账户管理</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">ACCOUNT_MANAGER</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用调用 AccountAuthenticators(三方程序不要使用)</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">添加语音信箱邮件</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">ADD_VOICEMAIL</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用向您的语音信箱收件箱添加邮件</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">验证账户</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">AUTHENTICATE_ACCOUNTS</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用使用 AccountManager 的帐户身份验证程序功能，包括创建帐户以及获取和设置其密码</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">电量统计</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">BATTERY_STATS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用读取当前电量使用情况的基础数据，此权限可让应用了解关于您使用了哪些应用的详细信息</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定辅助服务</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_ACCESSIBILITY_SERVICE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">绑定辅助服务</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定小插件</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_APPWIDGET</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许程序告诉AppWidget服务哪个应用可以访问AppWidget数据(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定传输信箱服务</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_CARRIER_MESSAGING_SERVICE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">绑定传输信箱服务</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定设备管理</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_DEVICE_ADMIN</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许用户将意向发送给设备管理员Device Administration Receiver必需</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定DayDream服务</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_DREAM_SERVICE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">DreamService必需</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定输入法</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_INPUT_METHOD</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许用户绑定至输入法的顶级接口 InputMethodService必需</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定NFC服务</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_NFC_SERVICE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用绑定到模拟 NFC 卡的应用 HostApduService或者OffHostApduService必需(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定通知侦听服务</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_NOTIFICATION_LISTENER_SERVICE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用绑定到通知侦听器服务的顶级接口NotificationListenerService必需</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定打印服务</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_PRINT_SERVICE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用绑定至打印服务的顶级接口PrintService必需</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定RemoteView</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_REMOTEVIEWS</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用绑定到小部件服务的顶级接口RemoteViewService必需</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定文字服务</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_TEXT_SERVICE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许用户绑定至文字服务（如SpellCheckerService）的顶级接口 TextService必需</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定TV输入</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_TV_INPUT</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">TvInputService必需</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定语音交互</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_VOICE_INTERACTION</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">VoiceInteractionService必需</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定VPN服务</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_VPN_SERVICE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许用户绑定到VPN服务的顶级接口 VpnService必需</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">绑定壁纸</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BIND_WALLPAPER</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许用户绑定到壁纸的顶级接口WallpaperService必需</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">使用蓝牙</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">BLUETOOTH</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用查看蓝牙配置，以及建立和接受与配对设备的连接</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">蓝牙管理</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">BLUETOOTH_ADMIN</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用配置本地蓝牙设备，以及发现远程设备并进行配对</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">蓝牙自动配对</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">BLUETOOTH_PRIVILEGED</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用不通知用户，自行与远程设备配对</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">获取体感传感器信箱</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BODY_SENSORS</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许程序获取体感传感器信息，比如心率</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">变成砖头</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BRICK</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">慎用永久禁用手机</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">应用删除时广播</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">BROADCAST_PACKAGE_REMOVED</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用广播一条有关已删除了应用包的通知，恶意应用可能借此终止其他任何正在运行的应用</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">收到短信时广播</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">BROADCAST_SMS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用广播一条有关已收到短信的通知，恶意应用可能借此伪造接到的短信</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">连续广播</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">BROADCAST_STICKY</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用发送持久广播消息，此类消息在广播结束后仍会保留。过度使用可能会导致手机使用过多内存，从而降低其速度或稳定性</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">WAP PUSH广播</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">BROADCAST_WAP_PUSH</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用接收和处理WAP消息。此权限包括监视发送给您的消息或删除发送给您的消息而不向您显示的功能</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">拨打电话</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">CALL_PHONE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用在您未执行操作的情况下拨打电话号码。此权限可能会导致意外收费或呼叫。请注意，此权限不允许该应用拨打紧急电话号码。恶意应用可通过拨打电话产生相关费用，而无需您的确认</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">通话权限</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">CALL_PRIVILEGED</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用在没有您干预的情况下拨打任何电话号码，包括紧急呼救号码。恶意应用可能会多余以及非法地拨打紧急服务的号码</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">拍照权限</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">CAMERA</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用使用相机拍摄照片和视频。此权限可让该应用随时使用相机，而无需您的确认</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">捕获和重定向音频输出</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">CAPTURE_AUDIO_OUTPUT</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用捕获和重定向音频输出</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">捕获和重定向加密视频输出</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">CAPTURE_SECURE_VIDEO_OUTPUT</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用捕获和重定向加密视频输出</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">捕获和重定向视频输出</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">CAPTURE_VIDEO_OUTPUT</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用捕获和重定向视频输出</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">改变组件状态</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">CHANGE_COMPONENT_ENABLED_STATE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用启用或停用其他应用的组件。恶意应用可能借此停用重要的手机功能。请务必谨慎使用此权限，因为这可能导致某些应用组件进入无法使用、不一致或不稳定的状态</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">改变配置</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">CHANGE_CONFIGURATION</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用更改当前配置，例如语言区域或整体的字体大小</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">改变网络状态</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">CHANGE_NETWORK_STATE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用更改网络连接的状态</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">改变WiFi多播状态</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">CHANGE_WIFI_MULTICAST_STATE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用使用多播地址接收发送到WLAN网络上所有设备（而不仅仅是您的）的数据包。该操作的耗电量比非多播模式要大</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">改变WiFi状态</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">CHANGE_WIFI_STATE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用与WLAN接入点建立和断开连接，以及更改WLAN网络的设备配置</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">清除应用缓存</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">CLEAR_APP_CACHE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用删除其他应用的缓存目录中的文件，从而释放手机存储空间。此权限可能会导致其他应用的启动速度变慢，因为应用必须重新检索数据</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">清除用户数据</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">CLEAR_APP_USER_DATA</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用清除用户数据(三方程序不要使用)</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">控制定位更新</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">CONTROL_LOCATION_UPDATES</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用启用/停用来自无线装置的位置更新通知(三方程序不要使用)</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">删除缓存文件</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">DELETE_CACHE_FILES</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用删除缓存文件(三方程序不要使用)</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">删除应用</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">DELETE_PACKAGES</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用删除Android程序包。恶意应用可能借此删除重要的应用(三方程序不要使用)</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">电源管理</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">DEVICE_POWER</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用打开或关闭设备(三方程序不要使用)</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">应用诊断</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">DIAGNOSTIC</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用读取/写入诊断组拥有的所有资源（例如/dev中的文件）。这可能会影响系统的稳定性和安全性。此权限仅供制造商或运营商诊断硬件方面的问题时使用(三方程序不要使用)</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">禁用键盘锁</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">DISABLE_KEYGUARD</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用停用键锁以及任何关联的密码安全措施。例如，让手机在接听来电时停用键锁，在通话结束后重新启用键锁DUMP。允许应用检索系统的内部状态。恶意应用可能会检索一般情况下绝不需要检索的多种私人信息和安全信息(三方程序不要使用)</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">转存系统信息</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">DUMP</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许程序获取系统dump信息从系统服务</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">状态栏控制</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">EXPAND_STATUS_BAR</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用展开或折叠状态栏</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">工厂测试模式</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">FACTORY_TEST</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">作为一项低级制造商测试来运行，从而允许对手机硬件进行完全访问。此权限仅当手机在制造商测试模式下运行时才可用(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">使用闪光灯</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">FLASHLIGHT</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用控制闪光灯</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">强制后退</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">FORCE_BACK</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用强制关闭任何前台活动并返回(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">访问账户Gmail列表</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">GET_ACCOUNTS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用获取设备中已知的帐户列表，其中可能包括由已安装的应用创建的所有帐户</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">获取应用大小</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">GET_PACKAGE_SIZE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用检索其代码、数据和缓存大小</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">获取任务信息</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">GET_TASKS</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用检索近期运行的和当前正在运行的任务的相关信息</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">检索当前运行应用信箱</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">GET_TOP_ACTIVITY_INFO</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用检索目前在屏幕前台运行的应用专有的信息(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">允许全局搜索</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">GLOBAL_SEARCH</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许全局搜索功能获取应用数据</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">硬件测试</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">HARDWARE_TEST</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用控制各种外围设备以进行硬件测试</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">注射事件</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">INJECT_EVENTS</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用注入用户事件(键盘、触摸、轨迹球)，并提供给任意窗口</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">安装定位提供</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">INSTALL_LOCATION_PROVIDER</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">创建用于测试的模拟位置源或安装新的位置提供程序。此权限可让该应用覆盖由其他位置源（如GPS）或位置提供程序返回的位置和/或状态信息</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">安装应用程序</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">INSTALL_PACKAGES</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用安装新的或更新的Andr​​oid程序包。恶意应用可能借此添加具有任意权限的新应用</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">自动添加主屏幕快捷方式</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">INSTALL_SHORTCUT</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用自行添加主屏幕快捷方式</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">内部系统窗口</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">INTERNAL_SYSTEM_WINDOW</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用创建供内部系统用户界面使用的窗口(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">访问网络</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">INTERNET</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用创建网络套接字和使用自定义网络协议。浏览器和其他某些应用提供了向互联网发送数据的途径，因此应用无需该权限即可向互联网发送数据</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">结束后台进程</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">KILL_BACKGROUND_PROCESSES</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用调用killBackgroundProcesses(String)方法结束其他应用的后台进程。此权限可导致其他应用停止运行</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">使用本地硬件功能</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">LOCATION_HARDWARE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许程序使用本地硬件功能例如geofencing api(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">管理账户</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">MANAGE_ACCOUNTS</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用执行添加帐户、删除帐户、删除帐户密码等操作</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">管理程序引用</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">MANAGE_APP_TOKENS</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用绕过其正常的Z排序创建和管理自己的令牌(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">管理文档存储空间</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">MANAGE_DOCUMENTS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用管理文档存储空间</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">软格式化</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">MASTER_CLEAR</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用将系统完全重置为其出厂设置，这会清除所有数据、配置和已安装的应用(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">管理媒体播放及相关信息</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">MEDIA_CONTENT_CONTROL</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用控制媒体播放及使用媒体信息（标题、作者…）</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">修改声音设置</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">MODIFY_AUDIO_SETTINGS</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用修改全局音频设置，例如音量和用于输出的扬声器</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">修改电话状态</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">MODIFY_PHONE_STATE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用控制设备的电话功能。拥有此权限的应用可在不通知您的情况下执行切换网络、开关设备无线装置等此类操作</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">格式化文件系统</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">MOUNT_FORMAT_FILESYSTEMS</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许程序格式化可移动存储</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">挂载文件系统</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">MOUNT_UNMOUNT_FILESYSTEMS</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">安装/卸载可移动存储的文件系统</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">允许NFC通讯</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">NFC</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用与近距离无线通信(NFC)标记、卡和阅读器进行通信</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">永久Activity</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">PERSISTENT_ACTIVITY</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">API Level 9废弃 许该应用在内存中持续保留其自身的某些组件。这会限制其他应用可用的内存，从而减缓手机运行速度</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">处理拨出电话</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">PROCESS_OUTGOING_CALLS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用处理外拨电话以及更改要拨打的号码。此权限可让该应用监视、重定向或阻止外拨电话</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取日程提醒</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_CALENDAR</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用读取您手机上存储的所有日历活动，包括朋友或同事的活动。此权限可让该应用分享或保存您的日历数据，而不论这些数据是否属于机密或敏感内容</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取通话记录</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_CALL_LOG</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用读取手机的通话记录，包括有关来电和外拨电话的数据。此权限可让应用保存您的通话记录数据，而恶意应用可能会在您不知情的情况下分享通话记录数据</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取联系人</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_CONTACTS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用读取您手机上存储的联系人的相关数据，包括您通过打电话、发送电子邮件或以其他方式与特定个人通信的频率。此权限可让应用保存您的联系人数据，而恶意应用可能会在您不知情的情况下分享联系人数据</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取外部存储空间</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_EXTERNAL_STORAGE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许读取外部存储空间(内置外置SD卡)</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">屏幕截图</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_FRAME_BUFFER</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许截图或获取更多帧缓冲数据</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取收藏夹和历史记录</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_HISTORY_BOOKMARKS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用读取浏览器访问过的所有网址记录以及浏览器的所有书签。请注意此权限可能不适用于第三方浏览器或具备网页浏览功能的其他应用</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取输入状态</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_INPUT_STATE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用记录您所按的键，包括与其他应用进行交互（如输入密码）时按的键</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取系统日志</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_LOGS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许读取底层系统Log日志这样，应用就可以发现关于您手机使用情况的一般信息，其中可能包含个人信息或隐私信息</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取电话状态</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_PHONE_STATE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用访问设备的电话功能。此权限可让该应用确定本机号码和设备ID是否正处于通话状态以及拨打的号码</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取个人资料信息</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_PROFILE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用读取您设备上存储的个人资料信息，例如您的姓名和联系信息。这意味着该应用可以识别您的身份，并可能将您的个人资料信息发送给他人</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取短信内容</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_SMS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用读取您手机或SIM卡上存储的短信。此权限可让该应用读取所有短信，而不考虑短信内容或机密性</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取同步设置</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_SOCIAL_STREAM</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用访问并同步您和朋友的社交动态信息。在分享信息时一定要小心，因为此权限可让该应用读取您与社交网络上的朋友之间的交流信息</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取同步状态</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_SYNC_SETTINGS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用读取某个帐户的同步设置。例如，此权限可确定“联系人”应用是否与某个帐户同步</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取同步统计信息</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_SYNC_STATS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用读取某个帐户的同步统计信息，包括同步活动历史记录和同步数据量</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取用户词典</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_USER_DICTIONARY</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用读取用户可能已在用户词典中存储的所有字词、名称和词组</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读取语音邮件</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">READ_VOICEMAIL</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许读取语音邮件</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">重启设备</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">REBOOT</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用强行重新启动手机(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">开机自动允许</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">RECEIVE_BOOT_COMPLETED</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用在系统完成引导后立即自动启动。这样可能会延长手机的启动时间，并允许应用始终运行，从而导致手机总体运行速度减慢</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">接收彩信</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">RECEIVE_MMS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用接收和处理彩信。这就意味着，该应用可能会监视发送到您设备的彩信，或删除发送到您设备的彩信而不向您显示</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">接收短信</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">RECEIVE_SMS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用接收和处理短信。这就意味着，该应用可能会监视发送到您设备的短信，或删除发送到您设备的短信而不向您显示</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">接收Wap Push</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">RECEIVE_WAP_PUSH</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用接收和处理WAP消息。此权限包括监视发送给您的消息或删除发送给您的消息而不向您显示的功能</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">录音</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">RECORD_AUDIO</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用使用麦克风录制音频。此权限可让该应用不经您的确认即可随时录制音频</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">排序系统任务</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">REORDER_TASKS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用将任务移动到前台和后台。该应用可能不经您的命令自行执行此操作</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">结束系统任务</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">RESTART_PACKAGES</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">与KILL_BACKGROUND_PROCESSES功能相同，已被替代（API Level 8废弃）</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">通过信息向其他应用发送请求</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">SEND_RESPOND_VIA_MESSAGE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用向其他信息应用发送请求，以便处理来电的“通过信息回复”事件</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">发送短信</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">SEND_SMS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用发送短信。此权限可能会导致意外收费。恶意应用可能会未经您的确认而发送短信，由此产生相关费用</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">设置Activity观察器</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">SET_ACTIVITY_WATCHER</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用监视和控制系统是如何启动活动的。恶意应用可能会完全破坏系统。此权限只有在进行开发时才需要，正常使用情况下绝不需要</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">设置闹铃提醒</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">SET_ALARM</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用发送广播在已安装的闹钟应用中设置闹钟，有些闹钟应用可能无法实现此功能</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">设置总是退出</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">SET_ALWAYS_FINISH</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用控制活动在转入后台后是否立即结束(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">设置动画缩放</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">SET_ANIMATION_SCALE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用随时更改全局动画速度（加快或减慢）</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">设置调试程序</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">SET_DEBUG_APP</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用对其他应用启用调试。恶意应用可以籍此终止其他的应用</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">设置屏幕方向</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">SET_ORIENTATION</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用随时更改屏幕的旋转状态(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">设置触控板指针速度</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">SET_POINTER_SPEED</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用随时更改鼠标或触控板指针速度(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">设置应用参数</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">SET_PREFERRED_APPLICATIONS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用修改您的首选应用。恶意应用可能会在后台更改运行的应用，欺骗您现有的应用，以收集您的私人数据（API Level 7弃用）</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">设置进程限制</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">SET_PROCESS_LIMIT</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用控制将运行的进程数上限(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">设置系统时间</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">SET_TIME</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用设置系统时间</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">设置系统时区</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">SET_TIME_ZONE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用设置系统时区</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">设置桌面壁纸</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">SET_WALLPAPER</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用设置壁纸</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">设置壁纸建议</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">SET_WALLPAPER_HINTS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用设置有关系统壁纸大小的提示</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">发送永久进程信号</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">SIGNAL_PERSISTENT_PROCESSES</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用请求将提供的信号发送给所有常驻进程</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">状态栏控制</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">STATUS_BAR</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许以状态栏形式显示应用</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">访问订阅内容</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">SUBSCRIBED_FEEDS_READ</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用获取有关当前同步的Feed的详情</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">写入订阅内容</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">SUBSCRIBED_FEEDS_WRITE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用修改您当前同步的Feed。恶意应用可能会更改您的同步Feed</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">显示系统窗口</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">SYSTEM_ALERT_WINDOW</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用在其他应用之上或用户界面的特定部分绘图。这可能会干扰您对所有应用界面的使用，或使您在其他应用中看到的内容发生变化</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">运行使用设备的红外发射器</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">TRANSMIT_IR</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">如果有，允许使用设备的红外发射器</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">删除主屏幕快捷方式</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">UNINSTALL_SHORTCUT</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用自行删除主屏幕快捷方式</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">更新设备状态</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">UPDATE_DEVICE_STATS</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许该应用修改收集到的电池统计信息(三方程序不要使用)</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">使用证书</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">USE_CREDENTIALS</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用请求身份验证令牌</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">使用SIP视频</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">USE_SIP</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用使用SIP服务拨打/接听互联网电话</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">使用振动</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">VIBRATE</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用控制振动器</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s16"><Name  Type="String">唤醒锁定</Name></Cell>
+    <Cell  StyleID="s17"><Flag  Type="String">WAKE_LOCK</Flag></Cell>
+    <Cell  StyleID="s16"><Des  Type="String">允许应用阻止手机进入休眠状态</Des></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">写入GPRS接入点设置</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_APN_SETTINGS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用更改网络设置，并拦截和检查所有网络流量，例如更改任意APN的代理和端口。恶意应用可能会在您不知情的情况下监视、重定向或修改网络数据包</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">写入日程提醒</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_CALENDAR</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用添加、删除、更改您可在手机上修改的活动，包括朋友或同事的活动。此权限可让该应用冒充日历所有者发送消息，或在所有者不知情的情况下修改活动</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">写入通话记录</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_CALL_LOG</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用修改手机的通话记录，包括有关来电和外拨电话的数据。恶意应用可能会借此清除或修改您的通话记录</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">写入联系人</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_CONTACTS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用修改您手机上存储的联系人的相关数据，包括您通过打电话、发送电子邮件或以其他方式与特定联系人通信的频率。此权限可让应用删除联系人数据（targetSDK API 16以上）</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">写入外部存储</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_EXTERNAL_STORAGE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许写入外部存储</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">写入Google地图数据</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_GSERVICES</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用修改Google Service Map(三方程序不要使用)</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">写入收藏夹和历史记录</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_HISTORY_BOOKMARKS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用修改您手机上存储的浏览器历史记录或浏览器书签。此权限可让该应用清除或修改浏览器数据。请注意此权限可能不适用于第三方浏览器或具备网页浏览功能的其他应用</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">写入个人资料信息</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_PROFILE</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用更改或添加您设备上存储的个人资料信息，例如您的姓名和联系信息。这意味着该应用可以识别您的身份，并可能将您的个人资料信息发送给他人</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读写系统敏感设置</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_SECURE_SETTINGS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用读写系统敏感设置(三方程序不要使用)</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读写系统设置</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_SETTINGS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用修改系统的设置数据。恶意应用可能会破坏您的系统配置</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">编写短信</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_SMS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用对手机或SIM卡上存储的短信执行写入操作。恶意应用可能会删除您的短信</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">显示个人社交动态信息</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_SOCIAL_STREAM</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用显示您朋友的社交动态信息。在分享信息时一定要小心，因为此权限可让该应用冒充某个朋友编写消息。请注意此权限可能不适用于所有社交网络（API Level 21废弃）</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读写在线同步设置</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_SYNC_SETTINGS</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许该应用修改某个帐户的同步设置。例如，此权限可用于在“联系人”应用与某个帐户之间启用同步</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读写用户词典</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_USER_DICTIONARY</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用向用户词典中写入新词</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell  StyleID="s21"><Name  Type="String">读写语音邮件</Name></Cell>
+    <Cell  StyleID="s20"><Flag  Type="String">WRITE_VOICEMAIL</Flag></Cell>
+    <Cell  StyleID="s21"><Des  Type="String">允许应用修改、移除系统中存在的语音邮件</Des></Cell>
+    <Cell><Data  Type="Number">1</Data></Cell>
+   </Row>
+  
+ </Worksheet>
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    <item android:drawable="@drawable/tab_right_backgurad_press" android:state_pressed="true"/>
+    <item android:drawable="@drawable/tab_right_backgurad_press" android:state_selected="true"/>
+    <item android:drawable="@drawable/tab_right_backgurad_normal"/>-->
+
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle"
+            >
+            <corners
+                android:bottomRightRadius="@dimen/download_tab_color"
+                android:topRightRadius="@dimen/download_tab_color"/>
+            <solid
+                android:color="@color/color_download_tab_press"/>
+            <stroke android:color="@color/color_download_tab_frame"
+                android:width="1px"/>
+            <padding android:left="16dp"
+                android:right="16dp"
+                />
+
+        </shape>
+    </item>
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <corners
+                android:bottomRightRadius="@dimen/download_tab_color"
+                android:topRightRadius="@dimen/download_tab_color"/>
+            <solid
+                android:color="@color/color_download_tab_press"/>
+            <stroke android:color="@color/color_download_tab_frame"
+                android:width="1px"/>
+            <padding android:left="16dp"
+                android:right="16dp"/>
+        </shape>
+    </item>
+    <item >
+        <shape android:shape="rectangle">
+            <corners
+                android:bottomRightRadius="@dimen/download_tab_color"
+                android:topRightRadius="@dimen/download_tab_color"
+                />
+            <solid
+                android:color="@color/transparent"/>
+            <stroke android:color="@color/color_download_tab_frame"
+                android:width="1px"/>
+            <padding android:left="16dp"
+                android:right="16dp"/>
+        </shape>
+    </item>
+
+</selector>

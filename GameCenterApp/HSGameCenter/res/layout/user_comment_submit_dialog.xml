@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/cs_loading"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:paddingTop="30dp"
+	    android:paddingBottom="30dp"
+	    android:paddingLeft="50dp"
+	    android:paddingRight="50dp"
+	    android:layout_gravity="center"
+	    android:gravity="center"
+	    android:background="@drawable/csl_cs_pop_background" >
+	    
+        <ProgressBar
+            android:id="@+id/submiting_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="false"
+            android:indeterminateDuration="600"
+            android:indeterminateDrawable="@drawable/csls_loading_dialog_icon" />
+        
+        <TextView 
+            android:id="@+id/submiting_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_user_comment_submiting"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/csl_text_size_large"
+            android:textColor="@color/cs_white"
+            android:layout_marginRight="6dp"/>
+	        
+	</LinearLayout>

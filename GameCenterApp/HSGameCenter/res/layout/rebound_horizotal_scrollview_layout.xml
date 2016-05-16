@@ -1,0 +1,18 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <com.hykj.gamecenter.ui.ReboundHorizotalScrollView
+        android:id="@+id/scrollview"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/gallery_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" />
+    </com.hykj.gamecenter.ui.ReboundHorizotalScrollView>
+
+</merge>

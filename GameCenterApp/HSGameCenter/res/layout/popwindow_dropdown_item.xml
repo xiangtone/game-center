@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popwindow_item_dropdown"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/pop_dropdown_bg"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_view_permissions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/setting_background_item_gray"
+        android:gravity="center"
+        android:text="@string/improper_detail_view"
+        android:textColor="@color/black"
+        android:textSize="@dimen/nui_text_size_micro" />
+
+    <View style="@style/ViewDividerPopwindow" />
+
+    <Button
+        android:id="@+id/btn_report_errors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/setting_background_item_gray"
+        android:gravity="center"
+        android:text="@string/improper_reported"
+        android:textColor="@color/black"
+        android:textSize="@dimen/nui_text_size_micro" />
+
+</LinearLayout>

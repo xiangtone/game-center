@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fitsSystemWindows="true"	    
+    android:orientation="vertical" >
+
+    <com.hykj.gamecenter.ui.widget.CSCommonActionBar
+        android:id="@+id/ActionBar"
+        style="@style/ActionBar"
+        cs:comm_showLogo="false"
+        cs:comm_showManage="true"
+        cs:comm_showReturn="true"
+        cs:comm_showSearch="true"
+        cs:comm_showSetting="false"
+        cs:comm_showTitle="true" />
+
+	  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/subject_adapter_view_item_spacing"
+    	android:paddingRight="@dimen/subject_adapter_view_item_spacing">
+
+        <include layout="@layout/applist_with_loading" />
+    </LinearLayout>
+    
+
+
+</LinearLayout>

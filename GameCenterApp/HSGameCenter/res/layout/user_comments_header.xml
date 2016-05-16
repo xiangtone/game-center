@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@null">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="综合评分"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5.0"
+            android:textSize="30sp"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="超过100万次评分"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/star_gray_five" />
+
+            <ProgressBar
+                android:id="@+id/user_comment_progress_five"
+                style="@style/ProgressBarGray"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="5dp"
+                android:max="100" />
+
+            <TextView
+                android:id="@+id/app_comment_num_five"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/csl_black_4c"
+                android:text="@string/app_user_comment_default_num" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/star_gray_four" />
+
+            <ProgressBar
+                android:id="@+id/user_comment_progress_four"
+                style="@style/ProgressBarGray"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginLeft="5dp"
+                android:max="100" />
+
+            <TextView
+                android:id="@+id/app_comment_num_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/csl_black_4c"
+                android:text="@string/app_user_comment_default_num" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/star_gray_three" />
+
+            <ProgressBar
+                android:id="@+id/user_comment_progress_three"
+                style="@style/ProgressBarGray"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginLeft="5dp"
+                android:max="100" />
+
+            <TextView
+                android:id="@+id/app_comment_num_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/csl_black_4c"
+                android:text="@string/app_user_comment_default_num" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/star_gray_two" />
+
+            <ProgressBar
+                android:id="@+id/user_comment_progress_two"
+                style="@style/ProgressBarGray"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginLeft="5dp"
+                android:max="100" />
+
+            <TextView
+                android:id="@+id/app_comment_num_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/csl_black_4c"
+                android:text="@string/app_user_comment_default_num" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/star_gray_one" />
+
+            <ProgressBar
+                android:id="@+id/user_comment_progress_one"
+                style="@style/ProgressBarGray"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginLeft="5dp"
+                android:max="100" />
+
+            <TextView
+                android:id="@+id/app_comment_num_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/csl_black_4c"
+                android:layout_marginLeft="5dp"
+                android:text="@string/app_user_comment_default_num" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

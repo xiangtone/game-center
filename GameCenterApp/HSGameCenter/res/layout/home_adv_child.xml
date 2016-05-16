@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/csl_white"
+    android:orientation="horizontal" >
+
+    <!--       android:background="@drawable/homepage_default_big_image" add this the top will has a white edge-->
+<!-- android:background="@color/csl_white" -->
+    <com.hykj.gamecenter.ui.widget.FirstAdvImageView
+        android:id="@+id/home_first_adv_child"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/loading_backgroud"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop" />
+    <!-- fitXY:是把图片塞满整个View-->
+
+</LinearLayout>

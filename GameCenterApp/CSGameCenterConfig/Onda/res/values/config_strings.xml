@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">应用商店</string>
+    <string name="cs_accountname">应用商店帐户</string>
+    <string name="setting_only_wifi_download">只在WIFI环境时才会下载应用</string>
+    <string name="setting_feedback_submit_hint">在此写下您对应用商店的意见与建议，我们会尽快回复您</string>
+    <string name="setting_about_version">
+        应用商店
+        <xliff:g id="version">%s</xliff:g>
+    </string>
+    <string name="setting_clean_cache">清除应用商店缓存 </string>
+    <string name="title_section_update">应用升级</string>
+    <string name="no_donwload_label">"暂无下载应用" </string>
+    <string name="no_update_label">"您的全部应用都已经是最新版本" </string>
+    <string name="click_exit_label">"再按一次退出应用商店" </string>
+    <string name="search_no_result">对不起，未能找到您想要的应用&#8230;</string>
+    <string name="first_launch_update_notify_apps">您有多款应用可以升级</string>
+    <string name="first_launch_update_notify_apps_content">应用商店检测到您有多款应用可以升级</string>
+    <string name="update_notify_apps">
+        您有
+        <xliff:g
+            id="count"
+            example="10">%d</xliff:g>
+        款应用可以升级
+    </string>
+    <string name="app_manager_navigation_app_upgade_tab_title">应用升级</string>
+    <string name="app_user_comment_tip">安装应用后才能评星</string>
+        <string name="game_center_out_tip">
+        <xliff:g id="dlcount">%d</xliff:g>
+        个应用正在下载，确定要退出吗？
+    </string>
+    <string name="appstore_update_text">有新版应用商店可以升级，点此查看详情</string>
+    <string name="tip_clean_cache">确定要清除应用商店缓存的所有数据吗？</string>
+        <string name="onekeytip">
+        <xliff:g
+            id="count"
+            example="0">%d</xliff:g>
+        个应用可以升级到最新版本
+    </string>
+    <string name="consume_error_title">应用商店与登录的应用账号不同,无法支付。如需支付,请重新登录此账号:%1$s。</string>
+    <string name="consume_error_title2">应用商店无登录账号,无法支付。如需支付,请重新登录此账号:%1$s。</string>
+    <string name="improper_report">应用举报</string>
+    <string name="improper_reported">举报应用</string>
+	
+	 <string-array name="appinfo_menu_array_one">
+        <item>举报应用</item>
+    </string-array>
+
+    <string-array name="appinfo_menu_array_two">
+        <item>举报应用</item>
+        <item>查看权限</item>
+    </string-array>
+	<string name="person_balance">余额: %1$s 闪币</string>
+    <string name="recharge_description">请选择充值金额(1人民币=10闪币)：</string>
+    <string name="recharge_text_desp">闪币将在10分钟内到账</string>
+    <string name="recharge_text_finish">
+        您的账户成功充值
+        <xliff:g
+            id="count"
+            example="0">%d</xliff:g>
+        闪币
+    </string>
+    <string name="recharge_item_count_unit">闪币</string>
+
+</resources>

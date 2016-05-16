@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="payeco_error_get_order_error">"獲取訂單失敗"</string>
+    <string name="payeco_prompt">"提示"</string>
+    <string name="payeco_confirm">"確\u0020\u0020認"</string>
+    <string name="payeco_plugin_pay_fail">"支付失敗"</string>
+    <string name="payeco_plugin_pay_init_fail">"外掛程式初始化失敗"</string>
+    <string name="payeco_plugin_pay_verify_fail">"訂單驗證失敗"</string>
+    <string name="payeco_plugin_initing">"正在初始化&#8230;"</string>
+    <string name="payeco_networkError">"沒有網路連接，請檢查網路設置"</string>
+    <!-- 密碼鍵盤 -->
+    <string name="payeco_keyboard">"密\u0020\u0020碼\u0020\u0020鍵\u0020\u0020盤"
+    </string>
+    <string name="payeco_keyboard_tips">"採用銀聯標準加密技術傳輸，保證密碼輸入安全"</string>
+    <string name="payeco_keyboard_digital">"數字"</string>
+    <string name="payeco_keyboard_character">"字母"</string>
+    <string name="payeco_keyboard_symbol">"符號"</string>
+    <string name="payeco_keyboard_confirm">"確\u0020\u0020定"</string>
+    <string name="payeco_keyboard_delete">"回\u0020\u0020退"</string>
+    <string name="payeco_keyboard_edit_hint">"請輸入銀行卡密碼"</string>
+    <string name="payeco_keyboard_next">"下一頁"</string>
+    <string name="payeco_keyboard_pre">"上一頁"</string>
+    <string name="payeco_pay_cvn2">"卡背面簽名欄後三位"</string>
+    <string name="payeco_pay_validate">"有效期:"</string>
+</resources>

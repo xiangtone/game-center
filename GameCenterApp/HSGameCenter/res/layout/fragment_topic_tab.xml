@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <com.hykj.gamecenter.ui.SearchBarCommon
+        android:id="@+id/searchBarCommon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/action_blue_color"/>
+
+    <com.hykj.gamecenter.ui.widget.PagerSlidingTabStrip
+        android:id="@+id/tab_strip"
+        android:visibility="visible"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/csl_cs_padding_half_size"
+        android:layout_marginTop="@dimen/csl_cs_padding_half_size"
+        />
+<!--    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_view_divider_width"
+        android:background="@color/divider">
+
+    </LinearLayout>-->
+    <TextView
+        android:id="@+id/list_item_divider"
+        android:layout_marginLeft="@dimen/list_view_item_spacing"
+        android:layout_marginRight="@dimen/list_view_item_spacing"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_view_divider_width"
+        android:background="@drawable/app_info_header_horizontal_line" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never">
+    </android.support.v4.view.ViewPager>
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/edit_icon_frame"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/edit_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="0dp"
+                    android:src="@drawable/csls_tab_actionbar_right_edit" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/more_icon_frame"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/more_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="0dp"
+                    android:src="@drawable/csls_tab_actionbar_right_more" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/select_all"
+            android:layout_width="72dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/csls_actionbar_button_black"
+            android:text="@string/csl_select_all"
+            android:textColor="@color/csl_white"
+            android:textSize="@dimen/csl_cs_actionbar_btn_textsize"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</merge>

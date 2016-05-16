@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/comment_content"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:textColor="@color/user_comment_text_color"
+    android:background="@drawable/background_grid_cell"
+    android:gravity="center"
+    android:textSize="@dimen/csl_text_size_large"
+    android:singleLine="true"
+    android:ellipsize="end"/>
+
+

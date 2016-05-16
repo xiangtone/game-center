@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:fitsSystemWindows="true"
+    android:id="@+id/cs_app_info_layout"
+    android:background="@drawable/round_dialog"
+    android:paddingBottom="@dimen/csl_cs_padding_size"
+    android:orientation="vertical" >
+
+    <!--  com.niuwan.gamecenter.ui.widget.CSCommonActionBar
+        android:id="@+id/ActionBar"
+        style="@style/ActionBar"
+        cs:comm_showLogo="false"
+        cs:comm_showManage="false"
+        cs:comm_showReturn="true"
+        cs:comm_showRightEdit="false"
+        cs:comm_showSetting="false"
+
+        cs:comm_showTitle="false" /-->
+
+
+    <!--
+         <com.niuwan.gamecenter.ui.widget.AppInfoDetailCustomScrollView
+        android:id="@+id/app_info_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_software_detail_introduce_bg_color" >
+    -->
+
+    <!--LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@color/background"
+        android:orientation="vertical" -->
+
+
+
+        <include layout="@layout/pad_app_info_header" />
+        
+        <TextView android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#d9d9d9"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/csl_cs_padding_size"
+            android:layout_marginRight="@dimen/csl_cs_padding_size"
+            android:orientation="vertical" >
+
+            <com.hykj.gamecenter.ui.widget.CSPagerSlidingTabStrip
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/csl_cs_action_bar_height"
+                android:background="@color/csl_white"
+                android:visibility="gone"
+                />
+                <!-- csa:CSPagerSlidingTabStrip_tabPaddingLeftRight="100dp" -->
+            <FrameLayout 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                 <com.hykj.gamecenter.ui.widget.AppInfoViewPager
+	                android:id="@+id/tab_pager"
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:overScrollMode="never" 
+	                android:scrollbarStyle="insideInset"
+	                android:visibility="gone">
+            	</com.hykj.gamecenter.ui.widget.AppInfoViewPager>
+            	
+            	<com.hykj.gamecenter.ui.widget.CSLoadingView
+            	    android:id="@+id/cs_loading"
+            	    android:layout_width="match_parent"
+            	    android:layout_height="match_parent" />
+            </FrameLayout>
+
+           
+        </LinearLayout>
+    <!--  /LinearLayout-->
+    <!-- </com.niuwan.gamecenter.ui.widget.AppInfoDetailCustomScrollView> -->
+
+</LinearLayout>

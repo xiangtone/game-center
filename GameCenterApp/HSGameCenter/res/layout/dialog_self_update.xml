@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/csl_cs_alert_dialog_width"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/rectround_white"
+     >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/normal_margin_padding_bigger4"
+        android:layout_marginRight="@dimen/normal_margin_padding_bigger4"
+        android:layout_marginTop="@dimen/normal_margin_padding_bigger"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/update_title"
+            android:textSize="@dimen/csl_dialog_title_text_size" 
+            android:textColor="@color/csl_black_cc"
+            android:layout_marginBottom="@dimen/normal_margin_padding_bigger"
+            />
+
+        <LinearLayout
+            android:id="@+id/update_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/normal_margin_padding_bigger"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/update_warning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#ed5565"
+                android:textSize="@dimen/csl_dialog_content_text_size"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/update_alert"
+                style="@style/TextAppearance.GrayLable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/csl_dialog_content_text_size"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/update_hint"
+                style="@style/TextAppearance.GrayLable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3dp"
+                android:textSize="@dimen/csl_dialog_content_text_size"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/update_case"
+                style="@style/TextAppearance.GrayLable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/csl_dialog_content_text_size"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/update_progressbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <ProgressBar
+                android:id="@+id/download_progress"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:max="100"
+                android:progressDrawable="@drawable/update_progressbar_horizontal" />
+
+            <TextView
+                android:id="@+id/download_progress_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/progressdefault" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/normal_margin_padding_bigger4"
+        android:layout_marginRight="@dimen/normal_margin_padding_bigger4"
+        android:layout_marginBottom="@dimen/normal_margin_padding_bigger4"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/csl_cs_alert_dialog_btn_height"
+            android:layout_weight="1"
+            android:background="@drawable/btn_green_selector"
+            android:layout_marginRight="12dp"
+            android:textColor="@color/btn_green_color"
+            android:text="@string/update_later"
+            android:textSize="@dimen/csl_dialog_button_text_size" />
+        
+                <Button
+            android:id="@+id/update_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/csl_cs_alert_dialog_btn_height"
+            android:layout_weight="1"
+			android:background="@drawable/btn_green_green_selector"
+            android:textColor="@color/cs_white"
+            android:text="@string/update"
+            android:textSize="@dimen/csl_dialog_button_text_size" />
+
+        <Button
+            android:id="@+id/install"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/csl_cs_alert_dialog_btn_height"
+            android:layout_weight="1"
+			android:background="@drawable/btn_green_green_selector"
+            android:textColor="@color/cs_white"
+            android:text="@string/install_immediatelly"
+            android:textSize="@dimen/csl_dialog_button_text_size"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

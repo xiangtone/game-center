@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+     >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#d9d9d9" />
+
+    <ProgressBar
+        android:id="@+id/action_detail_progress_bar_loading"
+        style="@style/DownloadProgressBar"
+        android:layout_marginLeft="@dimen/csl_cs_padding_size"
+        android:layout_marginRight="@dimen/csl_cs_padding_size"
+        android:layout_marginTop="@dimen/csl_action_detail_progress_bar_margin"
+        android:layout_marginBottom="@dimen/csl_action_detail_progress_bar_margin"
+        android:minHeight="@dimen/topic_bar_height"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:max="100"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/action_detail_progress_bar_resume"
+        style="@style/DownloadProgressBarForAppinfo"
+        android:layout_marginLeft="@dimen/csl_cs_padding_size"
+        android:layout_marginRight="@dimen/csl_cs_padding_size"
+        android:layout_marginTop="@dimen/csl_action_detail_progress_bar_margin"
+        android:layout_marginBottom="@dimen/csl_action_detail_progress_bar_margin"
+        android:minHeight="@dimen/topic_bar_height"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:max="100"
+        android:visibility="gone" />
+
+    <com.hykj.gamecenter.ui.widget.DownloadListButton
+        android:id="@+id/app_download_btn"
+        style="@style/NoShadowGreenButton"
+        android:background="@drawable/btn_green_green_selector"
+        android:layout_marginLeft="@dimen/csl_cs_padding_size"
+        android:layout_marginRight="@dimen/csl_cs_padding_size"
+        android:layout_marginTop="@dimen/csl_action_detail_progress_bar_margin"
+        android:layout_marginBottom="@dimen/csl_action_detail_progress_bar_margin"
+        android:minHeight="@dimen/topic_bar_height"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/app_download"
+        android:textColor="@color/csls_button_normal_text_edit"
+        android:textSize="@dimen/normal_button_text_size" />
+
+    <TextView
+        android:id="@+id/app_installed"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/csl_cs_padding_size"
+        android:layout_marginRight="@dimen/csl_cs_padding_size"
+        android:layout_marginTop="@dimen/csl_action_detail_progress_bar_margin"
+        android:layout_marginBottom="@dimen/csl_action_detail_progress_bar_margin"
+        android:minHeight="@dimen/topic_bar_height"
+        android:singleLine="true"
+        android:text="@string/app_installed"
+        android:gravity="center"
+        android:textColor="@color/csl_black_7f"
+        android:textSize="@dimen/csl_text_size_small"
+        android:background="@drawable/btn_yellow_selector"
+        android:visibility="gone" />
+
+    <com.hykj.gamecenter.ui.widget.DownloadListButton
+        android:id="@+id/app_openorupdate"
+        style="@style/NoShadowWhiteButton"
+        android:layout_marginLeft="@dimen/csl_cs_padding_size"
+        android:layout_marginRight="@dimen/csl_cs_padding_size"
+        android:layout_marginTop="@dimen/csl_action_detail_progress_bar_margin"
+        android:layout_marginBottom="@dimen/csl_action_detail_progress_bar_margin"
+        android:minHeight="@dimen/topic_bar_height"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/app_open"
+        android:textColor="@color/csls_button_open_text_edit"
+        android:textSize="@dimen/normal_button_text_size"
+        android:visibility="gone" />
+
+
+</FrameLayout>
