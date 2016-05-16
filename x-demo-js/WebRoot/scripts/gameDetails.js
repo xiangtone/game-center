@@ -34,7 +34,7 @@ function getappInfo(data){
 			"<h4>" + data.data.showName + "</h4>" +
 			"<h5><span>" + data.data.downTimes + "</span></h5>"+
 			"<h5 id=''><img src='imgs/star-" +(Math.round(data.data.recommLevel / 2))+ ".png' alt='等级'> </h5>"+
-			"</figcaption></figure><a  class='game_Detil_download' href='" + data.data.packUrl + "' onclick=pushDown(5000000, data.data)>  免费下载（<span id=''>" + (data.data.packSize/ 1048576.0).toFixed(2) +"</span>MB）</a>";
+			"</figcaption></figure><a  class='game_Detil_download' href='" + data.data.packUrl + "' onclick=pushDown(5000000, data.data)>  地铁wifi免费下载（<span id=''>" + (data.data.packSize/ 1048576.0).toFixed(2) +"</span>MB）</a>";
 	$("div.game_Detil").html(html);
 	
 	data.data.updateDesc == "" ? $("div#update_detail").hide() : $("div#update_detail p").html(data.data.updateDesc);
@@ -52,19 +52,6 @@ function getappInfo(data){
  	var imgs = $(".swiper-slide").children("img");
 	for(var i = 0; i < 5 && i < imgs.length; i++){
 		imgs[i].src = data.data.appPicUrl[i];
-
-        $(document).ready(function(){
-            $(".swiper-container").css("height",$(".details_img img").height());
-            $(".swiper-wrapper").css("height",$(".details_img img").height());
-            $(".swiper-slide").css("height",$(".details_img img").height());
-        });
-
-        $(document).load(function(){
-            $(".swiper-container").css("height",$(".details_img img").height());
-            $(".swiper-wrapper").css("height",$(".details_img img").height());
-            $(".swiper-slide").css("height",$(".details_img img").height());
-        });
-
     }
 }
 

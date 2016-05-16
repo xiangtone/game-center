@@ -30,7 +30,7 @@
             color: #fff;
             text-align: center;
         }
-
+        .swiper-wrapper img{width: 80%;height: auto;}
 
         .pagination {margin: 0 0;
             position: absolute;
@@ -38,7 +38,7 @@
             right: 0.1rem;
             bottom: 0.05rem;
         }
-        .details_img img{width: 80%;height: auto}
+        .ggimg{width: 80%;height: auto;!important;}
 
 
         .swiper-pagination-switch {
@@ -65,7 +65,7 @@
     <div class="head_left">
         <a href="javascript:goBack();"> <img src="imgs/back.png" alt=""/>   <i class="fa">游戏中心</i></a>
     </div>
-    <a class="game_search"href="javascript:goSearch();"> 搜索 </a>
+    <a class="game_search" href="javascript:goSearch();"> 搜索 </a>
 
 </div>
 
@@ -86,29 +86,29 @@
 
 
     <div class="gift_img">
-        <a  id="ourapp" href=" http://appstore.api.huashenggame.com/redirect?pn=com.hykj.gamecenter" onclick="pushDownHuaS(5000000)"> <img  id="bg" src="imgs/bg.png" alt=""/>
-            <img style="width: 80px;height: 80px;" id="gif" src="imgs/gif.gif" alt=""/> </a>
+        <a  id="ourapp" href=" http://appstore.api.huashenggame.com/redirect?pn=com.hykj.gamecenter" onclick="pushDownHuaS(5000000)"> <img  id="bg" src="imgs/gif.gif" alt=""/>
 
+</a>
     </div>
 
 
 
-<div class="swiper-container">
-    <div class="swiper-wrapper"">
+<div class="swiper-container swiper-container-free-mode">
+    <div class="swiper-wrapper">
         <div class="swiper-slide details_img">
-            <img src="" alt="1"/>
+            <img class="ggimg" src="" alt="1"/>
         </div>
         <div class="swiper-slide details_img">
-            <img  src="i" alt="2"/>
+            <img  class="ggimg"  src="i" alt="2"/>
         </div>
         <div class="swiper-slide details_img">
-            <img src="" alt="3"/>
+            <img class="ggimg"   src="" alt="3"/>
         </div>
         <div class="swiper-slide details_img">
-            <img  src="i" alt="4"/>
+            <img class="ggimg"  src="i" alt="4"/>
         </div>
         <div class="swiper-slide details_img">
-            <img src="" alt="5"/>
+            <img class="ggimg"  src="" alt="5"/>
         </div>
     </div>
     <div class="pagination"></div>
@@ -116,12 +116,12 @@
 
 <script src="./dist/idangerous.swiper.min.js"></script>
 
-<script>
+<!--<script>
     var mySwiper = new Swiper('.swiper-container',{
     })
-    mySwiper.container[0].style.height=300;
+    mySwiper.container[0].style.height=300+px;
     //mySwiper.container.css({opacity: 0.1});
-</script>
+</script>-->
 <script>
     var mySwiper = new Swiper('.swiper-container',{
         pagination: '.pagination',
@@ -195,16 +195,16 @@
     </script>
 <script>
     $(document).ready(function(){
-        $(".swiper-container").css("height",$(".details_img img").height());
-        $(".swiper-wrapper").css("height",$(".details_img img").height());
-        $(".swiper-slide").css("height",$(".details_img img").height());
+        $(".swiper-container").css("height",$(".ggimg").height());
+        $(".swiper-wrapper").css("height",$(".ggimg").height());
+        $(".swiper-slide").css("height",$(".ggimg").height());
     });
 </script>
 <script>
     $(document).load(function(){
-        $(".swiper-container").css("height",$(".details_img img").height());
-        $(".swiper-wrapper").css("height",$(".details_img img").height());
-        $(".swiper-slide").css("height",$(".details_img img").height());
+        $(".swiper-container").css("height",$(".ggimg").height());
+        $(".swiper-wrapper").css("height",$(".ggimg").height());
+        $(".swiper-slide").css("height",$(".ggimg").height());
     });
 </script>
 
