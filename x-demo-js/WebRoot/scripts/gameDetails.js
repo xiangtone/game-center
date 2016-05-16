@@ -36,6 +36,7 @@ function getappInfo(data){
 			"<h4>" + data.data.showName + "</h4>" +
 			"<h5><span>" + data.data.downTimes + "</span></h5>"+
 			"<h5 id=''><img src='imgs/star-" +(Math.round(data.data.recommLevel / 2))+ ".png' alt='等级'> </h5>"+
+
 			"</figcaption></figure><a  class='game_Detil_download' href='" +
 			data.data.packUrl +
 			"' onclick='pushDownDetail(5000000, " +
@@ -60,19 +61,6 @@ function getappInfo(data){
  	var imgs = $(".swiper-slide").children("img");
 	for(var i = 0; i < 5 && i < imgs.length; i++){
 		imgs[i].src = data.data.appPicUrl[i];
-
-        $(document).ready(function(){
-            $(".swiper-container").css("height",$(".details_img img").height());
-            $(".swiper-wrapper").css("height",$(".details_img img").height());
-            $(".swiper-slide").css("height",$(".details_img img").height());
-        });
-
-        $(document).load(function(){
-            $(".swiper-container").css("height",$(".details_img img").height());
-            $(".swiper-wrapper").css("height",$(".details_img img").height());
-            $(".swiper-slide").css("height",$(".details_img img").height());
-        });
-
     }
 }
 
