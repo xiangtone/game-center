@@ -338,6 +338,12 @@ function pushDownHuaS(posId) {
     TDAPP.onEvent("列表点击下载", posId, kv);
 }
 
+function pushDownDetail(posId, item) {
+    // var item = JSON.parse(itemString);
+    var kv = {"appName": item.showName, "packName": item.packName};
+    TDAPP.onEvent("详情下载", posId, kv);
+}
+
 
 
 function goBack() {
