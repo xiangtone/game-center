@@ -95,12 +95,13 @@ function initWithAppInfo(appdetail) {
     for (var i = 0; i < appPic.length; i++) {
         htmlDetails += "<div class='swiper-slide details_img'><img src='" +
             appPic[i] +
-            "' alt='loading...'/></div>"
+            "' alt='loading...'/></div>";
     }
     $(".swiper-wrapper").html(htmlDetails);
 
+
     $(".p_details").html(appDetail.AppDesc);
-    $(".p_details_h").html(appDetail.DevName);
+    $(".p_details_h").html("开发商：<span id=''>  "+  appDetail.DevName +"</span>" );
 }
 
 function getCookie(name)//取cookies函数
