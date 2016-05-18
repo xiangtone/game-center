@@ -19,7 +19,19 @@ class ApplistJsonHandler(APIBase):
             self.response['rescode'] = 0
             self.response['resmsg'] = '获取成功'
             self.response['data'] = app_list
-        else:
-            self.response['rescode'] = 1
-            self.response['resmsg'] = ''
-            self.response['data'] = None
+
+
+class AppiosDetailJsonHandler(APIBase):
+    """
+    单个ios应用详情
+    """
+
+    @tornado.gen.coroutine
+    def deal(self):
+        self.check_request([("appId", "应用id")])
+        item = yield appiosinfo.get_app_item(self.request["appId"])
+        if item:
+            self.response['rescode'] = 0
+            self.response['resmsg'] = '获取成功'
+            self.response['data'] = item
+

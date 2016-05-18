@@ -15,5 +15,6 @@ HANDLER_MAP = {
     'ReqAppInfo':logic.api.appinfojson.AppInfoJsonHandler,
     'ReqAppList4SearchKey':logic.api.groupelemjson.SearchAppListJsonHandler,
     'ReqRecommApp':logic.api.apprecommjson.AppRecommJsonHandler,
-    'ReqIosAppInfo':logic.api.appinfoiosjson.ApplistJsonHandler
+    'ReqIosAppInfo':logic.api.appinfoiosjson.ApplistJsonHandler,
+    'ReqIosAppDetail':logic.api.appinfoiosjson.AppiosDetailJsonHandler
 }

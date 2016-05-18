@@ -60,11 +60,10 @@ GLOBAL_SETTINGS = {
         #},
     },
     "db": {
-        'name': 'appstoreios',
+        'name': 'appstore',
         'user': 'root',
-        # 'psw': 'AP2IJDqB5yt5',
-        'psw': 'oddshou',
-        'host':"127.0.0.1:3306"
+        'psw': 'AP2IJDqB5yt5',
+        'host':"127.0.0.1:55511"
     },
     "stat": {
         "svcid": 10,

@@ -1,14 +1,78 @@
 ﻿var appDetail = null;
+var pageDone = false;
+
+function getUrl(localhost) {
+    return localhost ? "http://127.0.0.1:42010/jsonapi" : "http://115.159.125.75/appstore_api/jsonapi";
+}
+
+function sendRequest(syncConfigData, successFun) {
+    $.ajax({
+        type: "post",
+        url: getUrl(true),
+        async: true,
+        // data : contentPb,
+        data: JSON.stringify(syncConfigData),
+        // dataType : "binary",
+        dataType: "json",
+        success: successFun.success,
+        error: ajaxNetworkError
+    });
+
+}
+
+function ajaxNetworkError(XMLHttpRequest, textStatus, errorThrown) {
+    // alert("ajaxNetworkError:" + XMLHttpRequest.status + "-" +
+    // XMLHttpRequest.readyState + "-" + textStatus);
+    console.log("ajaxNetworkError:" + XMLHttpRequest.status + "-"
+        + XMLHttpRequest.readyState + "-" + textStatus + "-");
+}
+
+var syncHead = {
+    "udi": "a=1&b=1",
+    "chnNo": "",
+    "chnPos": "",
+    "clientId": "",
+    "clientPos": "",
+    "clientVer": ""
+}
+function getAppdetails(appId) {
+    var syncAppDetailData = {
+        "header": syncHead,
+        "api": "ReqIosAppDetail",
+        "params": {
+            "appId": appId
+        }
+    }
+    sendRequest(syncAppDetailData, getsuccess = {
+        success: function (data) {
+            appDetail = data.data;
+            if (pageDone)
+                page_onload();
+        }
+    });
+}
+
+
+function initAppInfo() {
+    //解析id获取游戏详情
+    var rx = /[&|#?]appid=[\d]*/
+    var mc = rx.exec(location.href);
+    var appId = 0;
+    if (mc != null) {
+//			id = parseInt(mc[0]);
+        appId = mc[0].replace(/[^0-9]/ig, "");
+        if (isNaN(appId))
+            appId = 0;
+    }
+    getAppdetails(appId);
+}
+
+initAppInfo();
+
 function page_onload() {
-    //读取cooike
-    var jsonString = getCookie("ios_game_app");
-    if (typeof jsonString == "undefined" && jsonString != null && jsonString != ""){
-        return
-    }
-    appDetail = JSON.parse(jsonString);
-    if (appDetail == null) {
-        return
-    }
+
+    if (!appDetail)
+        return;
     initWithAppInfo(appDetail);
 }
 
@@ -17,7 +81,7 @@ function initWithAppInfo(appdetail) {
     html += "<figure><img src='" +
         appdetail.IconUrl +
         "' alt='loading...'><figcaption><h4 style='margin-top:0.1rem '>" +
-        appdetail.ShowName+
+        appdetail.ShowName +
         "</h4><h5>" +
         appdetail.RecommWord +
         "</h5></figcaption></figure><a  class='game_Detil_download' href='" +
@@ -28,7 +92,7 @@ function initWithAppInfo(appdetail) {
     //添加详情图片
     var htmlDetails = "";
     var appPic = appDetail.AppPicUrl.split(",");
-    for(var i = 0; i < appPic.length; i++) {
+    for (var i = 0; i < appPic.length; i++) {
         htmlDetails += "<div class='swiper-slide details_img'><img src='" +
             appPic[i] +
             "' alt='loading...'/></div>"
@@ -41,8 +105,11 @@ function initWithAppInfo(appdetail) {
 
 function getCookie(name)//取cookies函数
 {
-    var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
-    if(arr != null) return (unescape(arr[2])); return null;
+    var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+    document.cookie = name + "=" + "" + ";";
+    if (arr != null)
+        return (unescape(arr[2]));
+    return null;
 }
 
 // function getappInfo(data){
