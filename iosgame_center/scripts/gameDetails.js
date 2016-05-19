@@ -101,7 +101,7 @@ function initWithAppInfo(appdetail) {
 
 
     $(".p_details").html(appDetail.AppDesc);
-    $(".p_details_h").html("开发商：<span id=''>  "+  appDetail.DevName +"</span>" );
+    $(".p_details_h").html("开发商:"+  appDetail.DevName +"" );
 }
 
 function getCookie(name)//取cookies函数
