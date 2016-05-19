@@ -87,9 +87,9 @@ function initWithAppInfo(appdetail) {
         appdetail.RecommWord +
         "</h5></figcaption></figure><a  class='game_Detil_download' href='" +
         appdetail.PackUrl +
-        "'  onclick='pushDownDetail(5000000, " +
+        "'  onclick=pushDownDetail(5000000,'" +
         appdetail.ShowName +
-        ")'> 前往App store下载</a>";
+        "')> 前往App store下载</a>";
     $(".game_Detil").html(html);
 
     //添加详情图片

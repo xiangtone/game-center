@@ -126,9 +126,7 @@ function initRecomm(data) {
             item.ShowName +
             "</p></a><a  class='download_btn' href='" +
             item.PackUrl +
-            "' onclick='pushDown(2000000, " +
-            item.ShowName +
-            ")'>打开</a></li>"
+            "' onclick=pushDown(2000000,'" + item.ShowName +"')>打开</a></li>"
     }
     $(".app_details_regames").html(html);
 }
@@ -147,9 +145,7 @@ function initOther(data) {
             item.RecommWord +
             "</h6></figcaption></figure></a><div class='g_game_r'><a style='display: block'  href= '" +
             item.PackUrl +
-            "' onclick='pushDown(1000000, " +
-            item.ShowName +
-            ")'><button class='btn btn-danger btn-sm btn_new'>打开</button></a></div></li>"
+            "' onclick=pushDown(1000000,'"+ item.ShowName+"')><button class='btn btn-danger btn-sm btn_new'>打开</button></a></div></li>"
     }
     $(".g_game").html(html);
 
