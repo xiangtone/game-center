@@ -157,3 +157,7 @@ function getCookie(name)//取cookies函数
 // }
 
 // initAppInfo();
+function goBack() {
+    // history.back();
+    history.go(-1);
+}

@@ -124,7 +124,7 @@ function initRecomm(data) {
             item.ShowName +
             "</p></a><a  class='download_btn' href='" +
             item.PackUrl +
-            "'>下载</a></li>"
+            "'>打开</a></li>"
     }
     $(".app_details_regames").html(html);
 }
@@ -143,7 +143,7 @@ function initOther(data) {
             item.RecommWord +
             "</h6></figcaption></figure></a><div class='g_game_r'><a style='display: block'  href= '" +
             item.PackUrl +
-            "'><button class='btn btn-danger btn-sm btn_new'>下载</button></a></div></li>"
+            "'><button class='btn btn-danger btn-sm btn_new'>打开</button></a></div></li>"
     }
     $(".g_game").html(html);
 
@@ -169,4 +169,7 @@ function SetCookie(name, value)//两个参数，一个是cookie的名子，一�
     var esvalue = escape(value);
     document.cookie = name + "=" + esvalue + ";expires=" + exp.toGMTString();
 }
-
+function goBack() {
+    // history.back();
+    history.go(-1);
+}
