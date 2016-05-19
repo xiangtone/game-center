@@ -73,12 +73,14 @@ function page_onload() {
     var other = [];
     for (var i = 0; i < appList.length; i++) {
         var item = appList[i];
-        if (item.ShowType == 1) {
-            banner.push(item);
-        } else if (recomm.length < 8) {
+        if (recomm.length < 8){
             recomm.push(item);
-        } else {
+        }else {
             other.push(item);
+
+        }
+        if(item.ShowType == 1){
+            banner.push(item);
         }
     }
     initBanner(banner);
@@ -95,7 +97,7 @@ function initBanner(data) {
         div += "<div class=" +
             (i == 0 ? "'item active'" : "item") +
             "><a href='" +
-            'iosgame_details.html?appid=' + item.AppID +
+            'iosgame_details.html?appid=' + item.AppID + "#posId="+ (1000001) +
             "'><img class='img' src='" +
             item.AdsPicUrl +
             "' alt=" +
@@ -115,7 +117,7 @@ function initRecomm(data) {
     for (var i = 0; i < data.length; i++) {
         var item = data[i];
         html += "<li><a href='" +
-            'iosgame_details.html?appid=' + item.AppID +
+            'iosgame_details.html?appid=' + item.AppID+ "#posId="+ (2000000)  +
             "'><img src='" +
             item.IconUrl +
             "' alt=" +
@@ -124,7 +126,9 @@ function initRecomm(data) {
             item.ShowName +
             "</p></a><a  class='download_btn' href='" +
             item.PackUrl +
-            "'>打开</a></li>"
+            "' onclick='pushDown(2000000, " +
+            item.ShowName +
+            ")'>打开</a></li>"
     }
     $(".app_details_regames").html(html);
 }
@@ -134,7 +138,7 @@ function initOther(data) {
     for (var i = 0; i < data.length; i++) {
         var item = data[i];
         html += "<li class='g_game_li'><a href='" +
-            "iosgame_details.html?appid=" + item.AppID +
+            "iosgame_details.html?appid=" + item.AppID + "#posId="+ (1000000) +
             "'><figure class='li_figure'><img src='" +
             item.IconUrl +
             "' alt='loading...'><figcaption class='li_figure_figcaption'><h4>" +
@@ -143,33 +147,22 @@ function initOther(data) {
             item.RecommWord +
             "</h6></figcaption></figure></a><div class='g_game_r'><a style='display: block'  href= '" +
             item.PackUrl +
-            "'><button class='btn btn-danger btn-sm btn_new'>打开</button></a></div></li>"
+            "' onclick='pushDown(1000000, " +
+            item.ShowName +
+            ")'><button class='btn btn-danger btn-sm btn_new'>打开</button></a></div></li>"
     }
     $(".g_game").html(html);
 
 
 }
 
-function allClick(itemId) {
-    if (appList != null) {
-        for (var i = 0; i < appList.length; i++) {
-            var item = appList[i];
-            if (item.AppID == itemId) {
-                // itemJsonString = JSON.stringify(item);
-                SetCookie("ios_game_app", JSON.stringify(item));
-            }
-        }
-    }
-}
+function pushDown(posId, showName) {
+    var kv = {"appName": showName};
+    TDAPP.onEvent("列表下载", posId, kv);
 
-function SetCookie(name, value)//两个参数，一个是cookie的名子，一个是值
-{
-    var exp = new Date();    //new Date("December 31, 9998");
-    exp.setTime(exp.getTime() + 60 * 1000);
-    var esvalue = escape(value);
-    document.cookie = name + "=" + esvalue + ";expires=" + exp.toGMTString();
 }
 function goBack() {
     // history.back();
     history.go(-1);
 }
+

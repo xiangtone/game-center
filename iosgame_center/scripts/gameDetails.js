@@ -65,6 +65,7 @@ function initAppInfo() {
             appId = 0;
     }
     getAppdetails(appId);
+    getPosIdPush();
 }
 
 initAppInfo();
@@ -86,7 +87,9 @@ function initWithAppInfo(appdetail) {
         appdetail.RecommWord +
         "</h5></figcaption></figure><a  class='game_Detil_download' href='" +
         appdetail.PackUrl +
-        "' > 前往App store下载</a>";
+        "'  onclick='pushDownDetail(5000000, " +
+        appdetail.ShowName +
+        ")'> 前往App store下载</a>";
     $(".game_Detil").html(html);
 
     //添加详情图片
@@ -104,13 +107,32 @@ function initWithAppInfo(appdetail) {
     $(".p_details_h").html("开发商:"+  appDetail.DevName +"" );
 }
 
-function getCookie(name)//取cookies函数
-{
-    var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
-    document.cookie = name + "=" + "" + ";";
-    if (arr != null)
-        return (unescape(arr[2]));
-    return null;
+// function getCookie(name)//取cookies函数
+// {
+//     var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+//     document.cookie = name + "=" + "" + ";";
+//     if (arr != null)
+//         return (unescape(arr[2]));
+//     return null;
+// }
+
+function getPosIdPush() {
+    var rx = /[&|#?](posId)=[\d]*/
+    var mc = rx.exec(decodeURI(location.href));
+    var id = 0;
+    if (mc != null) {
+        id = mc[0].replace(/[&|#?](posId)=/ig, "");
+        if (!isNaN(id)){
+            TDAPP.onEvent("页面点击", id);
+        }
+
+    }
+}
+
+function pushDownDetail(posId, showName) {
+    // var item = JSON.parse(itemString);
+    var kv = {"appName": showName};
+    TDAPP.onEvent("详情下载", posId, kv);
 }
 
 // function getappInfo(data){
