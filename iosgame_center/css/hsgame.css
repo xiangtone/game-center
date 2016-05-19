@@ -276,6 +276,7 @@ body{background: #f5f5f5}
 /*游戏详情页面*/
 .game_Detil{width: 100%;height:1.40rem;margin: 0 auto;background: white;text-align: center;padding-top:0.15rem;border-bottom: solid 1px #d8d8d8}
 .game_Detil figure{width: 3.00rem;height:0.64rem;margin: 0 0 0 0.15rem;text-align: center}
+.game_Detil figure>img{border-radius:10px }
 .game_Detil figure>figcaption{width:2.26rem;height:0.64rem;float: left;text-align: left;padding-left:0.10rem}
 .game_Detil figure>figcaption>h4{font-size: 0.16rem;color: #333;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;margin: 0.02rem 0}
 .game_Detil figure>figcaption>h5{padding:0.05rem 0;color: #999;margin: 0;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
