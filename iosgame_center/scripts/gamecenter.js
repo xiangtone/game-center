@@ -5,40 +5,7 @@ var pageDone = false;
 var appList = null;
 
 
-function getUrl(localhost) {
-    return localhost ? "http://127.0.0.1:42010/jsonapi" : "http://115.159.125.75/appstore_api/jsonapi";
-}
 
-function sendRequest(syncConfigData, successFun) {
-    $.ajax({
-        type: "post",
-        url: getUrl(false),
-        async: true,
-        // data : contentPb,
-        data: JSON.stringify(syncConfigData),
-        // dataType : "binary",
-        dataType: "json",
-        success: successFun.success,
-        error: ajaxNetworkError
-    });
-
-}
-
-function ajaxNetworkError(XMLHttpRequest, textStatus, errorThrown) {
-    // alert("ajaxNetworkError:" + XMLHttpRequest.status + "-" +
-    // XMLHttpRequest.readyState + "-" + textStatus);
-    console.log("ajaxNetworkError:" + XMLHttpRequest.status + "-"
-        + XMLHttpRequest.readyState + "-" + textStatus + "-");
-}
-
-var syncHead = {
-    "udi": "a=1&b=1",
-    "chnNo": "",
-    "chnPos": "",
-    "clientId": "",
-    "clientPos": "",
-    "clientVer": ""
-}
 
 var syncConfigData = {
     "header": syncHead,
@@ -149,16 +116,4 @@ function initOther(data) {
     }
     $(".g_game").html(html);
 
-
 }
-
-function pushDown(posId, showName) {
-    var kv = {"appName": showName};
-    TDAPP.onEvent("列表下载", posId, kv);
-
-}
-function goBack() {
-    // history.back();
-    history.go(-1);
-}
-

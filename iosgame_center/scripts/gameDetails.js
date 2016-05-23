@@ -1,40 +1,6 @@
 ﻿var appDetail = null;
 var pageDone = false;
 
-function getUrl(localhost) {
-    return localhost ? "http://127.0.0.1:42010/jsonapi" : "http://115.159.125.75/appstore_api/jsonapi";
-}
-
-function sendRequest(syncConfigData, successFun) {
-    $.ajax({
-        type: "post",
-        url: getUrl(false),
-        async: true,
-        // data : contentPb,
-        data: JSON.stringify(syncConfigData),
-        // dataType : "binary",
-        dataType: "json",
-        success: successFun.success,
-        error: ajaxNetworkError
-    });
-
-}
-
-function ajaxNetworkError(XMLHttpRequest, textStatus, errorThrown) {
-    // alert("ajaxNetworkError:" + XMLHttpRequest.status + "-" +
-    // XMLHttpRequest.readyState + "-" + textStatus);
-    console.log("ajaxNetworkError:" + XMLHttpRequest.status + "-"
-        + XMLHttpRequest.readyState + "-" + textStatus + "-");
-}
-
-var syncHead = {
-    "udi": "a=1&b=1",
-    "chnNo": "",
-    "chnPos": "",
-    "clientId": "",
-    "clientPos": "",
-    "clientVer": ""
-}
 function getAppdetails(appId) {
     var syncAppDetailData = {
         "header": syncHead,
@@ -129,11 +95,7 @@ function getPosIdPush() {
     }
 }
 
-function pushDownDetail(posId, showName) {
-    // var item = JSON.parse(itemString);
-    var kv = {"appName": showName};
-    TDAPP.onEvent("详情下载", posId, kv);
-}
+
 
 // function getappInfo(data){
 //     console.log("------------this is getappInfo log-----------------");
@@ -179,7 +141,3 @@ function pushDownDetail(posId, showName) {
 // }
 
 // initAppInfo();
-function goBack() {
-    // history.back();
-    history.go(-1);
-}
