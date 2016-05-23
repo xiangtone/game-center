@@ -121,14 +121,17 @@ body{background: #f5f5f5}
 
 
 /*轮播图上的搜索*/
-.c_serch{position: relative;margin-top: 0.75rem}
-.carousel_serch{position: absolute;right:0.12rem;top:0.10rem;color: #fff;font-size: 0.16rem;z-index: 999}
+.c_serch{position: relative;/*margin-top: 0.75rem*/}
+.carousel_serch{position: absolute;right:0.12rem;top:0.10rem;color: #fff;font-size: 0.16rem;z-index: 9999}
 
 .carousel-indicators li{width:0.15rem;height:0.05rem;margin:0;border: none;background:rgba(255,255,255,0.4);border-radius:0 }
 .carousel-indicators .active{width:0.15rem;height:0.05rem;margin:0;background:rgba(255,203,62,0.7)}
-
+/*导航fix_top*/
+.fix_top{width:100%;height: auto;background: #fff;padding-top: 0.1rem; }
+.fix_top_search{width: 100%;height: auto;}
+.fix_top_search_img{position: absolute;left: 0.08rem;top:0.06rem;width: 0.18rem;height: 0.18rem;}
 /*nav样式*/
-.game_nav{width:100%;height: 0.75rem;background:white;border-bottom:solid 0.01rem #d8d8d8;position: fixed;top:0;z-index: 999; }
+.game_nav{width:100%;height: 1.1rem;background:white;border-bottom:solid 0.01rem #d8d8d8;/*position: fixed;top:0;z-index: 999;*/ }
 .game_nav ul{width:100%;height: 0.75rem;}
 .game_nav ul>li{width: 20%;height:0.75rem;text-align: center;float: left;}
 .nav_bt img{;width:0.32rem;height: 0.32rem;margin-top:0.10rem;}
@@ -273,6 +276,7 @@ body{background: #f5f5f5}
 
 
 /*游戏详情页面*/
+.app_details_re img{border-radius:10px; }
 .game_Detil{width: 100%;height:1.40rem;margin: 0 auto;background: white;text-align: center;padding-top:0.15rem;}
 .game_Detil figure{width: 3.00rem;height:0.64rem;margin: 0 0 0 0.15rem;text-align: center}
 .game_Detil figure>figcaption{width:2.26rem;height:0.64rem;float: left;text-align: left;padding-left:0.10rem}
@@ -284,14 +288,18 @@ body{background: #f5f5f5}
 
 /*礼包*/
 
-.gift_img{width:100%;border-bottom: solid 0.01rem #d8d8d8;margin:0 auto;background: #fff}
+.gift_img{width:100%;border-bottom: solid 0.01rem #d8d8d8;margin:0 auto 0.05rem auto;background: #fff;}
 #bg{width: 100%;}
-#gif{width: 0.8rem;height:0.8rem;position: absolute;left: 0.1rem;top:-0.2rem;}
+
 
 /*游戏详情页面-应用升级*/
 .app_details{width: 100%;height:auto;margin: 0.05rem auto 0 auto;padding-bottom:0.2rem;background: #fff;}
 .app_details_summary{font-size: 0.16rem;padding-left: 0.12rem;color: #333;padding-top: 0.1rem;}
-.p_details{font-size: 0.14rem;color: #888;padding: 0.1rem 0.1rem;}
+.p_details{font-size: 0.14rem;color: #888;padding: 0.1rem 0.1rem;white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word; border: none;background: #fff }
 .app_details_h{width: 100%;height:auto;margin: 0.05rem auto;padding:0.1rem 0;background: #fff}
 .p_details_h{font-size: 0.14rem;color: #888;padding: 0.02rem 0.1rem;margin: 0.01rem 0}
 

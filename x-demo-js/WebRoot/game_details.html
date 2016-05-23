@@ -24,13 +24,13 @@
     <style>
         /*游戏截图 Demo Styles */
 
-        .swiper-container {
+        .swiper-container ,.swiper-wrapper{
+              height: 4.7rem;
             width: 100%;
-            height: auto;
             color: #fff;
             text-align: center;
         }
-        .swiper-wrapper img{width: 80%;height: auto;}
+        .swiper-wrapper img{width:3rem;height:4.7rem; margin-right: 0.1rem;border:solid 5px #fff;}
 
         .pagination {margin: 0 0;
             position: absolute;
@@ -93,7 +93,7 @@
 
 
 
-<div class="swiper-container swiper-container-free-mode">
+<div class="swiper-container">
     <div class="swiper-wrapper">
         <div class="swiper-slide details_img">
             <img class="ggimg" src="" alt="1"/>
@@ -124,6 +124,8 @@
 </script>-->
 <script>
     var mySwiper = new Swiper('.swiper-container',{
+
+
         pagination: '.pagination',
         paginationClickable: true,
         freeMode: true,
@@ -136,7 +138,7 @@
 <div class="app_details" id="update_detail">
     <details close>
         <summary class="app_details_summary">升级介绍</summary>
-        <p class="p_details" ></p>
+        <pre class="p_details" ></pre>
     </details>
 
 </div>
@@ -144,7 +146,7 @@
 <div class="app_details" id="apk_detail">
     <details open>
         <summary class="app_details_summary">应用介绍</summary>
-        <p class="p_details"></p>
+        <pre class="p_details"></pre>
     </details>
 
 </div>
@@ -193,20 +195,25 @@
     <script type=text/javascript>
         setBackTitle();
     </script>
-<script>
-    $(document).ready(function(){
-        $(".swiper-container").css("height",$(".ggimg").height());
-        $(".swiper-wrapper").css("height",$(".ggimg").height());
-        $(".swiper-slide").css("height",$(".ggimg").height());
+<!-- <script>
+    $(document).ready(function(swiper){
+        img_height = $('.ggimg').height();
+        $(".swiper-container").css("height",img_height+'px');
+        $(".swiper-wrapper").css("height",img_height+'px');
+        $(".swiper-slide").css("height",img_height+'px');
+        
     });
 </script>
 <script>
-    $(document).load(function(){
-        $(".swiper-container").css("height",$(".ggimg").height());
-        $(".swiper-wrapper").css("height",$(".ggimg").height());
-        $(".swiper-slide").css("height",$(".ggimg").height());
+    $(document).load(function(swiper){
+
+        img_height = $('.ggimg').height();
+        $(".swiper-container").css("height",img_height+'px');
+        $(".swiper-wrapper").css("height",img_height+'px');
+        $(".swiper-slide").css("height",img_height+'px');
+       
     });
-</script>
+</script> -->
 
 
 

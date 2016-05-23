@@ -84,6 +84,37 @@
         }
     </style>
 
+
+    <script>
+
+        $(document).ready(function() {
+
+                $(function () {
+                    var winHeight = $(document).scrollTop();
+
+                    $(window).scroll(function () {
+                        var scrollY = $(document).scrollTop();// ��ȡ��ֱ�����ľ��룬�������˶���
+                        var myCarousel=$("#myCarousel").height();
+                        if (scrollY > myCarousel) { //�������������550px
+                            $('.fix_top').css({"position": "fixed","top":"0","z-index": "999"});
+                        }
+                        else {
+                            $('#nav_bg').css({"position": "relative"});
+                        }
+
+                        if (scrollY < myCarousel) { //���û������������ɾ����ʾ�࣬���������ʾ��
+                            $('.fix_top').css({"position": "relative"});
+                        }
+                        else {
+                            $('#nav_bg ').css({"background-color":"rgba(0,0,0,0.0)"});
+                        }
+
+                    });
+                });
+        });
+
+    </script>
+
 </head>
 
 <body>
@@ -92,6 +123,41 @@
     <div class="clearfix"></div>
 
     <!--导航nav-->
+
+
+<!--轮播图-->
+    <div id="myCarousel" class="carousel slide c_serch">
+        <a class="carousel_serch"  href="search.html">搜索</a>
+        <!--
+                轮播（Carousel）指标
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                轮播（Carousel）项目
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <a href=""><img class="img" src="imgs/805-322.jpg" alt="First slide"></a>
+                        <div class="carousel-caption"></div>
+                    </div>
+                    <div class="item">
+                        <a href=""><img class="img" src="imgs/805x322.jpg" alt="Second slide"></a>
+                        <div class="carousel-caption"></div>
+                    </div>
+                    <div class="item">
+                        <a href=""><img class="img" src="imgs/8057322.jpg" alt="Third slide"></a>
+                        <div class="carousel-caption"></div>
+                    </div>
+                </div> -->
+    </div>
+<div class="fix_top">
+    <div class="fix_top_search">
+        <div style="margin: 0 auto; width: 88%;position: relative" class="form-group "><a href="search.html"><img class="fix_top_search_img" src="imgs/sou.png" alt="搜索图标"/>
+            <input style="float: left;height: 0.3rem;border-radius:2px;text-indent: 24px; " type="text" class="form-control " name="keyword" placeholder="输入关键字...">
+        </a>
+    </div>
+        </div>
     <nav class="game_nav">
         <ul>
             <li>
@@ -137,34 +203,10 @@
         </ul>
     </nav>
 
-<!--轮播图-->
-    <div id="myCarousel" class="carousel slide c_serch">
-        <!--         <a class="carousel_serch"  href="search.html">搜索</a>
-                轮播（Carousel）指标
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-                轮播（Carousel）项目
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <a href=""><img class="img" src="imgs/805-322.jpg" alt="First slide"></a>
-                        <div class="carousel-caption"></div>
-                    </div>
-                    <div class="item">
-                        <a href=""><img class="img" src="imgs/805x322.jpg" alt="Second slide"></a>
-                        <div class="carousel-caption"></div>
-                    </div>
-                    <div class="item">
-                        <a href=""><img class="img" src="imgs/8057322.jpg" alt="Third slide"></a>
-                        <div class="carousel-caption"></div>
-                    </div>
-                </div> -->
-    </div>
-
+</div>
+</div>
     <!--推荐-->
-    <div  style="margin: 0.08rem 0 0.08rem 0" class="recommend">
+    <div  style="margin: 0.05rem 0 0.05rem 0" class="recommend">
         <div class="r_title">
             <h1>
                 推荐
@@ -322,7 +364,7 @@
 
     </div>
 
-    <div class="ourapp"><img src="imgs/peanut1024.png" alt=""/> 地铁wifi随你蹭&nbsp;花生精品随你玩
+    <div class="ourapp"><img src="imgs/peanut1024.png" alt=""/> 花生游戏中心&nbsp; 极速抢游戏礼包
         <div class="right">
             <a id="download" href="http://appstore.api.huashenggame.com/redirect?pn=com.hykj.gamecenter" onclick="pushDownHuaS(1000000)">安卓下载</a>
             <a id="close">  <img src="imgs/close.png" alt=""/> </a></div>

@@ -99,7 +99,7 @@ function BannerInit(e) {
     div += "</div>";
     $("#myCarousel").html(ol + div);
 
-
+  /*  $("#myCarousel").html(ol + div + "<a class='carousel_serch'  href='search.html'>搜索</a>");*/
     $('.carousel').carousel({
         interval: 3000
     });

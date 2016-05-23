@@ -46,8 +46,8 @@ function getappInfo(data){
 			"</span>MB）</a>";
 	$("div.game_Detil").html(html);
 	
-	data.data.updateDesc == "" ? $("div#update_detail").hide() : $("div#update_detail p").html(data.data.updateDesc);
-	$("div#apk_detail p").html(data.data.appDesc);
+	data.data.updateDesc == "" ? $("div#update_detail").hide() : $("div#update_detail pre").html(data.data.updateDesc);
+	$("div#apk_detail pre").html(data.data.appDesc);
 	
 	var appdetails = "";
 	appdetails += "<h6 class='p_details_h'>开发商：<span id=''>"+data.data.devName +"</span></h6>"+
