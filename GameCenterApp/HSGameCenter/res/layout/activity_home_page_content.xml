@@ -1,0 +1,38 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.hykj.gamecenter.ui.SearchBarCommon
+        android:id="@+id/searchBarCommon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/action_blue_color"/>
+
+    <com.hykj.gamecenter.ui.widget.InterceptTouchFrameLayout
+        android:id="@+id/parent_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+
+        >
+
+        <include
+            android:id="@+id/loading_interface"
+            layout="@layout/csl_cs_general_loading"/>
+
+        <com.hykj.gamecenter.ui.widget.CSLoadingUIListView
+            android:id="@+id/home_app_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:focusable="false"
+            android:listSelector="@color/transparent"
+            android:overScrollMode="never"/>
+
+    </com.hykj.gamecenter.ui.widget.InterceptTouchFrameLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hykj.gamecenter.ui.DownloadStateViewCustomization
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android_custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_list_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <FrameLayout
+        android:id="@+id/root_first_child_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/downloadState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:textColor="@color/csl_black_cc"
+            android:textSize="@dimen/csl_text_size_small"
+            android:visibility="gone" />
+
+        <!-- style="@style/NoShadowDownloadListGreenButton" can't use this 
+            ,otherwise show text Centered showed lower -->
+
+        <ProgressBar
+            android:id="@+id/action_detail_progress_bar_loading"
+            style="@style/DownloadProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:max="100"
+            android:visibility="gone"
+            />
+
+        <ProgressBar
+            android:id="@+id/action_detail_progress_bar_resume"
+            style="@style/DownloadProgressBarForAppinfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:max="100"
+            android:visibility="gone" />
+
+        <com.hykj.gamecenter.ui.widget.DownloadListButton
+            android:id="@+id/app_download_btn"
+            style="@style/NoShadowGreenButton"
+            android:background="@drawable/btn_green_selector"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/app_download"
+            android:textSize="@dimen/normal_button_text_size"
+            android:visibility="gone" />
+
+
+
+        <TextView
+            android:id="@+id/app_installed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:text="@string/app_installed"
+            android:textColor="@color/csl_black_4c"
+            android:textSize="@dimen/csl_text_size_small"
+            android:visibility="gone" />
+
+        <com.hykj.gamecenter.ui.widget.DownloadListButton
+            android:id="@+id/app_openorupdate"
+            style="@style/NoShadowWhiteButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/app_open"
+            android:textSize="@dimen/normal_button_text_size"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/RoundProgressBarlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="gone">
+
+            <com.hykj.gamecenter.ui.ProgressButton
+                android:id="@+id/action_detail_progress_bar_default"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center" />
+
+            <ImageView
+                android:layout_width="@dimen/download_icon_size"
+                android:layout_height="@dimen/download_icon_size"
+                android:layout_gravity="center"
+                android:src="@drawable/download_arrow_"
+                android:visibility="gone" />
+        </FrameLayout>
+    </FrameLayout>
+
+</com.hykj.gamecenter.ui.DownloadStateViewCustomization>

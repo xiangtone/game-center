@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" 
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.hykj.gamecenter.ui.widget.CSCommonActionBar
+        android:id="@+id/ActionBar"
+        style="@style/ActionBar"
+        cs:comm_showLogo="false"
+        cs:comm_showManage="false"
+        cs:comm_showReturn="true"
+        cs:comm_showRightEdit="false"
+        cs:comm_showSetting="false"
+        cs:comm_showTitle="true" />
+
+    <RelativeLayout
+        android:id="@+id/layoutUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/personal_item_minh" >
+
+        <TextView
+            style="@style/NuiTextAppearance.Medium.Black00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/normal_margin_padding_medium"
+            android:duplicateParentState="true"
+            android:singleLine="true"
+            android:text="@string/title_username" />
+
+        <TextView
+            android:id="@+id/textUserName"
+            style="@style/NuiTextAppearance.Small.Black60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/recharge_price_row_margin"
+            android:duplicateParentState="true"
+            android:maxWidth="205dip"
+            android:singleLine="true"
+             />
+    </RelativeLayout>
+
+    <View style="@style/ViewDividerHorizontal" />
+
+    <RelativeLayout
+        android:id="@+id/layoutAccountExit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/personal_item_minh" >
+
+        <TextView
+            style="@style/NuiTextAppearance.Medium.Black00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/normal_margin_padding_medium"
+            android:duplicateParentState="true"
+            android:singleLine="true"
+            android:text="@string/title_account_exit" />
+    </RelativeLayout>
+
+    <View style="@style/ViewDividerHorizontal" />
+
+</LinearLayout>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/detail_background"
+    android:orientation="vertical">
+
+    <com.hykj.gamecenter.ui.widget.CSCommonActionBar
+        android:id="@+id/ActionBar"
+        style="@style/ActionBar"
+        cs:comm_showLogo="false"
+        cs:comm_showManage="false"
+        cs:comm_showReturn="true"
+        cs:comm_showRightEdit="false"
+        cs:comm_showSetting="true"
+        cs:comm_showTitle="true" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/recharge_pay_page"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/recharge_page_height"
+                android:gravity="left|center_vertical"
+                android:layout_marginLeft="@dimen/recharge_text_margin"
+                android:text="@string/recharge_description"
+                android:textColor="@color/nui_text_color_black_60"
+                style="@style/NuiTextAppearance.Small" />
+
+            <LinearLayout
+                android:id="@+id/recharge_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/recharge_price_row_margin"
+                android:layout_marginRight="@dimen/recharge_price_row_margin"
+                android:orientation="vertical">
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_minh"
+                android:layout_marginLeft="@dimen/recharge_price_row_margin"
+                android:layout_marginRight="@dimen/recharge_price_row_margin"
+                android:layout_marginTop="@dimen/header_footer_left_right_padding"
+                android:background="@drawable/price_btn_normal">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_marginLeft="@dimen/normal_margin_padding_small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/recharge_pay_unit"
+                    android:textColor="@color/cs_sf_gray_shadow"
+                    android:textSize="@dimen/nui_text_size_medium" />
+
+                <EditText
+                    android:id="@+id/pay_text"
+                    android:layout_marginLeft="@dimen/normal_margin_padding_small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:inputType="number"
+                    android:hint="@string/recharge_pay_hint"
+                    android:layout_toRightOf="@+id/textView2"
+                    android:background="@null"
+                    android:textColorHint="@color/editcolor"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/nui_text_size_medium" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/recharge_pay"
+                style="@style/GreenButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_loginh"
+                android:layout_marginLeft="@dimen/recharge_price_row_margin"
+                android:layout_marginRight="@dimen/recharge_price_row_margin"
+                android:layout_marginTop="@dimen/header_footer_left_right_padding"
+                android:text="@string/pay_bill_paying_now" />
+
+        </LinearLayout>
+
+        <ViewStub
+            android:id="@+id/recharge_finish_page"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:layout="@layout/recharge_pay_finish" />
+
+        <ViewStub
+            android:id="@+id/recharge_help"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff" />
+
+        <ViewStub
+            android:id="@+id/networkingLoading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+
+
+</LinearLayout>

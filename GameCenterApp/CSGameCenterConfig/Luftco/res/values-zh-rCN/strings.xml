@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">应用商店</string>
+
+    <string name="home_hot_app_label">上升最快</string>
+    <string name="home_topic_game_label">精品专题</string>
+    <string name="home_hot_game_label">热门游戏</string>
+    <string name="home_must_app_label">平板必备</string>
+    <string name="home_recommed_label">推荐</string>
+    <string name="home_rank_label">排行</string>
+    <string name="home_classily_label">分类</string>
+    <string name="home_game_label">游戏</string>
+    <string name="home_my_label">我的</string>
+<<<<<<< HEAD:CSAppStoreConfig/Luftco/res/values-zh-rCN/strings.xml
+    <string name="setting_about_cs">应用商店</string>
+=======
+    <string name="setting_about_pada">应用商店</string>
+>>>>>>> master:PadaAppStoreConfig/Luftco/res/values-zh-rCN/strings.xml
+    <string name="setting_office_web">艺果官网</string>
+    <string name="tel_number">0755-32998080</string>
+    <string name="setting_show_about">关于 </string>
+    <string name="local_game_label">单机游戏</string>
+    <string name="local_game_label_sel">单机游戏  精选</string>
+    <string name="topic_spec_label">专题详情</string>
+    <string name="action_bar_heanline">应用商店</string>
+    <string name="no_data_and_server_error">未获取数据成功（服务端出错）</string>
+    <string name="right_up">即将上线，尽请期待</string>
+    <string name="must_game_label">必备游戏</string>
+    <string name="action_bar_return">返回</string>
+    <string name="setting_about_remind">扫一扫，精品应用每日推，更有豪华礼包送！</string>
+    
+    <!-- Greatzhang add "我的" 界面数据 -->
+    <string name="my_accoute_name">Tyroneyu</string>
+    <string name="my_integral_name">积分：</string>
+    <string name="my_integral_date">103</string>
+    <string name="my_money_name">余额：</string>
+    <string name="my_money_count">1000</string>
+    <string name="my_money_unit">Pa币</string>
+    <string name="my_top_up">立即充值</string>
+    <string name="my_accounte_center">帐号中心</string>
+    <string name="my_game_gift">游戏礼包</string>
+    <string name="my_rank_center">等级中心</string>
+    <string name="my_setting">设置</string>
+    <string name="my_game">我的游戏</string>
+    <string name="local_game">本地游戏</string>
+    <string name="my_log_in_toast">登录帐号，享受更多游戏特权</string>
+    <string name="my_log_in"><u>立即登录</u></string>
+    <string name="my_login_dialog_title">登录帐号</string>
+    <string name="my_login_dialog_account">请输入帐号</string>
+    <string name="my_login_dialog_password">请输入密码</string>
+    <string name="my_login_dialog_no_account">还没有帐号？</string>
+    <string name="my_login_dialog_at_once_regist"><u>立即注册</u></string>
+    <string name="my_login_dialog_cancle">取消</string>
+    <string name="my_login_dialog_ensure">登录</string>
+    <string name="my_login_dialog_error_remind">密码错误，请重新输入密码</string>
+    <string name="my_regist_title">注册帐号</string>
+    <string name="my_regist_protocol">同意并遵守用户服务条款</string>
+    <string name="my_regist_ensure_password">再次确认密码</string>
+    <string name="my_regist_name">注册</string>
+    <string name="my_login_ing">登陆中...</string>
+    <string name="my_registe_success">恭喜您，注册成功</string>
+    <string name="my_registe_name">用户名</string>
+    <string name="my_registe_passwrod">密    码</string>
+<<<<<<< HEAD:CSAppStoreConfig/Luftco/res/values-zh-rCN/strings.xml
+    <string name="my_registe_accounte_name">cs520000</string>
+=======
+    <string name="my_registe_accounte_name">pada520000</string>
+>>>>>>> master:PadaAppStoreConfig/Luftco/res/values-zh-rCN/strings.xml
+    <string name="my_registe_accounte_password">0000aaaa9999</string>
+    <string name="my_registe_auto_login">自动登录(5...)</string>
+    <string name="my_registe_auto_pre">自动登录(</string>
+    <string name="my_registe_auto_end">...)</string>
+    <string name="my_no_account_toast_string">请输入帐号后，再登录</string>
+    <string name="my_no_passwrod_toast_string">请输入密码后，再登录</string>
+    <string name="my_regist_no_password">密码不能为空！</string>
+    <string name="my_no_same_password">密码不同，请重新输入</string>
+    <string name="do_no_wifi_do_download">&#160;&#160;&#160;您设置了‘仅在WIFI环境时下载’，在3G网络下无法下载，请连接WIFI或修改设置后重试。</string>
+    <string name="do_setting">去设置</string>
+    <string name="do_kown">知道了</string>
+    <string name="do_3g_download">您正在使用3G上网，继续下载可能会产生数据费用，是否继续？</string>
+    <string name="do_yes">是</string>
+    <string name="do_no">否</string>
+    
+    <!-- 帐号中心相关数据 -->
+<<<<<<< HEAD:CSAppStoreConfig/Luftco/res/values-zh-rCN/strings.xml
+    <string name="cs_accountname">CS帐户</string>
+    <string name="cs_accounttype">com.cs.account</string>
+=======
+    <string name="pada_accountname">Pada帐户</string>
+    <string name="pada_accounttype">com.pada.account</string>
+>>>>>>> master:PadaAppStoreConfig/Luftco/res/values-zh-rCN/strings.xml
+    <string name="download_title">安装帐号中心</string>
+    <string name="download_msg">您还没有安装帐号中心，是否立即安装</string>
+    <string name="download_is_online">正在下载帐号中心，请稍候...</string>
+    <string name="download_checkupdate_noupdate">获取帐号中心失败，请稍后再试！</string>
+    <string name="title_fmt">管理帐户</string>
+    <string name="key1_action">帐户中心</string>
+<<<<<<< HEAD:CSAppStoreConfig/Luftco/res/values-zh-rCN/strings.xml
+    <string name="key1_summary">管理CS帐户</string>
+=======
+    <string name="key1_summary">管理Pada帐户</string>
+>>>>>>> master:PadaAppStoreConfig/Luftco/res/values-zh-rCN/strings.xml
+    <string name="setting_only_wifi_download">只在WIFI环境时才会下载应用</string>
+    <string name="setting_downloaded_tosetup">下载完成后直接启动安装</string>
+    <string name="setting_setup_delete_package">安装成功后自动删除安装包</string>
+    <string name="setting_boot_download_unfinish_download">启动后自动下载未完成任务</string>
+    <string name="setting_downloaded_voice_tips">下载完成后声音提示</string>
+    <string name="setting_feedback_submit_hint">在此写下您对应用商店的意见与建议，我们会尽快回复您！</string>
+    <string name="setting_about_version">应用商店 <xliff:g id="version">%s</xliff:g></string>
+    <string name="setting_check_update_text">"检查新版本" </string>
+    <string name="web_game_label">网络游戏</string>
+    <string name="web_game_label_sel">网络游戏  精选</string>
+    <string name="newest_game_label">最新上线</string>
+    <string name="topic_game_label">精品专题</string>
+    <string name="view_game_label">"查看全部&amp;gt;"</string>
+    <string name="game_detail_label">应用详情</string>
+    <string name="game_manage_label">管理中心</string>
+    <string name="title_section_download">下载管理</string>
+    <string name="title_section_update">应用升级</string>
+    <string name="error_msg_net_fail">网络不给力啊...请检查网络后重试。</string>
+    <string name="refresh_retry_btn">点击重试</string>
+    <string name="tip_last_page">已经到最后啦：）</string>
+    <string name="install">"安装"</string>
+    <string name="installed">"已安装"</string>
+    <string name="installing">"正在安装"</string>
+    <string name="installing_donwload">"下载完成，等待安装"</string>
+    <string name="install_succeed">"<xliff:g id="name">%s</xliff:g>已安装成功"</string>
+    <string name="pause">"暂停"</string>
+    <string name="pauseing">"已暂停"</string>
+    <string name="download">"下载"</string>
+    <string name="downloading">"下载中"</string>
+    <string name="reload">"重试"</string>
+    <string name="reloading">"安装失败，存储空间已满！"</string>
+    <string name="delete">"删除"</string>
+    <string name="delete_succeed">"已删除任务:"</string>
+    <string name="deleted">"无法找到已下载文件，请重试"</string>
+    <string name="update_app">"更新"</string>
+    <string name="cancel">"取消"</string>
+    <string name="detail_download_label"> "下         载 : "</string>
+    <string name="detail_size_label">     "大         小 : "</string>
+    <string name="detail_developer_label">"开  发  商 : "</string>
+    <string name="detail_date_label">     "更新日期 : "</string>
+    <string name="detail_version_label">  "版         本 : "</string>
+    <string name="waiting">"等待中"</string>
+    <!-- download list fragment -->
+    <string name="download_tip_preparing">"正在准备下载&#8230;"</string>
+    <string name="download_tip_waiting">"排队中，等待下载&#8230;"</string>
+    <string name="download_tip_loading"></string>
+    <string name="download_current_length">"已下载：<xliff:g example="12MB" id="currentLength">%s </xliff:g><xliff:g example="20%" id="percent">    %d%%</xliff:g>"</string>
+    <string name="download_tip_network_error1">"网络连接出错，请"</string>
+    <string name="download_tip_network_error2">"后继续下载"</string>
+    <string name="download_tip_file_error">"安装包下载出错，请重新下载"</string>
+    <string name="download_tip_server_error">"服务器正在打盹，请稍后重试"</string>
+    <string name="download_tip_file_noexist">"安装包已下架，无法完成下载，请删除任务"</string>
+    <string name="download_tip_no_freesapce1">"存储空间已满，"</string>
+    <string name="download_tip_no_freesapce2">"后重试"</string>
+    <string name="download_tip_file_deleted">"安装包无法找到，请重新下载"</string>
+    <string name="download_tip_same_id">"对不起，安装包已在下载列表中，如果是升级版本，请在下载管理中长按删除对应的安装包，重试升级！"</string>
+    <string name="detail_app_update_title">升级说明</string>
+    <string name="detail_app_info_title">应用介绍</string>
+    <string name="detail_show_more">更多</string>
+    <string name="detail_hide_more">收起</string>
+    <string name="detail_app_pic_title">应用截图</string>
+    <string name="detail_app_info">"主角带着财宝开始一段逃出生天的夺命狂奔"</string>
+    <string name="detail_snapshot_loading">正在努力加载截图...</string>
+    <string name="download_info">"11.21MB"</string>
+    <string name="file_not_exist">安装包已不存在</string>
+    <string name="error_get_appdetail">获取应用信息失败，请稍后再试</string>
+    <string name="current_version_label_unkown">"未知"</string>
+    <string name="update_version_label">"版本：" </string>
+    <string name="loading">正在疯狂地加载...</string>
+    <string name="searching">正在搜索...</string>
+    <string name="back_label">"返回：" </string>
+    <string name="no_donwload_label">"暂无应用正在下载，快去找找好玩的应用吧！" </string>
+    <string name="no_update_label">"太棒了，您的应用都是最新版本！" </string>
+    <string name="click_exit_label">"再按一次退出程序" </string>
+    <string name="get_detail_fail">"获取下载信息失败，请稍后再试" </string>
+    <string name="group_app_count"><xliff:g example="88" id="number">%d</xliff:g> 款</string>
+    <string name="topic_app_count">应用数量：  <xliff:g example="88" id="number">%s</xliff:g> 款</string>
+    <string name="topic_tip">专题介绍：  <xliff:g example="88" id="number">%s</xliff:g></string>
+    <string name="search_no_result">陛下恕罪啊，没有找到您要的应用...</string>
+    <!-- search -->
+    <string name="clear_search_history">清除搜索记录</string>
+    <string name="hot_games">24小时热门应用</string>
+    <string name="hot_search">热门搜索词</string>
+    <!-- 自更新相关 -->
+    <string name="checkupdate_noupdate">已经是最新版本！</string>
+    <string name="checkupdate">检查更新</string>
+    <string name="update">立即升级</string>
+    <string name="update_title">发现新版本，赶紧去升级！</string>
+    <string name="update_later">以后再说</string>
+    <string name="update_notify_start">正在下载升级包</string>
+    <string name="update_notify_end">升级包下载完成</string>
+    <string name="update_notify_end_text">点击安装升级包</string>
+    <string name="update_notify_error">抱歉，升级包下载失败</string>
+    <string name="update_notify_error_text">少年，没联网啊...请检查网络并稍候再试</string>
+    <!-- 更新通知栏 -->
+    <string name="update_notify_apps">您有<xliff:g example="10" id="count">%d</xliff:g>款应用可以升级</string>
+    <string name="download_notify_apps"><xliff:g example="10" id="count">%d</xliff:g>款应用正在下载</string>
+    <string name="download_notify_apps_hint">点击查看下载列表</string>
+    <!-- 首页引导界面 -->
+    <string name="guide_title">欢迎使用应用商店</string>
+    <string name="guide_msg">我们为你准备了一些好玩的应用</string>
+    <string name="guide_go_home">跳过安装</string>
+    <string name="guide_install">安装(<xliff:g example="10" id="count">%d</xliff:g>)</string>
+    <string name="storage_full_msg">存储空间不足，请清除部分存储内容</string>
+    <!-- 设置界面 -->
+    <string name="setting_reponsy_daclare"><u>免责声明</u></string>
+    <string name="setting_copy_right_daclare">Copyright©2013 EagleNet.All Rights Reserved</string>
+    <string name="setting_copy_right_own">艺果网络 版权所有</string>
+    <!-- 2.0详情界面 -->
+    <string name="app_software_detail_app_version_tag">版&#160;本:&#160;</string>
+    <string name="app_software_detail_app_language_tag">语言:&#160;</string>
+    <string name="app_software_detail_app_size_tag">大&#160;&#160;&#160;&#160;小:&#160;</string>
+    <string name="app_software_detail_app_update_tag">更&#160;新:&#160;</string>
+    <string name="app_software_detail_app_developer_tag">开发商:&#160;</string>
+    <string name="app_software_detail_app_upgrade_tag">升级介绍</string>
+    <string name="app_software_detail_app_business_tag">应用介绍</string>
+    <string name="app_software_detail_upgrade_info_show_more">更多</string>
+    <string name="app_info_size_flag"><xliff:g example="10" id="count">%d</xliff:g>M</string>
+    <string name="app_info_navigation_software_detail_tab_title">应用详情</string>
+    <string name="app_info_navigation_user_evaluate_tab_title">用户评价</string>
+    <string name="no_user_evaluate">暂无评论。少年，你要不要评论一下？</string>
+    <!-- 管理中心 -->
+    <string name="app_manager_navigation_download_tab_title">下载管理</string>
+    <string name="app_manager_navigation_app_upgade_tab_title">应用升级</string>
+    <string name="app_manager_bar_right_btn_edit">编辑</string>
+    <string name="app_manager_bar_right_btn_upgrade">全部更新</string>
+    <string name="app_manager_bar_left_btn_del_num">选择任务<xliff:g example="10" id="count">%d</xliff:g></string>
+    <string name="app_manager_bar_right_btn_finish">完成</string>
+    <string name="immediate_clean">立即清理</string>
+    <string name="check_network">检查网络</string>
+    <string name="no_upgrade_details">暂无升级详情</string>
+    <string name="have_upgrade_details">请查看升级详情</string>
+    <string name="is_in_downloadtask_list">已经在下载队列中...</string>
+    <string name="unable_to_remove_the_task">正在安装，无法移除任务</string>
+    <string name="success_to_remove_count_task">已成功移除<xliff:g example="10" id="count">%d</xliff:g>个下载任务</string>
+    <string name="please_to_select_task">选择任务</string>
+    
+    <!-- 2.0通用 -->
+    <string name="app_install">安装</string>
+    <string name="app_installed">已安装</string>
+    <string name="app_pause">暂停</string>
+    <string name="app_redownload">重下</string>
+    <string name="app_retry">重试</string>
+    <string name="app_wait_to_install">待安装</string>
+    <string name="app_waiting">等待中</string>
+    <string name="app_installing">正在安装</string>
+    <string name="app_download">下载</string>
+    <string name="app_upgrade">升级</string>
+    <string name="app_downloading">下载中</string>
+    <string name="app_fail">失败</string>
+    <string name="app_resume">继续</string>
+    <string name="app_update">更新</string>
+    <string name="app_open">打开</string>
+    <string name="app_delete">删除</string>
+    <!-- 2.0排行界面 -->
+    <string name="topic_app_fragement_more_button">查看更多</string>
+    <string name="topic_app_fragement_webgame">最受欢迎网游</string>
+    <string name="topic_app_fragement_pcgame">最受欢迎单机</string>
+    <string name="app_setting_about_button_text">确定</string>
+    <!-- 2.0评论界面 -->
+    <string name="app_user_comment_grade">平均<xliff:g id="grade">%1$1.1f</xliff:g>分</string>
+    <string name="app_user_comment_sum">共<xliff:g id="sum">%d</xliff:g>次评分</string>
+    <string name="app_user_comment_num"><xliff:g id="num">%d</xliff:g>次</string>
+    <string name="app_user_comment_button">评论</string>
+    <string name="app_user_no_comment_button">我要评论</string>
+    <string name="app_user_comment_current_version">当前版本</string>
+    <string name="app_user_comment_old_version">旧版本</string>
+    <string name="app_user_comment_title">用户评论</string>
+    <string name="app_user_comment_tab">点击星星选择评分</string>
+    <string name="app_user_comment_hint">请输入评论的内容</string>
+    <string name="app_user_no_comment_hint">不输入评论内容，真的没办法提交评论...</string>
+    <string name="app_user_comment_submit">提交</string>
+    <string name="app_user_comment_char_number"><xliff:g id="name">%d</xliff:g>/150</string>
+    <string name="app_user_comment_no">暂无用户评论</string>
+    <string name="app_user_comment_default_num">0次</string>
+    <string name="app_user_comment_anonymous">游客</string>
+    <string name="app_user_comment_tip">先安装，后评论。这是土豪也必须遵守的规则。</string>
+    <string name="app_user_comment_download">下载</string>
+    <string name="app_user_comment_new_title">撰写评论：<xliff:g id="writecomment">%s</xliff:g></string>
+    <string name="app_user_comment_update_title">更新评论：<xliff:g id="updatecomment">%s</xliff:g></string>
+    <string name="app_user_comment_submit_net_error">网络不给力啊老湿！请检查网络后重试</string>
+    <string name="app_user_comment_submiting">正在提交...</string>
+    <string name="app_user_comment_product_model">(<xliff:g id="name">%s</xliff:g>)</string>
+
+    <string-array name="app_comment_recommend_game_graphics">
+        <item>界面非常简洁</item>
+        <item>界面真是太漂亮了</item>
+        <item>界面非常精美</item>
+    </string-array>
+    <string-array name="app_comment_recommend_game_play">
+        <item>功能简单实用</item>
+        <item>功能非常全面</item>
+        <item>功能设计不错，好用</item>
+    </string-array>
+    <string-array name="app_comment_recommend_game_operate">
+        <item>速度很快</item>
+        <item>使用方便</item>
+        <item>操作流畅，很爽</item>
+    </string-array>
+    <string-array name="app_comment_recommend_game_player">
+        <item>很好的应用，推荐下载</item>
+        <item>朋友推荐我玩的，不错</item>
+        <item>身边使用的朋友很多</item>
+    </string-array>
+    <string-array name="app_comment_recommend_game_stability">
+        <item>应用很稳定</item>
+        <item>稳定的操作体验，很赞</item>
+        <item>应用优化不错，稳定</item>
+    </string-array>
+    <string-array name="app_comment_recommend_game_story">
+        <item>很喜欢这款应用</item>
+        <item>应用非常棒</item>
+        <item>很喜欢，绿色无广告</item>
+    </string-array>
+    <!-- 首页 -->
+    <string name="game_center_out_tip"><xliff:g id="dlcount">%d</xliff:g>个应用正在下载，退出后将暂停，是否退出？ </string>
+    <string name="game_center_in_tip">您还有<xliff:g id="dlcount">%d</xliff:g>个应用未下载完成或安装，是否继续？ </string>
+    <string name="imediate_to_handle">立即处理</string>
+    <string name="wait_to_handle">稍后处理</string>
+    <!-- 下载暂停原因 -->
+    <string name="not_wifi_stop">非wifi情况下，系统将任务加入下载队列之后，自动暂停下载任务</string>
+    <string name="user_active_stop">用户主动暂停</string>
+    <string name="game_classify_title">游戏分类</string>
+    
+
+    <!-- 新手引导页面 -->
+    <string name="guide_page_world_1_1">2.0</string>
+    <string name="guide_page_world_1_2">全新改版</string>
+    <string name="guide_page_world_1_3">专注平板，带来更完美的操作体验</string>
+    <string name="guide_page_world_2_1">10000+</string>
+    <string name="guide_page_world_2_2">优质应用</string>
+    <string name="guide_page_world_2_3">人工挑选，只收录适配您平板的应用</string>
+    <string name="guide_page_world_3_1">30s</string>
+    <string name="guide_page_world_3_2">极速下载</string>
+    <string name="guide_page_world_3_3">告别漫长的等待，享受飞速的快感</string>
+</resources>
+    
+    

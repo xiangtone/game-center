@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settingItem"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:minHeight="@dimen/settings_navigator_menu_item_height"
+    android:paddingLeft="@dimen/normal_margin_padding_medium"
+    android:paddingRight="@dimen/normal_margin_padding_medium"
+    android:descendantFocusability="blocksDescendants"
+    >
+    
+    <View 
+        android:layout_height="match_parent"
+        android:layout_width="1dp"
+        android:background="@color/csl_white"
+        />
+    <LinearLayout
+        android:layout_width="72dp" 
+        android:layout_height="match_parent"
+        android:background="#fafafa"
+        android:gravity="center" 
+        android:visibility="gone">
+        <ImageView 
+	        android:id="@+id/item_label"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        />
+    </LinearLayout>
+    
+     <RelativeLayout  
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="@dimen/settings_navigator_menu_item_height"
+        android:id="@+id/relativeLayoutItem"
+        >
+        
+         <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linearLayoutLeft"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true">
+           <TextView 
+               android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/ff_black"
+        android:textSize="@dimen/nui_text_size_medium"
+        />
+         <TextView 
+             android:id="@+id/titledetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/cc_black"
+        android:textSize="@dimen/nui_text_size_micro"
+        />  
+         </LinearLayout>
+        
+         
+             <CheckedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/linearLayoutLeft"
+        android:id="@+id/checkedTextView"
+        android:checkMark="@drawable/csls_indicator_setting_toggle"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/settings_navigator_menu_item_height"
+        android:textAppearance="@style/TextAppearance.SettingDetailItem"
+        android:text="" />
+     </RelativeLayout>
+
+
+</LinearLayout>
+

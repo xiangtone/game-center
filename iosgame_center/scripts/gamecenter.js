@@ -4,40 +4,12 @@
 var pageDone = false;
 var appList = null;
 
-function sendRequest(syncConfigData, successFun) {
-    $.ajax({
-        type: "post",
-        url: "http://127.0.0.1:42010/jsonapi",
-        async: true,
-        // data : contentPb,
-        data: JSON.stringify(syncConfigData),
-        // dataType : "binary",
-        dataType: "json",
-        success: successFun.success,
-        error: ajaxNetworkError
-    });
 
-}
 
-function ajaxNetworkError(XMLHttpRequest, textStatus, errorThrown) {
-    // alert("ajaxNetworkError:" + XMLHttpRequest.status + "-" +
-    // XMLHttpRequest.readyState + "-" + textStatus);
-    console.log("ajaxNetworkError:" + XMLHttpRequest.status + "-"
-        + XMLHttpRequest.readyState + "-" + textStatus + "-");
-}
-
-var syncHead = {
-    "udi": "a=1&b=1",
-    "chnNo": "",
-    "chnPos": "",
-    "clientId": "",
-    "clientPos": "",
-    "clientVer": ""
-}
 
 var syncConfigData = {
     "header": syncHead,
-    "api": "ReqAppList",
+    "api": "ReqIosAppInfo",
     "params": {}
 }
 
@@ -50,7 +22,7 @@ var configSuccessFun = {
         // }
         console.log("group data success");
         console.log(appList);
-        if (pageDone){
+        if (pageDone) {
             page_onload();
         }
     }
@@ -66,16 +38,18 @@ function page_onload() {
     var banner = [];
     var recomm = [];
     var other = [];
-        for (var i = 0; i < appList.length; i++) {
-            var item = appList[i];
-            if (item.ShowType == 1){
-                banner.push(item);
-            }else if(recomm.length < 8) {
-                recomm.push(item);
-            }else {
-                other.push(item);
-            }
+    for (var i = 0; i < appList.length; i++) {
+        var item = appList[i];
+        if (recomm.length < 8){
+            recomm.push(item);
+        }else {
+            other.push(item);
+
         }
+        if(item.ShowType == 1){
+            banner.push(item);
+        }
+    }
     initBanner(banner);
     initRecomm(recomm);
     initOther(other);
@@ -86,13 +60,12 @@ function initBanner(data) {
     var div = "<div class='carousel-inner'>";
     for (var i = 0; i < data.length; i++) {
         var item = data[i];
-        ol += "<li data-target='#myCarousel' data-slide-to='" + i + "'"+ (i == 0 ? "class='active'" : "")+ "></li>";
+        ol += "<li data-target='#myCarousel' data-slide-to='" + i + "'" + (i == 0 ? "class='active'" : "") + "></li>";
         div += "<div class=" +
-            (i==0 ? "'item active'" : "item") +
+            (i == 0 ? "'item active'" : "item") +
             "><a href='" +
-            'iosgame_details.html?appid='+ item.AppID +
-            "' onclick=allClick(" +JSON.stringify(item)+
-            ")><img class='img' src='" +
+            'iosgame_details.html?appid=' + item.AppID + "#posId="+ (1000001) +
+            "'><img class='img' src='" +
             item.AdsPicUrl +
             "' alt=" +
             item.ShowName +
@@ -110,10 +83,9 @@ function initRecomm(data) {
     var html = "";
     for (var i = 0; i < data.length; i++) {
         var item = data[i];
-        html+= "<li><a href='" +
-            'iosgame_details.html?appid=' + item.AppID+
-            "' onclick=allClick("+JSON.stringify(item)+
-            ")><img src='" +
+        html += "<li><a href='" +
+            'iosgame_details.html?appid=' + item.AppID+ "#posId="+ (2000000)  +
+            "'><img src='" +
             item.IconUrl +
             "' alt=" +
             'loading...' +
@@ -121,7 +93,7 @@ function initRecomm(data) {
             item.ShowName +
             "</p></a><a  class='download_btn' href='" +
             item.PackUrl +
-            "'>下载</a></li>"
+            "' onclick=pushDown(2000000,'" + item.ShowName +"')>打开</a></li>"
     }
     $(".app_details_regames").html(html);
 }
@@ -130,10 +102,9 @@ function initOther(data) {
     var html = "";
     for (var i = 0; i < data.length; i++) {
         var item = data[i];
-        html +="<li class='g_game_li'><a href='" +
-            "iosgame_details.html?appid=" + item.AppID+
-            "' onclick=allClick("+JSON.stringify(item)+
-            ")><figure class='li_figure'><img src='" +
+        html += "<li class='g_game_li'><a href='" +
+            "iosgame_details.html?appid=" + item.AppID + "#posId="+ (1000000) +
+            "'><figure class='li_figure'><img src='" +
             item.IconUrl +
             "' alt='loading...'><figcaption class='li_figure_figcaption'><h4>" +
             item.ShowName +
@@ -141,29 +112,8 @@ function initOther(data) {
             item.RecommWord +
             "</h6></figcaption></figure></a><div class='g_game_r'><a style='display: block'  href= '" +
             item.PackUrl +
-            "'><button class='btn btn-danger btn-sm btn_new'>下载</button></a></div></li>"
+            "' onclick=pushDown(1000000,'"+ item.ShowName+"')><button class='btn btn-danger btn-sm btn_new'>打开</button></a></div></li>"
     }
     $(".g_game").html(html);
-    
-    
-}
 
-function allClick(item) {
-    // if (appList != null) {
-    //     for(var i = 0; i < appList.length; i++){
-    //         var item = appList[i];
-    //         if (item.AppID == appid) {
-    itemJsonString = JSON.stringify(item);
-    SetCookie("ios_game_app", itemJsonString);
-    //         }
-    //     }
-    // }
 }
-
-function SetCookie(name,value)//两个参数，一个是cookie的名子，一个是值
-{
-    var exp  = new Date();    //new Date("December 31, 9998");
-    exp.setTime(exp.getTime() + 60*1000);
-    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
-}
-

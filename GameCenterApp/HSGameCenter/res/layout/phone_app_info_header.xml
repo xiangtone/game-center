@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_detail_header_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/csl_white"
+    android:paddingBottom="@dimen/csl_cs_padding_size"
+    android:paddingLeft="@dimen/csl_cs_padding_size"
+    android:paddingRight="@dimen/csl_cs_padding_size"
+    android:paddingTop="@dimen/csl_cs_padding_size"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+
+        <FrameLayout
+            android:id="@+id/app_icon_framelayout"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size" >
+
+            <com.hykj.gamecenter.ui.widget.RoundCornerImageView
+                android:id="@+id/app_icon"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_gravity="center"
+                android:src="@drawable/app_icon_default" />
+
+            <!--
+            <com.niuwan.gamecenter.ui.widget.RoundCornerImageView
+                android:id="@+id/app_detail_icon_cover"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+                -->
+
+            <!--
+            <ProgressBar
+                android:id="@+id/action_detail_progress_bar"
+                style="@style/DownloadProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/csl_action_detail_progress_bar_height"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_margin="@dimen/csl_action_detail_progress_bar_margin"
+                android:background="@drawable/csl_progress_bar_black"
+                android:max="100"
+                android:progress="70"
+                android:visibility="gone" />
+            -->
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/csl_cs_padding_half_size"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <!-- title -->
+
+            <TextView
+                android:id="@+id/app_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/csl_black_cc"
+                android:textSize="@dimen/nui_text_size_large" />
+
+            <!-- 评分 -->
+
+            <RatingBar
+                android:id="@+id/app_rating"
+                style="@style/RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"
+                android:layout_below="@id/app_title"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:background="@null"
+                android:numStars="5"
+                android:rating="4" />
+
+            <RelativeLayout
+                android:id="@+id/app_other_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/app_rating"
+                android:layout_marginTop="2dp" >
+
+                <!-- 下载次数 -->
+
+                <TextView
+                    android:id="@+id/app_download"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/csl_black_7f"
+                    android:textSize="@dimen/nui_text_size_little" />
+
+                <!-- app大小 -->
+
+                <TextView
+                    android:id="@+id/app_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_toRightOf="@id/app_download"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/csl_black_7f"
+                    android:textSize="@dimen/nui_text_size_little" />
+
+                <!-- app_version -->
+
+                <TextView
+                    android:id="@+id/app_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_toRightOf="@id/app_size"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/csl_black_7f"
+                    android:textSize="@dimen/nui_text_size_little" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/app_recommended"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/app_other_info"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="2dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/csl_black_7f"
+                android:textSize="@dimen/csl_text_size_small"
+                />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_margin_padding_little"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/textSafe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:drawableLeft="@drawable/safe_safe"
+            android:text="@string/safe_safe"
+            android:textColor="@color/csl_black_7f"
+            android:textSize="@dimen/nui_text_size_little"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/textAdv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:drawableLeft="@drawable/safe_adv"
+            android:text="@string/safe_adv"
+            android:textColor="@color/csl_black_7f"
+            android:textSize="@dimen/nui_text_size_little"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/textFree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/safe_free"
+            android:text="@string/safe_free"
+            android:textColor="@color/csl_black_7f"
+            android:textSize="@dimen/nui_text_size_little"
+            android:visibility="gone"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

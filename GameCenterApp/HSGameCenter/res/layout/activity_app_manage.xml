@@ -1,0 +1,46 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- <com.niuwan.gamecenter.ui.widget.CSCommonActionBar android:id="@+id/ActionBar" 
+            style="@style/ActionBar" cs:comm_showLeftEdit="true" cs:comm_showLogo="false" 
+            cs:comm_showManage="false" cs:comm_showReturn="true" cs:comm_showRightEdit="true" 
+            cs:comm_showRightEditButton="false" cs:comm_showRightEditIcon="true" cs:comm_showSetting="false" 
+            cs:comm_showTitle="false" /> -->
+
+        <com.hykj.gamecenter.ui.widget.CSDownloadManageActionBar
+            android:id="@+id/ActionBar"
+            style="@style/ActionBar"
+            cs:comm_showReturn="false"
+            cs:comm_showRightEdit="true"
+            cs:comm_showRightEditButton="false"
+            cs:comm_showRightEditIcon="true" />
+
+        <com.hykj.gamecenter.ui.widget.CSDownloadManageEditBar
+            android:id="@+id/headerbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/csl_cs_action_bar_height"
+            android:duplicateParentState="true"
+            android:visibility="gone"
+            cs:header_title="@string/please_to_select_task"
+            cs:left_title="@string/csl_comm_actionbar_left_btn_del"
+            cs:right_title="@string/csl_comm_actionbar_right_btn_edit" />
+    </FrameLayout>
+
+    <com.hykj.gamecenter.ui.widget.AppInfoViewPager
+        android:id="@+id/tab_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+    </com.hykj.gamecenter.ui.widget.AppInfoViewPager>
+
+</LinearLayout>

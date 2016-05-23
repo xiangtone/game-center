@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <dimen name="nui_text_size_little_less">8sp</dimen>
+    <dimen name="nui_text_size_little">10sp</dimen>
+    <dimen name="nui_text_size_micro">12sp</dimen>
+    <dimen name="nui_text_size_small">14sp</dimen>
+    <dimen name="nui_text_size_medium">16sp</dimen>
+    <dimen name="nui_text_size_large">18sp</dimen>
+    
+    <!-- 00 20 50 70 表示透明度  -->
+    <color name="nui_text_color_black_00">#ff000000</color>
+    <color name="nui_text_color_black_20">#cc000000</color>
+    <color name="nui_text_color_black_50">#7f000000</color>
+    <color name="nui_text_color_black_60">#66000000</color>
+    <color name="nui_text_color_black_70">#4c000000</color>
+    <color name="nui_text_color_white_00">#ffffffff</color>
+    <color name="nui_text_color_white_20">#ccffffff</color>
+    <color name="nui_text_color_white_50">#7fffffff</color>
+    <color name="nui_text_color_white_60">#66ffffff</color>
+    <color name="nui_text_color_white_70">#4cffffff</color>
+    
+    <color name="nui_text_color_red">#df3b4c</color>
+    <color name="nui_text_color_red_light">#ef5e6f</color>
+    <color name="nui_text_color_yellow">#dc9a11</color>
+    <color name="nui_text_color_yellow_light">#f7c249</color>
+    <color name="nui_text_color_blue">#08c08e</color>
+    <color name="nui_text_color_blue_light">#13a2cf</color>
+    <color name="nui_text_color_green">#02aa7c</color>
+    <color name="nui_text_color_green_light">#02b389</color>
+
+    <color name="nui_text_color_gray">#32c563</color>
+    <color name="item_bg_pressed_noalpha">#e5e5e5</color>
+    
+    <style name="NuiTextAppearance">
+    </style>
+    
+    <style name="NuiTextAppearance.Micro">
+        <item name="android:textSize">@dimen/nui_text_size_micro</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small">
+        <item name="android:textSize">@dimen/nui_text_size_small</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium">
+        <item name="android:textSize">@dimen/nui_text_size_medium</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large">
+        <item name="android:textSize">@dimen/nui_text_size_large</item>
+    </style>
+    
+    
+    <!-- ———————————————————— 黑色字体style ———————————————————— -->
+    <style name="NuiTextAppearance.Micro.Black00">
+        <item name="android:textColor">@color/nui_text_color_black_00</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.Black00">
+        <item name="android:textColor">@color/nui_text_color_black_00</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.Black00">
+        <item name="android:textColor">@color/nui_text_color_black_00</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.Black00">
+        <item name="android:textColor">@color/nui_text_color_black_00</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Micro.Black20">
+        <item name="android:textColor">@color/nui_text_color_black_20</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.Black20">
+        <item name="android:textColor">@color/nui_text_color_black_20</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.Black20">
+        <item name="android:textColor">@color/nui_text_color_black_20</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.Black20">
+        <item name="android:textColor">@color/nui_text_color_black_20</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Micro.Black50">
+        <item name="android:textColor">@color/nui_text_color_black_50</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.Black50">
+        <item name="android:textColor">@color/nui_text_color_black_50</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.Black50">
+        <item name="android:textColor">@color/nui_text_color_black_50</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.Black50">
+        <item name="android:textColor">@color/nui_text_color_black_50</item>
+    </style>
+    <style name="NuiTextAppearance.Micro.Black60">
+        <item name="android:textColor">@color/nui_text_color_black_60</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.Black60">
+        <item name="android:textColor">@color/nui_text_color_black_60</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.Black60">
+        <item name="android:textColor">@color/nui_text_color_black_60</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.Black60">
+        <item name="android:textColor">@color/nui_text_color_black_60</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Micro.Black70">
+        <item name="android:textColor">@color/nui_text_color_black_70</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.Black70">
+        <item name="android:textColor">@color/nui_text_color_black_70</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.Black70">
+        <item name="android:textColor">@color/nui_text_color_black_70</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.Black70">
+        <item name="android:textColor">@color/nui_text_color_black_70</item>
+    </style>
+    
+    <!-- ———————————————————— 白色字体style ———————————————————— -->
+    <style name="NuiTextAppearance.Micro.White00">
+        <item name="android:textColor">@color/nui_text_color_white_00</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.White00">
+        <item name="android:textColor">@color/nui_text_color_white_00</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.White00">
+        <item name="android:textColor">@color/nui_text_color_white_00</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.White00">
+        <item name="android:textColor">@color/nui_text_color_white_00</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Micro.White20">
+        <item name="android:textColor">@color/nui_text_color_white_20</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.White20">
+        <item name="android:textColor">@color/nui_text_color_white_20</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.White20">
+        <item name="android:textColor">@color/nui_text_color_white_20</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.White20">
+        <item name="android:textColor">@color/nui_text_color_white_20</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Micro.White50">
+        <item name="android:textColor">@color/nui_text_color_white_50</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.White50">
+        <item name="android:textColor">@color/nui_text_color_white_50</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.White50">
+        <item name="android:textColor">@color/nui_text_color_white_50</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.White50">
+        <item name="android:textColor">@color/nui_text_color_white_50</item>
+    </style>
+    <style name="NuiTextAppearance.Micro.White60">
+        <item name="android:textColor">@color/nui_text_color_white_60</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.White60">
+        <item name="android:textColor">@color/nui_text_color_white_60</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.White60">
+        <item name="android:textColor">@color/nui_text_color_white_60</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.White60">
+        <item name="android:textColor">@color/nui_text_color_white_60</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Micro.White70">
+        <item name="android:textColor">@color/nui_text_color_white_70</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.White70">
+        <item name="android:textColor">@color/nui_text_color_white_70</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.White70">
+        <item name="android:textColor">@color/nui_text_color_white_70</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.White70">
+        <item name="android:textColor">@color/nui_text_color_white_70</item>
+    </style>
+    
+    <!-- ———————————————————— 红色字体style ———————————————————— -->
+    <style name="NuiTextAppearance.Micro.Red">
+        <item name="android:textColor">@color/nui_text_color_red</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.Red">
+        <item name="android:textColor">@color/nui_text_color_red</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.Red">
+        <item name="android:textColor">@color/nui_text_color_red</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.Red">
+        <item name="android:textColor">@color/nui_text_color_red</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Micro.RedLight">
+        <item name="android:textColor">@color/nui_text_color_red_light</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.RedLight">
+        <item name="android:textColor">@color/nui_text_color_red_light</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.RedLight">
+        <item name="android:textColor">@color/nui_text_color_red_light</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.RedLight">
+        <item name="android:textColor">@color/nui_text_color_red_light</item>
+    </style>
+    
+    <!-- ———————————————————— 黄色字体style ———————————————————— -->
+    <style name="NuiTextAppearance.Micro.Yellow">
+        <item name="android:textColor">@color/nui_text_color_yellow</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.Yellow">
+        <item name="android:textColor">@color/nui_text_color_yellow</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.Yellow">
+        <item name="android:textColor">@color/nui_text_color_yellow</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.Yellow">
+        <item name="android:textColor">@color/nui_text_color_yellow</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Micro.YellowLight">
+        <item name="android:textColor">@color/nui_text_color_yellow_light</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.YellowLight">
+        <item name="android:textColor">@color/nui_text_color_yellow_light</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.YellowLight">
+        <item name="android:textColor">@color/nui_text_color_yellow_light</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.YellowLight">
+        <item name="android:textColor">@color/nui_text_color_yellow_light</item>
+    </style>
+    
+    <!-- ———————————————————— 蓝色字体style ———————————————————— -->
+    <style name="NuiTextAppearance.Micro.Blue">
+        <item name="android:textColor">@color/nui_text_color_blue</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.Blue">
+        <item name="android:textColor">@color/nui_text_color_blue</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.Blue">
+        <item name="android:textColor">@color/nui_text_color_blue</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.Blue">
+        <item name="android:textColor">@color/nui_text_color_blue</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Micro.BlueLight">
+        <item name="android:textColor">@color/nui_text_color_blue_light</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.BlueLight">
+        <item name="android:textColor">@color/nui_text_color_blue_light</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.BlueLight">
+        <item name="android:textColor">@color/nui_text_color_blue_light</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.BlueLight">
+        <item name="android:textColor">@color/nui_text_color_blue_light</item>
+    </style>
+    
+    <!-- ———————————————————— 绿色字体style ———————————————————— -->
+    <style name="NuiTextAppearance.Micro.Green">
+        <item name="android:textColor">@color/nui_text_color_green</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.Green">
+        <item name="android:textColor">@color/nui_text_color_green</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.Green">
+        <item name="android:textColor">@color/nui_text_color_green</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.Green">
+        <item name="android:textColor">@color/nui_text_color_green</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Micro.GreenLight">
+        <item name="android:textColor">@color/nui_text_color_green_light</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Small.GreenLight">
+        <item name="android:textColor">@color/nui_text_color_green_light</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Medium.GreenLight">
+        <item name="android:textColor">@color/nui_text_color_green_light</item>
+    </style>
+    
+    <style name="NuiTextAppearance.Large.GreenLight">
+        <item name="android:textColor">@color/nui_text_color_green_light</item>
+    </style>
+</resources>

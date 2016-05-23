@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/csl_cs_alert_dialog_width"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/rectround_white"
+    android:padding="@dimen/normal_margin_padding_medium"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/csl_black_cc"
+            android:textSize="@dimen/nui_text_size_medium"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:maxLength="18"
+            android:visibility="gone" 
+            />
+
+        <TextView
+            android:id="@+id/tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_margin_padding_bigger"
+            android:textColor="@color/csl_black_cc"
+            android:gravity="center"
+            android:textSize="@dimen/csl_dialog_content_text_size"
+			android:visibility="gone"
+			/>
+    </LinearLayout>
+
+    <RatingBar
+        android:id="@+id/app_rating"
+        style="@style/RatingBarBig"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="false"
+        android:layout_marginTop="@dimen/normal_margin_padding_medium"
+        android:numStars="5"
+        android:rating="5" 
+        android:stepSize="1"
+        />
+    
+    <TextView 
+        android:id="@+id/textHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/normal_margin_padding_little"
+        android:text="@string/rating_please"
+        android:textColor="@color/holo_gray"
+        />
+    
+        <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="@dimen/grade_app_w"
+        android:layout_height="@dimen/btn_grade_app_h"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/btn_green_selector"
+        android:layout_marginTop="@dimen/normal_margin_padding_medium"
+        android:text="@string/submit"
+        android:textColor="@color/btn_green_color"
+        android:textSize="@dimen/csl_dialog_button_text_size" />
+
+</LinearLayout>

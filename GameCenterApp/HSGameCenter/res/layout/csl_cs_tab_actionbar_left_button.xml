@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+    
+    <Button
+        android:id="@+id/left_icon"
+        android:layout_width="72dp"
+        android:layout_height="40dp"
+        android:background="@drawable/csls_actionbar_button_black"
+        android:text="@string/csl_cancel"
+        android:textColor="@color/csl_white"
+        android:gravity="center"
+        android:textSize="@dimen/csl_cs_actionbar_btn_textsize" />
+
+</merge>

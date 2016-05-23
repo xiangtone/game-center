@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <com.hykj.gamecenter.ui.widget.CSCommonActionBar
+        android:id="@+id/ActionBar"
+        style="@style/ActionBar"
+        cs:comm_showLogo="false"
+        cs:comm_showManage="false"
+        cs:comm_showReturn="true"
+        cs:comm_showRightEdit="false"
+        cs:comm_showSetting="false"
+        cs:comm_showTitle="true" />
+
+    <RelativeLayout
+        android:id="@+id/layoutEditFrame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ActionBar"
+        android:layout_marginLeft="@dimen/normal_margin_padding_micro"
+        android:layout_marginRight="@dimen/normal_margin_padding_micro"
+        android:layout_marginTop="@dimen/login_margin_t"
+        android:background="@drawable/login_et_frame_bg" >
+
+        <EditText
+            android:id="@+id/editUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_margin_padding_micro12"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:imeOptions="flagNoExtractUi"
+            android:maxLength="24"
+            android:minHeight="@dimen/edittext_minh"
+            android:singleLine="true"
+            android:inputType="text"
+            android:selectAllOnFocus="true"
+            android:hint="@string/edit_hint_account"
+            android:textColorHint="@color/csl_black_4c"
+             />
+     
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutEditFrame"
+        android:layout_marginLeft="@dimen/normal_margin_padding_micro"
+        android:layout_marginRight="@dimen/normal_margin_padding_micro"
+        android:layout_marginTop="@dimen/login_margin_t" >
+
+        <Button
+            android:id="@+id/btnModify"
+            style="@style/NoShadowGreenButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_loginh"
+            android:gravity="center"
+            android:text="@string/btn_title_modify"
+            android:background="@drawable/btn_green_green_selector"
+            android:textSize="@dimen/nui_text_size_medium" />
+
+        <ProgressBar
+            android:id="@+id/progressModify"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_loginh"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="4dp"
+            android:indeterminateDrawable="@drawable/loading_icon"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</RelativeLayout>

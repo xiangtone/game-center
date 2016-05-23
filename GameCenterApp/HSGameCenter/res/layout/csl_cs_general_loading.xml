@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/csl_cs_loading_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:visibility="gone" >
+
+    <LinearLayout
+        android:id="@+id/csl_cs_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingBottom="30dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:paddingTop="30dp" >
+
+        <ProgressBar
+            android:id="@+id/csl_loading_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="false"
+            android:indeterminateDrawable="@drawable/csls_loading_dialog_icon"
+            android:indeterminateDuration="500" />
+
+        <TextView
+            android:id="@+id/csl_loading_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:gravity="center_vertical"
+            android:text="@string/csl_loading"
+            android:textColor="@color/csl_black_7f"
+            android:textSize="@dimen/nui_text_size_medium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/csl_cs_listview_no_networking"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="50dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/csl_network_unavailable" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.2"
+            android:singleLine="false"
+            android:text="@string/csl_error_msg_net_refresh"
+            android:textColor="@color/csl_cs_black_4c"
+            android:textSize="@dimen/csl_text_size_net_load_failed" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/csl_network_setting_btn"
+                style="@style/TransparentGreenButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp"
+                android:text="@string/csl_network_setting_btn" />
+
+            <View
+                android:layout_width="18dp"
+                android:layout_height="1px" />
+
+            <Button
+                android:id="@+id/csl_network_retry_btn"
+                style="@style/TransparentGreenButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp"
+                android:text="@string/csl_refresh_retry_btn" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

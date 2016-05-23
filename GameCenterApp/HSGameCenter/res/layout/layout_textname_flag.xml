@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<TextView
+		android:id="@+id/app_name"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:ellipsize="end"
+		android:singleLine="true"
+		android:textColor="@color/csl_black_cc"
+		android:textSize="@dimen/nui_text_size_medium"
+		/>
+
+	<LinearLayout
+		android:id="@+id/linear_flag"
+		android:layout_width="wrap_content"
+		android:layout_weight="0"
+		android:layout_height="match_parent"
+		android:orientation="horizontal"
+		android:visibility="gone">
+	</LinearLayout>
+
+</merge>

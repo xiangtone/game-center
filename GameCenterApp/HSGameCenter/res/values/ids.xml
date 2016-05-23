@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="tag_top_line" type="id"/>
+    <item name="tag_linecontent" type="id"/>
+    <item name="tag_bottom_line" type="id"/>
+    <item name="tag_viewHolder" type="id"/>
+    <item name="tag_dividerHolder" type="id"/>
+    <item name="tag_blankView" type="id"/>
+    <item name="tag_positionView" type="id"/>
+    <item name="tag_grouppositionView" type="id"/>
+    <item name="tag_itemView" type="id"/>
+    <item name="tag_itemData" type="id"/>
+    <item name="tag_itemWidth" type="id"/>
+    <item name="tag_fillItems" type="id"/>
+    <item name="tag_titlecontent" type="id"/>
+    <item name="tag_titleHolder" type="id"/>
+    <item name="tag_topcontent" type="id"/>
+    <item name="tag_group_position" type="id"/>
+    <item name="tag_column_count" type="id"/>
+    <item name="tag_adGlleryViewHolder" type="id"/>
+    <item name="tag_adViewLayout" type="id"/>
+    <item name="tag_adGlleryContainer" type="id"/>
+    <item name="tag_subjectItem" type="id"/>
+    <item name="tag_adGlleryHorizontalContainer" type="id"/>
+    <item name="tag_adv_view_item" type="id"/>
+</resources>

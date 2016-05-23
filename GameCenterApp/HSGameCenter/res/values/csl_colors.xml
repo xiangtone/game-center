@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="csl_cs_actionbar_homeup_title">#5D7E1E</color>
+    <color name="csl_cs_actionbar_search">#4c4c4c</color>
+    <color name="csl_pagertitlestrip_text">#5C7F1F</color>
+    <color name="csl_pagertitlestrip_background">#D5DAC1</color>
+    <color name="csl_cs_infobar_backgroud">#BFC996</color>
+    <color name="csl_cs_infobar_username">#60723C</color>
+    <color name="csl_cs_infobar_username_shadow">#DADCD1</color>
+    <color name="csl_cs_infobar_userlevel">#89966F</color>
+    <color name="csl_cs_infobar_function_text">#5F703C</color>
+    <color name="csl_cs_infobar_function_text_pressed">#FBFFED</color>
+    <color name="csl_cs_infobar_function_text_shadow">#D2D4C7</color>
+    <color name="csl_cs_infobar_balance_number">#60723C</color>
+    <color name="csl_cs_list_header_text">#857D76</color>
+    <color name="csl_pad_navi_bg">#685f56</color>
+
+    <!-- -->
+    <color name="cs_white">#FFFFFF</color>
+    <color name="cs_sf_alert_orange">#FE7D28</color>
+    <color name="csl_cs_sf_gray">#867E77</color>
+    <color name="csl_cs_sf_gray_tip">#D9D4CE</color>
+    <color name="csl_cs_sf_gray_high">#6A604C</color>
+    <color name="csl_cs_sf_gray_low">#A89D89</color>
+    <color name="cs_sf_gray_shadow">#333333</color>
+    <color name="csl_cs_black_4c">#4c000000</color>
+
+    <!-- from csAppStore -->
+    <color name="csl_cs_submit_editor_text_color">#8E867D</color>
+    <color name="csl_pad_submit_editor_bg">#E6DfD6</color>
+
+    <!-- 2.0 界面所用色值 -->
+    <color name="csl_white">#ffffff</color>
+
+    <color name="csl_black">#000000</color>
+    <color name="csl_black_cc">#cc000000</color>
+    <color name="csl_black_7f">#7f000000</color>
+    <color name="csl_black_4c">#4c000000</color>
+    <color name="csl_cs_gray_tip">#cdcdcd</color>
+
+    <!-- tab -->
+    <!-- add at 20140114 -->
+    <color name="csl_tab_underline_color">#ffffff</color>
+
+    <color name="cs_btn_green_normal">#4ea508</color>
+    <color name="cs_btn_green_press">#3e8406</color>
+    <color name="cs_btn_green_stroke">#3e8406</color>
+
+    <color name="cs_btn_red_normal">#4a9d08</color>
+    <color name="cs_btn_red_press">#3e8406</color>
+    <color name="cs_btn_red_stroke">#f13131</color>
+
+    <color name="cs_btn_blue_normal">#25b3e8</color>
+    <color name="cs_btn_blue_press">#2198dc</color>
+    <color name="cs_btn_blue_stroke">#2198dc</color>
+
+    <color name="btn_transparent_color_green">#4ea508</color>
+
+    <color name="cs_btn_yellow_normal">#feb329</color>
+    <color name="cs_btn_yellow_press">#e09918</color>
+    <color name="cs_btn_yellow_stroke">#eca015</color>
+
+    <color name="cs_btn_black_normal">#ffffff</color>
+    <color name="cs_btn_black_press">#cccccc</color>
+    <color name="cs_btn_black_disable">#f3f7fc</color>
+    <color name="cs_btn_black_stroke">#cccccc</color>
+
+    <color name="cs_btn_gray_press">#33000000</color>
+
+</resources>

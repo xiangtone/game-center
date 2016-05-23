@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hykj.gamecenter.ui.NoviceGuidanceAppView
+	android:id="@+id/app_list_container"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="#aa000000"
+	android:duplicateParentState="true">
+	<!-- android:background="@color/background" -->
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<!-- android:layout_weight="1" -->
+		<TextView
+			android:id="@+id/paddingtextview"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:background="@color/transparent"
+			android:layout_weight="1"
+			android:duplicateParentState="true"/>
+
+		<LinearLayout
+			android:id="@+id/linearlayout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="0"
+			android:background="@color/background"
+			android:orientation="vertical">
+
+			<include
+				android:id="@+id/noviceguidance_headview"
+				layout="@layout/novice_guidance_headview"/>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/list_view_divider_width"
+				android:background="@drawable/app_info_header_horizontal_line"/>
+
+			<FrameLayout
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1">
+
+				<include
+					android:id="@+id/loading_interface"
+					layout="@layout/csl_cs_general_loading"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"/>
+
+				<!--
+								<com.niuwan.gamecenter.ui.NoScrollListView
+									android:id="@+id/app_list"
+									android:layout_width="match_parent"
+									android:layout_height="match_parent"
+									android:divider="@null"
+									android:listSelector="@color/transparent"
+									android:overScrollMode="never"
+									android:fadingEdge="none"
+									android:focusable="false"
+									android:scrollbars="none" />
+				-->
+				<GridView
+					android:id="@+id/gridView"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@color/divider"
+					android:horizontalSpacing="1px"
+					android:numColumns="3"
+					android:stretchMode="columnWidth"
+					android:verticalSpacing="1px"
+					>
+				</GridView>
+				<TextView
+					android:id="@+id/heigth4GridView"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"/>
+
+			</FrameLayout>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/list_view_divider_width"
+				android:background="@drawable/app_info_header_horizontal_line"/>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/novice_guide_bottom_bar_height"
+				android:background="#fafafa"
+				android:paddingBottom="@dimen/novice_guidance_padding_top"
+				android:paddingLeft="@dimen/list_view_item_spacing"
+				android:paddingRight="@dimen/list_view_item_spacing"
+				android:paddingTop="@dimen/novice_guidance_padding_top">
+
+
+				<com.hykj.gamecenter.ui.widget.BulkDownloadListButton
+					android:id="@+id/installBtn"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@drawable/btn_green_green_selector"
+					android:paddingLeft="@dimen/btn_padding_left"
+					android:paddingRight="@dimen/btn_padding_left"
+					android:singleLine="true"
+					android:text="@string/download_all"
+					android:textColor="@color/white"
+					android:textSize="@dimen/nui_text_size_medium"/>
+			</RelativeLayout>
+
+		</LinearLayout>
+	</LinearLayout>
+</com.hykj.gamecenter.ui.NoviceGuidanceAppView>

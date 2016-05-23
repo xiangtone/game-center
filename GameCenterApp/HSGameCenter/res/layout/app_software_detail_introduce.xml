@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/csl_cs_padding_size"
+        android:layout_marginRight="@dimen/csl_cs_padding_size"
+        android:layout_marginTop="@dimen/normal_margin_padding_little"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        android:rowCount="1" >
+
+        <TextView
+            android:id="@+id/app_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/csl_black_7f"
+            android:textSize="@dimen/csl_text_size_small" />
+
+        <TextView
+            android:id="@+id/app_developer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:textColor="@color/csl_black_7f"
+            android:textSize="@dimen/csl_text_size_small" />
+    </GridLayout>
+
+    <!-- app update title -->
+
+    <RelativeLayout
+        android:id="@+id/app_upgrade_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <View
+            android:id="@+id/viewDivider"
+            style="@style/ViewDividerHeight8" />
+
+        <TextView
+            android:id="@+id/app_upgrade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/viewDivider"
+            android:layout_marginLeft="@dimen/csl_cs_padding_size"
+            android:layout_marginRight="@dimen/csl_cs_padding_size"
+            android:gravity="center_vertical"
+            android:text="@string/app_software_detail_app_upgrade_tag"
+            android:textColor="@color/csl_black_cc"
+            android:textSize="@dimen/nui_text_size_large" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/app_upgrade_info_framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/csl_cs_padding_size"
+        android:layout_marginRight="@dimen/csl_cs_padding_size" >
+
+        <TextView
+            android:id="@+id/app_upgrade_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/csl_cs_padding_half_size"
+            android:lineSpacingExtra="@dimen/app_software_detail_introduce_linespace_extra"
+            android:textColor="@color/csl_black_7f"
+            android:textSize="@dimen/nui_text_size_small" />
+
+        <Button
+            android:id="@+id/app_upgrade_info_show_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:background="@null"
+            android:minHeight="@dimen/csl_button_zero_height"
+            android:minWidth="@dimen/csl_button_min_width"
+            android:text="@string/app_software_detail_upgrade_info_show_more"
+            android:textColor="@color/button_text_color"
+            android:textSize="@dimen/normal_button_text_size" />
+    </FrameLayout>
+    <!-- app information title -->
+
+    <View style="@style/ViewDividerHeight8" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/csl_cs_padding_size"
+        android:layout_marginRight="@dimen/csl_cs_padding_size" >
+
+        <TextView
+            android:id="@+id/app_business"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/app_software_detail_app_business_tag"
+            android:textColor="@color/csl_black_cc"
+            android:textSize="@dimen/nui_text_size_large" />
+    </RelativeLayout>
+    <!-- 游戏介绍 -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/csl_cs_padding_size"
+        android:layout_marginRight="@dimen/csl_cs_padding_size" >
+
+        <TextView
+            android:id="@+id/app_business_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/csl_cs_padding_half_size"
+            android:lineSpacingExtra="@dimen/app_software_detail_introduce_linespace_extra"
+            android:textColor="@color/csl_black_7f"
+            android:textSize="@dimen/nui_text_size_small"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/app_business_show_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:background="@null"
+            android:minHeight="@dimen/csl_button_zero_height"
+            android:minWidth="@dimen/csl_button_min_width"
+            android:text="@string/app_software_detail_upgrade_info_show_more"
+            android:textColor="@color/button_text_color"
+            android:textSize="@dimen/normal_button_text_size" />
+    </FrameLayout>
+
+    <View style="@style/ViewDividerHeight8" />
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hykj.gamecenter.ui.widget.DetailRecommedItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/btnDownloadUpdate"
+    style="@style/NoShadowWhiteButton"
+    android:layout_width="@dimen/download_btn_width"
+    android:layout_height="@dimen/download_btn_height"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:text="@string/app_open"
+    android:textColor="@color/csls_button_open_text_edit"
+    android:textSize="@dimen/normal_button_text_size"
+    />

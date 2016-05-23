@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item>
+        <shape>
+            <corners android:radius="@dimen/csl_cs_padding_size" />
+            <solid android:color="@color/csl_white" />
+
+        </shape>
+    </item>
+    <item android:top="30dp" >
+        <shape >
+            <corners android:radius="@dimen/csl_cs_padding_size" />
+            <solid android:color="@color/detail_background" />
+        </shape>
+    </item>
+
+</layer-list>

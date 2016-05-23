@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/transparent">
+
+    <FrameLayout
+        android:id="@+id/topicFramelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/csl_cs_padding_size" >
+
+        <ImageView
+            android:id="@+id/group_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sbuject_topic_image_height"
+            android:background="@drawable/banner_icon_default"
+            android:scaleType="fitXY" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/horizon_scroll_mask"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="3dp"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/csl_black_cc"
+            android:textSize="@dimen/csl_text_size_large" />
+
+        <TextView
+            android:id="@+id/group_app_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/group_name"
+            android:layout_marginLeft="22dp"
+            android:layout_toRightOf="@+id/group_name"
+            android:singleLine="true"
+            android:textColor="@color/csl_black_7f"
+            android:textSize="@dimen/csl_text_size_small" />
+    </RelativeLayout>
+
+    <com.hykj.gamecenter.ui.widget.EllipsizingTextView
+        android:id="@+id/group_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/csl_cs_padding_half_size"
+        android:ellipsize="end"
+        android:lineSpacingExtra="8dp"
+        android:maxLines="2"
+        android:textColor="@color/csl_black_cc"
+        android:textSize="@dimen/text_size_middle"
+        android:paddingLeft="@dimen/list_view_item_spacing"
+        android:paddingRight="@dimen/list_view_item_spacing" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list_divider_holo_light" />
+
+</LinearLayout>

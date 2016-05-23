@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/csl_cs_alert_dialog_width"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/rectround_white" >
+
+    <LinearLayout
+        android:id="@+id/csl_alert_dialog_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+<!--         android:background="@drawable/csl_alert_dialog_up_bg" -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/normal_margin_padding_bigger4"
+            android:layout_marginRight="@dimen/normal_margin_padding_bigger4"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/normal_margin_padding_bigger"
+                android:textColor="@color/csl_black_cc"
+                android:textSize="@dimen/nui_text_size_medium"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_margin_padding_bigger"
+                android:lineSpacingExtra="8dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/csl_black_cc"
+                android:textSize="@dimen/nui_text_size_small" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/check_box_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_margin_padding_bigger4"
+            android:layout_marginRight="@dimen/normal_margin_padding_bigger4"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <CheckBox
+                android:id="@+id/check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:background="@drawable/csls_icon_check"
+                android:button="@null" />
+
+            <TextView
+                android:id="@+id/check_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:text="@string/csl_check_default_title"
+                android:textColor="@color/csl_black_7f"
+                android:textSize="@dimen/nui_text_size_micro" />
+        </LinearLayout>
+
+        <!-- 撑起高度 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="@dimen/normal_margin_padding_bigger4" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/normal_margin_padding_bigger4"
+        android:layout_marginRight="@dimen/normal_margin_padding_bigger4"
+        android:layout_marginBottom="@dimen/normal_margin_padding_bigger4"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/left"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/csl_cs_alert_dialog_btn_height"
+            android:layout_weight="1"
+            android:background="@drawable/btn_green_selector"
+            android:layout_marginRight="12dp"
+            android:textColor="@color/btn_green_color"
+            android:textSize="@dimen/nui_text_size_small" />
+<!--             android:background="@drawable/csls_alert_dialog_left_btn" -->
+
+        <Button
+            android:id="@+id/right"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/csl_cs_alert_dialog_btn_height"
+            android:layout_weight="1"
+			android:background="@drawable/btn_green_green_selector"
+            android:textColor="@color/cs_white"
+            android:textSize="@dimen/nui_text_size_small" />
+<!--             android:background="@drawable/csls_alert_dialog_right_btn" -->
+    </LinearLayout>
+
+</LinearLayout>

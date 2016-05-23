@@ -1,0 +1,228 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/empty_item_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/csl_cs_padding_half_size"
+        android:paddingLeft="@dimen/list_view_item_spacing"
+        android:paddingRight="@dimen/list_view_item_spacing"
+        android:paddingTop="@dimen/csl_cs_padding_half_size">
+
+        <com.hykj.gamecenter.ui.widget.RoundCornerImageView
+            android:id="@+id/app_icon"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/normal_margin_padding_micro"
+            android:src="@drawable/app_icon_default" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/normal_margin_padding_micro"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:id="@+id/app_name"
+                style="@style/TextAppearance.GrayMiddleTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:maxEms="8"
+                android:maxLength="16"
+                android:textSize="@dimen/text_size_middle" />
+
+            <TextView
+                android:id="@+id/percent"
+                style="@style/TextAppearance.GrayLightBTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/app_name"
+                android:layout_marginTop="6dp"
+                android:textSize="@dimen/csl_text_size_small" />
+
+            <TextView
+                android:id="@+id/app_size"
+                style="@style/TextAppearance.GrayLightBTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/csl_text_size_small" />
+
+            <FrameLayout
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/normal_margin_padding_little6"
+                android:layout_centerInParent="true"
+                >
+
+                <ProgressBar
+                    android:id="@+id/download_progress"
+                    style="@style/DownloadProgressBar"
+                    android:background="@drawable/csl_progress_bar_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/processbar_height"
+                    android:layout_gravity="center_vertical"
+                    android:max="100"
+                    android:progress="70" />
+
+                <com.hykj.gamecenter.ui.widget.DownloadAnimationView
+                    android:id="@+id/animation_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/csl_progress_bar_highlight"
+                    android:visibility="gone">
+                </com.hykj.gamecenter.ui.widget.DownloadAnimationView>
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/app_name_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/progress"
+                android:layout_below="@id/progress"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <com.hykj.gamecenter.ui.AlwaysMarqueeTextView
+                    android:id="@+id/download_msg1"
+                    style="@style/TextAppearance.GrayLightBTitle4C"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="bottom"
+                    android:textSize="@dimen/csl_text_size_small" />
+
+                <TextView
+                    android:id="@+id/immediate_handle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="all"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/csl_text_size_small"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/download_msg2"
+                    style="@style/TextAppearance.GrayLightBTitle4C"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textSize="@dimen/csl_text_size_small"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/remaintime_and_speed"
+                style="@style/TextAppearance.GrayLightBTitle4C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/progress"
+                android:layout_below="@id/progress"
+                android:layout_alignParentBottom="true"
+                android:gravity="bottom"
+                android:textSize="@dimen/csl_text_size_small" />
+
+            <TextView
+                android:id="@+id/download_info"
+                style="@style/TextAppearance.GrayLightBTitle4C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/progress"
+                android:layout_below="@id/progress"
+                android:layout_alignParentBottom="true"
+                android:gravity="bottom"
+                android:text="@string/download_info"
+                android:textSize="@dimen/csl_text_size_small" />
+
+            <TextView
+                android:id="@+id/state_msg"
+                style="@style/TextAppearance.GrayInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/progress"
+                android:layout_alignParentBottom="true"
+                android:layout_toLeftOf="@id/download_info"
+                android:textColor="#FF0000"
+                android:gravity="bottom"
+                android:textSize="@dimen/csl_text_size_small" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/download_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/app_manager_edit_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/csls_icon_check"
+                android:button="@null"
+                android:visibility="gone" />
+
+            <com.hykj.gamecenter.ui.widget.DownloadListButton
+                android:id="@+id/download_icon_btn"
+                style="@style/NoShadowBlueButton"
+                android:layout_width="@dimen/download_btn_width"
+                android:layout_height="@dimen/download_btn_height"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/pause"
+                android:textSize="@dimen/normal_button_text_size"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/download_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/app_installed"
+                android:textColor="@color/csl_black_4c"
+                android:textSize="@dimen/csl_text_size_small"
+                android:visibility="gone" />
+
+            <com.hykj.gamecenter.ui.widget.DownloadListButton
+                android:id="@+id/app_openorupdate"
+                style="@style/NoShadowWhiteButton"
+                android:layout_width="@dimen/download_btn_width"
+                android:layout_height="@dimen/download_btn_height"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/app_open"
+                android:textSize="@dimen/normal_button_text_size"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list_divider_holo_light" />
+
+</LinearLayout>

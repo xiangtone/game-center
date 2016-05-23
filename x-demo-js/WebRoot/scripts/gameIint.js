@@ -5,54 +5,23 @@ $(document).ready(function () {
     $(window).scroll(window_onscroll);
 });
 
-// var ProtoBuf = dcodeIO.ProtoBuf;
-// var builderPacket = ProtoBuf.loadProtoFile("Packet.txt");
-// var builderApps = ProtoBuf.loadProtoFile("Apps.txt");
-// var ReqGlobalConfig = builderApps.build("ReqGlobalConfig");
-// var RspGlobalConfig = builderApps.build("RspGlobalConfig");
-// var ReqPacket = builderPacket.build("ReqPacket");
-// var RspPacket = builderPacket.build("RspPacket");
-// // var reqMsg = new ReqGlobalConfig();
-// // reqMsg.setGroupsCacheVer('1');
-// var reqMsg = new ReqPacket();
-// reqMsg.setMask(1);
-// reqMsg.setUdi("1");
-// reqMsg.setAction("ReqGlobalConfig")
-// reqMsg.setReqNo(0);
-// reqMsg.setClientId(3);
+// var configChannelId = "BD537D84B909BE7962F046A0AA0CBD8C";   //huashengWIFI
+var configChannelId = "038360A9989CAEAFF00318BBB3400757";   //schoolWIFI
 
-// var params = new ReqGlobalConfig();
+document.write("<script src='" +
+    getChannel()+
+    "'><\/script>");
 
-// reqMsg.setParams(new Uint8Array(params.toArrayBuffer()))
-// var contentPb = new Uint8Array(reqMsg.toArrayBuffer());
-
-// url = "http://115.159.125.75/appstore_api";
-// var xhr = new XMLHttpRequest();
-// xhr.open("post", url, true);
-// // xhr.responseType = "blob";
-// xhr.responseType = "arraybuffer";
-// xhr.onload = function() {
-// if (this.status == 200) {
-// var arrayBuffer = xhr.response;
-// if (arrayBuffer) {
-// console.log(arrayBuffer.toString());
-// var byteArray = new Uint8Array(arrayBuffer);
-// for (var i = 0; i < byteArray.byteLength; i++) {
-// // do something
-// console.log(byteArray[i]);
-// }
-// // var rspMsg = RspGlobalConfig.decode(arrayBuffer);
-// var rspMsg = RspPacket.decode(arrayBuffer);
-// console.log(rspMsg);
-// }
-// }
-// }
-// xhr.send(contentPb);
+function getChannel(){
+    //渠道设置
+    //1.school
+    return "http://sdk.talkingdata.com/app/h5/v1?appid="+ configChannelId +"&vn=正式版本v1.0&vc=16.05.23";
+}
 
 function sendRequest(syncConfigData, successFun) {
     $.ajax({
         type: "post",
-        url: "http://115.159.125.75/appstore_api/jsonapi",
+        url: "http://appstore.api.huashenggame.com/jsonapi",
         async: true,
         // data : contentPb,
         data: JSON.stringify(syncConfigData),

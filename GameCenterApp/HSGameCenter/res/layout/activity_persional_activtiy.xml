@@ -1,0 +1,234 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cs_app_info_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/detail_background"
+	android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <com.hykj.gamecenter.ui.widget.CSCommonActionBar
+        android:id="@+id/ActionBar"
+        style="@style/ActionBar"
+        cs:comm_showLogo="false"
+        cs:comm_showManage="false"
+        cs:comm_showReturn="true"
+        cs:comm_showRightEdit="false"
+        cs:comm_showSetting="true"
+        cs:comm_showTitle="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ActionBar" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/layoutPersonLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_person_login"  
+                >
+
+                <com.hykj.gamecenter.ui.widget.CircleImageView
+                    android:id="@+id/imgPersonLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/normal_margin_padding_bigger6"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/img_person_login"
+                    />
+
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/btn_quick_loginh"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="5dp"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_marginTop="@dimen/normal_margin_padding_bigger1"
+                    android:layout_below="@id/imgPersonLogo"
+                    android:background="@drawable/btn_white_selector"
+                    android:textSize="@dimen/nui_text_size_small"
+                    android:textColor="@android:color/white"
+                    android:text="@string/quick_login" />
+
+                <TextView
+                    android:id="@+id/textName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:maxLength="18"
+                    android:textSize="@dimen/nui_text_size_small"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/normal_margin_padding_bigger1"
+                    android:layout_below="@id/imgPersonLogo"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    android:text="@string/long_string"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutBalance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/personal_item_minh" >
+
+                <TextView
+                    android:id="@+id/textBalance"
+                    style="@style/NuiTextAppearance.Medium.Black00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/normal_margin_padding_medium"
+                    android:singleLine="true"
+                    android:text="@string/person_balance" />
+
+                <Button
+                    android:id="@+id/btnRecharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/btn_consumeh"
+                    android:layout_alignParentRight="true"
+                    android:minWidth="@dimen/btn_consumeh_width"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/normal_margin_padding_medium"
+                    android:singleLine="true"
+                    android:background="@drawable/btn_red_selector"
+                    android:textSize="@dimen/nui_text_size_small"
+                    android:textColor="@android:color/white"
+                    android:text="@string/person_recharge" />
+            </RelativeLayout>
+
+            <View style="@style/ViewDividerHorizontal" />
+
+            <RelativeLayout
+                android:id="@+id/layoutRechargeHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/personal_item_minh" >
+
+                <TextView
+                    android:id="@+id/textRechargeHistrory"
+                    style="@style/NuiTextAppearance.Medium.Black00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/normal_margin_padding_medium"
+                    android:duplicateParentState="true"
+                    android:singleLine="true"
+                    android:text="@string/person_recharge_history" />
+
+                <TextView
+                    android:id="@+id/textRechargeCount"
+                    style="@style/NuiTextAppearance.Small.Black60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/normal_margin_padding_medium"
+                    android:duplicateParentState="true"
+                    android:maxWidth="205dip"
+                    android:singleLine="true"
+                    android:text="@string/app_name" />
+            </RelativeLayout>
+
+            <View style="@style/ViewDividerHorizontal" />
+
+            <RelativeLayout
+                android:id="@+id/layoutConsume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/personal_item_minh" >
+
+                <TextView
+                    android:id="@+id/textConsume"
+                    style="@style/NuiTextAppearance.Medium.Black00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/normal_margin_padding_medium"
+                    android:duplicateParentState="true"
+                    android:singleLine="true"
+                    android:text="@string/person_consume_history" />
+
+                <TextView
+                    android:id="@+id/textConsumeCount"
+                    style="@style/NuiTextAppearance.Small.Black60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/normal_margin_padding_medium"
+                    android:duplicateParentState="true"
+                    android:maxWidth="205dip"
+                    android:singleLine="true"
+                    android:text="@string/app_name" />
+            </RelativeLayout>
+
+            <View style="@style/ViewDividerHorizontal" />
+
+            <RelativeLayout
+                android:id="@+id/layoutAccountManage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/personal_item_minh" >
+
+                <TextView
+                    android:id="@+id/textAccountManage"
+                    style="@style/NuiTextAppearance.Medium.Black00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/normal_margin_padding_medium"
+                    android:duplicateParentState="true"
+                    android:singleLine="true"
+                    android:text="@string/person_account_manage" />
+
+                <TextView
+                    android:id="@+id/textAccount"
+                    style="@style/NuiTextAppearance.Small.Black60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/normal_margin_padding_medium"
+                    android:duplicateParentState="true"
+                    android:maxWidth="205dip"
+                    android:singleLine="true"
+                    android:text="@string/app_name" />
+            </RelativeLayout>
+            <View style="@style/ViewDividerHorizontal" />
+            <RelativeLayout
+                android:id="@+id/layoutUserFeedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/personal_item_minh" >
+
+                <TextView
+                    style="@style/NuiTextAppearance.Medium.Black00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/normal_margin_padding_medium"
+                    android:duplicateParentState="true"
+                    android:singleLine="true"
+                    android:text="@string/person_user_feedback" />
+            </RelativeLayout>
+
+            <View style="@style/ViewDividerHorizontal" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

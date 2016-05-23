@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/csl_cs_padding_size"
+        android:paddingTop="@dimen/csl_cs_padding_size" >
+
+        <include layout="@layout/app_software_detail_screenshot" />
+
+        <include layout="@layout/app_software_detail_introduce" />
+
+        <include layout="@layout/app_detail_recommed" />
+
+        <View style="@style/ViewDividerHeight8" />
+
+        <include
+            android:id="@+id/user_grade"
+            layout="@layout/app_detail_grade" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/info_footer_height"
+            android:background="@color/transparent" />
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+<!--
+<com.niuwan.gamecenter.ui.widget.AppInfoDetailCustomInnerScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_info_inner_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_software_detail_introduce_bg_color" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <include layout="@layout/app_software_detail_screenshot" />
+        <include layout="@layout/app_software_detail_introduce" />
+    </LinearLayout>
+</com.niuwan.gamecenter.ui.widget.AppInfoDetailCustomInnerScrollView>
+
+<FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/info_footer_height"
+        android:layout_alignParentBottom="true"
+        android:background="@color/background">
+
+        <include layout="@layout/appinfo_download_frame" />
+
+    </FrameLayout>
+-->

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<color name="transparent">#0000</color>
+	<color name="color_green">#57a209</color>
+	<color name="color_green_normal">#7acf12</color>
+	<!--用于disabled和下载进度-->
+	<color name="color_green_normal_disable">#c3e86c</color>
+	<color name="color_btn_resume">#FF7300</color>
+	<color name="color_gray_press">#f2f2f2</color>
+	<color name="color_download_tab_frame">#4C000000</color>
+	<color name="color_download_tab_press">#19000000</color>
+
+	<color name="app_software_detail_introduce_bg_color">#E6E6E6</color>
+	<color name="green">#e83619</color>
+	<color name="red">#ed5565</color>
+	<color name="color_red">#ff0000</color>
+	<color name="cs_red_more">#e83619</color>
+	<color name="background">#ffffff</color>
+	<color name="item_background">#ffffff</color>
+	<color name="divider">#d9d9d9</color>
+	<color name="detail_background">#f2f2f2</color>
+	<color name="sevenf_black">#7f000000</color>
+	<color name="white">#ffffffff</color>
+	<color name="light_green">#73ca22</color>
+	<color name="light_gray">#7f000000</color>
+	<color name="light_gray_cc">#cccccc</color>
+	<color name="light_gray_10">#e9ecec</color>
+	<color name="color_process">#4ea508</color>
+	<color name="transparent_color_process">@color/color_green_normal_disable</color>
+	<color name="cc_black">#cc000000</color>
+	<color name="ff_black">#ff000000</color>
+	<color name="subject_color">#48c5f8</color>
+	<color name="black">#000000</color>
+	<!-- <color name="recommend_bg_color">#ffffff</color> -->
+	<color name="recommend_bg_color">#ffffff</color>
+	<color name="action_blue_color">@color/color_green</color>
+	<color name="color_progress">@color/color_green</color>
+	<color name="color_progressing">@color/color_green_normal_disable</color>
+	<color name="color_text_wifi_tips">#1b6fff</color>
+
+
+	<color name="normal_blue">@color/color_green</color>
+	<color name="translucent_background">#60000000</color>
+	<color name="actionbar_bg_color">@color/color_green</color>
+	<color name="activity_edit_bg">#f2f2f2</color>
+	<color name="dividertwo">#d5d6d6</color>
+	<color name="editcolor">#b2b2b2</color>
+	<color name="editcolor_red">#d13737</color>
+	<color name="normal_gray">#f2f2f2</color>
+	<color name="holo_gray">#8d8d8d</color>
+	<color name="normal_orange">#e95f2f</color>
+	<color name="notification_title_text">#000000</color>
+	<color name="notification_cotent_text">#999999</color>
+
+	<color name="color_progress5">#1bbc9b</color>
+	<color name="color_progress4">#a0bc1b</color>
+	<color name="color_progress3">#e0ae16</color>
+	<color name="color_progress2">#e17c19</color>
+	<color name="color_progress1">#db1111</color>
+
+	<color name="color_progress6">#7FFF7300</color>
+	<color name="textcolor_progress6">#FF7300</color>
+
+	<!-- add at 20151229 -->
+	<color name="color_firstpublish_stroke">#94f5bc</color>
+	<color name="color_firstpublish_solid">#cbf8dd</color>
+	<color name="color_firstpublish_text">#22c064</color>
+
+	<color name="color_official_stroke">#aed6fd</color>
+	<color name="color_official_solid">#cbe3fa</color>
+	<color name="color_official_text">#0081ff</color>
+
+	<color name="color_hot_stroke">#f8e08c</color>
+	<color name="color_hot_solid">#fbe9a9</color>
+	<color name="color_hot_text">#ff9600</color>
+
+	<color name="color_recommend_stroke">#fec9cc</color>
+	<color name="color_recommend_solid">#fdd9d3</color>
+	<color name="color_recommend_text">#f36f75</color>
+
+	<color name="color_apprank_first">#fe4d55</color>
+	<color name="color_apprank_second">#ff7300</color>
+	<color name="color_apprank_third">#f1c632</color>
+	<color name="color_hint">#26000000</color>
+</resources>

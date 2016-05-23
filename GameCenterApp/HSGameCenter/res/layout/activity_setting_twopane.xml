@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+    
+    <com.hykj.gamecenter.ui.widget.CSCommonActionBar
+        android:id="@+id/ActionBar"
+        style="@style/ActionBar"       
+        cs:comm_showReturn="true"
+        cs:comm_showSetting="false"
+        cs:comm_showManage="false"
+        cs:comm_showTitle="true"
+        cs:comm_showLogo="false"/>
+
+    <!--
+              <linearlayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:baselinealigned="false"
+        android:divider="?android:attr/dividervertical"
+        android:orientation="horizontal"
+        android:showdividers="middle"
+        tools:context=".settinglistactivity" >
+    -->
+
+     <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:orientation="horizontal" > -->
+
+        <!--
+         this layout is a two-pane layout for the setting    master/detail flow. see res/values-large/refs.xml and
+    res/values-sw600dp/refs.xml for an example of layout aliases    that replace the single-pane version of the layout with
+    this two-pane version.    for more on layout aliases, see:    http://developer.android.com/training/multiscreen/screensizes.html#taskusealiasfilters
+        -->
+
+        <fragment
+            android:id="@+id/setting_list"
+            android:name="com.hykj.gamecenter.fragment.SettingListFragment$SettingDetailFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+<!--
+        <FrameLayout
+            android:id="@+id/setting_detail_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" /> -->
+   
+        <!-- </LinearLayout> --> 
+
+</LinearLayout>

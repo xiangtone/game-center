@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:appstore="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical" >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+        
+     <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <!-- android:layout_height="@dimen/recommend_headview_adv_height" -->
+        <RelativeLayout
+            style="@style/HomePage"
+            android:id="@+id/relativeLayoutAdv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <com.hykj.gamecenter.ui.HorizonScrollLayout
+                android:id="@+id/top_ad_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/recommend_bg_color"
+                appstore:RATIO_X="2"
+               	appstore:RATIO_Y="3"
+                >
+            </com.hykj.gamecenter.ui.HorizonScrollLayout>
+
+            <com.hykj.gamecenter.ui.DotProgressBar
+                android:id="@+id/top_ad_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="10dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="3" >
+
+            <FrameLayout  
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:visibility="gone"
+                android:background="@color/transparent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:visibility="invisible" />
+            
+	            <com.hykj.gamecenter.ui.DotProgressBar
+                android:id="@+id/top_ad_dot3"
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="5dp"/>
+            </FrameLayout>
+            
+             <LinearLayout
+                android:id="@+id/entry_category"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/csl_black_7f"
+                android:weightSum="2"
+                android:orientation="vertical"
+                >
+                
+	               <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="0dp"
+	                android:layout_weight="1"
+	                android:background="@color/csl_black_7f"
+	                android:weightSum="2"
+	                android:orientation="horizontal"
+	                >
+		                <ImageView
+		                    android:id="@+id/entry_favourite"
+		                android:layout_width="0dp"
+		                android:layout_height="match_parent"
+		                android:layout_weight="1"
+		                android:background="@drawable/btn_entry_hot_selector"/>
+		             <ImageView
+		                 android:id="@+id/entry_newestapp"
+		                android:layout_width="0dp"
+		                android:layout_height="match_parent"
+		                android:layout_weight="1"
+		                android:background="@drawable/btn_entry_newestapp_selector"/>
+	                 </LinearLayout>
+	                 
+	                 <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="0dp"
+	                android:layout_weight="1"
+	                android:background="@color/csl_black_7f"
+	                android:weightSum="2"
+	                android:orientation="horizontal"
+	                >
+		             <ImageView
+		                    android:id="@+id/entry_subject"
+		                android:layout_width="0dp"
+		                android:layout_height="match_parent"
+		                android:layout_weight="1"
+		                android:background="@drawable/btn_entry_subject_selector"/>
+		             <ImageView
+		                 android:id="@+id/entry_essential"
+		                android:layout_width="0dp"
+		                android:layout_height="match_parent"
+		                android:layout_weight="1"
+		                android:background="@drawable/btn_entry_essential_selector"/>
+	                 </LinearLayout>
+                 </LinearLayout>
+            
+             <FrameLayout
+                android:id="@+id/adv_info_framelayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@color/csl_black_7f"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/csl_cs_padding_size"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/adv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/csl_white"
+                        android:textSize="@dimen/csl_text_size_large" />
+
+                    <TextView
+                        android:id="@+id/adv_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/csl_cs_padding_size"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="5"
+                        android:textColor="@color/csl_white"
+                        android:textSize="@dimen/csl_text_size_small" />
+                </LinearLayout>
+
+                <com.hykj.gamecenter.ui.DotProgressBar
+                    android:id="@+id/top_ad_dot2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="5dp"
+                    android:visibility="gone" />
+            </FrameLayout>
+        </LinearLayout>
+</FrameLayout>
+        <LinearLayout
+            android:id="@+id/layout_portait_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:paddingLeft="@dimen/recommended_adv_subject_entry_padding"
+            android:paddingRight="@dimen/recommended_adv_subject_entry_padding"
+            android:paddingTop="@dimen/recommended_adv_subject_entry_padding_top"
+            android:paddingBottom="@dimen/recommended_adv_subject_entry_padding_bottom" >
+        <!-- android:minHeight="@dimen/subject_entry_height" -->
+              		<TextView
+		                android:id="@+id/entry_favourite"
+		                android:layout_width="0dp"
+		                android:layout_height="wrap_content"
+                        android:text="@string/hotapps"
+                        android:textColor="@color/nui_text_color_black_50"
+                        android:textSize="@dimen/nui_text_size_little"
+		                android:layout_weight="1"
+                        android:gravity="center_horizontal"
+		                android:drawableTop="@drawable/btn_entry_hot_portait_selector"
+		                />
+		             <TextView
+		                 android:id="@+id/entry_newestapp"
+		                android:layout_width="0dp"
+		                android:layout_height="wrap_content"
+                         android:text="@string/newestapps"
+                         android:textColor="@color/nui_text_color_black_50"
+                         android:textSize="@dimen/nui_text_size_little"
+		                android:layout_weight="1"
+                         android:gravity="center_horizontal"
+		                android:drawableTop="@drawable/btn_entry_newestapp_portait_selector"
+		                android:layout_marginLeft="@dimen/recommended_adv_subject_entry_padding"/>
+		             <TextView
+		                    android:id="@+id/entry_subject"
+		                android:layout_width="0dp"
+		                android:layout_height="wrap_content"
+                         android:text="@string/subjectapps"
+                         android:textColor="@color/nui_text_color_black_50"
+                         android:textSize="@dimen/nui_text_size_little"
+		                android:layout_weight="1"
+                         android:gravity="center_horizontal"
+		                android:drawableTop="@drawable/btn_entry_subject_portait_selector"
+		                android:layout_marginLeft="@dimen/recommended_adv_subject_entry_padding"/>
+		             <TextView
+		                 android:id="@+id/entry_essential"
+		                android:layout_width="0dp"
+		                android:layout_height="wrap_content"
+                         android:text="@string/requiredapps"
+                         android:textColor="@color/nui_text_color_black_50"
+                         android:textSize="@dimen/nui_text_size_little"
+		                android:layout_weight="1"
+                         android:gravity="center_horizontal"
+		                android:drawableTop="@drawable/btn_entry_essential_portait_selector"
+		                android:layout_marginLeft="@dimen/recommended_adv_subject_entry_padding"/>
+        	</LinearLayout>
+      </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/horizon_scroll_mask"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+    <include layout="@layout/group_head_view"
+        android:visibility="gone" />
+
+</LinearLayout>

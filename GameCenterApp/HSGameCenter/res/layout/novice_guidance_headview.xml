@@ -1,0 +1,41 @@
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="#fafafa"
+	android:paddingBottom="@dimen/novice_guidance_padding_top"
+	android:paddingLeft="@dimen/list_view_item_spacing"
+	android:paddingRight="@dimen/list_view_item_spacing"
+	android:paddingTop="@dimen/novice_guidance_padding_top">
+
+
+	<TextView
+		android:id="@+id/title"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@color/transparent"
+		android:singleLine="true"
+		android:text="@string/recommend_head"
+		android:textColor="@color/cc_black"
+		android:textSize="@dimen/nui_text_size_medium"/>
+	<TextView
+		android:id="@+id/text_wifi"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@color/transparent"
+		android:layout_below="@id/title"
+		android:singleLine="true"
+		android:text="@string/wifi_download_tips"
+		android:textColor="@color/color_text_wifi_tips"
+		android:textSize="@dimen/nui_text_size_small"
+		android:visibility="invisible"
+		/>
+	<ImageView
+		android:id="@+id/imgClose"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerVertical="true"
+		android:layout_alignParentRight="true"
+		android:background="@drawable/icon_close"/>
+
+</RelativeLayout>

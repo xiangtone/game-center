@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/csl_tab_underline_color"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+id/setting_item_toggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:listSelector="@color/csl_tab_underline_color" />
+
+</LinearLayout>
+<!-- android:background="@drawable/background_setting_list" -->

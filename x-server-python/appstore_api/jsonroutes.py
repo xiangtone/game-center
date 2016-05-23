@@ -6,6 +6,7 @@ import logic.api.grouplistjson
 import logic.api.groupelemjson
 import logic.api.appinfojson
 import logic.api.apprecommjson
+import logic.api.appinfoiosjson
 
 HANDLER_MAP = {
     #'sendcode': logic.api.userhandler.SendCode,
@@ -14,4 +15,6 @@ HANDLER_MAP = {
     'ReqAppInfo':logic.api.appinfojson.AppInfoJsonHandler,
     'ReqAppList4SearchKey':logic.api.groupelemjson.SearchAppListJsonHandler,
     'ReqRecommApp':logic.api.apprecommjson.AppRecommJsonHandler,
+    'ReqIosAppInfo':logic.api.appinfoiosjson.ApplistJsonHandler,
+    'ReqIosAppDetail':logic.api.appinfoiosjson.AppiosDetailJsonHandler
 }

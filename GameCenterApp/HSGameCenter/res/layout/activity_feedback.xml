@@ -1,0 +1,77 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:overScrollMode="always"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <com.hykj.gamecenter.ui.widget.CSCommonActionBar
+            android:id="@+id/ActionBar"
+            style="@style/ActionBar"
+            cs:comm_showLogo="false"
+            cs:comm_showManage="false"
+            cs:comm_showReturn="true"
+            cs:comm_showRightEdit="false"
+            cs:comm_showSetting="false"
+            cs:comm_showTitle="true" />
+
+        <EditText
+            android:id="@+id/editNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/recharge_price_row_margin"
+            android:layout_marginRight="@dimen/recharge_price_row_margin"
+            android:layout_marginTop="@dimen/login_margin_t"
+            android:paddingLeft="@dimen/normal_margin_padding_little"
+            android:background="@drawable/login_et_frame_bg"
+            android:gravity="center_vertical"
+            android:hint="@string/intput_mobile"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="number"
+            android:maxLength="11"
+            android:minHeight="@dimen/edittext_minh"
+            android:singleLine="true"
+            android:textColorHint="@color/csl_black_4c"
+            android:textSize="@dimen/nui_text_size_medium" />
+
+        <EditText
+            android:id="@+id/editFeedBack"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/feedback_edt_minh"
+            android:layout_marginLeft="@dimen/recharge_price_row_margin"
+            android:layout_marginRight="@dimen/recharge_price_row_margin"
+            android:layout_marginTop="@dimen/login_margin_t"
+            android:background="@drawable/login_et_frame_bg"
+            android:gravity="top"
+            android:hint="@string/hint_feedback"
+            android:maxLength="140"
+            android:padding="@dimen/normal_margin_padding_little"
+            android:scrollHorizontally="false"
+            android:textColorHint="@color/csl_black_4c"
+            android:textSize="@dimen/nui_text_size_medium" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            style="@style/NoShadowGreenButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_loginh"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/normal_margin_padding_medium"
+            android:layout_marginLeft="@dimen/recharge_price_row_margin"
+            android:layout_marginRight="@dimen/recharge_price_row_margin"
+            android:layout_marginTop="@dimen/login_margin_t"
+            android:background="@drawable/btn_green_green_selector"
+            android:text="@string/btn_text_submit"
+            android:textSize="@dimen/nui_text_size_medium" />
+    </LinearLayout>
+
+</ScrollView>

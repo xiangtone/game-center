@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/csl_cs_action_bar_height"
+    android:background="@color/actionbar_bg_color">
+
+    <!-- 左边操作按钮 -->
+
+    <LinearLayout
+        android:id="@+id/tab_left_function_icons"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal" >
+
+        <com.hykj.gamecenter.ui.widget.CSRoundCornerImageView
+            android:id="@+id/tab_logo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="12dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/csl_comm_actionbar_logo" />
+
+        <TextView
+            android:id="@+id/tab_logo_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:gravity="center_vertical"
+            android:text="@string/csl_comm_actionbar_heanline"
+            android:textColor="@color/csl_white"
+            android:textSize="@dimen/csl_text_size_xlarge" />
+
+        <com.hykj.gamecenter.ui.widget.PagerSlidingTabStrip
+            android:id="@+id/tab_strip"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/csl_cs_padding_half_size"
+            android:layout_marginRight="0dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/actionbar_title"
+        style="@style/CS.Widget.CSActionBar.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/csl_actionbar_text_color"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/tab_right_function_icons"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+</merge>

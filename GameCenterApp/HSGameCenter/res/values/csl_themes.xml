@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.CS" parent="@android:style/Theme.Holo.Light">
+
+        <!-- actionbar -->
+        <item name="plCSActionBarTileTextAppearance">@style/TextAppearance.CSActionBarTitle</item>
+        <item name="plCSActionBarSearchEditTextAppearance">@style/TextAppearance.CSActionBarSearchEdit</item>
+        <item name="plCSActionBarStyle">@style/CS.Widget.CSActionBar</item>
+        <item name="plCSActionBarTitleStyle">@style/CS.Widget.CSActionBar.Title</item>
+        <item name="plCSActionBarHomeUpTitleStyle">@style/CS.Widget.CSActionBar.HomeUpTitle</item>
+        <!-- infobar -->
+        <item name="plCSInfoBarUserNameTextView">@style/CS.Widget.UserNameTextView</item>
+        <item name="plCSInfoBarUserLevelTextView">@style/CS.Widget.UserLevelTextView</item>
+        <item name="plCSInfoBarFunctionTextView">@style/CS.Widget.FunctionTextView</item>
+        <item name="plCSInfoBarBalanceNumberTextView">@style/CS.Widget.BalanceNumberTextView</item>
+        <item name="plCSInfoBarBalanceUnitTextView">@style/CS.Widget.BalanceUnitTextView</item>
+
+        <!-- Progress -->
+        <item name="plCSListStyle">@style/CS.Widget.CSList</item>
+        <item name="plCSProgrssSmall">@style/CS.Widget.Progress.Small</item>
+        <item name="plCSListHeaderTextView">@style/CS.Widget.CSListHeaderTextView</item>
+
+        <!-- button -->
+    </style>
+
+    <style name="Theme.CS.NoTitleBar" parent="@style/Theme.CS">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+</resources>

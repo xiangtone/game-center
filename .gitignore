@@ -26,3 +26,6 @@ hs_err_pid*
 
 /server-Ws/target/m2e-wtp
 /server-Ws/target/classes
+
+# oddshou 
+iosWeb/

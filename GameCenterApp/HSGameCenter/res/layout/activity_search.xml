@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/search_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <!-- 用一个framelayout把  CSLoadingUIListView包起来，支持内部的csLoadingView -->
+
+    <FrameLayout
+        android:id="@+id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:visibility="visible" >
+                
+        <include
+            android:id="@+id/search_interface"
+            layout="@layout/search_interface" />
+        
+        <include
+            android:id="@+id/search_hot"
+            layout="@layout/search_hot" />
+
+        <com.hykj.gamecenter.ui.widget.CSPullListView
+            android:id="@+id/app_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:listSelector="@color/background"
+            android:overScrollMode="never"
+            android:visibility="visible" />
+
+        <include
+            android:id="@+id/no_result"
+            layout="@layout/search_no_result" />
+    </FrameLayout>
+
+</LinearLayout>

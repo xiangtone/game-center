@@ -1,0 +1,31 @@
+<resources>
+
+    <string name="csl_search">搜索</string>
+    <string name="csl_search_hint">搜索關鍵字</string>
+    <string name="csl_back">取消</string>
+    <string name="csl_about">關 于</string>
+    <string name="csl_listview_header_hint_normal_up">向下滑動獲取更多</string>
+    <string name="csl_listview_header_hint_normal_down">向上滑動獲取更多</string>
+    <string name="csl_listview_header_hint_ready">松開獲取更多</string>
+    <string name="csl_listview_header_hint_loading">正在加載更多&#8230;</string>
+    <string name="csl_xlistview_header_last_time">上次更新時間：</string>
+    <string name="csl_network_setting_btn">設置網絡</string>
+    <string name="csl_refresh_retry_btn">點擊重試</string>
+    <string name="csl_error_msg_net_refresh">未連接網絡或連接失敗\n請檢查網絡後重試</string>
+    <string name="csl_loading">正在瘋狂地加載&#8230;</string>
+
+    <!-- add at 20140113 action bar -->
+    <!--action bar -->
+    <string name="csl_comm_actionbar_left_btn_del">刪除</string>
+    <string name="csl_comm_actionbar_right_btn_edit">編輯</string>
+    <string name="csl_comm_actionbar_heanline">遊戲中心</string>
+
+    <!-- alert dialog -->
+    <string name="csl_sure">確定</string>
+    <string name="csl_cancel">取消</string>
+    <string name="csl_check_default_title">下次不再提示</string>
+    <string name="csl_select_all">全選</string>
+    <!-- header bar -->
+    <string name="csl_edit_mode">編輯狀態</string>
+
+</resources>

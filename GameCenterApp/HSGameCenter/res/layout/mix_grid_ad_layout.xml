@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    >
+
+    <!-- android:layout_margin="@dimen/csl_cs_padding_half_size" -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+ >
+
+        <include
+            android:id="@+id/group_head_view"
+            layout="@layout/rebound_horizotal_scrollview_vertial_layout" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/horizon_scroll_mask" />
+    </FrameLayout>
+
+    <!-- 当前groupheadview不显示，更多按钮不显示-->
+    <include
+        android:id="@+id/group_head_view"
+        layout="@layout/group_head_view" 
+        android:visibility="gone"/>
+
+</LinearLayout>

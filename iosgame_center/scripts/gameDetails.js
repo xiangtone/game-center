@@ -1,14 +1,45 @@
 ﻿var appDetail = null;
+var pageDone = false;
+
+function getAppdetails(appId) {
+    var syncAppDetailData = {
+        "header": syncHead,
+        "api": "ReqIosAppDetail",
+        "params": {
+            "appId": appId
+        }
+    }
+    sendRequest(syncAppDetailData, getsuccess = {
+        success: function (data) {
+            appDetail = data.data;
+            if (pageDone)
+                page_onload();
+        }
+    });
+}
+
+
+function initAppInfo() {
+    //解析id获取游戏详情
+    var rx = /[&|#?]appid=[\d]*/
+    var mc = rx.exec(location.href);
+    var appId = 0;
+    if (mc != null) {
+//			id = parseInt(mc[0]);
+        appId = mc[0].replace(/[^0-9]/ig, "");
+        if (isNaN(appId))
+            appId = 0;
+    }
+    getAppdetails(appId);
+    getPosIdPush();
+}
+
+initAppInfo();
+
 function page_onload() {
-    //读取cooike
-    var jsonString = getCookie("ios_game_app");
-    if (typeof jsonString == "undefined" && jsonString != null && jsonString != ""){
-        return
-    }
-    appDetail = JSON.parse(jsonString);
-    if (appDetail == null) {
-        return
-    }
+
+    if (!appDetail)
+        return;
     initWithAppInfo(appDetail);
 }
 
@@ -17,33 +48,54 @@ function initWithAppInfo(appdetail) {
     html += "<figure><img src='" +
         appdetail.IconUrl +
         "' alt='loading...'><figcaption><h4 style='margin-top:0.1rem '>" +
-        appdetail.ShowName+
+        appdetail.ShowName +
         "</h4><h5>" +
         appdetail.RecommWord +
         "</h5></figcaption></figure><a  class='game_Detil_download' href='" +
         appdetail.PackUrl +
-        "' > 前往App store下载</a>";
+        "'  onclick=pushDownDetail(5000000,'" +
+        appdetail.ShowName +
+        "')> 前往App store下载</a>";
     $(".game_Detil").html(html);
 
     //添加详情图片
     var htmlDetails = "";
     var appPic = appDetail.AppPicUrl.split(",");
-    for(var i = 0; i < appPic.length; i++) {
+    for (var i = 0; i < appPic.length; i++) {
         htmlDetails += "<div class='swiper-slide details_img'><img src='" +
             appPic[i] +
-            "' alt='loading...'/></div>"
+            "' alt='loading...'/></div>";
     }
     $(".swiper-wrapper").html(htmlDetails);
 
+
     $(".p_details").html(appDetail.AppDesc);
-    $(".p_details_h").html(appDetail.DevName);
+    $(".p_details_h").html("开发商:"+  appDetail.DevName +"" );
 }
 
-function getCookie(name)//取cookies函数
-{
-    var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
-    if(arr != null) return (unescape(arr[2])); return null;
+// function getCookie(name)//取cookies函数
+// {
+//     var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+//     document.cookie = name + "=" + "" + ";";
+//     if (arr != null)
+//         return (unescape(arr[2]));
+//     return null;
+// }
+
+function getPosIdPush() {
+    var rx = /[&|#?](posId)=[\d]*/
+    var mc = rx.exec(decodeURI(location.href));
+    var id = 0;
+    if (mc != null) {
+        id = mc[0].replace(/[&|#?](posId)=/ig, "");
+        if (!isNaN(id)){
+            TDAPP.onEvent("页面点击", id);
+        }
+
+    }
 }
+
+
 
 // function getappInfo(data){
 //     console.log("------------this is getappInfo log-----------------");

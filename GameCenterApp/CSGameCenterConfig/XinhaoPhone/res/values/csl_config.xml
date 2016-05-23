@@ -1,0 +1,16 @@
+<resources>
+    <!-- onda：30dp 信濠：6dp -->
+    <dimen name="csl_button_corners_radius">6dp</dimen>
+    <!-- onda：e83619  信濠：0000 -->
+    <color name="csl_tab_indicator_color">#0000</color>
+	<!-- onda：#0000  信濠：#0000 -->
+	<color name="csl_tab_divider_color">#0000</color>
+	<!-- onda：7f000000  信濠：7fffffff -->
+	<color name="csl_tab_text_default_color">#7fffffff</color>
+	<!-- onda：cc000000  信濠：ffffffff -->
+	<color name="csl_tab_text_selector_color">#ffffffff</color>
+	<!-- onda：cc000000  信濠：ffffffff -->
+	<color name="csl_actionbar_text_color">#ffffffff</color>
+	<!-- onda：#e83619  信濠：#4ea508 -->
+	<color name="csl_green">#4ea508</color>
+</resources>

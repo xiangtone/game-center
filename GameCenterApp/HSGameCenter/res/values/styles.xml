@@ -1,0 +1,374 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Base application theme, dependent on API level. This theme is replaced 
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices. -->
+    <style
+        name="AppBaseTheme"
+        parent="android:Theme.Light">
+        <!-- Theme customizations available in newer API levels can go in 
+            res/values-vXX/styles.xml, while customizations related to backward-compatibility 
+            can go here. -->
+    </style>
+
+    <!-- Application theme. -->
+    <style
+        name="AppTheme"
+        parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level 
+            can go here. -->
+    </style>
+
+    <style name="ActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/csl_cs_action_bar_height</item>
+        <item name="android:background">@color/actionbar_bg_color</item>
+    </style>
+
+    <!-- 2.0 rateBar -->
+    <style
+        name="RatingBar"
+        parent="@android:style/Widget.RatingBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/rating_bar</item>
+        <item name="android:indeterminateDrawable">@drawable/rating_bar</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:isIndicator">true</item>
+        <item name="android:maxHeight">16dp</item>
+        <item name="android:minHeight">16dp</item>
+    </style>
+
+    <style
+        name="RatingBarBig"
+        parent="@android:style/Widget.RatingBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/rating_bar_big</item>
+        <item name="android:indeterminateDrawable">@drawable/rating_bar_big</item>
+        <item name="android:thumb">@null</item>
+        <item name="android:isIndicator">true</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:maxHeight">48dp</item>
+    </style>
+
+    <style
+        name="RatingBarMid"
+        parent="@android:style/Widget.RatingBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/rating_bar_mid</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:maxHeight">48dp</item>
+    </style>
+
+    <style
+        name="DownloadProgressBar"
+        parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/csl_image_progress_horizontal</item>
+    </style>
+
+    <style
+        name="DownloadProgressBarForAppinfo"
+        parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/csl_progress_horizontal_forappinfo</item>
+    </style>
+
+    <style
+        name="ProgressBarGray"
+        parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminate">false</item>
+        <item name="android:progressDrawable">@drawable/user_comment_progress_horizontal</item>
+    </style>
+
+    <style
+        name="TextAppearance.GrayInfo"
+        parent="TextAppearance">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/csl_black_4c</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.GrayHint"
+        parent="TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/csl_black_4c</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.GrayHeavyTitle"
+        parent="TextAppearance">
+        <item name="android:textSize">@dimen/csl_text_size_large</item>
+        <item name="android:textColor">@color/csl_black</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.GrayMiddleTitle"
+        parent="TextAppearance">
+        <item name="android:textSize">@dimen/csl_text_size_large</item>
+        <item name="android:textColor">@color/csl_black_cc</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.GrayLightBTitle"
+        parent="TextAppearance">
+        <item name="android:textSize">@dimen/text_size_middle</item>
+        <item name="android:textColor">@color/csl_black_7f</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.GrayLightBTitle4C"
+        parent="TextAppearance">
+        <item name="android:textSize">@dimen/text_size_middle</item>
+        <item name="android:textColor">@color/csl_black_4c</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.GrayLightSTitle"
+        parent="TextAppearance">
+        <item name="android:textSize">@dimen/csl_text_size_small</item>
+        <item name="android:textColor">@color/csl_black_4c</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.GrayLable"
+        parent="TextAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/csl_black_7f</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style
+        name="TextAppearance.Orange"
+        parent="TextAppearance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/cs_sf_alert_orange</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- shadow start -->
+    <style
+        name="CS.Widget.WhiteTextView"
+        parent="CS.Widget">
+        <item name="android:textAppearance">@style/TextAppearance.White</item>
+        <item name="android:shadowColor">@color/csl_white</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style
+        name="CS.Widget.GrayButton"
+        parent="CS.Widget">
+        <item name="android:background">@drawable/gray_btn_bg</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/csl_white</item>
+        <item name="android:shadowColor">@color/csl_white</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!-- shadow end -->
+
+    <style name="HomePage">
+        <item name="android:src">@drawable/app_icon_default</item>
+    </style>
+
+    <style name="CategoryViewIcon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style
+        name="HomePage.TopImageView_right"
+        parent="HomePage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/csl_white</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style
+        name="HomePage.MainImageView"
+        parent="HomePage">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style
+        name="Translucent"
+        parent="@style/Theme.CS">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/cs.Animation.Activity</item>
+    </style>
+
+    <style
+        name="NoAnimationNonTranslucent"
+        parent="@style/Theme.CS.NoTitleBar">
+        <item name="android:windowBackground">@color/csl_white</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style
+        name="App_FullScreen_NoActionBar"
+        parent="@style/Theme.CS.NoTitleBar">
+        <item name="android:windowBackground">@color/csl_white</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- <item name="android:windowAnimationStyle">@style/cs.Animation.Activity</item> -->
+    </style>
+
+    <style
+        name="NoAnimationTranslucent"
+        parent="@style/Theme.CS.NoTitleBar">
+        <item name="android:windowBackground">@color/csl_white</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- <item name="android:windowAnimationStyle">@null</item> -->
+    </style>
+
+    <style
+        name="CSLoadingDialog"
+        parent="@android:Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style
+        name="CSDialog"
+        parent="@android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/dialog_bg</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style
+        name="AppDownloadList"
+        parent="CS.Widget">
+        <item name="android:divider">@null</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:scrollbarDefaultDelayBeforeFade">500</item>
+    </style>
+
+    <style
+        name="detail_dialog"
+        parent="@android:style/Theme.Dialog">
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+    </style>
+
+    <style
+        name="cs.Animation.Activity"
+        parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/delay_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/delay_out</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
+        <item name="android:taskOpenEnterAnimation">@anim/fade_in</item>
+        <item name="android:taskOpenExitAnimation">@anim/delay_out</item>
+        <item name="android:taskCloseEnterAnimation">@anim/delay_out</item>
+        <item name="android:taskCloseExitAnimation">@anim/fade_out</item>
+        <item name="android:taskToFrontEnterAnimation">@anim/fade_in</item>
+        <item name="android:taskToFrontExitAnimation">@anim/delay_out</item>
+        <item name="android:taskToBackEnterAnimation">@anim/delay_out</item>
+        <item name="android:taskToBackExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <!-- 个人中心 -->
+    <style name="ViewDividerHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/list_view_divider_width</item>
+        <item name="android:background">@color/divider</item>
+    </style>
+
+    <style name="ViewDividerPopwindow">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">@dimen/list_view_divider_width</item>
+        <item name="android:background">@color/divider</item>
+    </style>
+    <style name="ViewDividerHeight8">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/normal_margin_padding_little</item>
+        <item name="android:background">@color/normal_gray</item>
+        <item name="android:layout_marginTop">@dimen/normal_margin_padding_medium</item>
+        <item name="android:layout_marginBottom">@dimen/normal_margin_padding_medium</item>
+    </style>
+
+    <style name="ViewDividerHorizontalTwo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/list_view_divider_width</item>
+        <item name="android:background">@color/dividertwo</item>
+    </style>
+
+    <style name="GreenButton">
+        <item name="android:layout_width">@dimen/recharge_pay_btn_width</item>
+        <item name="android:layout_height">@dimen/recharge_pay_btn_height</item>
+        <item name="android:background">@drawable/btn_green_green_selector</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/nui_text_size_medium</item>
+    </style>
+
+    <style
+        name="App_Login_FullScreen_NoActionBar"
+        parent="@style/Theme.CS">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@color/translucent_background</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+    <style name="transMyDialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:minHeight">@dimen/csl_button_min_height</item>
+        <item name="android:minWidth">@dimen/csl_button_min_width</item>
+    </style>
+    <!-- text style raring title -->
+    <style 
+        name="ratingTitle"
+        >
+        <item name="android:textSize">@dimen/nui_text_size_micro</item>
+        <item name="android:textColor">@color/holo_gray</item>
+        <item name="android:layout_marginRight">@dimen/gridview_margin_bottom</item>
+        
+    </style>
+
+    <style name="entry_text_little">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/csl_black_cc</item>
+        <item name="android:textSize">@dimen/nui_text_size_medium</item>
+        <item name="android:drawablePadding">@dimen/normal_margin_padding_small</item>
+
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+
+</resources>

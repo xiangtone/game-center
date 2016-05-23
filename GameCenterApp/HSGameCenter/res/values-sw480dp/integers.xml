@@ -1,0 +1,9 @@
+<resources>
+
+    <!-- 20160104 -->
+    <integer name="appname_max_ems_none" >11</integer>
+    <integer name="appname_max_ems_one" >10</integer>
+    <integer name="appname_max_ems_two" >8</integer>
+    <integer name="appname_max_ems_default" >7</integer>
+
+</resources>
