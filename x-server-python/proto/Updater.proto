@@ -1,0 +1,21 @@
+syntax = "proto2";
+//============================================ 获取产品更新
+message ReqUpdate{
+	required string packName = 1;
+	required string verName = 2;
+	required int32  verCode = 3;
+}
+message RspUpdate{
+	required int32  rescode = 1;			// 返回码：0=成功，1=失败
+	required string resmsg = 2;				// 返回消息
+	optional int32  updateType = 3;			// 更新方式：0=无更新，1=提示-可忽略，2=标识-小红点，3=强制-不可忽略，4=强迫，5=静默
+	optional string packName = 4;			// 应用包名
+	optional string newVerName = 5;			// 新版本号
+	optional int32  newVerCode = 6;			// 新版本代码
+	optional int32  packSize = 7;			// 包大小，下载后验证
+	optional string packMD5 = 8;			// 安装包MD5值，下载后验证
+	optional string packUrl = 9;			// 安装包URL，下载时可用
+	optional string pubTime = 10;			// 发布时间
+	optional string updatePrompt = 11;		// 更新提示语，显示在更新描述上面，加强显示
+	optional string updateDesc = 12;		// 更新描述
+}
