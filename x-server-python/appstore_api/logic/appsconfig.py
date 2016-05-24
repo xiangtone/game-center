@@ -1,4 +1,4 @@
-#!/bin/env python
+日常#!/bin/env python
 #-*- encoding=utf8 -*-
 import tornado.gen
 from protohandler import ProtoBase

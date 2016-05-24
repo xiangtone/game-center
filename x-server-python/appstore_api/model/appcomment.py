@@ -1,4 +1,4 @@
-#!bin/env python 
+、#!bin/env python 
 #-*- encoding=utf8 -*-
 #
 # 创建人：wind
@@ -92,7 +92,7 @@ def get_app_sum_score(appid,isadd=0):
         # 查询数据库
         with db.MysqlConnection(config.GLOBAL_SETTINGS['db']) as con:  
             sql = "select AppId,CommentTimes,ScoreTimes,ScoreSum,ScoreAvg,ScoreTimes1,ScoreTimes2,ScoreTimes3,ScoreTimes4,ScoreTimes5 from AppCommentSummary where AppId=%s"
-            query_obj = con.query(sql,appid)
+            query_obj = yield from con.query(sql,appid)
             if query_obj:
                 score_obj['appid'] = query_obj[0]['AppId']
                 score_obj['commenttimes'] = query_obj[0]['CommentTimes']
