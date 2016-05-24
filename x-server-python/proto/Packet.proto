@@ -1,0 +1,68 @@
+syntax = "proto2";
+/**
+
+·UDI：设备信息，GET参数拼接方式（如：ei=1234&ai=1234&si=1234...）：
+
+	字段名	说明
+	=======	==============================================
+ 	ei		设备ID（手机IMEI，平板CHIPID，取不到则不传）
+	ai		ANDROID_ID值
+	ui		当前在已经登录的用户的ID（新加入20130710，可以为空、0或不传）
+	wm		无线MAC地址（取不到则不传）
+	si		手机卡的IMSI值（取不到则不传）
+	mf		设备厂商（原值传入manufacturer值）
+	bd		设备品牌（原值传入brand值）
+	md		设备型号（原值传入model值）
+	de		设备子型号（Device值，OTA时需要，其它产品也可能用到，可以为空、0或不传）
+	pv		平台版本（例如：ADR_4.2、IOS_6.1等）
+	pl		整型值，平台Level（例如：14、15、16等，Android特有，其它平台填0）
+	sw		整型值，屏宽分辨率
+	sh		整型值，屏高分辨率
+	nt		整型值，网络类型数值（原值传入GetNetworkType值，传换为字符串）
+	la		国家与语言码（例如：zh-cn、zh-hk等，客户端组合）
+	oi		当前用户的openid
+
+·关于状态码：定义如下通用状态码，特殊情况会在协议体中说明：
+
+	0		成功				各业务可能重定义成功的具体含义
+	100		异常错误			具体错误原因查看结果消息
+	101		非法请求			主要是UDI信息非法
+	102		非法用户			用户ID与用户Token等信息验证失败
+	103		非法角色			角色ID与角色Token等信息验证失败
+	104		非法应用			应用ID与应用Token等信息验证失败
+	105		操作过于频繁		用户操作过于频繁
+	106		服务器繁忙			服务器繁忙
+	107		RSA-KEY过期			收到该状态后从RspPacket中读取RspRsaKey，新获得的KEY长期保留使用，旧的废止
+
+**/
+
+//============================================ 请求包与响应包
+message ReqPacket{
+	required int32	mask = 1;				// 掩码值（定义：1=params_gzip，2=params_rsa...位运算）
+	required string udi = 2;				// 设备信息
+	repeated string action = 3;				// 操作（协议更新，在协议名后加版本号，如：RegUser_V2）
+	repeated bytes  params = 4;				// 参数（根据action中定义的操作，上传对应的请求参数）
+	required int32  reqNo = 5;				// 请求顺序号
+	optional int32  chnNo = 6;				// 渠道号（由后台分配给渠道并传入，默认为0）
+	optional int32  chnPos = 7;				// 渠道位置（由后台分配给渠道或SDK传入，确定如：广告位第二个广告等位置信息，默认为0。又如帐号中心，可能会有多个位置可以跳游戏中心，渠道位置会不一样）
+	required int32  clientId = 8;			// 应用的ID（直接与服务端沟通的应用的ID）(定义: 1=帐号账户 , 2= 游戏中心 , 3= PcSuite, 4= 桌面, 6=应用商店, )
+	optional int32  clientPos = 9;			// 应用的位置（直接与服务端沟通的应用的位置ID，与渠道位置类似）
+	optional string clientVer = 10;			// 应用的版本（应用的版本由通用的版本号规则定义）
+	optional string rsaKeyVer = 11;			// 当前程序的RSA-KEY的版本标识
+}
+message RspPacket{
+	required int32 mask = 1;				// 掩码值（定义：1=params_gzip，2=params_rsa...位运算）
+	required int32  rescode = 2;			// 响应码（定义：0=成功-至少有一个响应的Action，100=异常错误...）
+	required string resmsg = 3;				// 响应消息（成功或失败消息，不为空时则由客户端统一提示）
+	repeated string action = 4;				// 响应操作
+	repeated bytes  params = 5;				// 响应参数
+}
+message RspRsaKey{
+	required string rsaVer = 1;				// RSA版本标识（一般RSA版本标识会比RSA-KEY要短很多，以节省流量）
+	required string rsaKey = 2;				// RSA-KEY ( 格式: n,e )
+}
+enum MaskCode{
+    DEFAULT = 0;
+    PARAMS_GZIP = 1;
+    PARAMS_RSA = 2;
+}
