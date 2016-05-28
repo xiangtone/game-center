@@ -1,19 +1,19 @@
 syntax = "proto2";
-//============================================ Í³Ò»Êı¾İÉÏ±¨½Ó¿Ú
+//============================================ ç»Ÿä¸€æ•°æ®ä¸ŠæŠ¥æ¥å£
 message ReqReported{
-	repeated ReportedInfo reportedInfo = 1; 		// ¶àÌõÉÏ±¨µÄÊı¾İ
+	repeated ReportedInfo reportedInfo = 1; 		// å¤šæ¡ä¸ŠæŠ¥çš„æ•°æ®
 }
 message ReportedInfo{
-	required int32  statActId  = 1;					// Í³¼Æ²Ù×÷id1    (¾ßÌå²é¿´Êı¾İ¶¨ÒåËµÃ÷ÎÄµµ)
-	optional int32  statActId2 =2;         			// Í³¼Æ²Ù×÷id2
-	optional string actionTime = 3;					// ²Ù×÷Ê±¼ä yyyyMMddHHmmss  
-	optional string ext1 = 4;						// À©Õ¹×Ö¶Î1-5£¬ÓÃÓÚ¶îÍâ²¹³äµÄĞèÒªÉÏ±¨µÄÊı¾İ¡£
+	required int32  statActId  = 1;					// ç»Ÿè®¡æ“ä½œid1    (å…·ä½“æŸ¥çœ‹æ•°æ®å®šä¹‰è¯´æ˜æ–‡æ¡£)
+	optional int32  statActId2 =2;         			// ç»Ÿè®¡æ“ä½œid2
+	optional string actionTime = 3;					// æ“ä½œæ—¶é—´ yyyyMMddHHmmss  
+	optional string ext1 = 4;						// æ‰©å±•å­—æ®µ1-5ï¼Œç”¨äºé¢å¤–è¡¥å……çš„éœ€è¦ä¸ŠæŠ¥çš„æ•°æ®ã€‚
 	optional string ext2 = 5;
 	optional string ext3 = 6;
 	optional string ext4 = 7;
 	optional string ext5 = 8;
 }
 message RspReported{
-	required int32  rescode = 1;					// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü
-	required string resmsg = 2;						// ·µ»ØÏûÏ¢
+	required int32  rescode = 1;					// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥
+	required string resmsg = 2;						// è¿”å›æ¶ˆæ¯
 }
