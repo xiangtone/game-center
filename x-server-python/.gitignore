@@ -11,3 +11,4 @@ build/
 error/*
 icons/*
 cgi-bin/*
+.vscode/*

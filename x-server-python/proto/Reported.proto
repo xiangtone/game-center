@@ -1,0 +1,19 @@
+syntax = "proto2";
+//============================================ 统一数据上报接口
+message ReqReported{
+	repeated ReportedInfo reportedInfo = 1; 		// 多条上报的数据
+}
+message ReportedInfo{
+	required int32  statActId  = 1;					// 统计操作id1    (具体查看数据定义说明文档)
+	optional int32  statActId2 =2;         			// 统计操作id2
+	optional string actionTime = 3;					// 操作时间 yyyyMMddHHmmss  
+	optional string ext1 = 4;						// 扩展字段1-5，用于额外补充的需要上报的数据。
+	optional string ext2 = 5;
+	optional string ext3 = 6;
+	optional string ext4 = 7;
+	optional string ext5 = 8;
+}
+message RspReported{
+	required int32  rescode = 1;					// 返回码：0=成功，1=失败
+	required string resmsg = 2;						// 返回消息
+}

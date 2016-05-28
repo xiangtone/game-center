@@ -101,11 +101,11 @@ sizes, pagination, etc.
 }
 .swiper-slide-active {
 	/* Specific active slide styling: */
-	height: auto;
+
 }
 .swiper-slide-visible {
 	/* Specific visible slide styling: */
-    height: auto;
+
 }
 /* ===============================================================
 Pagination Styles
