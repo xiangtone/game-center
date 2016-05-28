@@ -17,11 +17,12 @@ function getChannel(){
     //1.school
     return "http://sdk.talkingdata.com/app/h5/v1?appid="+ configChannelId +"&vn=正式版本v1.0&vc=16.05.23";
 }
-
+//http://127.0.0.1:42010/jsonapi
+//http://appstore.api.huashenggame.com/jsonapi
 function sendRequest(syncConfigData, successFun) {
     $.ajax({
         type: "post",
-        url: "http://appstore.api.huashenggame.com/jsonapi",
+        url: "http://http://127.0.0.1:42010/jsonapi",
         async: true,
         // data : contentPb,
         data: JSON.stringify(syncConfigData),

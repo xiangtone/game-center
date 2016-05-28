@@ -22,7 +22,7 @@ function getChannel(){
 function sendRequest(syncConfigData, successFun) {
     $.ajax({
         type: "post",
-        url: getUrl(false),
+        url: getUrl(true),
         async: true,
         // data : contentPb,
         data: JSON.stringify(syncConfigData),
