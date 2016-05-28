@@ -22,7 +22,7 @@ function getChannel(){
 function sendRequest(syncConfigData, successFun) {
     $.ajax({
         type: "post",
-        url: "http://http://127.0.0.1:42010/jsonapi",
+        url: "http://appstore.api.huashenggame.com/jsonapi",
         async: true,
         // data : contentPb,
         data: JSON.stringify(syncConfigData),

@@ -3,12 +3,6 @@
 function initAppInfo() {
 	//解析id获取游戏详情
 
-
-
-
-
-
-	
 	var rx = /[&|#?]((appId)|(appid)|(id))=[\d]*/
 		var mc = rx.exec(location.href);
 		var appId = 0;
