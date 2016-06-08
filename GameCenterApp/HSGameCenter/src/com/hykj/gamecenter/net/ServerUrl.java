@@ -14,7 +14,7 @@ public final class ServerUrl {
 
 
 //    private static final String DEBUG_URL_ROOT2 = /* "http://192.168.1.51:8090/appstore2_api"; */"http://niuwan.vicp.cc:8061/appstore2_api";
-    private static final String DEBUG_URL_ROOT2 = /*"http://115.159.125.75/appstore_api"*/"http://appstore.api.huashenggame.com/";
+    private static final String DEBUG_URL_ROOT2 = "http://192.168.1.39:42010/appstore_api"/*"http://appstore.api.huashenggame.com/"*/;
 
     private static final String DEBUG_URL_ACCOUNT_PAY = "http://niuwan.vicp.cc:8061/pay_api/api";
     private static final String PUBLIC_URL_ACCOUNT_PAY = "http://pay.api.niuwan.cc/api";

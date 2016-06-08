@@ -427,7 +427,7 @@ public class TopicFragment extends Fragment implements IFragmentInfo,
 		public OnTapListener(Activity activity, TextView makePressedView) {
 			mMakePressedTextView = makePressedView;
 			mPressedColor = activity.getResources().getColor(R.color.color_red);
-			mGrayColor = activity.getResources().getColor(R.color.color_green);
+			mGrayColor = activity.getResources().getColor(R.color.color_green_normal);
 		}
 
 		@Override

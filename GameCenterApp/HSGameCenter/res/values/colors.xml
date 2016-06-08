@@ -2,14 +2,19 @@
 <resources>
 
 	<color name="transparent">#0000</color>
-	<color name="color_green">#57a209</color>
-	<color name="color_green_normal">#7acf12</color>
+	<!--<color name="color_green">#57a209</color>-->
+	<!--<color name="color_green_normal">#7acf12</color>-->
+	<!--&lt;!&ndash;用于disabled和下载进度&ndash;&gt;-->
+	<!--<color name="color_green_normal_disable">#c3e86c</color>-->
+	<color name="color_green_normal">#fcc41b</color>
+	<color name="color_green_pressed">#eab20b</color>
 	<!--用于disabled和下载进度-->
-	<color name="color_green_normal_disable">#c3e86c</color>
+	<color name="color_green_disable">#ffe28b</color>
 	<color name="color_btn_resume">#FF7300</color>
 	<color name="color_gray_press">#f2f2f2</color>
 	<color name="color_download_tab_frame">#4C000000</color>
 	<color name="color_download_tab_press">#19000000</color>
+	<color name="color_action_bar">@color/color_green_normal</color>
 
 	<color name="app_software_detail_introduce_bg_color">#E6E6E6</color>
 	<color name="green">#e83619</color>
@@ -27,22 +32,22 @@
 	<color name="light_gray_cc">#cccccc</color>
 	<color name="light_gray_10">#e9ecec</color>
 	<color name="color_process">#4ea508</color>
-	<color name="transparent_color_process">@color/color_green_normal_disable</color>
+	<color name="transparent_color_process">@color/color_green_disable</color>
 	<color name="cc_black">#cc000000</color>
 	<color name="ff_black">#ff000000</color>
 	<color name="subject_color">#48c5f8</color>
 	<color name="black">#000000</color>
 	<!-- <color name="recommend_bg_color">#ffffff</color> -->
 	<color name="recommend_bg_color">#ffffff</color>
-	<color name="action_blue_color">@color/color_green</color>
-	<color name="color_progress">@color/color_green</color>
-	<color name="color_progressing">@color/color_green_normal_disable</color>
+	<color name="action_blue_color">@color/color_action_bar</color>
+	<color name="color_progress">@color/color_green_normal</color>
+	<color name="color_progressing">@color/color_green_disable</color>
 	<color name="color_text_wifi_tips">#1b6fff</color>
 
 
-	<color name="normal_blue">@color/color_green</color>
+	<color name="normal_blue">@color/color_green_normal</color>
 	<color name="translucent_background">#60000000</color>
-	<color name="actionbar_bg_color">@color/color_green</color>
+	<color name="actionbar_bg_color">@color/color_action_bar</color>
 	<color name="activity_edit_bg">#f2f2f2</color>
 	<color name="dividertwo">#d5d6d6</color>
 	<color name="editcolor">#b2b2b2</color>
