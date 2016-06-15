@@ -6,7 +6,7 @@ import android.util.Log;
 public class Logger
 {
 
-    public static boolean isDebug = false/*true*/;  //这个标签其他地方有使用，慎改
+    public static boolean isDebug = /*false*/true;  //这个标签其他地方有使用，慎改
 
     public static boolean isTrace = true;
 

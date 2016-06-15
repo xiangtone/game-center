@@ -45,6 +45,7 @@ import com.hykj.gamecenter.protocol.Apps.LocalAppVer;
 import com.hykj.gamecenter.protocol.Updater.RspUpdate;
 import com.hykj.gamecenter.statistic.ReportConstants;
 import com.hykj.gamecenter.statistic.StatisticManager;
+import com.hykj.gamecenter.ui.widget.CSToast;
 import com.hykj.gamecenter.utils.Logger;
 import com.hykj.gamecenter.utils.NetUtils;
 import com.hykj.gamecenter.utils.PackageUtil;
@@ -77,15 +78,12 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
             return;*/
         Logger.i(TAG, "(intent.getAction())=============" + (intent.getAction()), "oddshou");
 
-        boolean bWifiToDownload = App.getSettingContent().getSettingData().bWifiAutoDownload;//获取wifi环境才下载游戏的布尔值
-
-        // 这个监听网络连接的设置，包括wifi和移动数据的打开和关闭。. ConnectivityManager.CONNECTIVITY_ACTION 
-        // 最好用的还是这个监听。wifi如果打开，关闭，以及连接上可用的连接都会接到监听。见log  
-        // 这个广播的最大弊端是比上边两个广播的反应要慢，如果只是要监听wifi，我觉得还是用上边两个配合比较合适  
+        //获取wifi环境才下载游戏的布尔值
+        boolean bWifiToDownload = App.getSettingContent().getSettingData().bWifiAutoDownload;
         //        Log.i(TAG, "onReceive NETWORK_STATE_CHANGED_ACTION");
 
         // 增加wifi网络连接继续下载下载中任务   //"android.net.wifi.STATE_CHANGE"
-        if (bWifiToDownload) {//只有为true的时候才处理网络状态变化的广播，否则无处理
+        //只有为true的时候才处理网络状态变化的广播，否则无处理
             //            if (WifiManager.NETWORK_STATE_CHANGED_ACTION.equals(intent.getAction())) {
             if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())) {
                 Logger.i(TAG, "(intent.getAction())=============" + (intent.getAction()));
@@ -114,47 +112,43 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
                 }*/
                 NetworkInfo info = APNUtil.getActiveNetwork(context);
                 if (null != info) {//无网络时 info值为空
-                    Logger.i(TAG, "info=============" + info.toString());
                     int type = info.getType();//type = 0 为mobile 状态  = 1 为 wifi 状态
                     String name = info.getTypeName();
                     State state = info.getState();
-                    Logger.i(TAG, "type=============" + type, "oddshou");
-                    Logger.i(TAG, "name=============" + name, "oddshou");
-                    Logger.i(TAG, "state=============" + state, "oddshou");
                     if (state == State.CONNECTED) {
                         if (type == 0 || name.equals("mobile")) {//mobile状态  停止下载
                             Logger.i(TAG, "mobile CONNECTED", "oddshou");
-                            Logger.i(TAG, "移动网络下停止下载", "oddshou");
-                            /*new Thread(new Runnable() {
-
-                                @Override
-                                public void run() { // 网络恢复 继续下载中任务
-                                    stopDownloadingTask();
-                                }
-                            }).start();*/
-                            if (DownloadService.DOWNLOAD_MANAGER != null) {
-                                DownloadService.DOWNLOAD_MANAGER.stopAllDownload();
+                            CSToast.showNormal(context, context.getString(R.string.wifi_mobile_link));
+                            if (bWifiToDownload) {
+                                if (DownloadService.DOWNLOAD_MANAGER != null) {
+                                    DownloadService.DOWNLOAD_MANAGER.stopAllDownload();
 //                                DownloadService.DOWNLOAD_MANAGER.saveAllTaskToDB();
+                                }
                             }
                         } else if (type == 1 || name.equals("WIFI")) {
-                            Logger.i(TAG, "wifi CONNECTED", "oddshou");
+                            CSToast.showNormal(context, context.getString(R.string.wifi_link));
+
                             // 网络恢复 继续下载中任务
                             //RestartDownloadingTask( );
                             // 网络恢复连接时显示新手推荐页面
-                            HomePageActivity.showNoviceGuidanceViewWhenNetRecover();
+                            if (bWifiToDownload) {
+                                HomePageActivity.showNoviceGuidanceViewWhenNetRecover();
 
-                            new Thread(new Runnable() {
+                                new Thread(new Runnable() {
 
-                                @Override
-                                public void run() { // 网络恢复 继续下载中任务
-                                    RestartDownloadingTask();
-                                }
-                            }).start();
+                                    @Override
+                                    public void run() { // 网络恢复 继续下载中任务
+                                        RestartDownloadingTask();
+                                    }
+                                }).start();
+                            }
                         }
                     }
+                }else{
+                    //无网络
+                    CSToast.showNormal(context, context.getString(R.string.wifi_link_none));
                 }
             }
-        }
 
         mReqAppsUpdateListListener.setContext(context);
         SharedPreferences datePreference = mContext.getSharedPreferences("date_preferece",

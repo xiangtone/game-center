@@ -12,6 +12,7 @@
     <string name="home_game_label">游戏</string>
     <string name="home_my_label">我的</string>
     <string name="home_manager">管理</string>
+    <string name="home_wifi">WIFI</string>
     <string name="setting_about_cs">游戏中心</string>
     <string name="setting_office_web"></string>
     <string name="tel_number"></string>
@@ -623,5 +624,10 @@
     <string name="first_gift">礼包</string>
 
     <string name="search_common_hint">搜索游戏</string>
+    <string name="wifi_link">已切换至wifi网络连接</string>
+    <string name="wifi_mobile_link">已切换至移动数据流量</string>
+    <string name="wifi_link_none">当前无网络连接</string>
+    <string name="wifi_loading">正在为您努力连接</string>
+    <string name="wifi_loading_success">连接成功</string>
 
 </resources>

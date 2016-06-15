@@ -46,6 +46,7 @@ import com.hykj.gamecenter.fragment.BackHandledFragment;
 import com.hykj.gamecenter.fragment.ClassifyFragment;
 import com.hykj.gamecenter.fragment.GameFragment;
 import com.hykj.gamecenter.fragment.TopicFragment;
+import com.hykj.gamecenter.fragment.WifiFragment;
 import com.hykj.gamecenter.logic.ApkInstalledManager;
 import com.hykj.gamecenter.logic.ApkInstalledManager.InstallFinishListener;
 import com.hykj.gamecenter.logic.BroadcastManager;
@@ -105,6 +106,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         public static final int INDEX_CLASSIFY = 2;// 分类
         public static final int INDEX_UPDATE = 3;// 升级
         public static final int IMPROPER_DETAIL = 6;// 权限详情
+        public static final int INDEX_WIFI = 7;
     }
 
     NoviceGuidanceAppView mNoviceGuidanceView = null; // 新手推荐页
@@ -126,6 +128,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
     private ClassifyFragment mClassifyFragment = null;
     private GameFragment mGameFragment = null;
     private AppManagerFragment mAppManagerFragment = null;
+    private WifiFragment mWifiFragment = null;
     private UpdateDialog mUpdateDialog;
     private RspUpdate mRspUpdate;
     private boolean mbFirstLaunch = true;
@@ -283,6 +286,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         mTextMine.setOnClickListener(mViewOnclickListener);
         findViewById(R.id.textRank).setOnClickListener(mViewOnclickListener);
         findViewById(R.id.textClassily).setOnClickListener(mViewOnclickListener);
+        findViewById(R.id.textWifi).setOnClickListener(mViewOnclickListener);
         mBadgeView = new BadgeView(this, mTextMine);
 //		mBadgeView.setText("12"); //显示类容
         mBadgeView.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);//显示的位置.中间，还有其他位置属性
@@ -370,6 +374,9 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
             case PAGE_INDEX.INDEX_UPDATE:
                 v = findViewById(R.id.textMine);
                 break;
+            case PAGE_INDEX.INDEX_WIFI:
+                v = findViewById(R.id.textWifi);
+                break;
         }
 
         return v;
@@ -390,6 +397,9 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
                 break;
             case PAGE_INDEX.INDEX_UPDATE:
                 fragment = mAppManagerFragment = new AppManagerFragment();
+                break;
+            case PAGE_INDEX.INDEX_WIFI:
+                fragment = mWifiFragment = new WifiFragment();
                 break;
         }
         return fragment;
@@ -412,6 +422,9 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
                     break;
                 case R.id.textMine:
                     showTagFragment(String.valueOf(PAGE_INDEX.INDEX_UPDATE), v);
+                    break;
+                case R.id.textWifi:
+                    showTagFragment(String.valueOf(PAGE_INDEX.INDEX_WIFI), v);
                     break;
             }
 

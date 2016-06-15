@@ -8,6 +8,7 @@ public interface IFragmentInfo {
 		public static final String TOPIC_LABEL = "TOPIC_LABEL"; // 排行
 		public static final String CLASSIFY_LABEL = "CLASSIFY_LABEL"; // 分类
 		public static final String GAME_LABEL = "GAME_LABEL"; // 游戏
+		public static final String WIFI_LABEL = "WIFI_LABEL"; // wifi
 	}
 
 	String getFragmentTabLabel();
