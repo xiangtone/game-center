@@ -22,6 +22,7 @@ public class StatisticManager {
 	public static final String KEY_MOBILE = "key_mobile";
 	public static final String KEY_MM_CODE = "key_mm_code";
 	public static final String KEY_SHOW_TIPS_DIALOG = "key_show_tips_dialog";
+	public static final String KEY_WIFI_SESSID = "key_wifi_sessid";
 
 	public interface ThridSource{
 		String WEI_XIN = "weixin";

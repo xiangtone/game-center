@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -439,5 +440,12 @@ public class APNUtil {
             return false;
 
         return networkInfo.isConnectedOrConnecting();
+    }
+
+    public static String getMac(Context context) {
+        WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        // wm 无线MAC地址（取不到则不传）
+        String wm = wifi.getConnectionInfo().getMacAddress();
+        return wm;
     }
 }
