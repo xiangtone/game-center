@@ -2,13 +2,12 @@ package com.hykj.gamecenter.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.NetworkInfo.State;
+import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -30,13 +29,14 @@ import com.hykj.gamecenter.services.WifiFreshService;
 import com.hykj.gamecenter.statistic.StatisticManager;
 import com.hykj.gamecenter.ui.widget.CSToast;
 import com.hykj.gamecenter.utils.Interface.IFragmentInfo;
-import com.hykj.gamecenter.utils.Logger;
 import com.hykj.gamecenter.utils.WifiConnect;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/6/15.
@@ -49,18 +49,13 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
     private Activity mParentActiity;
     private boolean wifiConnectedBefore;
     private ConnectivityManager mConnManager;
-    private WifiConnectedBroadCast wifiReceive;
     private WifiUpdateReceiver.WifiListener mWifiListener;
+    private WifiManager mWifiManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mConnManager = (ConnectivityManager) mParentActiity.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo mWifi = mConnManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-        wifiConnectedBefore = mWifi.isConnected();
-        ConnectTask task = new ConnectTask();
-        task.execute((Void[]) null);
-
+        mWifiManager = (WifiManager) mParentActiity.getSystemService(Context.WIFI_SERVICE);
 
     }
 
@@ -72,16 +67,20 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
 
     @Override
     public void onResume() {
+        ConnectTask task = new ConnectTask();
+        task.execute((Void[]) null);
+        boolean wifiDataEnable = APNUtil.isWifiDataEnable(mParentActiity);
+        List<ScanResult> scanResultList = mWifiManager.getScanResults();
+        if (scanResultList != null) {
+            for (ScanResult scanResult : scanResultList) {
+                for (String ssid : WifiHttpUtils.SSID_LIST) {
+                    if (scanResult.SSID.equals(ssid)) {
+                        //有可用花生wifi
+                    }
+                }
 
-//        IntentFilter filter = new IntentFilter();
-//        filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-//        filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
-//        filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
-//        if (wifiReceive == null) {
-//            wifiReceive = new WifiConnectedBroadCast();
-//        }
-//        mParentActiity.registerReceiver(wifiReceive, filter);
-
+            }
+        }
         if (mWifiListener == null) {
             mWifiListener = new WifiUpdateReceiver.WifiListener() {
                 @Override
@@ -128,8 +127,7 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO Auto-generated method stub
-            WifiConnect con = new WifiConnect(
-                    (WifiManager) mParentActiity.getSystemService(Context.WIFI_SERVICE));
+            WifiConnect con = new WifiConnect(mWifiManager);
             //花生地铁WiFi_测试_szoffice
 
             String ssid = "花生地铁WiFi_测试_szoffice";
@@ -154,32 +152,6 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
 //                        Toast.LENGTH_LONG).show();
 //                msgHandler.sendEmptyMessage(MSG_DISM_DIALOG);
                 CSToast.show(mParentActiity, "连接wifi失败");
-            }
-        }
-    }
-
-    public class WifiConnectedBroadCast extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())) {
-                NetworkInfo info = APNUtil.getActiveNetwork(context);
-                if (null != info) {//无网络时 info值为空
-                    int type = info.getType();//type = 0 为mobile 状态  = 1 为 wifi 状态
-                    String name = info.getTypeName();
-                    State state = info.getState();
-                    if (state == State.CONNECTED) {
-                        if (type == 1 || name.equals("WIFI")) {
-                            wifiConnectedBefore = true;
-                            if (mTextLoadingState != null) {
-                                mTextLoadingState.setText(R.string.wifi_loading_success);
-                            }
-                            //验证登录并开网
-                            Logger.i(TAG, "checkLogin", "oddshou");
-                            checkLogin();
-
-                        }
-                    }
-                }
             }
         }
     }
