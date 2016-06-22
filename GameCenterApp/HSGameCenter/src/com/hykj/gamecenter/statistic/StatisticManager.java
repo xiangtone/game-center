@@ -23,6 +23,9 @@ public class StatisticManager {
 	public static final String KEY_MM_CODE = "key_mm_code";
 	public static final String KEY_SHOW_TIPS_DIALOG = "key_show_tips_dialog";
 	public static final String KEY_WIFI_SESSID = "key_wifi_sessid";
+	public static final String KEY_WIFI_UUID = "key_wifi_uuid";
+	public static final String KEY_WIFI_UCODE = "key_wifi_ucode";
+	public static final String KEY_WIFI_UTIME = "key_wifi_utime";
 
 	public interface ThridSource{
 		String WEI_XIN = "weixin";
@@ -32,7 +35,7 @@ public class StatisticManager {
 
 
 	//int constant
-	public static final int TIEM_CAPTCHA = 120; //再次发送验证码时间
+	public static final int TIEM_CAPTCHA = 60; //再次发送验证码时间
 	public static final int TIME_COUNTDOWN = 300; //倒计时时间
 
 	private static void initInstance() {

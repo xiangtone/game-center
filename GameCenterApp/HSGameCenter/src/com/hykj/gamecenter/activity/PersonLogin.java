@@ -8,6 +8,7 @@ import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,6 +20,8 @@ import com.hykj.gamecenter.App;
 import com.hykj.gamecenter.App.TimeRun;
 import com.hykj.gamecenter.R;
 import com.hykj.gamecenter.controller.HelpRequest;
+import com.hykj.gamecenter.net.APNUtil;
+import com.hykj.gamecenter.net.JsonCallback;
 import com.hykj.gamecenter.net.WifiHttpUtils;
 import com.hykj.gamecenter.protocol.Reported.ReportedInfo;
 import com.hykj.gamecenter.statistic.ReportConstants;
@@ -33,7 +36,6 @@ import com.hykj.gamecenter.utils.SystemBarTintManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
@@ -57,6 +59,7 @@ public class PersonLogin extends AccountAuthenticatorActivity implements TimeRun
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Logger.i(TAG, "personLogin onCreate");
         if (App.getDevicesType() == App.PHONE)
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_person_login);
@@ -139,6 +142,8 @@ public class PersonLogin extends AccountAuthenticatorActivity implements TimeRun
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // TODO Auto-generated method stub
+
+
         super.onActivityResult(requestCode, resultCode, data);
 
     }
@@ -229,15 +234,7 @@ public class PersonLogin extends AccountAuthenticatorActivity implements TimeRun
                         return;
                     }
                     //请求验证码
-//                    mHelpRequest.reqValidate(openId, inputNumber.toString());
-                    JSONObject jsonObject = new JSONObject();
-                    try {
-                        jsonObject.put("phoneno", inputNumber.toString());
-                        jsonObject.put("ssid", "");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    WifiHttpUtils wifiHttpUtils = new WifiHttpUtils(jsonObject);
+                    WifiHttpUtils wifiHttpUtils = new WifiHttpUtils(WifiHttpUtils.createIcodeData(inputNumber.toString(), ""));
                     doPost(WifiHttpUtils.URL_ICODE, wifiHttpUtils);
 
 
@@ -257,9 +254,11 @@ public class PersonLogin extends AccountAuthenticatorActivity implements TimeRun
                         CSToast.show(PersonLogin.this, getString(R.string.toast_validate_error));
                         return;
                     }
-                    mHelpRequest.reqBind(openId, inputNumber.toString(),
-                            inputInvalidateCode.toString(),
-                            StatisticManager.RESOURCE_INT_GAMECENTER);
+                    //登录
+                    //1.提交验证码带上手机号和设备信息
+                    WifiHttpUtils wifiHttpUtilLogin = new WifiHttpUtils(WifiHttpUtils.createUuid(inputNumber.toString(),
+                            inputInvalidateCode.toString(), APNUtil.getMac(PersonLogin.this)));
+                    doPost(WifiHttpUtils.URL_UID, wifiHttpUtilLogin);
                     refreshLoginView(false);
                     break;
                 case R.id.textUserAgreement:
@@ -283,53 +282,116 @@ public class PersonLogin extends AccountAuthenticatorActivity implements TimeRun
      *
      * @param url
      */
-    private void doPost(final String url, WifiHttpUtils wifiHttpUtils) {
+    private void doPost(final String url, final WifiHttpUtils wifiHttpUtils) {
         RequestParams params = new RequestParams(url);
         params.addParameter("_data", wifiHttpUtils.getParmarData());
-        Logger.i(TAG, wifiHttpUtils.getParmarData());
-        Logger.i(TAG, wifiHttpUtils.getParmarSign());
+        Logger.i(TAG, wifiHttpUtils.getParmarData(), "oddshou");
         params.addParameter("_sign", wifiHttpUtils.getParmarSign());
-        x.http().post(params, new Callback.CommonCallback<String>() {
+        x.http().post(params, new JsonCallback(url, this) {
+
             @Override
-            public void onSuccess(String responseInfo) {
-                switch (url) {
-                    case WifiHttpUtils.URL_ICODE:
-                        break;
+            protected void handleSucced(JSONObject ddata, String url) {
+                try {
+                    switch (url) {
+                        case WifiHttpUtils.URL_ICODE:   //获取验证码成功
+                            App.getSharedPreference().edit()
+                                    .putString(StatisticManager.KEY_MOBILE, mEditLoginAccout.getText().toString().trim())
+                                    .commit();
+                            //验证码倒计时
+                            App app = App.getAppContext();
+                            app.setmTimeListen(PersonLogin.this);
+                            app.startTimeRun(StatisticManager.TIEM_CAPTCHA);
+                            break;
+                        case WifiHttpUtils.URL_UID:     //检验手机号并获取用户成功
+                            int uuid = 0;
+                            uuid = ddata.getInt("uuid");
+                            String ucode = ddata.getString("ucode");
+                            int uisnew = ddata.getInt("uisnew");
+                            SharedPreferences.Editor editor = App.getSharedPreference().edit();
+                            editor.putInt(StatisticManager.KEY_WIFI_UUID, uuid);
+                            editor.putString(StatisticManager.KEY_WIFI_UCODE, ucode);
+                            editor.apply();
+                            //获取服务时间
+                            WifiHttpUtils wifiHttpUtils = new WifiHttpUtils(new JSONObject());
+                            wifiHttpUtils.getmHdata().setVer(2);
+                            doPost(WifiHttpUtils.URL_UTIME, wifiHttpUtils);
+                            break;
+                        case WifiHttpUtils.URL_UTIME:   //获取服务器时间成功
+                            int utime = ddata.getInt("utime");
 
-                    case WifiHttpUtils.URL_UID:
-                        break;
-
+                            //用户登录
+                            WifiHttpUtils wifiHttpUtilsUlogin = new WifiHttpUtils(
+                                    WifiHttpUtils.createSessid(utime, APNUtil.getMac(PersonLogin.this)));
+                            wifiHttpUtilsUlogin.getmHdata().setVer(2);
+                            doPost(WifiHttpUtils.URL_SEDDID, wifiHttpUtilsUlogin);
+                            break;
+                        case WifiHttpUtils.URL_SEDDID:
+                            String sessid = ddata.getString("sessid");
+                            SharedPreferences.Editor edit = App.getSharedPreference().edit();
+                            edit.putString(StatisticManager.KEY_WIFI_SESSID, sessid);
+                            edit.apply();
+                            Intent intent = new Intent();
+                            intent.putExtra("sessid", sessid);
+                            setResult(RESULT_OK, intent);
+                            finish();
+                            break;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                Logger.i(TAG, "onSuccess " + responseInfo);
             }
 
             @Override
-            public void onError(Throwable throwable, boolean b) {
-                Logger.i(TAG, "onError " + throwable.getMessage());
+            protected void onException(String code, String codemsg, String url) {
+                if (!code.equals("99")) {
+                    String errString = codemsg;
+                    switch (url) {
+                        case WifiHttpUtils.URL_ICODE:
+                            switch (code) {
+                                case "100":
+                                    errString = getString(R.string.wifi_error_icode_100);
+                                    break;
+                                case "101":
+                                    errString = getString(R.string.wifi_error_icode_101);
+                                    break;
+                                case "102":
+                                    errString = getString(R.string.wifi_error_icode_102);
+                                    break;
+                                case "103":
+                                    errString = getString(R.string.wifi_error_icode_103);
+                                    break;
+                            }
+                            break;
+
+                        case WifiHttpUtils.URL_UID:
+                            switch (code) {
+                                case "100":
+                                    errString = getString(R.string.wifi_error_uuid_100);
+                                    break;
+                                case "101":
+                                    errString = getString(R.string.wifi_error_uuid_101);
+                                    break;
+                                case "102":
+                                    errString = getString(R.string.wifi_error_uuid_102);
+                                    break;
+                            }
+                            break;
+                        case WifiHttpUtils.URL_SEDDID:
+                            switch (code) {
+                                case "100":
+                                    errString = getString(R.string.wifi_error_sessid_100);
+                                    break;
+                                case "101":
+                                    errString = getString(R.string.wifi_error_sessid_101);
+                                    break;
+                            }
+                            break;
+
+                    }
+                    Log.e(TAG, errString);
+                    CSToast.show(PersonLogin.this, errString);
+                }
             }
-
-            @Override
-            public void onCancelled(CancelledException e) {
-
-            }
-
-            @Override
-            public void onFinished() {
-
-            }
-
-//            private void parseWeixinId(String responseInfo)
-//                    throws JSONException {
-//                JSONTokener jsonParser = new JSONTokener(responseInfo);
-//                JSONObject mmInfo = (JSONObject) jsonParser.nextValue();
-//                String openid = mmInfo.getString("openid").trim();
-//                String accessToken = mmInfo.getString("access_token").trim();
-//
-//                getWebContent(String.format(
-//                        "https://api.weixin.qq.com/sns/userinfo?access_token=%s&openid=%s",
-//                        accessToken, openid),
-//                        TAG_WEIXIN_INFO);
-//            }
         });
 
     }

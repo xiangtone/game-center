@@ -63,9 +63,34 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
     public static String TAG = "WifiUpdateReceiver";
     private final WifiRepAppsUpdateListListener mReqAppsUpdateListListener = new WifiRepAppsUpdateListListener();
     private Context mContext = null;// App.getAppContext( );
+    public static boolean WifiConnected = false;
 
     public boolean checkConnectivity(Context context) {
         return NetUtils.isNetworkconnected(context);
+    }
+
+    private static ArrayList<WifiListener> wifiListeners = new ArrayList<WifiListener>();
+    public interface WifiListener{
+        void networkChange(int currentNetwork);
+    }
+
+    public static void setWifiConnectListen(WifiListener wifiListener){
+        if (!wifiListeners.contains(wifiListener)) {
+            wifiListeners.add(wifiListener);
+        }
+    }
+
+    public static void removeWifiListener(WifiListener wifiListener){
+        if (wifiListeners.contains(wifiListener)) {
+            wifiListeners.remove(wifiListener);
+        }
+    }
+
+    private void notifyNewworkChange(int currentNetwork){
+        for (WifiListener wifiListener :
+                wifiListeners) {
+            wifiListener.networkChange(currentNetwork);
+        }
     }
 
     @Override
@@ -73,82 +98,72 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
         if (context == null)
             return;
         mContext = context;
-        Logger.i(TAG, "Load onReceive", "oddshou");
-        /*if( !WifiManager.NETWORK_STATE_CHANGED_ACTION.equals( intent.getAction( ) ) )
-            return;*/
-        Logger.i(TAG, "(intent.getAction())=============" + (intent.getAction()), "oddshou");
+//        Logger.i(TAG, "Load onReceive", "oddshou");
+//        Logger.i(TAG, "(intent.getAction())=============" + (intent.getAction()), "oddshou");
+        if (WifiManager.NETWORK_STATE_CHANGED_ACTION.equals(intent.getAction())) {
+            Parcelable parcelableExtra = intent
+                    .getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+            if (null != parcelableExtra) {
+                NetworkInfo networkInfo = (NetworkInfo) parcelableExtra;
+                State state = networkInfo.getState();
+                boolean isConnected = state == State.CONNECTED;// 当然，这边可以更精确的确定状态
+                Logger.e(TAG, "isConnected" + isConnected);
+                if (isConnected) {
+                } else {
+
+                }
+            }
+        }
+
 
         //获取wifi环境才下载游戏的布尔值
         boolean bWifiToDownload = App.getSettingContent().getSettingData().bWifiAutoDownload;
-        //        Log.i(TAG, "onReceive NETWORK_STATE_CHANGED_ACTION");
 
-        // 增加wifi网络连接继续下载下载中任务   //"android.net.wifi.STATE_CHANGE"
-        //只有为true的时候才处理网络状态变化的广播，否则无处理
-            //            if (WifiManager.NETWORK_STATE_CHANGED_ACTION.equals(intent.getAction())) {
-            if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())) {
-                Logger.i(TAG, "(intent.getAction())=============" + (intent.getAction()));
-                Logger.e(TAG, "android.net.conn.CONNECTIVITY_CHANGE onReceive");
-                /*Parcelable parceExtra = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
-                if (null != parceExtra) {
-                    NetworkInfo networkInfo = (NetworkInfo) parceExtra;
-                    State state = networkInfo.getState();
-                    if (state == State.CONNECTED) {
-                        Log.i(TAG, "wifi CONNECTED");
-
+        if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())) {
+            Logger.i(TAG, "(intent.getAction())=============" + (intent.getAction()));
+            Logger.e(TAG, "android.net.conn.CONNECTIVITY_CHANGE onReceive");
+            NetworkInfo info = APNUtil.getActiveNetwork(context);
+            if (null != info) {//无网络时 info值为空
+                int type = info.getType();//type = 0 为mobile 状态  = 1 为 wifi 状态
+                String name = info.getTypeName();
+                State state = info.getState();
+                if (state == State.CONNECTED) {
+                    if (type == 0 || name.equals("mobile")) {//mobile状态  停止下载
+                        Logger.i(TAG, "mobile CONNECTED", "oddshou");
+                        CSToast.showNormal(context, context.getString(R.string.wifi_mobile_link));
+                        notifyNewworkChange(0);
+                        if (bWifiToDownload) {
+                            if (DownloadService.DOWNLOAD_MANAGER != null) {
+                                DownloadService.DOWNLOAD_MANAGER.stopAllDownload();
+//                                DownloadService.DOWNLOAD_MANAGER.saveAllTaskToDB();
+                            }
+                        }
+                    } else if (type == 1 || name.equals("WIFI")) {
+                        CSToast.showNormal(context, context.getString(R.string.wifi_link));
+                        notifyNewworkChange(1);
+                        WifiConnected = true;
                         // 网络恢复 继续下载中任务
                         //RestartDownloadingTask( );
                         // 网络恢复连接时显示新手推荐页面
-                        HomePageActivity.showNoviceGuidanceViewWhenNetRecover();
+                        if (bWifiToDownload) {
+                            HomePageActivity.showNoviceGuidanceViewWhenNetRecover();
 
-                        new Thread(new Runnable() {
+                            new Thread(new Runnable() {
 
-                            @Override
-                            public void run() { // 网络恢复 继续下载中任务
-                                RestartDownloadingTask();
-                            }
-                        }).start();
-
-                    }
-                }*/
-                NetworkInfo info = APNUtil.getActiveNetwork(context);
-                if (null != info) {//无网络时 info值为空
-                    int type = info.getType();//type = 0 为mobile 状态  = 1 为 wifi 状态
-                    String name = info.getTypeName();
-                    State state = info.getState();
-                    if (state == State.CONNECTED) {
-                        if (type == 0 || name.equals("mobile")) {//mobile状态  停止下载
-                            Logger.i(TAG, "mobile CONNECTED", "oddshou");
-                            CSToast.showNormal(context, context.getString(R.string.wifi_mobile_link));
-                            if (bWifiToDownload) {
-                                if (DownloadService.DOWNLOAD_MANAGER != null) {
-                                    DownloadService.DOWNLOAD_MANAGER.stopAllDownload();
-//                                DownloadService.DOWNLOAD_MANAGER.saveAllTaskToDB();
+                                @Override
+                                public void run() { // 网络恢复 继续下载中任务
+                                    RestartDownloadingTask();
                                 }
-                            }
-                        } else if (type == 1 || name.equals("WIFI")) {
-                            CSToast.showNormal(context, context.getString(R.string.wifi_link));
-
-                            // 网络恢复 继续下载中任务
-                            //RestartDownloadingTask( );
-                            // 网络恢复连接时显示新手推荐页面
-                            if (bWifiToDownload) {
-                                HomePageActivity.showNoviceGuidanceViewWhenNetRecover();
-
-                                new Thread(new Runnable() {
-
-                                    @Override
-                                    public void run() { // 网络恢复 继续下载中任务
-                                        RestartDownloadingTask();
-                                    }
-                                }).start();
-                            }
+                            }).start();
                         }
                     }
-                }else{
-                    //无网络
-                    CSToast.showNormal(context, context.getString(R.string.wifi_link_none));
                 }
+            } else {
+                //无网络
+                CSToast.showNormal(context, context.getString(R.string.wifi_link_none));
+                notifyNewworkChange(-1);
             }
+        }
 
         mReqAppsUpdateListListener.setContext(context);
         SharedPreferences datePreference = mContext.getSharedPreferences("date_preferece",

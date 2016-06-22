@@ -629,5 +629,28 @@
     <string name="wifi_link_none">当前无网络连接</string>
     <string name="wifi_loading">正在为您努力连接</string>
     <string name="wifi_loading_success">连接成功</string>
+    <string name="wifi_error_code_1">缺少参数</string>
+    <string name="wifi_error_code_2">产品ID无效</string>
+    <string name="wifi_error_code_3">API版本无效</string>
+    <string name="wifi_error_code_4">会话超时</string>
+    <string name="wifi_error_code_5">数据结构错误</string>
+    <string name="wifi_error_code_6">数据包非法【签名错误】</string>
+    <string name="wifi_error_icode_100">号码不是手机号</string>
+    <string name="wifi_error_icode_101">验证码发送失败</string>
+    <string name="wifi_error_icode_102">发送频率太快</string>
+    <string name="wifi_error_icode_103">超过今天发生最大次数7次</string>
+    <string name="wifi_error_uuid_100">验证码超时失效</string>
+    <string name="wifi_error_uuid_101">验证码错误</string>
+    <string name="wifi_error_uuid_102">注册失败</string>
+    <string name="wifi_error_sessid_100">登录失败</string>
+    <string name="wifi_error_sessid_101">验证码错误</string>
+    <string name="wifi_error_openwifi_100">拥堵预警</string>
+    <string name="wifi_error_openwifi_101">拥堵</string>
+    <string name="wifi_error_openwifi_102">积分扣除失败(同时代表开网失败)</string>
+    <string name="wifi_error_openwifi_103">积分不足扣除失败(同时代表开网失败)</string>
+    <string name="wifi_error_openwifi_104">开网失败</string>
+    <string name="wifi_error_openwifi_105">设备Mac不存在，重新登录</string>
+    <string name="wifi_error_openwifi_106">设备Mac已过期，重新登录</string>
+    <string name="wifi_error_openwifi_107">spp错误</string>
 
 </resources>

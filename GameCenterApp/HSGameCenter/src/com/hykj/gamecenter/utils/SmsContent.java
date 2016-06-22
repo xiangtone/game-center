@@ -1,9 +1,6 @@
 
 package com.hykj.gamecenter.utils;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import android.app.Activity;
 import android.database.ContentObserver;
 import android.database.Cursor;
@@ -12,8 +9,11 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.EditText;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class SmsContent extends ContentObserver {
-    private final static String SMS_TAG = "游戏中心";
+    private final static String SMS_TAG = "地铁WiFi";
     public static final String SMS_URI_INBOX = "content://sms/inbox";
     private static final String TAG = "SmsContent";
     private static final int YZMLENGTH = 4; //4位验证码
