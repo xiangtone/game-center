@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.NetworkInfo.State;
@@ -25,12 +26,14 @@ import com.hykj.gamecenter.broadcast.WifiUpdateReceiver;
 import com.hykj.gamecenter.net.APNUtil;
 import com.hykj.gamecenter.net.JsonCallback;
 import com.hykj.gamecenter.net.WifiHttpUtils;
+import com.hykj.gamecenter.services.WifiFreshService;
 import com.hykj.gamecenter.statistic.StatisticManager;
 import com.hykj.gamecenter.ui.widget.CSToast;
 import com.hykj.gamecenter.utils.Interface.IFragmentInfo;
 import com.hykj.gamecenter.utils.Logger;
 import com.hykj.gamecenter.utils.WifiConnect;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
@@ -59,7 +62,6 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
         task.execute((Void[]) null);
 
 
-
     }
 
     @Override
@@ -83,14 +85,14 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
         if (mWifiListener == null) {
             mWifiListener = new WifiUpdateReceiver.WifiListener() {
                 @Override
-                public void networkChange(int currentNetwork) {
+                public void networkChange(int currentNetwork, NetworkInfo networkInfo) {
                     if (currentNetwork == 1) {
                         wifiConnectedBefore = true;
                         if (mTextLoadingState != null) {
                             mTextLoadingState.setText(R.string.wifi_loading_success);
                         }
                         //验证登录并开网
-                        Logger.i(TAG, "checkLogin", "oddshou");
+                        //判断ssid为可用ssid
                         checkLogin();
                     }
                 }
@@ -189,7 +191,7 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
             gotoLogin();
 
         } else {
-            openWifi(sessid);
+            openWifiWithSessid(sessid);
         }
     }
 
@@ -205,7 +207,7 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
     /**
      * 申请开网
      */
-    private void openWifi(String sessid) {
+    private void openWifiWithSessid(String sessid) {
         String mac = APNUtil.getMac(mParentActiity);
         if (!TextUtils.isEmpty(mac)) {
             WifiHttpUtils wifiHttpUtilsOpen = new WifiHttpUtils(WifiHttpUtils.creteWifiOpen(mac));
@@ -216,15 +218,23 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
         }
     }
 
+    private void openWifi() {
+        //获取服务时间
+        WifiHttpUtils wifiHttpUtils = new WifiHttpUtils(new JSONObject());
+        wifiHttpUtils.getmHdata().setVer(2);
+        doPost(WifiHttpUtils.URL_UTIME, wifiHttpUtils);
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
-            String sessid = data.getStringExtra("sessid");
-            openWifi(sessid);
+            openWifi();
         }
 
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+    public static int RESTART_COUNT = 0;
 
     /**
      * xutils web 请求
@@ -239,56 +249,92 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
 
             @Override
             protected void handleSucced(JSONObject ddata, String url) {
-//                try {
-//                    switch (url) {
-//                        case WifiHttpUtils.URL_WIFI_OPEN:     //开网成功
-//                            int uuid = 0;
-//                            uuid = ddata.getInt("uuid");
-//                            String ucode = ddata.getString("ucode");
-//                            int uisnew = ddata.getInt("uisnew");
-//                            break;
-//                    }
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
+                try {
+                    switch (url) {
+                        case WifiHttpUtils.URL_UTIME:   //获取服务器时间成功
+                            int utime = ddata.getInt("utime");
+                            //用户登录
+                            WifiHttpUtils wifiHttpUtilsUlogin = new WifiHttpUtils(
+                                    WifiHttpUtils.createSessid(utime, APNUtil.getMac(mParentActiity)));
+                            wifiHttpUtilsUlogin.getmHdata().setVer(2);
+                            doPost(WifiHttpUtils.URL_SEDDID, wifiHttpUtilsUlogin);
+                            break;
+                        case WifiHttpUtils.URL_SEDDID:
+                            String sessid = ddata.getString("sessid");
+                            SharedPreferences.Editor edit = App.getSharedPreference().edit();
+                            edit.putString(StatisticManager.KEY_WIFI_SESSID, sessid);
+                            edit.apply();
+                            openWifiWithSessid(sessid);
+                            break;
+                        case WifiHttpUtils.URL_WIFI_OPEN:     //开网成功
+                            int uuid = 0;
+                            uuid = ddata.getInt("uuid");
+                            String ucode = ddata.getString("ucode");
+                            int uisnew = ddata.getInt("uisnew");
+                            Intent intent = new Intent(mParentActiity, WifiFreshService.class);
+                            mParentActiity.startService(intent);
+                            break;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
             protected void onException(String code, String codemsg, String url) {
                 if (!code.equals("99")) {
                     String errString = codemsg;
-                    switch (url) {
-                        case WifiHttpUtils.URL_WIFI_OPEN:
-                            switch (code) {
-                                case "100":
-                                    errString = getString(R.string.wifi_error_openwifi_100);
-                                    break;
-                                case "101":
-                                    errString = getString(R.string.wifi_error_openwifi_101);
-                                    break;
-                                case "102":
-                                    errString = getString(R.string.wifi_error_openwifi_102);
-                                    break;
-                                case "103":
-                                    errString = getString(R.string.wifi_error_openwifi_103);
-                                    break;
-                                case "104":
-                                    errString = getString(R.string.wifi_error_openwifi_104);
-                                    break;
-                                case "105":
-                                    errString = getString(R.string.wifi_error_openwifi_105);
-                                    gotoLogin();
-                                    break;
-                                case "106":
-                                    errString = getString(R.string.wifi_error_openwifi_106);
-                                    gotoLogin();
-                                    break;
-                                case "107":
-                                    errString = getString(R.string.wifi_error_openwifi_107);
-                                    break;
-                            }
-                            break;
+                    if (code.equals("4")) { //会话超时
+                        if (RESTART_COUNT++ <= 0) {
+                            openWifi();
+                        } else {
+                            errString = getString(R.string.wifi_error_code_4);
+                            gotoLogin();
+                        }
+                    } else {
+                        switch (url) {
+                            case WifiHttpUtils.URL_SEDDID:
+                                switch (code) {
+                                    case "100":
+                                        errString = getString(R.string.wifi_error_sessid_100);
+                                        break;
+                                    case "101":
+                                        errString = getString(R.string.wifi_error_sessid_101);
+                                        break;
+                                }
+                                break;
+                            case WifiHttpUtils.URL_WIFI_OPEN:
+                                switch (code) {
+                                    case "100":
+                                        errString = getString(R.string.wifi_error_openwifi_100);
+                                        break;
+                                    case "101":
+                                        errString = getString(R.string.wifi_error_openwifi_101);
+                                        break;
+                                    case "102":
+                                        errString = getString(R.string.wifi_error_openwifi_102);
+                                        break;
+                                    case "103":
+                                        errString = getString(R.string.wifi_error_openwifi_103);
+                                        break;
+                                    case "104":
+                                        errString = getString(R.string.wifi_error_openwifi_104);
+                                        break;
+                                    case "105":
+                                        errString = getString(R.string.wifi_error_openwifi_105);
+                                        gotoLogin();
+                                        break;
+                                    case "106":
+                                        errString = getString(R.string.wifi_error_openwifi_106);
+                                        gotoLogin();
+                                        break;
+                                    case "107":
+                                        errString = getString(R.string.wifi_error_openwifi_107);
+                                        break;
+                                }
+                                break;
 
+                        }
                     }
                     Log.e(TAG, errString);
                     CSToast.show(mParentActiity, errString);

@@ -84,6 +84,7 @@ public abstract class JsonCallback implements Callback.CommonCallback<String> {
                     break;
                 case 4:
                     errString = mContext.getString(R.string.wifi_error_code_4);
+                    onException(String.valueOf(errcode), errmsg, mUrl);
                     break;
                 case 5:
                     errString = mContext.getString(R.string.wifi_error_code_5);

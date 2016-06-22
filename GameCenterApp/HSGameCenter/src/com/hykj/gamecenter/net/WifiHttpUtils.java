@@ -19,6 +19,9 @@ public class WifiHttpUtils {
     public static final String URL_UTIME = "http://mem.wifi8.com/api2/wifiapp/getutime";
     public static final String URL_SEDDID = "http://mem.wifi8.com/api2/wifiapp/loginuser";
     public static final String URL_WIFI_OPEN = "http://mem.wifi8.com/api2/wifiapp/opennetpd";
+    public static final String URL_WIFI_FRESH = "http://mem.wifi8.com/api2/wifiapp/freshuser";
+
+    public static final String [] SSID_LIST = {"花生地铁WiFi_测试_szoffice"};
 
     public hdata getmHdata() {
         return mHdata;

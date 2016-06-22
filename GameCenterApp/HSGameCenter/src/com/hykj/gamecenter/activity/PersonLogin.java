@@ -311,27 +311,9 @@ public class PersonLogin extends AccountAuthenticatorActivity implements TimeRun
                             editor.putInt(StatisticManager.KEY_WIFI_UUID, uuid);
                             editor.putString(StatisticManager.KEY_WIFI_UCODE, ucode);
                             editor.apply();
-                            //获取服务时间
-                            WifiHttpUtils wifiHttpUtils = new WifiHttpUtils(new JSONObject());
-                            wifiHttpUtils.getmHdata().setVer(2);
-                            doPost(WifiHttpUtils.URL_UTIME, wifiHttpUtils);
-                            break;
-                        case WifiHttpUtils.URL_UTIME:   //获取服务器时间成功
-                            int utime = ddata.getInt("utime");
 
-                            //用户登录
-                            WifiHttpUtils wifiHttpUtilsUlogin = new WifiHttpUtils(
-                                    WifiHttpUtils.createSessid(utime, APNUtil.getMac(PersonLogin.this)));
-                            wifiHttpUtilsUlogin.getmHdata().setVer(2);
-                            doPost(WifiHttpUtils.URL_SEDDID, wifiHttpUtilsUlogin);
-                            break;
-                        case WifiHttpUtils.URL_SEDDID:
-                            String sessid = ddata.getString("sessid");
-                            SharedPreferences.Editor edit = App.getSharedPreference().edit();
-                            edit.putString(StatisticManager.KEY_WIFI_SESSID, sessid);
-                            edit.apply();
                             Intent intent = new Intent();
-                            intent.putExtra("sessid", sessid);
+//                            intent.putExtra("sessid", sessid);
                             setResult(RESULT_OK, intent);
                             finish();
                             break;
@@ -373,16 +355,6 @@ public class PersonLogin extends AccountAuthenticatorActivity implements TimeRun
                                     break;
                                 case "102":
                                     errString = getString(R.string.wifi_error_uuid_102);
-                                    break;
-                            }
-                            break;
-                        case WifiHttpUtils.URL_SEDDID:
-                            switch (code) {
-                                case "100":
-                                    errString = getString(R.string.wifi_error_sessid_100);
-                                    break;
-                                case "101":
-                                    errString = getString(R.string.wifi_error_sessid_101);
                                     break;
                             }
                             break;

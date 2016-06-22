@@ -522,6 +522,11 @@
             android:label="@string/title_activity_feedback">
         </activity>
 
+        <service
+            android:name=".services.WifiFreshService"
+            android:exported="true"
+            android:process=":wifi_connected" />
+
                 <receiver
 					android:name="com.tencent.android.tpush.XGPushReceiver"
 					android:process=":xg_service_v2" >

@@ -71,7 +71,7 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
 
     private static ArrayList<WifiListener> wifiListeners = new ArrayList<WifiListener>();
     public interface WifiListener{
-        void networkChange(int currentNetwork);
+        void networkChange(int currentNetwork, NetworkInfo networkInfo);
     }
 
     public static void setWifiConnectListen(WifiListener wifiListener){
@@ -86,10 +86,10 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
         }
     }
 
-    private void notifyNewworkChange(int currentNetwork){
+    private void notifyNewworkChange(int currentNetwork, NetworkInfo networkInfo){
         for (WifiListener wifiListener :
                 wifiListeners) {
-            wifiListener.networkChange(currentNetwork);
+            wifiListener.networkChange(currentNetwork, networkInfo);
         }
     }
 
@@ -100,20 +100,20 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
         mContext = context;
 //        Logger.i(TAG, "Load onReceive", "oddshou");
 //        Logger.i(TAG, "(intent.getAction())=============" + (intent.getAction()), "oddshou");
-        if (WifiManager.NETWORK_STATE_CHANGED_ACTION.equals(intent.getAction())) {
-            Parcelable parcelableExtra = intent
-                    .getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
-            if (null != parcelableExtra) {
-                NetworkInfo networkInfo = (NetworkInfo) parcelableExtra;
-                State state = networkInfo.getState();
-                boolean isConnected = state == State.CONNECTED;// 当然，这边可以更精确的确定状态
-                Logger.e(TAG, "isConnected" + isConnected);
-                if (isConnected) {
-                } else {
-
-                }
-            }
-        }
+//        if (WifiManager.NETWORK_STATE_CHANGED_ACTION.equals(intent.getAction())) {
+//            Parcelable parcelableExtra = intent
+//                    .getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+//            if (null != parcelableExtra) {
+//                NetworkInfo networkInfo = (NetworkInfo) parcelableExtra;
+//                State state = networkInfo.getState();
+//                boolean isConnected = state == State.CONNECTED;// 当然，这边可以更精确的确定状态
+//                Logger.e(TAG, "isConnected" + isConnected);
+//                if (isConnected) {
+//                } else {
+//
+//                }
+//            }
+//        }
 
 
         //获取wifi环境才下载游戏的布尔值
@@ -131,7 +131,7 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
                     if (type == 0 || name.equals("mobile")) {//mobile状态  停止下载
                         Logger.i(TAG, "mobile CONNECTED", "oddshou");
                         CSToast.showNormal(context, context.getString(R.string.wifi_mobile_link));
-                        notifyNewworkChange(0);
+                        notifyNewworkChange(0, info);
                         if (bWifiToDownload) {
                             if (DownloadService.DOWNLOAD_MANAGER != null) {
                                 DownloadService.DOWNLOAD_MANAGER.stopAllDownload();
@@ -140,7 +140,7 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
                         }
                     } else if (type == 1 || name.equals("WIFI")) {
                         CSToast.showNormal(context, context.getString(R.string.wifi_link));
-                        notifyNewworkChange(1);
+                        notifyNewworkChange(1, info);
                         WifiConnected = true;
                         // 网络恢复 继续下载中任务
                         //RestartDownloadingTask( );
@@ -161,7 +161,7 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
             } else {
                 //无网络
                 CSToast.showNormal(context, context.getString(R.string.wifi_link_none));
-                notifyNewworkChange(-1);
+                notifyNewworkChange(-1, info);
             }
         }
 
