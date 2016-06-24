@@ -1,23 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cs="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:gravity="center"
     android:orientation="vertical">
 
-    <ProgressBar
-        android:id="@+id/progressLoading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/imgAdv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        />
 
-        />
-    <TextView
-        android:id="@+id/textLoadingState"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="wifi loading..."
-        />
+        android:layout_marginTop="-6dp"
+        android:background="@drawable/icon_wifi_left">
+
+
+        <TextView
+            android:id="@+id/textLoadingState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="@string/wifi_welcom"
+            android:textColor="@color/csl_black_cc"
+            android:textSize="@dimen/nui_text_size_large" />
+
+        <FrameLayout
+            android:id="@+id/frameAction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textLoadingState"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="12dp">
+
+            <Button
+                android:id="@+id/btnConnect"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/shape_rectangle_framework_selector"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
+                android:text="@string/wifi_connect"
+                android:textColor="@color/btn_green_color"
+                android:textSize="@dimen/normal_button_text_size"
+                android:visibility="visible" />
+
+
+            <LinearLayout
+                android:id="@+id/layoutLoading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="invisible">
+
+                <ProgressBar
+                    android:id="@+id/progressLoading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminateDrawable="@drawable/shape_progress_theme" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wifi_connecting"
+                    android:textColor="@color/color_green_normal" />
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+
 </LinearLayout>

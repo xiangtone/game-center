@@ -83,7 +83,7 @@ public abstract class JsonCallback implements Callback.CommonCallback<String> {
                     errString = mContext.getString(R.string.wifi_error_code_3);
                     break;
                 case 4:
-                    errString = mContext.getString(R.string.wifi_error_code_4);
+                    errString = mContext.getString(R.string.wifi_error_code_4);     //需要重连，所以回传
                     onException(String.valueOf(errcode), errmsg, mUrl);
                     break;
                 case 5:
@@ -92,7 +92,6 @@ public abstract class JsonCallback implements Callback.CommonCallback<String> {
                 case 6:
                     errString = mContext.getString(R.string.wifi_error_code_6);
                     break;
-
             }
             Log.e(TAG, errString);
         }

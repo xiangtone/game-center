@@ -203,4 +203,7 @@
     <dimen name="download_tab_color">4dp</dimen>
     <dimen name="tips_offset">16dp</dimen>
 
+    <!--wifi-->
+
+
 </resources>

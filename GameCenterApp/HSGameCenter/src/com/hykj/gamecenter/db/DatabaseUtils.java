@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDiskIOException;
 import android.util.Log;
 
 import com.hykj.gamecenter.App;
+import com.hykj.gamecenter.controller.ProtocolListener;
 import com.hykj.gamecenter.data.GroupInfo;
 import com.hykj.gamecenter.download.DownloadTask;
 import com.hykj.gamecenter.protocol.Reported;
@@ -67,6 +68,55 @@ public class DatabaseUtils {
 			return groupInfo;
 		}
 		return null;
+	}
+
+	public static void reqDataList(ArrayList<GroupInfo> infoList, int groupClass,
+							 int groupType) {
+		infoList.clear();
+		Cursor classifyCursor = App
+				.getAppContext()
+				.getContentResolver()
+				.query(CSACContentProvider.GROUPINFO_CONTENT_URI,
+						null,
+						CSACDatabaseHelper.GroupInfoColumns.GROUP_CLASS + "=" + groupClass
+								+ " and " + CSACDatabaseHelper.GroupInfoColumns.GROUP_TYPE + ">"
+								+ groupType, null, " order_no asc");
+		if (classifyCursor != null && classifyCursor.moveToNext()) {
+			while (!classifyCursor.isAfterLast()) {
+				GroupInfo groupInfo = new GroupInfo();
+				groupInfo.groupId = classifyCursor.getInt(classifyCursor
+						.getColumnIndex(CSACDatabaseHelper.GroupInfoColumns.GROUP_ID));
+				groupInfo.groupClass = classifyCursor.getInt(classifyCursor
+						.getColumnIndex(CSACDatabaseHelper.GroupInfoColumns.GROUP_CLASS));
+				groupInfo.groupType = classifyCursor.getInt(classifyCursor
+						.getColumnIndex(CSACDatabaseHelper.GroupInfoColumns.GROUP_TYPE));
+				groupInfo.orderType = classifyCursor.getInt(classifyCursor
+						.getColumnIndex(CSACDatabaseHelper.GroupInfoColumns.ORDER_TYPE));
+				groupInfo.orderNo = classifyCursor.getInt(classifyCursor
+						.getColumnIndex(CSACDatabaseHelper.GroupInfoColumns.ORDER_NO));
+				groupInfo.recommWrod = classifyCursor.getString(classifyCursor
+						.getColumnIndex(CSACDatabaseHelper.GroupInfoColumns.RECOMM_WORD));
+				groupInfo.groupName = classifyCursor.getString(classifyCursor
+						.getColumnIndex(CSACDatabaseHelper.GroupInfoColumns.GROUP_NAME));
+				groupInfo.groupDesc = classifyCursor.getString(classifyCursor
+						.getColumnIndex(CSACDatabaseHelper.GroupInfoColumns.GROUP_DESC));
+				groupInfo.groupPicUrl = classifyCursor.getString(classifyCursor
+						.getColumnIndex(CSACDatabaseHelper.GroupInfoColumns.GROUP_PIC_URL));
+				groupInfo.startTime = classifyCursor.getString(classifyCursor
+						.getColumnIndex(CSACDatabaseHelper.GroupInfoColumns.START_TIME));
+				groupInfo.endTime = classifyCursor.getString(classifyCursor
+						.getColumnIndex(CSACDatabaseHelper.GroupInfoColumns.END_TIME));
+
+				if (groupInfo.groupType == ProtocolListener.GROUP_TYPE.CLASSIFY_GAME_TYPE) {
+					infoList.add(0, groupInfo);
+				} else {
+					infoList.add(groupInfo);
+				}
+
+				classifyCursor.moveToNext();
+			}
+			classifyCursor.close();
+		}
 	}
 
 	public static int[] getGroupIdByDB(int groupType, int orderType) {

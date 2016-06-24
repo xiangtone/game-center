@@ -3,7 +3,6 @@ package com.hykj.gamecenter.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -30,8 +29,7 @@ import com.hykj.gamecenter.controller.ProtocolListener.GROUP_CLASS;
 import com.hykj.gamecenter.controller.ProtocolListener.GROUP_TYPE;
 import com.hykj.gamecenter.controller.ProtocolListener.MAIN_TYPE;
 import com.hykj.gamecenter.data.GroupInfo;
-import com.hykj.gamecenter.db.CSACContentProvider;
-import com.hykj.gamecenter.db.CSACDatabaseHelper.GroupInfoColumns;
+import com.hykj.gamecenter.db.DatabaseUtils;
 import com.hykj.gamecenter.logic.entry.ISaveInfo;
 import com.hykj.gamecenter.logic.entry.Msg;
 import com.hykj.gamecenter.protocol.Reported;
@@ -218,10 +216,10 @@ public class ClassifyFragment extends BaseFragment implements IFragmentInfo {
                         Log.e(TAG, "game retry config");
                         break;
                     case GlobalConfigControllerManager.NORMAL_STATE:
-                        reqDataList(mGameGroupInfoList,
+                        DatabaseUtils.reqDataList(mGameGroupInfoList,
                                 GROUP_CLASS.GAME_CLASSIFY_CLASS,
                                 GROUP_TYPE.ALL_ONLY_GAMES_TYPE);
-                        reqDataList(mAppGroupInfoList,
+                        DatabaseUtils.reqDataList(mAppGroupInfoList,
                                 GROUP_CLASS.APP_CLASSIFY_CLASS,
                                 GROUP_TYPE.ALL_ONLY_APP_TYPE);
                         break;
@@ -288,54 +286,7 @@ public class ClassifyFragment extends BaseFragment implements IFragmentInfo {
         super.onSaveInstanceState(outState);
     }
 
-    private void reqDataList(ArrayList<GroupInfo> infoList, int groupClass,
-                             int groupType) {
-        infoList.clear();
-        Cursor classifyCursor = App
-                .getAppContext()
-                .getContentResolver()
-                .query(CSACContentProvider.GROUPINFO_CONTENT_URI,
-                        null,
-                        GroupInfoColumns.GROUP_CLASS + "=" + groupClass
-                                + " and " + GroupInfoColumns.GROUP_TYPE + ">"
-                                + groupType, null, " order_no asc");
-        if (classifyCursor != null && classifyCursor.moveToNext()) {
-            while (!classifyCursor.isAfterLast()) {
-                GroupInfo groupInfo = new GroupInfo();
-                groupInfo.groupId = classifyCursor.getInt(classifyCursor
-                        .getColumnIndex(GroupInfoColumns.GROUP_ID));
-                groupInfo.groupClass = classifyCursor.getInt(classifyCursor
-                        .getColumnIndex(GroupInfoColumns.GROUP_CLASS));
-                groupInfo.groupType = classifyCursor.getInt(classifyCursor
-                        .getColumnIndex(GroupInfoColumns.GROUP_TYPE));
-                groupInfo.orderType = classifyCursor.getInt(classifyCursor
-                        .getColumnIndex(GroupInfoColumns.ORDER_TYPE));
-                groupInfo.orderNo = classifyCursor.getInt(classifyCursor
-                        .getColumnIndex(GroupInfoColumns.ORDER_NO));
-                groupInfo.recommWrod = classifyCursor.getString(classifyCursor
-                        .getColumnIndex(GroupInfoColumns.RECOMM_WORD));
-                groupInfo.groupName = classifyCursor.getString(classifyCursor
-                        .getColumnIndex(GroupInfoColumns.GROUP_NAME));
-                groupInfo.groupDesc = classifyCursor.getString(classifyCursor
-                        .getColumnIndex(GroupInfoColumns.GROUP_DESC));
-                groupInfo.groupPicUrl = classifyCursor.getString(classifyCursor
-                        .getColumnIndex(GroupInfoColumns.GROUP_PIC_URL));
-                groupInfo.startTime = classifyCursor.getString(classifyCursor
-                        .getColumnIndex(GroupInfoColumns.START_TIME));
-                groupInfo.endTime = classifyCursor.getString(classifyCursor
-                        .getColumnIndex(GroupInfoColumns.END_TIME));
 
-                if (groupInfo.groupType == GROUP_TYPE.CLASSIFY_GAME_TYPE) {
-                    infoList.add(0, groupInfo);
-                } else {
-                    infoList.add(groupInfo);
-                }
-
-                classifyCursor.moveToNext();
-            }
-            classifyCursor.close();
-        }
-    }
 
     @Override
     public void onResume() {
@@ -387,29 +338,15 @@ public class ClassifyFragment extends BaseFragment implements IFragmentInfo {
                     if (GlobalConfigControllerManager.getInstance()
                             .getLoadingState() != GlobalConfigControllerManager.NORMAL_STATE)
                         break;
-                    LogUtils.d(/*
-                                * "Owenli 1 app list" + mAppGroupInfoList.size()
-                                * +
-                                */" game list" + mGameGroupInfoList.size());
-
-                    LogUtils.d(/*
-                                * "Owenli 2 app list" + mAppGroupInfoList.size()
-                                * +
-                                */" game list" + mGameGroupInfoList.size());
                     if (mAppGroupInfoList.size() <= 0
                             || mGameGroupInfoList.size() <= 0) {
-                        reqDataList(mGameGroupInfoList,
+                        DatabaseUtils.reqDataList(mGameGroupInfoList,
                                 GROUP_CLASS.GAME_CLASSIFY_CLASS,
                                 GROUP_TYPE.ALL_ONLY_GAMES_TYPE);
-                        reqDataList(mAppGroupInfoList,
+                        DatabaseUtils.reqDataList(mAppGroupInfoList,
                                 GROUP_CLASS.APP_CLASSIFY_CLASS,
                                 GROUP_TYPE.ALL_ONLY_APP_TYPE);
                     }
-                    LogUtils.d(/*
-                                * "Owenli 3 app list" + mAppGroupInfoList.size()
-                                * +
-                                */" game list" + mGameGroupInfoList.size());
-
                     setDisplayStatus(NORMAL_STATUS);
                     mAdapter.removeAllData();
                     if (!App.ismAllGame()) {

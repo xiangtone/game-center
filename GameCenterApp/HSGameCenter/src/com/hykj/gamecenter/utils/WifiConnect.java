@@ -72,7 +72,7 @@ public class WifiConnect {
 	 * 检查当前 wifi连接的 wifi 是否有效
 	 */
 	private boolean isAvaiable(String SSID) {
-		boolean able = true;
+		boolean able = false;
 		List<ScanResult> scanResultList = wifiManager.getScanResults();
 		if (scanResultList != null) {
 			for (ScanResult scanResult : scanResultList) {
