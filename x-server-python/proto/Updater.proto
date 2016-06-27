@@ -1,21 +1,21 @@
 syntax = "proto2";
-//============================================ »ñÈ¡²úÆ·¸üĞÂ
+//============================================ è·å–äº§å“æ›´æ–°
 message ReqUpdate{
 	required string packName = 1;
 	required string verName = 2;
 	required int32  verCode = 3;
 }
 message RspUpdate{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
-	optional int32  updateType = 3;			// ¸üĞÂ·½Ê½£º0=ÎŞ¸üĞÂ£¬1=ÌáÊ¾-¿ÉºöÂÔ£¬2=±êÊ¶-Ğ¡ºìµã£¬3=Ç¿ÖÆ-²»¿ÉºöÂÔ£¬4=Ç¿ÆÈ£¬5=¾²Ä¬
-	optional string packName = 4;			// Ó¦ÓÃ°üÃû
-	optional string newVerName = 5;			// ĞÂ°æ±¾ºÅ
-	optional int32  newVerCode = 6;			// ĞÂ°æ±¾´úÂë
-	optional int32  packSize = 7;			// °ü´óĞ¡£¬ÏÂÔØºóÑéÖ¤
-	optional string packMD5 = 8;			// °²×°°üMD5Öµ£¬ÏÂÔØºóÑéÖ¤
-	optional string packUrl = 9;			// °²×°°üURL£¬ÏÂÔØÊ±¿ÉÓÃ
-	optional string pubTime = 10;			// ·¢²¼Ê±¼ä
-	optional string updatePrompt = 11;		// ¸üĞÂÌáÊ¾Óï£¬ÏÔÊ¾ÔÚ¸üĞÂÃèÊöÉÏÃæ£¬¼ÓÇ¿ÏÔÊ¾
-	optional string updateDesc = 12;		// ¸üĞÂÃèÊö
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
+	optional int32  updateType = 3;			// æ›´æ–°æ–¹å¼ï¼š0=æ— æ›´æ–°ï¼Œ1=æç¤º-å¯å¿½ç•¥ï¼Œ2=æ ‡è¯†-å°çº¢ç‚¹ï¼Œ3=å¼ºåˆ¶-ä¸å¯å¿½ç•¥ï¼Œ4=å¼ºè¿«ï¼Œ5=é™é»˜
+	optional string packName = 4;			// åº”ç”¨åŒ…å
+	optional string newVerName = 5;			// æ–°ç‰ˆæœ¬å·
+	optional int32  newVerCode = 6;			// æ–°ç‰ˆæœ¬ä»£ç 
+	optional int32  packSize = 7;			// åŒ…å¤§å°ï¼Œä¸‹è½½åéªŒè¯
+	optional string packMD5 = 8;			// å®‰è£…åŒ…MD5å€¼ï¼Œä¸‹è½½åéªŒè¯
+	optional string packUrl = 9;			// å®‰è£…åŒ…URLï¼Œä¸‹è½½æ—¶å¯ç”¨
+	optional string pubTime = 10;			// å‘å¸ƒæ—¶é—´
+	optional string updatePrompt = 11;		// æ›´æ–°æç¤ºè¯­ï¼Œæ˜¾ç¤ºåœ¨æ›´æ–°æè¿°ä¸Šé¢ï¼ŒåŠ å¼ºæ˜¾ç¤º
+	optional string updateDesc = 12;		// æ›´æ–°æè¿°
 }
