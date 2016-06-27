@@ -1,7 +1,6 @@
 package com.hykj.gamecenter.fragment;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +10,8 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,20 +22,30 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hykj.gamecenter.App;
+import com.hykj.gamecenter.GlobalConfigControllerManager;
 import com.hykj.gamecenter.R;
+import com.hykj.gamecenter.activity.HomePageActivity;
 import com.hykj.gamecenter.activity.PersonLogin;
+import com.hykj.gamecenter.activity.PhoneAppInfoActivity;
 import com.hykj.gamecenter.broadcast.WifiUpdateReceiver;
+import com.hykj.gamecenter.controller.ProtocolListener;
+import com.hykj.gamecenter.controller.ReqGroupElemsListController;
 import com.hykj.gamecenter.data.GroupInfo;
 import com.hykj.gamecenter.db.CSACDatabaseHelper;
 import com.hykj.gamecenter.db.DatabaseUtils;
 import com.hykj.gamecenter.logic.DisplayOptions;
+import com.hykj.gamecenter.logic.entry.Msg;
 import com.hykj.gamecenter.net.APNUtil;
 import com.hykj.gamecenter.net.JsonCallback;
 import com.hykj.gamecenter.net.WifiHttpUtils;
+import com.hykj.gamecenter.protocol.Apps;
 import com.hykj.gamecenter.services.WifiFreshService;
+import com.hykj.gamecenter.statistic.ReportConstants;
 import com.hykj.gamecenter.statistic.StatisticManager;
 import com.hykj.gamecenter.ui.widget.CSToast;
 import com.hykj.gamecenter.utils.Interface.IFragmentInfo;
+import com.hykj.gamecenter.utils.Logger;
+import com.hykj.gamecenter.utils.UITools;
 import com.hykj.gamecenter.utils.WifiConnect;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -46,7 +57,7 @@ import org.xutils.x;
 /**
  * Created by Administrator on 2016/6/15.
  */
-public class WifiFragment extends Fragment implements IFragmentInfo {
+public class WifiFragment extends BaseFragment implements IFragmentInfo {
 
 
     private static final String TAG = "WifiFragment";
@@ -61,16 +72,17 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
     private Button mBtnConnect;
     private View mLayoutLoading;
     private boolean mConnecting = false;
+    private boolean hasLoadData = false;
+    private Apps.GroupElemInfo mGroupElemInfo;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        GlobalConfigControllerManager.getInstance().registForUpdate(mHandler,
+                Msg.UPDATE_STATE, null);
         mWifiManager = (WifiManager) mParentActiity.getSystemService(Context.WIFI_SERVICE);
 
-        //获取广告图分组信息
-        String selection = CSACDatabaseHelper.GroupInfoColumns.GROUP_ID + " =?";
-        String[] selectionArgs = new String[]{111 + ""};
-        mGroupInfo = DatabaseUtils.getGroupinfoByDB(selection, selectionArgs);
+
     }
 
     @Override
@@ -93,14 +105,14 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
                 public void networkChange(int currentNetwork, NetworkInfo networkInfo) {
                     if (currentNetwork == 1) {
                         wifiConnectedBefore = true;
-                        if (mTextLoadingState != null) {
-                            mTextLoadingState.setText(R.string.wifi_loading_success);
-                        }
+//                        if (mTextLoadingState != null) {
+//                            mTextLoadingState.setText(R.string.wifi_loading_success);
+//                        }
                         //验证登录并开网
                         //判断ssid为可用ssid
-//                        checkLogin();
+                            checkLogin();
 
-                        updateState(ConnectState.CONNECTED);
+//                        updateState(ConnectState.CONNECTED);
                     }
                 }
             };
@@ -149,17 +161,12 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
         mBtnConnect = (Button) rootView.findViewById(R.id.btnConnect);
         mBtnConnect.setOnClickListener(mOnclickListen);
         mLayoutLoading = rootView.findViewById(R.id.layoutLoading);
+        getDataList();
 
-        if (mGroupInfo != null) {
-            ImageLoader imageLoader = ImageLoader.getInstance();
-            imageLoader.displayImage(mGroupInfo.groupPicUrl, mImgAdv,
-                    DisplayOptions.optionsSnapshot);
-        }
     }
 
     @Override
     public void onPause() {
-//        mParentActiity.unregisterReceiver(wifiReceive);
         WifiUpdateReceiver.removeWifiListener(mWifiListener);
 
         super.onPause();
@@ -173,6 +180,17 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
                 case R.id.imgAdv:       //
                     if (mConnecting) return;
                     //进入游戏详情
+                    if (mGroupElemInfo != null) {
+                        Intent intentDetail = new Intent(
+                                mParentActiity, PhoneAppInfoActivity.class);
+                        intentDetail.putExtra(ProtocolListener.KEY.GROUP_INFO, mGroupElemInfo);
+                        intentDetail
+                                .putExtra(StatisticManager.APP_POS_TYPE, ReportConstants.STATIS_TYPE.WIFI_CONNECT);
+                        intentDetail.putExtra(StatisticManager.APP_POS_POSITION,
+                                mGroupElemInfo.posId);
+                        mParentActiity.startActivity(intentDetail);
+                    }
+
                     break;
                 case R.id.btnConnect:   //点击一键上网
                     ConnectTask task = new ConnectTask();
@@ -182,6 +200,167 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
             }
         }
     };
+
+    private void reGetData() {
+        int global = GlobalConfigControllerManager.getInstance()
+                .getLoadingState();
+        setDisplayStatus(LOADING_STATUS);
+        switch (global) {
+            case GlobalConfigControllerManager.NONETWORK_STATE:
+                GlobalConfigControllerManager.getInstance()
+                        .reqGlobalConfig();
+                Log.e(TAG, "game retry config");
+                break;
+            case GlobalConfigControllerManager.NORMAL_STATE:
+                //获取广告图分组信息
+                String selection = CSACDatabaseHelper.GroupInfoColumns.GROUP_ID + " =?";
+                String[] selectionArgs = new String[]{111 + ""};
+                mGroupInfo = DatabaseUtils.getGroupinfoByDB(selection, selectionArgs);
+                if (mGroupInfo != null && mImgAdv != null) {
+                    ImageLoader imageLoader = ImageLoader.getInstance();
+                    imageLoader.displayImage(mGroupInfo.groupPicUrl, mImgAdv,
+                            DisplayOptions.optionsIcon);
+                    reqAppList(mGroupInfo);
+                }
+                setDisplayStatus(NORMAL_STATUS);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void reqAppList(GroupInfo groupInfo) {
+
+        ReqGroupElemsListController controller = new ReqGroupElemsListController(
+                groupInfo.groupId, groupInfo.groupClass, groupInfo.groupType, groupInfo.orderNo,
+                HomePageActivity.REQ_PAGE_SIZE, 1,
+                mReqGameElemsListener);
+        controller.setClientPos(ReportConstants.reportPos(
+                ReportConstants.STATIS_TYPE.WIFI_CONNECT));
+        controller.doRequest();
+    }
+
+
+    private final ProtocolListener.ReqGroupElemsListener mReqGameElemsListener = new ProtocolListener.ReqGroupElemsListener() {
+
+        @Override
+        public void onNetError(int errCode, String errorMsg) {
+            Logger.e("mReqGameElemsListener", "onNetError errCode:" + errCode
+                    + ",errorMsg:" + errorMsg);
+//            mHandler.sendEmptyMessage(MSG_NET_ERROR);
+        }
+
+        @Override
+        public void onReqFailed(int statusCode, String errorMsg) {
+            Logger.e("mReqGameElemsListener", "onReqFailed statusCode:"
+                    + statusCode + ",errorMsg:" + errorMsg);
+//            mUiHandler.sendEmptyMessage(MSG_LAST_PAGE);
+        }
+
+        @Override
+        public void onReqGroupElemsSucceed(Apps.GroupElemInfo[] infoList,
+                                           String serverDataVer) {
+            Logger.d(TAG, "infoList.size()= " + infoList.length);
+//            if (infoList.length <= 0) {
+//                mUiHandler.sendEmptyMessage(MSG_LAST_PAGE);
+//            } else {
+//                InfoList.addAll(Tools.arrayToList(infoList));
+//                Message msg = Message.obtain();
+//                msg.what = MSG_GET_DATA;
+//                msg.obj = (Tools.arrayToList(infoList));
+//                mUiHandler.sendMessage(msg);
+//            }
+            if (infoList.length > 0) {
+                mGroupElemInfo = infoList[0];
+            }
+
+        }
+
+    };
+
+    private static final int NORMAL_STATUS = 0;
+    private static final int LOADING_STATUS = 1;
+    private static final int NO_NETWORK_STATUS = 2;
+
+    private void setDisplayStatus(int flag) {
+        switch (flag) {
+            case NORMAL_STATUS:
+                break;
+            case LOADING_STATUS:
+                break;
+            case NO_NETWORK_STATUS:
+                break;
+            default:
+                break;
+        }
+    }
+
+    private final Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            // TODO Auto-generated method stub
+            switch (msg.what) {
+                case Msg.NET_ERROR:
+                    if (mGroupInfo == null) {
+                        setDisplayStatus(NO_NETWORK_STATUS);
+                    }
+                    break;
+                case Msg.LOADING:
+                    break;
+                case Msg.APPEND_DATA:
+                    if (GlobalConfigControllerManager.getInstance()
+                            .getLoadingState() != GlobalConfigControllerManager.NORMAL_STATE)
+                        break;
+                    //获取广告图分组信息
+                    String selection = CSACDatabaseHelper.GroupInfoColumns.GROUP_ID + " =?";
+                    String[] selectionArgs = new String[]{111 + ""};
+                    mGroupInfo = DatabaseUtils.getGroupinfoByDB(selection, selectionArgs);
+                    if (mGroupInfo != null && mImgAdv != null) {
+                        ImageLoader imageLoader = ImageLoader.getInstance();
+                        imageLoader.displayImage(mGroupInfo.groupPicUrl, mImgAdv,
+                                DisplayOptions.optionsIcon);
+                        reqAppList(mGroupInfo);
+                    }
+                    setDisplayStatus(NORMAL_STATUS);
+                    break;
+                case Msg.UPDATE_STATE:
+                    Log.i(TAG, "Classify UPDATE_STATE");
+                    getDataList();
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    private synchronized void getDataList() {
+        UITools.notifyStateChange(this);
+    }
+
+    @Override
+    public Handler getHandler() {
+        return mHandler;
+    }
+
+    @Override
+    public boolean hasLoadedData() {
+        return hasLoadData;
+    }
+
+    @Override
+    public void setHasLoadedData(boolean loaded) {
+        hasLoadData = loaded;
+    }
+
+    @Override
+    public void initFragmentListData() {
+
+    }
+
+    @Override
+    public boolean isLoading() {
+        return false;
+    }
 
 
     public enum ConnectState {
@@ -234,6 +413,7 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
 
     @Override
     public void onDestroy() {
+        GlobalConfigControllerManager.getInstance().unregistForUpdate(mHandler);
         super.onDestroy();
     }
 
@@ -249,13 +429,13 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
 
 //            boolean connected = con.Connect(ssid,
 //                    "26630499", WifiConnect.WifiCipherType.WIFICIPHER_WPA);
-            String ssid = "huaying-1";
-
-            boolean connected = con.Connect(ssid,
-                    "hy1234560", WifiConnect.WifiCipherType.WIFICIPHER_WPA);
-//            String ssid = "花生地铁WiFi_测试_szoffice";
+//            String ssid = "huaying-1";
+//
 //            boolean connected = con.Connect(ssid,
-//                    "", WifiConnect.WifiCipherType.WIFICIPHER_NOPASS);
+//                    "hy1234560", WifiConnect.WifiCipherType.WIFICIPHER_WPA);
+            String ssid = "花生地铁WiFi_测试_szoffice";
+            boolean connected = con.Connect(ssid,
+                    "", WifiConnect.WifiCipherType.WIFICIPHER_NOPASS);
 
             return connected;
         }
@@ -273,6 +453,9 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
                 CSToast.show(mParentActiity, "连接wifi失败");
                 updateState(ConnectState.WIFIUNVISIBLE);
             }
+//            else {
+//                checkLogin();
+//            }
         }
     }
 
@@ -359,13 +542,16 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
                             openWifiWithSessid(sessid);
                             break;
                         case WifiHttpUtils.URL_WIFI_OPEN:     //开网成功
-                            int uuid = 0;
-                            uuid = ddata.getInt("uuid");
-                            String ucode = ddata.getString("ucode");
-                            int uisnew = ddata.getInt("uisnew");
+//                            int uuid = 0;
+//                            uuid = ddata.getInt("uuid");
+//                            String ucode = ddata.getString("ucode");
+//                            int uisnew = ddata.getInt("uisnew");
                             Intent intent = new Intent(mParentActiity, WifiFreshService.class);
                             mParentActiity.startService(intent);
                             updateState(ConnectState.CONNECTED);
+                            if (mGroupElemInfo == null) {
+                                reGetData();
+                            }
                             break;
                     }
                 } catch (JSONException e) {
@@ -462,4 +648,22 @@ public class WifiFragment extends Fragment implements IFragmentInfo {
     public String getFragmentTabLabel() {
         return IFragmentInfo.FragmentTabLabel.WIFI_LABEL;
     }
+
+//    private void reqGameList() {
+//
+//
+//        int ints[] = DatabaseUtils.getGroupIdByDB(
+//                App.ismAllGame() ? GROUP_TYPE.GAME_RECOMMED_TYPE : GROUP_TYPE.HOME_RECOMMED_TYPE
+//                , ORDER_BY.AUTO);
+//        LogUtils.d("ints[0] = " + ints[0] + " ints[1] = " + ints[1]
+//                + " ints[2] = " + ints[2] + " ints[3] = " + ints[3]);
+//        ReqGroupElemsListController controller = new ReqGroupElemsListController(
+//                ints[0], ints[1], ints[2], ints[3],
+//                HomePageActivity.REQ_PAGE_SIZE, mCurrentPage,
+//                mReqGroupElemsListener);
+//        // 云指令跳转渠道号设置
+//        // controller.setChnNo( ( (HomePageActivity)getActivity( ) ).getChnNo( )
+//        // );
+//        controller.doRequest();
+//    }
 }

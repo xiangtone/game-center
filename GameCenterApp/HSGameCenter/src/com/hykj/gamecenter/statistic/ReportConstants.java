@@ -163,6 +163,10 @@ public class ReportConstants {
 	 * 推送进入
 	 */
 	public static final int STAC_APP_POSITION_NOTIFY = 11000000;
+	/**
+	 * WIFI页
+	 */
+	public static final int STAC_APP_POSITION_WIFI = 12000000;
 
 	//============================================================以下为行为上报定义
 	/**
@@ -223,6 +227,7 @@ public class ReportConstants {
 		public static final int NOTIFY = 12;//通知（推送）
 		public static final int RANKING_GAME = 21;
 		public static final int RANKING_ONLY_APP = 22;
+		public static final int WIFI_CONNECT = 30;//WIFI推荐页
 		public static final int APP_INFO_RECOMMED = 80;//详情推荐
 		public static final int RECOM_ADV = 101;// 推荐广告1
 		public static final int RECOM_NICE = 102;// 精品应用
@@ -328,6 +333,8 @@ public class ReportConstants {
 			case STATIS_TYPE.RANKING_ONLY_APP:
 				pos = STAC_APP_POSITION_RANK_ONLY_APP;
 				break;
+			case STATIS_TYPE.WIFI_CONNECT:
+				pos = STAC_APP_POSITION_WIFI;
 			case STATIS_TYPE.RANKING_GAME:
 				pos = STAC_APP_POSITION_RANK_GAME;
 				break;

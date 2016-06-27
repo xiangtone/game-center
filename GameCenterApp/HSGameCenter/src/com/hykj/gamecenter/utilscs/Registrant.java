@@ -22,53 +22,41 @@ import android.os.Message;
 import java.lang.ref.WeakReference;
 
 
-public class Registrant
-{
-    public
-    Registrant(Handler h, int what, Object obj)
-    {
+public class Registrant {
+    WeakReference refH;
+    int what;
+    Object userObj;
+    public Registrant(Handler h, int what, Object obj) {
         refH = new WeakReference(h);
         this.what = what;
         userObj = obj;
     }
 
-    public void
-    clear()
-    {
+    public void clear() {
         refH = null;
         userObj = null;
     }
 
-    public void
-    notifyRegistrant()
-    {
-        internalNotifyRegistrant (null, null);
-    }
-    
-    public void
-    notifyResult(Object result)
-    {
-        internalNotifyRegistrant (result, null);
+    public void notifyRegistrant() {
+        internalNotifyRegistrant(null, null);
     }
 
-    public void
-    notifyException(Throwable exception)
-    {
-        internalNotifyRegistrant (null, exception);
+    public void notifyResult(Object result) {
+        internalNotifyRegistrant(result, null);
+    }
+
+    public void notifyException(Throwable exception) {
+        internalNotifyRegistrant(null, exception);
     }
 
     /**
      * This makes a copy of @param ar
      */
-    public void
-    notifyRegistrant(AsyncResult ar)
-    {
-        internalNotifyRegistrant (ar.result, ar.exception);
+    public void notifyRegistrant(AsyncResult ar) {
+        internalNotifyRegistrant(ar.result, ar.exception);
     }
 
-    /*package*/ void
-    internalNotifyRegistrant (Object result, Throwable exception)
-    {
+    /*package*/ void internalNotifyRegistrant(Object result, Throwable exception) {
         Handler h = getHandler();
 
         if (h == null) {
@@ -77,9 +65,9 @@ public class Registrant
             Message msg = Message.obtain();
 
             msg.what = what;
-            
+
             msg.obj = new AsyncResult(userObj, result, exception);
-            
+
             h.sendMessage(msg);
         }
     }
@@ -88,9 +76,7 @@ public class Registrant
      * NOTE: May return null if weak reference has been collected
      */
 
-    public Message
-    messageForRegistrant()
-    {
+    public Message messageForRegistrant() {
         Handler h = getHandler();
 
         if (h == null) {
@@ -107,17 +93,12 @@ public class Registrant
         }
     }
 
-    public Handler
-    getHandler()
-    {
+    public Handler getHandler() {
         if (refH == null)
             return null;
 
         return (Handler) refH.get();
     }
 
-    WeakReference   refH;
-    int             what;
-    Object          userObj;
 }
 

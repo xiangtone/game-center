@@ -229,8 +229,6 @@ public class GlobalConfigControllerManager {
     }
 
     private void stateChange() {
-//        Log.e(TAG, "stateChange notifyRegistrants() mLoadingStateListener: "
-//                + mLoadingStateListener);
         if (mLoadingStateListener != null) {
             mLoadingStateListener.onChange();
         }
@@ -238,14 +236,12 @@ public class GlobalConfigControllerManager {
     }
 
     public void registForUpdate(Handler handler, int what, Object obj) {
-//        Log.e(TAG, "registForUpdate registe Handler = " + handler);
         LogUtils.e("registe Handler =" + handler);
         updateRegistrantList.add(handler, what, obj);
     }
 
     public void unregistForUpdate(Handler handler) {
         LogUtils.e("remove Handler");
-//        Log.e(TAG, "remove register Handler = " + handler);
         updateRegistrantList.remove(handler);
     }
 

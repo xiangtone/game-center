@@ -8,8 +8,8 @@ public abstract class BaseFragment extends Fragment
      public abstract Handler getHandler();
      public abstract boolean hasLoadedData();
      public abstract void setHasLoadedData(boolean loaded);
-     public abstract void initFragmentListData();
-     public abstract boolean isLoading();
+     public abstract void initFragmentListData();      //弃用
+     public abstract boolean isLoading();         //弃用
 //     public int getActivitySelectedItem(){
 //    	 if(getActivity() instanceof HomePageActivity){
 //    		 return ((HomePageActivity)getActivity()).getCurrentItem();
