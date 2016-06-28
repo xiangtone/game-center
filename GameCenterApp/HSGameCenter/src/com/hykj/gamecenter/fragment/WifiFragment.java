@@ -54,6 +54,8 @@ import org.json.JSONObject;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
+import java.io.IOException;
+
 /**
  * Created by Administrator on 2016/6/15.
  */
@@ -63,7 +65,6 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
     private static final String TAG = "WifiFragment";
     private TextView mTextLoadingState;
     private Activity mParentActiity;
-    private boolean wifiConnectedBefore;
     private ConnectivityManager mConnManager;
     private WifiUpdateReceiver.WifiListener mWifiListener;
     private WifiManager mWifiManager;
@@ -82,6 +83,24 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                 Msg.UPDATE_STATE, null);
         mWifiManager = (WifiManager) mParentActiity.getSystemService(Context.WIFI_SERVICE);
 
+        if (mWifiListener == null) {
+            mWifiListener = new WifiUpdateReceiver.WifiListener() {
+                @Override
+                public void networkChange(int currentNetwork, NetworkInfo networkInfo) {
+                    if (currentNetwork == 1) {
+                        //验证登录并开网
+                        checkLogin();
+                    } else {
+                        //wifi切换到其他状态
+                        if (!mConnecting) {
+                            updateState(ConnectState.UNCONNECTED);
+                        }
+                    }
+                }
+            };
+        }
+        WifiUpdateReceiver.setWifiConnectListen(mWifiListener);
+
 
     }
 
@@ -93,31 +112,6 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
 
     @Override
     public void onResume() {
-        if (!mConnecting) {
-            boolean checkIndentifySsid = checkIndentifySsid();
-            updateState(checkIndentifySsid ? ConnectState.CONNECTED : ConnectState.UNCONNECTED);
-        }
-
-
-        if (mWifiListener == null) {
-            mWifiListener = new WifiUpdateReceiver.WifiListener() {
-                @Override
-                public void networkChange(int currentNetwork, NetworkInfo networkInfo) {
-                    if (currentNetwork == 1) {
-                        wifiConnectedBefore = true;
-//                        if (mTextLoadingState != null) {
-//                            mTextLoadingState.setText(R.string.wifi_loading_success);
-//                        }
-                        //验证登录并开网
-                        //判断ssid为可用ssid
-                            checkLogin();
-
-//                        updateState(ConnectState.CONNECTED);
-                    }
-                }
-            };
-        }
-        WifiUpdateReceiver.setWifiConnectListen(mWifiListener);
         super.onResume();
     }
 
@@ -136,13 +130,9 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
         String connectedSsid = wifiInfo.getSSID();
         if ((connec.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED)
                 && connectedSsid != null) {
-            for (String ssid : WifiHttpUtils.SSID_LIST) {
-                if (connectedSsid.equalsIgnoreCase("\"" + ssid + "\"") || connectedSsid.equalsIgnoreCase(ssid)) {
-                    return true;
-                }
-
+            if (connectedSsid.startsWith("\"" + WifiHttpUtils.SSID_HEAD) || connectedSsid.startsWith(WifiHttpUtils.SSID_HEAD)) {
+                return true;
             }
-
         }
         return false;
     }
@@ -163,11 +153,19 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
         mLayoutLoading = rootView.findViewById(R.id.layoutLoading);
         getDataList();
 
+        //判断当前网络是否连接并测试连接状态
+        boolean checkIndentifySsid = checkIndentifySsid();
+        updateState(checkIndentifySsid ? ConnectState.CONNECTED : ConnectState.UNCONNECTED);
+        //ping 公网进一步验证
+        if (checkIndentifySsid) {
+//            new PingAddress().start();
+            WifiHttpUtils wifiHttpUtils = new WifiHttpUtils(new JSONObject());
+            doPost(WifiHttpUtils.URL_WIFI_FRESH, wifiHttpUtils);
+        }
     }
 
     @Override
     public void onPause() {
-        WifiUpdateReceiver.removeWifiListener(mWifiListener);
 
         super.onPause();
     }
@@ -295,6 +293,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
         }
     }
 
+    public static final int MSG_PING_SUCCEED = 0X01;
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -326,6 +325,10 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                 case Msg.UPDATE_STATE:
                     Log.i(TAG, "Classify UPDATE_STATE");
                     getDataList();
+                    break;
+                case MSG_PING_SUCCEED:
+                    updateState(ConnectState.UNCONNECTED);
+                    CSToast.show(mParentActiity, getResources().getString(R.string.wifi_erroring));
                     break;
                 default:
                     break;
@@ -414,6 +417,8 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
     @Override
     public void onDestroy() {
         GlobalConfigControllerManager.getInstance().unregistForUpdate(mHandler);
+        WifiUpdateReceiver.removeWifiListener(mWifiListener);
+
         super.onDestroy();
     }
 
@@ -433,9 +438,8 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
 //
 //            boolean connected = con.Connect(ssid,
 //                    "hy1234560", WifiConnect.WifiCipherType.WIFICIPHER_WPA);
-            String ssid = "花生地铁WiFi_测试_szoffice";
-            boolean connected = con.Connect(ssid,
-                    "", WifiConnect.WifiCipherType.WIFICIPHER_NOPASS);
+            boolean connected = con.Connect(WifiHttpUtils.SSID_HEAD,
+                    WifiConnect.WifiCipherType.WIFICIPHER_NOPASS);
 
             return connected;
         }
@@ -453,9 +457,6 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                 CSToast.show(mParentActiity, "连接wifi失败");
                 updateState(ConnectState.WIFIUNVISIBLE);
             }
-//            else {
-//                checkLogin();
-//            }
         }
     }
 
@@ -546,6 +547,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
 //                            uuid = ddata.getInt("uuid");
 //                            String ucode = ddata.getString("ucode");
 //                            int uisnew = ddata.getInt("uisnew");
+                            RESTART_COUNT = 0;
                             Intent intent = new Intent(mParentActiity, WifiFreshService.class);
                             mParentActiity.startService(intent);
                             updateState(ConnectState.CONNECTED);
@@ -567,6 +569,8 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                     if (code.equals("4")) { //会话超时需要重连一次，如果继续会话超时则重新登陆连接
                         if (RESTART_COUNT++ <= 0) {
                             openWifi();
+                            Log.e(TAG, errString);
+                            return;
                         } else {
                             errString = getString(R.string.wifi_error_code_4);
                             gotoLogin();
@@ -666,4 +670,24 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
 //        // );
 //        controller.doRequest();
 //    }
+
+    class PingAddress extends Thread {
+
+        @Override
+        public void run() {
+            Process p = null;
+            try {
+                p = Runtime.getRuntime().exec(
+                        "/system/bin/ping -c 1 -w 1 " + "www.baidu.com");
+                int status = p.waitFor();
+                if (status == 1) {
+                    mHandler.sendEmptyMessage(MSG_PING_SUCCEED);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

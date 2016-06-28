@@ -286,7 +286,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         mTextMine.setOnClickListener(mViewOnclickListener);
         findViewById(R.id.textRank).setOnClickListener(mViewOnclickListener);
         findViewById(R.id.textClassily).setOnClickListener(mViewOnclickListener);
-        findViewById(R.id.textWifi).setOnClickListener(mViewOnclickListener);
+        findViewById(R.id.imgWifi).setOnClickListener(mViewOnclickListener);
         mBadgeView = new BadgeView(this, mTextMine);
 //		mBadgeView.setText("12"); //显示类容
         mBadgeView.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);//显示的位置.中间，还有其他位置属性
@@ -294,7 +294,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         mBadgeView.setBadgeBackgroundColor(Color.RED); //背景颜色
         mBadgeView.setTextSize(12); //文本大小
 //        int offset = getResources().getDimensionPixelOffset(R.dimen.tips_offset);
-        int offset = Tools.getDisplayWidth(this) / 8;
+        int offset = Tools.getDisplayWidth(this) / 12;
         mBadgeView.setBadgeMargin(offset - 32, 0); //水平和竖直方向的间距
         mBadgeView.toggle();
 
@@ -375,7 +375,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
                 v = findViewById(R.id.textMine);
                 break;
             case PAGE_INDEX.INDEX_WIFI:
-                v = findViewById(R.id.textWifi);
+                v = findViewById(R.id.imgWifi);
                 break;
         }
 
@@ -423,7 +423,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
                 case R.id.textMine:
                     showTagFragment(String.valueOf(PAGE_INDEX.INDEX_UPDATE), v);
                     break;
-                case R.id.textWifi:
+                case R.id.imgWifi:
                     showTagFragment(String.valueOf(PAGE_INDEX.INDEX_WIFI), v);
                     break;
             }
