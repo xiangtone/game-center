@@ -93,7 +93,7 @@ public abstract class JsonCallback implements Callback.CommonCallback<String> {
                     errString = mContext.getString(R.string.wifi_error_code_6);
                     break;
             }
-            Log.e(TAG, errString);
+            Log.e(TAG, errString + "--"+mUrl);
         }
     }
     protected abstract void handleSucced(JSONObject ddata, String url);

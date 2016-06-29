@@ -89,7 +89,11 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                 public void networkChange(int currentNetwork, NetworkInfo networkInfo) {
                     if (currentNetwork == 1) {
                         //验证登录并开网
-                        checkLogin();
+                        //地铁网络连接之后尝试登陆
+                        boolean checkIndentifySsid = checkIndentifySsid();
+                        if (checkIndentifySsid){
+                            checkLogin();
+                        }
                     } else {
                         //wifi切换到其他状态
                         if (!mConnecting) {
@@ -204,6 +208,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                 .getLoadingState();
         setDisplayStatus(LOADING_STATUS);
         switch (global) {
+            case GlobalConfigControllerManager.LOADING_STATE:
             case GlobalConfigControllerManager.NONETWORK_STATE:
                 GlobalConfigControllerManager.getInstance()
                         .reqGlobalConfig();
@@ -505,6 +510,8 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
             openWifi();
+        }else{
+            updateState(ConnectState.UNCONNECTED);
         }
 
         super.onActivityResult(requestCode, resultCode, data);

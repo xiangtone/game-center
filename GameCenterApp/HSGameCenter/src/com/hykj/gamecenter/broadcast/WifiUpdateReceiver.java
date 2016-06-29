@@ -115,7 +115,6 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
 //            }
 //        }
 
-
         //获取wifi环境才下载游戏的布尔值
         boolean bWifiToDownload = App.getSettingContent().getSettingData().bWifiAutoDownload;
 
