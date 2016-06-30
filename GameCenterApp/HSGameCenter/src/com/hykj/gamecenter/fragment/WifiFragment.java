@@ -170,7 +170,6 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
 
     @Override
     public void onPause() {
-
         super.onPause();
     }
 

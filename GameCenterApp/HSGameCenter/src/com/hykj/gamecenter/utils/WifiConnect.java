@@ -105,11 +105,14 @@ public class WifiConnect {
             }
 
             WifiConfiguration tempConfig = this.IsExsits(scanResult.SSID);
+            int netID = 0;
             if (tempConfig != null) {
                 wifiManager.removeNetwork(tempConfig.networkId);
+//                wifiManager.updateNetwork(tempConfig);
             }
-
-            int netID = wifiManager.addNetwork(wifiConfig);
+//            else {
+                netID = wifiManager.addNetwork(wifiConfig);
+//            }
             Log.i(TAG, netID + "");
             boolean bRet = wifiManager.enableNetwork(netID, true);
             if (!bRet) {

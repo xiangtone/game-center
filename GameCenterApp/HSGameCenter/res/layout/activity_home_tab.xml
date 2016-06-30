@@ -108,6 +108,12 @@
 
     </LinearLayout>
 
+    <View
+        android:id="@+id/viewWifiMask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wifi_mask"/>
+
     <include
         android:id="@+id/noviceguidance_pager"
         layout="@layout/noviceguidance"

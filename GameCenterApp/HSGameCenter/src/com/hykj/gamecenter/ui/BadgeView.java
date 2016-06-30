@@ -164,7 +164,8 @@ public class BadgeView extends TextView {
 			group.removeView(target);
 			group.addView(container, index, lp);
 			//#######oddshou 设置本身内容居中
-			FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(lp);
+			FrameLayout.LayoutParams layoutParams = new
+					FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 			layoutParams.gravity = Gravity.CENTER;
 			//#######oddshou
 			container.addView(target, layoutParams);
@@ -358,7 +359,8 @@ public class BadgeView extends TextView {
 			break;
 		case POSITION_CENTER:
 			lp.gravity = Gravity.CENTER;
-			lp.setMargins(0, 0, 0, 0);
+			lp.setMargins(badgeMarginH, 0, 0, badgeMarginV);
+//			lp.setMargins(0, 0, 0, 0);
 			break;
 		default:
 			break;

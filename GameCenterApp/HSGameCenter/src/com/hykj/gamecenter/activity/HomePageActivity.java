@@ -276,6 +276,11 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
 
         mNoviceGuidanceView = (NoviceGuidanceAppView) findViewById(R.id.noviceguidance_pager);
 
+        View viewWifiMask = findViewById(R.id.viewWifiMask);
+        viewWifiMask.setOnClickListener(mViewOnclickListener);
+        boolean showWifiMask = App.getSharedPreference().getBoolean(StatisticManager.KEY_WIFIMASK_SHOW, false);
+        viewWifiMask.setVisibility(showWifiMask ? View.GONE : View.VISIBLE);
+
         Log.d(TAG, "mNoviceGuidanceView =" + mNoviceGuidanceView);
         mlinelayoutHomepager = (LinearLayout) findViewById(R.id.home_pager);
 
@@ -287,6 +292,8 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         findViewById(R.id.textRank).setOnClickListener(mViewOnclickListener);
         findViewById(R.id.textClassily).setOnClickListener(mViewOnclickListener);
         findViewById(R.id.imgWifi).setOnClickListener(mViewOnclickListener);
+
+
         mBadgeView = new BadgeView(this, mTextMine);
 //		mBadgeView.setText("12"); //显示类容
         mBadgeView.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);//显示的位置.中间，还有其他位置属性
@@ -295,7 +302,8 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         mBadgeView.setTextSize(12); //文本大小
 //        int offset = getResources().getDimensionPixelOffset(R.dimen.tips_offset);
         int offset = Tools.getDisplayWidth(this) / 12;
-        mBadgeView.setBadgeMargin(offset - 32, 0); //水平和竖直方向的间距
+        mBadgeView.setBadgeMargin(offset - 64, 0); //水平和竖直方向的间距
+//        mBadgeView.setBadgeMargin(50, -50); //水平和竖直方向的间距
         mBadgeView.toggle();
 
         handleAction();
@@ -425,6 +433,11 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
                     break;
                 case R.id.imgWifi:
                     showTagFragment(String.valueOf(PAGE_INDEX.INDEX_WIFI), v);
+                    break;
+                case R.id.viewWifiMask:
+                    App.getSharedPreference().edit().
+                            putBoolean(StatisticManager.KEY_WIFIMASK_SHOW, true).apply();
+                    v.setVisibility(View.GONE);
                     break;
             }
 

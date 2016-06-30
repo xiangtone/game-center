@@ -26,6 +26,7 @@ public class StatisticManager {
 	public static final String KEY_WIFI_UUID = "key_wifi_uuid";
 	public static final String KEY_WIFI_UCODE = "key_wifi_ucode";
 	public static final String KEY_WIFI_UTIME = "key_wifi_utime";
+	public static final String KEY_WIFIMASK_SHOW = "key_wifimask_show";
 
 	public interface ThridSource{
 		String WEI_XIN = "weixin";
