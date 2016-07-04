@@ -8,7 +8,7 @@
     
      <stroke
          android:width="@dimen/border_width"
-         android:color="@color/color_green" /><!--矩形的边线  -->
+         android:color="@color/color_green_normal" /><!--矩形的边线  -->
          
      <gradient
          android:endColor="@color/transparent"

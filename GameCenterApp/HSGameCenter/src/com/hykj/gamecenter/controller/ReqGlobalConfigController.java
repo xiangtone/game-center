@@ -38,7 +38,7 @@ public class ReqGlobalConfigController extends AbstractNetController {
         //									 * ControllerHelper.getInstance()
         //									 * .getGroupsConfigCacheDataVer()
         //									 */);
-        builder.groupsCacheVer = "";
+        builder.groupsCacheVer = ControllerHelper.getInstance().getGroupsConfigCacheDataVer();
         Logger.i(TAG, "global config request is start");
         Logger.i(TAG, "dataVer:"
                 + ControllerHelper.getInstance().getGroupsConfigCacheDataVer());

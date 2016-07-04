@@ -6,7 +6,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 
 import com.google.protobuf.nano.InvalidProtocolBufferNanoException;
 import com.hykj.gamecenter.controller.ControllerHelper;
@@ -20,9 +19,10 @@ import com.hykj.gamecenter.protocol.Apps.Groups;
 import com.hykj.gamecenter.protocol.Apps.RspGlobalConfig;
 import com.hykj.gamecenter.utils.Logger;
 import com.hykj.gamecenter.utils.UpdateUtils;
-//import cs.util.RegistrantList;
 import com.hykj.gamecenter.utilscs.LogUtils;
 import com.hykj.gamecenter.utilscs.RegistrantList;
+
+//import cs.util.RegistrantList;
 
 public class GlobalConfigControllerManager {
     private static GlobalConfigControllerManager mGlobalConfigControllerManager;
@@ -67,7 +67,7 @@ public class GlobalConfigControllerManager {
     }
 
     public void reqGlobalConfig() {
-        Log.d(TAG, "reqGlobalConfig");
+//        Log.d(TAG, "reqGlobalConfig");
         loadingHandler.sendEmptyMessage(MSG_LOADING);
         controller = new ReqGlobalConfigController(reqGlobalConfigListener);
         controller.doRequest();
@@ -107,8 +107,8 @@ public class GlobalConfigControllerManager {
 
     private void handleGroups(String groupsServerVer, RspGlobalConfig config) {
         Logger.i(TAG, "groupsServerVer : " + groupsServerVer);
-        // “0”代表客户端已经是最新版本
-        if (!"0".equals(groupsServerVer)) {
+        // groupsServerVer 相同代表客户端已经是最新版本
+        if(config.groups.length > 0){
             try {
 
                 // 设置客户端更新检测间隔时间
@@ -126,7 +126,7 @@ public class GlobalConfigControllerManager {
                 e.printStackTrace();
                 Logger.e(TAG, ERROR.ERROR_BAD_PACKET);
             }
-        } else {
+        }else {
             // Logger.i( TAG , "loadingHandler.sendEmptyMessage( MSG_NORMAL ); "
             // );
             hasLoaded = true;
@@ -229,8 +229,8 @@ public class GlobalConfigControllerManager {
     }
 
     private void stateChange() {
-        Log.e(TAG, "stateChange notifyRegistrants() mLoadingStateListener: "
-                + mLoadingStateListener);
+//        Log.e(TAG, "stateChange notifyRegistrants() mLoadingStateListener: "
+//                + mLoadingStateListener);
         if (mLoadingStateListener != null) {
             mLoadingStateListener.onChange();
         }
@@ -238,14 +238,14 @@ public class GlobalConfigControllerManager {
     }
 
     public void registForUpdate(Handler handler, int what, Object obj) {
-        Log.e(TAG, "registForUpdate registe Handler = " + handler);
+//        Log.e(TAG, "registForUpdate registe Handler = " + handler);
         LogUtils.e("registe Handler =" + handler);
         updateRegistrantList.add(handler, what, obj);
     }
 
     public void unregistForUpdate(Handler handler) {
         LogUtils.e("remove Handler");
-        Log.e(TAG, "remove register Handler = " + handler);
+//        Log.e(TAG, "remove register Handler = " + handler);
         updateRegistrantList.remove(handler);
     }
 

@@ -1,343 +1,343 @@
 syntax = "proto2";
-//============================================ Í¨ÓÃ¶¨Òå
+//============================================ é€šç”¨å®šä¹‰
 /*
-·Ö×éÀà±ğ£º10=Ó¦ÓÃÓÎÏ·, 11=Ó¦ÓÃ·ÖÀà£¬12=ÓÎÏ··ÖÀà£¬21=ÍøÓÎµ¥»ú£¬31=Ó¦ÓÃ×¨Ìâ£¬32=ÓÎÏ·×¨Ìâ£¬41=ÍÆ¼ö£¬51=·Ö·¢
-·Ö×éÀàĞÍ£ºÍøÓÎ¡¢µ¥»ú¡¢ÍÆ¼öµÄÀàĞÍID¿ÉÒÔĞ´ËÀÔÚ¿Í»§¶Ë£¬
-			1000=È«²¿Ó¦ÓÃÓÎÏ·£¬1001=ÉÏÉı×î¿ì£¬
-			1100=È«²¿Ó¦ÓÃ£¬1199=ÓÎÏ·£¬
-			1200=È«²¿ÓÎÏ·£¬
-			2101=ÍøÓÎ£¬2102=µ¥»ú£¬
-			3100=×¨Ìâ(orderNo×îĞ¡µÄÎª±¾ÆÚ×¨Ìâ)£¬3101=±Ø±¸ÓÎÏ·(³·³ı)£¬3102=×°»ú±Ø±¸(Ó¦ÓÃÓÎÏ·)£¬
-			3200=ÓÎÏ·×¨Ìâ£¬3202=×°»ú±Ø±¸(ÓÎÏ·)£¬
-			4101=Æô¶¯ÍÆ¼ö£¬4102=Ê×Ò³ÍÆ¼ö(ÓÎÏ·)£¬4103=ËÑË÷ÍÆ¼öÓÎÏ·(ËÑË÷½á¹ûÎª¿ÕµÄÊ±ºòÕ¹Ê¾), 4104=ÈÈÃÅËÑË÷´ÊÁĞ±í£¬4105=ÉÁÆÁ£¬4106=Ê×Ò³ÍÆ¼ö(Ó¦ÓÃÓÎÏ·),4107=¾«Æ·Ó¦ÓÃ£¬4108=¾«Æ·ÓÎÏ·£¬4109=ÈÈÃÅapp(ÃâÁ÷Á¿ÏÂÔØÍÆ¹ãµÄÓ¦ÓÃ)
-			5101=×ÀÃæ·Ö·¢, 5102=×ÀÃæÓÎÏ··Ö·¢£¬ºóĞøÓĞĞÂµÄ¶¨Òå£¬ĞèÒªĞÂ°æµÄ¿Í»§¶Ë²ÅÄÜÖ§³Ö
-ÅÅĞòÀàĞÍ£º0=×Ô¶¯-ÈÈÃÅ(ÏÂÔØÁ¿)£¬2=°´Ê±¼ä£¨×¨ÌâÓëÍÆ¼öÖ»ÓĞÒ»¸öÅÅĞòÀàĞÍ£¬Ä¬ÈÏÎª0£©
-ÍÆ¼ö±êÊ¶£º0=ÎŞ£¬1=ÈÈÃÅ£¬2=Ê×·¢£¬3=»î¶¯£¬4=ËÍÀñ...£¨ĞèÒªÔÙÓë²úÆ·È·¶¨£¬ÓĞĞÂµÄ¶¨ÒåĞèÒªĞÂ°æµÄ¿Í»§¶ËÖ§³Ö£©
+åˆ†ç»„ç±»åˆ«ï¼š10=åº”ç”¨æ¸¸æˆ, 11=åº”ç”¨åˆ†ç±»ï¼Œ12=æ¸¸æˆåˆ†ç±»ï¼Œ21=ç½‘æ¸¸å•æœºï¼Œ31=åº”ç”¨ä¸“é¢˜ï¼Œ32=æ¸¸æˆä¸“é¢˜ï¼Œ41=æ¨èï¼Œ51=åˆ†å‘
+åˆ†ç»„ç±»å‹ï¼šç½‘æ¸¸ã€å•æœºã€æ¨èçš„ç±»å‹IDå¯ä»¥å†™æ­»åœ¨å®¢æˆ·ç«¯ï¼Œ
+			1000=å…¨éƒ¨åº”ç”¨æ¸¸æˆï¼Œ1001=ä¸Šå‡æœ€å¿«ï¼Œ
+			1100=å…¨éƒ¨åº”ç”¨ï¼Œ1199=æ¸¸æˆï¼Œ
+			1200=å…¨éƒ¨æ¸¸æˆï¼Œ
+			2101=ç½‘æ¸¸ï¼Œ2102=å•æœºï¼Œ
+			3100=ä¸“é¢˜(orderNoæœ€å°çš„ä¸ºæœ¬æœŸä¸“é¢˜)ï¼Œ3101=å¿…å¤‡æ¸¸æˆ(æ’¤é™¤)ï¼Œ3102=è£…æœºå¿…å¤‡(åº”ç”¨æ¸¸æˆ)ï¼Œ
+			3200=æ¸¸æˆä¸“é¢˜ï¼Œ3202=è£…æœºå¿…å¤‡(æ¸¸æˆ)ï¼Œ
+			4101=å¯åŠ¨æ¨èï¼Œ4102=é¦–é¡µæ¨è(æ¸¸æˆ)ï¼Œ4103=æœç´¢æ¨èæ¸¸æˆ(æœç´¢ç»“æœä¸ºç©ºçš„æ—¶å€™å±•ç¤º), 4104=çƒ­é—¨æœç´¢è¯åˆ—è¡¨ï¼Œ4105=é—ªå±ï¼Œ4106=é¦–é¡µæ¨è(åº”ç”¨æ¸¸æˆ),4107=ç²¾å“åº”ç”¨ï¼Œ4108=ç²¾å“æ¸¸æˆï¼Œ4109=çƒ­é—¨app(å…æµé‡ä¸‹è½½æ¨å¹¿çš„åº”ç”¨)
+			5101=æ¡Œé¢åˆ†å‘, 5102=æ¡Œé¢æ¸¸æˆåˆ†å‘ï¼Œåç»­æœ‰æ–°çš„å®šä¹‰ï¼Œéœ€è¦æ–°ç‰ˆçš„å®¢æˆ·ç«¯æ‰èƒ½æ”¯æŒ
+æ’åºç±»å‹ï¼š0=è‡ªåŠ¨-çƒ­é—¨(ä¸‹è½½é‡)ï¼Œ2=æŒ‰æ—¶é—´ï¼ˆä¸“é¢˜ä¸æ¨èåªæœ‰ä¸€ä¸ªæ’åºç±»å‹ï¼Œé»˜è®¤ä¸º0ï¼‰
+æ¨èæ ‡è¯†ï¼š0=æ— ï¼Œ1=çƒ­é—¨ï¼Œ2=é¦–å‘ï¼Œ3=æ´»åŠ¨ï¼Œ4=é€ç¤¼...ï¼ˆéœ€è¦å†ä¸äº§å“ç¡®å®šï¼Œæœ‰æ–°çš„å®šä¹‰éœ€è¦æ–°ç‰ˆçš„å®¢æˆ·ç«¯æ”¯æŒï¼‰
 */
 
-//============================================ »ñÈ¡ÉÌµêµÄÅäÖÃ
+//============================================ è·å–å•†åº—çš„é…ç½®
 message ReqGlobalConfig{
-	optional string groupsCacheVer = 1;		// ÖÕ¶ËÊı¾İ°æ±¾£ºÈç¹ûÓĞ»º´æÔòÉÏ´«£¬ÏÂ·¢Ê±¿ÉÊ¡Á÷Á¿£¬¼ÓËÙ¶È
+	optional string groupsCacheVer = 1;		// ç»ˆç«¯æ•°æ®ç‰ˆæœ¬ï¼šå¦‚æœæœ‰ç¼“å­˜åˆ™ä¸Šä¼ ï¼Œä¸‹å‘æ—¶å¯çœæµé‡ï¼ŒåŠ é€Ÿåº¦
 }
 message RspGlobalConfig{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
-	optional int32  thumbPicSwitch = 3;		// ËõÂÔÍ¼¿ª¹Ø£º0=¿ªÆô£¬1=È«²¿¹Ø±Õ£¬2=·ÖÀàµ¥»úÍøÓÎ¹Ø±Õ£¬3=·ÖÀàµ¥»úÍøÓÎ¿ªÆô30¸öÒÔÄÚµÄËõÂÔÍ¼
-	optional int32	updateCheckRate = 6;	// Ó¦ÓÃÉı¼¶¼ì²âµÄÆµÂÊ¡£(µ¥Î»:min)
-	optional int32	recommCheckRate	= 7;	// ¼ì²âÍÆ¼öÄÚÈİµÄÆµÂÊ¡£(µ¥Î»:min)
-	required string groupsServerVer = 4;	// ·Ö×éÅäÖÃ°æ±¾£¬¡°0¡±´ú±í¿Í»§¶ËÒÑ¾­ÊÇ×îĞÂ°æ±¾£¬·ñÔòÏÂ·¢GroupCfgĞÅÏ¢
-	optional bytes  groups = 5;				// ¶àÌõ·Ö×éĞÅÏ¢
-	// ÓÃ·¨£º
-	// ¿Í»§¶Ë½«Õâ¸örepeated×é³ÉÒ»ÕÅ¿ÉÒÔË÷ÒıµÄ±í£¬½«´ó´óÓÅ»¯ÖÕ¶ËÓë·şÎñ¶ËµÄĞ§ÂÊ
-	// ×¨ÌâµÄÓë·ÖÀàµÄÌø×ªÖ¸Ïò£¬ÊÇ¶¨ÒåÁËgroupClass/groupType/orderType£¬¿Í»§¶Ë¾İ´ËÕÒµ½¶ÔÓ¦µÄgroupId£¬Ö±½Ó»ñÈ¡·Ö×éÔªËØÁĞ±í
-	// ĞèÒªÍøÓÎ¡¢µ¥»ú¡¢Æô¶¯ÍÆ¼ö¡¢Ê×Ò³ÍÆ¼öµÈÁĞ±íÊ±£¬Ò²¿ÉÒÔÍ¨¹ı±¾µØ²éÑ¯µÃµ½groupIdºóÔÙµ½·şÎñÆ÷À´È¡ÔªËØÁĞ±í
-	// ·şÎñÆ÷²»ÔÙĞèÒªÃ¿¸öÇëÇó¶¼È¥Æ¥ÅäÒ»´Î·½°¸
-	// ¶ÔÓÚ·şÎñÆ÷À´Ëµ£¬·½°¸Óë·Ö×é´æÔÚÒ»Æğ£¬È¡Õâµ½Ğ©ÅäÖÃ£¬Ö»ÊÇÒ»´Î²éÑ¯£¬ĞÔÄÜ½«´ó´óÌá¸ß
-	// ÉÁÆÁ¿ÉÒÔÖ±½ÓÊ¹ÓÃGroupInfoÀïµÄgroupPicUrlÒÔ¼°¶ÔÓ¦µÄstartTimeÓëendTime¼´¿É£¨·Ö×éÀàĞÍÎª4105£©
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
+	optional int32  thumbPicSwitch = 3;		// ç¼©ç•¥å›¾å¼€å…³ï¼š0=å¼€å¯ï¼Œ1=å…¨éƒ¨å…³é—­ï¼Œ2=åˆ†ç±»å•æœºç½‘æ¸¸å…³é—­ï¼Œ3=åˆ†ç±»å•æœºç½‘æ¸¸å¼€å¯30ä¸ªä»¥å†…çš„ç¼©ç•¥å›¾
+	optional int32	updateCheckRate = 6;	// åº”ç”¨å‡çº§æ£€æµ‹çš„é¢‘ç‡ã€‚(å•ä½:min)
+	optional int32	recommCheckRate	= 7;	// æ£€æµ‹æ¨èå†…å®¹çš„é¢‘ç‡ã€‚(å•ä½:min)
+	required string groupsServerVer = 4;	// åˆ†ç»„é…ç½®ç‰ˆæœ¬ï¼Œâ€œ0â€ä»£è¡¨å®¢æˆ·ç«¯å·²ç»æ˜¯æœ€æ–°ç‰ˆæœ¬ï¼Œå¦åˆ™ä¸‹å‘GroupCfgä¿¡æ¯
+	optional bytes  groups = 5;				// å¤šæ¡åˆ†ç»„ä¿¡æ¯
+	// ç”¨æ³•ï¼š
+	// å®¢æˆ·ç«¯å°†è¿™ä¸ªrepeatedç»„æˆä¸€å¼ å¯ä»¥ç´¢å¼•çš„è¡¨ï¼Œå°†å¤§å¤§ä¼˜åŒ–ç»ˆç«¯ä¸æœåŠ¡ç«¯çš„æ•ˆç‡
+	// ä¸“é¢˜çš„ä¸åˆ†ç±»çš„è·³è½¬æŒ‡å‘ï¼Œæ˜¯å®šä¹‰äº†groupClass/groupType/orderTypeï¼Œå®¢æˆ·ç«¯æ®æ­¤æ‰¾åˆ°å¯¹åº”çš„groupIdï¼Œç›´æ¥è·å–åˆ†ç»„å…ƒç´ åˆ—è¡¨
+	// éœ€è¦ç½‘æ¸¸ã€å•æœºã€å¯åŠ¨æ¨èã€é¦–é¡µæ¨èç­‰åˆ—è¡¨æ—¶ï¼Œä¹Ÿå¯ä»¥é€šè¿‡æœ¬åœ°æŸ¥è¯¢å¾—åˆ°groupIdåå†åˆ°æœåŠ¡å™¨æ¥å–å…ƒç´ åˆ—è¡¨
+	// æœåŠ¡å™¨ä¸å†éœ€è¦æ¯ä¸ªè¯·æ±‚éƒ½å»åŒ¹é…ä¸€æ¬¡æ–¹æ¡ˆ
+	// å¯¹äºæœåŠ¡å™¨æ¥è¯´ï¼Œæ–¹æ¡ˆä¸åˆ†ç»„å­˜åœ¨ä¸€èµ·ï¼Œå–è¿™åˆ°äº›é…ç½®ï¼Œåªæ˜¯ä¸€æ¬¡æŸ¥è¯¢ï¼Œæ€§èƒ½å°†å¤§å¤§æé«˜
+	// é—ªå±å¯ä»¥ç›´æ¥ä½¿ç”¨GroupInfoé‡Œçš„groupPicUrlä»¥åŠå¯¹åº”çš„startTimeä¸endTimeå³å¯ï¼ˆåˆ†ç»„ç±»å‹ä¸º4105ï¼‰
 }
 message Groups{
-	repeated GroupInfo groupInfo = 1;		// ÅäÖÃºÃµÄ¶à¸ö·Ö×éĞÅÏ¢
+	repeated GroupInfo groupInfo = 1;		// é…ç½®å¥½çš„å¤šä¸ªåˆ†ç»„ä¿¡æ¯
 }
 message GroupInfo{
-	required int32  groupId = 1;			// ·Ö×éID
-	required int32  groupClass = 2;			// ·Ö×éÀà±ğ
-	required int32  groupType = 3;			// ·Ö×éÀàĞÍ
-	required int32  orderType = 4;			// ÅÅĞòÀàĞÍ
-	required int32  orderNo = 5;			// ÅÅĞòºÅ£¨¸ÃÖµ²»Ò»¶¨Á¬Ğø£©
-	required string recommWord = 7;			// ÍÆ¼öÓï£¬Èç£º±¾×¨Ìâ¹²12¿îÍÆ¼ö¡¢ÄĞÈËÓÎÏ·£¬²»Íæºó»Ú...
-	required string groupName = 6;			// ·Ö×éÃû³Æ£¨°ì¹«/Éç½»...ĞİÏĞ/²ßÂÔ...ÍøÓÎ/µ¥»ú...×¨Ìâ...Æô¶¯ÍÆ¼ö/Ê×Ò³ÍÆ¼ö...£©
-	required string groupDesc = 8;			// ·Ö×éÃèÊö£¬·ÖÀàÊ±´ú±íÍÆ¼ö´Ê£¬×¨ÌâÊ±´ú±í×¨ÌâËµÃ÷
-	required string groupPicUrl = 9;		// ·Ö×éÍ¼Æ¬URL
-	optional string startTime = 10;			// ¿ªÊ¼Ê±¼ä
-	optional string endTime = 11;			// ½áÊøÊ±¼ä
+	required int32  groupId = 1;			// åˆ†ç»„ID
+	required int32  groupClass = 2;			// åˆ†ç»„ç±»åˆ«
+	required int32  groupType = 3;			// åˆ†ç»„ç±»å‹
+	required int32  orderType = 4;			// æ’åºç±»å‹
+	required int32  orderNo = 5;			// æ’åºå·ï¼ˆè¯¥å€¼ä¸ä¸€å®šè¿ç»­ï¼‰
+	required string recommWord = 7;			// æ¨èè¯­ï¼Œå¦‚ï¼šæœ¬ä¸“é¢˜å…±12æ¬¾æ¨èã€ç”·äººæ¸¸æˆï¼Œä¸ç©åæ‚”...
+	required string groupName = 6;			// åˆ†ç»„åç§°ï¼ˆåŠå…¬/ç¤¾äº¤...ä¼‘é—²/ç­–ç•¥...ç½‘æ¸¸/å•æœº...ä¸“é¢˜...å¯åŠ¨æ¨è/é¦–é¡µæ¨è...ï¼‰
+	required string groupDesc = 8;			// åˆ†ç»„æè¿°ï¼Œåˆ†ç±»æ—¶ä»£è¡¨æ¨èè¯ï¼Œä¸“é¢˜æ—¶ä»£è¡¨ä¸“é¢˜è¯´æ˜
+	required string groupPicUrl = 9;		// åˆ†ç»„å›¾ç‰‡URL
+	optional string startTime = 10;			// å¼€å§‹æ—¶é—´
+	optional string endTime = 11;			// ç»“æŸæ—¶é—´
 }
 
-//============================================ »ñÈ¡·Ö×éÔªËØÁĞ±í
+//============================================ è·å–åˆ†ç»„å…ƒç´ åˆ—è¡¨
 message ReqGroupElems{
-	required int32  groupId = 1;			// ·Ö×éID
-	optional int32  groupClass = 5;			// ·Ö×éÀà±ğ(Í³¼ÆÊı¾İ²ÎÊı)
-	optional int32  groupType = 6;			// ·Ö×éÀàĞÍ(Í³¼ÆÊı¾İ²ÎÊı)
-	optional int32  orderType = 7;			// ÅÅĞòÀàĞÍ(Í³¼ÆÊı¾İ²ÎÊı)
-	required int32  pageSize = 2;			// Ò³³ß´ç£¨×¨ÌâÓëÍÆ¼ö²»Ö§³Ö·ÖÒ³£¬pageSizeÓëpageIndexÌî0£©
-	required int32  pageIndex = 3;			// Ò³Âë
-	optional string clientCacheVer = 4;		// ÖÕ¶Ë»º´æ°æ±¾£ºÈç¹ûÓĞ»º´æÔòÉÏ´«£¬ÏÂ·¢Ê±¿ÉÊ¡Á÷Á¿£¬¼ÓËÙ¶È
+	required int32  groupId = 1;			// åˆ†ç»„ID
+	optional int32  groupClass = 5;			// åˆ†ç»„ç±»åˆ«(ç»Ÿè®¡æ•°æ®å‚æ•°)
+	optional int32  groupType = 6;			// åˆ†ç»„ç±»å‹(ç»Ÿè®¡æ•°æ®å‚æ•°)
+	optional int32  orderType = 7;			// æ’åºç±»å‹(ç»Ÿè®¡æ•°æ®å‚æ•°)
+	required int32  pageSize = 2;			// é¡µå°ºå¯¸ï¼ˆä¸“é¢˜ä¸æ¨èä¸æ”¯æŒåˆ†é¡µï¼ŒpageSizeä¸pageIndexå¡«0ï¼‰
+	required int32  pageIndex = 3;			// é¡µç 
+	optional string clientCacheVer = 4;		// ç»ˆç«¯ç¼“å­˜ç‰ˆæœ¬ï¼šå¦‚æœæœ‰ç¼“å­˜åˆ™ä¸Šä¼ ï¼Œä¸‹å‘æ—¶å¯çœæµé‡ï¼ŒåŠ é€Ÿåº¦
 }
 message RspGroupElems{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü£¬2=²ÎÊı´íÎó...
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
-	optional string serverDataVer = 3;		// ·şÎñ¶ËÊı¾İ°æ±¾£¬¡°0¡±´ú±í¿Í»§¶ËÒÑ¾­ÊÇ×îĞÂ°æ±¾£¬·ñÔòÏÂÔØÇëÇóµÄĞÅÏ¢
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥ï¼Œ2=å‚æ•°é”™è¯¯...
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
+	optional string serverDataVer = 3;		// æœåŠ¡ç«¯æ•°æ®ç‰ˆæœ¬ï¼Œâ€œ0â€ä»£è¡¨å®¢æˆ·ç«¯å·²ç»æ˜¯æœ€æ–°ç‰ˆæœ¬ï¼Œå¦åˆ™ä¸‹è½½è¯·æ±‚çš„ä¿¡æ¯
 	optional bytes  groupElems = 4;
 }
 message GroupElems{
-	repeated GroupElemInfo groupElemInfo = 1;	// ·Ö×éËùÊôµÄ¶à¸öÍÆ¼öÔªËØĞÅÏ¢
+	repeated GroupElemInfo groupElemInfo = 1;	// åˆ†ç»„æ‰€å±çš„å¤šä¸ªæ¨èå…ƒç´ ä¿¡æ¯
 }
 message GroupElemInfo{
-	required int32  groupId = 1;			// ·Ö×éID
-	required int32  posId = 2;				// Î»ÖÃID£¬È¡ÍÆ¼öÓ¦ÓÃÁĞ±íÊ±£¬ÈçÊ×Ò³ÍÆ¼ö£¬¿ÉÒÔÔÚ£¨µ±posIdÏàÍ¬Ê±£©ÊµÏÖÂÖ²¥£¬²»Ö§³ÖÂÖ²¥µÄÒ³Ãæ£¬Î»ÖÃID¼´ÊÇ¸ÃÊı¾İÔÚÁĞ±íÖĞµÄ¾ø¶ÔÎ»ÖÃ£¬±ÈÅÅĞòºÅµÄÓÅÏÈ¼¶Òª¸ß
-	required int32  orderNo = 3;			// ÅÅĞòºÅ£¨¸ÃÖµ²»Ò»¶¨Á¬Ğø£¬¿ÉÒÔÓÃÔÚÁĞ±íÏÔÊ¾Ê±ÅÅĞò£¬Ö§³ÖÂÖ²¥µÄÒ³Ãæ£¬¿ÉÒÔÔÚ¶ÔÂÖ²¥Ë³Ğò½øĞĞÉè¶¨£©
-	required int32  elemType = 4;			// ÔªËØÀàĞÍ£º1=App£¬2=Link£¬3=Ìø×ªÖÁ·ÖÀà[Ò²ÊÊÓÃÓÚÈÎÒâµÄ·Ö×é]£¬4=Ìø×ªÖÁÍøÓÎ»òµ¥»ú£¬5=Ìø×ªÖÁ×¨Ìâ£¨²»Ö§³ÖÌø×ªÖÁÍÆ¼ö£©£¬6 = ËÑË÷´Ê, 7=ÉÁÆÁ
-	optional string showName = 5;			// ÏÔÊ¾Ãû³Æ
-	optional string recommWord = 6;			// ÍÆ¼öÓï
-	optional int32  recommFlag = 7;			// ÍÆ¼ö±êÇ©£º1=¹Ù·½ 2=ÍÆ¼ö 4=Ê×·¢ 8=Ãâ·Ñ 16=Àñ°ü 32=»î¶¯ 64=ÄÚ²â 128=ÈÈÃÅ ....Î»ÔËËã
-	optional int32  recommLevel = 8;		// ÍÆ¼ö¼¶±ğ£¬0~10´ú±í´Ó²»ÍÆ¼öµ½ÍÆ¼ö
-	optional string iconUrl = 9;			// ICONÍ¼±êURL
-	optional string thumbPicUrl = 10;		// ËõÂÔÍ¼URL
-	optional string adsPicUrl = 11;			// ¹ã¸æÍ¼Ô­Í¼URL
-	optional string publishTime = 12;		// ·¢²¼Ê±¼ä
-	optional int32 	showType = 25;			// Õ¹Ê¾·½Ê½(1=¹ã¸æÎ»)
-	optional string startTime = 26;			// ¿ªÊ¼Ê±¼ä(Ä¿Ç°½öÓÃÓÚÉÁÆÁÅĞ¶Ï)
-	optional string endTime = 27;			// ½áÊøÊ±¼ä(Ä¿Ç°½öÓÃÓÚÉÁÆÁÅĞ¶Ï)
+	required int32  groupId = 1;			// åˆ†ç»„ID
+	required int32  posId = 2;				// ä½ç½®IDï¼Œå–æ¨èåº”ç”¨åˆ—è¡¨æ—¶ï¼Œå¦‚é¦–é¡µæ¨èï¼Œå¯ä»¥åœ¨ï¼ˆå½“posIdç›¸åŒæ—¶ï¼‰å®ç°è½®æ’­ï¼Œä¸æ”¯æŒè½®æ’­çš„é¡µé¢ï¼Œä½ç½®IDå³æ˜¯è¯¥æ•°æ®åœ¨åˆ—è¡¨ä¸­çš„ç»å¯¹ä½ç½®ï¼Œæ¯”æ’åºå·çš„ä¼˜å…ˆçº§è¦é«˜
+	required int32  orderNo = 3;			// æ’åºå·ï¼ˆè¯¥å€¼ä¸ä¸€å®šè¿ç»­ï¼Œå¯ä»¥ç”¨åœ¨åˆ—è¡¨æ˜¾ç¤ºæ—¶æ’åºï¼Œæ”¯æŒè½®æ’­çš„é¡µé¢ï¼Œå¯ä»¥åœ¨å¯¹è½®æ’­é¡ºåºè¿›è¡Œè®¾å®šï¼‰
+	required int32  elemType = 4;			// å…ƒç´ ç±»å‹ï¼š1=Appï¼Œ2=Linkï¼Œ3=è·³è½¬è‡³åˆ†ç±»[ä¹Ÿé€‚ç”¨äºä»»æ„çš„åˆ†ç»„]ï¼Œ4=è·³è½¬è‡³ç½‘æ¸¸æˆ–å•æœºï¼Œ5=è·³è½¬è‡³ä¸“é¢˜ï¼ˆä¸æ”¯æŒè·³è½¬è‡³æ¨èï¼‰ï¼Œ6 = æœç´¢è¯, 7=é—ªå±
+	optional string showName = 5;			// æ˜¾ç¤ºåç§°
+	optional string recommWord = 6;			// æ¨èè¯­
+	optional int32  recommFlag = 7;			// æ¨èæ ‡ç­¾ï¼š1=å®˜æ–¹ 2=æ¨è 4=é¦–å‘ 8=å…è´¹ 16=ç¤¼åŒ… 32=æ´»åŠ¨ 64=å†…æµ‹ 128=çƒ­é—¨ ....ä½è¿ç®—
+	optional int32  recommLevel = 8;		// æ¨èçº§åˆ«ï¼Œ0~10ä»£è¡¨ä»ä¸æ¨èåˆ°æ¨è
+	optional string iconUrl = 9;			// ICONå›¾æ ‡URL
+	optional string thumbPicUrl = 10;		// ç¼©ç•¥å›¾URL
+	optional string adsPicUrl = 11;			// å¹¿å‘Šå›¾åŸå›¾URL
+	optional string publishTime = 12;		// å‘å¸ƒæ—¶é—´
+	optional int32 	showType = 25;			// å±•ç¤ºæ–¹å¼(1=å¹¿å‘Šä½)
+	optional string startTime = 26;			// å¼€å§‹æ—¶é—´(ç›®å‰ä»…ç”¨äºé—ªå±åˆ¤æ–­)
+	optional string endTime = 27;			// ç»“æŸæ—¶é—´(ç›®å‰ä»…ç”¨äºé—ªå±åˆ¤æ–­)
 
 	//---------------------------------------- App
-	optional int32  appId = 13;				// Ó¦ÓÃID
-	optional string packName = 14;			// °²×°°ü°üÃû
-	optional int32  mainPackId = 15;		// Ö÷°²×°°üID
-	optional int32  mainVerCode = 16;		// Ö÷°æ±¾´úÂë
-	optional string mainSignCode = 17;		// Ö÷°²×°°üÇ©ÃûÌØÕ÷Âë
-	optional string mainVerName = 18;		// Ö÷°æ±¾Ãû
-	optional int32  mainPackSize = 24;		// Ö÷°²×°°ü´óĞ¡
-	optional string	appTypeName = 28;		// ·ÖÀàÃû (µ±ÔªËØÀàĞÍÎªAppµÄÊ±ºò£¬ÏÔÊ¾¸ÃAppµÄ·ÖÀàÃû£¬Èç:ĞİÏĞ)
-	optional int32  downTimes = 29;			// ÏÂÔØ´ÎÊı,ÕûĞÍÏÂÔØ´ÎÊı
-	
+	optional int32  appId = 13;				// åº”ç”¨ID
+	optional string packName = 14;			// å®‰è£…åŒ…åŒ…å
+	optional int32  mainPackId = 15;		// ä¸»å®‰è£…åŒ…ID
+	optional int32  mainVerCode = 16;		// ä¸»ç‰ˆæœ¬ä»£ç 
+	optional string mainSignCode = 17;		// ä¸»å®‰è£…åŒ…ç­¾åç‰¹å¾ç 
+	optional string mainVerName = 18;		// ä¸»ç‰ˆæœ¬å
+	optional int32  mainPackSize = 24;		// ä¸»å®‰è£…åŒ…å¤§å°
+	optional string	appTypeName = 28;		// åˆ†ç±»å (å½“å…ƒç´ ç±»å‹ä¸ºAppçš„æ—¶å€™ï¼Œæ˜¾ç¤ºè¯¥Appçš„åˆ†ç±»åï¼Œå¦‚:ä¼‘é—²)
+	optional int32  downTimes = 29;			// ä¸‹è½½æ¬¡æ•°,æ•´å‹ä¸‹è½½æ¬¡æ•°
+
 	//---------------------------------------- Link
-	optional int32  jumpLinkId = 19;		// Á´½ÓID
-	optional string jumpLinkUrl = 20;		// Á´½ÓµØÖ·
-	
-	//---------------------------------------- Ìø×ªÖÁ·ÖÀà¡¢ÍøÓÎ¡¢µ¥»ú»ò×¨Ìâ
-	optional int32  jumpGroupId = 21;		// Ìø×ªµÄ·Ö×éID£¬0=ÒÀ¾İ·Ö×éÓëÅÅĞòÀàĞÍÆ¥Åä-ÊÊÓÃÓÚ·ÖÀà£¬´óÓÚ0=¾ßÌå·Ö×é-ÊÊÓÃÓÚ×¨Ìâ£¨ÎŞĞèÖ¸¶¨·Ö×éÓëÅÅĞòÀàĞÍ£©
-	optional int32  jumpGroupType = 22;		// Ìø×ªµÄ·Ö×éÀàĞÍ
-	optional int32  jumpOrderType = 23;		// Ìø×ªµÄ·Ö×éÅÅĞòÀàĞÍ
-	
+	optional int32  jumpLinkId = 19;		// é“¾æ¥ID
+	optional string jumpLinkUrl = 20;		// é“¾æ¥åœ°å€
+
+	//---------------------------------------- è·³è½¬è‡³åˆ†ç±»ã€ç½‘æ¸¸ã€å•æœºæˆ–ä¸“é¢˜
+	optional int32  jumpGroupId = 21;		// è·³è½¬çš„åˆ†ç»„IDï¼Œ0=ä¾æ®åˆ†ç»„ä¸æ’åºç±»å‹åŒ¹é…-é€‚ç”¨äºåˆ†ç±»ï¼Œå¤§äº0=å…·ä½“åˆ†ç»„-é€‚ç”¨äºä¸“é¢˜ï¼ˆæ— éœ€æŒ‡å®šåˆ†ç»„ä¸æ’åºç±»å‹ï¼‰
+	optional int32  jumpGroupType = 22;		// è·³è½¬çš„åˆ†ç»„ç±»å‹
+	optional int32  jumpOrderType = 23;		// è·³è½¬çš„åˆ†ç»„æ’åºç±»å‹
+
 }
 
-//============================================ »ñÈ¡Ó¦ÓÃĞÅÏ¢£¨º¬°²×°°üĞÅÏ¢£©
+//============================================ è·å–åº”ç”¨ä¿¡æ¯ï¼ˆå«å®‰è£…åŒ…ä¿¡æ¯ï¼‰
 message ReqAppInfo{
-	required int32  appId = 1;				// Ó¦ÓÃID
-	required int32  packId = 2;				// °²×°°üID£¨²é¿´¾É°æ±¾Ê±ÌîÈë£¬Æ¥Åä°æ±¾Ê±Ìî0£©
-	optional int32  scrType = 3;			// À´Ô´ÀàĞÍ£º0=½øÈëÓ¦ÓÃÏêÇéÒ³£¬1=°²×°BTN (ÓÃÓÚÍ³¼Æ¹ıÂË°²×°°´Å¥´øÀ´µÄÇëÇóĞÅÏ¢)
-	optional string clientCacheVer = 4;		// ÖÕ¶ËÊı¾İ°æ±¾£ºÈç¹ûÓĞ»º´æÔòÉÏ´«£¬ÏÂ·¢Ê±¿ÉÊ¡Á÷Á¿£¬¼ÓËÙ¶È
+	required int32  appId = 1;				// åº”ç”¨ID
+	required int32  packId = 2;				// å®‰è£…åŒ…IDï¼ˆæŸ¥çœ‹æ—§ç‰ˆæœ¬æ—¶å¡«å…¥ï¼ŒåŒ¹é…ç‰ˆæœ¬æ—¶å¡«0ï¼‰
+	optional int32  scrType = 3;			// æ¥æºç±»å‹ï¼š0=è¿›å…¥åº”ç”¨è¯¦æƒ…é¡µï¼Œ1=å®‰è£…BTN (ç”¨äºç»Ÿè®¡è¿‡æ»¤å®‰è£…æŒ‰é’®å¸¦æ¥çš„è¯·æ±‚ä¿¡æ¯)
+	optional string clientCacheVer = 4;		// ç»ˆç«¯æ•°æ®ç‰ˆæœ¬ï¼šå¦‚æœæœ‰ç¼“å­˜åˆ™ä¸Šä¼ ï¼Œä¸‹å‘æ—¶å¯çœæµé‡ï¼ŒåŠ é€Ÿåº¦
 }
 message RspAppInfo{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü£¬2=²ÎÊı´íÎó£¬3=Ó¦ÓÃ²»´æÔÚ»òÒÑÉ¾³ı
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
-	optional string serverCacheVer = 3;		// ·şÎñ¶ËÊı¾İ°æ±¾ºÅ£¬¡°0¡±´ú±í¿Í»§¶ËÒÑ¾­ÊÇ×îĞÂ°æ±¾£¬·ñÔòÏÂÔØÇëÇóµÄĞÅÏ¢
-	optional bytes  appInfo = 4;			// Ó¦ÓÃĞÅÏ¢
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥ï¼Œ2=å‚æ•°é”™è¯¯ï¼Œ3=åº”ç”¨ä¸å­˜åœ¨æˆ–å·²åˆ é™¤
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
+	optional string serverCacheVer = 3;		// æœåŠ¡ç«¯æ•°æ®ç‰ˆæœ¬å·ï¼Œâ€œ0â€ä»£è¡¨å®¢æˆ·ç«¯å·²ç»æ˜¯æœ€æ–°ç‰ˆæœ¬ï¼Œå¦åˆ™ä¸‹è½½è¯·æ±‚çš„ä¿¡æ¯
+	optional bytes  appInfo = 4;			// åº”ç”¨ä¿¡æ¯
 }
 message Permission{
-	required string permissionFlag = 1;		// ÓÃ»§È¨ÏŞµÄ±êÊ¶
+	required string permissionFlag = 1;		// ç”¨æˆ·æƒé™çš„æ ‡è¯†
 }
 message AppInfo{
-	required int32  appId = 1;				// Ó¦ÓÃID
-	optional int32  packId = 2;				// °²×°°üID
-	optional string showName = 3;			// ÏÔÊ¾Ãû³Æ
-	optional string packName = 4;			// °²×°°ü°üÃû
-	optional string signCode = 5;			// °²×°°üÇ©ÃûÌØÕ÷Âë£ºÓë°üÃûÒ»Æğ£¬¿É¼ì²âÓÃ»§ÊÇ·ñ¿ÉÒÔÉı¼¶
-	optional string devName = 6;			// ¿ª·¢ÕßÃû³Æ
-	optional string appClass = 7;			// Ó¦ÓÃÀà±ğ
-	optional string appType = 8;			// Ó¦ÓÃÀàĞÍ£¬¶à¸öÀàĞÍÒÔ","ºÅ·Ö¸ô
-	optional string downTimes = 9;			// ÏÂÔØ´ÎÊı
-	optional int32  commentTimes = 10;		// ÆÀÂÛ´ÎÊı
-	optional int32  commentScore = 11;		// ÆÀÂÛµÃ·Ö
-	optional int32  appTagFlag = 12;		// Ó¦ÓÃ±êÇ©£º1=°²È«£¬2=ÎŞ¹ã¸æ£¬4=µÀ¾ßÊÕ·Ñ£¬Î»ÔËËã
-	optional int32  recommLevel = 13;		// ÍÆ¼ö¼¶±ğ£¬0~10´ú±í´Ó²»ÍÆ¼öµ½ÍÆ¼ö
-	optional int32  recommFlag = 14;		// ÍÆ¼ö±êÇ©£º1=¹Ù·½ 2=ÍÆ¼ö 4=Ê×·¢ 8=Ãâ·Ñ 16=Àñ°ü 32=»î¶¯ 64=ÄÚ²â 128=ÈÈÃÅ ....Î»ÔËËã
-	optional string recommWord = 15;		// ÍÆ¼öÓï
-	optional string thumbPicUrl = 16;		// ËõÂÔÍ¼URL
-	optional string iconUrl = 17;			// ICONÍ¼±êURL
-	repeated string appPicUrl = 18;			// Ó¦ÓÃ½ØÍ¼URL
-	optional string packUrl = 19;			// °²×°°üURL
-	optional string packMD5 = 20;			// °²×°°üMD5Öµ
-	optional int32  packSize = 21;			// °²×°°ü´óĞ¡
-	optional int32  verCode = 22;			// °æ±¾´úÂë
-	optional string verName = 23;			// °æ±¾ºÅ
-	optional string compDesc = 24;			// ÊÊÓÃĞÔËµÃ÷
-	optional string lanDesc = 25;			// ÓïÑÔËµÃ÷
-	optional string appDesc = 26;			// Ó¦ÓÃÃèÊö
-	optional string updateDesc = 27;		// ¸üĞÂËµÃ÷
-	optional string publishTime = 28;		// ·¢²¼Ê±¼ä
-	optional string packUrl2 = 29;			// °²×°°üURL2£¨¿Í»§¶ËĞÂ°æÏÂÔØ¿ò¼Ü²ÉÓÃ¡£Èô¿Õ£¬È¡packUrl×Ö¶Î£©
-	repeated Permission permission = 30;	// È¨ÏŞÁĞ±í£¬2015-08-27ĞÂÔö
+	required int32  appId = 1;				// åº”ç”¨ID
+	optional int32  packId = 2;				// å®‰è£…åŒ…ID
+	optional string showName = 3;			// æ˜¾ç¤ºåç§°
+	optional string packName = 4;			// å®‰è£…åŒ…åŒ…å
+	optional string signCode = 5;			// å®‰è£…åŒ…ç­¾åç‰¹å¾ç ï¼šä¸åŒ…åä¸€èµ·ï¼Œå¯æ£€æµ‹ç”¨æˆ·æ˜¯å¦å¯ä»¥å‡çº§
+	optional string devName = 6;			// å¼€å‘è€…åç§°
+	optional string appClass = 7;			// åº”ç”¨ç±»åˆ«
+	optional string appType = 8;			// åº”ç”¨ç±»å‹ï¼Œå¤šä¸ªç±»å‹ä»¥","å·åˆ†éš”
+	optional string downTimes = 9;			// ä¸‹è½½æ¬¡æ•°
+	optional int32  commentTimes = 10;		// è¯„è®ºæ¬¡æ•°
+	optional int32  commentScore = 11;		// è¯„è®ºå¾—åˆ†
+	optional int32  appTagFlag = 12;		// åº”ç”¨æ ‡ç­¾ï¼š1=å®‰å…¨ï¼Œ2=æ— å¹¿å‘Šï¼Œ4=é“å…·æ”¶è´¹ï¼Œä½è¿ç®—
+	optional int32  recommLevel = 13;		// æ¨èçº§åˆ«ï¼Œ0~10ä»£è¡¨ä»ä¸æ¨èåˆ°æ¨è
+	optional int32  recommFlag = 14;		// æ¨èæ ‡ç­¾ï¼š1=å®˜æ–¹ 2=æ¨è 4=é¦–å‘ 8=å…è´¹ 16=ç¤¼åŒ… 32=æ´»åŠ¨ 64=å†…æµ‹ 128=çƒ­é—¨ ....ä½è¿ç®—
+	optional string recommWord = 15;		// æ¨èè¯­
+	optional string thumbPicUrl = 16;		// ç¼©ç•¥å›¾URL
+	optional string iconUrl = 17;			// ICONå›¾æ ‡URL
+	repeated string appPicUrl = 18;			// åº”ç”¨æˆªå›¾URL
+	optional string packUrl = 19;			// å®‰è£…åŒ…URL
+	optional string packMD5 = 20;			// å®‰è£…åŒ…MD5å€¼
+	optional int32  packSize = 21;			// å®‰è£…åŒ…å¤§å°
+	optional int32  verCode = 22;			// ç‰ˆæœ¬ä»£ç 
+	optional string verName = 23;			// ç‰ˆæœ¬å·
+	optional string compDesc = 24;			// é€‚ç”¨æ€§è¯´æ˜
+	optional string lanDesc = 25;			// è¯­è¨€è¯´æ˜
+	optional string appDesc = 26;			// åº”ç”¨æè¿°
+	optional string updateDesc = 27;		// æ›´æ–°è¯´æ˜
+	optional string publishTime = 28;		// å‘å¸ƒæ—¶é—´
+	optional string packUrl2 = 29;			// å®‰è£…åŒ…URL2ï¼ˆå®¢æˆ·ç«¯æ–°ç‰ˆä¸‹è½½æ¡†æ¶é‡‡ç”¨ã€‚è‹¥ç©ºï¼Œå–packUrlå­—æ®µï¼‰
+	repeated Permission permission = 30;	// æƒé™åˆ—è¡¨ï¼Œ2015-08-27æ–°å¢
 }
 message AppInfoList{
-	repeated AppInfo appInfo = 1;			// ¶à¸öAppInfoĞÅÏ¢
+	repeated AppInfo appInfo = 1;			// å¤šä¸ªAppInfoä¿¡æ¯
 }
-//============================================ ÏÂÔØ½á¹ûÉÏ±¨
-//============================================ 2.0 ÏÂÔØÏà¹ØµÄÍ³¼Æ£¬Í³Ò»ÓÃÕâ¸ö½Ó¿Ú 
+//============================================ ä¸‹è½½ç»“æœä¸ŠæŠ¥
+//============================================ 2.0 ä¸‹è½½ç›¸å…³çš„ç»Ÿè®¡ï¼Œç»Ÿä¸€ç”¨è¿™ä¸ªæ¥å£
 message ReqDownRes{
-	required int32  appId = 1;				// Ó¦ÓÃID
-	required int32	packId = 2;				// °²×°°üId
-	required int32  downloadRes = 3;		// ÏÂÔØ½á¹û£º0=ÏÂÔØ³É¹¦£¨1= Æô¶¯ÏÂÔØ 2=Æô¶¯Éı¼¶ 11=ÓÃ»§Ö÷¶¯ÔİÍ£ 12=ÍøÂçÖĞ¶ÏÔİÍ£ 13=·şÎñÆ÷·±Ã¦µÈÔ­ÒòÔİÍ£ 14=ÆäËûÔ­ÒòÔİÍ£ 21=ÔİÍ£ÈÎÎñºó¼ÌĞø¶ÏµãĞø´« 22 È¡ÏûÏÂÔØÈÎÎñ £©
-	optional string remark = 4;				// ±¸×¢: ¿ÉÓÃÓÚÉÏ±¨Ê§°ÜÏêÏ¸Ô­Òò
-	optional string timeConsume = 5;		// ×ÜºÄÊ±(ms) (ÏÂÔØ³É¹¦µÄÊ±ºòĞèÒªÉÏ±¨)
-	optional string downloadSpeed = 6;		// Æ½¾ùÏÂÔØËÙ¶È(kb/s) (ÏÂÔØ³É¹¦µÄÊ±ºòĞèÒªÉÏ±¨)
-	optional int32  groupId = 7;            // ·Ö×éid  -- Ôö¼ÓÊ±¼ä 2015-09-11 (Í³¼Æ×¨ÌâÏÂÔØ£¬Ö»ÓÃÓÚÍ³¼Æ)
+	required int32  appId = 1;				// åº”ç”¨ID
+	required int32	packId = 2;				// å®‰è£…åŒ…Id
+	required int32  downloadRes = 3;		// ä¸‹è½½ç»“æœï¼š0=ä¸‹è½½æˆåŠŸï¼ˆ1= å¯åŠ¨ä¸‹è½½ 2=å¯åŠ¨å‡çº§ 11=ç”¨æˆ·ä¸»åŠ¨æš‚åœ 12=ç½‘ç»œä¸­æ–­æš‚åœ 13=æœåŠ¡å™¨ç¹å¿™ç­‰åŸå› æš‚åœ 14=å…¶ä»–åŸå› æš‚åœ 21=æš‚åœä»»åŠ¡åç»§ç»­æ–­ç‚¹ç»­ä¼  22 å–æ¶ˆä¸‹è½½ä»»åŠ¡ ï¼‰
+	optional string remark = 4;				// å¤‡æ³¨: å¯ç”¨äºä¸ŠæŠ¥å¤±è´¥è¯¦ç»†åŸå› 
+	optional string timeConsume = 5;		// æ€»è€—æ—¶(ms) (ä¸‹è½½æˆåŠŸçš„æ—¶å€™éœ€è¦ä¸ŠæŠ¥)
+	optional string downloadSpeed = 6;		// å¹³å‡ä¸‹è½½é€Ÿåº¦(kb/s) (ä¸‹è½½æˆåŠŸçš„æ—¶å€™éœ€è¦ä¸ŠæŠ¥)
+	optional int32  groupId = 7;            // åˆ†ç»„id  -- å¢åŠ æ—¶é—´ 2015-09-11 (ç»Ÿè®¡ä¸“é¢˜ä¸‹è½½ï¼Œåªç”¨äºç»Ÿè®¡)
 }
 message RspDownRes{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
 }
 
-//============================================ »ñÈ¡Ó¦ÓÃ¸üĞÂ
+//============================================ è·å–åº”ç”¨æ›´æ–°
 message ReqAppsUpdate{
-	repeated LocalAppVer localAppVer = 1;	// ¶àÌõ±¾µØÓ¦ÓÃµÄ°æ±¾
-	optional int32	checkUpdateType =2;		// ¼ì²é¸üĞÂÀàĞÍ£¬0=È«²¿¸üĞÂ£¬1=Ö»¼ì²âÓ¦ÓÃ¸üĞÂ£¬2=Ö»¼ì²âÓÎÏ·¸üĞÂ
+	repeated LocalAppVer localAppVer = 1;	// å¤šæ¡æœ¬åœ°åº”ç”¨çš„ç‰ˆæœ¬
+	optional int32	checkUpdateType =2;		// æ£€æŸ¥æ›´æ–°ç±»å‹ï¼Œ0=å…¨éƒ¨æ›´æ–°ï¼Œ1=åªæ£€æµ‹åº”ç”¨æ›´æ–°ï¼Œ2=åªæ£€æµ‹æ¸¸æˆæ›´æ–°
 }
 message RspAppsUpdate{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
-	optional bytes 	appInfoList = 3;		// ¿É¸üĞÂµÄÓ¦ÓÃÁĞ±íĞÅÏ¢
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
+	optional bytes 	appInfoList = 3;		// å¯æ›´æ–°çš„åº”ç”¨åˆ—è¡¨ä¿¡æ¯
 }
 message LocalAppVer{
-	required string packName = 1;			// °üÃû
-	required string verName = 2;			// °æ±¾ºÅ
-	required int32  verCode = 3;			// °æ±¾´úÂë
-	optional string signCode = 4;			// °²×°°üÇ©ÃûÌØÕ÷Âë
+	required string packName = 1;			// åŒ…å
+	required string verName = 2;			// ç‰ˆæœ¬å·
+	required int32  verCode = 3;			// ç‰ˆæœ¬ä»£ç 
+	optional string signCode = 4;			// å®‰è£…åŒ…ç­¾åç‰¹å¾ç 
 }
 
-//============================================ ÇëÇóÎÒµÄÓÎÏ·
+//============================================ è¯·æ±‚æˆ‘çš„æ¸¸æˆ
 message ReqUserApps{
-	repeated LocalAppVer localAppVer = 1;	// ¶àÌõ±¾µØÓ¦ÓÃµÄ°æ±¾
+	repeated LocalAppVer localAppVer = 1;	// å¤šæ¡æœ¬åœ°åº”ç”¨çš„ç‰ˆæœ¬
 }
 message RspUserApps{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
-	optional bytes 	appInfoList = 3;		// ·şÎñÆ÷ÉÏµÄÓÎÏ·ÁĞ±íĞÅÏ¢
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
+	optional bytes 	appInfoList = 3;		// æœåŠ¡å™¨ä¸Šçš„æ¸¸æˆåˆ—è¡¨ä¿¡æ¯
 }
 
-//============================================ »ñÈ¡¸ù¾İ¹Ø¼ü´ÊËÑË÷µÃµ½µÄÓ¦ÓÃÁĞ±í
+//============================================ è·å–æ ¹æ®å…³é”®è¯æœç´¢å¾—åˆ°çš„åº”ç”¨åˆ—è¡¨
 message ReqAppList4SearchKey{
-	required string SearchKeyStr = 1;		// ËÑË÷¹Ø¼ü×Ö
-	required int32 	isHotKey = 2;			// ÊÇ·ñÈÈÃÅËÑË÷´Ê£º0=ÊÇ£¬1=²»ÊÇ
-	optional int32  appClass = 3;			// Ó¦ÓÃÀà±ğ£º0=È«²¿£¬11=Ó¦ÓÃ£¬12=ÓÎÏ·
-	optional int32  appType = 4;			// Ó¦ÓÃÀàĞÍ£º0=È«²¿
-	optional int32  pageSize = 5;			// Ò³³ß´ç£ºÒ³ÃæĞèÒªÏÂ·¢¶àÉÙ¸ö
-	optional int32  pageIndex = 6;			// Ò³Âë
-	optional int32  orderType = 7;			// ÅÅĞòÀàĞÍ£º0=×Ô¶¯-ÈÈÃÅ£¬2=°´Ê±¼ä
+	required string SearchKeyStr = 1;		// æœç´¢å…³é”®å­—
+	required int32 	isHotKey = 2;			// æ˜¯å¦çƒ­é—¨æœç´¢è¯ï¼š0=æ˜¯ï¼Œ1=ä¸æ˜¯
+	optional int32  appClass = 3;			// åº”ç”¨ç±»åˆ«ï¼š0=å…¨éƒ¨ï¼Œ11=åº”ç”¨ï¼Œ12=æ¸¸æˆ
+	optional int32  appType = 4;			// åº”ç”¨ç±»å‹ï¼š0=å…¨éƒ¨
+	optional int32  pageSize = 5;			// é¡µå°ºå¯¸ï¼šé¡µé¢éœ€è¦ä¸‹å‘å¤šå°‘ä¸ª
+	optional int32  pageIndex = 6;			// é¡µç 
+	optional int32  orderType = 7;			// æ’åºç±»å‹ï¼š0=è‡ªåŠ¨-çƒ­é—¨ï¼Œ2=æŒ‰æ—¶é—´
 }
 message RspAppList4SearchKey{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
-	optional bytes  groupElems = 3;			// ·Ö×éÔªËØĞÅÏ¢
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
+	optional bytes  groupElems = 3;			// åˆ†ç»„å…ƒç´ ä¿¡æ¯
 }
 
-//============================================ ÇëÇóÓÃ»§ÆÀ·ÖĞÅÏ¢
+//============================================ è¯·æ±‚ç”¨æˆ·è¯„åˆ†ä¿¡æ¯
 message ReqUserScoreInfo{
-	required int32  appId = 1;				// Ó¦ÓÃID
+	required int32  appId = 1;				// åº”ç”¨ID
 }
 message RspUserScoreInfo{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
-	required bytes  userScoreInfo = 3;		// ·µ»ØÆÀ·ÖĞÅÏ¢
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
+	required bytes  userScoreInfo = 3;		// è¿”å›è¯„åˆ†ä¿¡æ¯
 }
 message UserScoreInfo{
-	optional int32  commentTimes = 1;		// ÆÀÂÛ´ÎÊı
-	optional int32  scoreTimes = 2;			// ÆÀ·Ö´ÎÊı
-	optional int32  scoreSum = 3;			// ×Ü·Ö
-	optional int32  scoreAvg = 4;			// Æ½¾ùÆÀ·Ö
-	optional int32  scoreTime1 = 5;			// ÆÀ·ÖÎª1µÄ´ÎÊı
-	optional int32  scoreTime2 = 6;			// ÆÀ·ÖÎª2µÄ´ÎÊı
-	optional int32  scoreTime3 = 7;			// ÆÀ·ÖÎª3µÄ´ÎÊı
-	optional int32  scoreTime4 = 8;			// ÆÀ·ÖÎª4µÄ´ÎÊı
-	optional int32  scoreTime5 = 9;			// ÆÀ·ÖÎª5µÄ´ÎÊı
-	optional UserCommentInfo userCommentInfo = 10;		// µ±Ç°ÓÃ»§Õë¶Ôµ±Ç°Ó¦ÓÃµÄÆÀÂÛ 
+	optional int32  commentTimes = 1;		// è¯„è®ºæ¬¡æ•°
+	optional int32  scoreTimes = 2;			// è¯„åˆ†æ¬¡æ•°
+	optional int32  scoreSum = 3;			// æ€»åˆ†
+	optional int32  scoreAvg = 4;			// å¹³å‡è¯„åˆ†
+	optional int32  scoreTime1 = 5;			// è¯„åˆ†ä¸º1çš„æ¬¡æ•°
+	optional int32  scoreTime2 = 6;			// è¯„åˆ†ä¸º2çš„æ¬¡æ•°
+	optional int32  scoreTime3 = 7;			// è¯„åˆ†ä¸º3çš„æ¬¡æ•°
+	optional int32  scoreTime4 = 8;			// è¯„åˆ†ä¸º4çš„æ¬¡æ•°
+	optional int32  scoreTime5 = 9;			// è¯„åˆ†ä¸º5çš„æ¬¡æ•°
+	optional UserCommentInfo userCommentInfo = 10;		// å½“å‰ç”¨æˆ·é’ˆå¯¹å½“å‰åº”ç”¨çš„è¯„è®º
 }
 
-//============================================ ÇëÇóÓÃ»§ÆÀÂÛÁĞ±í
+//============================================ è¯·æ±‚ç”¨æˆ·è¯„è®ºåˆ—è¡¨
 message ReqUserComments{
-	required int32  appId = 1;				// Ó¦ÓÃID
-	optional int32  pageSize = 2;			// Ò³³ß´ç£ºÒ³ÃæĞèÒªÏÂ·¢¶àÉÙ¸ö
-	optional int32  pageIndex = 3;			// Ò³Âë
-	optional string serverCacheVer = 4;		// ÖÕ¶ËÊı¾İ°æ±¾£ºÈç¹ûÓĞ»º´æÔòÉÏ´«£¬ÏÂ·¢Ê±¿ÉÊ¡Á÷Á¿£¬¼ÓËÙ¶È
+	required int32  appId = 1;				// åº”ç”¨ID
+	optional int32  pageSize = 2;			// é¡µå°ºå¯¸ï¼šé¡µé¢éœ€è¦ä¸‹å‘å¤šå°‘ä¸ª
+	optional int32  pageIndex = 3;			// é¡µç 
+	optional string serverCacheVer = 4;		// ç»ˆç«¯æ•°æ®ç‰ˆæœ¬ï¼šå¦‚æœæœ‰ç¼“å­˜åˆ™ä¸Šä¼ ï¼Œä¸‹å‘æ—¶å¯çœæµé‡ï¼ŒåŠ é€Ÿåº¦
 }
 message RspUserComments{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
-	optional string serverCacheVer = 3;		// ·şÎñ¶ËÊı¾İ°æ±¾ºÅ£¬¡°0¡±´ú±í¿Í»§¶ËÒÑ¾­ÊÇ×îĞÂ°æ±¾£¬·ñÔòÏÂÔØÇëÇóµÄĞÅÏ¢
-	optional bytes  userComments = 4;		// ÓÃ»§ÆÀÂÛÁĞ±íÊı¾İ
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
+	optional string serverCacheVer = 3;		// æœåŠ¡ç«¯æ•°æ®ç‰ˆæœ¬å·ï¼Œâ€œ0â€ä»£è¡¨å®¢æˆ·ç«¯å·²ç»æ˜¯æœ€æ–°ç‰ˆæœ¬ï¼Œå¦åˆ™ä¸‹è½½è¯·æ±‚çš„ä¿¡æ¯
+	optional bytes  userComments = 4;		// ç”¨æˆ·è¯„è®ºåˆ—è¡¨æ•°æ®
 }
 message UserComments{
-	repeated UserCommentInfo userCommentInfo = 1;	// ¶àÌõÓÃ»§ÆÀÂÛĞÅÏ¢
+	repeated UserCommentInfo userCommentInfo = 1;	// å¤šæ¡ç”¨æˆ·è¯„è®ºä¿¡æ¯
 }
 message UserCommentInfo{
-	optional int64  commentId = 1;			// ÆÀÂÛID
-	optional string userEI = 2;				// ÓÃ»§Éè±¸ºÅ -- ÒÑÈ¡Ïû
-	optional string userName = 3;			// ÓÃ»§Ãû
-	optional int32  userId = 4;				// ÓÃ»§ID   -- ÒÑÈ¡Ïû
-	optional int32  userScore = 5;			// ÓÃ»§ÆÀ·Ö
-	optional int32  localVerCode = 6;		// ÓÃ»§±¾µØ°æ±¾´úÂë
-	optional string localVerName = 7;		// ÓÃ»§±¾µØ°æ±¾Ãû³Æ
-	optional string comments = 8;			// ÓÃ»§ÆÀÂÛ
-	optional string commentTime = 9;		// ·¢±íÊ±¼ä
-	optional string openId = 10;            // ÓÃ»§openId
+	optional int64  commentId = 1;			// è¯„è®ºID
+	optional string userEI = 2;				// ç”¨æˆ·è®¾å¤‡å· -- å·²å–æ¶ˆ
+	optional string userName = 3;			// ç”¨æˆ·å
+	optional int32  userId = 4;				// ç”¨æˆ·ID   -- å·²å–æ¶ˆ
+	optional int32  userScore = 5;			// ç”¨æˆ·è¯„åˆ†
+	optional int32  localVerCode = 6;		// ç”¨æˆ·æœ¬åœ°ç‰ˆæœ¬ä»£ç 
+	optional string localVerName = 7;		// ç”¨æˆ·æœ¬åœ°ç‰ˆæœ¬åç§°
+	optional string comments = 8;			// ç”¨æˆ·è¯„è®º
+	optional string commentTime = 9;		// å‘è¡¨æ—¶é—´
+	optional string openId = 10;            // ç”¨æˆ·openId
 }
 
-//============================================ ÇëÇóÌí¼Ó»ò¸üĞÂÆÀÂÛ
+//============================================ è¯·æ±‚æ·»åŠ æˆ–æ›´æ–°è¯„è®º
 message ReqAddComment{
-	required string userName = 1;			// ÓÃ»§Ãû
-	required int32  appId = 2;				// Ó¦ÓÃID
-	required int32  userScore = 3;			// ÓÃ»§ÆÀ·Ö
-	optional int32  userVerCode = 4;		// ÓÃ»§±¾µØ°æ±¾´úÂë
-	optional string userVerName = 5;		// ÓÃ»§±¾µØ°æ±¾Ãû³Æ
-	optional string comments = 6;			// ÆÀÂÛÄÚÈİ
-	optional int32  commentId = 7;			// ÆÀÂÛID£¬ÓÃÓÚ¸üĞÂÆÀÂÛÊ±ÌîĞ´
+	required string userName = 1;			// ç”¨æˆ·å
+	required int32  appId = 2;				// åº”ç”¨ID
+	required int32  userScore = 3;			// ç”¨æˆ·è¯„åˆ†
+	optional int32  userVerCode = 4;		// ç”¨æˆ·æœ¬åœ°ç‰ˆæœ¬ä»£ç 
+	optional string userVerName = 5;		// ç”¨æˆ·æœ¬åœ°ç‰ˆæœ¬åç§°
+	optional string comments = 6;			// è¯„è®ºå†…å®¹
+	optional int32  commentId = 7;			// è¯„è®ºIDï¼Œç”¨äºæ›´æ–°è¯„è®ºæ—¶å¡«å†™
 }
 message RspAddComment{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü£¬2=²ÎÊı´íÎó£¬3=Ãô¸Ğ´ÊÊ§°Ü£¬4=ÏÈÉóºó·¢
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
-	required int64  commentId = 3;			// ÆÀÂÛID
-	optional string userName = 4;			// ÆÀÂÛÓÃ»§µÄÓÃ»§Ãû£¨Æ·ÅÆÃû+»úĞÍ£©
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥ï¼Œ2=å‚æ•°é”™è¯¯ï¼Œ3=æ•æ„Ÿè¯å¤±è´¥ï¼Œ4=å…ˆå®¡åå‘
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
+	required int64  commentId = 3;			// è¯„è®ºID
+	optional string userName = 4;			// è¯„è®ºç”¨æˆ·çš„ç”¨æˆ·åï¼ˆå“ç‰Œå+æœºå‹ï¼‰
 }
 
-//============================================ Ó¦ÓÃ¾Ù±¨ (2015-08-27ĞÂÔö)
+//============================================ åº”ç”¨ä¸¾æŠ¥ (2015-08-27æ–°å¢)
 message ReqAppInform{
-	required int32  appId = 1;				// Ó¦ÓÃID
-	required string	informType = 2;			// ¾Ù±¨ÀàĞÍ£¬1=Ç¿ÖÆ¹ã¸æ£¬2=ÎŞ·¨°²×°£¬3=ÖÊÁ¿²»ºÃ£¬4=°æ±¾¾É£¬5=¶ñÒâ¿Û·Ñ£¬6=Ğ¯´ø²¡¶¾£¬¶à¸öÒÔ¶ººÅ·Ö¸ô
-	optional string informDetail = 3;		// ¸ü¶àÃèÊö(ÏŞ200×Ö·û)
+	required int32  appId = 1;				// åº”ç”¨ID
+	required string	informType = 2;			// ä¸¾æŠ¥ç±»å‹ï¼Œ1=å¼ºåˆ¶å¹¿å‘Šï¼Œ2=æ— æ³•å®‰è£…ï¼Œ3=è´¨é‡ä¸å¥½ï¼Œ4=ç‰ˆæœ¬æ—§ï¼Œ5=æ¶æ„æ‰£è´¹ï¼Œ6=æºå¸¦ç—…æ¯’ï¼Œå¤šä¸ªä»¥é€—å·åˆ†éš”
+	optional string informDetail = 3;		// æ›´å¤šæè¿°(é™200å­—ç¬¦)
 }
 message RspAppInform{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
 }
 
-//============================================ ÓÃ»§·´À¡ (2015-08-27ĞÂÔö)
+//============================================ ç”¨æˆ·åé¦ˆ (2015-08-27æ–°å¢)
 message ReqFeedback{
-	required string	feedBackContent = 1;	// ·´À¡µÄÄÚÈİ
-	optional string userContact = 2;		// ÓÃ»§µÄÁªÏµ·½Ê½
+	required string	feedBackContent = 1;	// åé¦ˆçš„å†…å®¹
+	optional string userContact = 2;		// ç”¨æˆ·çš„è”ç³»æ–¹å¼
 }
 message RspFeedback{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
 }
 
-//============================================ Ó¦ÓÃÍÆ¼ö--"´ó¼Ò¶¼ÔÚÍæ"(2015-08-27ĞÂÔö)
+//============================================ åº”ç”¨æ¨è--"å¤§å®¶éƒ½åœ¨ç©"(2015-08-27æ–°å¢)
 message ReqRecommApp{
-	required int32	appId = 1;				// Ó¦ÓÃID
-	optional string appClass = 2;			// Ó¦ÓÃÀà±ğ
-	optional string appType = 3;			// Ó¦ÓÃÀàĞÍ
-	optional int32  pageSize = 4;			// Ò³³ß´ç
-	optional int32  pageIndex = 5;			// Ò³Âë (´Ó1¿ªÊ¼)
-	optional int32  orderType = 6;			// ÅÅĞòÀàĞÍ£º0=×Ô¶¯-ÈÈÃÅ£¬2=°´Ê±¼ä
-	optional string clientCacheVer = 7;		// ÖÕ¶Ë»º´æ°æ±¾£ºÈç¹ûÓĞ»º´æÔòÉÏ´«£¬ÏÂ·¢Ê±¿ÉÊ¡Á÷Á¿£¬¼ÓËÙ¶È
+	required int32	appId = 1;				// åº”ç”¨ID
+	optional string appClass = 2;			// åº”ç”¨ç±»åˆ«
+	optional string appType = 3;			// åº”ç”¨ç±»å‹
+	optional int32  pageSize = 4;			// é¡µå°ºå¯¸
+	optional int32  pageIndex = 5;			// é¡µç  (ä»1å¼€å§‹)
+	optional int32  orderType = 6;			// æ’åºç±»å‹ï¼š0=è‡ªåŠ¨-çƒ­é—¨ï¼Œ2=æŒ‰æ—¶é—´
+	optional string clientCacheVer = 7;		// ç»ˆç«¯ç¼“å­˜ç‰ˆæœ¬ï¼šå¦‚æœæœ‰ç¼“å­˜åˆ™ä¸Šä¼ ï¼Œä¸‹å‘æ—¶å¯çœæµé‡ï¼ŒåŠ é€Ÿåº¦
 }
 message RspRecommApp{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
-	optional string serverDataVer = 3;		// ·şÎñ¶ËÊı¾İ°æ±¾£¬Èç¹û¸úÇëÇóµÄ°æ±¾Ò»ÖÂ£¬´ú±í¿Í»§¶ËÒÑ¾­ÊÇ×îĞÂ°æ±¾
-	optional bytes  groupElems = 4;			// ·Ö×éÔªËØĞÅÏ¢
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
+	optional string serverDataVer = 3;		// æœåŠ¡ç«¯æ•°æ®ç‰ˆæœ¬ï¼Œå¦‚æœè·Ÿè¯·æ±‚çš„ç‰ˆæœ¬ä¸€è‡´ï¼Œä»£è¡¨å®¢æˆ·ç«¯å·²ç»æ˜¯æœ€æ–°ç‰ˆæœ¬
+	optional bytes  groupElems = 4;			// åˆ†ç»„å…ƒç´ ä¿¡æ¯
 }
 
-//============================================ ÇëÇó·Ö·¢Ó¦ÓÃÁĞ±í(Ìá¹©¸ø·ÇÉÌµêÓ¦ÓÃµ÷ÓÃ½Ó¿Ú)
+//============================================ è¯·æ±‚åˆ†å‘åº”ç”¨åˆ—è¡¨(æä¾›ç»™éå•†åº—åº”ç”¨è°ƒç”¨æ¥å£)
 message ReqDistributeApps{
-	required int32  groupClass = 1;			// ·Ö×éÀà±ğ
-	required int32  groupType = 2;			// ·Ö×éÀàĞÍ
-	optional int32  pageSize = 3;			// Ò³³ß´ç£¨×¨ÌâÓëÍÆ¼ö²»Ö§³Ö·ÖÒ³£¬pageSizeÓëpageIndexÌî0£©
-	optional int32  pageIndex = 4;			// Ò³Âë
-	optional int32  orderType = 5;			// ÅÅĞòÀàĞÍ£º0=×Ô¶¯-ÈÈÃÅ£¬2=°´Ê±¼ä
-	optional string clientCacheVer = 6;		// ÖÕ¶Ë»º´æ°æ±¾£ºÈç¹ûÓĞ»º´æÔòÉÏ´«£¬ÏÂ·¢Ê±¿ÉÊ¡Á÷Á¿£¬¼ÓËÙ¶È
+	required int32  groupClass = 1;			// åˆ†ç»„ç±»åˆ«
+	required int32  groupType = 2;			// åˆ†ç»„ç±»å‹
+	optional int32  pageSize = 3;			// é¡µå°ºå¯¸ï¼ˆä¸“é¢˜ä¸æ¨èä¸æ”¯æŒåˆ†é¡µï¼ŒpageSizeä¸pageIndexå¡«0ï¼‰
+	optional int32  pageIndex = 4;			// é¡µç 
+	optional int32  orderType = 5;			// æ’åºç±»å‹ï¼š0=è‡ªåŠ¨-çƒ­é—¨ï¼Œ2=æŒ‰æ—¶é—´
+	optional string clientCacheVer = 6;		// ç»ˆç«¯ç¼“å­˜ç‰ˆæœ¬ï¼šå¦‚æœæœ‰ç¼“å­˜åˆ™ä¸Šä¼ ï¼Œä¸‹å‘æ—¶å¯çœæµé‡ï¼ŒåŠ é€Ÿåº¦
 }
 message RspDistributeApps{
-	required int32  rescode = 1;			// ·µ»ØÂë£º0=³É¹¦£¬1=Ê§°Ü£¬2=²ÎÊı´íÎó...
-	required string resmsg = 2;				// ·µ»ØÏûÏ¢
-	optional string serverDataVer = 3;		// ·şÎñ¶ËÊı¾İ°æ±¾£¬¡°0¡±´ú±í¿Í»§¶ËÒÑ¾­ÊÇ×îĞÂ°æ±¾£¬·ñÔòÏÂÔØÇëÇóµÄĞÅÏ¢
-	optional bytes  groupElems = 4;			// GroupElemsĞ­Òé½á¹¹µÄÊı¾İ
+	required int32  rescode = 1;			// è¿”å›ç ï¼š0=æˆåŠŸï¼Œ1=å¤±è´¥ï¼Œ2=å‚æ•°é”™è¯¯...
+	required string resmsg = 2;				// è¿”å›æ¶ˆæ¯
+	optional string serverDataVer = 3;		// æœåŠ¡ç«¯æ•°æ®ç‰ˆæœ¬ï¼Œâ€œ0â€ä»£è¡¨å®¢æˆ·ç«¯å·²ç»æ˜¯æœ€æ–°ç‰ˆæœ¬ï¼Œå¦åˆ™ä¸‹è½½è¯·æ±‚çš„ä¿¡æ¯
+	optional bytes  groupElems = 4;			// GroupElemsåè®®ç»“æ„çš„æ•°æ®
 }

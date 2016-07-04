@@ -4,6 +4,7 @@ import tornado.gen
 import libs.cache as cache
 from model.const import BGSrcCacheName
 from model.const import APISrcCacheName
+import model.appsconfig as m_appsconfig
 
 
 GROUP_INFO = BGSrcCacheName.GroupInfoField
