@@ -362,6 +362,7 @@ public class PersonLogin extends AccountAuthenticatorActivity implements TimeRun
                     }
                     Log.e(TAG, errString);
                     CSToast.show(PersonLogin.this, errString);
+                    refreshLoginView(true);
                 }
             }
         });

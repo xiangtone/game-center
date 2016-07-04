@@ -139,6 +139,7 @@ public interface ProtocolListener {
 		public static int GAME_RECOMMED_TYPE = 4102;
 		public static int BOOT_RECOMMED_TYPE = 4101;// 启动推荐
 		public static int SEARCH_HOT_WORDS = 4104; //热门搜索词
+		public static int WIFI_ADV_RECOMMED_TYPE = 4110;//wifi广告推荐
 	}
 
 	final class GROUP_CLASS {

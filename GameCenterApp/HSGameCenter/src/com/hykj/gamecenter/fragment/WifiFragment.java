@@ -215,8 +215,8 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                 break;
             case GlobalConfigControllerManager.NORMAL_STATE:
                 //获取广告图分组信息
-                String selection = CSACDatabaseHelper.GroupInfoColumns.GROUP_ID + " =?";
-                String[] selectionArgs = new String[]{111 + ""};
+                String selection = CSACDatabaseHelper.GroupInfoColumns.GROUP_TYPE + " =?";
+                String[] selectionArgs = new String[]{ProtocolListener.GROUP_TYPE.WIFI_ADV_RECOMMED_TYPE + ""};
                 mGroupInfo = DatabaseUtils.getGroupinfoByDB(selection, selectionArgs);
                 if (mGroupInfo != null && mImgAdv != null) {
                     ImageLoader imageLoader = ImageLoader.getInstance();

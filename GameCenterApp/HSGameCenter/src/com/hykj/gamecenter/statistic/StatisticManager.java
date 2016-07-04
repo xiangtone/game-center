@@ -84,7 +84,7 @@ public class StatisticManager {
 		return WECHATPAY_APP_ID;
 	}
 
-	private static String CONSTANT_USER_AGGREMENT = "http://uac.api.niuwan.cc/userdeal";
+	private static String CONSTANT_USER_AGGREMENT = "http://portal.wifi8.com/baseapp/agreement.php";
 	private static String CONSTANT_RECHARGE_HELP = "http://pay.api.niuwan.cc/gamehelp";
 	private static String CONSTANT_CONSUME_HELP = "http://pay.api.niuwan.cc/gamehelp";
 	//app id scope ...
