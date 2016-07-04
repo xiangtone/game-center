@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <title>游戏详情</title>
@@ -11,8 +11,9 @@
 <!--[if lt IE 9]>
     <script type="text/javascript"  src="js/html5shiv.js"></script>
 <![endif]-->
-<script type="text/javascript"  src="js/respond.js"></script>
+
 <script src="js/jquery-2.1.4.min.js"></script>
+
 <script type="text/javascript"  src="scripts/gameIint.js"></script>
     <script type="text/javascript">
         initGlobalData(false);
@@ -23,13 +24,16 @@
     <script src="js/jquery.imgbox.pack.js"></script>-->
     <script src="scripts/swiper-3.3.1.jquery.min.js"></script>
     <link rel="stylesheet" href="Content/swiper.min.css">
+    <script src="js/scrollable.js"></script>
+    <script src="js/md5.js"></script>
     <style>
-        .swiper-wrapper img{width:1.8rem;height:2.8rem; display:block;margin: 0 auto;border:solid 5px #fff;}
+        .swiper-wrapper img{/*width:1.8rem;height:2.8rem;*/ display:block;margin: 0 auto;border:solid 5px #fff;}
         .swiper-container {
             width: 100%;
             overflow: hidden;
-            padding-bottom: 2%;
+            margin-bottom: -10%;
         }
+        .swiper-wrapper{margin: auto 0}
 
         .swiper-slide {
             display: -ms-flexbox;
@@ -67,7 +71,25 @@
             white-space: nowrap;
         }
     </style>
-<!--游戏截图打开放大隐藏-->
+<!--礼包弹出层-->
+    <script>
+        $(document).ready(function() {
+            $('div.game_Detil img ').click(function(){
+
+
+                $('.theme-popover-mask').fadeIn(100);
+                $('.gift_popover').slideDown(200);
+            });
+            $('.gift_poptit .close').click(function(){
+                $('.theme-popover-mask').fadeOut(100);
+                $('.gift_popover').slideUp(200);
+            })
+
+
+        })
+    </script>
+
+    <!--游戏截图打开放大隐藏-->
     <!--<style>
 
 
@@ -96,16 +118,18 @@
 </div>
 
          <div class="game_Detil">
-                 <figure>
-					<img src="imgs/皇室战争.png" alt="皇室战争">
-					<figcaption>
-						<h4>皇家战争</h4>
-                         <h5><span>1345</span>人下载</h5>
-						<h5 id=""><img src="imgs/star-5.png" alt="等级"> </h5>
-					</figcaption>
-				</figure>
+             <!--<div class="game_Detil_left">-->
+                 <!--<figure>-->
+					<!--<img src="imgs/皇室战争.png" alt="">-->
+					<!--<figcaption>-->
+						<!--<h4></h4>-->
+                         <!--<h5><span></span></h5>-->
+						<!--<h5 ><img src="imgs/star-5.png" alt="等级"> </h5>-->
+					<!--</figcaption>-->
+				<!--</figure>-->
+                 <!--<a class="game_Detil_gift"><button  id="libao" class="btn btn-danger btn-sm" >礼包</button></a></div>-->
+             <!--<div> <a  class="game_Detil_download" href="#">  （<span >32.1</span>MB）</a></div>-->
 
-			 <a  class="game_Detil_download" href="#">  免费下载（<span id="">32.1</span>MB）</a>
 
 
 		 </div>
@@ -119,7 +143,7 @@
 
 
 
-<div class=" swiper-container " style="height: 2.8rem">
+<div class=" swiper-container " >
     <div class="swiper-wrapper">
         <div class="swiper-slide" >
          <img src=""/>
@@ -162,33 +186,36 @@
         pagination: '.pagination',
         paginationClickable: true,
         freeMode: true,
-        freeModeFluid: true
+        freeModeFluid: true,
+        calculateHeight:true,
+        autoplay:3000
+
     })
 </script>
 
 
 
-<div class="app_details" id="update_detail">
-    <details close>
-        <summary class="app_details_summary">升级介绍</summary>
-        <pre class="p_details" ></pre>
-    </details>
-
-</div>
+<div class="clearfix"></div>
 
 <div class="app_details" id="apk_detail">
-    <details open>
+    <details open="open">
         <summary class="app_details_summary">应用介绍</summary>
         <pre class="p_details"></pre>
     </details>
 
 </div>
+<div class="app_details" id="update_detail">
+    <details >
+        <summary class="app_details_summary">升级介绍</summary>
+        <pre class="p_details" ></pre>
+    </details>
+</div>
 
 <div class="app_details_h">
 
-    <h6 class="p_details_h">开发商：<span id="">   华影科技  </span></h6>
-    <h6 class="p_details_h">更新日期：<time id="">   2016-3-2  </time></h6>
-    <h6 class="p_details_h">版本号：<span id="">   2.03.6  </span></h6>
+    <h6 class="p_details_h">开发商：<span >   华影科技  </span></h6>
+    <h6 class="p_details_h">更新日期：<time >   2016-3-2  </time></h6>
+    <h6 class="p_details_h">版本号：<span >   2.03.6  </span></h6>
 </div>
 
 <div class="recommend_g app_details_re">
@@ -222,32 +249,103 @@
 
 
     </ul>
+    </div>
 
+<div class="gift_popover">
+    <div class="gift_poptit">
+        <a class="close">×</a>
+        <h3>游戏大礼包</h3></div>
+<h3 class="ganme_num">验证码：</h3>
+<h4 class="ganme_num_2"><!--<em class="ganme_num2_em">123456</em> <span class="ganme_num2">长按复制游戏号</span>--></h4>
+    <h4 class="ganme_num_3">  <span class='ganme_num2'>*长按复制</span></h4>
+    <div class="page_img">
+        <h5 style="font-size: 0.14rem;color: #333">1.微信搜索关注“花生游戏中心”</h5>
+        <img src="imgs/er1.png" alt=""/>
+        <h5 style="font-size: 0.14rem;color: #333">2.公众号回复验证码，换取礼包序列号</h5>
+        <img src="imgs/code.png" alt=""/>
 
     </div>
-    <script type=text/javascript>
-        setBackTitle();
-    </script>
-<!-- <script>
-    $(document).ready(function(swiper){
-        img_height = $('.ggimg').height();
-        $(".swiper-container").css("height",img_height+'px');
-        $(".swiper-wrapper").css("height",img_height+'px');
-        $(".swiper-slide").css("height",img_height+'px');
-        
+
+
+   <!-- <div id="wizard">
+
+
+        <div class="items">
+            <div class="page">
+                <h5 style="font-size: 0.14rem;color: #333">1.微信搜索关注“花生游戏中心”</h5>
+                <img src="imgs/er1.png" alt=""/>
+                <h5 style="font-size: 0.14rem;color: #333">2.公众号回复游戏号，换取礼包序列号</h5>
+                <img src="imgs/code.png" alt=""/>
+                &lt;!&ndash;<div class="btn_nav">
+                    <input type="button" class="next right" value="下一步&raquo;" />
+                </div>&ndash;&gt;
+            </div>
+            <div class="page">
+                哈哈2
+                <div class="btn_nav">
+                    <input type="button" class="prev" style="float:left" value="&laquo;上一步" />
+                    <input type="button" class="next right" value="下一步&raquo;" />
+                </div>
+            </div>
+            <div class="page">
+               小小
+                <div class="btn_nav">
+                    <input type="button" class="prev" style="float:left" value="&laquo;上一步" />
+                    &lt;!&ndash;<input type="button" class="next right" id="sub" value="确定" />&ndash;&gt;
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    <!--&lt;!&ndash;MOB SHARE BEGIN&ndash;&gt;-->
+    <!--<div class="-mob-share-ui-button -mob-share-open">分享</div>-->
+    <!--<div class="-mob-share-ui" style="display: none">-->
+        <!--<ul class="-mob-share-list">-->
+            <!--<li class="-mob-share-weixin"><p>微信</p></li>-->
+            <!--<li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>-->
+            <!--<li class="-mob-share-qzone"><p>QQ空间</p></li>-->
+            <!--<li class="-mob-share-qq"><p>QQ好友</p></li>-->
+            <!--<li class="-mob-share-renren"><p>人人网</p></li>-->
+            <!--<li class="-mob-share-kaixin"><p>开心网</p></li>-->
+            <!--<li class="-mob-share-douban"><p>豆瓣</p></li>-->
+            <!--<li class="-mob-share-facebook"><p>Facebook</p></li>-->
+            <!--<li class="-mob-share-twitter"><p>Twitter</p></li>-->
+        <!--</ul>-->
+        <!--<div class="-mob-share-close">取消</div>-->
+    <!--</div>-->
+    <!--<div class="-mob-share-ui-bg"></div>-->
+    <!--<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=你的appkey"></script>-->
+    <!--&lt;!&ndash;MOB SHARE END&ndash;&gt;-->
+
+
+
+    <!--<img style="display: block;margin: 0.1rem auto;width: 2.2rem;height: 2.2rem" src="imgs/erweima.png" alt=""/>-->
+</div>
+<div class="theme-popover-mask"></div>
+
+<script type="text/javascript">
+    $(function(){
+        $("#wizard").scrollable({
+            onSeek: function(event,i){
+                $("#status li").removeClass("active").eq(i).addClass("active");
+            }
+//
+        });
+        $("#sub").click(function(){
+            var data = $("form").serialize();
+            alert(data);
+        });
     });
 </script>
-<script>
-    $(document).load(function(swiper){
 
-        img_height = $('.ggimg').height();
-        $(".swiper-container").css("height",img_height+'px');
-        $(".swiper-wrapper").css("height",img_height+'px');
-        $(".swiper-slide").css("height",img_height+'px');
-       
-    });
-</script> -->
 
+
+
+
+
+<script type=text/javascript>
+        setBackTitle();
+    </script>
 
 
 </body>

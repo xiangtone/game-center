@@ -219,4 +219,50 @@ jQuery(document).ready(function($){
 
 });
 
+/*卡位*/
 
+$(document).ready(function() {
+    var navoffeset=$(".fix_top").offset().top;
+    $(window).scroll(function(){
+        var scrollpos=$(window).scrollTop();
+        if(scrollpos >navoffeset){
+            $(".fix_top").addClass("fixed");
+        }else{
+            $(".fix_top").removeClass("fixed");
+        }
+    });
+
+});
+
+
+
+
+//
+//$(document).ready(function() {
+//
+//    $(function () {
+//        var winHeight = $(document).scrollTop();
+//
+//        $(window).scroll(function () {
+//            var scrollY = $(document).scrollTop();// ��ȡ��ֱ�����ľ��룬�������˶���
+//            var myCarousel=$("#myCarousel").height();
+//            if (scrollY > myCarousel) { //�������������550px
+//                $('.fix_top').css({"position": "fixed","top":"0","z-index": "999"});
+//                $('.hfine_game').css({"margin-top":"130px"});
+//            }
+//            else {
+//                $('#nav_bg').css({"position": "relative"});
+//                $('.hfine_game').css({"margin-top":"0"});
+//            }
+//
+//            if (scrollY < myCarousel) { //���û������������ɾ����ʾ�࣬���������ʾ��
+//                $('.fix_top').css({"position": "relative"});
+//            }
+//            else {
+//                $('#nav_bg ').css({"background-color":"rgba(0,0,0,0.0)"});
+//            }
+//
+//        });
+//    });
+//});
+/*闪屏*/
