@@ -5,8 +5,8 @@ $(document).ready(function () {
     $(window).scroll(window_onscroll);
 });
 
-// var configChannelId = "BD537D84B909BE7962F046A0AA0CBD8C";   //huashengWIFI
-var configChannelId = "038360A9989CAEAFF00318BBB3400757";   //schoolWIFI
+var configChannelId = "BD537D84B909BE7962F046A0AA0CBD8C";   //huashengWIFI
+//var configChannelId = "038360A9989CAEAFF00318BBB3400757";   //schoolWIFI
 
 document.write("<script src='" +
     getChannel()+
@@ -338,4 +338,18 @@ function window_onscroll() {
         if (typeof (page_onbottom) != "undefined")
             page_onbottom();
     }
+}
+
+function libao() {
+    $('div.game_Detil a ').click(function(){
+
+
+        $('.theme-popover-mask').fadeIn(100);
+        $('.gift_popover').slideDown(200);
+    });
+    $('.gift_poptit .close').click(function(){
+        $('.theme-popover-mask').fadeOut(100);
+        $('.gift_popover').slideUp(200);
+    })
+
 }
