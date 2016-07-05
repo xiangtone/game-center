@@ -301,9 +301,9 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         mBadgeView.setBadgeBackgroundColor(Color.RED); //背景颜色
         mBadgeView.setTextSize(12); //文本大小
 //        int offset = getResources().getDimensionPixelOffset(R.dimen.tips_offset);
-        int offset = Tools.getDisplayWidth(this) / 12;
-        mBadgeView.setBadgeMargin(offset - 64, 0); //水平和竖直方向的间距
-//        mBadgeView.setBadgeMargin(50, -50); //水平和竖直方向的间距
+        int offset = Tools.getDisplayWidth(this) / 20;
+//        mBadgeView.setBadgeMargin(offset - 64, 0); //水平和竖直方向的间距
+        mBadgeView.setBadgeMargin(offset,0);
         mBadgeView.toggle();
 
         handleAction();

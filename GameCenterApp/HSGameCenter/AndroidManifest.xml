@@ -94,10 +94,21 @@
                 <data
                     android:host="appstore"
                     android:path="/homepage"
-                    android:scheme="cs">
+                    android:scheme="hykj">
                 </data>
 
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="com.hykj.gamecenter"
+                    android:path="/homepage"
+                    android:scheme="hykj">
+                </data>
             </intent-filter>
         </activity>
         <activity

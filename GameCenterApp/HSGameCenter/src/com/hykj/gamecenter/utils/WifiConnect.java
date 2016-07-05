@@ -2,7 +2,9 @@ package com.hykj.gamecenter.utils;
 
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.hykj.gamecenter.net.WifiHttpUtils;
@@ -72,9 +74,15 @@ public class WifiConnect {
     }
 
     // 连接同一类型的wifi
-    public boolean Connect(String SSIDHead, WifiCipherType Type) {
+
+    /**
+     * @param SSIDHead
+     * @param Type
+     * @return -1 未检测到花生wifi， -2 连接失败， 1 重连成功，2 直连成功
+     */
+    public Integer Connect(String SSIDHead, WifiCipherType Type) {
         if (!this.OpenWifi()) {
-            return false;
+            return -1;
         }
         // 开启wifi功能需要一段时间(我在手机上测试一般需要1-3秒左右)，所以要等到wifi
         // 状态变成WIFI_STATE_ENABLED的时候才能执行下面的语句
@@ -86,6 +94,16 @@ public class WifiConnect {
             } catch (InterruptedException ie) {
             }
         }
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        if (wifiInfo != null) {
+            String connectedSsid = wifiInfo.getSSID();
+            if (!TextUtils.isEmpty(connectedSsid) && ((connectedSsid.startsWith(SSIDHead) ||
+                    connectedSsid.startsWith("\"" + SSIDHead)))) {
+                boolean connected = wifiManager.enableNetwork(wifiInfo.getNetworkId(), true);
+                if (connected) return 2;
+            }
+        }
+
         List<ScanResult> availableSSID = new ArrayList<ScanResult>();
         //扫描可用wifi
         List<ScanResult> scanResultList = wifiManager.getScanResults();
@@ -93,34 +111,35 @@ public class WifiConnect {
             for (ScanResult scanResult : scanResultList) {
                 Log.i(TAG, scanResult.SSID);
                 if (scanResult.SSID.startsWith(SSIDHead) ||
-                        scanResult.SSID.startsWith("\"" + WifiHttpUtils.SSID_HEAD + "\"")) {
+                        scanResult.SSID.startsWith("\"" + WifiHttpUtils.SSID_HEAD)) {
                     availableSSID.add(scanResult);
                 }
             }
         }
+        if (availableSSID.size() <= 0) {
+            return -1;
+        }
+
         for (ScanResult scanResult : availableSSID) {
             WifiConfiguration wifiConfig = this.CreateWifiInfo(scanResult.SSID, "", Type);
             if (wifiConfig == null) {
-                return false;
+                return -2;
             }
 
             WifiConfiguration tempConfig = this.IsExsits(scanResult.SSID);
             int netID = 0;
             if (tempConfig != null) {
                 wifiManager.removeNetwork(tempConfig.networkId);
-//                wifiManager.updateNetwork(tempConfig);
             }
-//            else {
-                netID = wifiManager.addNetwork(wifiConfig);
-//            }
+            netID = wifiManager.addNetwork(wifiConfig);
             Log.i(TAG, netID + "");
             boolean bRet = wifiManager.enableNetwork(netID, true);
             if (!bRet) {
                 continue;
             }
-            return true;
+            return 1;
         }
-        return false;
+        return -2;
 
     }
 
@@ -149,7 +168,7 @@ public class WifiConnect {
         if (existingConfigs != null) {
             for (WifiConfiguration existingConfig : existingConfigs) {
                 Log.i(TAG, existingConfig.SSID);
-                if (existingConfig.SSID.equals("\"" + SSID + "\"")) {
+                if (existingConfig.SSID.equals("\"" + SSID) || existingConfig.SSID.startsWith(SSID)) {
                     return existingConfig;
                 }
             }
@@ -170,6 +189,7 @@ public class WifiConnect {
 //			config.wepKeys[0] = null;
 
             config.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+
 
 //			config.wepTxKeyIndex = 0;
         } else if (Type == WifiCipherType.WIFICIPHER_WEP) {

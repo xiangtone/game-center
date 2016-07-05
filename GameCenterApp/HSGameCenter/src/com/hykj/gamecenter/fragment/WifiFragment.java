@@ -426,41 +426,43 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
         super.onDestroy();
     }
 
-    final class ConnectTask extends AsyncTask<Void, Void, Boolean> {
+    final class ConnectTask extends AsyncTask<Void, Void, Integer> {
 
         @Override
-        protected Boolean doInBackground(Void... params) {
+        protected Integer doInBackground(Void... params) {
             // TODO Auto-generated method stub
             WifiConnect con = new WifiConnect(mWifiManager);
-            //花生地铁WiFi_测试_szoffice
-
-//            String ssid = "SGV-test";
-
-//            boolean connected = con.Connect(ssid,
-//                    "26630499", WifiConnect.WifiCipherType.WIFICIPHER_WPA);
-//            String ssid = "huaying-1";
-//
-//            boolean connected = con.Connect(ssid,
-//                    "hy1234560", WifiConnect.WifiCipherType.WIFICIPHER_WPA);
-            boolean connected = con.Connect(WifiHttpUtils.SSID_HEAD,
+            int connected = con.Connect(WifiHttpUtils.SSID_HEAD,
                     WifiConnect.WifiCipherType.WIFICIPHER_NOPASS);
 
             return connected;
         }
 
         @Override
-        protected void onPostExecute(Boolean result) {
+        protected void onPostExecute(Integer result) {
             // TODO Auto-generated method stub
             super.onPostExecute(result);
+            switch (result) {
+                case -1:    //未检测到花生wifi
+                    CSToast.show(mParentActiity, "未检测到花生wifi");
+                    updateState(ConnectState.WIFIUNVISIBLE);
+                    break;
+                case -2:    //连接失败
+                    CSToast.show(mParentActiity, "连接wifi失败");
+                    updateState(ConnectState.WIFIUNVISIBLE);
+                    break;
+                case 1:     //重连成功
+                    break;
+                case 2:     //直连成功
+                    mWifiListener.networkChange(1, null);
+                    break;
 
-            if (!result) {
-//                msgHandler.removeMessages(MSG_CONNECTED_TIMEOUT);
-//                Toast.makeText(mParentActiity, getResources().getString(R.string.wifi_connectederror),
-//                        Toast.LENGTH_LONG).show();
-//                msgHandler.sendEmptyMessage(MSG_DISM_DIALOG);
-                CSToast.show(mParentActiity, "连接wifi失败");
-                updateState(ConnectState.WIFIUNVISIBLE);
             }
+
+//            if (!result) {
+//                CSToast.show(mParentActiity, "连接wifi失败");
+//                updateState(ConnectState.WIFIUNVISIBLE);
+//            }
         }
     }
 
@@ -573,7 +575,8 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                 if (!code.equals("99")) {
                     String errString = codemsg;
                     if (code.equals("4")) { //会话超时需要重连一次，如果继续会话超时则重新登陆连接
-                        if (RESTART_COUNT++ <= 0) {
+                        int uuid = App.getSharedPreference().getInt(StatisticManager.KEY_WIFI_UUID, 0);
+                        if (RESTART_COUNT++ <= 0 && uuid != 0) {
                             openWifi();
                             Log.e(TAG, errString);
                             return;

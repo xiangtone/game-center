@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -326,14 +325,14 @@ public class SettingListFragment extends Fragment {
             // settingItemToggleView.setOnItemClickListener(listListener);
 
             mBtnLoginOut = (Button)rootView.findViewById(R.id.btnLoginOut);
-            String sessid = App.getSharedPreference().getString(StatisticManager.KEY_WIFI_SESSID, "");
-            mBtnLoginOut.setEnabled(!TextUtils.isEmpty(sessid));
+            int uuid = App.getSharedPreference().getInt(StatisticManager.KEY_WIFI_UUID, 0);
+            mBtnLoginOut.setEnabled(uuid != 0);
             mBtnLoginOut.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //退出登录
                     App.getSharedPreference().edit()
-                            .putString(StatisticManager.KEY_WIFI_SESSID, "")
+                            .putInt(StatisticManager.KEY_WIFI_UUID, 0)
                             .apply();
                     getActivity().finish();
                 }
