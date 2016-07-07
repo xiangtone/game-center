@@ -99,6 +99,19 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.hykj.gamecenter"
+                    android:path="/homepage"
+                    android:scheme="hykj">
+                </data>
+
+            </intent-filter>
         </activity>
         <activity
             android:name="com.hykj.gamecenter.activity.SettingListActivity"
