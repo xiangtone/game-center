@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hykj.gamecenter"
     android:versionCode="3"
     android:versionName="6.12.14.70">
@@ -55,7 +54,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BATTERY_STATS" />
-    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
@@ -88,49 +87,45 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action
-                    android:name="com.hykj.gamecenter.activity.HomePageActivity" />
+                <action android:name="com.hykj.gamecenter.activity.HomePageActivity" />
 
                 <data
                     android:host="appstore"
                     android:path="/homepage"
-                    android:scheme="hykj">
-                </data>
+                    android:scheme="hykj"></data>
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
 
                 <data
                     android:host="com.hykj.gamecenter"
                     android:path="/homepage"
-                    android:scheme="hykj">
-                </data>
+                    android:scheme="hykj"></data>
             </intent-filter>
         </activity>
         <activity
             android:name="com.hykj.gamecenter.activity.SettingListActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="user"
             android:launchMode="singleTask"
-            android:theme="@style/Translucent">
-        </activity>
+            android:screenOrientation="user"
+            android:theme="@style/Translucent"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.GameClassifyActivity"
             android:configChanges="orientation"
             android:screenOrientation="user">
             <intent-filter>
-                <action
-                    android:name="com.hykj.gamecenter.activity.GameClassifyActivity" />
+                <action android:name="com.hykj.gamecenter.activity.GameClassifyActivity" />
 
                 <data
                     android:host="appstore"
                     android:path="/gameclassify"
-                    android:scheme="cs">
-                </data>
+                    android:scheme="cs"></data>
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -138,38 +133,32 @@
         <activity
             android:name="com.hykj.gamecenter.activity.SettingAboutActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="user"
             android:launchMode="singleTask"
-            android:theme="@style/Translucent">
-        </activity>
+            android:screenOrientation="user"
+            android:theme="@style/Translucent"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.SearchActivity"
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="user"
             android:theme="@style/Translucent"
-            >
-        </activity>
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.CSLoadingActivity"
             android:exported="true"
             android:launchMode="singleTop"
-            android:screenOrientation="user">
-        </activity>
+            android:screenOrientation="user"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.GroupAppListActivity"
             android:configChanges="orientation"
             android:screenOrientation="user"
             android:theme="@style/Translucent">
             <intent-filter>
-                <action
-                    android:name="com.hykj.gamecenter.activity.GroupAppListActivity" />
+                <action android:name="com.hykj.gamecenter.activity.GroupAppListActivity" />
 
                 <data
                     android:host="appstore"
                     android:path="/groupapplist"
-                    android:scheme="cs">
-                </data>
+                    android:scheme="cs"></data>
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -181,14 +170,12 @@
             android:screenOrientation="user"
             android:theme="@style/Translucent">
             <intent-filter>
-                <action
-                    android:name="com.hykj.gamecenter.activity.GroupListActivity" />
+                <action android:name="com.hykj.gamecenter.activity.GroupListActivity" />
 
                 <data
                     android:host="appstore"
                     android:path="/groupapp"
-                    android:scheme="cs">
-                </data>
+                    android:scheme="cs"></data>
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -200,8 +187,7 @@
             android:screenOrientation="user"
             android:theme="@style/Translucent">
             <intent-filter>
-                <action
-                    android:name="com.hykj.gamecenter.activity.AppManageActivity" />
+                <action android:name="com.hykj.gamecenter.activity.AppManageActivity" />
 
                 <data
                     android:host="appstore"
@@ -212,11 +198,9 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name="com.hykj.gamecenter.activity.AppManageActivity$NotificationMessageReceiver">
+        <receiver android:name="com.hykj.gamecenter.activity.AppManageActivity$NotificationMessageReceiver">
             <intent-filter>
-                <action
-                    android:name="com.hykj.gamecenter.activity.AppManageActivity.NotificationMessageReceiver" />
+                <action android:name="com.hykj.gamecenter.activity.AppManageActivity.NotificationMessageReceiver" />
             </intent-filter>
         </receiver>
         <receiver android:name="com.hykj.gamecenter.broadcast.WifiUpdateReceiver">
@@ -224,6 +208,7 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
                 <action android:name="android.net.wifi.STATE_CHANGE" />
+
                 <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </receiver>
@@ -232,8 +217,7 @@
             android:name="com.hykj.gamecenter.activity.ImageGalleryActivity"
             android:configChanges="screenSize|keyboardHidden|orientation"
             android:launchMode="singleTop"
-            android:process=":imagegallery">
-        </activity>
+            android:process=":imagegallery"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.PadAppInfoActivity"
             android:configChanges="screenSize|keyboardHidden|orientation"
@@ -242,14 +226,12 @@
             android:screenOrientation="user"
             android:theme="@style/detail_dialog">
             <intent-filter>
-                <action
-                    android:name="com.hykj.gamecenter.activity.PadAppInfoActivity" />
+                <action android:name="com.hykj.gamecenter.activity.PadAppInfoActivity" />
 
                 <data
                     android:host="appstore"
                     android:path="/appinfo"
-                    android:scheme="cs">
-                </data>
+                    android:scheme="cs"></data>
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -260,14 +242,12 @@
             android:exported="true"
             android:screenOrientation="user">
             <intent-filter>
-                <action
-                    android:name="com.hykj.gamecenter.activity.PhoneAppInfoActivity" />
+                <action android:name="com.hykj.gamecenter.activity.PhoneAppInfoActivity" />
 
                 <data
                     android:host="appstore"
                     android:path="/appinfo"
-                    android:scheme="cs">
-                </data>
+                    android:scheme="cs"></data>
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -276,69 +256,60 @@
             android:name="com.hykj.gamecenter.activity.WriteCommentActivity"
             android:configChanges="screenSize|keyboardHidden|orientation"
             android:label="@string/app_name"
-            android:windowSoftInputMode="stateVisible|adjustResize|adjustPan">
-        </activity>
+            android:windowSoftInputMode="stateVisible|adjustResize|adjustPan"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.RechargeActivity"
             android:launchMode="singleTop"
             android:screenOrientation="user"
-            android:taskAffinity="com.hykj.gamecenter.sdk">
-        </activity>
+            android:taskAffinity="com.hykj.gamecenter.sdk"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.RechargeListActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="user">
-        </activity>
+            android:screenOrientation="user"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.ConsumeListActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="user">
-        </activity>
+            android:screenOrientation="user"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.WeChatPayActivity"
             android:exported="true"
             android:launchMode="singleInstance"
+            android:screenOrientation="user"
             android:taskAffinity="com.hykj.gamecenter.sdk"
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
-            android:screenOrientation="user">
-        </activity>
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.ImproperReportActivity"
             android:exported="true"
             android:launchMode="singleTop"
-            android:screenOrientation="user">
-        </activity>
+            android:screenOrientation="user"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.ImproperDetailActivity"
             android:exported="true"
             android:launchMode="singleTop"
-            android:screenOrientation="user">
-        </activity>
+            android:screenOrientation="user"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.Html5HelpActivity"
             android:exported="true"
             android:launchMode="singleTop"
-            android:screenOrientation="user">
-        </activity>
+            android:screenOrientation="user"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.UnionPayActivity"
             android:exported="true"
             android:launchMode="singleTop"
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
-            android:screenOrientation="user">
-        </activity>
+            android:screenOrientation="user"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.AliPayActivity"
             android:launchMode="singleTop"
             android:screenOrientation="user"
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
-            android:taskAffinity="com.hykj.gamecenter.sdk" />
+            android:taskAffinity="com.hykj.gamecenter.sdk"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
         <activity
             android:name="com.hykj.gamecenter.activity.MobilePayActivity"
             android:launchMode="singleTop"
             android:screenOrientation="user"
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
-            android:taskAffinity="com.hykj.gamecenter.sdk" />
+            android:taskAffinity="com.hykj.gamecenter.sdk"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
 
         <provider
             android:name="com.hykj.gamecenter.db.CSACContentProvider"
@@ -354,8 +325,8 @@
 
         <service
             android:name="com.hykj.gamecenter.download.DownloadService"
-            android:process=":dl"
-            android:exported="false">
+            android:exported="false"
+            android:process=":dl">
             <intent-filter>
                 <action android:name="com.hykj.gamecenter.download.service.action" />
             </intent-filter>
@@ -401,15 +372,13 @@
             android:name="com.hykj.gamecenter.activity.PersonalActivtiy"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:screenOrientation="user">
-        </activity>
+            android:screenOrientation="user"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.PersonLogin"
             android:label="@string/title_activity_person_login"
             android:launchMode="singleTop"
             android:screenOrientation="user"
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden">
-        </activity>
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"></activity>
 
         <!-- alipay sdk begin -->
         <activity
@@ -417,8 +386,7 @@
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
             android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden">
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
 
         <!-- alipay sdk end -->
 
@@ -465,15 +433,12 @@
         <activity
             android:name="com.hykj.gamecenter.activity.AccountManagerActivity"
             android:label="@string/title_activity_account_manager"
-            android:screenOrientation="user">
-        </activity>
+            android:screenOrientation="user"></activity>
         <activity
             android:name="com.hykj.gamecenter.activity.RenameActivity"
             android:label="@string/title_activity_rename"
             android:screenOrientation="user"
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
-            >
-        </activity>
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"></activity>
         <activity
             android:name="com.payeco.android.plugin.PayecoPluginLoadingActivity"
             android:launchMode="singleTop"
@@ -492,8 +457,7 @@
             android:exported="true"
             android:process=":remote">
             <intent-filter>
-                <action android:name="com.baidu.location.service_v2.2">
-                </action>
+                <action android:name="com.baidu.location.service_v2.2"></action>
             </intent-filter>
         </service>
 
@@ -506,8 +470,7 @@
             android:exported="true"
             android:label="@string/title_activity_wxentry"
             android:launchMode="singleTop"
-            android:theme="@android:style/Theme.Translucent">
-        </activity>
+            android:theme="@android:style/Theme.Translucent"></activity>
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -527,67 +490,67 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.hykj.gamecenter.activity.FeedbackActivity"
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_feedback">
-        </activity>
+            android:label="@string/title_activity_feedback"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"></activity>
 
         <service
             android:name=".services.WifiFreshService"
             android:exported="true"
             android:process=":wifi_connected" />
 
-                <receiver
-					android:name="com.tencent.android.tpush.XGPushReceiver"
-					android:process=":xg_service_v2" >
-					<intent-filter android:priority="0x7fffffff" >
-						<action android:name="com.tencent.android.tpush.action.SDK" />
-						<action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE" />
-						<action android:name="android.intent.action.USER_PRESENT" />
-						<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+        <receiver
+            android:name="com.tencent.android.tpush.XGPushReceiver"
+            android:process=":xg_service_v2">
+            <intent-filter android:priority="0x7fffffff">
+                <action android:name="com.tencent.android.tpush.action.SDK" />
+                <action android:name="com.tencent.android.tpush.action.INTERNAL_PUSH_MESSAGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
 
-						<action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
-						<action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-						<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-					</intent-filter>
-				</receiver>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
 
-				<receiver android:name="com.hykj.gamecenter.receiver.MessageReceiver"
-                    android:exported="false">
-					<intent-filter>
-						<action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" />
-						<action android:name="com.tencent.android.tpush.action.FEEDBACK" />
-					</intent-filter>
-				</receiver>
+        <receiver
+            android:name="com.hykj.gamecenter.receiver.MessageReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" />
+                <action android:name="com.tencent.android.tpush.action.FEEDBACK" />
+            </intent-filter>
+        </receiver>
 
-				<activity
-					android:name="com.tencent.android.tpush.XGPushActivity"
-					android:exported="false" >
-					<intent-filter>
-						<action android:name="android.intent.action" />
-					</intent-filter>
-				</activity>
+        <activity
+            android:name="com.tencent.android.tpush.XGPushActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action" />
+            </intent-filter>
+        </activity>
 
-				<service
-					android:name="com.tencent.android.tpush.service.XGPushService"
-					android:exported="true"
-					android:persistent="true"
-					android:process=":xg_service_v2" />
+        <service
+            android:name="com.tencent.android.tpush.service.XGPushService"
+            android:exported="true"
+            android:persistent="true"
+            android:process=":xg_service_v2" />
 
-				<service
-					android:name="com.tencent.android.tpush.rpc.XGRemoteService"
-					android:exported="true" >
-					<intent-filter>
-						<action android:name="com.hykj.gamecenter.PUSH_ACTION" />
-					</intent-filter>
-				</service>
+        <service
+            android:name="com.tencent.android.tpush.rpc.XGRemoteService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.hykj.gamecenter.PUSH_ACTION" />
+            </intent-filter>
+        </service>
 
-				<meta-data
-					android:name="XG_V2_ACCESS_ID"
-					android:value="2100166907" />
-				<meta-data
-					android:name="XG_V2_ACCESS_KEY"
-					android:value="A4T1CGH5J83F" />
+        <meta-data
+            android:name="XG_V2_ACCESS_ID"
+            android:value="2100166907" />
+        <meta-data
+            android:name="XG_V2_ACCESS_KEY"
+            android:value="A4T1CGH5J83F" />
     </application>
 
 </manifest>

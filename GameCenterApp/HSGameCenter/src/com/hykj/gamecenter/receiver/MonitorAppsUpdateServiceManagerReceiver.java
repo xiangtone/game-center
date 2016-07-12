@@ -1,8 +1,6 @@
 
 package com.hykj.gamecenter.receiver;
 
-import java.util.ArrayList;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +11,8 @@ import com.hykj.gamecenter.services.MonitorAppsUpdateServiceHelper;
 import com.hykj.gamecenter.utils.AsyncHandler;
 import com.hykj.gamecenter.utils.Logger;
 import com.hykj.gamecenter.utils.ServiceWakeLock;
+
+import java.util.ArrayList;
 
 //服务 的管理类，用于接收相关广播然后 检查并启动 回复反馈服务类
 public class MonitorAppsUpdateServiceManagerReceiver extends BroadcastReceiver {
