@@ -582,7 +582,8 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         // 如果是首次启动
 //		Log.d(TAG, "bFirstLaunch = " + mbFirstLaunch + " mbBackPressed = " + backPressed);
         boolean gotoRecommm = getIntent().getBooleanExtra(KEY_GOTO_RECOMM, false);
-        if (gotoRecommm || (UpdateUtils.shouldCheckRecommTiem() && !backPressed)) {
+        boolean wifiHasShow = App.getSharedPreference().getBoolean(StatisticManager.KEY_WIFIMASK_SHOW, false);
+        if (gotoRecommm || (UpdateUtils.shouldCheckRecommTiem() && !backPressed && wifiHasShow)) {
 
             showNoviceGuidanceView();
             // 首次启动发送可更新应用通知，不管有没有可更新应用都发送， ##############oddshou 暂时去除

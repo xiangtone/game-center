@@ -498,6 +498,10 @@
             android:name=".services.WifiFreshService"
             android:exported="true"
             android:process=":wifi_connected" />
+<!--        <service
+            android:name=".services.DaemonService"
+            android:exported="true"
+            android:process=":gamecenter_wake" />-->
 
         <receiver
             android:name="com.tencent.android.tpush.XGPushReceiver"

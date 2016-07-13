@@ -444,11 +444,11 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
             super.onPostExecute(result);
             switch (result) {
                 case -1:    //未检测到花生wifi
-                    CSToast.show(mParentActiity, "未检测到花生wifi");
+                    CSToast.show(mParentActiity, getResources().getString(R.string.wifi_unfind));
                     updateState(ConnectState.WIFIUNVISIBLE);
                     break;
                 case -2:    //连接失败
-                    CSToast.show(mParentActiity, "连接wifi失败");
+//                    CSToast.show(mParentActiity, "连接wifi失败");
                     updateState(ConnectState.WIFIUNVISIBLE);
                     break;
                 case 1:     //重连成功
