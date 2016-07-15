@@ -12,7 +12,7 @@ public class UpdateUtils {
 	private static final String UPDATE_TYPE = "UPDATE_TYPE";
 	private static final String UPDATE_STATE = "UPDATE_STATE";
 	private static final String TAG = "UpdateUtils";
-	private static final String UPDATE_CHECK_RECOMM_TIME = "UPDATE_CHECK_RECOMM_TIME";
+	public static final String UPDATE_CHECK_RECOMM_TIME = "UPDATE_CHECK_RECOMM_TIME";
 	private static final String UPDATE_TIME_LAP_KEY = "UPDATE_TIME_LAP_KEY";
 
 	public static long getUpdateTimeLap() {

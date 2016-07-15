@@ -1,7 +1,5 @@
 package com.hykj.gamecenter.fragment;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -17,10 +15,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.hykj.gamecenter.R;
 import com.hykj.gamecenter.App;
 import com.hykj.gamecenter.GlobalConfigControllerManager;
-import com.hykj.gamecenter.activity.HomePageActivity;
+import com.hykj.gamecenter.R;
 import com.hykj.gamecenter.adapter.ClassifyListAdapter;
 import com.hykj.gamecenter.controller.ProtocolListener.CLASSIFY_TYPE;
 import com.hykj.gamecenter.controller.ProtocolListener.GROUP_CLASS;
@@ -34,8 +31,9 @@ import com.hykj.gamecenter.logic.entry.Msg;
 import com.hykj.gamecenter.statistic.ReportConstants;
 import com.hykj.gamecenter.utils.Logger;
 import com.hykj.gamecenter.utils.UITools;
-
 import com.hykj.gamecenter.utilscs.LogUtils;
+
+import java.util.ArrayList;
 
 public class ClassifyAppFragment extends BaseFragment {
 	private static final String TAG = "ClassifyFragment";
@@ -93,7 +91,7 @@ public class ClassifyAppFragment extends BaseFragment {
 	@Override
 	public void onConfigurationChanged(
 			android.content.res.Configuration newConfig) {
-		LogUtils.d("owenli onConfigurationChanged() ");
+		LogUtils.d("owenli onConfigurationChanged() ");                                                                                                                                                                                                                                                      
 		if (mAdapter != null) {
 			mAdapter.setColumnCount(UITools.getColumnNumber(mActivity));
 		}

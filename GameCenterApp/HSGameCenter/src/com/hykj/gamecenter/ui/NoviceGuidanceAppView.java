@@ -450,7 +450,9 @@ public class NoviceGuidanceAppView extends InterceptTouchFrameLayout implements
 		@Override
 		public void onReqGroupElemsSucceed(GroupElemInfo[] infoList, String serverDataVer) {
 			Logger.d(TAG, "onReqGroupElemsSucceed infoList.size()= " + infoList.length);
-			UpdateUtils.setUpdateRecommTimePreference();
+			if (NoviceGuidanceAppView.this.getVisibility() == View.VISIBLE) {
+				UpdateUtils.setUpdateRecommTimePreference();
+			}
 			if (infoList.length <= 0) {
 				mHandler.sendEmptyMessage(Msg.LAST_PAGE);
 			} else {

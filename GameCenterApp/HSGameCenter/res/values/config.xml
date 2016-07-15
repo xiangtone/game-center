@@ -29,7 +29,7 @@
     <string name="bugly_appid">900025542</string>
     <string name="weibo_appkey">2381914778</string>
     <string name="wechatpay_appid">wx5c5d736c6e36f416</string>
-    <string name="user_aggrement_url">http://uac.api.niuwan.cc/userdeal</string>
+    <string name="user_aggrement_url">http://portal.wifi8.com/baseapp/agreement.php</string>
     <string name="recharge_help_url">http://pay.api.niuwan.cc/gamehelp</string>
     <string name="consume_help_url">http://pay.api.niuwan.cc/gamehelp</string>
 

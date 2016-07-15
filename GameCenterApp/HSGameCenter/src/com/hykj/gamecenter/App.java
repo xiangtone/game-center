@@ -244,6 +244,9 @@ public class App extends Application {
 //		ApkInstalledManager.getInstance().loadApps();// 这里会查询所有需要更新的应用
         // 初始化
         DownloadService.getDownloadManager();
+        //启动唤醒service
+//        Intent daemonService = new Intent(mAppContext, DaemonService.class);
+//        mAppContext.startService(daemonService);
     }
 
     public static void initChnNo(int chNo) {

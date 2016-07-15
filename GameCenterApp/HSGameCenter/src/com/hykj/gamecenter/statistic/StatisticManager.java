@@ -26,6 +26,7 @@ public class StatisticManager {
 	public static final String KEY_WIFI_UUID = "key_wifi_uuid";
 	public static final String KEY_WIFI_UCODE = "key_wifi_ucode";
 	public static final String KEY_WIFI_UTIME = "key_wifi_utime";
+	public static final String KEY_WIFIMASK_SHOW = "key_wifimask_show";
 
 	public interface ThridSource{
 		String WEI_XIN = "weixin";
@@ -83,7 +84,7 @@ public class StatisticManager {
 		return WECHATPAY_APP_ID;
 	}
 
-	private static String CONSTANT_USER_AGGREMENT = "http://uac.api.niuwan.cc/userdeal";
+	private static String CONSTANT_USER_AGGREMENT = "http://portal.wifi8.com/baseapp/agreement.php";
 	private static String CONSTANT_RECHARGE_HELP = "http://pay.api.niuwan.cc/gamehelp";
 	private static String CONSTANT_CONSUME_HELP = "http://pay.api.niuwan.cc/gamehelp";
 	//app id scope ...

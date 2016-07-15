@@ -11,8 +11,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 
+import com.hykj.gamecenter.App;
 import com.hykj.gamecenter.R;
 import com.hykj.gamecenter.activity.HomePageActivity;
 import com.hykj.gamecenter.activity.SettingAboutActivity;
@@ -21,6 +23,7 @@ import com.hykj.gamecenter.controller.ProtocolListener.ReqUpdateListener;
 import com.hykj.gamecenter.controller.ReqUpdateController;
 import com.hykj.gamecenter.net.logic.UpdateDownloadController;
 import com.hykj.gamecenter.protocol.Updater.RspUpdate;
+import com.hykj.gamecenter.statistic.StatisticManager;
 import com.hykj.gamecenter.ui.MyLoginProcessDialog;
 import com.hykj.gamecenter.ui.widget.CSAlertDialog;
 import com.hykj.gamecenter.ui.widget.CSToast;
@@ -266,6 +269,7 @@ public class SettingListFragment extends Fragment {
                 }
             }
         };
+        private Button mBtnLoginOut;
 
         /**
          * The fragment argument representing the item ID that this fragment
@@ -319,6 +323,20 @@ public class SettingListFragment extends Fragment {
 
             // settingItemToggleView.setItemChecked(0, true);
             // settingItemToggleView.setOnItemClickListener(listListener);
+
+            mBtnLoginOut = (Button)rootView.findViewById(R.id.btnLoginOut);
+            int uuid = App.getSharedPreference().getInt(StatisticManager.KEY_WIFI_UUID, 0);
+            mBtnLoginOut.setEnabled(uuid != 0);
+            mBtnLoginOut.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //退出登录
+                    App.getSharedPreference().edit()
+                            .putInt(StatisticManager.KEY_WIFI_UUID, 0)
+                            .apply();
+                    getActivity().finish();
+                }
+            });
 
             return rootView;
         }

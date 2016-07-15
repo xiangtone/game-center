@@ -66,15 +66,14 @@
                 android:textColor="@color/nui_text_color_black_50"
                 android:textSize="@dimen/nui_text_size_little"
                 />
-            <TextView
-                android:id="@+id/textWifi"
+            <ImageView
+                android:id="@+id/imgWifi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:checked="false"
-                android:drawableTop="@drawable/csl_ab_download"
-                android:gravity="center"
-                android:text="@string/home_wifi"
+                android:src="@drawable/wifi"
+                android:layout_gravity="center"
                 android:textColor="@color/nui_text_color_black_50"
                 android:textSize="@dimen/nui_text_size_little"
                 />
@@ -108,6 +107,12 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <View
+        android:id="@+id/viewWifiMask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/wifi_mask"/>
 
     <include
         android:id="@+id/noviceguidance_pager"

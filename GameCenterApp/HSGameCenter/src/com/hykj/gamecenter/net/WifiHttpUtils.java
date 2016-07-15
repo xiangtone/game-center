@@ -21,7 +21,7 @@ public class WifiHttpUtils {
     public static final String URL_WIFI_OPEN = "http://mem.wifi8.com/api2/wifiapp/opennetpd";
     public static final String URL_WIFI_FRESH = "http://mem.wifi8.com/api2/wifiapp/freshuser";
 
-    public static final String [] SSID_LIST = {"花生地铁WiFi_测试_szoffice", "huaying-1"};
+    public static final String SSID_HEAD = /*"花生地铁WiFi_测试_szoffice"*/"花生游戏WiFi";
 
     public hdata getmHdata() {
         return mHdata;
