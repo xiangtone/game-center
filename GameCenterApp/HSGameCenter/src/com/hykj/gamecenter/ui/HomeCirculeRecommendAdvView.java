@@ -27,6 +27,7 @@ import com.hykj.gamecenter.controller.ProtocolListener.MAIN_TYPE;
 import com.hykj.gamecenter.controller.ProtocolListener.ORDER_BY;
 import com.hykj.gamecenter.data.GroupInfo;
 import com.hykj.gamecenter.data.TopicInfo;
+import com.hykj.gamecenter.db.CSACDatabaseHelper;
 import com.hykj.gamecenter.db.DatabaseUtils;
 import com.hykj.gamecenter.logic.DisplayOptions;
 import com.hykj.gamecenter.protocol.Apps.GroupElemInfo;
@@ -380,8 +381,11 @@ public class HomeCirculeRecommendAdvView implements IRecommendAdvInfo {
             int ints[] = DatabaseUtils.getGroupIdByDB(GROUPTYPE,
                     ORDER_BY.TIME);
 
-            GroupInfo mGroupInfo = DatabaseUtils.getGroupInfo(GROUPTYPE);
+            String selection = CSACDatabaseHelper.GroupInfoColumns.GROUP_TYPE + " =? and " + CSACDatabaseHelper.GroupInfoColumns.ORDER_TYPE + " =?";
+            String[] selectionArgs = new String[]{GROUPTYPE + "", ORDER_BY.TIME + ""};
+            GroupInfo mGroupInfo = DatabaseUtils.getGroupinfoByDB(selection, selectionArgs);
 
+//            GroupInfo mGroupInfo = DatabaseUtils.getGroupInfo(GROUPTYPE);
             TopicInfo topicInfo = new TopicInfo();
             if (mGroupInfo != null) {
                 topicInfo.mAppCount = mGroupInfo.recommWrod;

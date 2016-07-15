@@ -15,12 +15,16 @@
     <script type="text/javascript" src="scripts/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="scripts/gameIint.js"></script>
     <script type="text/javascript" src="scripts/listpage.js"></script>
-    <script type="text/javascript">
+    <script >
+        var list_onload = page_onload;
+    </script>
+    <script type="text/javascript" src="scripts/classDetails.js"></script>
+<!--    <script type="text/javascript">
         initGlobalData(false);
         var list_onload = page_onload;
         var mgi = null;
-    </script>
-    <script type="text/javascript">
+    </script>-->
+    <!--<script type="text/javascript">
         function page_onload() {
             if (configData == null)
                 return;
@@ -53,6 +57,9 @@
             return 6100000;
         }
 
+    </script>-->
+    <script>
+        document.addEventListener('touchstart',function(){},false);
     </script>
 </head>
 <body>
@@ -71,9 +78,29 @@
     <!--<div class="nec_bg"><img src="imgs/role.png" alt="背景"/>
 
 </div>-->
+    <div class="clearfix"></div>
+    <div id="gs">
+
+        <!--  <ul class="game_class">
+              <li class="game_class_active"><a href="">儿童益智</a></li>
+              <li><a href="">儿童益智</a></li>
+              <li><a href="">儿童益智</a></li>
+              <li><a href="">儿童益智</a></li>
+              <li><a href="">儿童益智</a></li>
+              <li><a href="">儿童益智</a></li>
+              <li><a href="">儿童益智</a></li>
+              <li><a href="">儿童益智</a></li>
+              <li><a href="">儿童益智</a></li>
+              <li><a href="">儿童益智</a></li>
+              <li><a href="">儿童益智</a></li>
+          </ul>-->
 
 
-    <div class="hot_game_tb" id="result">
+
+    </div>
+
+<div class="clearfix"></div>
+    <div class="hot_game_tb" id="result" style="margin-top: 0.1rem;padding-top: 0">
         <!-- <table>
             <tr>
                 <td class="td_img"><a href="game_details.html">
