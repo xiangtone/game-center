@@ -22,6 +22,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -72,9 +73,11 @@ import com.hykj.gamecenter.ui.widget.CSPagerSlidingTabStrip;
 import com.hykj.gamecenter.ui.widget.CSPagerSlidingTabStrip.OnPageChangedRefreshMainUIListener;
 import com.hykj.gamecenter.ui.widget.CSToast;
 import com.hykj.gamecenter.ui.widget.DownloadListButton;
+import com.hykj.gamecenter.ui.widget.GiftDialog;
 import com.hykj.gamecenter.ui.widget.MenuWindow;
 import com.hykj.gamecenter.ui.widget.OnWifiClickListener.WifiDownLoadOnClickListener;
 import com.hykj.gamecenter.utils.Logger;
+import com.hykj.gamecenter.utils.MD5;
 import com.hykj.gamecenter.utils.StringUtils;
 import com.hykj.gamecenter.utils.SystemBarTintManager;
 import com.hykj.gamecenter.utils.Tools;
@@ -265,6 +268,7 @@ public class PhoneAppInfoActivity extends Activity implements
 	private TextView mTextAdv;
 	private TextView mTextFree;
 	private TextView mTextSafe;
+	private Button mGift;
 
 	public void handleAction() {
 		String action = getIntent().getAction();
@@ -333,6 +337,8 @@ public class PhoneAppInfoActivity extends Activity implements
 		mAppDownload = (TextView) findViewById(R.id.app_download);
 		mAppSize = (TextView) findViewById(R.id.app_size);
 		mAppVersion = (TextView) findViewById(R.id.app_version);
+		mGift = (Button) findViewById(R.id.btnGift);
+		mGift.setOnClickListener(mClickListenter);
 
 		// mAppProgress = (CSProgressButton)findViewById(
 		// R.id.app_progress_button );
@@ -385,6 +391,9 @@ public class PhoneAppInfoActivity extends Activity implements
 		} else {
 			mListMenu.addAll(Arrays.asList(getResources().getStringArray(R.array.appinfo_menu_array_one)));
 		}
+		int flag = mAppInfo.recommFlag;
+		int i = flag & 16;
+		mGift.setVisibility((i > 0 ? View.VISIBLE : View.GONE));
 	}
 
 	private void initTag(AppInfo appInfo) {
@@ -1110,6 +1119,18 @@ public class PhoneAppInfoActivity extends Activity implements
 					mMenuWindow.showPopupWindow(mActionBar);
 					break;
 				default:
+					break;
+			}
+		}
+	};
+
+	private View.OnClickListener mClickListenter = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+				case R.id.btnGift:
+					GiftDialog giftDialog = new GiftDialog(PhoneAppInfoActivity.this, MD5.hexdigest(String.valueOf(mAppInfo.appId)));
+					giftDialog.show();
 					break;
 			}
 		}

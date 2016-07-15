@@ -623,5 +623,13 @@
     <string name="first_gift">礼包</string>
 
     <string name="search_common_hint">搜索游戏</string>
+    <string name="gift">礼包</string>
+    <string name="game_gift">游戏大礼包</string>
+    <string name="title_idcode">验证码:</string>
+    <string name="press_copy">*长按复制</string>
+    <string name="title_step1_attition">1.微信搜索关注“花生游戏中心”</string>
+    <string name="title_step2_attition">2.公众号回复验证码，换取礼包序列号</string>
+    <string name="idcode_copy_successed">验证码已复制到剪贴板</string>
+
 
 </resources>

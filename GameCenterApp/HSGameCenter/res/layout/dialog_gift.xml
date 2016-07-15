@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/csl_cs_alert_dialog_width"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/rectround_white" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="8dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/nui_text_size_large"
+            android:layout_centerVertical="true"
+            android:text="@string/game_gift"/>
+
+        <ImageView
+            android:id="@+id/imgClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/close_right"/>
+    </RelativeLayout>
+
+    <View
+        style="@style/ViewDividerHorizontal"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/list_padding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_idcode"
+                android:textSize="@dimen/nui_text_size_medium"/>
+
+            <TextView
+                android:id="@+id/textIdCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dsf5s1df5s4dfs54f5sd4fs5fdfdfdfd"
+                android:padding="6dp"
+                android:textStyle="italic"
+                android:textSize="@dimen/nui_text_size_medium"
+                android:textColor="@color/color_red_text"
+                android:background="@color/color_gray_text_bg"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_blue_light"
+                android:textSize="@dimen/nui_text_size_medium"
+                android:text="@string/press_copy"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/nui_text_size_medium"
+                android:text="@string/title_step1_attition"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                android:src="@drawable/bg_step1_attention"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_step2_attition"
+                android:textSize="@dimen/nui_text_size_medium"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

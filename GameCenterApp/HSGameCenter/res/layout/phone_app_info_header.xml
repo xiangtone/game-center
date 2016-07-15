@@ -142,6 +142,17 @@
                 />
         </RelativeLayout>
 
+        <Button
+            android:id="@+id/btnGift"
+            android:text="@string/gift"
+            android:layout_width="@dimen/download_btn_width"
+            android:layout_height="@dimen/download_btn_height"
+            android:background="@drawable/shape_btn_red_selector"
+            android:gravity="center"
+            android:textColor="@color/btn_red_white_color"
+            android:textSize="@dimen/nui_text_size_micro"
+            />
+
 
     </LinearLayout>
 
