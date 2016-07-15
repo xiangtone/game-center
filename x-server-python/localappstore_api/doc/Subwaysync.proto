@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+//============================================ 请求地铁下载完成的app信息
+message SubWayApps{
+	repeated SubWaySycAppItem item = 1;	// 多条本地应用的版本
+}
+
+
+message SubWaySycAppItem{
+	required string url=1;//地铁apk程序对应url
+	optional string md5=2;//apk程序唯一md5值
+	optional string filename=3;//app应用名称
+}
+
+message RspRepSubWay{
+	required int32  rescode = 1;					// 返回码：0=成功，1=失败
+	required string resmsg = 2;						// 返回消息
+}
