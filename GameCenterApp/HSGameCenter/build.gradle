@@ -27,7 +27,7 @@ android {
     defaultConfig {
         multiDexEnabled true
         applicationId "com.hykj.gamecenter"
-        minSdkVersion 17
+        minSdkVersion 14
         targetSdkVersion 21
         versionCode getBuildVersionCode()
         versionName "6." + getBuildVersionName() + ".70"
