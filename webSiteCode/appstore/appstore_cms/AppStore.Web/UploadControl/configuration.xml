@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config> 
+ 	<eachSize>102400</eachSize> 
+ 	<extensions>jpg,gif,png,jpeg,apk</extensions>
+ 	<maxSize>1073741824</maxSize>
+ 	<minSize>1</minSize>
+ 	<test>hello</test>
+</config>
