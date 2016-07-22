@@ -379,6 +379,12 @@ public class AppManagerFragment extends BackHandledFragment implements ApkInstal
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        mContext.unregisterReceiver(notificationMessageReceiver);
+    }
+
+    @Override
     public void onResume() {
         super.onResume();
         mApkDownloadManager.registerListener(downloadTaskStateListener);
