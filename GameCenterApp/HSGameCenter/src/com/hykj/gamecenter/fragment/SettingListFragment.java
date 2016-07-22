@@ -16,6 +16,7 @@ import android.widget.ListView;
 
 import com.hykj.gamecenter.App;
 import com.hykj.gamecenter.R;
+import com.hykj.gamecenter.activity.FeedbackActivity;
 import com.hykj.gamecenter.activity.HomePageActivity;
 import com.hykj.gamecenter.activity.SettingAboutActivity;
 import com.hykj.gamecenter.adapter.SettingListAdapter;
@@ -191,11 +192,16 @@ public class SettingListFragment extends Fragment {
         public static final int MSG_SHOW_ABOUT_DIALOG = 1205;
         public static final int MSG_REFRESH_LIST = 1206;
         public static final int MSG_CLEAN_CACHE = 1207;
+        public static final int MSG_FEED_BACK = 1208;
         protected static final String TAG = "SettingDetailFragment";
         private final Handler mSettingUiHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 switch (msg.what) {
+                    case MSG_FEED_BACK:
+                        Intent feedBackIntent = new Intent(getActivity(), FeedbackActivity.class);
+                        startActivity(feedBackIntent);
+                        break;
                     case MSG_CHECK_UPDATE_LOAD:
                         if (mCheckingDialog == null) {
                             mCheckingDialog = new MyLoginProcessDialog(getActivity(),

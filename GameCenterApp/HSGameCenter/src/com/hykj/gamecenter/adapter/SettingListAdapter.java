@@ -164,6 +164,8 @@ public class SettingListAdapter extends BaseAdapter {
 
 			if (textData.IsEqualStringID(SettingStringDefine.SSD_CHECK_UPDATE)) {
 				view.setOnClickListener(onUpdateClickListener);
+			} else if (textData.IsEqualStringID(SettingStringDefine.SSD_FEED_BACK)) {
+				view.setOnClickListener(onFeedbackClickListener);
 			} else {
 				view.setOnClickListener(onCleanCacheClickListener);
 			}
@@ -223,6 +225,15 @@ public class SettingListAdapter extends BaseAdapter {
 					.getTag(R.id.tag_itemData);
 			toggleData.setToggle(!bCheck);
 
+		}
+	};
+
+	private final View.OnClickListener onFeedbackClickListener = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			if (mHandler != null) {
+				mHandler.sendEmptyMessage(SettingDetailFragment.MSG_FEED_BACK);
+			}
 		}
 	};
 

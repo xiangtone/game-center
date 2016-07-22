@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="logincheck.aspx.cs" Inherits="AppStore.Web.logincheck" %>

@@ -23,7 +23,7 @@
             cs:comm_showReturn="false"
             cs:comm_showRightEdit="true"
             cs:comm_showRightEditButton="false"
-            cs:comm_showRightEditIcon="true" />
+            cs:comm_showRightEditIcon="false" />
 
         <com.hykj.gamecenter.ui.widget.CSDownloadManageEditBar
             android:id="@+id/headerbar"

@@ -47,14 +47,15 @@ public class SettingContent {
     // }
 
     public static class SettingStringDefine {
-        public static String SSD_DOWNLOADED_TOSETUP = "setting_downloaded_tosetup";
-        public static String SSD_WIFIAUTO_DOWNLOADED_TOSETUP = "setting_wifiauto_downloaded_tosetup";
-        public static String SSD_DELETE_PACKAGE = "setting_setup_delete_package";
-        public static String SSD_CHECK_UPDATE = "setting_check_update";
-        public static String SSD_WIFI_TODOWNLOAD = "setting_wifi_todownloaded";
+        public static String SSD_DOWNLOADED_TOSETUP = "setting_downloaded_tosetup";     //下载完成自动安装
+        public static String SSD_WIFIAUTO_DOWNLOADED_TOSETUP = "setting_wifiauto_downloaded_tosetup";   //wifi环境下闲时自动下载
+        public static String SSD_DELETE_PACKAGE = "setting_setup_delete_package";   //安装完成删除安装包
+        public static String SSD_CHECK_UPDATE = "setting_check_update";     //检查更新
+        public static String SSD_WIFI_TODOWNLOAD = "setting_wifi_todownloaded";     //只在wifi下下载
         public static String SSD_SHOW_ABOUT = "setting_show_about";
         public static String SSD_ALL_INSTALLED_APPS_AUTO_UPDATE = "setting_all_installed_apps_auto_update";
         public static String SSD_CLEAN_CACHE = "setting_clean_cache";
+        public static String SSD_FEED_BACK = "setting_feed_back";       //用户反馈
 
     }
 
@@ -147,6 +148,11 @@ public class SettingContent {
                 //################oddshou 暂时不加 清除缓存，本身 安装包 安装完成就会删除，没有必要清除缓存2015.07.15
                 //		addItem( new SettingListItem( SettingStringDefine.SSD_CLEAN_CACHE , SettingListItem.DataType.text ,
                 //			new SettingText( SettingStringDefine.SSD_CLEAN_CACHE , R.string.setting_clean_cache , 0 ) ) );
+
+                addItem(new SettingListItem(SettingStringDefine.SSD_FEED_BACK, SettingListItem.DataType.text,
+                        new SettingText(SettingStringDefine.SSD_FEED_BACK,
+                                R.string.title_feedback,
+                                0)));
 
                 addItem(new SettingListItem(SettingStringDefine.SSD_CHECK_UPDATE,
                         SettingListItem.DataType.text,

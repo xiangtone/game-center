@@ -15,6 +15,9 @@
 	<color name="color_download_tab_frame">#4C000000</color>
 	<color name="color_download_tab_press">#19000000</color>
 	<color name="color_action_bar">@color/color_green_normal</color>
+	<color name="color_blue_light">#7DB1EA</color>
+	<color name="color_gray_text_bg">#EBEBEB</color>
+	<color name="color_red_text">#d32727</color>
 
 	<color name="app_software_detail_introduce_bg_color">#E6E6E6</color>
 	<color name="green">#e83619</color>

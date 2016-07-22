@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="StartTransfer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="appid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="subid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="rawFileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalBlock" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalLength" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="md5" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartTransferResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartTransferResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Transfer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileStream" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="blockLes" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransferResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransferResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateThumb">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateThumbResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateThumbResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Unpack">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnpackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UnpackResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="StartTransferSoapIn">
+    <wsdl:part name="parameters" element="tns:StartTransfer" />
+  </wsdl:message>
+  <wsdl:message name="StartTransferSoapOut">
+    <wsdl:part name="parameters" element="tns:StartTransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransferSoapIn">
+    <wsdl:part name="parameters" element="tns:Transfer" />
+  </wsdl:message>
+  <wsdl:message name="TransferSoapOut">
+    <wsdl:part name="parameters" element="tns:TransferResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerateThumbSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateThumb" />
+  </wsdl:message>
+  <wsdl:message name="GenerateThumbSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateThumbResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnpackSoapIn">
+    <wsdl:part name="parameters" element="tns:Unpack" />
+  </wsdl:message>
+  <wsdl:message name="UnpackSoapOut">
+    <wsdl:part name="parameters" element="tns:UnpackResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFileSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveFile" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFileSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UploadFileSoap">
+    <wsdl:operation name="StartTransfer">
+      <wsdl:input message="tns:StartTransferSoapIn" />
+      <wsdl:output message="tns:StartTransferSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Transfer">
+      <wsdl:input message="tns:TransferSoapIn" />
+      <wsdl:output message="tns:TransferSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateThumb">
+      <wsdl:input message="tns:GenerateThumbSoapIn" />
+      <wsdl:output message="tns:GenerateThumbSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Unpack">
+      <wsdl:input message="tns:UnpackSoapIn" />
+      <wsdl:output message="tns:UnpackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFile">
+      <wsdl:input message="tns:RemoveFileSoapIn" />
+      <wsdl:output message="tns:RemoveFileSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UploadFileSoap" type="tns:UploadFileSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StartTransfer">
+      <soap:operation soapAction="http://tempuri.org/StartTransfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Transfer">
+      <soap:operation soapAction="http://tempuri.org/Transfer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateThumb">
+      <soap:operation soapAction="http://tempuri.org/GenerateThumb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Unpack">
+      <soap:operation soapAction="http://tempuri.org/Unpack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFile">
+      <soap:operation soapAction="http://tempuri.org/RemoveFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UploadFileSoap12" type="tns:UploadFileSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StartTransfer">
+      <soap12:operation soapAction="http://tempuri.org/StartTransfer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Transfer">
+      <soap12:operation soapAction="http://tempuri.org/Transfer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateThumb">
+      <soap12:operation soapAction="http://tempuri.org/GenerateThumb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Unpack">
+      <soap12:operation soapAction="http://tempuri.org/Unpack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFile">
+      <soap12:operation soapAction="http://tempuri.org/RemoveFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UploadFile">
+    <wsdl:port name="UploadFileSoap" binding="tns:UploadFileSoap">
+      <soap:address location="http://192.168.1.60/upload/UploadFile.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UploadFileSoap12" binding="tns:UploadFileSoap12">
+      <soap12:address location="http://192.168.1.60/upload/UploadFile.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
