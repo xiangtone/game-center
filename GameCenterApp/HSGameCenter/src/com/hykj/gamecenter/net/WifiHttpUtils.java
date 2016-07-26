@@ -23,6 +23,8 @@ public class WifiHttpUtils {
 
     public static final String SSID_HEAD = /*"花生地铁WiFi_测试_szoffice"*/"花生游戏WiFi";
 
+    public static String SESSID = "";
+
     public hdata getmHdata() {
         return mHdata;
     }
@@ -40,8 +42,18 @@ public class WifiHttpUtils {
         String sessid = "";
         int resv = 0;
 
-        public void setVer(int ver) {
+        public hdata(){
+            if (!SESSID.equals("")) {
+                this.sessid = SESSID;
+            }else {
+                String sessid = App.getSharedPreference().getString(StatisticManager.KEY_WIFI_SESSID, "");
+                this.sessid = sessid;
+            }
+        }
+
+        public hdata setVer(int ver) {
             this.ver = ver;
+            return this;
         }
 
         public void setAid(int aid) {

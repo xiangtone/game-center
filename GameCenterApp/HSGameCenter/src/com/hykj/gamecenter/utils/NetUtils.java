@@ -3,6 +3,7 @@ package com.hykj.gamecenter.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 
@@ -124,4 +125,23 @@ public class NetUtils
 	}
 	return false;
     }
+
+	//判断是否连接到指定WiFi
+	public static boolean CheckIndentifySsid(Context context, String checkSSId) {
+		//检测是否已连接花生wifi
+		WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+		WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+		if (wifiInfo == null) {
+			return false;
+		}
+		ConnectivityManager connec = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		String connectedSsid = wifiInfo.getSSID();
+		if ((connec.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED)
+				&& connectedSsid != null) {
+			if (connectedSsid.startsWith("\"" + checkSSId) || connectedSsid.startsWith(checkSSId)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
