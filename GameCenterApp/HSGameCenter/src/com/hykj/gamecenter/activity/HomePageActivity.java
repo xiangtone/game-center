@@ -14,6 +14,7 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,6 +24,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.hykj.gamecenter.App;
@@ -30,6 +32,7 @@ import com.hykj.gamecenter.GlobalConfigControllerManager;
 import com.hykj.gamecenter.GlobalConfigControllerManager.LoadingStateListener;
 import com.hykj.gamecenter.R;
 import com.hykj.gamecenter.adapter.IViewVisiableChangedListener;
+import com.hykj.gamecenter.broadcast.WifiUpdateReceiver;
 import com.hykj.gamecenter.controller.ControllerHelper;
 import com.hykj.gamecenter.controller.ProtocolListener.ACTION_PATH;
 import com.hykj.gamecenter.controller.ProtocolListener.KEY;
@@ -54,6 +57,8 @@ import com.hykj.gamecenter.logic.NotificationCenter;
 import com.hykj.gamecenter.logic.SearchRecommendControllerManager;
 import com.hykj.gamecenter.logic.entry.ISaveInfo;
 import com.hykj.gamecenter.logic.entry.Msg;
+import com.hykj.gamecenter.net.JsonCallback;
+import com.hykj.gamecenter.net.WifiHttpUtils;
 import com.hykj.gamecenter.net.logic.UpdateDownloadController;
 import com.hykj.gamecenter.protocol.Reported.ReportedInfo;
 import com.hykj.gamecenter.protocol.Updater.RspUpdate;
@@ -76,8 +81,13 @@ import com.hykj.gamecenter.utils.Tools;
 import com.hykj.gamecenter.utils.UpdateUtils;
 import com.hykj.gamecenter.utilscs.LogUtils;
 
+import org.json.JSONObject;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
+
 public class HomePageActivity extends Activity implements IDownloadTaskCountChangeListener,
-        InstallFinishListener, BackHandledFragment.BackHandledInterface, IDownloadTaskObserver {
+        InstallFinishListener, BackHandledFragment.BackHandledInterface, IDownloadTaskObserver,
+        WifiFragment.IWifiConnected {
 
     public static final int REQ_PAGE_SIZE = PAGE_SIZE.GENERAL;
     private static final String TAG = "HomePageActivity";
@@ -96,6 +106,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
     public static final String KEY_GOTO_UPDATE = "key_goto_update";
     public static final String KEY_UPDATE_ALL = "key_update_all";
     private BadgeView mBadgeView;
+    private ImageView mImgWifi;
 
 
     // public static boolean mbAppInitRuning = false; // 应用程序刚启动时设置该变量
@@ -291,6 +302,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         mTextMine.setOnClickListener(mViewOnclickListener);
         findViewById(R.id.textRank).setOnClickListener(mViewOnclickListener);
         findViewById(R.id.textClassily).setOnClickListener(mViewOnclickListener);
+        mImgWifi = (ImageView)findViewById(R.id.imgWifi);
         findViewById(R.id.imgWifi).setOnClickListener(mViewOnclickListener);
 
 
@@ -303,10 +315,23 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
 //        int offset = getResources().getDimensionPixelOffset(R.dimen.tips_offset);
         int offset = Tools.getDisplayWidth(this) / 20;
 //        mBadgeView.setBadgeMargin(offset - 64, 0); //水平和竖直方向的间距
-        mBadgeView.setBadgeMargin(offset,0);
+        mBadgeView.setBadgeMargin(offset, 0);
         mBadgeView.toggle();
 
         handleAction();
+
+        //wifi状态相关处理
+        //判断当前网络是否连接并测试连接状态
+        boolean checkIndentifySsid = NetUtils.CheckIndentifySsid(this, WifiHttpUtils.SSID_HEAD);
+//        updateState(checkIndentifySsid ? ConnectState.CONNECTED : ConnectState.UNCONNECTED);
+        //ping 公网进一步验证
+        if (checkIndentifySsid) {
+            WifiHttpUtils wifiHttpUtils = new WifiHttpUtils(new JSONObject());
+            wifiHttpUtils.getmHdata().setVer(2);
+            doPost(WifiHttpUtils.URL_WIFI_FRESH, wifiHttpUtils);
+        }
+
+        WifiUpdateReceiver.setWifiConnectListen(mWifiListener);
     }
 
     private String mLastFragmentTag;
@@ -355,8 +380,12 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
             }
             mLastFragmentTag = nowTag;
             //设置选中状态
-            v.setSelected(true);
-            mLastSelectedView.setSelected(false);
+            if (v.getId() != mImgWifi.getId()) {
+                v.setSelected(true);
+            }
+            if (mLastSelectedView.getId() != mImgWifi.getId()){
+                mLastSelectedView.setSelected(false);
+            }
             mLastSelectedView = v;
 
             // 上报访问当前页面
@@ -390,6 +419,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         return v;
     }
 
+    public static String KEY_WIFI_CONNECTED = "key_wifi_connected";
     private Fragment getFragment(int nowTag, Fragment fragment) {
         switch (nowTag) {
             case PAGE_INDEX.INDEX_HOME:
@@ -408,6 +438,9 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
                 break;
             case PAGE_INDEX.INDEX_WIFI:
                 fragment = mWifiFragment = new WifiFragment();
+                Bundle bundle = new Bundle();
+                bundle.putBoolean(KEY_WIFI_CONNECTED, findViewById(R.id.imgWifi).isSelected());
+                mWifiFragment.setArguments(bundle);
                 break;
         }
         return fragment;
@@ -547,7 +580,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
     private void createAfterInit() {
 
 		/*
-		 * 由App移入该处，修改增加专题不能按OnBackPressed退出后 (应用其实并未完全退出，再进入时App
+         * 由App移入该处，修改增加专题不能按OnBackPressed退出后 (应用其实并未完全退出，再进入时App
          * OnCreate不会被调用，除非杀死后台程序) ，这样运营增加个专题不能实时显示
          */
         GlobalConfigControllerManager.getInstance().setLoadingState(
@@ -795,6 +828,8 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         // 停止更新下载通知定时器
         NotificationCenter.getInstance().stopUpdateDownloadNotification();
         // mGlobalConfigControllerManager.removeLoadingStateListener( );
+
+        WifiUpdateReceiver.removeWifiListener(mWifiListener);
         super.onDestroy();
     }
 
@@ -1087,6 +1122,14 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         this.mBackHandedFragment = selectedFragment;
     }
 
+    @Override
+    public void wifiConnected() {
+        //wifi状态
+        Message msg = mUIHandler.obtainMessage(MSG_REFRESH_WIFI);
+        msg.arg1 = 1;
+        mUIHandler.sendMessage(msg);
+    }
+
     public final static int MSG_NOTE_TO_HANDLE_DOWNLOAD_TASK = 40001;
     public final static int MSG_CHEAK_LOADING_STATE = 40002;
     public static final int MSG_START_AN = 40004;
@@ -1116,6 +1159,8 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
             return mHomePageActivityPtr == null;
         }
     }
+
+    private static final int MSG_REFRESH_WIFI = 0X01;
 
     @SuppressLint("HandlerLeak")
     private final Handler mUIHandler = new Handler() {
@@ -1173,6 +1218,10 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
                     // mActionBar.setSettingTipVisible(UpdateUtils.hasUpdate() ?
                     // View.VISIBLE
                     // : View.GONE);
+                    break;
+                case MSG_REFRESH_WIFI:
+                    int state = msg.arg1;
+                    findViewById(R.id.imgWifi).setSelected(state == 1);
                     break;
                 case UpdateDownloadController.MSG_UPDATE_PROGRESS:
                     Bundle bundle = msg.getData();
@@ -1339,4 +1388,64 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         // TODO Auto-generated method stub
         mUIHandler.sendEmptyMessage(MSG_REFRESH_DOWNLOAD_COUNT_ICON);// 刷新下载图标个数
     }
+
+    /**
+     * xutils web 请求
+     *
+     * @param url
+     */
+    private void doPost(final String url, final WifiHttpUtils wifiHttpUtils) {
+        RequestParams params = new RequestParams(url);
+        params.addParameter("_data", wifiHttpUtils.getParmarData());
+        params.addParameter("_sign", wifiHttpUtils.getParmarSign());
+        x.http().post(params, new JsonCallback(url, this) {
+
+            @Override
+            protected void handleSucced(JSONObject ddata, String url) {
+                switch (url) {
+                    case WifiHttpUtils.URL_WIFI_FRESH:      //刷新会话成功
+                        Message msg = mUIHandler.obtainMessage(MSG_REFRESH_WIFI);
+                        msg.arg1 = 1;
+                        mUIHandler.sendMessage(msg);
+                        Log.e(TAG, "refrsh success");
+                        break;
+                }
+            }
+
+            @Override
+            protected void onException(String code, String codemsg, String url) {
+                if (!code.equals("99")) {
+                    //失败
+                    Message msg = mUIHandler.obtainMessage(MSG_REFRESH_WIFI);
+                    msg.arg1 = 0;
+                    mUIHandler.sendMessage(msg);
+                }
+            }
+        });
+
+    }
+
+    /**
+     * 监听断开wifi或者网络切换，如果从wifi页开网成功需要回调
+     */
+    private WifiUpdateReceiver.WifiListener mWifiListener = new WifiUpdateReceiver.WifiListener() {
+        @Override
+        public void networkChange(int currentNetwork, NetworkInfo networkInfo) {
+            if (currentNetwork == 1) {
+               //如果连上wifi可以刷新会话测试是否连接成功
+                boolean checkIndentifySsid = NetUtils.CheckIndentifySsid(HomePageActivity.this, WifiHttpUtils.SSID_HEAD);
+                //ping 公网进一步验证
+                if (checkIndentifySsid) {
+                    WifiHttpUtils wifiHttpUtils = new WifiHttpUtils(new JSONObject());
+                    wifiHttpUtils.getmHdata().setVer(2);
+                    doPost(WifiHttpUtils.URL_WIFI_FRESH, wifiHttpUtils);
+                }
+            } else {
+                //wifi切换到其他状态
+                Message msg = mUIHandler.obtainMessage(MSG_REFRESH_WIFI);
+                msg.arg1 = 0;
+                mUIHandler.sendMessage(msg);
+            }
+        }
+    };
 }

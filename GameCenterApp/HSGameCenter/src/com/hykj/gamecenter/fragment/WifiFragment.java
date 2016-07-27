@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -45,6 +44,7 @@ import com.hykj.gamecenter.statistic.StatisticManager;
 import com.hykj.gamecenter.ui.widget.CSToast;
 import com.hykj.gamecenter.utils.Interface.IFragmentInfo;
 import com.hykj.gamecenter.utils.Logger;
+import com.hykj.gamecenter.utils.NetUtils;
 import com.hykj.gamecenter.utils.UITools;
 import com.hykj.gamecenter.utils.WifiConnect;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -90,7 +90,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                     if (currentNetwork == 1) {
                         //验证登录并开网
                         //地铁网络连接之后尝试登陆
-                        boolean checkIndentifySsid = checkIndentifySsid();
+                        boolean checkIndentifySsid = NetUtils.CheckIndentifySsid(mParentActiity, WifiHttpUtils.SSID_HEAD);
                         if (checkIndentifySsid){
                             checkLogin();
                         }
@@ -119,27 +119,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
         super.onResume();
     }
 
-    /**
-     * 判断是已连接到指定wifi
-     *
-     * @return
-     */
-    private boolean checkIndentifySsid() {
-        //检测是否已连接花生wifi
-        WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
-        if (wifiInfo == null) {
-            return false;
-        }
-        ConnectivityManager connec = (ConnectivityManager) mParentActiity.getSystemService(Context.CONNECTIVITY_SERVICE);
-        String connectedSsid = wifiInfo.getSSID();
-        if ((connec.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED)
-                && connectedSsid != null) {
-            if (connectedSsid.startsWith("\"" + WifiHttpUtils.SSID_HEAD) || connectedSsid.startsWith(WifiHttpUtils.SSID_HEAD)) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -157,15 +137,18 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
         mLayoutLoading = rootView.findViewById(R.id.layoutLoading);
         getDataList();
 
-        //判断当前网络是否连接并测试连接状态
-        boolean checkIndentifySsid = checkIndentifySsid();
-        updateState(checkIndentifySsid ? ConnectState.CONNECTED : ConnectState.UNCONNECTED);
-        //ping 公网进一步验证
-        if (checkIndentifySsid) {
-//            new PingAddress().start();
-            WifiHttpUtils wifiHttpUtils = new WifiHttpUtils(new JSONObject());
-            doPost(WifiHttpUtils.URL_WIFI_FRESH, wifiHttpUtils);
-        }
+//        //判断当前网络是否连接并测试连接状态
+//        boolean checkIndentifySsid = NetUtils.CheckIndentifySsid(mParentActiity, WifiHttpUtils.SSID_HEAD);
+//        updateState(checkIndentifySsid ? ConnectState.CONNECTED : ConnectState.UNCONNECTED);
+//        //ping 公网进一步验证
+//        if (checkIndentifySsid) {
+////            new PingAddress().start();
+//            WifiHttpUtils wifiHttpUtils = new WifiHttpUtils(new JSONObject());
+//            doPost(WifiHttpUtils.URL_WIFI_FRESH, wifiHttpUtils);
+//        }
+
+        boolean connectedState = getArguments().getBoolean(HomePageActivity.KEY_WIFI_CONNECTED);
+        updateState(connectedState ? ConnectState.CONNECTED : ConnectState.UNCONNECTED);
     }
 
     @Override
@@ -480,6 +463,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
     private void gotoLogin() {
         //清空sessid
         App.getSharedPreference().edit().putString(StatisticManager.KEY_WIFI_SESSID, "").apply();
+        WifiHttpUtils.SESSID = "";
         //登录
         final Intent intent = new Intent();
         intent.setClass(mParentActiity, PersonLogin.class);
@@ -548,6 +532,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                             SharedPreferences.Editor edit = App.getSharedPreference().edit();
                             edit.putString(StatisticManager.KEY_WIFI_SESSID, sessid);
                             edit.apply();
+                            WifiHttpUtils.SESSID = sessid;
                             openWifiWithSessid(sessid);
                             break;
                         case WifiHttpUtils.URL_WIFI_OPEN:     //开网成功
@@ -561,6 +546,9 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                             updateState(ConnectState.CONNECTED);
                             if (mGroupElemInfo == null) {
                                 reGetData();
+                            }
+                            if (getActivity() instanceof IWifiConnected) {
+                                ((IWifiConnected) getActivity()).wifiConnected();
                             }
                             break;
                     }
@@ -698,5 +686,9 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                 e.printStackTrace();
             }
         }
+    }
+
+    public interface IWifiConnected{
+        void wifiConnected();
     }
 }

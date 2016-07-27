@@ -55,6 +55,7 @@ public class WifiFreshService extends Service {
                     case WifiHttpUtils.URL_WIFI_FRESH:      //刷新会话成功
                         handler.removeCallbacks(runnable);
                         handler.postDelayed(runnable, DELAY_TIME);  //10分钟刷新
+                        Log.e(TAG, "refresh success");
                         break;
 
                 }

@@ -168,7 +168,7 @@ public class WifiConnect {
         if (existingConfigs != null) {
             for (WifiConfiguration existingConfig : existingConfigs) {
                 Log.i(TAG, existingConfig.SSID);
-                if (existingConfig.SSID.equals("\"" + SSID) || existingConfig.SSID.startsWith(SSID)) {
+                if (existingConfig.SSID.equals("\"" + SSID + "\"") || existingConfig.SSID.equals(SSID)) {
                     return existingConfig;
                 }
             }
