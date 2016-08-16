@@ -719,9 +719,9 @@ public class AppInfoSoftWareDetailFragment extends Fragment {
 				headerGradeHolder.commentButton.setEnabled(true);
 				headerGradeHolder.commentButton.setText(getString(R.string.grade_app));
 				headerGradeHolder.commentButton
-						.setBackgroundResource(R.drawable.btn_green_selector);
+						.setBackgroundResource(R.drawable.btn_first_framework_selector);
 				headerGradeHolder.commentButton
-						.setTextColor(getResources().getColorStateList(R.color.btn_green_color));
+						.setTextColor(getResources().getColorStateList(R.color.color_first_white_selector));
 			}
 			//即使是0次评星也需要做一次初始化
 			headerGradeHolder.commentSum.setText(getString(

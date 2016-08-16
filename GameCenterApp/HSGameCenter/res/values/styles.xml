@@ -326,7 +326,7 @@
     <style name="GreenButton">
         <item name="android:layout_width">@dimen/recharge_pay_btn_width</item>
         <item name="android:layout_height">@dimen/recharge_pay_btn_height</item>
-        <item name="android:background">@drawable/btn_green_green_selector</item>
+        <item name="android:background">@drawable/btn_first_selector</item>
         <item name="android:singleLine">true</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/nui_text_size_medium</item>

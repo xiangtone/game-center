@@ -379,9 +379,9 @@
     <style
         name="TransparentGreenButton"
         parent="CS.Widget">
-        <item name="android:background">@drawable/btn_green_selector</item>
+        <item name="android:background">@drawable/btn_first_framework_selector</item>
         <item name="android:textSize">@dimen/csl_button_text_size</item>
-        <item name="android:textColor">@color/btn_green_color</item>
+        <item name="android:textColor">@color/color_first_white_selector</item>
 
         <item name="android:singleLine">true</item>
         <item name="android:minHeight">@dimen/csl_button_zero_height</item>

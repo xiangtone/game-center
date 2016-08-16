@@ -49,7 +49,7 @@
         <com.hykj.gamecenter.ui.widget.DownloadListButton
             android:id="@+id/app_download_btn"
             style="@style/NoShadowGreenButton"
-            android:background="@drawable/btn_green_selector"
+            android:background="@drawable/btn_first_framework_selector"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"

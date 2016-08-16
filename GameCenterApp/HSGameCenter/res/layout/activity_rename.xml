@@ -60,7 +60,7 @@
             android:layout_height="@dimen/btn_loginh"
             android:gravity="center"
             android:text="@string/btn_title_modify"
-            android:background="@drawable/btn_green_green_selector"
+            android:background="@drawable/btn_first_selector"
             android:textSize="@dimen/nui_text_size_medium" />
 
         <ProgressBar

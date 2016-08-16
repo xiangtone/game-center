@@ -396,16 +396,16 @@ public class PadAppInfoActivity extends Activity implements
             mAppOpenOrUpdateBtn
                     .setText(mContext.getString(R.string.app_update));
             mAppOpenOrUpdateBtn
-                    .setBackgroundResource(R.drawable.btn_green_selector);
+                    .setBackgroundResource(R.drawable.btn_first_framework_selector);
             mAppOpenOrUpdateBtn.setTextColor(mRes
-                    .getColorStateList(R.color.btn_green_color));
+                    .getColorStateList(R.color.color_first_white_selector));
             mAppOpenOrUpdateBtn.setTag(mAppInfo);
         } else {
             mAppOpenOrUpdateBtn.setText(mContext.getString(R.string.app_open));
             mAppOpenOrUpdateBtn
-                    .setBackgroundResource(R.drawable.btn_green_selector);
+                    .setBackgroundResource(R.drawable.btn_first_framework_selector);
             mAppOpenOrUpdateBtn.setTextColor(mRes
-                    .getColorStateList(R.color.btn_green_color));
+                    .getColorStateList(R.color.color_first_white_selector));
             LogUtils.e("activity class name = "
                     + mApkInstalledManager.getActivityClassName(packName));
             LogUtils.e("packname = " + packName);
@@ -446,9 +446,9 @@ public class PadAppInfoActivity extends Activity implements
                 case PREPARING:
                     mAppActiveProgress.setProgress(0);
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
                     mAppDownloadBtn.setTextColor(mRes
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
                     mAppDownloadBtn.setText(getString(R.string.app_pause));
                     mAppDownloadBtn.setEnabled(true);
                     mAppActiveProgress.setVisibility(View.VISIBLE);
@@ -456,9 +456,9 @@ public class PadAppInfoActivity extends Activity implements
                     break;
                 case WAITING:
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
                     mAppDownloadBtn.setTextColor(mRes
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(getString(R.string.app_pause));
                     mAppActiveProgress.setVisibility(View.VISIBLE);
@@ -467,9 +467,9 @@ public class PadAppInfoActivity extends Activity implements
                 case STARTED:
                 case LOADING:
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
                     mAppDownloadBtn.setTextColor(mRes
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(getString(R.string.app_pause));
                     mAppActiveProgress.setVisibility(View.VISIBLE);
@@ -477,9 +477,9 @@ public class PadAppInfoActivity extends Activity implements
                     break;
                 case STOPPED:
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
                     mAppDownloadBtn.setTextColor(mRes
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(getString(R.string.app_resume));
                     mAppActiveProgress.setVisibility(View.VISIBLE);
@@ -489,9 +489,9 @@ public class PadAppInfoActivity extends Activity implements
                     // TODO
                     mAppActiveProgress.setProgress(100);
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
                     mAppDownloadBtn.setTextColor(mRes
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(getString(R.string.app_install));
                     // if( mApkInstalledManager.isApkLocalInstalled(
@@ -508,9 +508,9 @@ public class PadAppInfoActivity extends Activity implements
                     break;
                 case DELETED:
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
                     mAppDownloadBtn.setTextColor(mRes
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(getString(R.string.app_redownload));
                     mAppActiveProgress.setVisibility(View.VISIBLE);
@@ -524,9 +524,9 @@ public class PadAppInfoActivity extends Activity implements
                     mAppInstalled.setVisibility(View.VISIBLE);
                     mAppDownloadBtn.setVisibility(View.GONE);
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
                     mAppDownloadBtn.setTextColor(mRes
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
                     mAppDownloadBtn.setEnabled(false);
                     mAppDownloadBtn.setText(getString(R.string.app_install));
                     mAppInstalled.setText(getString(R.string.app_installing));
@@ -534,9 +534,9 @@ public class PadAppInfoActivity extends Activity implements
 
                 case FAILED_NETWORK:
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
                     mAppDownloadBtn.setTextColor(mRes
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(getString(R.string.app_retry));
                     mAppActiveProgress.setVisibility(View.VISIBLE);
@@ -544,9 +544,9 @@ public class PadAppInfoActivity extends Activity implements
                     break;
                 case FAILED_BROKEN:
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
                     mAppDownloadBtn.setTextColor(mRes
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(getString(R.string.app_redownload));
                     break;
@@ -560,18 +560,18 @@ public class PadAppInfoActivity extends Activity implements
                     break;
                 case FAILED_SERVER:
                     mAppDownloadBtn.setTextColor(mRes
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(getString(R.string.app_retry));
 
                     break;
                 case FAILED_NOFREESPACE:
                     mAppDownloadBtn.setTextColor(mRes
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(getString(R.string.app_retry));
                     break;
@@ -580,9 +580,9 @@ public class PadAppInfoActivity extends Activity implements
             mAppDownloadBtn.setVisibility(View.VISIBLE);
             mAppDownloadBtn.setText(getString(R.string.app_download));
             mAppDownloadBtn
-                    .setBackgroundResource(R.drawable.btn_green_selector);
+                    .setBackgroundResource(R.drawable.btn_first_framework_selector);
             mAppDownloadBtn.setTextColor(mRes
-                    .getColorStateList(R.color.btn_green_color));
+                    .getColorStateList(R.color.color_first_white_selector));
             mAppDownloadBtn.setEnabled(true);
             mAppInstalled.setVisibility(View.GONE);
             mAppDownloadBtn.setTag(dinfo);

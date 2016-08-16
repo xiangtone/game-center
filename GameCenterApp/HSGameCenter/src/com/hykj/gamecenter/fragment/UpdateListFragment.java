@@ -457,9 +457,9 @@ public class UpdateListFragment extends ListFragment implements
             holder.updateiconbtn.setOnClickListener(mUpdateClickListener);
             holder.updateiconbtn.setText(getString(R.string.app_upgrade));
             holder.updateiconbtn
-                    .setBackgroundResource(R.drawable.btn_green_selector);
+                    .setBackgroundResource(R.drawable.btn_first_framework_selector);
             holder.updateiconbtn.setTextColor(getResources().getColorStateList(
-                    R.color.btn_green_color));
+                    R.color.color_first_white_selector));
             holder.installingiconbtn
                     .setOnClickListener(mInstallingClickListener);
             holder.installingiconbtn
@@ -601,10 +601,10 @@ public class UpdateListFragment extends ListFragment implements
             switch (state) {
                 case PREPARING:
                     holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
                     /*
                      * holder.installingiconbtn.setTextColor(getResources()
-                     * .getColorStateList(R.color.btn_green_color));
+                     * .getColorStateList(R.color.color_first_white_selector));
                      */
                     holder.installingiconbtn.setText(getString(R.string.app_pause));
                     holder.installingiconbtn.setEnabled(true);
@@ -614,10 +614,10 @@ public class UpdateListFragment extends ListFragment implements
                     break;
                 case WAITING:
                     holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
 
                     holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
 
                     holder.installingiconbtn.setText(getString(R.string.app_pause));
                     holder.installingiconbtn.setEnabled(true);
@@ -628,10 +628,10 @@ public class UpdateListFragment extends ListFragment implements
                 case STARTED:
                 case LOADING:
                     holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
 
                     holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
 
                     holder.installingiconbtn.setEnabled(true);
                     holder.installingiconbtn.setText(getString(R.string.app_pause));
@@ -641,10 +641,10 @@ public class UpdateListFragment extends ListFragment implements
                     break;
                 case STOPPED:
                     holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
 
                     holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
 
                     holder.installingiconbtn.setEnabled(true);
                     holder.installingiconbtn
@@ -653,10 +653,10 @@ public class UpdateListFragment extends ListFragment implements
                 case SUCCEEDED:
                     // TODO
                     holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
 
                     holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
 
                     holder.installingiconbtn.setEnabled(true);
                     holder.installingiconbtn
@@ -668,10 +668,10 @@ public class UpdateListFragment extends ListFragment implements
                     break;
                 case DELETED:
                     holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
 
                     holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
 
                     holder.installingiconbtn.setEnabled(true);
                     holder.installingiconbtn
@@ -681,10 +681,10 @@ public class UpdateListFragment extends ListFragment implements
                     holder.installingiconbtn.setVisibility(View.GONE);
                     holder.updatelabel.setVisibility(View.VISIBLE);
                     holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
 
                     holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
 
                     holder.installingiconbtn.setEnabled(false);
                     holder.installingiconbtn
@@ -693,20 +693,20 @@ public class UpdateListFragment extends ListFragment implements
                     break;
                 case FAILED_NETWORK:
                     holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
 
                     holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
 
                     holder.installingiconbtn.setEnabled(true);
                     holder.installingiconbtn.setText(getString(R.string.app_retry));
                     break;
                 case FAILED_BROKEN:
                     holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
 
                     holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
 
                     holder.installingiconbtn.setEnabled(true);
                     holder.installingiconbtn
@@ -725,20 +725,20 @@ public class UpdateListFragment extends ListFragment implements
                     break;
                 case FAILED_SERVER:
                     holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
 
                     holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
 
                     holder.installingiconbtn.setEnabled(true);
                     holder.installingiconbtn.setText(getString(R.string.app_retry));
                     break;
                 case FAILED_NOFREESPACE:
                     holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
+                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
 
                     holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.btn_green_color));
+                            .getColorStateList(R.color.color_first_white_selector));
 
                     holder.installingiconbtn.setEnabled(true);
                     holder.installingiconbtn.setText(getString(R.string.app_retry));

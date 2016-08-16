@@ -256,7 +256,7 @@ public class ImproperReportActivity extends Activity implements TimeRun {
         if (count <= 0) {
             btn.setEnabled(true);
             //            btn.setTextColor(getResources().getColor(R.color.action_blue_color));
-            btn.setTextColor(getResources().getColor(R.color.color_green_normal));
+            btn.setTextColor(getResources().getColor(R.color.color_first_normal));
             //            btn.setText(R.string.improper_report_start);
         }
         else {

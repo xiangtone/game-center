@@ -91,9 +91,9 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/csl_cs_alert_dialog_btn_height"
             android:layout_weight="1"
-            android:background="@drawable/btn_green_selector"
+            android:background="@drawable/btn_first_framework_selector"
             android:layout_marginRight="12dp"
-            android:textColor="@color/btn_green_color"
+            android:textColor="@color/color_first_white_selector"
             android:textSize="@dimen/nui_text_size_small" />
 <!--             android:background="@drawable/csls_alert_dialog_left_btn" -->
 
@@ -102,7 +102,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/csl_cs_alert_dialog_btn_height"
             android:layout_weight="1"
-			android:background="@drawable/btn_green_green_selector"
+			android:background="@drawable/btn_first_selector"
             android:textColor="@color/cs_white"
             android:textSize="@dimen/nui_text_size_small" />
 <!--             android:background="@drawable/csls_alert_dialog_right_btn" -->

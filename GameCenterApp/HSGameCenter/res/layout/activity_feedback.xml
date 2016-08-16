@@ -69,7 +69,7 @@
             android:layout_marginLeft="@dimen/recharge_price_row_margin"
             android:layout_marginRight="@dimen/recharge_price_row_margin"
             android:layout_marginTop="@dimen/login_margin_t"
-            android:background="@drawable/btn_green_green_selector"
+            android:background="@drawable/btn_first_selector"
             android:text="@string/btn_text_submit"
             android:textSize="@dimen/nui_text_size_medium" />
     </LinearLayout>

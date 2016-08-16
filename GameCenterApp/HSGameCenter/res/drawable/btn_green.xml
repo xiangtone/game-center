@@ -8,19 +8,19 @@
     <item android:state_pressed="true" android:state_enabled="true">
         <shape android:shape="rectangle">
             <corners android:radius="@dimen/radius_btn"/>
-            <solid android:color="@color/color_green_pressed" />
+            <solid android:color="@color/color_first_pressed" />
         </shape>
     </item>
     <item android:state_pressed="false" android:state_enabled="false">
         <shape android:shape="rectangle">
             <corners android:radius="@dimen/radius_btn"/>
-            <solid android:color="@color/color_green_disable" />
+            <solid android:color="@color/color_first_disable" />
         </shape>
     </item>
     <item android:state_pressed="false" android:state_enabled="true">
         <shape android:shape="rectangle">
             <corners android:radius="@dimen/radius_btn"/>
-            <solid android:color="@color/color_green_normal" />
+            <solid android:color="@color/color_first_normal" />
         </shape>
     </item>
 </selector>

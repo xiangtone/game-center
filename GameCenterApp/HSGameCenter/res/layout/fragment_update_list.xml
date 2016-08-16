@@ -59,7 +59,7 @@
         	android:gravity="center"
         	android:paddingLeft="@dimen/csl_cs_padding_size"
         	android:paddingRight="@dimen/csl_cs_padding_size"
-        	android:background="@drawable/btn_green_green_selector"
+        	android:background="@drawable/btn_first_selector"
         	android:textColor="@color/white"
         	android:textSize="@dimen/normal_button_text_size"/>
         </RelativeLayout>

@@ -55,14 +55,14 @@ public class BtnDownloadUpdate extends Button {
         switch (btnState.updateState) {
             case NORMAL:
                 this.setText(mRes.getString(R.string.app_download));
-                this.setBackgroundResource(R.drawable.btn_green_selector);
-                this.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                this.setBackgroundResource(R.drawable.btn_first_framework_selector);
+                this.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
                 this.setEnabled(true);
                 return;
             case NEEDUPDATE:
                 this.setText(mRes.getString(R.string.app_update));
-                this.setBackgroundResource(R.drawable.btn_green_selector);
-                this.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                this.setBackgroundResource(R.drawable.btn_first_framework_selector);
+                this.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
                 return;
             case OPEN:
                 this.setText(mRes.getString(R.string.app_open));
@@ -79,40 +79,40 @@ public class BtnDownloadUpdate extends Button {
         if (dinfo != null) {
             switch (btnState.downloadState) {
                 case PREPARING:
-                    this.setBackgroundResource(R.drawable.btn_green_selector);
-                    this.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                    this.setBackgroundResource(R.drawable.btn_first_framework_selector);
+                    this.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
                     this.setText(mRes.getString(R.string.app_pause));
                     this.setEnabled(true);
                     break;
                 case WAITING:
-                    this.setBackgroundResource(R.drawable.btn_green_selector);
-                    this.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                    this.setBackgroundResource(R.drawable.btn_first_framework_selector);
+                    this.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
                     this.setEnabled(true);
                     this.setText(mRes.getString(R.string.app_pause));
                     break;
                 case STARTED:
                 case LOADING:
-                    this.setBackgroundResource(R.drawable.btn_green_selector);
-                    this.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                    this.setBackgroundResource(R.drawable.btn_first_framework_selector);
+                    this.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
                     this.setEnabled(true);
                     this.setText(mRes.getString(R.string.app_pause));
                     break;
                 case STOPPED:
-                    this.setBackgroundResource(R.drawable.btn_green_selector);
-                    this.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                    this.setBackgroundResource(R.drawable.btn_first_framework_selector);
+                    this.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
                     this.setEnabled(true);
                     this.setText(mRes.getString(R.string.app_resume));
                     break;
                 case SUCCEEDED:
                     // TODO
-                    this.setBackgroundResource(R.drawable.btn_green_selector);
-                    this.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                    this.setBackgroundResource(R.drawable.btn_first_framework_selector);
+                    this.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
                     this.setEnabled(true);
                     this.setText(mRes.getString(R.string.app_install));
                     break;
                 case DELETED:
-                    this.setBackgroundResource(R.drawable.btn_green_selector);
-                    this.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                    this.setBackgroundResource(R.drawable.btn_first_framework_selector);
+                    this.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
                     this.setEnabled(true);
                     this.setText(mRes.getString(R.string.app_redownload));
                     break;
@@ -121,21 +121,21 @@ public class BtnDownloadUpdate extends Button {
                     //####################oddshou 暂未处理
 //                mAppInstalled.setVisibility(View.VISIBLE);
 //                mAppInstalled.setText(mRes.getString(R.string.app_installing));
-                    this.setBackgroundResource(R.drawable.btn_green_selector);
-                    this.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                    this.setBackgroundResource(R.drawable.btn_first_framework_selector);
+                    this.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
                     this.setEnabled(false);
                     this.setText(mRes.getString(R.string.app_install));
                     break;
 
                 case FAILED_NETWORK:
-                    this.setBackgroundResource(R.drawable.btn_green_selector);
-                    this.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                    this.setBackgroundResource(R.drawable.btn_first_framework_selector);
+                    this.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
                     this.setEnabled(true);
                     this.setText(mRes.getString(R.string.app_retry));
                     break;
                 case FAILED_BROKEN:
-                    this.setBackgroundResource(R.drawable.btn_green_selector);
-                    this.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                    this.setBackgroundResource(R.drawable.btn_first_framework_selector);
+                    this.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
                     this.setEnabled(true);
                     this.setText(mRes.getString(R.string.app_redownload));
                     break;
@@ -146,15 +146,15 @@ public class BtnDownloadUpdate extends Button {
                     this.setText(mRes.getString(R.string.app_delete));
                     break;
                 case FAILED_SERVER:
-                    this.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
-                    this.setBackgroundResource(R.drawable.btn_green_selector);
+                    this.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
+                    this.setBackgroundResource(R.drawable.btn_first_framework_selector);
                     this.setEnabled(true);
                     this.setText(mRes.getString(R.string.app_retry));
 
                     break;
                 case FAILED_NOFREESPACE:
-                    this.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
-                    this.setBackgroundResource(R.drawable.btn_green_selector);
+                    this.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
+                    this.setBackgroundResource(R.drawable.btn_first_framework_selector);
                     this.setEnabled(true);
                     this.setText(mRes.getString(R.string.app_retry));
                     break;

@@ -6,15 +6,16 @@
 	<!--<color name="color_green_normal">#7acf12</color>-->
 	<!--&lt;!&ndash;用于disabled和下载进度&ndash;&gt;-->
 	<!--<color name="color_green_normal_disable">#c3e86c</color>-->
-	<color name="color_green_normal">#fcc41b</color>
-	<color name="color_green_pressed">#eab20b</color>
+	<color name="color_first_normal">#fcc41b</color>
+	<color name="color_first_pressed">#eab20b</color>
 	<!--用于disabled和下载进度-->
-	<color name="color_green_disable">#ffe28b</color>
-	<color name="color_btn_resume">#FF7300</color>
+	<color name="color_first_disable">#ffe28b</color>
+	<color name="color_resume">#FF7300</color>
 	<color name="color_gray_press">#f2f2f2</color>
+	<color name="color_gray_press_alpha">#3fd8d8d8</color>
 	<color name="color_download_tab_frame">#4C000000</color>
 	<color name="color_download_tab_press">#19000000</color>
-	<color name="color_action_bar">@color/color_green_normal</color>
+	<color name="color_action_bar">@color/color_first_normal</color>
 	<color name="color_blue_light">#7DB1EA</color>
 	<color name="color_gray_text_bg">#EBEBEB</color>
 	<color name="color_red_text">#d32727</color>
@@ -35,7 +36,7 @@
 	<color name="light_gray_cc">#cccccc</color>
 	<color name="light_gray_10">#e9ecec</color>
 	<color name="color_process">#4ea508</color>
-	<color name="transparent_color_process">@color/color_green_disable</color>
+	<color name="transparent_color_process">@color/color_first_disable</color>
 	<color name="cc_black">#cc000000</color>
 	<color name="ff_black">#ff000000</color>
 	<color name="subject_color">#48c5f8</color>
@@ -43,12 +44,12 @@
 	<!-- <color name="recommend_bg_color">#ffffff</color> -->
 	<color name="recommend_bg_color">#ffffff</color>
 	<color name="action_blue_color">@color/color_action_bar</color>
-	<color name="color_progress">@color/color_green_normal</color>
-	<color name="color_progressing">@color/color_green_disable</color>
+	<color name="color_progress">@color/color_first_normal</color>
+	<color name="color_progressing">@color/color_first_disable</color>
 	<color name="color_text_wifi_tips">#1b6fff</color>
 
 
-	<color name="normal_blue">@color/color_green_normal</color>
+	<color name="normal_blue">@color/color_first_normal</color>
 	<color name="translucent_background">#60000000</color>
 	<color name="actionbar_bg_color">@color/color_action_bar</color>
 	<color name="activity_edit_bg">#f2f2f2</color>

@@ -106,9 +106,9 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/csl_cs_alert_dialog_btn_height"
             android:layout_weight="1"
-            android:background="@drawable/btn_green_selector"
+            android:background="@drawable/btn_first_framework_selector"
             android:layout_marginRight="12dp"
-            android:textColor="@color/btn_green_color"
+            android:textColor="@color/color_first_white_selector"
             android:text="@string/update_later"
             android:textSize="@dimen/csl_dialog_button_text_size" />
         
@@ -117,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/csl_cs_alert_dialog_btn_height"
             android:layout_weight="1"
-			android:background="@drawable/btn_green_green_selector"
+			android:background="@drawable/btn_first_selector"
             android:textColor="@color/cs_white"
             android:text="@string/update"
             android:textSize="@dimen/csl_dialog_button_text_size" />
@@ -127,7 +127,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/csl_cs_alert_dialog_btn_height"
             android:layout_weight="1"
-			android:background="@drawable/btn_green_green_selector"
+			android:background="@drawable/btn_first_selector"
             android:textColor="@color/cs_white"
             android:text="@string/install_immediatelly"
             android:textSize="@dimen/csl_dialog_button_text_size"

@@ -368,7 +368,7 @@ public class ClassifyFragmentBakFragmentStyle extends Fragment/* BaseFragment */
 		public OnTapListener(Activity activity, TextView makePressedView) {
 			mMakePressedTextView = makePressedView;
 			mPressedColor = activity.getResources().getColor(R.color.color_red);
-			mGrayColor = activity.getResources().getColor(R.color.color_green_normal);
+			mGrayColor = activity.getResources().getColor(R.color.color_first_normal);
 		}
 
 		@Override

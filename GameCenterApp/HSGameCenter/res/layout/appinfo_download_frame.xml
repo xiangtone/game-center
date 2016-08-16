@@ -39,7 +39,7 @@
     <com.hykj.gamecenter.ui.widget.DownloadListButton
         android:id="@+id/app_download_btn"
         style="@style/NoShadowGreenButton"
-        android:background="@drawable/btn_green_green_selector"
+        android:background="@drawable/btn_first_selector"
         android:layout_marginLeft="@dimen/csl_cs_padding_size"
         android:layout_marginRight="@dimen/csl_cs_padding_size"
         android:layout_marginTop="@dimen/csl_action_detail_progress_bar_margin"
@@ -68,7 +68,7 @@
         android:gravity="center"
         android:textColor="@color/csl_black_7f"
         android:textSize="@dimen/csl_text_size_small"
-        android:background="@drawable/btn_yellow_selector"
+        android:background="@drawable/btn_framework_colorresume_selector"
         android:visibility="gone" />
 
     <com.hykj.gamecenter.ui.widget.DownloadListButton

@@ -5,9 +5,9 @@
 			<corners
 				android:radius="32dp"/>
 			<solid
-				android:color="@color/color_green_pressed"/>
+				android:color="@color/color_first_pressed"/>
 			<stroke android:width="2px"
-				android:color="@color/color_green_pressed"/>
+				android:color="@color/color_first_pressed"/>
 		</shape>
 	</item>
 
@@ -28,7 +28,7 @@
 			<solid
 				android:color="@color/transparent"/>
 			<stroke android:width="2px"
-					android:color="@color/color_green_normal"/>
+					android:color="@color/color_first_normal"/>
 		</shape>
 	</item>
 

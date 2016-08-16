@@ -946,18 +946,18 @@ public class DownloadListFragment extends ListFragment implements IDownloadTaskS
                 case PREPARING:
                     holder.msg1.setTextColor(getResources().getColor(R.color.csl_black_4c));
                     holder.msg1.setText(R.string.download_tip_preparing);
-                    holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_green_selector);
-                    holder.downloadiconbtn.setTextColor(getResources().getColorStateList(
-                            R.color.btn_green_color));
+                    holder.downloadiconbtn.setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    holder.downloadiconbtn.setTextColor(getResources().getColor(
+                            R.color.color_first_normal));
                     holder.downloadiconbtn.setText(getString(R.string.app_pause));
                     holder.downloadiconbtn.setEnabled(true);
                     break;
                 case WAITING:
                     holder.msg1.setTextColor(getResources().getColor(R.color.csl_black_4c));
                     holder.msg1.setText(R.string.download_tip_waiting);
-                    holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_green_selector);
-                    holder.downloadiconbtn.setTextColor(getResources().getColorStateList(
-                            R.color.btn_green_color));
+                    holder.downloadiconbtn.setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    holder.downloadiconbtn.setTextColor(getResources().getColor(
+                            R.color.color_first_normal));
                     holder.downloadiconbtn.setText(getString(R.string.app_pause));
                     holder.downloadiconbtn.setEnabled(true);
                     break;
@@ -967,18 +967,18 @@ public class DownloadListFragment extends ListFragment implements IDownloadTaskS
                     holder.remainTime.setVisibility(View.VISIBLE);
                     holder.msg1.setText(R.string.download_tip_loading);
                     // holder.msg1.setVisibility( View.GONE );
-                    holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_green_selector);
-                    holder.downloadiconbtn.setTextColor(getResources().getColorStateList(
-                            R.color.btn_green_color));
+                    holder.downloadiconbtn.setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    holder.downloadiconbtn.setTextColor(getResources().getColor(
+                            R.color.color_first_normal));
                     holder.downloadiconbtn.setEnabled(true);
                     holder.downloadiconbtn.setText(getString(R.string.app_pause));
                     break;
                 case STOPPED:
                     holder.msg1.setTextColor(getResources().getColor(R.color.csl_black_4c));
                     holder.msg1.setText(R.string.pauseing);
-                    holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_green_selector);
+                    holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
                     holder.downloadiconbtn.setTextColor(getResources().getColorStateList(
-                            R.color.btn_green_color));
+                            R.color.color_resume));
                     holder.downloadiconbtn.setEnabled(true);
                     holder.downloadiconbtn.setText(getString(R.string.app_resume));
                     break;
@@ -998,9 +998,9 @@ public class DownloadListFragment extends ListFragment implements IDownloadTaskS
                     // holder.downloadinfo.setText( "已下载：" +
                     // StringUtils.byteToString( di.fileLength ) );
                     // holder.downloadlabel.setVisibility( View.GONE );
-                    holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_green_selector);
+                    holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
                     holder.downloadiconbtn.setTextColor(getResources().getColorStateList(
-                            R.color.btn_green_color));
+                            R.color.color_resume));
                     holder.downloadiconbtn.setEnabled(true);
                     holder.downloadiconbtn.setText(getString(R.string.app_install));
                     if (mApkInstalledManager.isApkLocalInstalled(di.packageName))
@@ -1016,9 +1016,9 @@ public class DownloadListFragment extends ListFragment implements IDownloadTaskS
                 case DELETED:
                     holder.msg1.setTextColor(getResources().getColor(R.color.csl_black_4c));
                     holder.msg1.setText(R.string.download_tip_file_deleted);
-                    holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_green_selector);
-                    holder.downloadiconbtn.setTextColor(getResources().getColorStateList(
-                            R.color.btn_green_color));
+                    holder.downloadiconbtn.setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    holder.downloadiconbtn.setTextColor(getResources().getColor(
+                            R.color.color_first_normal));
                     holder.downloadiconbtn.setEnabled(true);
                     holder.downloadiconbtn.setText(getString(R.string.app_redownload));
                     break;
@@ -1038,9 +1038,9 @@ public class DownloadListFragment extends ListFragment implements IDownloadTaskS
                     // holder.downloadinfo.setText( "已下载：" +
                     // StringUtils.byteToString( di.fileLength ) );
                     holder.downloadiconbtn.setVisibility(View.INVISIBLE);
-                    holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_green_selector);
-                    holder.downloadiconbtn.setTextColor(getResources().getColorStateList(
-                            R.color.btn_green_color));
+                    holder.downloadiconbtn.setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    holder.downloadiconbtn.setTextColor(getResources().getColor(
+                            R.color.color_first_normal));
                     holder.downloadiconbtn.setEnabled(false);
                     if (mListViewStatus == NOTMAL_STATUS)
                     {
@@ -1051,9 +1051,9 @@ public class DownloadListFragment extends ListFragment implements IDownloadTaskS
                 case FAILED_NETWORK:
                     holder.msg1.setText(R.string.download_tip_network_error1);
                     holder.msg1.setTextColor(getResources().getColor(R.color.csl_black_4c));
-                    holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_green_selector);
-                    holder.downloadiconbtn.setTextColor(getResources().getColorStateList(
-                            R.color.btn_green_color));
+                    holder.downloadiconbtn.setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    holder.downloadiconbtn.setTextColor(getResources().getColor(
+                            R.color.color_first_normal));
                     holder.downloadiconbtn.setEnabled(true);
                     holder.downloadiconbtn.setText(getString(R.string.app_retry));
 
@@ -1069,9 +1069,9 @@ public class DownloadListFragment extends ListFragment implements IDownloadTaskS
                 case FAILED_BROKEN:
                     holder.msg1.setTextColor(getResources().getColor(R.color.csl_black_4c));
                     holder.msg1.setText(R.string.download_tip_file_error);
-                    holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_green_selector);
-                    holder.downloadiconbtn.setTextColor(getResources().getColorStateList(
-                            R.color.btn_green_color));
+                    holder.downloadiconbtn.setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    holder.downloadiconbtn.setTextColor(getResources().getColor(
+                            R.color.color_first_normal));
                     holder.downloadiconbtn.setEnabled(true);
                     holder.downloadiconbtn.setText(getString(R.string.app_redownload));
 
@@ -1088,18 +1088,18 @@ public class DownloadListFragment extends ListFragment implements IDownloadTaskS
                 case FAILED_SERVER:
                     holder.msg1.setTextColor(getResources().getColor(R.color.csl_black_4c));
                     holder.msg1.setText(R.string.download_tip_server_error);
-                    holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_green_selector);
-                    holder.downloadiconbtn.setTextColor(getResources().getColorStateList(
-                            R.color.btn_green_color));
+                    holder.downloadiconbtn.setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    holder.downloadiconbtn.setTextColor(getResources().getColor(
+                            R.color.color_first_normal));
                     holder.downloadiconbtn.setEnabled(true);
                     holder.downloadiconbtn.setText(getString(R.string.app_retry));
                     break;
                 case FAILED_NOFREESPACE:
                     holder.msg1.setText(R.string.download_tip_no_freesapce1);
                     holder.msg1.setTextColor(getResources().getColor(R.color.red));
-                    holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_green_selector);
-                    holder.downloadiconbtn.setTextColor(getResources().getColorStateList(
-                            R.color.btn_green_color));
+                    holder.downloadiconbtn.setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    holder.downloadiconbtn.setTextColor(getResources().getColor(
+                            R.color.color_first_normal));
                     holder.downloadiconbtn.setEnabled(true);
                     holder.downloadiconbtn.setText(getString(R.string.app_retry));
                     //存储空间不足，立即清理后重试， #####oddshou 修改为  存储空间不足

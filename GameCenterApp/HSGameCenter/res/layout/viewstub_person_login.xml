@@ -69,7 +69,7 @@
                     android:gravity="center"
                     android:singleLine="true"
                     android:text="@string/get_captcha"
-                    android:textColor="@color/color_green_normal"
+                    android:textColor="@color/color_first_normal"
                     android:textSize="@dimen/nui_text_size_micro" />
 
                 <View
@@ -110,7 +110,7 @@
                     style="@style/NoShadowGreenButton"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/btn_loginh"
-                    android:background="@drawable/btn_green_green_selector"
+                    android:background="@drawable/btn_first_selector"
                     android:gravity="center"
                     android:text="@string/login"
                     android:textSize="@dimen/nui_text_size_medium" />

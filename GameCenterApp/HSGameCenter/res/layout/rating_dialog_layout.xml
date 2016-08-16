@@ -67,10 +67,10 @@
         android:layout_width="@dimen/grade_app_w"
         android:layout_height="@dimen/btn_grade_app_h"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/btn_green_selector"
+        android:background="@drawable/btn_first_framework_selector"
         android:layout_marginTop="@dimen/normal_margin_padding_medium"
         android:text="@string/submit"
-        android:textColor="@color/btn_green_color"
+        android:textColor="@color/color_first_white_selector"
         android:textSize="@dimen/csl_dialog_button_text_size" />
 
 </LinearLayout>

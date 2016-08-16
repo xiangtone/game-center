@@ -511,7 +511,7 @@ public class PhoneAppInfoActivity extends Activity implements
 			mAppOpenOrUpdateBtn
 					.setText(mContext.getString(R.string.app_update));
 			mAppOpenOrUpdateBtn
-					.setBackgroundResource(R.drawable.btn_green_green_selector);
+					.setBackgroundResource(R.drawable.btn_first_selector);
 			mAppOpenOrUpdateBtn.setTextColor(mRes
 					.getColorStateList(R.color.btn_noshadow_blue_color));
 			mAppOpenOrUpdateBtn.setTag(mAppInfo);
@@ -521,7 +521,7 @@ public class PhoneAppInfoActivity extends Activity implements
 					.setBackgroundResource(R.drawable.btn_gray_selector/*
                                                                         * R.drawable
                                                                         * .
-                                                                        * btn_green_green_selector
+                                                                        * btn_first_selector
                                                                         */);
 			mAppOpenOrUpdateBtn
 					.setTextColor(mRes.getColorStateList(R.color.btn_gray_color)/*
@@ -577,9 +577,9 @@ public class PhoneAppInfoActivity extends Activity implements
 				case PREPARING:
 					mAppActiveProgressLoading.setProgress(0);
 					mAppDownloadBtn
-							.setBackgroundResource(R.drawable.btn_green_green_selector);
+							.setBackgroundResource(R.drawable.selector_framework_first_gray);
 					mAppDownloadBtn.setTextColor(mRes
-							.getColorStateList(R.color.btn_noshadow_blue_color));
+							.getColor(R.color.color_first_normal));
 					mAppDownloadBtn.setText(getString(R.string.app_pause));
 					mAppDownloadBtn.setEnabled(true);
 					mAppActiveProgressLoading.setVisibility(View.VISIBLE);
@@ -588,9 +588,9 @@ public class PhoneAppInfoActivity extends Activity implements
 					break;
 				case WAITING:
 					mAppDownloadBtn
-							.setBackgroundResource(R.drawable.shape_framework_theme);
+							.setBackgroundResource(R.drawable.selector_framework_first_gray);
 					mAppDownloadBtn.setTextColor(mRes
-							.getColorStateList(R.color.color_green_normal));
+							.getColor(R.color.color_first_normal));
 					mAppDownloadBtn.setEnabled(true);
 					mAppDownloadBtn.setText(getString(R.string.download_tip_waiting));
 					mAppActiveProgressLoading.setVisibility(View.VISIBLE);
@@ -599,10 +599,10 @@ public class PhoneAppInfoActivity extends Activity implements
 				case STARTED:
 				case LOADING:
 					mAppDownloadBtn
-							.setBackgroundResource(R.drawable.shape_framework_theme);
+							.setBackgroundResource(R.drawable.selector_framework_first_gray);
 //					mAppDownloadBtn.setTextColor(mRes
-//							.getColorStateList(R.color.btn_green_color));
-					mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_green_normal));
+//							.getColorStateList(R.color.color_first_white_selector));
+					mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
 					mAppDownloadBtn.setEnabled(true);
 //					showProgress(dinfo);
 //					mAppDownloadBtn.setText(getString(R.string.app_pause));
@@ -612,10 +612,10 @@ public class PhoneAppInfoActivity extends Activity implements
 					break;
 				case STOPPED:
 					mAppDownloadBtn
-							.setBackgroundResource(R.drawable.shape_framework_red);
+							.setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
 //					mAppDownloadBtn.setTextColor(mRes
 //							.getColorStateList(R.color.btn_yellow_color));
-					mAppDownloadBtn.setTextColor(mRes.getColor(R.color.textcolor_progress6));
+					mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_resume));
 					mAppDownloadBtn.setEnabled(true);
 					mAppDownloadBtn.setText(getString(R.string.app_resume));
 					mAppActiveProgressLoading.setVisibility(View.GONE);
@@ -627,13 +627,13 @@ public class PhoneAppInfoActivity extends Activity implements
 					mAppActiveProgressLoading.setProgress(100);
 					mAppActiveProgressResume.setVisibility(View.GONE);
 //					mAppDownloadBtn
-//							.setBackgroundResource(R.drawable.btn_green_selector);
+//							.setBackgroundResource(R.drawable.btn_first_framework_selector);
 					mAppDownloadBtn
-							.setBackgroundResource(R.drawable.btn_yellow_selector);
+							.setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
 //					mAppDownloadBtn.setTextColor(mRes
-//							.getColorStateList(R.color.btn_green_color));
+//							.getColorStateList(R.color.color_first_white_selector));
 					mAppDownloadBtn.setTextColor(mRes
-							.getColorStateList(R.color.btn_yellow_color));
+							.getColor(R.color.color_resume));
 					mAppDownloadBtn.setEnabled(true);
 					mAppDownloadBtn.setText(getString(R.string.app_install));
 					// if( mApkInstalledManager.isApkLocalInstalled(
@@ -652,9 +652,9 @@ public class PhoneAppInfoActivity extends Activity implements
 					break;
 				case DELETED:
 					mAppDownloadBtn
-							.setBackgroundResource(R.drawable.btn_green_selector);
+							.setBackgroundResource(R.drawable.selector_framework_first_gray);
 					mAppDownloadBtn.setTextColor(mRes
-							.getColorStateList(R.color.btn_green_color));
+							.getColor(R.color.color_first_normal));
 					mAppDownloadBtn.setEnabled(true);
 					mAppDownloadBtn.setText(getString(R.string.app_redownload));
 					mAppActiveProgressLoading.setVisibility(View.VISIBLE);
@@ -670,9 +670,9 @@ public class PhoneAppInfoActivity extends Activity implements
 					mAppInstalled.setVisibility(View.VISIBLE);
 					mAppDownloadBtn.setVisibility(View.GONE);
 					mAppDownloadBtn
-							.setBackgroundResource(R.drawable.btn_green_selector);
+							.setBackgroundResource(R.drawable.selector_framework_first_gray);
 					mAppDownloadBtn.setTextColor(mRes
-							.getColorStateList(R.color.btn_green_color));
+							.getColor(R.color.color_first_normal));
 					mAppDownloadBtn.setEnabled(false);
 					mAppDownloadBtn.setText(getString(R.string.app_install));
 					// mAppProgress.setVisibility( View.GONE );
@@ -681,9 +681,9 @@ public class PhoneAppInfoActivity extends Activity implements
 
 				case FAILED_NETWORK:
 					mAppDownloadBtn
-							.setBackgroundResource(R.drawable.btn_green_selector);
+							.setBackgroundResource(R.drawable.selector_framework_first_gray);
 					mAppDownloadBtn.setTextColor(mRes
-							.getColorStateList(R.color.btn_green_color));
+							.getColor(R.color.color_first_normal));
 					mAppDownloadBtn.setEnabled(true);
 					mAppDownloadBtn.setText(getString(R.string.app_retry));
 					mAppActiveProgressLoading.setVisibility(View.VISIBLE);
@@ -693,9 +693,9 @@ public class PhoneAppInfoActivity extends Activity implements
 				case FAILED_BROKEN:
 					// mAppProgress.setVisibility( View.GONE );
 					mAppDownloadBtn
-							.setBackgroundResource(R.drawable.btn_green_selector);
+							.setBackgroundResource(R.drawable.selector_framework_first_gray);
 					mAppDownloadBtn.setTextColor(mRes
-							.getColorStateList(R.color.btn_green_color));
+							.getColor(R.color.color_first_normal));
 					mAppDownloadBtn.setEnabled(true);
 					mAppDownloadBtn.setText(getString(R.string.app_redownload));
 					break;
@@ -710,20 +710,20 @@ public class PhoneAppInfoActivity extends Activity implements
 					break;
 				case FAILED_SERVER:
 					// mAppProgress.setVisibility( View.GONE );
-					mAppDownloadBtn.setTextColor(mRes
-							.getColorStateList(R.color.btn_green_color));
 					mAppDownloadBtn
-							.setBackgroundResource(R.drawable.btn_green_selector);
+							.setBackgroundResource(R.drawable.selector_framework_first_gray);
+					mAppDownloadBtn.setTextColor(mRes
+							.getColor(R.color.color_first_normal));
 					mAppDownloadBtn.setEnabled(true);
 					mAppDownloadBtn.setText(getString(R.string.app_retry));
 
 					break;
 				case FAILED_NOFREESPACE:
 					// mAppProgress.setVisibility( View.GONE );
-					mAppDownloadBtn.setTextColor(mRes
-							.getColorStateList(R.color.btn_green_color));
 					mAppDownloadBtn
-							.setBackgroundResource(R.drawable.btn_green_selector);
+							.setBackgroundResource(R.drawable.selector_framework_first_gray);
+					mAppDownloadBtn.setTextColor(mRes
+							.getColor(R.color.color_first_normal));
 					mAppDownloadBtn.setEnabled(true);
 					mAppDownloadBtn.setText(getString(R.string.app_retry));
 					break;
@@ -733,7 +733,7 @@ public class PhoneAppInfoActivity extends Activity implements
 			mAppDownloadBtn.setVisibility(View.VISIBLE);
 			mAppDownloadBtn.setText(getString(R.string.app_download));
 			mAppDownloadBtn
-					.setBackgroundResource(R.drawable.btn_green_green_selector);
+					.setBackgroundResource(R.drawable.btn_first_selector);
 			mAppDownloadBtn.setTextColor(mRes
 					.getColorStateList(R.color.btn_noshadow_blue_color));
 			mAppDownloadBtn.setEnabled(true);

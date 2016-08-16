@@ -79,7 +79,7 @@ public class ProgressButton extends View implements OnTouchListener {
 		// 空心画笔描边
 		mPaintBorder = new Paint();
 		mPaintBorder.setAntiAlias(true);
-		mPaintBorder.setColor(mRes.getColor(R.color.color_green_normal));
+		mPaintBorder.setColor(mRes.getColor(R.color.color_first_normal));
 		mPaintBorder.setStyle(Style.STROKE);// 空心
 		mPaintBorder.setStrokeWidth(1.0f);
 
@@ -89,7 +89,7 @@ public class ProgressButton extends View implements OnTouchListener {
 		mPaintBg.setColor(mRes.getColor(R.color.white));
 
 		mTextPaint = new Paint();
-		mTextPaint.setColor(mRes.getColor(R.color.color_green_normal));
+		mTextPaint.setColor(mRes.getColor(R.color.color_first_normal));
 		mTextPaint.setAntiAlias(true);
 		mTextPaint.setTextSize(mRes.getDimension(R.dimen.csl_button_text_size));
 		// mTextPaint.setTextAlign(Align.CENTER);
@@ -199,12 +199,12 @@ public class ProgressButton extends View implements OnTouchListener {
 				if (mColorStateList != null) {
 					stateSet[0] = android.R.attr.state_pressed;
 					mTextPaint.setColor(mColorStateList.getColorForState(
-							stateSet, mRes.getColor(R.color.color_green_normal)));
+							stateSet, mRes.getColor(R.color.color_first_normal)));
 					Log.d(TAG,
 							"mTextPaint color 1= "
 									+ mColorStateList.getColorForState(
 											stateSet,
-											mRes.getColor(R.color.color_green_normal)));
+											mRes.getColor(R.color.color_first_normal)));
 					invalidate();
 				}
 			}
@@ -214,12 +214,12 @@ public class ProgressButton extends View implements OnTouchListener {
 				if (mColorStateList != null) {
 					stateSet[0] = android.R.attr.state_empty;
 					mTextPaint.setColor(mColorStateList.getColorForState(
-							stateSet, mRes.getColor(R.color.color_green_normal)));
+							stateSet, mRes.getColor(R.color.color_first_normal)));
 					Log.d(TAG,
 							"mTextPaint color = "
 									+ mColorStateList.getColorForState(
 											stateSet,
-											mRes.getColor(R.color.color_green_normal)));
+											mRes.getColor(R.color.color_first_normal)));
 					invalidate();
 				}
 			}
@@ -230,12 +230,12 @@ public class ProgressButton extends View implements OnTouchListener {
 				if (mColorStateList != null) {
 					stateSet[0] = android.R.attr.state_pressed;
 					mTextPaint.setColor(mColorStateList.getColorForState(
-							stateSet, mRes.getColor(R.color.color_green_normal)));
+							stateSet, mRes.getColor(R.color.color_first_normal)));
 					Log.d(TAG,
 							"mTextPaint color = "
 									+ mColorStateList.getColorForState(
 											stateSet,
-											mRes.getColor(R.color.color_green_normal)));
+											mRes.getColor(R.color.color_first_normal)));
 					invalidate();
 				}
 			}
@@ -250,7 +250,7 @@ public class ProgressButton extends View implements OnTouchListener {
 	}
 
 	private void resetValues() {
-		mTextPaint.setColor(mRes.getColor(R.color.color_green_normal));
+		mTextPaint.setColor(mRes.getColor(R.color.color_first_normal));
 		invalidate();
 	}
 }

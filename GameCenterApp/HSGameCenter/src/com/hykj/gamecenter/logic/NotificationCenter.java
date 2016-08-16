@@ -154,7 +154,7 @@ public class NotificationCenter
         // mUpdateNotification.flags =
         // Notification.FLAG_ONGOING_EVENT;//使Notification常驻在状态栏
 
-        rv.setImageViewResource(R.id.iv_onkeyupdate, R.drawable.btn_green_green_selector);
+        rv.setImageViewResource(R.id.iv_onkeyupdate, R.drawable.btn_first_selector);
 
         // 带按钮的布局相应点击事件在3.0以下版本没有用，所以这边作了系统版本判断，来显示升级按钮
         // 如果版本号低于（3.0），那么不显示按钮

@@ -337,14 +337,16 @@ public class DownloadStateView extends InterceptTouchFrameLayout implements
                 case PREPARING:
                     // mAppActiveProgress.setProgress(0);
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.csls_button_yellow_edit);
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_pause));
                     mAppDownloadBtn.setEnabled(true);
                     // mAppActiveProgress.setVisibility(View.VISIBLE);
                     break;
                 case WAITING:
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.csls_button_yellow_edit);
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_pause));
                     // mAppActiveProgress.setVisibility(View.VISIBLE);
@@ -352,14 +354,16 @@ public class DownloadStateView extends InterceptTouchFrameLayout implements
                 case STARTED:
                 case LOADING:
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.csls_button_yellow_edit);
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_pause));
                     // mAppActiveProgress.setVisibility(View.VISIBLE);
                     break;
                 case STOPPED:
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.csls_button_blue_edit);
+                            .setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_resume));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_resume));
                     // mAppActiveProgress.setVisibility(View.VISIBLE);
@@ -368,7 +372,8 @@ public class DownloadStateView extends InterceptTouchFrameLayout implements
                     // TODO
                     // mAppActiveProgress.setProgress(100);
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.csls_button_blue_edit);
+                            .setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_resume));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_install));
                     // if( mApkInstalledManager.isApkLocalInstalled(
@@ -386,7 +391,8 @@ public class DownloadStateView extends InterceptTouchFrameLayout implements
                     break;
                 case DELETED:
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.csls_button_green_edit);
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn
                             .setText(mRes.getString(R.string.app_redownload));
@@ -400,7 +406,8 @@ public class DownloadStateView extends InterceptTouchFrameLayout implements
                     mAppInstalled.setVisibility(View.VISIBLE);
                     mAppDownloadBtn.setVisibility(View.GONE);
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.csls_button_blue_edit);
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(false);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_install));
                     // mAppProgress.setVisibility( View.GONE );
@@ -409,7 +416,8 @@ public class DownloadStateView extends InterceptTouchFrameLayout implements
 
                 case FAILED_NETWORK:
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.csls_button_green_edit);
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_retry));
                     // mAppActiveProgress.setVisibility(View.VISIBLE);
@@ -417,7 +425,8 @@ public class DownloadStateView extends InterceptTouchFrameLayout implements
                 case FAILED_BROKEN:
                     // mAppProgress.setVisibility( View.GONE );
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.csls_button_green_edit);
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn
                             .setText(mRes.getString(R.string.app_redownload));
@@ -425,14 +434,16 @@ public class DownloadStateView extends InterceptTouchFrameLayout implements
                 case FAILED_NOEXIST:
                     // mAppProgress.setVisibility( View.GONE );
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.csls_button_red_edit);
+                            .setBackgroundResource(R.drawable.btn_gray_selector);
+                    mAppDownloadBtn.setTextColor(mRes.getColorStateList(R.color.btn_gray_color));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_delete));
                     break;
                 case FAILED_SERVER:
                     // mAppProgress.setVisibility( View.GONE );
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.csls_button_green_edit);
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_retry));
 
@@ -440,7 +451,8 @@ public class DownloadStateView extends InterceptTouchFrameLayout implements
                 case FAILED_NOFREESPACE:
                     // mAppProgress.setVisibility( View.GONE );
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.csls_button_green_edit);
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_retry));
                     break;
@@ -449,7 +461,8 @@ public class DownloadStateView extends InterceptTouchFrameLayout implements
             mAppDownloadBtn.setVisibility(View.VISIBLE);
             mAppDownloadBtn.setText(mRes.getString(R.string.app_download));
             mAppDownloadBtn
-                    .setBackgroundResource(R.drawable.csls_button_green_edit);
+                    .setBackgroundResource(R.drawable.selector_framework_first_gray);
+            mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
             mAppDownloadBtn.setEnabled(true);
             mAppInstalled.setVisibility(View.GONE);
             mAppDownloadBtn.setTag(dinfo);

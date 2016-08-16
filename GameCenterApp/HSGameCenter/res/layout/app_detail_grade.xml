@@ -176,9 +176,9 @@
         android:layout_below="@id/progress"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/normal_margin_padding_medium"
-        android:background="@drawable/btn_green_selector"
+        android:background="@drawable/btn_first_framework_selector"
         android:text="@string/grade_app"
-        android:textColor="@color/btn_green_color"
+        android:textColor="@color/color_first_white_selector"
         android:textSize="@dimen/csl_dialog_button_text_size" />
 
 </RelativeLayout>

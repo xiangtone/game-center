@@ -248,7 +248,7 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
         mAppActiveProgressLoading = (ProgressBar)findViewById(R.id.action_detail_progress_bar_loading);
         mAppActiveProgressResume = (ProgressBar)findViewById(R.id.action_detail_progress_bar_resume);
         mAppDownloadBtn = (DownloadListButton) findViewById(R.id.app_download_btn);//下载按钮
-        mAppDownloadBtn.setBackgroundResource(R.drawable.btn_green_selector);
+        mAppDownloadBtn.setBackgroundResource(R.drawable.btn_first_framework_selector);
         mAppOpenOrUpdateBtn = (DownloadListButton) findViewById(R.id.app_openorupdate);//打开按钮
         mAppInstalled = (TextView) findViewById(R.id.app_installed);//已安装
 
@@ -349,8 +349,8 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
         if (mApkInstalledManager.isApkNeedToUpdate(packName))
         {
             mAppOpenOrUpdateBtn.setText(mContext.getString(R.string.app_update));
-            mAppOpenOrUpdateBtn.setBackgroundResource(R.drawable.btn_green_selector);
-            mAppOpenOrUpdateBtn.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+            mAppOpenOrUpdateBtn.setBackgroundResource(R.drawable.btn_first_framework_selector);
+            mAppOpenOrUpdateBtn.setTextColor(mRes.getColorStateList(R.color.color_first_white_selector));
             mAppOpenOrUpdateBtn.setTag(mAppInfo);
 
         }
@@ -403,8 +403,8 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
                 case PREPARING:// 当前不让用户暂停
                     mAppActiveProgressLoading.setProgress(0);
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
-                    mAppDownloadBtn.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     //                    mAppDownloadBtn.setText("");
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_pause));
                     mAppDownloadBtn.setEnabled(true);
@@ -414,8 +414,8 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
                     break;
                 case WAITING:// 当前不让用户暂停
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
-                    mAppDownloadBtn.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     //                    mAppDownloadBtn.setText("");
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_pause));
@@ -426,8 +426,8 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
                 case STARTED:// 当前不让用户暂停
                 case LOADING:// 当前不让用户暂停
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.shape_framework_theme);
-                    mAppDownloadBtn.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     //                    mAppDownloadBtn.setText("");
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_pause));
@@ -437,8 +437,8 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
                     break;
                 case STOPPED:
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.shape_framework_red);
-                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.textcolor_progress6));
+                            .setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_resume));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_resume));
                     //                    frameLayoutRoundProgressBarlayout.setVisibility(View.VISIBLE);
@@ -459,9 +459,9 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
                     frameLayoutRoundProgressBarlayout.setVisibility(View.GONE);
 
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_yellow_selector);
+                            .setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
                     mAppDownloadBtn.setTextColor(mRes
-                            .getColorStateList(R.color.btn_yellow_color));
+                            .getColor(R.color.color_resume));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_install));
                     mAppActiveProgressLoading.setVisibility(View.GONE);
@@ -486,8 +486,8 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
                      * .setText(mRes.getString(R.string.app_redownload));
                      */
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
-                    mAppDownloadBtn.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_redownload));
                     frameLayoutRoundProgressBarlayout.setVisibility(View.GONE);
@@ -505,8 +505,8 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
                     mAppInstalled.setVisibility(View.VISIBLE);
                     mAppDownloadBtn.setVisibility(View.GONE);
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
-                    mAppDownloadBtn.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(false);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_install));
                     mAppInstalled.setText(mRes.getString(R.string.app_installing));
@@ -521,8 +521,8 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
                      * mAppDownloadBtn.setText(mRes.getString(R.string.app_retry));
                      */
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
-                    mAppDownloadBtn.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_retry));
                     mAppActiveProgressLoading.setVisibility(View.VISIBLE);
@@ -540,8 +540,8 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
                      * .setText(mRes.getString(R.string.app_redownload));
                      */
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
-                    mAppDownloadBtn.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_redownload));
                     frameLayoutRoundProgressBarlayout.setVisibility(View.GONE);
@@ -559,8 +559,8 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
                 case FAILED_SERVER:// 服务器繁忙
 
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
-                    mAppDownloadBtn.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_retry));
 
@@ -568,8 +568,8 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
                     break;
                 case FAILED_NOFREESPACE:
                     mAppDownloadBtn
-                            .setBackgroundResource(R.drawable.btn_green_selector);
-                    mAppDownloadBtn.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+                            .setBackgroundResource(R.drawable.selector_framework_first_gray);
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_retry));
 
@@ -581,10 +581,10 @@ public class DownloadStateViewCustomization extends InterceptTouchFrameLayout im
         {
             mAppDownloadBtn.setVisibility(View.VISIBLE);
             mAppDownloadBtn
-                    .setBackgroundResource(R.drawable.btn_green_selector);
+                    .setBackgroundResource(R.drawable.selector_framework_first_gray);
             mAppDownloadBtn.setText(mRes.getString(R.string.app_download));
 
-            mAppDownloadBtn.setTextColor(mRes.getColorStateList(R.color.btn_green_color));
+            mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_first_normal));
             mAppDownloadBtn.setEnabled(true);
             mAppDownloadBtn.setVisibility(View.VISIBLE);
             mAppInstalled.setVisibility(View.GONE);

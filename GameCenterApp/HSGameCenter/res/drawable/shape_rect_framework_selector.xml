@@ -37,7 +37,7 @@
 			<solid
 				android:color="@color/white"/>
 			<stroke android:width="2px"
-				android:color="@color/color_green_normal"/>
+				android:color="@color/color_first_normal"/>
 		</shape>
 	</item>
 
