@@ -16,11 +16,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 
 import com.hykj.gamecenter.R;
 
-public class ProgressButtonShowStatus extends View implements OnTouchListener {
+public class ProgressButtonShowStatus extends View{
 
 	private static final String TAG = ProgressButtonShowStatus.class.getName();
 	private Paint mPaint = null;
@@ -65,6 +64,10 @@ public class ProgressButtonShowStatus extends View implements OnTouchListener {
 
 	public void setTextColor(ColorStateList colorStateList) {
 		mColorStateList = colorStateList;
+	}
+
+	public void setTextColor(int color) {
+		mTextPaint.setColor(color);
 	}
 
 	private void initData(Context context) {
@@ -197,65 +200,128 @@ public class ProgressButtonShowStatus extends View implements OnTouchListener {
 		invalidate();
 	}
 
+	public void setProgressColor(int color) {
+		this.mPaint.setColor(color);
+	}
+
 	@Override
-	public boolean onTouch(View v, MotionEvent event) {
+	public boolean onTouchEvent(MotionEvent event) {
 		Log.d(TAG, "onTouch");
 		int[] stateSet = new int[1];
 		switch (event.getAction()) {
-		case (MotionEvent.ACTION_DOWN):
-			if (mTextPaint != null) {
-				if (mColorStateList != null) {
-					stateSet[0] = android.R.attr.state_pressed;
-					mTextPaint.setColor(mColorStateList.getColorForState(
-							stateSet, mRes.getColor(R.color.color_first_normal)));
-					Log.d(TAG,
-							"mTextPaint color 1= "
-									+ mColorStateList.getColorForState(
-											stateSet,
-											mRes.getColor(R.color.color_first_normal)));
-					invalidate();
+			case (MotionEvent.ACTION_DOWN):
+				if (mTextPaint != null) {
+					if (mColorStateList != null) {
+						stateSet[0] = android.R.attr.state_pressed;
+						mTextPaint.setColor(mColorStateList.getColorForState(
+								stateSet, mRes.getColor(R.color.color_first_normal)));
+						Log.d(TAG,
+								"mTextPaint color 1= "
+										+ mColorStateList.getColorForState(
+										stateSet,
+										mRes.getColor(R.color.color_first_normal)));
+						invalidate();
+					}
 				}
-			}
-			break;
-		case (MotionEvent.ACTION_UP):
-			if (mTextPaint != null) {
-				if (mColorStateList != null) {
-					stateSet[0] = android.R.attr.state_empty;
-					mTextPaint.setColor(mColorStateList.getColorForState(
-							stateSet, mRes.getColor(R.color.color_first_normal)));
-					Log.d(TAG,
-							"mTextPaint color = "
-									+ mColorStateList.getColorForState(
-											stateSet,
-											mRes.getColor(R.color.color_first_normal)));
-					invalidate();
+				break;
+			case (MotionEvent.ACTION_UP):
+				if (mTextPaint != null) {
+					if (mColorStateList != null) {
+						stateSet[0] = android.R.attr.state_empty;
+						mTextPaint.setColor(mColorStateList.getColorForState(
+								stateSet, mRes.getColor(R.color.color_first_normal)));
+						Log.d(TAG,
+								"mTextPaint color = "
+										+ mColorStateList.getColorForState(
+										stateSet,
+										mRes.getColor(R.color.color_first_normal)));
+						invalidate();
+					}
 				}
-			}
 
-			break;
-		case (MotionEvent.ACTION_MOVE):
-			if (mTextPaint != null) {
-				if (mColorStateList != null) {
-					stateSet[0] = android.R.attr.state_pressed;
-					mTextPaint.setColor(mColorStateList.getColorForState(
-							stateSet, mRes.getColor(R.color.color_first_normal)));
-					Log.d(TAG,
-							"mTextPaint color = "
-									+ mColorStateList.getColorForState(
-											stateSet,
-											mRes.getColor(R.color.color_first_normal)));
-					invalidate();
+				break;
+			case (MotionEvent.ACTION_MOVE):
+				if (mTextPaint != null) {
+					if (mColorStateList != null) {
+						stateSet[0] = android.R.attr.state_pressed;
+						mTextPaint.setColor(mColorStateList.getColorForState(
+								stateSet, mRes.getColor(R.color.color_first_normal)));
+						Log.d(TAG,
+								"mTextPaint color = "
+										+ mColorStateList.getColorForState(
+										stateSet,
+										mRes.getColor(R.color.color_first_normal)));
+						invalidate();
+					}
 				}
-			}
 
-			break;
-		default:
-			resetValues();
-			break;
+				break;
+			default:
+//			resetValues();
+				break;
 		}
-		return false;
-
+		return super.onTouchEvent(event);
 	}
+
+//	@Override
+//	public boolean onTouch(View v, MotionEvent event) {
+//		Log.d(TAG, "onTouch");
+//		int[] stateSet = new int[1];
+//		switch (event.getAction()) {
+//		case (MotionEvent.ACTION_DOWN):
+//			if (mTextPaint != null) {
+//				if (mColorStateList != null) {
+//					stateSet[0] = android.R.attr.state_pressed;
+//					mTextPaint.setColor(mColorStateList.getColorForState(
+//							stateSet, mRes.getColor(R.color.color_first_normal)));
+//					Log.d(TAG,
+//							"mTextPaint color 1= "
+//									+ mColorStateList.getColorForState(
+//											stateSet,
+//											mRes.getColor(R.color.color_first_normal)));
+//					invalidate();
+//				}
+//			}
+//			break;
+//		case (MotionEvent.ACTION_UP):
+//			if (mTextPaint != null) {
+//				if (mColorStateList != null) {
+//					stateSet[0] = android.R.attr.state_empty;
+//					mTextPaint.setColor(mColorStateList.getColorForState(
+//							stateSet, mRes.getColor(R.color.color_first_normal)));
+//					Log.d(TAG,
+//							"mTextPaint color = "
+//									+ mColorStateList.getColorForState(
+//											stateSet,
+//											mRes.getColor(R.color.color_first_normal)));
+//					invalidate();
+//				}
+//			}
+//
+//			break;
+//		case (MotionEvent.ACTION_MOVE):
+//			if (mTextPaint != null) {
+//				if (mColorStateList != null) {
+//					stateSet[0] = android.R.attr.state_pressed;
+//					mTextPaint.setColor(mColorStateList.getColorForState(
+//							stateSet, mRes.getColor(R.color.color_first_normal)));
+//					Log.d(TAG,
+//							"mTextPaint color = "
+//									+ mColorStateList.getColorForState(
+//											stateSet,
+//											mRes.getColor(R.color.color_first_normal)));
+//					invalidate();
+//				}
+//			}
+//
+//			break;
+//		default:
+////			resetValues();
+//			break;
+//		}
+//		return false;
+//
+//	}
 
 	private void resetValues() {
 		mTextPaint.setColor(mRes.getColor(R.color.color_first_normal));

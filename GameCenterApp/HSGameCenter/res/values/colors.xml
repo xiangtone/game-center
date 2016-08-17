@@ -10,7 +10,8 @@
 	<color name="color_first_pressed">#eab20b</color>
 	<!--用于disabled和下载进度-->
 	<color name="color_first_disable">#ffe28b</color>
-	<color name="color_resume">#FF7300</color>
+	<color name="color_resume_normal">#FF7300</color>
+	<color name="color_resume_disable">#7FFF7300</color>
 	<color name="color_gray_press">#f2f2f2</color>
 	<color name="color_gray_press_alpha">#3fd8d8d8</color>
 	<color name="color_download_tab_frame">#4C000000</color>
@@ -45,7 +46,6 @@
 	<color name="recommend_bg_color">#ffffff</color>
 	<color name="action_blue_color">@color/color_action_bar</color>
 	<color name="color_progress">@color/color_first_normal</color>
-	<color name="color_progressing">@color/color_first_disable</color>
 	<color name="color_text_wifi_tips">#1b6fff</color>
 
 

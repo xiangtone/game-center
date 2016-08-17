@@ -6,7 +6,7 @@
             android:drawable="@android:color/transparent"
             android:scaleWidth="100%" />
     </item>
-    <item android:id="@+android:id/secondaryProgress">
+    <item android:id="@android:id/secondaryProgress">
         <clip>
             <shape>
 
@@ -25,10 +25,10 @@
 
                 <gradient
                     android:angle="270"
-                    android:centerColor="@color/color_progress6"
+                    android:centerColor="@color/color_resume_disable"
                     android:centerY="0.75"
-                    android:endColor="@color/color_progress6"
-                    android:startColor="@color/color_progress6" />
+                    android:endColor="@color/color_resume_disable"
+                    android:startColor="@color/color_resume_disable" />
             </shape>
         </clip>
     </item>

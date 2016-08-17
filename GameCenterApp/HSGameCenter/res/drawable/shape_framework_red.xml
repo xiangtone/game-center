@@ -5,7 +5,7 @@
         <shape android:shape="rectangle">
             <corners android:radius="@dimen/radius_btn" /><!-- 圆角半径 -->
             <solid android:color="@color/transparent" />
-            <stroke android:color="@color/color_resume" android:width="2px"/>
+            <stroke android:color="@color/color_resume_normal" android:width="2px"/>
         </shape>
     </item>
 

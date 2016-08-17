@@ -615,7 +615,7 @@ public class PhoneAppInfoActivity extends Activity implements
 							.setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
 //					mAppDownloadBtn.setTextColor(mRes
 //							.getColorStateList(R.color.btn_yellow_color));
-					mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_resume));
+					mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_resume_normal));
 					mAppDownloadBtn.setEnabled(true);
 					mAppDownloadBtn.setText(getString(R.string.app_resume));
 					mAppActiveProgressLoading.setVisibility(View.GONE);
@@ -633,7 +633,7 @@ public class PhoneAppInfoActivity extends Activity implements
 //					mAppDownloadBtn.setTextColor(mRes
 //							.getColorStateList(R.color.color_first_white_selector));
 					mAppDownloadBtn.setTextColor(mRes
-							.getColor(R.color.color_resume));
+							.getColor(R.color.color_resume_normal));
 					mAppDownloadBtn.setEnabled(true);
 					mAppDownloadBtn.setText(getString(R.string.app_install));
 					// if( mApkInstalledManager.isApkLocalInstalled(

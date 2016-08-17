@@ -363,7 +363,7 @@ public class DownloadStateView extends InterceptTouchFrameLayout implements
                 case STOPPED:
                     mAppDownloadBtn
                             .setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
-                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_resume));
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_resume_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_resume));
                     // mAppActiveProgress.setVisibility(View.VISIBLE);
@@ -373,7 +373,7 @@ public class DownloadStateView extends InterceptTouchFrameLayout implements
                     // mAppActiveProgress.setProgress(100);
                     mAppDownloadBtn
                             .setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
-                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_resume));
+                    mAppDownloadBtn.setTextColor(mRes.getColor(R.color.color_resume_normal));
                     mAppDownloadBtn.setEnabled(true);
                     mAppDownloadBtn.setText(mRes.getString(R.string.app_install));
                     // if( mApkInstalledManager.isApkLocalInstalled(

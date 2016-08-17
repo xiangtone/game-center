@@ -978,7 +978,7 @@ public class DownloadListFragment extends ListFragment implements IDownloadTaskS
                     holder.msg1.setText(R.string.pauseing);
                     holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
                     holder.downloadiconbtn.setTextColor(getResources().getColorStateList(
-                            R.color.color_resume));
+                            R.color.color_resume_normal));
                     holder.downloadiconbtn.setEnabled(true);
                     holder.downloadiconbtn.setText(getString(R.string.app_resume));
                     break;
@@ -1000,7 +1000,7 @@ public class DownloadListFragment extends ListFragment implements IDownloadTaskS
                     // holder.downloadlabel.setVisibility( View.GONE );
                     holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
                     holder.downloadiconbtn.setTextColor(getResources().getColorStateList(
-                            R.color.color_resume));
+                            R.color.color_resume_normal));
                     holder.downloadiconbtn.setEnabled(true);
                     holder.downloadiconbtn.setText(getString(R.string.app_install));
                     if (mApkInstalledManager.isApkLocalInstalled(di.packageName))

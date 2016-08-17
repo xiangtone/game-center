@@ -457,16 +457,13 @@ public class UpdateListFragment extends ListFragment implements
             holder.updateiconbtn.setOnClickListener(mUpdateClickListener);
             holder.updateiconbtn.setText(getString(R.string.app_upgrade));
             holder.updateiconbtn
-                    .setBackgroundResource(R.drawable.btn_first_framework_selector);
-            holder.updateiconbtn.setTextColor(getResources().getColorStateList(
-                    R.color.color_first_white_selector));
+                    .setBackgroundResource(R.drawable.selector_framework_first_gray);
+            holder.updateiconbtn.setTextColor(getResources().getColor(
+                    R.color.color_first_normal));
             holder.installingiconbtn
                     .setOnClickListener(mInstallingClickListener);
-            holder.installingiconbtn
-                    .setOnTouchListener(holder.installingiconbtn);
-            // TODO
-            // holder.updatelabel.setText( getString( R.string.app_installed )
-            // );
+//            holder.installingiconbtn
+//                    .setOnTouchListener(holder.installingiconbtn);
 
             // 设置显示更新详情的背景
             if (mShowMap.get(info.appId) != null) {
@@ -596,153 +593,92 @@ public class UpdateListFragment extends ListFragment implements
             holder.installingiconbtn.setVisibility(View.VISIBLE);
             holder.updatelabel.setVisibility(View.GONE);
             holder.updateiconbtn.setVisibility(View.GONE);
-            holder.installingiconbtn.setProgressVisiable(false);
-
+            Resources res = getResources();
             switch (state) {
                 case PREPARING:
-                    holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
-                    /*
-                     * holder.installingiconbtn.setTextColor(getResources()
-                     * .getColorStateList(R.color.color_first_white_selector));
-                     */
-                    holder.installingiconbtn.setText(getString(R.string.app_pause));
-                    holder.installingiconbtn.setEnabled(true);
-                    holder.installingiconbtn.setProgressVisiable(true);
-                    holder.installingiconbtn.setProgress(di
-                            .getDownloadingProgress());
+                    initInstallingBtn(holder.installingiconbtn, R.string.app_pause, STAT_FIRST, di.getDownloadingProgress(), true);
                     break;
                 case WAITING:
-                    holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
-
-                    holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.color_first_white_selector));
-
-                    holder.installingiconbtn.setText(getString(R.string.app_pause));
-                    holder.installingiconbtn.setEnabled(true);
-                    holder.installingiconbtn.setProgressVisiable(true);
-                    holder.installingiconbtn.setProgress(di
-                            .getDownloadingProgress());
+                    initInstallingBtn(holder.installingiconbtn, R.string.app_pause, STAT_FIRST, di.getDownloadingProgress(), true);
                     break;
                 case STARTED:
                 case LOADING:
-                    holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
-
-                    holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.color_first_white_selector));
-
-                    holder.installingiconbtn.setEnabled(true);
-                    holder.installingiconbtn.setText(getString(R.string.app_pause));
-                    holder.installingiconbtn.setProgressVisiable(true);
-                    holder.installingiconbtn.setProgress(di
-                            .getDownloadingProgress());
+                    initInstallingBtn(holder.installingiconbtn, R.string.app_pause, STAT_FIRST, di.getDownloadingProgress(), true);
                     break;
                 case STOPPED:
-                    holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
-
-                    holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.color_first_white_selector));
-
-                    holder.installingiconbtn.setEnabled(true);
-                    holder.installingiconbtn
-                            .setText(getString(R.string.app_resume));
+                    initInstallingBtn(holder.installingiconbtn, R.string.app_resume, STAT_SECOND, di.getDownloadingProgress(), true);
                     break;
                 case SUCCEEDED:
-                    // TODO
-                    holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
-
-                    holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.color_first_white_selector));
-
-                    holder.installingiconbtn.setEnabled(true);
-                    holder.installingiconbtn
-                            .setText(getString(R.string.app_install));
+                    initInstallingBtn(holder.installingiconbtn, R.string.app_install, STAT_SECOND, -1, true);
                     if (mApkInstalledManager.isApkLocalInstalled(di.packageName)) {
                         // 如果安装立即刷新列表
                         mAdapter.notifyDataSetChanged();
                     }
                     break;
                 case DELETED:
-                    holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
-
-                    holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.color_first_white_selector));
-
-                    holder.installingiconbtn.setEnabled(true);
-                    holder.installingiconbtn
-                            .setText(getString(R.string./*app_redownload*/app_pause));
+                    initInstallingBtn(holder.installingiconbtn, R.string.app_redownload, STAT_FIRST, -1, true);
                     break;
                 case INSTALLING:
                     holder.installingiconbtn.setVisibility(View.GONE);
                     holder.updatelabel.setVisibility(View.VISIBLE);
-                    holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
-
-                    holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.color_first_white_selector));
-
-                    holder.installingiconbtn.setEnabled(false);
-                    holder.installingiconbtn
-                            .setText(getString(R.string.app_install));
                     holder.updatelabel.setText(getString(R.string.app_installing));
+                    initInstallingBtn(holder.installingiconbtn, R.string.app_installing, STAT_FIRST, -1, false);
                     break;
                 case FAILED_NETWORK:
-                    holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
-
-                    holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.color_first_white_selector));
-
-                    holder.installingiconbtn.setEnabled(true);
-                    holder.installingiconbtn.setText(getString(R.string.app_retry));
+                    initInstallingBtn(holder.installingiconbtn, R.string.app_retry, STAT_FIRST, -1, true);
                     break;
                 case FAILED_BROKEN:
-                    holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
-
-                    holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.color_first_white_selector));
-
-                    holder.installingiconbtn.setEnabled(true);
-                    holder.installingiconbtn
-                            .setText(getString(R.string.app_redownload));
+                    initInstallingBtn(holder.installingiconbtn, R.string.app_redownload, STAT_FIRST, -1, true);
                     break;
                 case FAILED_NOEXIST:
-                    holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_gray_selector);
-
-                    holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.btn_gray_color));
-
-                    holder.installingiconbtn.setEnabled(true);
-                    holder.installingiconbtn
-                            .setText(getString(R.string.app_delete));
+                    initInstallingBtn(holder.installingiconbtn, R.string.app_delete, STAT_THIRD, -1, true);
                     break;
                 case FAILED_SERVER:
-                    holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
-
-                    holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.color_first_white_selector));
-
-                    holder.installingiconbtn.setEnabled(true);
-                    holder.installingiconbtn.setText(getString(R.string.app_retry));
+                    initInstallingBtn(holder.installingiconbtn, R.string.app_retry, STAT_FIRST, -1, true);
                     break;
                 case FAILED_NOFREESPACE:
-                    holder.installingiconbtn
-                            .setBackgroundResource(R.drawable.btn_first_framework_selector);
-
-                    holder.installingiconbtn.setTextColor(getResources()
-                            .getColorStateList(R.color.color_first_white_selector));
-
-                    holder.installingiconbtn.setEnabled(true);
-                    holder.installingiconbtn.setText(getString(R.string.app_retry));
+                    initInstallingBtn(holder.installingiconbtn, R.string.app_retry, STAT_FIRST, di.getDownloadingProgress(), true);
                     break;
+            }
+        }
+
+        private static final int STAT_FIRST = 1;
+        private static final int STAT_SECOND = 2;
+        private static final int STAT_THIRD = 3;
+        /**
+         * 统一初始化btn状态
+         *
+         * @param text  显示的文字
+         * @param stat  {@code STAT_FIRST 主色调},{@code STAT_SECOND 次色调},{@code STAT_THIRD 删除}
+         * @param progress
+         */
+        private void initInstallingBtn(ProgressButtonShowStatus holderView, int text, int stat, int progress, boolean enable) {
+            Resources res = getResources();
+            if (stat == STAT_SECOND) {
+                holderView.setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
+                holderView.setTextColor(res.getColor(R.color.color_resume_normal));
+            } else if (stat == STAT_THIRD) {
+                holderView.setBackgroundResource(R.drawable.btn_gray_selector);
+                holderView.setTextColor(res.getColorStateList(R.color.btn_gray_color));
+            } else {
+                holderView.setBackgroundResource(R.drawable.selector_framework_first_gray);
+                holderView.setTextColor(res.getColor(R.color.color_first_normal));
+            }
+            holderView.setText(getString(text));
+            holderView.setEnabled(enable);
+            if (progress > 0) {
+                holderView.setProgressVisiable(true);
+                holderView.setProgress(progress);
+//                holderView.setProgressColor(stat == STAT_FIRST ?
+//                        res.getColor(R.color.color_first_disable) : res.getColor(R.color.color_resume_disable));
+                if (stat == STAT_FIRST) {
+                    holderView.setProgressColor(res.getColor(R.color.color_first_disable));
+                }else {
+                    holderView.setProgressColor(res.getColor(R.color.color_resume_disable));
+                }
+
+            }else {
+                holderView.setProgressVisiable(false);
             }
         }
 

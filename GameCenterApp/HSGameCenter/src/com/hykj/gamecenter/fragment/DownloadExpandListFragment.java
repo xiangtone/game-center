@@ -922,7 +922,7 @@ public class DownloadExpandListFragment extends Fragment implements IDownloadTas
                     holder.msg1.setText(R.string.pauseing);
                     holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
                     holder.downloadiconbtn.setTextColor(mRes.getColor(
-                            R.color.color_resume));
+                            R.color.color_resume_normal));
                     holder.downloadiconbtn.setEnabled(true);
                     holder.downloadiconbtn.setText(mRes.getString(R.string.app_resume));
                     break;
@@ -944,7 +944,7 @@ public class DownloadExpandListFragment extends Fragment implements IDownloadTas
                     // holder.downloadlabel.setVisibility( View.GONE );
                     holder.downloadiconbtn.setBackgroundResource(R.drawable.btn_framework_colorresume_selector);
                     holder.downloadiconbtn.setTextColor(mRes.getColor(
-                            R.color.color_resume));
+                            R.color.color_resume_normal));
                     holder.downloadiconbtn.setEnabled(true);
                     holder.downloadiconbtn.setText(mRes.getString(R.string.app_install));
                     if (mApkInstalledManager.isApkLocalInstalled(di.packageName))

@@ -6,5 +6,5 @@
     <item android:state_enabled="false"
         android:color="@color/white"/>
     <item
-        android:color="@color/color_resume" />
+        android:color="@color/color_resume_normal" />
 </selector>

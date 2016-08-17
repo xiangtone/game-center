@@ -385,16 +385,16 @@ public class DownloadTask
     {
 
         double downloadedSize = 0, fileSize = 0;
-        if (getState() == TaskState.LOADING || getState() == TaskState.PREPARING
-                || getState() == TaskState.WAITING || getState() == TaskState.STARTED)
-        {
+//        if (getState() == TaskState.LOADING || getState() == TaskState.PREPARING
+//                || getState() == TaskState.WAITING || getState() == TaskState.STARTED)
+//        {
             downloadedSize = progress;
             fileSize += fileLength;
             /*
              * Log.d(TAG, "info.progress = " + progress + " info.fileLength = "
              * + fileLength);
              */
-        }
+//        }
 
         if (fileSize != 0)
         {
