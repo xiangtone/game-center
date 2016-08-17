@@ -254,10 +254,12 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         // TODO Auto-generated method stub
         super.onNewIntent(intent);
         setIntent(intent);
-        int itemSelect = getIntent().getIntExtra(KEY_SELECT_ITEM, 0);
         boolean switchToUpdate = getIntent().getBooleanExtra(KEY_GOTO_UPDATE, false);
         boolean updateAll = getIntent().getBooleanExtra(KEY_UPDATE_ALL, false);
-        showTagFragment(String.valueOf(itemSelect), getViewbyTag(itemSelect));
+        int itemSelect = getIntent().getIntExtra(KEY_SELECT_ITEM, 0);
+        if (itemSelect != 0){
+            showTagFragment(String.valueOf(itemSelect), getViewbyTag(itemSelect));
+        }
         if (itemSelect == PAGE_INDEX.INDEX_UPDATE && switchToUpdate | updateAll) {
             Bundle bundle = new Bundle();
             bundle.putBoolean(KEY_GOTO_UPDATE, switchToUpdate);
