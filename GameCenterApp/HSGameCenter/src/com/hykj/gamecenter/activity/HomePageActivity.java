@@ -627,10 +627,23 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
             showHomePage();
         }
 
+
         //判断是update fragment 执行 updateAll、switchToUpdate
         int itemSelect = getIntent().getIntExtra(KEY_SELECT_ITEM, 0);
         boolean switchToUpdate = getIntent().getBooleanExtra(KEY_GOTO_UPDATE, false);
         boolean updateAll = getIntent().getBooleanExtra(KEY_UPDATE_ALL, false);
+        //判断页面唤醒
+        String action = getIntent().getAction();
+        if (itemSelect == 0 && Intent.ACTION_VIEW.equals(action)) {
+            Uri uri = getIntent().getData();
+            if (uri != null) {
+                String args = uri.getQueryParameter("arg0");
+                if (Integer.valueOf(args) == 1) {
+                    itemSelect = PAGE_INDEX.INDEX_WIFI;
+                }
+            }
+        }
+
         Fragment fragment = null;
         fragment = getFragment(itemSelect, fragment);
         mLastFragmentTag = String.valueOf(itemSelect);

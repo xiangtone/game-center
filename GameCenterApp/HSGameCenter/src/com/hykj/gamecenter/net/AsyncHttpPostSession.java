@@ -1,11 +1,10 @@
 package com.hykj.gamecenter.net;
 
-import java.io.InterruptedIOException;
-import java.net.ConnectException;
-import java.net.UnknownHostException;
+import android.util.Log;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpStatus;
+import org.apache.http.NoHttpResponseException;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -14,7 +13,9 @@ import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 
-import android.util.Log;
+import java.io.InterruptedIOException;
+import java.net.ConnectException;
+import java.net.UnknownHostException;
 
 public class AsyncHttpPostSession extends AsyncHttpSession {
 	
@@ -119,6 +120,13 @@ public class AsyncHttpPostSession extends AsyncHttpSession {
 					release();
 					if (mCallBack != null)
 						mCallBack.onError(HttpSessionConstant.ERROR_CODE.ERR_PROTOCOL_ERROR, excp.toString());
+					return;
+				}
+				//NoHttpResponseException
+				if (excp instanceof NoHttpResponseException) {
+					release();
+					if (mCallBack != null)
+						mCallBack.onError(HttpSessionConstant.ERROR_CODE.ERR_NO_RESPOND, excp.toString());
 					return;
 				}
 

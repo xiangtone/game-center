@@ -75,6 +75,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
     private boolean mConnecting = false;
     private boolean hasLoadData = false;
     private Apps.GroupElemInfo mGroupElemInfo;
+    private boolean mListenWifiLogin;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,8 +92,9 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                         //验证登录并开网
                         //地铁网络连接之后尝试登陆
                         boolean checkIndentifySsid = NetUtils.CheckIndentifySsid(mParentActiity, WifiHttpUtils.SSID_HEAD);
-                        if (checkIndentifySsid){
+                        if (checkIndentifySsid && mListenWifiLogin){
                             checkLogin();
+                            mListenWifiLogin = false;
                         }
                     } else {
                         //wifi切换到其他状态
@@ -414,8 +416,8 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
         @Override
         protected Integer doInBackground(Void... params) {
             // TODO Auto-generated method stub
-            WifiConnect con = new WifiConnect(mWifiManager);
-            int connected = con.Connect(WifiHttpUtils.SSID_HEAD,
+            WifiConnect con = new WifiConnect(mParentActiity, mWifiManager);
+            int connected = con.Connect( WifiHttpUtils.SSID_HEAD,
                     WifiConnect.WifiCipherType.WIFICIPHER_NOPASS);
 
             return connected;
@@ -425,6 +427,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
         protected void onPostExecute(Integer result) {
             // TODO Auto-generated method stub
             super.onPostExecute(result);
+            Logger.e(TAG, "login result "+ result);
             switch (result) {
                 case -1:    //未检测到花生wifi
                     CSToast.show(mParentActiity, getResources().getString(R.string.wifi_unfind));
@@ -434,9 +437,11 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
 //                    CSToast.show(mParentActiity, "连接wifi失败");
                     updateState(ConnectState.WIFIUNVISIBLE);
                     break;
-                case 1:     //重连成功
+                case 1:     //重连成功，监听到连接成功广播执行登陆
+                    mListenWifiLogin = true;
                     break;
                 case 2:     //直连成功
+                    mListenWifiLogin = true;
                     mWifiListener.networkChange(1, null);
                     break;
 

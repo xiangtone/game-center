@@ -153,6 +153,12 @@ public class DownloadExpandListFragment extends Fragment implements IDownloadTas
         mList.setAdapter(mAdapter);
         mList.expandGroup(0);
         mList.expandGroup(1);
+        mList.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                return true;
+            }
+        });
     }
 
     @Override

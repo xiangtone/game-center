@@ -40,6 +40,6 @@ public final class HttpSessionConstant {
         public static final int ERR_CONNECT_REFUSE = 102;
         public static final int ERR_PROTOCOL_ERROR = 103;
         public static final int ERR_CONNECT_TIMEOUT = 104;
-
+        public static final int ERR_NO_RESPOND = 105;
     }
 }

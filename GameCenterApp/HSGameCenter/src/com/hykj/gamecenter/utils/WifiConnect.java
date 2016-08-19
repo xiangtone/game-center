@@ -1,5 +1,9 @@
 package com.hykj.gamecenter.utils;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
@@ -14,7 +18,9 @@ import java.util.List;
 
 public class WifiConnect {
     private static final String TAG = "wifiTest wifiConnect";
+    private final Context mContext;
     WifiManager wifiManager;
+    private boolean scanResult = false;
 
     // 定义几种加密方式，一种是WEP，一种是WPA，还有没有密码的情况
     public enum WifiCipherType {
@@ -22,8 +28,9 @@ public class WifiConnect {
     }
 
     // 构造函数
-    public WifiConnect(WifiManager wifiManager) {
+    public WifiConnect(Context context, WifiManager wifiManager) {
         this.wifiManager = wifiManager;
+        this.mContext = context;
     }
 
     // 打开wifi功能
@@ -84,16 +91,6 @@ public class WifiConnect {
         if (!this.OpenWifi()) {
             return -1;
         }
-        // 开启wifi功能需要一段时间(我在手机上测试一般需要1-3秒左右)，所以要等到wifi
-        // 状态变成WIFI_STATE_ENABLED的时候才能执行下面的语句
-        while (wifiManager.getWifiState() == WifiManager.WIFI_STATE_ENABLING) {
-            try {
-                // 为了避免程序一直while循环，让它睡个100毫秒在检测……
-                Thread.currentThread();
-                Thread.sleep(100);
-            } catch (InterruptedException ie) {
-            }
-        }
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         if (wifiInfo != null) {
             String connectedSsid = wifiInfo.getSSID();
@@ -103,6 +100,22 @@ public class WifiConnect {
                 if (connected) return 2;
             }
         }
+
+        IntentFilter filter = new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
+        mContext.registerReceiver(mReceiver, filter);
+        wifiManager.startScan();
+        // 开启wifi功能需要一段时间(我在手机上测试一般需要1-3秒左右)，所以要等到wifi
+        // 状态变成WIFI_STATE_ENABLED的时候才能执行下面的语句,同时确定扫描wifi结束。
+        while (wifiManager.getWifiState() == WifiManager.WIFI_STATE_ENABLING || !scanResult) {
+            try {
+                // 为了避免程序一直while循环，让它睡个100毫秒在检测……
+                Thread.currentThread();
+                Thread.sleep(100);
+            } catch (InterruptedException ie) {
+            }
+        }
+
+        scanResult = false;
 
         List<ScanResult> availableSSID = new ArrayList<ScanResult>();
         //扫描可用wifi
@@ -143,6 +156,23 @@ public class WifiConnect {
 
     }
 
+    /**
+     * 广播接收，监听网络
+     */
+    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            // wifi已成功扫描到可用wifi。
+            if (action.equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)) {
+                scanResult = true;
+                if (mContext != null) {
+                    mContext.unregisterReceiver(mReceiver);
+                }
+            }
+        }
+    };
     /*
      * 检查当前 wifi连接的 wifi 是否有效
      */

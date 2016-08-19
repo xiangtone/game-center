@@ -107,13 +107,23 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
 //                NetworkInfo networkInfo = (NetworkInfo) parcelableExtra;
 //                State state = networkInfo.getState();
 //                boolean isConnected = state == State.CONNECTED;// 当然，这边可以更精确的确定状态
-//                Logger.e(TAG, "isConnected" + isConnected);
 //                if (isConnected) {
+//                    String bssid = intent.getStringExtra(WifiManager.EXTRA_BSSID);
+//                    WifiInfo wifiInfo = (WifiInfo)intent.getParcelableExtra(WifiManager.EXTRA_WIFI_INFO);
+//                Logger.e(TAG, "isConnected" + isConnected  + " bssid: "+ bssid + "----wifiinfo: "+ wifiInfo);
 //                } else {
 //
 //                }
 //            }
 //        }
+//        if (WifiManager.WIFI_STATE_CHANGED_ACTION.equals(intent.getAction())) {
+////            NetworkInfo info = APNUtil.getActiveNetwork(context);
+//                int wifiState = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, -1);
+//                Log.e(TAG, "connected wifiChange "+ wifiState);
+////            if (info.getState() == State.CONNECTED) {
+////            }
+//        }
+
 
         //获取wifi环境才下载游戏的布尔值
         boolean bWifiToDownload = App.getSettingContent().getSettingData().bWifiAutoDownload;
@@ -128,7 +138,6 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
                 State state = info.getState();
                 if (state == State.CONNECTED) {
                     if (type == 0 || name.equals("mobile")) {//mobile状态  停止下载
-                        Logger.i(TAG, "mobile CONNECTED", "oddshou");
                         CSToast.showNormal(context, context.getString(R.string.wifi_mobile_link));
                         notifyNewworkChange(0, info);
                         if (bWifiToDownload) {

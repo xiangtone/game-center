@@ -1744,12 +1744,15 @@ public class ApkDownloadManager {
 		protected String doInBackground(Object... params) {
 
 			DownloadTask task = (DownloadTask) params[1];
+
+
+
 			try {
 				// LogUtils.e( "params[0] = " + params[0] );
 				URL uslUrl = new URL((String) params[0]);
 				connection = (HttpURLConnection) uslUrl.openConnection();
 				if (connection != null) {
-					connection.setInstanceFollowRedirects(false);
+					connection.setInstanceFollowRedirects(true);
 				} else {
 					return null;
 				}
@@ -1801,6 +1804,8 @@ public class ApkDownloadManager {
 
 				LogUtils.e("连接异常：" + e.getMessage());
 				// e.printStackTrace( );
+			}finally {
+				Logger.e(TAG, "error");
 			}
 			return null;
 		}
