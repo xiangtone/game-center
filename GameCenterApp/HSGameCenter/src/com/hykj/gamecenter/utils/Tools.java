@@ -42,6 +42,7 @@ public class Tools {
         dinfo.progress = 0;
         dinfo.appIconURL = appInfo.iconUrl;
         dinfo.setState(TaskState.PREPARING);
+        dinfo.bRealAppDownloadURL = false;
         return dinfo;
     }
 

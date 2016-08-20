@@ -94,8 +94,8 @@ public class WifiConnect {
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         if (wifiInfo != null) {
             String connectedSsid = wifiInfo.getSSID();
-            if (!TextUtils.isEmpty(connectedSsid) && ((connectedSsid.startsWith(SSIDHead) ||
-                    connectedSsid.startsWith("\"" + SSIDHead)))) {
+            if (!TextUtils.isEmpty(connectedSsid) && ((connectedSsid.equals(SSIDHead) ||
+                    connectedSsid.equals("\"" + SSIDHead + "\"")))) {
                 boolean connected = wifiManager.enableNetwork(wifiInfo.getNetworkId(), true);
                 if (connected) return 2;
             }
@@ -123,8 +123,8 @@ public class WifiConnect {
         if (scanResultList != null) {
             for (ScanResult scanResult : scanResultList) {
                 Log.i(TAG, scanResult.SSID);
-                if (scanResult.SSID.startsWith(SSIDHead) ||
-                        scanResult.SSID.startsWith("\"" + WifiHttpUtils.SSID_HEAD)) {
+                if (scanResult.SSID.equals(SSIDHead) ||
+                        scanResult.SSID.equals("\"" + WifiHttpUtils.SSID_HEAD + "\"")) {
                     availableSSID.add(scanResult);
                 }
             }

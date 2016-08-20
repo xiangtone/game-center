@@ -152,7 +152,7 @@ public class DownloadTask
         return "DownloadInfo [packMD5=" + packMD5 + ",fileSavePath=" + fileSavePath + ", url="
                 + appDownloadURL + ", packageName=" + packageName + ", appName=" + appName
                 + ", appId=" + appId + ", totalSize=" + fileLength + ", dlSize="
-                + progress +", nfrom=" + nFromPos + ", state=" + state.toString() + "]";
+                + progress +", nfrom=" + nFromPos + ", bRealAppDownloadURL=" + bRealAppDownloadURL + ", state=" + state.toString() + "]";
     }
 
     public void reset()

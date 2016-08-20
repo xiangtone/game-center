@@ -9,6 +9,7 @@ import android.util.Log;
 import com.hykj.gamecenter.App;
 import com.hykj.gamecenter.controller.ProtocolListener;
 import com.hykj.gamecenter.data.GroupInfo;
+import com.hykj.gamecenter.db.CSACDatabaseHelper.DownloadInfoColumns;
 import com.hykj.gamecenter.download.DownloadTask;
 import com.hykj.gamecenter.protocol.Reported;
 
@@ -181,18 +182,24 @@ public class DatabaseUtils {
 	public static DownloadTask createTaskFromCursor(Cursor cursor) {
 		DownloadTask task = new DownloadTask();
 
-		task.appId = cursor.getInt(1);
-		task.fileSavePath = cursor.getString(2);
-		task.appDownloadURL = cursor.getString(3);
-		task.packageName = cursor.getString(4);
-		task.appName = cursor.getString(5);
+		task.appId = cursor.getInt(cursor.getColumnIndex(DownloadInfoColumns.APP_ID));
+		task.fileSavePath = cursor.getString(cursor.getColumnIndex(DownloadInfoColumns.LOCAL_PATH));
+		task.appDownloadURL = cursor.getString(cursor.getColumnIndex(DownloadInfoColumns.APP_URL));
+		task.packageName = cursor.getString(cursor.getColumnIndex(DownloadInfoColumns.PACAKGE_NAME));
+		task.appName = cursor.getString(cursor.getColumnIndex(DownloadInfoColumns.APP_NAME));
 		// info.rating = cursor.getInt( 6 );
-		task.fileLength = cursor.getInt(7);
-		task.progress = cursor.getInt(8);
-		task.appIconURL = cursor.getString(9);
-		task.packMD5 = cursor.getString(10);
+		task.fileLength = cursor.getInt(cursor.getColumnIndex(DownloadInfoColumns.TOTAL_SIZE));
+		task.progress = cursor.getInt(cursor.getColumnIndex(DownloadInfoColumns.DOWNLOAD_SIZE));
+		task.appIconURL = cursor.getString(cursor.getColumnIndex(DownloadInfoColumns.ICON_URL));
+		task.packMD5 = cursor.getString(cursor.getColumnIndex(DownloadInfoColumns.PACK_MD5));
 
-		int nState = cursor.getInt(11);
+		int nState = cursor.getInt(cursor.getColumnIndex(DownloadInfoColumns.STATE));
+		int isRealUrl = cursor.getInt(cursor.getColumnIndex(DownloadInfoColumns.IS_REAL_DOWNLOAD));
+		if (isRealUrl > 0) {
+			task.bRealAppDownloadURL = true;
+		}else {
+			task.bRealAppDownloadURL = false;
+		}
 		DownloadTask.TaskState enState = DownloadTask.TaskState.valueOf(nState);
 
 		switch (enState) {
@@ -207,7 +214,7 @@ public class DatabaseUtils {
 				break;
 		}
 		task.setState(enState);
-		task.nFromPos = cursor.getInt(12);
+		task.nFromPos = cursor.getInt(cursor.getColumnIndex(DownloadInfoColumns.MFROMPOS));
 		return task;
 	}
 
@@ -224,6 +231,7 @@ public class DatabaseUtils {
 		values.put(CSACDatabaseHelper.DownloadInfoColumns.ICON_URL, dinfo.appIconURL);
 		values.put(CSACDatabaseHelper.DownloadInfoColumns.PACK_MD5, dinfo.packMD5);
 		values.put(CSACDatabaseHelper.DownloadInfoColumns.STATE, dinfo.getState().value());
+		values.put(CSACDatabaseHelper.DownloadInfoColumns.IS_REAL_DOWNLOAD, dinfo.isbRealAppDownloadURL());
 		values.put(CSACDatabaseHelper.DownloadInfoColumns.MFROMPOS, dinfo.nFromPos);
 
 		return values;

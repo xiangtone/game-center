@@ -503,6 +503,7 @@ public class ApkDownloadManager {
 		Log.d(TAG, "-----resumeDownload-----");
 		if (dinfo == null)
 			return;
+//		updateTaskState(dinfo, TaskState.PREPARING);
 		// TODO: 2015/12/24 oddshou 修改
 //		if (!canResume(dinfo.getState())) {
 //			// LogUtils.e("state is error ! state=" +
@@ -1756,6 +1757,8 @@ public class ApkDownloadManager {
 				} else {
 					return null;
 				}
+				connection.setReadTimeout(4000);
+				connection.setConnectTimeout(4000);
 				connection.connect();
 				String location = connection.getHeaderField("Location");
 				// LogUtils.e( "location=" + location );

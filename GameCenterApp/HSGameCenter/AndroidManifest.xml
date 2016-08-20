@@ -204,7 +204,7 @@
             </intent-filter>
         </receiver>
         <receiver android:name="com.hykj.gamecenter.broadcast.WifiUpdateReceiver">
-            <intent-filter android:priority="0x7fffffff">
+            <intent-filter android:priority="2147483647">
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
                 <action android:name="android.net.wifi.STATE_CHANGE" />

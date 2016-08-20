@@ -115,7 +115,7 @@
             example="20%"> %d%%</xliff:g>
         "
     </string>
-    <string name="download_tip_network_error1">"网络出错请"</string>
+    <string name="download_tip_network_error1">"网络出错"</string>
     <string name="download_tip_network_error2">""</string>
     <string name="download_tip_file_error">"安装包下载出错"</string>
     <string name="download_tip_server_error">"请稍后再试"</string>

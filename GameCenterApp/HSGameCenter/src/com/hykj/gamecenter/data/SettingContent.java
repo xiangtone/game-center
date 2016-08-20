@@ -112,7 +112,8 @@ public class SettingContent {
 
                 bValue = preferences.getBoolean(
                         SettingStringDefine.SSD_WIFIAUTO_DOWNLOADED_TOSETUP, true);
-
+                // 在wifi环境下自动开启下载任务
+                settingData.bWifiAutoDownload =  bValue ;
                 addItem(new SettingListItem(SettingStringDefine.SSD_WIFIAUTO_DOWNLOADED_TOSETUP,
                         SettingListItem.DataType.toggle, new SettingToggle(R.drawable.icon_wifi,
                                 R.string.setting_wifiauto_download,
@@ -120,11 +121,11 @@ public class SettingContent {
                                 SettingStringDefine.SSD_WIFIAUTO_DOWNLOADED_TOSETUP, bValue,
                                 changelistener)));
 
-                // 在wifi环境下自动开启下载任务
-                settingData.bWifiAutoDownload =  bValue ;
+
 
                 bValue = preferences.getBoolean(
                         SettingStringDefine.SSD_ALL_INSTALLED_APPS_AUTO_UPDATE, true);
+                settingData.bAutoUpdate = bValue;
                 /*
                  * 暂时屏蔽 addItem(new SettingListItem(
                  * SettingStringDefine.SSD_ALL_INSTALLED_APPS_AUTO_UPDATE,
@@ -134,9 +135,10 @@ public class SettingContent {
                  * SettingStringDefine.SSD_ALL_INSTALLED_APPS_AUTO_UPDATE,
                  * bValue, changelistener)));
                  */
-                settingData.bAutoUpdate = bValue;
+
 
                 bValue = preferences.getBoolean(SettingStringDefine.SSD_DELETE_PACKAGE, true);
+                settingData.bDeletePackage = bValue;
                 addItem(new SettingListItem(SettingStringDefine.SSD_DELETE_PACKAGE,
                         SettingListItem.DataType.toggle,
                         new SettingToggle(R.drawable.icon_delete,
@@ -144,7 +146,7 @@ public class SettingContent {
                                 R.string.setting_delete_pkg_details_text,
                                 SettingStringDefine.SSD_DELETE_PACKAGE,
                                 bValue, changelistener)));
-                settingData.bDeletePackage = bValue;
+
                 //################oddshou 暂时不加 清除缓存，本身 安装包 安装完成就会删除，没有必要清除缓存2015.07.15
                 //		addItem( new SettingListItem( SettingStringDefine.SSD_CLEAN_CACHE , SettingListItem.DataType.text ,
                 //			new SettingText( SettingStringDefine.SSD_CLEAN_CACHE , R.string.setting_clean_cache , 0 ) ) );

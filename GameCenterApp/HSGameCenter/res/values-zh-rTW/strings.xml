@@ -114,7 +114,7 @@
             id="percent"> %d%%</xliff:g>
         "
     </string>
-    <string name="download_tip_network_error1">"網路出錯請"</string>
+    <string name="download_tip_network_error1">"網路出錯"</string>
     <string name="download_tip_network_error2">""</string>
     <string name="download_tip_file_error">"安裝包下載出錯"</string>
     <string name="download_tip_server_error">"請稍後再試"</string>

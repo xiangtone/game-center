@@ -28,8 +28,10 @@ public class CSACDatabaseHelper extends SQLiteOpenHelper {
 	private static final int DB_VERSION_6 = 6;
 	// 统计缓存
 	private static final int DB_VERSION_7 = 7;
+	//修改下载记录，下载完成记录表
+	private static final int DB_VERSION_8 = 8;
 	//当前数据版本
-	private static final int DB_VERSION = DB_VERSION_7;
+	private static final int DB_VERSION = DB_VERSION_8;
 
 	public interface Tables {
 		//下载记录表
@@ -60,6 +62,7 @@ public class CSACDatabaseHelper extends SQLiteOpenHelper {
 		String STATE = "state";
 		String PACK_MD5 = "pack_md5";
 		String MFROMPOS = "nFromPos";
+		String IS_REAL_DOWNLOAD = "is_real_download";
 	}
 
 	public interface GroupInfoColumns {
@@ -108,6 +111,7 @@ public class CSACDatabaseHelper extends SQLiteOpenHelper {
 			+ DownloadInfoColumns.DOWNLOAD_SIZE + " INTEGER,"
 			+ DownloadInfoColumns.ICON_URL + " TEXT," + DownloadInfoColumns.PACK_MD5 + " TEXT,"
 			+ DownloadInfoColumns.STATE + " INTEGER,"
+			+ DownloadInfoColumns.IS_REAL_DOWNLOAD + " INTEGER,"
 			+ DownloadInfoColumns.MFROMPOS + " INTEGER NOT NULL DEFAULT 0"
 			+ ");";
 
@@ -136,6 +140,7 @@ public class CSACDatabaseHelper extends SQLiteOpenHelper {
 			+ DownloadInfoColumns.DOWNLOAD_SIZE + " INTEGER,"
 			+ DownloadInfoColumns.ICON_URL + " TEXT," + DownloadInfoColumns.PACK_MD5 + " TEXT,"
 			+ DownloadInfoColumns.STATE + " INTEGER,"
+			+ DownloadInfoColumns.IS_REAL_DOWNLOAD + " INTEGER,"
 			+ DownloadInfoColumns.MFROMPOS + " INTEGER NOT NULL DEFAULT 0"
 			+ ");";
 
@@ -189,6 +194,7 @@ public class CSACDatabaseHelper extends SQLiteOpenHelper {
 				db.execSQL(CREATE_TABLE_DOWNLOADEDINOES); //增加已下载历史记录表
 				//to7
 				db.execSQL(CREATE_TABLE_REPORT);
+				//to8
 				break;
 			case DB_VERSION_3:
 				//to4
@@ -203,6 +209,7 @@ public class CSACDatabaseHelper extends SQLiteOpenHelper {
 				db.execSQL(CREATE_TABLE_HOTWORDS);
 				//to7
 				db.execSQL(CREATE_TABLE_REPORT);
+				//to8
 				break;
 			case DB_VERSION_4:
 				//to5
@@ -231,6 +238,18 @@ public class CSACDatabaseHelper extends SQLiteOpenHelper {
 			case DB_VERSION_6:
 				//to7
 				db.execSQL(CREATE_TABLE_REPORT);
+				//to8
+				db.execSQL(DELETE_DOWNLOAD_INFO_TABLE); //删除下载任务记录表
+				db.execSQL(DELETE_DOWNLOADED_INFO_TABLE); //删除已下载任务记录表
+				db.execSQL(CREATE_TABLE_DOWNLOADINOES);//创建下载任务记录表
+				db.execSQL(CREATE_TABLE_DOWNLOADEDINOES); //增加已下载历史记录表
+				break;
+			case DB_VERSION_7:
+				//to8
+				db.execSQL(DELETE_DOWNLOAD_INFO_TABLE); //删除下载任务记录表
+				db.execSQL(DELETE_DOWNLOADED_INFO_TABLE); //删除已下载任务记录表
+				db.execSQL(CREATE_TABLE_DOWNLOADINOES);//创建下载任务记录表
+				db.execSQL(CREATE_TABLE_DOWNLOADEDINOES); //增加已下载历史记录表
 				break;
 		}
 

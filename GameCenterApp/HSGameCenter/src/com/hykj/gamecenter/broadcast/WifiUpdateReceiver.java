@@ -14,7 +14,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -22,7 +21,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.NetworkInfo.State;
 import android.net.wifi.WifiManager;
-import android.os.Parcelable;
 import android.util.Log;
 
 import com.hykj.gamecenter.App;
@@ -63,30 +61,30 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
     public static String TAG = "WifiUpdateReceiver";
     private final WifiRepAppsUpdateListListener mReqAppsUpdateListListener = new WifiRepAppsUpdateListListener();
     private Context mContext = null;// App.getAppContext( );
-    public static boolean WifiConnected = false;
 
     public boolean checkConnectivity(Context context) {
         return NetUtils.isNetworkconnected(context);
     }
 
     private static ArrayList<WifiListener> wifiListeners = new ArrayList<WifiListener>();
-    public interface WifiListener{
+
+    public interface WifiListener {
         void networkChange(int currentNetwork, NetworkInfo networkInfo);
     }
 
-    public static void setWifiConnectListen(WifiListener wifiListener){
+    public static void setWifiConnectListen(WifiListener wifiListener) {
         if (!wifiListeners.contains(wifiListener)) {
             wifiListeners.add(wifiListener);
         }
     }
 
-    public static void removeWifiListener(WifiListener wifiListener){
+    public static void removeWifiListener(WifiListener wifiListener) {
         if (wifiListeners.contains(wifiListener)) {
             wifiListeners.remove(wifiListener);
         }
     }
 
-    private void notifyNewworkChange(int currentNetwork, NetworkInfo networkInfo){
+    private void notifyNewworkChange(int currentNetwork, NetworkInfo networkInfo) {
         for (WifiListener wifiListener :
                 wifiListeners) {
             wifiListener.networkChange(currentNetwork, networkInfo);
@@ -98,35 +96,7 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
         if (context == null)
             return;
         mContext = context;
-//        Logger.i(TAG, "Load onReceive", "oddshou");
-//        Logger.i(TAG, "(intent.getAction())=============" + (intent.getAction()), "oddshou");
-//        if (WifiManager.NETWORK_STATE_CHANGED_ACTION.equals(intent.getAction())) {
-//            Parcelable parcelableExtra = intent
-//                    .getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
-//            if (null != parcelableExtra) {
-//                NetworkInfo networkInfo = (NetworkInfo) parcelableExtra;
-//                State state = networkInfo.getState();
-//                boolean isConnected = state == State.CONNECTED;// 当然，这边可以更精确的确定状态
-//                if (isConnected) {
-//                    String bssid = intent.getStringExtra(WifiManager.EXTRA_BSSID);
-//                    WifiInfo wifiInfo = (WifiInfo)intent.getParcelableExtra(WifiManager.EXTRA_WIFI_INFO);
-//                Logger.e(TAG, "isConnected" + isConnected  + " bssid: "+ bssid + "----wifiinfo: "+ wifiInfo);
-//                } else {
-//
-//                }
-//            }
-//        }
-//        if (WifiManager.WIFI_STATE_CHANGED_ACTION.equals(intent.getAction())) {
-////            NetworkInfo info = APNUtil.getActiveNetwork(context);
-//                int wifiState = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, -1);
-//                Log.e(TAG, "connected wifiChange "+ wifiState);
-////            if (info.getState() == State.CONNECTED) {
-////            }
-//        }
 
-
-        //获取wifi环境才下载游戏的布尔值
-        boolean bWifiToDownload = App.getSettingContent().getSettingData().bWifiAutoDownload;
 
         if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())) {
             Logger.i(TAG, "(intent.getAction())=============" + (intent.getAction()));
@@ -140,40 +110,119 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
                     if (type == 0 || name.equals("mobile")) {//mobile状态  停止下载
                         CSToast.showNormal(context, context.getString(R.string.wifi_mobile_link));
                         notifyNewworkChange(0, info);
+                        //只在wifi环境下下载
+                        boolean bWifiToDownload = App.getSettingContent().getSettingData().bWifiToDownload;
                         if (bWifiToDownload) {
                             if (DownloadService.DOWNLOAD_MANAGER != null) {
                                 DownloadService.DOWNLOAD_MANAGER.stopAllDownload();
-//                                DownloadService.DOWNLOAD_MANAGER.saveAllTaskToDB();
                             }
                         }
                     } else if (type == 1 || name.equals("WIFI")) {
+                        //这个监测wifi连接的速度会比下面广播快一点，但当前这个判断是不准确的。
                         CSToast.showNormal(context, context.getString(R.string.wifi_link));
                         notifyNewworkChange(1, info);
-                        WifiConnected = true;
-                        // 网络恢复 继续下载中任务
-                        //RestartDownloadingTask( );
                         // 网络恢复连接时显示新手推荐页面
-                        if (bWifiToDownload) {
-                            HomePageActivity.showNoviceGuidanceViewWhenNetRecover();
 
-                            new Thread(new Runnable() {
-
-                                @Override
-                                public void run() { // 网络恢复 继续下载中任务
-                                    RestartDownloadingTask();
-                                }
-                            }).start();
-                        }
                     }
                 }
             } else {
                 //无网络
                 CSToast.showNormal(context, context.getString(R.string.wifi_link_none));
                 notifyNewworkChange(-1, info);
+                if (DownloadService.DOWNLOAD_MANAGER != null) {
+                    DownloadService.DOWNLOAD_MANAGER.stopAllDownload();
+                }
             }
         }
 
-        mReqAppsUpdateListListener.setContext(context);
+        if (WifiManager.NETWORK_STATE_CHANGED_ACTION.equals(intent.getAction())) {
+            //这个广播只通知wifi 的 state change，加上bssid的验证时相对更准确的。
+            NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+            String EXTRA_BSSID = intent.getStringExtra(WifiManager.EXTRA_BSSID);
+            if (null != networkInfo && networkInfo.getState() == State.CONNECTED && EXTRA_BSSID != null) {
+                //wifi环境下自动下载
+                boolean bWifiAutoToDownload = App.getSettingContent().getSettingData().bWifiAutoDownload;
+                HomePageActivity.showNoviceGuidanceViewWhenNetRecover();    //显示新手推荐
+                if (bWifiAutoToDownload) {
+                    new Thread(new Runnable() {
+
+                        @Override
+                        public void run() { // 网络恢复 继续下载中任务
+                            RestartDownloadingTask();
+                        }
+                    }).start();
+                }
+                //判断是否需要监测更新
+                boolean checkUpdateNow = isShouldCheckUpdate();
+                if (checkUpdateNow) {
+                    ArrayList<LocalAppVer> data = getLocalAppVers();
+                    ReqAppsUpdateListController controller = new ReqAppsUpdateListController(data,
+                            mReqAppsUpdateListListener);
+                    controller.doRequest();
+                    sendCheckUpdate();  //商店自更新检测
+                }
+            }
+        }
+    }
+
+    private ArrayList<LocalAppVer> getLocalAppVers() {
+        HashMap<String, PackageInfo> mPackageInfoMap = new HashMap<String, PackageInfo>();
+        ArrayList<String> deskAppInfo = new ArrayList<String>();
+        PackageManager mPackageManager = mContext.getPackageManager();
+        List<PackageInfo> packageInfoes = mPackageManager
+                .getInstalledPackages(PackageManager.GET_SIGNATURES);
+        mPackageInfoMap.clear();
+        // 获取显示在桌面上的APP
+        List<ResolveInfo> mAllApps = null;
+        Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+        mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+
+        mAllApps = mPackageManager.queryIntentActivities(mainIntent, 0);
+        for (ResolveInfo rInfo : mAllApps) {
+            if (!deskAppInfo.contains(rInfo.activityInfo.packageName)) {
+                deskAppInfo.add(rInfo.activityInfo.packageName);
+            }
+        }
+        for (String appInfo : SystemAppInfo.allSystemApp()) {
+            if (deskAppInfo.contains(appInfo)) {
+                deskAppInfo.remove(appInfo);
+            }
+        }
+
+        for (String rInfo : deskAppInfo) {
+            for (PackageInfo pInfo : packageInfoes) {
+                if (pInfo.packageName.equals(rInfo)) {
+                    mPackageInfoMap.put(pInfo.packageName, pInfo);
+                }
+            }
+        }
+
+        ArrayList<LocalAppVer> data = new ArrayList<LocalAppVer>();
+        for (PackageInfo pinfo : mPackageInfoMap.values()) {
+                /*LocalAppVer.Builder builder = LocalAppVer.newBuilder();
+                builder.setPackName(pinfo.packageName);
+                builder.setVerName(pinfo.versionName != null ? pinfo.versionName : "1.0");
+                builder.setVerCode(pinfo.versionCode);
+                builder.setSignCode(PackageUtil.getSign(App.getAppContext(),
+                        pinfo.packageName));
+                data.add(builder.build());*/
+            LocalAppVer local = new LocalAppVer();
+            local.packName = pinfo.packageName;
+            local.verName = pinfo.versionName != null ? pinfo.versionName : "1.0";
+            local.verCode = pinfo.versionCode;
+            local.signCode = PackageUtil.getSign(App.getAppContext(),
+                    pinfo.packageName);
+            data.add(local);
+        }
+        return data;
+    }
+
+    /**
+     * 每天连接wifi只检测一次app更新
+     *
+     * @return
+     */
+    private boolean isShouldCheckUpdate() {
         SharedPreferences datePreference = mContext.getSharedPreferences("date_preferece",
                 Context.MODE_PRIVATE);
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
@@ -181,103 +230,22 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
         try {
             Date dateLast = df.parse(datePreference.getString("last_update_time", "1900-00-00"));
             dateLast.setTime(dateLast.getTime() + 24 * 3600 * 1000);
-            //            Log.i(TAG, "dateLast-->" + dateLast.toString());
             Date dateNow = new Date();
-            dateNow.setMinutes(0);
-            dateNow.setHours(0);
-            dateNow.setSeconds(0);
-            //            Log.i(TAG, "dateNow-->" + dateNow.toString());
             if (dateNow.after(dateLast)) {
                 shouldCheckUpdate = true;
+                SharedPreferences.Editor editor = datePreference.edit();
+                String last_update_time = "" + df.format(dateNow);
+                editor.putString("last_update_time", last_update_time);
+                editor.apply();
             }
         } catch (ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        //        Log.i(TAG, "shouldCheckupdate ? " + shouldCheckUpdate);
-
-        if (!shouldCheckUpdate)
-            return;
-
-        if (WifiManager.NETWORK_STATE_CHANGED_ACTION.equals(intent.getAction())) {
-            Parcelable parcelableExtra = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
-            HashMap<String, PackageInfo> mPackageInfoMap = new HashMap<String, PackageInfo>();
-            ArrayList<String> deskAppInfo = new ArrayList<String>();
-            PackageManager mPackageManager = mContext.getPackageManager();
-            List<PackageInfo> packageInfoes = mPackageManager
-                    .getInstalledPackages(PackageManager.GET_SIGNATURES);
-            if (null != parcelableExtra) {
-                NetworkInfo networkInfo = (NetworkInfo) parcelableExtra;
-                State state = networkInfo.getState();
-                if (state == State.CONNECTED) {
-                    if (mContext != null) {
-                        datePreference = mContext.getSharedPreferences("date_preferece",
-                                Context.MODE_PRIVATE);
-                        Editor editor = datePreference.edit();
-                        Date dateNow = new Date();
-                        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd",
-                                Locale.getDefault());
-                        String last_update_time = "" + format.format(dateNow);
-                        editor.putString("last_update_time", last_update_time);
-                        Log.i(TAG, "last_update_time-->" + last_update_time);
-                        editor.commit();
-                    }
-                    mPackageInfoMap.clear();
-                    // 获取显示在桌面上的APP
-                    List<ResolveInfo> mAllApps = null;
-                    Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-                    mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-
-                    mAllApps = mPackageManager.queryIntentActivities(mainIntent, 0);
-                    for (ResolveInfo rInfo : mAllApps) {
-                        if (!deskAppInfo.contains(rInfo.activityInfo.packageName)) {
-                            deskAppInfo.add(rInfo.activityInfo.packageName);
-                        }
-                    }
-                    for (String appInfo : SystemAppInfo.allSystemApp()) {
-                        if (deskAppInfo.contains(appInfo)) {
-                            deskAppInfo.remove(appInfo);
-                        }
-                    }
-
-                    for (String rInfo : deskAppInfo) {
-                        for (PackageInfo pInfo : packageInfoes) {
-                            if (pInfo.packageName.equals(rInfo)) {
-                                mPackageInfoMap.put(pInfo.packageName, pInfo);
-                            }
-                        }
-                    }
-
-                    ArrayList<LocalAppVer> data = new ArrayList<LocalAppVer>();
-                    for (PackageInfo pinfo : mPackageInfoMap.values()) {
-                        /*LocalAppVer.Builder builder = LocalAppVer.newBuilder();
-                        builder.setPackName(pinfo.packageName);
-                        builder.setVerName(pinfo.versionName != null ? pinfo.versionName : "1.0");
-                        builder.setVerCode(pinfo.versionCode);
-                        builder.setSignCode(PackageUtil.getSign(App.getAppContext(),
-                                pinfo.packageName));
-                        data.add(builder.build());*/
-                        LocalAppVer local = new LocalAppVer();
-                        local.packName = pinfo.packageName;
-                        local.verName = pinfo.versionName != null ? pinfo.versionName : "1.0";
-                        local.verCode = pinfo.versionCode;
-                        local.signCode = PackageUtil.getSign(App.getAppContext(),
-                                pinfo.packageName);
-                        data.add(local);
-                    }
-                    ReqAppsUpdateListController controller = new ReqAppsUpdateListController(data,
-                            mReqAppsUpdateListListener);
-                    controller.doRequest();
-                    sendCheckUpdate();
-
-                }
-            }
-        }
+        return shouldCheckUpdate;
     }
 
     class WifiRepAppsUpdateListListener implements RepAppsUpdateListener {
-
-        Context context;
 
         @Override
         public void onNetError(int errCode, String errorMsg) {
@@ -318,14 +286,6 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
                  * editor.commit( ); }
                  */
             }
-        }
-
-        public Context getContext() {
-            return context;
-        }
-
-        public void setContext(Context context) {
-            this.context = context;
         }
 
     }
@@ -380,7 +340,7 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
     };
 
     // 继续下载中任务
-    public static void RestartDownloadingTask() {
+    public synchronized static void RestartDownloadingTask() {
 
         StatisticManager statisticManager = StatisticManager.getInstance();
         ApkDownloadManager apkDownloadManager = DownloadService.getDownloadManager();

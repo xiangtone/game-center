@@ -138,10 +138,11 @@ public class NetUtils
 		String connectedSsid = wifiInfo.getSSID();
 		if ((connec.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED)
 				&& connectedSsid != null) {
-			if (connectedSsid.startsWith("\"" + checkSSId) || connectedSsid.startsWith(checkSSId)) {
+			if (connectedSsid.equals("\"" + checkSSId + "\"") || connectedSsid.equals(checkSSId)) {
 				return true;
 			}
 		}
 		return false;
 	}
+
 }
