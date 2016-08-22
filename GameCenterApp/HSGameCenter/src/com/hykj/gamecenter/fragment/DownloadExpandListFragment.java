@@ -291,8 +291,8 @@ public class DownloadExpandListFragment extends Fragment implements IDownloadTas
                     case FAILED_BROKEN:
                     case DELETED:
                         mApkDownloadManager.restartDownload(dinfo);
-                        mAdapter.updateProgress(dinfo.appId, dinfo.packageName, 0,
-                                (int) dinfo.fileLength);
+//                        mAdapter.updateProgress(dinfo.appId, dinfo.packageName, 0,
+//                                (int) dinfo.fileLength);
                         break;
                     case FAILED_NOEXIST:
                         mApkDownloadManager.removeDownload(dinfo);

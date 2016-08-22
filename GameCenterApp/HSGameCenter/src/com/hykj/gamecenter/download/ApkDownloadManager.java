@@ -58,7 +58,7 @@ import java.util.concurrent.Executor;
  */
 public class ApkDownloadManager {
 	private static final int MAX_DOWNLOAD_THREAD = 2;
-	private final Executor executor = new PriorityExecutor(MAX_DOWNLOAD_THREAD);
+	private final Executor executor = new PriorityExecutor(MAX_DOWNLOAD_THREAD, true);
 	// Android Xutils 框架
 //	private HttpUtils mHttpUtils = null;
 	private final DownloadTaskManager mDownloadInfoManager;
@@ -233,9 +233,9 @@ public class ApkDownloadManager {
 			LogUtils.e("appinfo is null!");
 			return;
 		}
-
 		// 创建下载task
 		DownloadTask info = DownloadTaskManager.createTask(appInfo, appPosition);
+		updateTaskState(info, TaskState.PREPARING);
 		LogUtils.e(
 				" startDownload info.appId = " + info.appId + " IsRealAppDownloadURL= "
 						+ info.getIsRealAppDownloadURL());
@@ -323,17 +323,17 @@ public class ApkDownloadManager {
 	}
 
 	//这个方法的暂停将不改变cancel状态，为了不使cancel状态异常，这个方法弃用
-	public void stopDownloadNoCallback(DownloadTask dinfo) {
-		//xutils 3.0
-		DownloadCallBack callBack = dinfo.getCallBack();
-		if (callBack != null) {
-			callBack.cancelNoCallback();
-		updateTaskState(dinfo, TaskState.STOPPED);
-		}
-
-		// 更新通知栏信息
-		mDownloadInfoManager.sendDownloadUpdateNotification();
-	}
+//	public void stopDownloadNoCallback(DownloadTask dinfo) {
+//		//xutils 3.0
+//		DownloadCallBack callBack = dinfo.getCallBack();
+//		if (callBack != null) {
+//			callBack.cancelNoCallback();
+//		updateTaskState(dinfo, TaskState.STOPPED);
+//		}
+//
+//		// 更新通知栏信息
+//		mDownloadInfoManager.sendDownloadUpdateNotification();
+//	}
 
 	public void stopAllDownload() {
 		Logger.e(TAG, "stopAllDownload ", "oddshou");
@@ -383,11 +383,11 @@ public class ApkDownloadManager {
 //		}
 //
 		// preparing时dinfo中的handle为空，不能发送stop回调到上层ui
-		if (dinfo.getState() == TaskState.PREPARING) {
-			updateTaskState(dinfo, TaskState.DELETED);
-			Log.d(TAG, "stopDownload  updateTaskState");
-			//return;这里不能return ，否则不会执行  handler.stop( ); 删除数据库记录后，之前的请求下载有可能不成功，那么xutil可能重试，导致删除数据库记录后又建一条记录
-		}
+//		if (dinfo.getState() == TaskState.PREPARING) {
+//			updateTaskState(dinfo, TaskState.DELETED);
+//			Log.d(TAG, "stopDownload  updateTaskState");
+//			//return;这里不能return ，否则不会执行  handler.stop( ); 删除数据库记录后，之前的请求下载有可能不成功，那么xutil可能重试，导致删除数据库记录后又建一条记录
+//		}
 
 		DownloadCallBack callBack = dinfo.getCallBack();
 		if (callBack != null) {
@@ -1132,22 +1132,26 @@ public class ApkDownloadManager {
 			this.cancelable = cancelable;
 		}
 
-		public void cancelNoCallback(){
-			if (cancelable != null) {
-//				cancelled = true;
-				cancelable.cancel();
-//				dinfo.setCancelable(null);
-
-			}
-		}
+//		public void cancelNoCallback(){
+//			if (cancelable != null) {
+////				cancelled = true;
+//				cancelable.cancel();
+////				dinfo.setCancelable(null);
+//
+//			}
+//		}
 
 		@Override
 		public void cancel() {
+//			if (cancelable != null) {
+//				cancelled = true;
+//				cancelable.cancel();
+////				dinfo.setCancelable(null);
+//				dinfo.setCallBack(null);
+//			}
+			cancelled = true;
 			if (cancelable != null) {
-				cancelled = true;
 				cancelable.cancel();
-//				dinfo.setCancelable(null);
-				dinfo.setCallBack(null);
 			}
 			Logger.e(TAG, "cancel " + " cancelable "+ cancelable.isCancelled() , "oddshou");
 		}

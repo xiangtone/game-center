@@ -66,7 +66,7 @@ public class UpdateDownloadController {
                 .getSystemService(Context.POWER_SERVICE);
 
         RequestParams params = new RequestParams(updateInfo.packUrl);
-        Executor executor = new PriorityExecutor(1);
+        Executor executor = new PriorityExecutor(1, true);
         params.setAutoResume(true);
         params.setAutoRename(false);
         params.setSaveFilePath(filePath);
