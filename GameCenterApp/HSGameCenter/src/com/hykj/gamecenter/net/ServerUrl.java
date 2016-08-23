@@ -37,7 +37,7 @@ public final class ServerUrl {
     // 帐号中心，测试服务器
     private static final String URL_UAC = "account";
 
-    private static final String PUBLIC_UPDATE_URL = "http://updatesys.api.huashenggame.com/api";
+    private static final String PUBLIC_UPDATE_URL = "http://updatesys.api.huashenggame.com/api"/*"http://192.168.1.44:8091/api"*/;
 
 //    private static final String PUBLIC_APPS_URL = "http://appstore2.api.niuwan.cc/";
     private static final String PUBLIC_APPS_URL = "http://appstore.api.huashenggame.com/";
