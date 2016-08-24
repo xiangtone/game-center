@@ -21,6 +21,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.NetworkInfo.State;
 import android.net.wifi.WifiManager;
+import android.os.Handler;
 import android.util.Log;
 
 import com.hykj.gamecenter.App;
@@ -144,13 +145,20 @@ public class WifiUpdateReceiver extends BroadcastReceiver {
                 boolean bWifiAutoToDownload = App.getSettingContent().getSettingData().bWifiAutoDownload;
                 HomePageActivity.showNoviceGuidanceViewWhenNetRecover();    //显示新手推荐
                 if (bWifiAutoToDownload) {
-                    new Thread(new Runnable() {
+                    new Handler().postDelayed(new Runnable() {
 
                         @Override
                         public void run() { // 网络恢复 继续下载中任务
                             RestartDownloadingTask();
                         }
-                    }).start();
+                    }, 2000);
+//                    new Thread(new Runnable() {
+//
+//                        @Override
+//                        public void run() { // 网络恢复 继续下载中任务
+//                            RestartDownloadingTask();
+//                        }
+//                    }).start();
                 }
                 //判断是否需要监测更新
                 boolean checkUpdateNow = isShouldCheckUpdate();

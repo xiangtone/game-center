@@ -23,6 +23,7 @@ import com.hykj.gamecenter.controller.ReqAppInfoController;
 import com.hykj.gamecenter.data.SettingContent;
 import com.hykj.gamecenter.download.DownloadTask.TaskState;
 import com.hykj.gamecenter.mta.MtaUtils;
+import com.hykj.gamecenter.net.APNUtil;
 import com.hykj.gamecenter.protocol.Apps.AppInfo;
 import com.hykj.gamecenter.statistic.MSG_CONSTANTS;
 import com.hykj.gamecenter.statistic.ReportConstants;
@@ -316,6 +317,7 @@ public class ApkDownloadManager {
 			callBack.cancel();
 			updateTaskState(dinfo, TaskState.STOPPED);
 		}
+
 
 		// 更新通知栏信息
 		mDownloadInfoManager.sendDownloadUpdateNotification();
@@ -742,6 +744,11 @@ public class ApkDownloadManager {
 			Log.d(TAG, "info parameter is null !");
 			return;
 		}
+		//在网络错误等异常情况下进行下载容易导致缓存错误
+		if (!APNUtil.isNetworkAvailable(App.getAppContext())){
+			updateTaskState(dinfo, dinfo.getState());
+			return;
+		}
 
 		// 下载地址不存在，要获取
 		/* 字符串比较不能用等号 */
@@ -901,6 +908,7 @@ public class ApkDownloadManager {
 	private void createHttp(DownloadTask task) {
 		DownloadCallBack callBack = new DownloadCallBack(task);
 		RequestParams params = new RequestParams(task.getDownloadUrl());
+
 		params.setAutoResume(true);
 		params.setAutoRename(false);
 		params.setSaveFilePath(task.fileSavePath);
@@ -957,6 +965,11 @@ public class ApkDownloadManager {
 				File file = new File(deleteFilePath);
 				if (file.exists()) {
 					file.delete();
+				}
+
+				File fileTmp1 = new File(tmpFilePath + ".tmp");
+				if (fileTmp1.exists()) {
+					fileTmp1.delete();
 				}
 
 				File fileTmp = new File(tmpFilePath);

@@ -297,15 +297,13 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         Log.d(TAG, "mNoviceGuidanceView =" + mNoviceGuidanceView);
         mlinelayoutHomepager = (LinearLayout) findViewById(R.id.home_pager);
 
-        View mTextRecommed = findViewById(R.id.textRecommed);
-        mTextRecommed.setOnClickListener(mViewOnclickListener);
 
+        View mTextRecommed = findViewById(R.id.textRecommed);
         View mTextMine = findViewById(R.id.textMine);
-        mTextMine.setOnClickListener(mViewOnclickListener);
-        findViewById(R.id.textRank).setOnClickListener(mViewOnclickListener);
-        findViewById(R.id.textClassily).setOnClickListener(mViewOnclickListener);
+
+
+
         mImgWifi = (ImageView)findViewById(R.id.imgWifi);
-        findViewById(R.id.imgWifi).setOnClickListener(mViewOnclickListener);
 
 
         mBadgeView = new BadgeView(this, mTextMine);
@@ -334,6 +332,45 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         }
 
         WifiUpdateReceiver.setWifiConnectListen(mWifiListener);
+
+        //判断是update fragment 执行 updateAll、switchToUpdate
+        int itemSelect = getIntent().getIntExtra(KEY_SELECT_ITEM, 0);
+        boolean switchToUpdate = getIntent().getBooleanExtra(KEY_GOTO_UPDATE, false);
+        boolean updateAll = getIntent().getBooleanExtra(KEY_UPDATE_ALL, false);
+        //判断页面唤醒
+        String action = getIntent().getAction();
+        if (itemSelect == 0 && Intent.ACTION_VIEW.equals(action)) {
+            Uri uri = getIntent().getData();
+            if (uri != null) {
+                String args = uri.getQueryParameter("arg0");
+                if (Integer.valueOf(args) == 1) {
+                    itemSelect = PAGE_INDEX.INDEX_WIFI;
+                }
+            }
+        }
+
+        Fragment fragment = null;
+        fragment = getFragment(itemSelect, fragment);
+        mLastFragmentTag = String.valueOf(itemSelect);
+        getFragmentManager().beginTransaction()
+                .add(R.id.homeContainer, fragment, mLastFragmentTag)
+                .addToBackStack(null)
+                .commit();
+        if (itemSelect == PAGE_INDEX.INDEX_UPDATE && switchToUpdate | updateAll) {
+            Bundle bundle = new Bundle();
+            bundle.putBoolean(KEY_GOTO_UPDATE, switchToUpdate);
+            bundle.putBoolean(KEY_UPDATE_ALL, updateAll);
+            mAppManagerFragment.setArguments(bundle);
+        }
+        mLastSelectedView = getViewbyTag(itemSelect);
+        mLastSelectedView.setSelected(true);
+
+        mImgWifi.setOnClickListener(mViewOnclickListener);
+        findViewById(R.id.textClassily).setOnClickListener(mViewOnclickListener);
+        findViewById(R.id.textRank).setOnClickListener(mViewOnclickListener);
+        mTextRecommed.setOnClickListener(mViewOnclickListener);
+        mTextMine.setOnClickListener(mViewOnclickListener);
+
     }
 
     private String mLastFragmentTag;
@@ -361,7 +398,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
 
 //	};
 
-    private void showTagFragment(String nowTag, View v) {
+    private synchronized void  showTagFragment(String nowTag, View v) {
 
         if (nowTag != mLastFragmentTag) {
             Fragment lastFragment = getFragmentManager().findFragmentByTag(mLastFragmentTag);
@@ -499,6 +536,14 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         // ################  tomqian
         setContentView(R.layout.activity_home_tab);
         SystemBarTintManager.useSystemBar(this, R.color.action_blue_color);
+        		/*
+         * 由App移入该处，修改增加专题不能按OnBackPressed退出后 (应用其实并未完全退出，再进入时App
+         * OnCreate不会被调用，除非杀死后台程序) ，这样运营增加个专题不能实时显示
+         */
+        GlobalConfigControllerManager.getInstance().setLoadingState(
+                GlobalConfigControllerManager.LOADING_STATE);
+        GlobalConfigControllerManager.getInstance().reqGlobalConfig();
+
         initData();// loadApps() 这里会查询所有需要更新的应用
         initView(savedInstanceState);
 
@@ -580,15 +625,6 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
     }
 
     private void createAfterInit() {
-
-		/*
-         * 由App移入该处，修改增加专题不能按OnBackPressed退出后 (应用其实并未完全退出，再进入时App
-         * OnCreate不会被调用，除非杀死后台程序) ，这样运营增加个专题不能实时显示
-         */
-        GlobalConfigControllerManager.getInstance().setLoadingState(
-                GlobalConfigControllerManager.LOADING_STATE);
-        GlobalConfigControllerManager.getInstance().reqGlobalConfig();
-
         mbFirstLaunch = firstLaunch();
         Log.d(TAG, "mbFirstLaunch = " + mbFirstLaunch);
         // 上报 启动
@@ -604,7 +640,6 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
             build.statActId2 = 2;
             ReportConstants.getInstance().reportReportedInfoNow(build, null);
         }
-        ApkInstalledManager.getInstance().loadApps();// 这里会查询所有需要更新的应用
 
         // 上报访问当前页面
         ReportedInfo builder = new ReportedInfo();
@@ -626,40 +661,6 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         } else {
             showHomePage();
         }
-
-
-        //判断是update fragment 执行 updateAll、switchToUpdate
-        int itemSelect = getIntent().getIntExtra(KEY_SELECT_ITEM, 0);
-        boolean switchToUpdate = getIntent().getBooleanExtra(KEY_GOTO_UPDATE, false);
-        boolean updateAll = getIntent().getBooleanExtra(KEY_UPDATE_ALL, false);
-        //判断页面唤醒
-        String action = getIntent().getAction();
-        if (itemSelect == 0 && Intent.ACTION_VIEW.equals(action)) {
-            Uri uri = getIntent().getData();
-            if (uri != null) {
-                String args = uri.getQueryParameter("arg0");
-                if (Integer.valueOf(args) == 1) {
-                    itemSelect = PAGE_INDEX.INDEX_WIFI;
-                }
-            }
-        }
-
-        Fragment fragment = null;
-        fragment = getFragment(itemSelect, fragment);
-        mLastFragmentTag = String.valueOf(itemSelect);
-        getFragmentManager().beginTransaction()
-                .add(R.id.homeContainer, fragment, mLastFragmentTag)
-                .addToBackStack(null)
-                .commit();
-        if (itemSelect == PAGE_INDEX.INDEX_UPDATE && switchToUpdate | updateAll) {
-            Bundle bundle = new Bundle();
-            bundle.putBoolean(KEY_GOTO_UPDATE, switchToUpdate);
-            bundle.putBoolean(KEY_UPDATE_ALL, updateAll);
-            mAppManagerFragment.setArguments(bundle);
-        }
-        mLastSelectedView = getViewbyTag(itemSelect);
-        mLastSelectedView.setSelected(true);
-
         cheakLoadingState();
     }
 
@@ -699,7 +700,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
                 Log.d(TAG, "service disconnected");
             }
         };
-
+        ApkInstalledManager.getInstance().loadApps();// 这里会查询所有需要更新的应用
 //		startMtaService();
 
     }
