@@ -80,8 +80,9 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        GlobalConfigControllerManager.getInstance().registForUpdate(mHandler,
-                Msg.UPDATE_STATE, null);
+        //不注册配置信息，handler不会被调用
+//        GlobalConfigControllerManager.getInstance().registForUpdate(mHandler,
+//                Msg.UPDATE_STATE, null);
         mWifiManager = (WifiManager) mParentActiity.getSystemService(Context.WIFI_SERVICE);
 
         if (mWifiListener == null) {
@@ -106,7 +107,6 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
             };
         }
         WifiUpdateReceiver.setWifiConnectListen(mWifiListener);
-
 
     }
 
@@ -133,22 +133,16 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
     private void initView(View rootView) {
         mTextLoadingState = (TextView) rootView.findViewById(R.id.textLoadingState);
         mImgAdv = (ImageView) rootView.findViewById(R.id.imgAdv);
-        mImgAdv.setOnClickListener(mOnclickListen);
+//        mImgAdv.setOnClickListener(mOnclickListen);
         mBtnConnect = (Button) rootView.findViewById(R.id.btnConnect);
         mBtnConnect.setOnClickListener(mOnclickListen);
         mLayoutLoading = rootView.findViewById(R.id.layoutLoading);
-        getDataList();
+//        getDataList();
 
-//        //判断当前网络是否连接并测试连接状态
-//        boolean checkIndentifySsid = NetUtils.CheckIndentifySsid(mParentActiity, WifiHttpUtils.SSID_HEAD);
-//        updateState(checkIndentifySsid ? ConnectState.CONNECTED : ConnectState.UNCONNECTED);
-//        //ping 公网进一步验证
-//        if (checkIndentifySsid) {
-////            new PingAddress().start();
-//            WifiHttpUtils wifiHttpUtils = new WifiHttpUtils(new JSONObject());
-//            doPost(WifiHttpUtils.URL_WIFI_FRESH, wifiHttpUtils);
-//        }
-
+        //获取广告此时不一定能获取到广告，wifi连接成功后再刷新一次
+        ImageLoader imageLoader = ImageLoader.getInstance();
+        imageLoader.displayImage(mGroupInfo.groupPicUrl, mImgAdv,
+                DisplayOptions.optionsIcon);
         boolean connectedState = getArguments().getBoolean(HomePageActivity.KEY_WIFI_CONNECTED);
         updateState(connectedState ? ConnectState.CONNECTED : ConnectState.UNCONNECTED);
     }
@@ -163,7 +157,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.imgAdv:       //
+                case R.id.imgAdv:       //不在注册点击监听
                     if (mConnecting) return;
                     //进入游戏详情
                     if (mGroupElemInfo != null) {
@@ -313,7 +307,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                     break;
                 case Msg.UPDATE_STATE:
                     Log.i(TAG, "Classify UPDATE_STATE");
-                    getDataList();
+//                    getDataList();
                     break;
                 case MSG_PING_SUCCEED:
                     updateState(ConnectState.UNCONNECTED);
@@ -331,7 +325,8 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
 
     @Override
     public Handler getHandler() {
-        return mHandler;
+       /* return mHandler;*/
+        return null;
     }
 
     @Override
@@ -405,7 +400,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
 
     @Override
     public void onDestroy() {
-        GlobalConfigControllerManager.getInstance().unregistForUpdate(mHandler);
+//        GlobalConfigControllerManager.getInstance().unregistForUpdate(mHandler);
         WifiUpdateReceiver.removeWifiListener(mWifiListener);
 
         super.onDestroy();
@@ -549,9 +544,11 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                             Intent intent = new Intent(mParentActiity, WifiFreshService.class);
                             mParentActiity.startService(intent);
                             updateState(ConnectState.CONNECTED);
-                            if (mGroupElemInfo == null) {
-                                reGetData();
-                            }
+                            //开网成功不再显示商店广告
+//                            if (mGroupElemInfo == null) {
+//                                reGetData();
+//                            }
+
                             if (getActivity() instanceof IWifiConnected) {
                                 ((IWifiConnected) getActivity()).wifiConnected();
                             }
