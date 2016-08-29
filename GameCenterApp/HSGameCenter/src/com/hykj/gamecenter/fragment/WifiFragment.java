@@ -26,6 +26,7 @@ import com.hykj.gamecenter.R;
 import com.hykj.gamecenter.activity.HomePageActivity;
 import com.hykj.gamecenter.activity.PersonLogin;
 import com.hykj.gamecenter.activity.PhoneAppInfoActivity;
+import com.hykj.gamecenter.adv.AdvManager;
 import com.hykj.gamecenter.broadcast.WifiUpdateReceiver;
 import com.hykj.gamecenter.controller.ProtocolListener;
 import com.hykj.gamecenter.controller.ReqGroupElemsListController;
@@ -76,6 +77,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
     private boolean hasLoadData = false;
     private Apps.GroupElemInfo mGroupElemInfo;
     private boolean mListenWifiLogin;
+    private boolean mAdvLoadSuccess = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -96,6 +98,9 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                         if (checkIndentifySsid && mListenWifiLogin){
                             checkLogin();
                             mListenWifiLogin = false;
+                        }
+                        if (!mAdvLoadSuccess) { //如果没有成功加载广告，则此处加载
+                            doRequest();
                         }
                     } else {
                         //wifi切换到其他状态
@@ -138,13 +143,22 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
         mBtnConnect.setOnClickListener(mOnclickListen);
         mLayoutLoading = rootView.findViewById(R.id.layoutLoading);
 //        getDataList();
+        doRequest();//获取广告此时不一定能获取到广告，wifi连接成功后再刷新一次
 
-        //获取广告此时不一定能获取到广告，wifi连接成功后再刷新一次
-        ImageLoader imageLoader = ImageLoader.getInstance();
-        imageLoader.displayImage(mGroupInfo.groupPicUrl, mImgAdv,
-                DisplayOptions.optionsIcon);
         boolean connectedState = getArguments().getBoolean(HomePageActivity.KEY_WIFI_CONNECTED);
         updateState(connectedState ? ConnectState.CONNECTED : ConnectState.UNCONNECTED);
+    }
+
+    private void doRequest(){
+        AdvManager.doPost(AdvManager.IMP_WIFI_ADV, new AdvManager.AdvPostListener() {
+            @Override
+            public void onReqAdvSucceed(JSONObject creative) {
+                Message msg = new Message();
+                msg.what = MSG_REQADV_SUCCEED;
+                msg.obj = creative;
+                mHandler.sendMessage(msg);
+            }
+        });
     }
 
     @Override
@@ -173,9 +187,11 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
 
                     break;
                 case R.id.btnConnect:   //点击一键上网
-                    ConnectTask task = new ConnectTask();
-                    task.execute((Void[]) null);
-                    updateState(ConnectState.CONNECTING);
+//                    ConnectTask task = new ConnectTask();
+//                    task.execute((Void[]) null);
+//                    updateState(ConnectState.CONNECTING);
+                    doRequest();
+
                     break;
             }
         }
@@ -276,7 +292,11 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
         }
     }
 
+    /**
+     * not used
+     */
     public static final int MSG_PING_SUCCEED = 0X01;
+    public static final int MSG_REQADV_SUCCEED = 0X02;
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -312,6 +332,17 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                 case MSG_PING_SUCCEED:
                     updateState(ConnectState.UNCONNECTED);
                     CSToast.show(mParentActiity, getResources().getString(R.string.wifi_erroring));
+                    break;
+                case MSG_REQADV_SUCCEED:
+                    JSONObject creative = (JSONObject) msg.obj;
+                    AdvManager.Creative creative1 = new AdvManager.Creative(creative);
+
+                    ImageLoader imageLoader = ImageLoader.getInstance();
+                    imageLoader.displayImage(creative1.asset_url, mImgAdv,
+                            DisplayOptions.optionsWifi);
+                    //产生曝光事件
+                    AdvManager.exposure(creative1);
+                    mAdvLoadSuccess = true;
                     break;
                 default:
                     break;
@@ -548,6 +579,9 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
 //                            if (mGroupElemInfo == null) {
 //                                reGetData();
 //                            }
+                            if (!mAdvLoadSuccess) {//如果没有成功加载广告，则此处加载
+                                doRequest();
+                            }
 
                             if (getActivity() instanceof IWifiConnected) {
                                 ((IWifiConnected) getActivity()).wifiConnected();

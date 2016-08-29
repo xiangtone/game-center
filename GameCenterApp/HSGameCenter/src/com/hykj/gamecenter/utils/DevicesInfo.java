@@ -15,7 +15,7 @@ public class DevicesInfo {
     public final String osv;  //  操作系统版本
     public final String make;    //手机厂商
     public final String model;   //手机型号
-    public final String carrier = "0";   //运营商编号
+    public final int carrier = 0;   //运营商编号
     public final String ua = "";   //用户浏览器
     public final String ip; //用户浏览器
     public final String geo = ""; //设备当前地理位置信息

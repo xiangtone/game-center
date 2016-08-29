@@ -32,4 +32,6 @@ public class DisplayOptions
             .showImageOnFail( R.drawable.img_person_logined ).cacheInMemory( true ).cacheOnDisc( true ).bitmapConfig( Bitmap.Config.RGB_565 ).build( );
     public static DisplayImageOptions optionsNotLoginIcon = new DisplayImageOptions.Builder( ).showImageOnLoading( R.drawable.img_person_logined ).showImageForEmptyUri( R.drawable.img_person_logined )
             .showImageOnFail( R.drawable.img_person_logined ).cacheInMemory( true ).cacheOnDisc( true ).bitmapConfig( Bitmap.Config.RGB_565 ).build( );
+
+    public static DisplayImageOptions optionsWifi = new DisplayImageOptions.Builder( ).cacheInMemory( true ).cacheOnDisc( true ).bitmapConfig( Bitmap.Config.RGB_565 ).build( );
 }

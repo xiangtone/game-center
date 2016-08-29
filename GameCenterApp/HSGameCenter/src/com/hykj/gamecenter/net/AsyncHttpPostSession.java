@@ -51,6 +51,7 @@ public class AsyncHttpPostSession extends AsyncHttpSession {
 
 				mHttpPost = new HttpPost(mUrl);
 				mHttpPost.setHeader("Content-Type", "multipart/form-data");
+//				mHttpPost.setHeader("Content-Type", "application/x-protobuf");
 				/*表单中enctype="multipart/form-data"的意思，
 				 * 是设置表单的MIME编码。
 				 * 默认情况，这个编码格式是application/x-www-form-urlencoded，

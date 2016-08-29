@@ -6,7 +6,6 @@ import com.hykj.gamecenter.protocol.Apps.GroupElemInfo;
 import com.hykj.gamecenter.protocol.Apps.RspGlobalConfig;
 import com.hykj.gamecenter.protocol.Apps.UserCommentInfo;
 import com.hykj.gamecenter.protocol.Apps.UserScoreInfo;
-import com.hykj.gamecenter.protocol.OpenrtbYesdat;
 import com.hykj.gamecenter.protocol.Pay.RspAccRecharge;
 import com.hykj.gamecenter.protocol.Pay.RspAccRechargeList;
 import com.hykj.gamecenter.protocol.Pay.RspCheckAccRecharge;
@@ -640,12 +639,5 @@ public interface ProtocolListener {
 								   String serverDataVer);
 	}
 	// GC2.0协议 end--------------------------------------------------------------
-
-	// 广告接口
-	interface ReqAdvListener extends AbstractNetListener {
-		void onReqFailed();
-
-		void onReqRecommAppSucceed(OpenrtbYesdat.BidExt.Creative creative);
-	}
 
 }

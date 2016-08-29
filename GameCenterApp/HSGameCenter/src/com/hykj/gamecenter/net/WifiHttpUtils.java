@@ -13,7 +13,7 @@ import org.xutils.common.util.MD5;
  * Created by Administrator on 2016/6/20.
  */
 public class WifiHttpUtils {
-    public static final String APPKEY = "55e7c490641f3cbf46734361b5c5b980";
+    public static final String APPKEY = /*"55e7c490641f3cbf46734361b5c5b980"*/"99ee240257db189cec90bf479f38ee9a";
     public static final String URL_ICODE = "http://mem.wifi8.com/api2/wifiapp/getregcode";
     public static final String URL_UID = "http://mem.wifi8.com/api2/wifiapp/reguser";
     public static final String URL_UTIME = "http://mem.wifi8.com/api2/wifiapp/getutime";
@@ -34,7 +34,7 @@ public class WifiHttpUtils {
 
     public class hdata {
         int ver = 3;
-        int aid = 1;
+        int aid = 2;
         String aver = "1.0";
         int ostype = 1;
         String dcode = "";
