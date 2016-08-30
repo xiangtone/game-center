@@ -8,18 +8,22 @@ import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.hykj.gamecenter.App;
 import com.hykj.gamecenter.App.TimeRun;
 import com.hykj.gamecenter.R;
+import com.hykj.gamecenter.adv.AdvManager;
 import com.hykj.gamecenter.controller.HelpRequest;
+import com.hykj.gamecenter.logic.DisplayOptions;
 import com.hykj.gamecenter.net.APNUtil;
 import com.hykj.gamecenter.net.JsonCallback;
 import com.hykj.gamecenter.net.WifiHttpUtils;
@@ -33,6 +37,7 @@ import com.hykj.gamecenter.utils.Logger;
 import com.hykj.gamecenter.utils.SmsContent;
 import com.hykj.gamecenter.utils.StringUtils;
 import com.hykj.gamecenter.utils.SystemBarTintManager;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -55,6 +60,7 @@ public class PersonLogin extends AccountAuthenticatorActivity implements TimeRun
     private TextView mTextUserAgreement;
 
     private View mLayoutLoading; // loading View
+    private ImageView mImgAdv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +86,19 @@ public class PersonLogin extends AccountAuthenticatorActivity implements TimeRun
         builder.statActId = ReportConstants.STATACT_ID_PERSON;
         builder.statActId2 = 2;
         ReportConstants.getInstance().reportReportedInfo(builder);
+        doRequest();
+    }
 
+    private void doRequest(){
+        AdvManager.doPost(AdvManager.IMP_LOGIN_ADV, new AdvManager.AdvPostListener() {
+            @Override
+            public void onReqAdvSucceed(JSONObject creative) {
+                Message msg = new Message();
+                msg.what = MSG_REQADV_SUCCEED;
+                msg.obj = creative;
+                mHandler.sendMessage(msg);
+            }
+        });
     }
 
     @Override
@@ -104,6 +122,8 @@ public class PersonLogin extends AccountAuthenticatorActivity implements TimeRun
         mActionBar.setTitle(getString(R.string.quick_login));
 
         // init other view
+        mImgAdv = (ImageView)findViewById(R.id.imgAdv);
+
         mEditLoginAccout = (EditText) findViewById(R.id.editLoginAccout);
         mEditCaptcha = (EditText) findViewById(R.id.editCaptcha);
         mBtnCaptcha = (Button) findViewById(R.id.btnCaptcha);
@@ -176,6 +196,7 @@ public class PersonLogin extends AccountAuthenticatorActivity implements TimeRun
     public static final int MSG_LOADING_END = 0X11;
     public static final int MSG_AUTH_FAILED = 0X12;
     public static final int MSG_LOADING_START = 0X13;
+    public static final int MSG_REQADV_SUCCEED = 0x14;
     private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
@@ -199,6 +220,16 @@ public class PersonLogin extends AccountAuthenticatorActivity implements TimeRun
                     break;
                 case MSG_LOADING_START:
                     mLayoutLoading.setVisibility(View.VISIBLE);
+                    break;
+                case MSG_REQADV_SUCCEED:
+                    JSONObject creative = (JSONObject) msg.obj;
+                    AdvManager.Creative creative1 = new AdvManager.Creative(creative);
+
+                    ImageLoader imageLoader = ImageLoader.getInstance();
+                    imageLoader.displayImage(creative1.asset_url, mImgAdv,
+                            DisplayOptions.optionsWifi);
+                    //产生曝光事件
+                    AdvManager.exposure(creative1);
                     break;
                 default:
                     break;

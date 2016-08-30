@@ -176,4 +176,13 @@
         <attr name="textTitleSize" format="dimension"/>
         <attr name="textTitleColor" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="TasksCompletedView">
+        <attr name="radius" format="dimension"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="circleColor" format="color"/>
+        <attr name="ringColor" format="color"/>
+        <attr name="text" format="string"/>
+    </declare-styleable>
+
 </resources>
