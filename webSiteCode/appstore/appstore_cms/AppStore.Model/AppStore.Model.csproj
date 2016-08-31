@@ -42,6 +42,7 @@
     <Compile Include="AppCommentsEntity.cs" />
     <Compile Include="AppCommentSummaryEntity.cs" />
     <Compile Include="AppInfoEntity.cs" />
+    <Compile Include="AppInfoiosEntity.cs" />
     <Compile Include="AppInformEntity.cs" />
     <Compile Include="AppPackCfgEntity.cs" />
     <Compile Include="AppPicListEntity.cs" />

@@ -47,6 +47,7 @@
     <Compile Include="AppCommentsBLL.cs" />
     <Compile Include="AppCommentSummaryBLL.cs" />
     <Compile Include="AppInfoBLL.cs" />
+    <Compile Include="AppInfoiosBLL.cs" />
     <Compile Include="AppInformBLL.cs" />
     <Compile Include="AppPicListBLL.cs" />
     <Compile Include="B_DevBLL.cs" />

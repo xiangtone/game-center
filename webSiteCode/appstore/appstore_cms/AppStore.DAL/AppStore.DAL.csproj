@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppCommentSummaryDAL.cs" />
+    <Compile Include="AppInfoiosDAL.cs" />
     <Compile Include="AppInformDAL.cs" />
     <Compile Include="AppPicListDAL.cs" />
     <Compile Include="BaseDAL.cs" />

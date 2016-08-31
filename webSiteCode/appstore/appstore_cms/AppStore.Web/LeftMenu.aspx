@@ -98,6 +98,7 @@
                 <%--<li><a href="SpecialTopicList.aspx?acttype=3100,104" target="main">专题管理-游戏中心</a></li>--%>
                 <li><a href="SpecialTopicList.aspx?acttype=3200,104" target="main">游戏专题管理</a></li>
                 <li><a href="PopularList.aspx?acttype=104" target="main">搜索/热门配置</a></li>
+                <li><a href="IosAppInfoList.aspx" target="main">Ios游戏配置</a></li>
                 <li><a href="GroupInfo.aspx" target="main">分组管理</a></li>
                 <li><a href="GroupSchemesList.aspx?acttype=104" target="main">分组方案管理--游戏中心</a></li>
                

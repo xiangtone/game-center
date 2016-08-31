@@ -1,0 +1,1106 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>nwbase_utils</name>
+    </assembly>
+    <members>
+        <member name="T:nwbase_utils.Cache.CacheHelper">
+            <summary>
+            HttpRuntime 缓存帮助类。
+            <para>采用双缓存（对象缓存+状态缓存）设计，避免大并发量情况下，出现缓存循环失效等问题。</para>
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.Cache.CacheHelper.SetCache(System.String,System.Object)">
+            <summary>
+            设置无过期缓存。
+            </summary>
+            <param name="cacheName">缓存的名称</param>
+            <param name="val">要缓存的对象</param>
+        </member>
+        <member name="M:nwbase_utils.Cache.CacheHelper.SetCache(System.String,System.Object,System.Int32,System.Boolean)">
+            <summary>
+            设置时间过期缓存（滑动过期或绝对过期）。
+            </summary>
+            <param name="cacheName">缓存的名称</param>
+            <param name="val">要缓存的对象</param>
+            <param name="cacheTime">要缓存的时长（分钟）</param>
+            <param name="isSlidingTime">是否为滑动过期</param>
+        </member>
+        <member name="M:nwbase_utils.Cache.CacheHelper.DelCache(System.String,System.Boolean)">
+            <summary>
+            删除缓存。
+            </summary>
+            <param name="cacheName">缓存的名称</param>
+            <param name="isDeleteSrcCache">是否删除源值缓存（False=仅删除状态缓存）</param>
+        </member>
+        <member name="M:nwbase_utils.Cache.CacheHelper.GetCache(System.String)">
+            <summary>
+            获取缓存对象。
+            <para>如果返回的缓存对象不为 Null，则表示缓存可用，</para>
+            <para>否则，请调用者自数据库或其它位置获取对象，并设置该缓存。</para>
+            <para></para>
+            <para>应用实例：</para>
+            <para>string cacheName = "UserList";</para>
+            <para>DataTable dtUserList = CacheHelper.GetCache(cacheName) as DataTable;</para>
+            <para>if (dtUserList == null)</para>
+            <para>{</para>
+            <para>    dtUserList = GetUserListByDB();</para>
+            <para>    // 不会造成循环失效，因为 SetCache 方法仅允许第一个 GetCache 时返回空的进程设置缓存。</para>
+            <para>    CacheHelper.SetCache(cacheName, dtUserList);</para>
+            <para>}</para>
+            <para>return dtUserList;</para>
+            </summary>
+            <param name="cacheName">缓存的名称</param>
+            <returns></returns>
+        </member>
+        <member name="T:nwbase_utils.Cache.RedisHelper">
+            <summary>
+            Redis 缓存帮助类（封装ServiceStack.Redis）
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.Get(System.String)">
+            <summary>
+            获取一个键值，不存在时返回Null
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.Set(System.String,System.String)">
+            <summary>
+            设置一个缓存值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.Set(System.String,System.String,System.Int32)">
+            <summary>
+            设置一个缓存值，并设置超时
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="expire">超时时间，单位：秒</param>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.Expire(System.String,System.Int32)">
+            <summary>
+            使一个键值在一定时间内过期
+            </summary>
+            <param name="key"></param>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.SetHashValue(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            将一个字典设置到缓存中
+            </summary>
+            <param name="key"></param>
+            <param name="fieldValue"></param>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.LPush(System.String,System.String)">
+            <summary>
+            将值push到list前
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.RPush(System.String,System.String)">
+            <summary>
+            将值push到list后
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.PushList(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            将List对象Push到缓存中
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.GetList(System.String)">
+            <summary>
+            获取缓存的List对象
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.LRange(System.String,System.Int32,System.Int32)">
+            <summary>
+            获取List的范围值
+            </summary>
+            <param name="key"></param>
+            <param name="starting"></param>
+            <param name="ending"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.LRem(System.String,System.String)">
+            <summary>
+            删除List中的一个值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.SearchKeys(System.String)">
+            <summary>
+            搜索Key
+            </summary>
+            <param name="searchTxt"></param>
+            <returns>搜索到的Key列表，搜索不到返回null</returns>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.SaveObject2Cache``1(System.String,``0)">
+            <summary>
+            保存类对象到缓存（只能保存int，string，bool类型）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="cacheName"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisHelper.GetObjectFromCache``1(System.String)">
+            <summary>
+            从缓存中获取一个对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="cacheName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:nwbase_utils.Cache.RedisSerializeAttribute">
+            <summary>
+            Redis序列化属性
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.Cache.RedisSerializeAttribute.#ctor(System.String)">
+            <summary>
+            Redis序列化
+            </summary>
+            <param name="name">序列化的名称</param>
+        </member>
+        <member name="T:nwbase_utils.Encryption">
+            <summary>
+            加密与解密相关方法集合。
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.Encryption.MD5Hash(System.String)">
+            <summary>
+            MD5 HASH（32位大写）
+            <para>返回源字符串的32位大写摘要码。</para>
+            </summary>
+            <param name="src">源字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Encryption.MD5HashWithSalt(System.String,System.String)">
+            <summary>
+            MD5 HASH 加盐（32位大写）
+            <para>返回源字符串的32位大写摘要码。</para>
+            </summary>
+            <param name="src">源字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Encryption.DESEncrypt(System.String,System.String)">
+            <summary>
+            DES加密(ECB)
+            </summary>
+            <param name="src">需要加密的源字符串</param>
+            <param name="encrKey">加密密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Encryption.DESDecrypt(System.String,System.String)">
+            <summary>
+            DES解密(ECB)
+            </summary>
+            <param name="src">需要解密的密码串</param>
+            <param name="decrKey">解密密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.IDbHelper.ExecuteNonQuery(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行无返回值SQL语句
+            </summary>
+            <param name="cmdType">命令类型</param>
+            <param name="cmdText">命令文本</param>
+            <param name="commandParameters">命令参数</param>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.IDbHelper.ExecuteScalar(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行单返回值SQL语句
+            </summary>
+            <param name="cmdType">命令类型</param>
+            <param name="cmdText">命令文本</param>
+            <param name="commandParameters">命令参数</param>
+            <returns>返回命令执行后第一行第一列的数据值</returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.IDbHelper.ExecuteReader(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行返回DataReader 的SQL语句
+            </summary>
+            <param name="cmdType">命令类型</param>
+            <param name="cmdText">命令文本</param>
+            <param name="commandParameters">命令参数</param>
+            <returns>返回命令执行后所读取到的批量数据值</returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.IDbHelper.GetDataTable(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行返回DataTable 的SQL语句
+            </summary>
+            <param name="cmdType">命令类型</param>
+            <param name="cmdText">命令文本</param>
+            <param name="commandParameters">命令参数</param>
+            <returns>返回命令执行后所读取到的批量数据值</returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper._HelperBase.Initial(System.String)">
+            <summary>
+            初始化
+            </summary>
+            <param name="connectionString">连接字符串</param>
+        </member>
+        <member name="M:nwbase_utils.DbHelper._HelperBase.PrepareCommand(System.Data.IDbConnection,System.Data.IDbCommand,System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            准备数据库查询参数
+            </summary>
+            <param name="cn"></param>
+            <param name="cmd"></param>
+            <param name="commandType"></param>
+            <param name="commandText"></param>
+            <param name="cmdParams"></param>
+        </member>
+        <member name="M:nwbase_utils.DbHelper._HelperBase.PrepareCommand(System.Data.IDbConnection,System.Data.IDbCommand,System.Data.CommandType,System.String,System.Data.IDataParameter[],System.Data.IDbTransaction)">
+            <summary>
+            准备数据库查询参数
+            </summary>
+            <param name="cn"></param>
+            <param name="cmd"></param>
+            <param name="commandType"></param>
+            <param name="commandText"></param>
+            <param name="cmdParams"></param>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.#ctor(System.String)">
+            <summary>
+            Mysql 数据库帮助类（默认连接字符串为 nwbase_utils_DbName）
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.BeginTransaction">
+            <summary>
+            开始事务
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.CommitTransaction">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.RollbackTransaction">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper._EndTransaction">
+            <summary>
+            结束事务
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.GetDataTable(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            获取DataTable
+            </summary>
+            <param name="cmdType"></param>
+            <param name="cmdText"></param>
+            <param name="commandParameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.MakeOutParam(System.String,MySql.Data.MySqlClient.MySqlDbType,System.Int32)">
+            <summary>
+            传入返回值参数
+            </summary>
+            <param name="ParamName">存储过程名称</param>
+            <param name="DbType">参数类型</param>
+            <param name="Size">参数大小</param>
+            <returns>新的 parameter 对象</returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.MakeParam(System.String,MySql.Data.MySqlClient.MySqlDbType,System.Int32,System.Data.ParameterDirection,System.Object)">
+            <summary>
+            生成存储过程参数
+            </summary>
+            <param name="ParamName">存储过程名称</param>
+            <param name="DbType">参数类型</param>
+            <param name="Size">参数大小</param>
+            <param name="Direction">参数方向</param>
+            <param name="Value">参数值</param>
+            <returns>新的 parameter 对象</returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.MakeInParam(System.String,MySql.Data.MySqlClient.MySqlDbType,System.Int32,System.Object)">
+            <summary>
+            生成输入Parameter
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.String)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.Int32)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.DateTime)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.Boolean)">
+            <summary>
+            获取Sql查询结果
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32)">
+            <summary>
+            获取Sql查询结果
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.MySqlHelper.GetDbPager(System.String,System.Int32,System.Int32)">
+            <summary>
+            生成分页Sql语句
+            </summary>
+            <param name="sqlString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.OleDbHelper.#ctor(System.String)">
+            <summary>
+            OleDb 数据库帮助类（默认连接字符串为CommonDll_DbName）
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.OleDbHelper.MakeOutParam(System.String,System.Data.OleDb.OleDbType,System.Int32)">
+            <summary>
+            传入返回值参数
+            </summary>
+            <param name="ParamName">存储过程名称</param>
+            <param name="DbType">参数类型</param>
+            <param name="Size">参数大小</param>
+            <returns>新的 parameter 对象</returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.OleDbHelper.MakeParam(System.String,System.Data.OleDb.OleDbType,System.Int32,System.Data.ParameterDirection,System.Object)">
+            <summary>
+            生成存储过程参数
+            </summary>
+            <param name="ParamName">存储过程名称</param>
+            <param name="DbType">参数类型</param>
+            <param name="Size">参数大小</param>
+            <param name="Direction">参数方向</param>
+            <param name="Value">参数值</param>
+            <returns>新的 parameter 对象</returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.OleDbHelper.MakeInParam(System.String,System.Data.OleDb.OleDbType,System.Int32,System.Object)">
+            <summary>
+            生成输入Parameter
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.OleDbHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.String)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.OleDbHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.Int32)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.OleDbHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.DateTime)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.OleDbHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.Boolean)">
+            <summary>
+            获取Sql查询结果
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.OleDbHelper.GetSqlResult(System.Data.IDataReader,System.Int32)">
+            <summary>
+            获取Sql查询结果
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.SqlHelper.#ctor(System.String)">
+            <summary>
+            Sqlserver 数据库帮助类（默认连接字符串为CommonDll_DbName）
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.SqlHelper.MakeOutParam(System.String,System.Data.SqlDbType,System.Int32)">
+            <summary>
+            传入返回值参数
+            </summary>
+            <param name="ParamName">存储过程名称</param>
+            <param name="DbType">参数类型</param>
+            <param name="Size">参数大小</param>
+            <returns>新的 parameter 对象</returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.SqlHelper.MakeParam(System.String,System.Data.SqlDbType,System.Int32,System.Data.ParameterDirection,System.Object)">
+            <summary>
+            生成存储过程参数
+            </summary>
+            <param name="ParamName">存储过程名称</param>
+            <param name="DbType">参数类型</param>
+            <param name="Size">参数大小</param>
+            <param name="Direction">参数方向</param>
+            <param name="Value">参数值</param>
+            <returns>新的 parameter 对象</returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.SqlHelper.MakeInParam(System.String,System.Data.SqlDbType,System.Int32,System.Object)">
+            <summary>
+            生成输入Parameter
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.SqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.String)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.SqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.Int32)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.SqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.DateTime)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.SqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.Boolean)">
+            <summary>
+            获取Sql查询结果
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.SqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32)">
+            <summary>
+            获取Sql查询结果
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.SqlHelper.GetDbPager(System.String,System.Int32,System.Int32)">
+            <summary>
+            生成分页Sql语句（SQL2005及以上专用）
+            </summary>
+            <param name="sqlString">数据查询语句（必须含有from,order子句）</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.Extensions.ReaderToList``1(System.Data.IDataReader)">
+            <summary>
+            DataReader 转泛型
+            </summary>
+            <typeparam name="T">传入的实体类</typeparam>
+            <param name="objReader">DataReader对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.Extensions.ReaderToModel``1(System.Data.IDataReader)">
+            <summary>
+            DataReader转模型
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="objReader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.Extensions.CheckType(System.Object,System.Type)">
+            <summary>
+            对可空类型进行判断转换(*要不然会报错)
+            </summary>
+            <param name="value">DataReader字段的值</param>
+            <param name="conversionType">该字段的类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.DbHelper.Extensions.IsNullOrDBNull(System.Object)">
+            <summary>
+            判断指定对象是否是有效值
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:nwbase_utils.Email.EmailSenderInfomation">
+            <summary>
+            发送邮件服务器
+            （需在AppSetting里配置nwbase_utils_EmailName、nwbase_utils_EmailPwd、nwbase_utils_EmailHost）
+            </summary>
+        </member>
+        <member name="T:nwbase_utils.Email.EmailMsgInfomation">
+            <summary>
+            邮件内容
+            （需在AppSetting里配置nwbase_utils_EmailName）
+            </summary>
+        </member>
+        <member name="T:nwbase_utils.JsonSerializer">
+            <summary>
+            JSON 序列化/反序列化 帮助类（封装 Newtonsoft.Json）
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.JsonSerializer.Serialize``1(``0)">
+            <summary>
+            JSON 序列化
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.JsonSerializer.Deserialize``1(System.String)">
+            <summary>
+            JSON 反序列化
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="jsonStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:nwbase_utils.RandomImg">
+            <summary>
+            生成验证码类
+            </summary>
+            <remarks>
+            验证码保存在Session["nwbase_utils_CheckCode"]中
+            </remarks>
+        </member>
+        <member name="T:nwbase_utils.TextLog">
+            <summary>
+            文本日志文件帮助类（封装log4net）
+            
+            使用方法：调用写日志方法前，调用LoadConfig方法，加载Log4net配置文件
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.TextLog.LoadConfig(System.String)">
+            <summary>
+            加载log4net配置文件
+            </summary>
+            <param name="configFilePath">配置文件路径</param>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Debug(System.String,System.String)">
+            <summary>
+            记录调试日志
+            </summary>
+            <param name="loggerName">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Debug(System.String,System.String,System.Exception)">
+            <summary>
+            记录调试日志
+            </summary>
+            <param name="loggerName">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+            <param name="exception">为日志附加异常信息，可以在配置中获取更准确的信息，如无异常信息，则可以为null</param>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Info(System.String,System.String)">
+            <summary>
+            记录信息日志
+            </summary>
+            <param name="loggerName">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Info(System.String,System.String,System.Exception)">
+            <summary>
+            记录信息日志
+            </summary>
+            <param name="loggerName">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+            <param name="exception">为日志附加异常信息，可以在配置中获取更准确的信息，如无异常信息，则可以为null</param>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Warn(System.String,System.String)">
+            <summary>
+            记录警告日志
+            </summary>
+            <param name="loggerName">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Warn(System.String,System.String,System.Exception)">
+            <summary>
+            记录警告日志
+            </summary>
+            <param name="loggerName">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+            <param name="exception">为日志附加异常信息，可以在配置中获取更准确的信息，如无异常信息，则可以为null</param>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Error(System.String,System.String)">
+            <summary>
+            记录错误日志
+            </summary>
+            <param name="loggerName">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Error(System.String,System.String,System.Exception)">
+            <summary>
+            记录错误日志
+            </summary>
+            <param name="loggerName">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+            <param name="exception">为日志附加异常信息，可以在配置中获取更准确的信息，如无异常信息，则可以为null</param>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Fatal(System.String,System.String)">
+            <summary>
+            记录严重错误日志
+            </summary>
+            <param name="loggerName">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Fatal(System.String,System.String,System.Exception)">
+            <summary>
+            记录严重错误日志
+            </summary>
+            <param name="loggerName">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+            <param name="exception">为日志附加异常信息，可以在配置中获取更准确的信息，如无异常信息，则可以为null</param>
+        </member>
+        <member name="M:nwbase_utils.TextLog.GetLogByName(System.String)">
+            <summary>
+            根据指定的日志名称获取日志对象
+            </summary>
+            <param name="loggerName">日志名称</param>
+            <returns>日志对象</returns>
+        </member>
+        <member name="T:nwbase_utils.TextLog.Default">
+            <summary>
+            使用默认格式的日志
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Default.Info(System.String)">
+            <summary>
+            记录信息日志
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Default.Debug(System.String)">
+            <summary>
+            记录调试日志
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Default.Warn(System.String)">
+            <summary>
+            记录警告日志
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Default.Error(System.String)">
+            <summary>
+            记录错误日志
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.TextLog.Default.Fatal(System.String)">
+            <summary>
+            记录严重错误日志
+            </summary>
+        </member>
+        <member name="T:nwbase_utils.Tools">
+            <summary>
+            常用的工具类静态方法集合。
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.Tools.IsNumber(System.String)">
+            <summary>
+            判断字符串是否为数字
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.IsInt(System.String)">
+            <summary>
+            判断字符串是否为整型
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.IsDatetime(System.String)">
+            <summary>
+            判断字符串是否为日期
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetStr(System.Object,System.String)">
+            <summary>
+            获得字符串值。
+            <para>该方法会将 string.Empty 转换为 defaultValue。</para>
+            <para>该方法用于依据一个对象，始终得到一个不为空的字符串（除非调用者将 defaultVal 设置为空）。</para>
+            <para>它等价于在程序中对象判空、ToString、IsNullOrEmpty等处理。</para>
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的字符串值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetStr(System.Object,System.String,System.Boolean)">
+            <summary>
+            获得字符串值。
+            <para>该方法会将 string.Empty 转换为 defaultValue。</para>
+            <para>该方法用于依据一个对象，始终得到一个不为空的字符串（除非调用者将 defaultVal 设置为空）。</para>
+            <para>它等价于在程序中对象判空、ToString、IsNullOrEmpty等处理。</para>
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的字符串值</param>
+            <param name="disallowEmpty">是否不允许空值（将 string.Empty 转换为 defaultValue）</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetByte(System.Int64)">
+            <summary>
+            获取8位整型值。
+            </summary>
+            <param name="src">长整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetShort(System.Object,System.Int16,System.Int32)">
+            <summary>
+            获得16位整型值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的整型值</param>
+            <param name="scale">源字符串的进位制，如16、10、8、2等</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetShort(System.Object,System.Int16)">
+            <summary>
+            获得16位整型值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetShort(System.Int64)">
+            <summary>
+            获取16位整型值。
+            </summary>
+            <param name="src">长整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetInt(System.Object,System.Int32,System.Int32)">
+            <summary>
+            获得整型值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的整型值</param>
+            <param name="scale">源字符串的进位制，如16、10、8、2等</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetInt(System.Object,System.Int32)">
+            <summary>
+            获得整型值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetInt(System.Int64)">
+            <summary>
+            获取整型值。
+            </summary>
+            <param name="src">长整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetLong(System.Object,System.Int64,System.Int32)">
+            <summary>
+            获得长整型值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的长整型值</param>
+            <param name="scale">源字符串的进位制，如16、10、8、2等</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetLong(System.Object,System.Int64)">
+            <summary>
+            获得长整型值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的长整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetDouble(System.Object,System.Double)">
+            <summary>
+            获得双精度值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的双精度值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetFloat(System.Object,System.Single)">
+            <summary>
+            获得单精度值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的单精度值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetDatetime(System.Object,System.DateTime)">
+            <summary>
+            获得时间类型值
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的时间类型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetDatetime(System.Object,System.String,System.DateTime)">
+            <summary>
+            获得时间类型值
+            </summary>
+            <param name="src">源对象</param>
+            <param name="format">格式化字符串</param>
+            <param name="defaultVal">转换失败时期望返回的时间类型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.ReadShort(System.Byte[],System.Int32)">
+            <summary>
+            返回由字节数组中指定位置的两个字节转换来的 16 位有符号整型 (NetworkToHostOrder)。
+            </summary>
+            <param name="src">字节数组</param>
+            <param name="startIndex">读数起始位置</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.ReadInt(System.Byte[],System.Int32)">
+            <summary>
+            返回由字节数组中指定位置的两个字节转换来的 32 位有符号整型 (NetworkToHostOrder)。
+            </summary>
+            <param name="src">字节数组</param>
+            <param name="startIndex">读数起始位置</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.ReadUInt(System.Byte[],System.Int32)">
+            <summary>
+            返回由字节数组中指定位置的两个字节转换来的 32 位无符号整型 (NetworkToHostOrder)。
+            </summary>
+            <param name="src">字节数组</param>
+            <param name="startIndex">读数起始位置</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.ReadLong(System.Byte[],System.Int32)">
+            <summary>
+            返回由字节数组中指定位置的两个字节转换来的 64 位有符号整型 (NetworkToHostOrder)。
+            </summary>
+            <param name="src">字节数组</param>
+            <param name="startIndex">读数起始位置</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetBytes(System.Int32)">
+            <summary>
+            获得byte数组。
+            </summary>
+            <param name="src">整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetBytes(System.Int16)">
+            <summary>
+            获得byte数组。
+            </summary>
+            <param name="src">短整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetBytes(System.Int64)">
+            <summary>
+            获得byte数组。
+            </summary>
+            <param name="src">长整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.RightBytes(System.Byte[],System.Int32)">
+            <summary>
+            获得byte数组。
+            </summary>
+            <param name="src">整型值</param>
+            <param name="bytesRightLen">要靠右保留的byte个数</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.SplitToInt32Array(System.String,System.String)">
+            <summary>
+            将以分隔符分隔的字符串转为int数组
+            </summary>
+            <param name="str"></param>
+            <param name="seperator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.SplitToInt32Array(System.String,System.String[])">
+            <summary>
+            将以分隔符分隔的字符串转为int数组
+            </summary>
+            <param name="str"></param>
+            <param name="seperators"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.ConcatEnumerable(System.Collections.IEnumerable,System.String)">
+            <summary>
+            合并一组可枚举的对象为字符串
+            </summary>
+            <param name="enumerable">被枚举对象</param>
+            <param name="seperator">分隔符</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetDt4Drs(System.Data.DataRow[],System.Int32,System.Int32)">
+            <summary>
+            复制DataRow[]中的指定记录到一个新的DataTable
+            </summary>
+            <param name="drs"></param>
+            <param name="startRecordIndex"></param>
+            <param name="endRecordIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetDt4Drs(System.Data.DataRow[])">
+            <summary>
+            复制DataRow[]中的所有记录到一个新的DataTable
+            </summary>
+            <param name="drs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetDt4Drs(System.Data.DataTable,System.Int32,System.Int32)">
+            <summary>
+            复制DataTable中的指定记录到一个新的DataTable
+            </summary>
+            <param name="dt"></param>
+            <param name="startRecord"></param>
+            <param name="endRecord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetTableDs(System.Data.DataTable,System.Boolean)">
+            <summary>
+            为一个未知是否存在于DataSet中的DataTable包装DataSet
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.IsValidDt(System.Data.DataTable)">
+            <summary>
+            判断DataTable是否有效
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.IsValidDs(System.Data.DataSet)">
+            <summary>
+            判断DataSet是否有效
+            </summary>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetCrossDt(System.Data.DataTable,System.String[],System.String,System.String,System.String)">
+            <summary>
+            获取交叉表(将原来的行表,转化成交叉表)
+            </summary>
+            <param name="dt">要转换的DataTable</param>
+            <param name="arrCols">增加多列并指定列名</param>
+            <param name="srcCol">指定将列名对应到值的字段,如arrCols为{"200901","200902","200903"},那么srcCol指定的列中,应包括对应的值</param>
+            <param name="valCol">取值字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.ComboDtCol(System.Data.DataTable,System.String,System.String,System.String[])">
+            <summary>
+            从DataTable的一列中,获取数据组成的字符串数组(该数组经过Distinct)
+            </summary>
+            <param name="dt">DataTable</param>
+            <param name="colName">列名</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetDtFieldDistValue(System.Data.DataTable,System.String)">
+            <summary>
+            从DataTable的一列中,获取数据组成的字符串数组(该数组经过Distinct)
+            </summary>
+            <param name="dt">DataTable</param>
+            <param name="colName">列名</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetRequestVal(System.String,System.String)">
+            <summary>
+            得到Request中指定参数的值（返回String值）
+            </summary>
+            <param name="keyName">要获取的参数的名称</param>
+            <param name="defaultVal">当不存在该参数时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetRequestVal(System.String,System.Int32)">
+            <summary>
+            得到Request中指定参数的值（返回Int值）
+            </summary>
+            <param name="keyName">要获取的参数的名称</param>
+            <param name="defaultVal">当不存在该参数时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetCookieVal(System.String,System.String)">
+            <summary>
+            得到Cookie中指定参数的值（返回String值）
+            </summary>
+            <param name="keyName">要获取的参数的名称</param>
+            <param name="defaultVal">当不存在该参数时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetCookieVal(System.String,System.Int32)">
+            <summary>
+            得到Cookie中指定参数的值（返回Int值）
+            </summary>
+            <param name="keyName">要获取的参数的名称</param>
+            <param name="defaultVal">当不存在该参数时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetAppSetting(System.String,System.String)">
+            <summary>
+            得到一个系统配置项的值
+            </summary>
+            <param name="keyName">配置项名称</param>
+            <param name="defaultVal">在不存在该配置项时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetAppSetting(System.String,System.Int32)">
+            <summary>
+            得到一个系统配置项的值
+            </summary>
+            <param name="keyName">配置项名称</param>
+            <param name="defaultVal">在不存在该配置项时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetConnStrConfig(System.String)">
+            <summary>
+            得到一个连接字符串配置项的值
+            <para>当配置不存在时，返回Null</para>
+            </summary>
+            <param name="keyName">配置项名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.GetLenthStr(System.String,System.Int32)">
+            <summary>
+            获得字符串值的前N位字符
+            </summary>
+            <param name="src">指定的字符串</param>
+            <param name="len">指定的长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.EncodeStr4Sql(System.String)">
+            <summary>
+            对字符串进行编码，以保证SQL参数的安全性
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.Tools.IsPrintableType(System.Type)">
+            <summary>
+            是否是可打印的类型
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="F:nwbase_utils.Tools.DefaultDateTime">
+            <summary>
+            默认时间（1900-01-01）
+            </summary>
+        </member>
+        <member name="T:nwbase_utils.UniqueRandom">
+            <summary>
+            不重复随机数
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.UniqueRandom.#ctor(System.Int32)">
+            <summary>
+            初始化
+            </summary>
+            <param name="max">随机数最大值，不包含最大值</param>
+        </member>
+        <member name="M:nwbase_utils.UniqueRandom.Refresh">
+            <summary>
+            刷新随机数
+            </summary>
+        </member>
+        <member name="M:nwbase_utils.UniqueRandom.GenerateRandomQueue(System.Int32)">
+            <summary>
+            生成随机排列的队列（大于0）
+            </summary>
+            <param name="max">队列最大值</param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_utils.UniqueRandom.Next">
+            <summary>
+            获取随机数
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
