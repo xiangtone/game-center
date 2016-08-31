@@ -138,6 +138,14 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
     private void initView(View rootView) {
         mTextLoadingState = (TextView) rootView.findViewById(R.id.textLoadingState);
         mImgAdv = (ImageView) rootView.findViewById(R.id.imgAdv);
+        mImgAdv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mCreative != null) {
+                    AdvManager.clickFeedback(mCreative);
+                }
+            }
+        });
 //        mImgAdv.setOnClickListener(mOnclickListen);
         mBtnConnect = (Button) rootView.findViewById(R.id.btnConnect);
         mBtnConnect.setOnClickListener(mOnclickListen);
@@ -166,6 +174,15 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
         super.onPause();
     }
 
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden && mCreative != null) {
+            AdvManager.exposure(mCreative);
+        }
+        Logger.i(TAG, "hidden " + hidden, "oddshou");
+    }
+
     private View.OnClickListener mOnclickListen = new View.OnClickListener() {
 
         @Override
@@ -187,10 +204,10 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
 
                     break;
                 case R.id.btnConnect:   //点击一键上网
-//                    ConnectTask task = new ConnectTask();
-//                    task.execute((Void[]) null);
-//                    updateState(ConnectState.CONNECTING);
-                    doRequest();
+                    ConnectTask task = new ConnectTask();
+                    task.execute((Void[]) null);
+                    updateState(ConnectState.CONNECTING);
+//                    doRequest();
 
                     break;
             }
@@ -297,6 +314,7 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
      */
     public static final int MSG_PING_SUCCEED = 0X01;
     public static final int MSG_REQADV_SUCCEED = 0X02;
+    private AdvManager.Creative mCreative;
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -335,13 +353,13 @@ public class WifiFragment extends BaseFragment implements IFragmentInfo {
                     break;
                 case MSG_REQADV_SUCCEED:
                     JSONObject creative = (JSONObject) msg.obj;
-                    AdvManager.Creative creative1 = new AdvManager.Creative(creative);
+                     mCreative = new AdvManager.Creative(creative);
 
                     ImageLoader imageLoader = ImageLoader.getInstance();
-                    imageLoader.displayImage(creative1.asset_url, mImgAdv,
+                    imageLoader.displayImage(mCreative.asset_url, mImgAdv,
                             DisplayOptions.optionsWifi);
                     //产生曝光事件
-                    AdvManager.exposure(creative1);
+                    AdvManager.exposure(mCreative);
                     mAdvLoadSuccess = true;
                     break;
                 default:

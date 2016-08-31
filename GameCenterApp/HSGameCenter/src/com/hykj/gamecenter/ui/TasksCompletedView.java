@@ -49,6 +49,7 @@ public class TasksCompletedView extends View {
 	// 当前进度
 	private double mProgress;
 	private String mText;
+	RectF mOval = new RectF();
 
 	public TasksCompletedView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -89,35 +90,47 @@ public class TasksCompletedView extends View {
 		
 		FontMetrics fm = mTextPaint.getFontMetrics();
 		mTxtHeight = (int) Math.ceil(fm.descent - fm.ascent);
-		
+
+
+
+	}
+
+	@Override
+	protected void onFinishInflate() {
+		super.onFinishInflate();
 	}
 
 	@Override
 	protected void onDraw(Canvas canvas) {
 
-		mXCenter = getWidth() / 2;
-		mYCenter = getHeight() / 2;
+
 		
 		canvas.drawCircle(mXCenter, mYCenter, mRadius, mCirclePaint);
-		
+		if (!TextUtils.isEmpty(mText)) {
+//				String txt = mProgress + "%";
+			mTxtWidth = mTextPaint.measureText(mText, 0, mText.length());
+			canvas.drawText(mText, mXCenter - mTxtWidth / 2, mYCenter + mTxtHeight / 4, mTextPaint);
+		}
 		if (mProgress > 0 ) {
-			RectF oval = new RectF();
-			oval.left = (mXCenter - mRingRadius);
-			oval.top = (mYCenter - mRingRadius);
-			oval.right = mRingRadius * 2 + (mXCenter - mRingRadius);
-			oval.bottom = mRingRadius * 2 + (mYCenter - mRingRadius);
-			canvas.drawArc(oval, -90, (float) ((mProgress / mTotalProgress) * 360), false, mRingPaint); //
+			canvas.drawArc(mOval, -90, (float) ((mProgress / mTotalProgress) * 360), false, mRingPaint); //
 			Logger.i("TaskCompletedView", "onDraw: progress "+ mProgress, "oddshou");
 //			canvas.drawCircle(mXCenter, mYCenter, mRadius + mStrokeWidth / 2, mRingPaint);
-			if (!TextUtils.isEmpty(mText)) {
-//				String txt = mProgress + "%";
-				mTxtWidth = mTextPaint.measureText(mText, 0, mText.length());
-				canvas.drawText(mText, mXCenter - mTxtWidth / 2, mYCenter + mTxtHeight / 4, mTextPaint);
-			}
-
 		}
+
+
 	}
-	
+
+	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+		mXCenter = getWidth() / 2;
+		mYCenter = getHeight() / 2;
+		mOval.left = (mXCenter - mRingRadius);
+		mOval.top = (mYCenter - mRingRadius);
+		mOval.right = mRingRadius * 2 + (mXCenter - mRingRadius);
+		mOval.bottom = mRingRadius * 2 + (mYCenter - mRingRadius);
+	}
+
 	public void setProgress(double progress) {
 		mProgress = progress;
 //		invalidate();

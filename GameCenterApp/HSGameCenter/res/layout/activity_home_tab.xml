@@ -128,6 +128,16 @@
         android:background="@color/white"
         >
 
+
+
+        <ImageView
+            android:id="@+id/imgAdv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/imgLogo"
+            android:scaleType="centerCrop"
+            />
+
         <com.hykj.gamecenter.ui.TasksCompletedView
             android:id="@+id/taskView"
             android:layout_width="50dp"
@@ -141,13 +151,6 @@
             yg:circleColor="@color/color_download_tab_frame"
             yg:ringColor="@color/color_first_normal"
             yg:text="@string/skip"
-            />
-
-        <ImageView
-            android:id="@+id/imgAdv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/imgLogo"
             />
         <ImageView
             android:id="@+id/imgLogo"

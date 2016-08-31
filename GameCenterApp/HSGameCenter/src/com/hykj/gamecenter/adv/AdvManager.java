@@ -1,5 +1,7 @@
 package com.hykj.gamecenter.adv;
 
+import android.text.TextUtils;
+
 import com.hykj.gamecenter.App;
 import com.hykj.gamecenter.R;
 import com.hykj.gamecenter.utils.DevicesInfo;
@@ -17,6 +19,8 @@ import org.xutils.http.RequestParams;
 import org.xutils.x;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Type;
 
 /**
  * Created by win7 on 2016/8/24.
@@ -29,12 +33,13 @@ import java.io.IOException;
 public class AdvManager {
 
     private static final String SERVER_URL = /*"http://x.wifi8.com/api/req"*/"http://114.80.12.57/api/req";
-    public static final String TAG_ID = "46b7505988327ecfc14218d50bc13bd4";
+    public static final String TAG_ID = /*"46b7505988327ecfc14218d50bc13bd4"*/"46b7505988327ecfc14218d50bc13bd4";
+    public static final String TAG_ID_720 = "220de42c46e5b24f1b5aed9571bf8d65";
     public static final String EXT_TAG_ID = "440300020000";
     public static final int IMP_WIFI_ADV = 1;     //生成wifi连接页广告id
     public static final int IMP_LOGIN_ADV = 2;   //生成login页广告id
+    public static final int IMG_SPLASH_ADV = 3;     //闪屏广告
     private static final String TAG = "AdvManager";
-
 
     public interface AdvPostListener {
 //        void onReqFailed(String errmg);
@@ -73,9 +78,12 @@ public class AdvManager {
                     JSONObject objData = (JSONObject) responseData.nextValue();
                     int code = objData.getInt("code");
                     if (code == 0) {
-                        JSONArray creatives = objData.getJSONArray("creatives");
-                        if (creatives.length() > 0) {
-                            listener.onReqAdvSucceed(creatives.getJSONObject(0));
+                        JSONObject data = objData.getJSONObject("data");
+                        if (data != null) {
+                            JSONArray creatives = data.getJSONArray("creatives");
+                            if (creatives.length() > 0) {
+                                listener.onReqAdvSucceed(creatives.getJSONObject(0));
+                            }
                         }
                     } else {
                         //错误
@@ -107,7 +115,6 @@ public class AdvManager {
         //imp
         JSONObject imp = new JSONObject();
         imp.put("id", impId);
-        imp.put("tagid", TAG_ID);
         JSONObject banner = new JSONObject();
         int w = 0;
         int h = 0;
@@ -116,12 +123,20 @@ public class AdvManager {
             case IMP_WIFI_ADV:
                 w = 720;
                 h = 960;
-                display_tpye = 3;   //后期需要调整
+                display_tpye = 1;   //wifi连接页广告
+                imp.put("tagid", TAG_ID_720);
                 break;
             case IMP_LOGIN_ADV:
                 w = 805;
                 h = 322;
-                display_tpye = 3;   //后期需要调整
+                display_tpye = 1;   //登陆页广告
+                imp.put("tagid", TAG_ID);
+                break;
+            case IMG_SPLASH_ADV:
+                w = 720;
+                h = 960;
+                display_tpye = 1;   //开屏广告
+                imp.put("tagid", TAG_ID_720);
                 break;
         }
         banner.put("w", w);
@@ -165,22 +180,46 @@ public class AdvManager {
         return device;
     }
 
+    public static void clickFeedback(Creative creative) {
+        String click_feedback_url = creative.click_feedback_url;
+        String thirdparty_click_through_url = creative.thirdparty_click_through_url;
+        if (!TextUtils.isEmpty(click_feedback_url)) {
+            feedback(click_feedback_url);
+        }
+        if (!TextUtils.isEmpty(thirdparty_click_through_url)) {
+            feedback(thirdparty_click_through_url);
+        }
+
+    }
+
     /**
      * 曝光
      */
     public static void exposure(Creative creative) {
         final String imp_feedback_url = creative.imp_feedback_url;
         final String thirdparty_imp_feedback_url = creative.thirdparty_imp_feedback_url;
+        if (!TextUtils.isEmpty(imp_feedback_url)) {
+            feedback(imp_feedback_url);
+        }
+        if (!TextUtils.isEmpty(thirdparty_imp_feedback_url)) {
+            feedback(thirdparty_imp_feedback_url);
+        }
+    }
+
+    private static void feedback(final String feedbackUrl) {
         new Thread() {
             @Override
             public void run() {
-                HttpGet httpGet = new HttpGet(imp_feedback_url);
+                HttpGet httpGet = null;
+                    httpGet = new HttpGet(feedbackUrl);
+
+
                 try {
                     HttpResponse httpResponse = new DefaultHttpClient().execute(httpGet);
-                    if (httpResponse.getStatusLine().getStatusCode() == 204) {
-                        Logger.i(TAG, "expsure success", "oddshou");
+                    if (httpResponse.getStatusLine().getStatusCode() == 204 || httpResponse.getStatusLine().getStatusCode() == 200) {
+                        Logger.i(TAG, "feedback success", "oddshou");
                     } else {
-                        Logger.e(TAG, "run: exposure error ", "oddshou");
+                        Logger.e(TAG, "feedback error ", "oddshou");
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -189,25 +228,6 @@ public class AdvManager {
                 super.run();
             }
         }.start();
-        new Thread() {
-            @Override
-            public void run() {
-                HttpGet httpGet = new HttpGet(thirdparty_imp_feedback_url);
-                try {
-                    HttpResponse httpResponse = new DefaultHttpClient().execute(httpGet);
-                    if (httpResponse.getStatusLine().getStatusCode() == 204) {
-                        Logger.i(TAG, "expsure third success", "oddshou");
-                    } else {
-                        Logger.e(TAG, "run: exposure error ", "oddshou");
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                super.run();
-            }
-        }.start();
-
     }
 
     public static class Creative {
@@ -228,24 +248,108 @@ public class AdvManager {
         public String install_complete_url;
 
         public Creative(JSONObject createJson) {
+
+
             try {
                 impid = createJson.getInt("impid");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
                 crid = createJson.getString("crid");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
                 asset_url = createJson.getString("asset_url");
-                headline = createJson.getString("headline");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
                 description = createJson.getString("description");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
+                headline = createJson.getString("headline");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
                 w = createJson.getInt("w");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
                 h = createJson.getInt("h");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
                 description_extention = createJson.getString("description_extention");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
                 imp_feedback_url = createJson.getString("imp_feedback_url");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
                 thirdparty_imp_feedback_url = createJson.getString("thirdparty_imp_feedback_url");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
                 click_feedback_url = createJson.getString("click_feedback_url");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
                 thirdparty_click_through_url = createJson.getString("thirdparty_click_through_url");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
                 bundle = createJson.getString("bundle");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
                 download_complete_url = createJson.getString("download_complete_url");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
                 install_complete_url = createJson.getString("install_complete_url");
             } catch (JSONException e) {
                 e.printStackTrace();
+            }
+        }
+
+        private void getStringWithKey(String key, JSONObject createJson) {
+            if (!createJson.isNull(key))
+                try {
+                    createJson.getString(key);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+        }
+
+        private void getIfnotNull(JSONObject createJson, String s) {
+
+            Class cretive = getClass();
+
+            for (Field field : cretive.getDeclaredFields()
+                    ) {
+                String key = field.getName();
+                Type genericType = field.getGenericType();
+                if (!createJson.isNull(key)) {
+                    if (genericType.equals("class java.lang.String")) {
+
+                    }
+                }
             }
         }
     }

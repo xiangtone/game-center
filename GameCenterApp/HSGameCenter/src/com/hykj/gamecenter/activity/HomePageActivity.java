@@ -302,8 +302,8 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    mTaskView.setProgress(mTimerTime/4000.0 *100);
                     mTimerTime += 100;
+                    mTaskView.setProgress(mTimerTime/4000.0 *100);
                     if (mTimerTime >= 4000) {
                         mTimer.cancel();
                         mLayoutSplash.setVisibility(View.GONE);
@@ -314,7 +314,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
     };
 
     private void doAdvRequest(){
-        AdvManager.doPost(AdvManager.IMP_LOGIN_ADV, new AdvManager.AdvPostListener() {
+        AdvManager.doPost(AdvManager.IMG_SPLASH_ADV, new AdvManager.AdvPostListener() {
             @Override
             public void onReqAdvSucceed(JSONObject creative) {
                 Message msg = new Message();
@@ -342,7 +342,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         });
         mTimer = new Timer();
         mTimer.schedule(mTask, 0, 100);
-
+        doAdvRequest();
 
         mNoviceGuidanceView = (NoviceGuidanceAppView) findViewById(R.id.noviceguidance_pager);
 

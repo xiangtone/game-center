@@ -17,10 +17,13 @@
         cs:comm_showSetting="false"
         cs:comm_showTitle="true" />
 
-    <ImageView
+    <com.hykj.gamecenter.ui.widget.FirstAdvImageView
         android:id="@+id/imgAdv"
+        android:layout_below="@+id/ActionBar"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:background="@drawable/login_normal"/>
 
     <RelativeLayout
         android:id="@+id/layoutEditFrame"
