@@ -34,7 +34,9 @@ public class AdvManager {
 
     private static final String SERVER_URL = /*"http://x.wifi8.com/api/req"*/"http://114.80.12.57/api/req";
     public static final String TAG_ID = /*"46b7505988327ecfc14218d50bc13bd4"*/"46b7505988327ecfc14218d50bc13bd4";
-    public static final String TAG_ID_720 = "220de42c46e5b24f1b5aed9571bf8d65";
+    public static final String TAG_ID_720_960 = "1f2bb6e4122190786b9043a93c67bad5";
+    public static final String TAG_ID_720_960_2 = "b41cffef7e59960afd99e6cedf4a6e5f";
+    public static final String TAG_ID_805_322 = "26679e25c94fbf4f0b989dc1cddb0814";
     public static final String EXT_TAG_ID = "440300020000";
     public static final int IMP_WIFI_ADV = 1;     //生成wifi连接页广告id
     public static final int IMP_LOGIN_ADV = 2;   //生成login页广告id
@@ -51,6 +53,7 @@ public class AdvManager {
     private AdvManager(AdvPostListener listener) {
 
     }
+
 
     public static void doPost(int impId, final AdvPostListener listener) {
 
@@ -124,19 +127,19 @@ public class AdvManager {
                 w = 720;
                 h = 960;
                 display_tpye = 1;   //wifi连接页广告
-                imp.put("tagid", TAG_ID_720);
+                imp.put("tagid", TAG_ID_720_960);
                 break;
             case IMP_LOGIN_ADV:
                 w = 805;
                 h = 322;
                 display_tpye = 1;   //登陆页广告
-                imp.put("tagid", TAG_ID);
+                imp.put("tagid", TAG_ID_805_322);
                 break;
             case IMG_SPLASH_ADV:
                 w = 720;
                 h = 960;
                 display_tpye = 1;   //开屏广告
-                imp.put("tagid", TAG_ID_720);
+                imp.put("tagid", TAG_ID_720_960_2);
                 break;
         }
         banner.put("w", w);
