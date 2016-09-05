@@ -350,7 +350,7 @@ def _get_applist_id_4_type(group_class, group_type, order_type, chnno=0, archite
 
         app_sql = """
                      select AppID from (
-                     select a.AppID,at.AppClass,at.AppType,a.IsNetGame,a.UpdateTime,a.DownTimes,a.IssueType,a.ChannelNos,a.ChannelAdaptation,a.Architecture
+                     select a.AppID,at.AppClass,at.AppType,a.IsNetGame,a.CreateTime,a.DownTimes,a.IssueType,a.ChannelNos,a.ChannelAdaptation,a.Architecture
                      from
                         appinfo a
                             inner join
@@ -396,7 +396,7 @@ def _get_applist_id_4_type(group_class, group_type, order_type, chnno=0, archite
             
         # 排序
         if order_type == DBOrderTypeEnum.UPDATE_TIME:
-            where_sql += " order by UpdateTime desc"
+            where_sql += " order by CreateTime desc"
 
         else:
             where_sql += " order by DownTimes desc"
