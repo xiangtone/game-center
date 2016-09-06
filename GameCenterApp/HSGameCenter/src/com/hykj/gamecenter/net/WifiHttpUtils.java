@@ -35,6 +35,7 @@ public class WifiHttpUtils {
     public class hdata {
         int ver = 3;
         int aid = 2;    //产品id
+
         String aver = "1.0";
         int ostype = 1;
         String dcode = "";

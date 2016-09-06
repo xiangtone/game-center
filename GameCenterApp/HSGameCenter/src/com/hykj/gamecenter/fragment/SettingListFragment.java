@@ -336,9 +336,10 @@ public class SettingListFragment extends Fragment {
             mBtnLoginOut.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //退出登录
+                    //退出登录,清楚 uuid，sessid
                     App.getSharedPreference().edit()
                             .putInt(StatisticManager.KEY_WIFI_UUID, 0)
+                            .putString(StatisticManager.KEY_WIFI_SESSID, "")
                             .apply();
                     getActivity().finish();
                 }

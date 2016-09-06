@@ -145,7 +145,7 @@ class ProtoHandler(BaseHandler):
     @tornado.gen.coroutine
     def post(self):
         self.timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
-	self.set_header("Access-Control-Allow-Origin", "*")
+        self.set_header("Access-Control-Allow-Origin", "*")
         try:
             post_data = self.request.body
             if post_data:

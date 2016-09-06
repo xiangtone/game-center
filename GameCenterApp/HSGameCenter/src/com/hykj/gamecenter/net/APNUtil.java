@@ -108,7 +108,7 @@ public class APNUtil {
 
     /**
      * 获取自定义APN名称
-     * 
+     *
      * @param context
      * @return
      */
@@ -143,7 +143,7 @@ public class APNUtil {
 
     /**
      * 获取自定义apn类型
-     * 
+     *
      * @param context
      * @return
      */
@@ -178,7 +178,7 @@ public class APNUtil {
 
     /**
      * 获取系统APN
-     * 
+     *
      * @param context
      * @return
      */
@@ -197,7 +197,7 @@ public class APNUtil {
 
     /**
      * 获取系统APN代理IP
-     * 
+     *
      * @param context
      * @return
      */
@@ -215,7 +215,7 @@ public class APNUtil {
 
     /**
      * 获取系统APN代理IP
-     * 
+     *
      * @param context
      * @return
      */
@@ -233,7 +233,7 @@ public class APNUtil {
 
     /**
      * 获取系统APN代理端口
-     * 
+     *
      * @param context
      * @return
      */
@@ -257,7 +257,7 @@ public class APNUtil {
 
     /**
      * 获取系统APN代理端口
-     * 
+     *
      * @param context
      * @return
      */
@@ -274,7 +274,7 @@ public class APNUtil {
 
     /**
      * 是否有网关代理
-     * 
+     *
      * @param context
      * @return
      */
@@ -290,10 +290,10 @@ public class APNUtil {
 
     /**
      * 获取自定义当前联网类型
-     * 
+     *
      * @param act 当前活动Activity
      * @return 联网类型 -1表示未知的联网类型, 正确类型： MPROXYTYPE_WIFI | MPROXYTYPE_CMWAP |
-     *         MPROXYTYPE_CMNET
+     * MPROXYTYPE_CMNET
      */
     public static int getMProxyType(Context act) {
         try {
@@ -350,6 +350,65 @@ public class APNUtil {
         }
         return MPROXYTYPE_DEFAULT;
     }
+
+    public static final int cmcc_4g = 17;
+
+    public static int GetNetworkType(Context context) {
+        int strNetworkType = 0;
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            if (networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+                strNetworkType = 2; //wifi
+            } else if (networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
+
+                // TD-SCDMA   networkType is 17
+                int networkType = networkInfo.getSubtype();
+                switch (networkType) {
+                    case TelephonyManager.NETWORK_TYPE_GPRS:
+                    case TelephonyManager.NETWORK_TYPE_EDGE:
+                    case TelephonyManager.NETWORK_TYPE_CDMA:
+                    case TelephonyManager.NETWORK_TYPE_1xRTT:
+                    case TelephonyManager.NETWORK_TYPE_IDEN: //api<8 : replace by 11
+                        strNetworkType = 4;     //2g
+                        break;
+                    case TelephonyManager.NETWORK_TYPE_UMTS:
+                    case TelephonyManager.NETWORK_TYPE_EVDO_0:
+                    case TelephonyManager.NETWORK_TYPE_EVDO_A:
+                    case TelephonyManager.NETWORK_TYPE_HSDPA:
+                    case TelephonyManager.NETWORK_TYPE_HSUPA:
+                    case TelephonyManager.NETWORK_TYPE_HSPA:
+                    case TelephonyManager.NETWORK_TYPE_EVDO_B: //api<9 : replace by 14
+                    case TelephonyManager.NETWORK_TYPE_EHRPD:  //api<11 : replace by 12
+                    case TelephonyManager.NETWORK_TYPE_HSPAP:  //api<13 : replace by 15
+                        strNetworkType = 5;     //3g
+                        break;
+                    case TelephonyManager.NETWORK_TYPE_LTE:    //api<11 : replace by 13
+                    case cmcc_4g:       //移动4g NETWORK_TYPE_TD_SCDMA
+                        strNetworkType = 6;     //4g
+                        break;
+                    default:
+                        String _strSubTypeName = networkInfo.getSubtypeName();
+                        // http://baike.baidu.com/item/TD-SCDMA 中国移动 联通 电信 三种3G制式
+                        if (_strSubTypeName.equalsIgnoreCase("TD-SCDMA") || _strSubTypeName.equalsIgnoreCase("WCDMA") || _strSubTypeName.equalsIgnoreCase("CDMA2000")) {
+                            strNetworkType = 5;     //3g
+                        } else {
+                            strNetworkType = 3;     //cell_unknown
+                        }
+
+                        break;
+                }
+
+            }else {
+                strNetworkType = 0;
+            }
+        }
+
+
+        return strNetworkType;
+    }
+
 
     /**
      * @param context

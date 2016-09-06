@@ -32,6 +32,7 @@ import com.hykj.gamecenter.GlobalConfigControllerManager;
 import com.hykj.gamecenter.GlobalConfigControllerManager.LoadingStateListener;
 import com.hykj.gamecenter.R;
 import com.hykj.gamecenter.adapter.IViewVisiableChangedListener;
+import com.hykj.gamecenter.adv.AdvManager;
 import com.hykj.gamecenter.broadcast.WifiUpdateReceiver;
 import com.hykj.gamecenter.controller.ControllerHelper;
 import com.hykj.gamecenter.controller.ProtocolListener.ACTION_PATH;
@@ -53,6 +54,7 @@ import com.hykj.gamecenter.fragment.WifiFragment;
 import com.hykj.gamecenter.logic.ApkInstalledManager;
 import com.hykj.gamecenter.logic.ApkInstalledManager.InstallFinishListener;
 import com.hykj.gamecenter.logic.BroadcastManager;
+import com.hykj.gamecenter.logic.DisplayOptions;
 import com.hykj.gamecenter.logic.NotificationCenter;
 import com.hykj.gamecenter.logic.SearchRecommendControllerManager;
 import com.hykj.gamecenter.logic.entry.ISaveInfo;
@@ -69,6 +71,7 @@ import com.hykj.gamecenter.statistic.StatisticManager;
 import com.hykj.gamecenter.ui.BadgeView;
 import com.hykj.gamecenter.ui.DownloadStateViewCustomization;
 import com.hykj.gamecenter.ui.NoviceGuidanceAppView;
+import com.hykj.gamecenter.ui.TasksCompletedView;
 import com.hykj.gamecenter.ui.widget.CSAlertDialog;
 import com.hykj.gamecenter.ui.widget.CSToast;
 import com.hykj.gamecenter.ui.widget.UpdateDialog;
@@ -80,10 +83,14 @@ import com.hykj.gamecenter.utils.SystemBarTintManager;
 import com.hykj.gamecenter.utils.Tools;
 import com.hykj.gamecenter.utils.UpdateUtils;
 import com.hykj.gamecenter.utilscs.LogUtils;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.json.JSONObject;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class HomePageActivity extends Activity implements IDownloadTaskCountChangeListener,
         InstallFinishListener, BackHandledFragment.BackHandledInterface, IDownloadTaskObserver,
@@ -107,6 +114,11 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
     public static final String KEY_UPDATE_ALL = "key_update_all";
     private BadgeView mBadgeView;
     private ImageView mImgWifi;
+    private View mLayoutSplash;
+    private Timer mTimer;
+    private int mTimerTime;
+    private TasksCompletedView mTaskView;
+    private ImageView mImgAdv;
 
 
     // public static boolean mbAppInitRuning = false; // 应用程序刚启动时设置该变量
@@ -284,8 +296,53 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         Log.i(TAG, "oddshou showHomePage.............");
     }
 
+    TimerTask mTask = new TimerTask() {
+        @Override
+        public void run() {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mTimerTime += 100;
+                    mTaskView.setProgress(mTimerTime/4000.0 *100);
+                    if (mTimerTime >= 4000) {
+                        mTimer.cancel();
+                        mLayoutSplash.setVisibility(View.GONE);
+                    }
+                }
+            });
+        }
+    };
+
+    private void doAdvRequest(){
+        AdvManager.doPost(AdvManager.IMG_SPLASH_ADV, new AdvManager.AdvPostListener() {
+            @Override
+            public void onReqAdvSucceed(JSONObject creative) {
+                Message msg = new Message();
+                msg.what = MSG_REQADV_SUCCEED;
+                msg.obj = creative;
+                mUIHandler.sendMessage(msg);
+            }
+        });
+    }
+
+
     private void initView(Bundle savedInstanceState) {
         mContext = App.getAppContext();
+
+        mLayoutSplash = findViewById(R.id.splashLayout);
+        mLayoutSplash.setClickable(true);
+        mImgAdv = (ImageView)findViewById(R.id.imgAdv);
+        mTaskView = (TasksCompletedView)findViewById(R.id.taskView);
+        mTaskView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mTimer.cancel();
+                mLayoutSplash.setVisibility(View.GONE);
+            }
+        });
+        mTimer = new Timer();
+        mTimer.schedule(mTask, 0, 100);
+        doAdvRequest();
 
         mNoviceGuidanceView = (NoviceGuidanceAppView) findViewById(R.id.noviceguidance_pager);
 
@@ -536,7 +593,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
         // ################  tomqian
         setContentView(R.layout.activity_home_tab);
         SystemBarTintManager.useSystemBar(this, R.color.action_blue_color);
-        		/*
+        /*
          * 由App移入该处，修改增加专题不能按OnBackPressed退出后 (应用其实并未完全退出，再进入时App
          * OnCreate不会被调用，除非杀死后台程序) ，这样运营增加个专题不能实时显示
          */
@@ -546,24 +603,8 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
 
         initData();// loadApps() 这里会查询所有需要更新的应用
         initView(savedInstanceState);
-
-        //非华硕渠道号版本不用弹提示框
-//		if (App.getmChNoSelf().equals(StatisticManager.ChnNo.ASUS)) {
-//			showFirstDialog();
-//		} else {
         createAfterInit();
-//		}
 
-
-        // 如果是从通知栏启动的，先启动AppManageActivity
-        // if (bFromNofitication) {
-        // Intent intent = new Intent(HomePageActivity.this,
-        // AppManageActivity.class);
-        //
-        // // GOTO_UPDATE 这个标志位为会true 启动AppManageActivity时会查询可更新应用
-        // intent.putExtra(AppManageActivity.GOTO_UPDATE, true);
-        // HomePageActivity.this.startActivity(intent);
-        // }
 
 
     }
@@ -1177,6 +1218,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
     }
 
     private static final int MSG_REFRESH_WIFI = 0X01;
+    private static final int MSG_REQADV_SUCCEED = 0x02;
 
     @SuppressLint("HandlerLeak")
     private final Handler mUIHandler = new Handler() {
@@ -1248,6 +1290,16 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
                         mUpdateDialog.setProgress(progress);
                     }
                     break;
+                case MSG_REQADV_SUCCEED:
+                    JSONObject creative = (JSONObject) msg.obj;
+                    AdvManager.Creative creative1 = new AdvManager.Creative(creative);
+
+                    ImageLoader imageLoader = ImageLoader.getInstance();
+                    imageLoader.displayImage(creative1.asset_url, mImgAdv,
+                            DisplayOptions.optionsWifi);
+                    //产生曝光事件
+                    AdvManager.exposure(creative1);
+                    break;
                 case UpdateDownloadController.MSG_SET_PATH:
                     Bundle bundleP = msg.getData();
                     if (mUpdateDialog != null) {
@@ -1257,6 +1309,7 @@ public class HomePageActivity extends Activity implements IDownloadTaskCountChan
                     if (mUpdateDialog.isShowing()) {
                         mUpdateDialog.setDownloadFailStatus();
                     }
+
                 default:
                     break;
             }

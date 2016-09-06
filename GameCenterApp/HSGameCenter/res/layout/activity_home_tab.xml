@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:id="@+id/rootview"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:cs="http://schemas.android.com/apk/res-auto"
+    xmlns:yg="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
@@ -120,5 +120,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/splashLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
+
+
+
+        <ImageView
+            android:id="@+id/imgAdv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/imgLogo"
+            android:scaleType="centerCrop"
+            />
+
+        <com.hykj.gamecenter.ui.TasksCompletedView
+            android:id="@+id/taskView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            yg:radius="20dp"
+            yg:strokeWidth="2dp"
+            yg:circleColor="@color/color_download_tab_frame"
+            yg:ringColor="@color/color_first_normal"
+            yg:text="@string/skip"
+            />
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/splash"/>
+
+    </RelativeLayout>
 
 </FrameLayout>

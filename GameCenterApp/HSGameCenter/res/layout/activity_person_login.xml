@@ -17,11 +17,19 @@
         cs:comm_showSetting="false"
         cs:comm_showTitle="true" />
 
+    <com.hykj.gamecenter.ui.widget.FirstAdvImageView
+        android:id="@+id/imgAdv"
+        android:layout_below="@+id/ActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:background="@drawable/login_normal"/>
+
     <RelativeLayout
         android:id="@+id/layoutEditFrame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ActionBar"
+        android:layout_below="@id/imgAdv"
         android:layout_marginLeft="@dimen/normal_margin_padding_micro"
         android:layout_marginRight="@dimen/normal_margin_padding_micro"
         android:layout_marginTop="@dimen/normal_margin_padding_micro12"

@@ -92,8 +92,9 @@ def get_recommend_info(appid,apptype,order_type,channelno,architecture,seri_name
 
         select_appid_list = []
         # 随机选取其中12个应用id
-        if len(appid_list)>12:
-            while len(select_appid_list)<12:  
+        # 以下代码可以优化 odddshou
+        if len(appid_list)> 6:
+            while len(select_appid_list)< 6:
                 random_index = random.randint(0, len(appid_list)-1) # 生成随机数 
                 select_appid = appid_list.pop(random_index)
                 if select_appid not in select_appid_list:
