@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CommonMaster.master.cs" Inherits="updatesys_cms.Web.CommonMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    
+    <link href="http://cms.niuwan.cc/themes/default/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
+    <link href="http://cms.niuwan.cc/themes/default/style.css" rel="stylesheet" type="text/css" />
+    <script src="http://cms.niuwan.cc/js/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="http://cms.niuwan.cc/js/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
+    <script src="http://cms.niuwan.cc/js/nwbase_utils.js" type="text/javascript"></script>
+    <style type="text/css">
+        .colorred
+        {
+            color:Red;                 
+        }
+        .colorgreen
+        {
+            color:Green;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="Header" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="Body" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

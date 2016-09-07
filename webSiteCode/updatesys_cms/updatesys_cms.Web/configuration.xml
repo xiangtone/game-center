@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config> 
+ 	<eachSize>1024000</eachSize> 
+ 	<extensions>apk</extensions>
+ 	<maxSize>10240000</maxSize>
+ 	<minSize>1</minSize>
+ 	<test>hello</test>
+</config>

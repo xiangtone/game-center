@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3B2F9F70-43AE-457D-B470-83AB8DA13393}</ProjectGuid>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{42C1A713-8E68-40DC-B6BD-29433C1C22F4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AppStore.BLL</RootNamespace>
-    <AssemblyName>AppStore.BLL</AssemblyName>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,12 +31,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nwbase_utils">
-      <HintPath>..\..\..\_common\libs\nwbase_utils.dll</HintPath>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\_common\libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.6\lib\net40\MySql.Data.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,48 +51,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppCommentsBLL.cs" />
-    <Compile Include="AppCommentSummaryBLL.cs" />
-    <Compile Include="AppInfoBLL.cs" />
-    <Compile Include="AppInfoiosBLL.cs" />
-    <Compile Include="AppInformBLL.cs" />
-    <Compile Include="AppPicListBLL.cs" />
-    <Compile Include="B_DevBLL.cs" />
-    <Compile Include="ChannelBLL.cs" />
-    <Compile Include="CPsBLL.cs" />
-    <Compile Include="FeedBackBLL.cs" />
-    <Compile Include="GroupElemsBLL.cs" />
-    <Compile Include="GroupInfoBll.cs" />
-    <Compile Include="GroupSchemesBLL.cs" />
-    <Compile Include="GroupTypeBLL.cs" />
-    <Compile Include="LinkInfoBLL.cs" />
-    <Compile Include="OperateRecordBLL.cs" />
-    <Compile Include="PackInfoBLL.cs" />
+    <Compile Include="DbHelper\IDbHelper.cs" />
+    <Compile Include="DbHelper\MySqlHelper.cs" />
+    <Compile Include="DbHelper\OleDbHelper.cs" />
+    <Compile Include="DbHelper\SqlHelper.cs" />
+    <Compile Include="DbHelper\_HelperBase.cs" />
+    <Compile Include="Encryption.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GroupBLL.cs" />
-    <Compile Include="AppTypeBLL.cs" />
-    <Compile Include="Redis\RedisBLL.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SourceUrlSyncBLL.cs" />
-    <Compile Include="SyncManagerBLL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AppStore.Common\AppStore.Common.csproj">
-      <Project>{068eae58-8bd7-4c28-ae0c-2bbba211f2e0}</Project>
-      <Name>AppStore.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AppStore.DAL\AppStore.DAL.csproj">
-      <Project>{4c3e9432-11d9-4460-b8bf-fc82f008e4ab}</Project>
-      <Name>AppStore.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AppStore.Model\AppStore.Model.csproj">
-      <Project>{163ef3d9-1e11-4fb5-8056-1868a260c431}</Project>
-      <Name>AppStore.Model</Name>
-    </ProjectReference>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

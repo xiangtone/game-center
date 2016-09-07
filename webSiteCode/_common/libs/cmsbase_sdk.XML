@@ -1,0 +1,1373 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>cmsbase_sdk</name>
+    </assembly>
+    <members>
+        <member name="T:cmsbase_sdk.CacheHelper">
+            <summary>
+            HttpRuntime 缓存帮助类。
+            <para>采用双缓存（对象缓存+状态缓存）设计，避免大并发量情况下，出现缓存循环失效等问题。</para>
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.CacheHelper.SetCache(System.String,System.Object)">
+            <summary>
+            设置无过期缓存。
+            </summary>
+            <param name="cacheName">缓存的名称</param>
+            <param name="val">要缓存的对象</param>
+        </member>
+        <member name="M:cmsbase_sdk.CacheHelper.SetCache(System.String,System.Object,System.Int32,System.Boolean)">
+            <summary>
+            设置时间过期缓存（滑动过期或绝对过期）。
+            </summary>
+            <param name="cacheName">缓存的名称</param>
+            <param name="val">要缓存的对象</param>
+            <param name="cacheTime">要缓存的时长（分钟）</param>
+            <param name="isSlidingTime">是否为滑动过期</param>
+        </member>
+        <member name="M:cmsbase_sdk.CacheHelper.SetCache(System.String,System.Object,System.String)">
+            <summary>
+            设置文件依赖缓存。
+            </summary>
+            <param name="cacheName">缓存的名称</param>
+            <param name="val">要缓存的对象</param>
+            <param name="file">缓存依赖的文件</param>
+        </member>
+        <member name="M:cmsbase_sdk.CacheHelper.SetCache(System.String,System.Object,System.String[])">
+            <summary>
+            设置文件依赖缓存。
+            </summary>
+            <param name="cacheName">缓存的名称</param>
+            <param name="val">要缓存的对象</param>
+            <param name="files">缓存依赖的文件组</param>
+        </member>
+        <member name="M:cmsbase_sdk.CacheHelper.DelCache(System.String,System.Boolean)">
+            <summary>
+            删除缓存。
+            </summary>
+            <param name="cacheName">缓存的名称</param>
+            <param name="isDeleteSrcCache">是否删除源值缓存（False=仅删除状态缓存）</param>
+        </member>
+        <member name="M:cmsbase_sdk.CacheHelper.GetCache(System.String)">
+            <summary>
+            获取缓存对象。
+            <para>如果返回的缓存对象不为 Null，则表示缓存可用，</para>
+            <para>否则，请调用者自数据库或其它位置获取对象，并设置该缓存。</para>
+            <para></para>
+            <para>应用实例：</para>
+            <para>string cacheName = "UserList";</para>
+            <para>DataTable dtUserList = CacheHelper.GetCache(cacheName) as DataTable;</para>
+            <para>if (dtUserList == null)</para>
+            <para>{</para>
+            <para>    dtUserList = GetUserListByDB();</para>
+            <para>    // 不会造成循环失效，因为 SetCache 方法仅允许第一个 GetCache 时返回空的进程设置缓存。</para>
+            <para>    CacheHelper.SetCache(cacheName, dtUserList);</para>
+            <para>}</para>
+            <para>return dtUserList;</para>
+            </summary>
+            <param name="cacheName">缓存的名称</param>
+            <returns></returns>
+        </member>
+        <member name="T:cmsbase_sdk.CryptHelper">
+            <summary>
+            加密与解密相关方法集合。
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.CryptHelper.MD5CmsUserPwd(System.String)">
+            <summary>
+            对CMS用户的密码进行MD5加密，以便于安全存取
+            </summary>
+            <param name="src">原密码</param>
+            <returns>返回加密后的密码</returns>
+        </member>
+        <member name="M:cmsbase_sdk.CryptHelper.MD5Str(System.String)">
+            <summary>
+            MD5加密码（32位大写）
+            <para>返回源字符串的32位大写摘要码。</para>
+            <para>如果需要小写，请用ToLower方法，不必写新方法。</para>
+            </summary>
+            <param name="src">源字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.CryptHelper.DESEncrypt(System.String,System.String)">
+            <summary>
+            DES加密
+            </summary>
+            <param name="src">需要加密的源字符串</param>
+            <param name="encrKey">加密密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.CryptHelper.DESDecrypt(System.String,System.String)">
+            <summary>
+            DES解密
+            </summary>
+            <param name="src">需要解密的密码串</param>
+            <param name="decrKey">解密密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.IDbHelper.ExecuteNonQuery(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行无返回值SQL语句
+            </summary>
+            <param name="cmdType">命令类型</param>
+            <param name="cmdText">命令文本</param>
+            <param name="commandParameters">命令参数</param>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.IDbHelper.ExecuteScalar(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行单返回值SQL语句
+            </summary>
+            <param name="cmdType">命令类型</param>
+            <param name="cmdText">命令文本</param>
+            <param name="commandParameters">命令参数</param>
+            <returns>返回命令执行后第一行第一列的数据值</returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.IDbHelper.ExecuteReader(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行返回DataReader 的SQL语句
+            </summary>
+            <param name="cmdType">命令类型</param>
+            <param name="cmdText">命令文本</param>
+            <param name="commandParameters">命令参数</param>
+            <returns>返回命令执行后所读取到的批量数据值</returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.IDbHelper.GetDataTable(System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            执行返回DataTable 的SQL语句
+            </summary>
+            <param name="cmdType">命令类型</param>
+            <param name="cmdText">命令文本</param>
+            <param name="commandParameters">命令参数</param>
+            <returns>返回命令执行后所读取到的批量数据值</returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper._HelperBase.Initial(System.String)">
+            <summary>
+            初始化
+            </summary>
+            <param name="connectionString">连接字符串</param>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper._HelperBase.PrepareCommand(System.Data.IDbConnection,System.Data.IDbCommand,System.Data.CommandType,System.String,System.Data.IDataParameter[])">
+            <summary>
+            准备数据库查询参数
+            </summary>
+            <param name="cn"></param>
+            <param name="cmd"></param>
+            <param name="commandType"></param>
+            <param name="commandText"></param>
+            <param name="cmdParams"></param>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.MySqlHelper.#ctor(System.String)">
+            <summary>
+            Mysql 数据库帮助类（默认连接字符串为CommonDll_DbName）
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.MySqlHelper.MakeOutParam(System.String,MySql.Data.MySqlClient.MySqlDbType,System.Int32)">
+            <summary>
+            传入返回值参数
+            </summary>
+            <param name="ParamName">存储过程名称</param>
+            <param name="DbType">参数类型</param>
+            <param name="Size">参数大小</param>
+            <returns>新的 parameter 对象</returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.MySqlHelper.MakeParam(System.String,MySql.Data.MySqlClient.MySqlDbType,System.Int32,System.Data.ParameterDirection,System.Object)">
+            <summary>
+            生成存储过程参数
+            </summary>
+            <param name="ParamName">存储过程名称</param>
+            <param name="DbType">参数类型</param>
+            <param name="Size">参数大小</param>
+            <param name="Direction">参数方向</param>
+            <param name="Value">参数值</param>
+            <returns>新的 parameter 对象</returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.MySqlHelper.MakeInParam(System.String,MySql.Data.MySqlClient.MySqlDbType,System.Int32,System.Object)">
+            <summary>
+            生成输入Parameter
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.MySqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.String)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.MySqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.Int32)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.MySqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.DateTime)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.MySqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.Boolean)">
+            <summary>
+            获取Sql查询结果
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.MySqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32)">
+            <summary>
+            获取Sql查询结果
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.MySqlHelper.GetDbPager(System.String,System.Int32,System.Int32)">
+            <summary>
+            生成分页Sql语句
+            </summary>
+            <param name="sqlString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.OleDbHelper.#ctor(System.String)">
+            <summary>
+            OleDb 数据库帮助类（默认连接字符串为CommonDll_DbName）
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.OleDbHelper.MakeOutParam(System.String,System.Data.OleDb.OleDbType,System.Int32)">
+            <summary>
+            传入返回值参数
+            </summary>
+            <param name="ParamName">存储过程名称</param>
+            <param name="DbType">参数类型</param>
+            <param name="Size">参数大小</param>
+            <returns>新的 parameter 对象</returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.OleDbHelper.MakeParam(System.String,System.Data.OleDb.OleDbType,System.Int32,System.Data.ParameterDirection,System.Object)">
+            <summary>
+            生成存储过程参数
+            </summary>
+            <param name="ParamName">存储过程名称</param>
+            <param name="DbType">参数类型</param>
+            <param name="Size">参数大小</param>
+            <param name="Direction">参数方向</param>
+            <param name="Value">参数值</param>
+            <returns>新的 parameter 对象</returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.OleDbHelper.MakeInParam(System.String,System.Data.OleDb.OleDbType,System.Int32,System.Object)">
+            <summary>
+            生成输入Parameter
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.OleDbHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.String)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.OleDbHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.Int32)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.OleDbHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.DateTime)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.OleDbHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.Boolean)">
+            <summary>
+            获取Sql查询结果
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.OleDbHelper.GetSqlResult(System.Data.IDataReader,System.Int32)">
+            <summary>
+            获取Sql查询结果
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.SqlHelper.#ctor(System.String)">
+            <summary>
+            Sqlserver 数据库帮助类（默认连接字符串为CommonDll_DbName）
+            </summary>
+            <param name="connectionString"></param>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.SqlHelper.MakeOutParam(System.String,System.Data.SqlDbType,System.Int32)">
+            <summary>
+            传入返回值参数
+            </summary>
+            <param name="ParamName">存储过程名称</param>
+            <param name="DbType">参数类型</param>
+            <param name="Size">参数大小</param>
+            <returns>新的 parameter 对象</returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.SqlHelper.MakeParam(System.String,System.Data.SqlDbType,System.Int32,System.Data.ParameterDirection,System.Object)">
+            <summary>
+            生成存储过程参数
+            </summary>
+            <param name="ParamName">存储过程名称</param>
+            <param name="DbType">参数类型</param>
+            <param name="Size">参数大小</param>
+            <param name="Direction">参数方向</param>
+            <param name="Value">参数值</param>
+            <returns>新的 parameter 对象</returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.SqlHelper.MakeInParam(System.String,System.Data.SqlDbType,System.Int32,System.Object)">
+            <summary>
+            生成输入Parameter
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.SqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.String)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.SqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.Int32)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.SqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.DateTime)">
+            <summary>
+            获取Sql查询结果（DataReader）
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.SqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32,System.Boolean)">
+            <summary>
+            获取Sql查询结果
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.SqlHelper.GetSqlResult(System.Data.IDataReader,System.Int32)">
+            <summary>
+            获取Sql查询结果
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.SqlHelper.GetDbPager(System.String,System.Int32,System.Int32)">
+            <summary>
+            生成分页Sql语句（SQL2005及以上专用）
+            </summary>
+            <param name="sqlString">数据查询语句（必须含有from,order子句）</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.Extensions.ReaderToList``1(System.Data.IDataReader)">
+            <summary>
+            DataReader转泛型
+            </summary>
+            <typeparam name="T">传入的实体类</typeparam>
+            <param name="objReader">DataReader对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.Extensions.ReaderToModel``1(System.Data.IDataReader)">
+            <summary>
+            DataReader转模型
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="objReader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.Extensions.CheckType(System.Object,System.Type)">
+            <summary>
+            对可空类型进行判断转换(*要不然会报错)
+            </summary>
+            <param name="value">DataReader字段的值</param>
+            <param name="conversionType">该字段的类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.DbHelper.Extensions.IsNullOrDBNull(System.Object)">
+            <summary>
+            判断指定对象是否是有效值
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cmsbase_sdk.Email.EmailSenderInfomation">
+            <summary>
+            发送邮件服务器
+            （需在AppSetting里配置cmsbase_sdk_EmailName、cmsbase_sdk_EmailPwd、cmsbase_sdk_EmailHost）
+            </summary>
+        </member>
+        <member name="T:cmsbase_sdk.Email.EmailMsgInfomation">
+            <summary>
+            邮件内容
+            （需在AppSetting里配置cmsbase_sdk_EmailName）
+            </summary>
+        </member>
+        <member name="T:cmsbase_sdk.FileHelper">
+            <summary>
+            目录、文件与文件内容相关，常用的处理方法集合。
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.GetMapPath(System.String)">
+            <summary>
+            获得指定（文件或目录）相对路径的物理路径。
+            <para>支持 Web 程序、Windows 服务程序、控制台等程序。</para>
+            </summary>
+            <param name="path">相对路径</param>
+            <returns>返回指定相对路径的物理路径（异常时返回值为 Null）。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.EnsureDir(System.String)">
+            <summary>
+            确保目录存在。
+            <para>如果目录不存在，则创建目录（包括上级目录）。</para>
+            </summary>
+            <param name="path">目录路径（不含文件名）</param>
+            <returns>返回一个 Boolean 值，如果目录不存在且创建目录出现异常时，返回值为 False。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.EnsureFile(System.String)">
+            <summary>
+            确保文件存在。
+            <para>如果文件目录不存在，则创建目录（包括上级目录）。</para>
+            </summary>
+            <param name="path">文件路径</param>
+            <returns>返回一个 Boolean 值，如果目录或文件不存在且创建它们出现异常时，返回值为 False。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.AddFileText(System.String,System.String,System.Boolean)">
+            <summary>
+            将默认编码类型（Unicode）的字符串，追加至指定文件。
+            <para>系统推荐使用默认的 Unicode 编码类型格式来进行文字的读取与写入。</para>
+            <para>方法将确保目录与文件存在</para>
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="text">需要写入的字符</param>
+            <param name="isNewLine">指定是否将字符串写入新行</param>
+            <returns>返回一个 Boolean 值，如果指定的目录、文件不存在且创建它们（或写入字符时）出现异常，返回值为 False。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.AddFileText(System.String,System.Text.Encoding,System.String,System.Boolean)">
+            <summary>
+            将指定编码类型的字符串，追加至指定文件。
+            <para>方法将确保目录与文件存在。</para>
+            <para>系统推荐使用默认的 Unicode 编码类型格式来进行文字的读取与写入。</para>
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="encodingType">编码类型</param>
+            <param name="text">需要写入的字符</param>
+            <param name="isNewLine">指定是否将字符串写入新行</param>
+            <returns>返回一个 Boolean 值，如果指定的目录、文件不存在且创建它们（或写入字符时）出现异常，返回值为 False。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.SetFileText(System.String,System.String)">
+            <summary>
+            将默认编码类型（Unicode）的字符串，写入指定文件。
+            <para>方法将确保目录与文件存在。</para>
+            <para>系统推荐使用默认的 Unicode 编码类型格式来进行文字的读取与写入。</para>
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="text">需要写入的字符</param>
+            <returns>返回一个 Boolean 值，如果指定的目录、文件不存在且创建它们（或写入字符时）出现异常，返回值为 False。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.SetFileText(System.String,System.Text.Encoding,System.String)">
+            <summary>
+            将指定编码类型的字符串，写入指定文件。
+            <para>方法将确保目录与文件存在。</para>
+            <para>系统推荐使用默认的 Unicode 编码类型格式来进行文字的读取与写入。</para>
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="encodingType">编码类型</param>
+            <param name="text">需要写入的字符</param>
+            <returns>返回一个 Boolean 值，如果指定的目录、文件不存在且创建它们（或写入字符时）出现异常，返回值为 False。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.GetFileText(System.String,System.Int32,System.Int32)">
+            <summary>
+            依据默认编码类型（Unicode），获取指定文件、指定范围的字符。
+            <para>系统推荐使用默认的 Unicode 编码类型格式来进行文字的读取与写入。</para>
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="index">指定要获取内容的起始索引位置（例如文件内容：“类型 FileHelper 是...”，如果 index 设置为 3，则取得字符串“FileHelper 是...”）</param>
+            <param name="count">指定要获取内容的长度，内容读取长度设置不宜过大，以避免内存溢出</param>
+            <returns>返回 String 类型值，当文件不存在或其它异常时，返回值为 Null。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.GetFileText(System.String,System.Text.Encoding,System.Int32,System.Int32)">
+            <summary>
+            依据指定的编码类型，获取指定文件、指定范围的字符。
+            <para>系统推荐使用默认的 Unicode 编码类型格式来进行文字的读取与写入。</para>
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="encodingType">编码类型</param>
+            <param name="index">指定要获取内容的起始索引位置（例如文件内容：“类型 FileHelper 是...”，如果 index 设置为 3，则取得字符串“FileHelper 是...”）</param>
+            <param name="count">指定要获取内容的长度，内容读取长度设置不宜过大，以避免内存溢出</param>
+            <returns>返回 String 类型值，当文件不存在或其它异常时，返回值为 Null。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.AddFileBinary(System.String,System.Byte[])">
+            <summary>
+            基于默认编码类型（Unicode），将字节数组追加至指定的二进制文件
+            </summary>
+            <param name="path">二进制文件</param>
+            <param name="bytes">字节数组</param>
+            <returns>返回一个 Boolean 值，如果指定的目录、文件不存在且创建它们（或写入二进制数据时）出现异常，返回值为 False。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.AddFileBinary(System.String,System.Text.Encoding,System.Byte[])">
+            <summary>
+            基于所提供编码类型，将字节数组追加至指定的二进制文件
+            </summary>
+            <param name="path">二进制文件</param>
+            <param name="encodingType">编码类型</param>
+            <param name="bytes">字节数组</param>
+            <returns>返回一个 Boolean 值，如果指定的目录、文件不存在且创建它们（或写入二进制数据时）出现异常，返回值为 False。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.SetFileBinary(System.String,System.Byte[])">
+            <summary>
+            基于默认编码类型（Unicode），将字节数组写入指定的二进制文件
+            </summary>
+            <param name="path">二进制文件</param>
+            <param name="bytes">字节数组</param>
+            <returns>返回一个 Boolean 值，如果指定的目录、文件不存在且创建它们（或写入二进制数据时）出现异常，返回值为 False。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.SetFileBinary(System.String,System.Text.Encoding,System.Byte[])">
+            <summary>
+            基于所提供编码类型，将字节数组写入指定的二进制文件
+            </summary>
+            <param name="path">二进制文件</param>
+            <param name="encodingType">编码类型</param>
+            <param name="bytes">字节数组</param>
+            <returns>返回一个 Boolean 值，如果指定的目录、文件不存在且创建它们（或写入二进制数据时）出现异常，返回值为 False。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.GetFileBinary(System.String,System.Int32,System.Int32)">
+            <summary>
+            依据默认编码类型（Unicode），获取指定文件、指定范围的二进制数据。
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="index">指定要获取数据的起始索引位置</param>
+            <param name="count">指定要获取数据的长度，内容读取长度设置不宜过大，以避免内存溢出</param>
+            <returns>返回 byte[] 类型值，当文件不存在或其它异常时，返回值为 Null。</returns>
+        </member>
+        <member name="M:cmsbase_sdk.FileHelper.GetFileBinary(System.String,System.Text.Encoding,System.Int32,System.Int32)">
+            <summary>
+            依据指定的编码类型，获取指定文件、指定范围的二进制数据。
+            </summary>
+            <param name="path">文件路径</param>
+            <param name="encodingType">编码类型</param>
+            <param name="index">指定要获取数据的起始索引位置</param>
+            <param name="count">指定要获取数据的长度，内容读取长度设置不宜过大，以避免内存溢出</param>
+            <returns>返回 byte[] 类型值，当文件不存在或其它异常时，返回值为 Null。</returns>
+        </member>
+        <member name="T:cmsbase_sdk.JsonHelper">
+            <summary> 
+            Modified by Willin Wang 
+            http://www.willin.org/ 
+            Formats2JSON  
+            </summary> 
+        </member>
+        <member name="M:cmsbase_sdk.JsonHelper.ListToJson``1(System.Collections.Generic.IList{``0},System.String)">
+            <summary> 
+            List转成json 
+            </summary> 
+            <typeparam name="T"></typeparam> 
+            <param name="jsonName"></param> 
+            <param name="list"></param> 
+            <returns></returns> 
+        </member>
+        <member name="M:cmsbase_sdk.JsonHelper.ListToJson``1(System.Collections.Generic.IList{``0})">
+            <summary> 
+            List转成json 
+            </summary> 
+            <typeparam name="T"></typeparam> 
+            <param name="list"></param> 
+            <returns></returns> 
+        </member>
+        <member name="M:cmsbase_sdk.JsonHelper.ToJson(System.Object)">
+            <summary> 
+            对象转换为Json字符串 
+            </summary> 
+            <param name="jsonObject">对象</param> 
+            <returns>Json字符串</returns> 
+        </member>
+        <member name="M:cmsbase_sdk.JsonHelper.ToJson(System.Collections.IEnumerable)">
+            <summary> 
+            对象集合转换Json 
+            </summary> 
+            <param name="array">集合对象</param> 
+            <returns>Json字符串</returns> 
+        </member>
+        <member name="M:cmsbase_sdk.JsonHelper.ToArrayString(System.Collections.IEnumerable)">
+            <summary> 
+            普通集合转换Json 
+            </summary> 
+            <param name="array">集合对象</param> 
+            <returns>Json字符串</returns> 
+        </member>
+        <member name="M:cmsbase_sdk.JsonHelper.ToJson(System.Data.DataTable)">
+            <summary> 
+            Datatable转换为Json 
+            </summary> 
+            <param name="table">Datatable对象</param> 
+            <returns>Json字符串</returns> 
+        </member>
+        <member name="M:cmsbase_sdk.JsonHelper.ToJson(System.Data.DataTable,System.String)">
+            <summary> 
+            DataTable转成Json 
+            </summary> 
+            <param name="jsonName"></param> 
+            <param name="dt"></param> 
+            <returns></returns> 
+        </member>
+        <member name="M:cmsbase_sdk.JsonHelper.ToJson(System.Data.Common.DbDataReader)">
+            <summary> 
+            DataReader转换为Json 
+            </summary> 
+            <param name="dataReader">DataReader对象</param> 
+            <returns>Json字符串</returns> 
+        </member>
+        <member name="M:cmsbase_sdk.JsonHelper.ToJson(System.Data.DataSet)">
+            <summary> 
+            DataSet转换为Json 
+            </summary> 
+            <param name="dataSet">DataSet对象</param> 
+            <returns>Json字符串</returns> 
+        </member>
+        <member name="M:cmsbase_sdk.JsonHelper.String2Json(System.String)">
+            <summary> 
+            过滤特殊字符 
+            </summary> 
+            <param name="s"></param> 
+            <returns></returns> 
+        </member>
+        <member name="M:cmsbase_sdk.JsonHelper.StringFormat(System.String,System.Type)">
+            <summary> 
+            格式化字符型、日期型、布尔型 
+            </summary> 
+            <param name="str"></param> 
+            <param name="type"></param> 
+            <returns></returns> 
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.DlgConfirm(System.Web.UI.Page,System.String)">
+            <summary>
+            与JS配合弹出显示一个确认框
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="msg">要显示的消息</param>
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.DlgConfirm(System.Web.UI.Page,System.String,System.String,System.String)">
+            <summary>
+            与JS配合弹出显示一个确认框
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="msg">要显示的消息</param>
+            <param name="callbackFunc">用户确认后的回调函数</param>
+            <param name="args">用户确认后要传弟给回调函数的参数</param>
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.DlgAlert(System.Web.UI.Page,System.String)">
+            <summary>
+            与JS配合弹出显示一个警告框
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="msg">要显示的消息</param>
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.DlgAlert(System.Web.UI.Page,System.String,System.String,System.String)">
+            <summary>
+            与JS配合弹出显示一个警告框
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="msg">要显示的消息</param>
+            <param name="callbackFunc">关闭IFRAME框时需要执行的JS方法名</param>
+            <param name="args">用户确认后要传弟给回调函数的参数</param>
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.DlgInfo(System.Web.UI.Page,System.String)">
+            <summary>
+            与JS配合弹出显示一个消息框
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="msg">要显示的消息</param>
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.DlgInfo(System.Web.UI.Page,System.String,System.String,System.String)">
+            <summary>
+            与JS配合弹出显示一个消息框
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="msg">要显示的消息</param>
+            <param name="callbackFunc">关闭IFRAME框时需要执行的JS方法名</param>
+            <param name="args">用户确认后要传弟给回调函数的参数</param>
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.DlgIfrm(System.Web.UI.Page,System.String)">
+            <summary>
+            与JS配合弹出显示一个IFRAME框
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="srcId">Iframe的ID</param>
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.DlgIfrm(System.Web.UI.Page,System.String,System.String,System.String)">
+            <summary>
+            与JS配合弹出显示一个IFRAME框
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="srcId">Iframe的ID</param>
+            <param name="callbackFunc">关闭IFRAME框时需要执行的JS方法名</param>
+            <param name="args">用户确认后要传弟给回调函数的参数</param>
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.DlgIfrmCloseInSubwin(System.Web.UI.Page)">
+            <summary>
+            与JS配合弹出显示一个IFRAME框
+            </summary>
+            <param name="page">当前页面</param>
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.DlgIfrmCloseInSubwin(System.Web.UI.Page,System.String,System.String)">
+            <summary>
+            与JS配合弹出显示一个IFRAME框
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="callbackFunc">关闭IFRAME框时需要执行的JS方法名</param>
+            <param name="args">执行JS方法时需要传入的参数</param>
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.DlgBox(System.Web.UI.Page,System.String)">
+            <summary>
+            与JS配合弹出显示一个弹出框
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="srcId">要在弹出框中显示的内容的对象ID</param>
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.Prompt(System.Web.UI.Page,System.String,System.String,System.Boolean)">
+            <summary>
+            与页面布局与JS配置，显示一个提示的Label，并指定其样式与提示内容（暂停使用）
+            </summary>
+            <param name="page"></param>
+            <param name="labelId"></param>
+            <param name="msg"></param>
+            <param name="isGoodMsg"></param>
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.Redirect(System.Web.UI.Page,System.String)">
+            <summary>
+            与JS配合使页面重定向至新的URL地址
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="url">URL地址</param>
+        </member>
+        <member name="M:cmsbase_sdk.JsUtils.Exec(System.Web.UI.Page,System.String)">
+            <summary>
+            执行一段Javascript脚本
+            </summary>
+            <param name="page">当前页面</param>
+            <param name="script">Javascript脚本</param>
+        </member>
+        <member name="T:cmsbase_sdk.LogHelper">
+            <summary>
+            大部分方法以 Log4net为基础，简化方法的使用。
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.LogHelper.Debug(System.String,System.String,System.Exception)">
+            <summary>
+            记录调试日志
+            </summary>
+            <param name="logger">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+            <param name="exception">为日志附加异常信息，可以在配置中获取更准确的信息，如无异常信息，则可以为null</param>
+        </member>
+        <member name="M:cmsbase_sdk.LogHelper.Info(System.String,System.String,System.Exception)">
+            <summary>
+            记录信息日志
+            </summary>
+            <param name="logger">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+            <param name="exception">为日志附加异常信息，可以在配置中获取更准确的信息，如无异常信息，则可以为null</param>
+        </member>
+        <member name="M:cmsbase_sdk.LogHelper.Warn(System.String,System.String,System.Exception)">
+            <summary>
+            记录警告日志
+            </summary>
+            <param name="logger">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+            <param name="exception">为日志附加异常信息，可以在配置中获取更准确的信息，如无异常信息，则可以为null</param>
+        </member>
+        <member name="M:cmsbase_sdk.LogHelper.Error(System.String,System.String,System.Exception)">
+            <summary>
+            记录错误日志
+            </summary>
+            <param name="logger">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+            <param name="exception">为日志附加异常信息，可以在配置中获取更准确的信息，如无异常信息，则可以为null</param>
+        </member>
+        <member name="M:cmsbase_sdk.LogHelper.Fatal(System.String,System.String,System.Exception)">
+            <summary>
+            记录严重错误日志
+            </summary>
+            <param name="logger">日志记录员，不同的记录员可能写入不同的日志文件（在配置文件中配置）</param>
+            <param name="message">日志信息，如果因异常记录日志，则message可以为null</param>
+            <param name="exception">为日志附加异常信息，可以在配置中获取更准确的信息，如无异常信息，则可以为null</param>
+        </member>
+        <member name="T:cmsbase_sdk.RandomImg">
+            <summary>
+            生成验证码类
+            </summary>
+            <remarks>
+            验证码保存在Session["cmsbase_sdk_CheckCode"]中
+            </remarks>
+        </member>
+        <member name="T:cmsbase_sdk.RightBase">
+            <summary>
+            权限相关基础类
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.RightBase.#ctor">
+            <summary>
+            权限相关
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.RightBase.GetUserRights(System.Web.HttpRequest,System.Int32)">
+            <summary>
+            获取用户权限信息
+            </summary>
+            <param name="hr">HttpRequest对象</param>
+            <param name="validFlag">验证标识，1=验证登录并取回相应的信息，2=验证登录与模块权限并取回相应的信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.RightBase.GetUserRights(System.Int32,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            获取用户权限信息
+            </summary>
+            <param name="hr">HttpRequest对象</param>
+            <param name="validFlag">验证标识，1=验证登录并取回相应的信息，2=验证登录与模块权限并取回相应的信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:cmsbase_sdk.UserRightInfo">
+            <summary>
+            用户权限信息
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.UserRightInfo.#ctor">
+            <summary>
+            初始化方法
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.UserRightInfo.#ctor(System.Int32,System.String)">
+            <summary>
+            初始化方法
+            </summary>
+            <param name="errCode"></param>
+            <param name="errMsg"></param>
+        </member>
+        <member name="M:cmsbase_sdk.UserRightInfo.#ctor(System.String)">
+            <summary>
+            初始化方法
+            </summary>
+            <param name="fmtString"></param>
+        </member>
+        <member name="M:cmsbase_sdk.UserRightInfo.ToFmtString">
+            <summary>
+            将UserRightInfo对象格式为规范的String串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.UserRightInfo.FromFmtString(System.String)">
+            <summary>
+            将规范String串格式化为UserRightInfo对象
+            </summary>
+            <param name="fmtString"></param>
+        </member>
+        <member name="M:cmsbase_sdk.UserRightInfo.RedimUserRightInfo(System.Int32,System.String)">
+            <summary>
+            重定义用户权限信息
+            </summary>
+            <param name="errCode"></param>
+            <param name="errMsg"></param>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.ErrorMsg">
+            <summary>
+            错误消费
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.UserToken">
+            <summary>
+            用户Token
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.TeamType">
+            <summary>
+            团队类型，1=花生，2=厂商，3=CP
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.TeamRefId">
+            <summary>
+            团队关联ID，厂商ID或CPID，0=花生
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.TeamFlag">
+            <summary>
+            团队标识
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.TeamName">
+            <summary>
+            团队名称
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.NickName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.RealName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.ModuleId">
+            <summary>
+            模块ID
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.PermType">
+            <summary>
+            授权类型
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.ModuleName">
+            <summary>
+            模块名
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.ModulePath">
+            <summary>
+            模块路径（不是URL）
+            </summary>
+        </member>
+        <member name="F:cmsbase_sdk.UserRightInfo.Rights">
+            <summary>
+            权限值
+            </summary>
+        </member>
+        <member name="T:cmsbase_sdk.Tools">
+            <summary>
+            常用的工具类静态方法集合。
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.IsNumber(System.String)">
+            <summary>
+            判断字符串是否为数字
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.IsInt(System.String)">
+            <summary>
+            判断字符串是否为整型
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.IsDatetime(System.String)">
+            <summary>
+            判断字符串是否为日期
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetStr(System.Object,System.String)">
+            <summary>
+            获得字符串值。
+            <para>该方法会将 string.Empty 转换为 defaultValue。</para>
+            <para>该方法用于依据一个对象，始终得到一个不为空的字符串（除非调用者将 defaultVal 设置为空）。</para>
+            <para>它等价于在程序中对象判空、ToString、IsNullOrEmpty等处理。</para>
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的字符串值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetStr(System.Object,System.String,System.Boolean)">
+            <summary>
+            获得字符串值。
+            <para>该方法会将 string.Empty 转换为 defaultValue。</para>
+            <para>该方法用于依据一个对象，始终得到一个不为空的字符串（除非调用者将 defaultVal 设置为空）。</para>
+            <para>它等价于在程序中对象判空、ToString、IsNullOrEmpty等处理。</para>
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的字符串值</param>
+            <param name="disallowEmpty">是否不允许空值（将 string.Empty 转换为 defaultValue）</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetByte(System.Int64)">
+            <summary>
+            获取8位整型值。
+            </summary>
+            <param name="src">长整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetShort(System.Object,System.Int16,System.Int32)">
+            <summary>
+            获得16位整型值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的整型值</param>
+            <param name="scale">源字符串的进位制，如16、10、8、2等</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetShort(System.Object,System.Int16)">
+            <summary>
+            获得16位整型值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetShort(System.Int64)">
+            <summary>
+            获取16位整型值。
+            </summary>
+            <param name="src">长整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetInt(System.Object,System.Int32,System.Int32)">
+            <summary>
+            获得整型值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的整型值</param>
+            <param name="scale">源字符串的进位制，如16、10、8、2等</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetInt(System.Object,System.Int32)">
+            <summary>
+            获得整型值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetInt(System.Int64)">
+            <summary>
+            获取整型值。
+            </summary>
+            <param name="src">长整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetLong(System.Object,System.Int64,System.Int32)">
+            <summary>
+            获得长整型值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的长整型值</param>
+            <param name="scale">源字符串的进位制，如16、10、8、2等</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetLong(System.Object,System.Int64)">
+            <summary>
+            获得长整型值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的长整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetDouble(System.Object,System.Double)">
+            <summary>
+            获得双精度值。
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的双精度值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetDatetime(System.Object,System.DateTime)">
+            <summary>
+            获得时间类型值
+            </summary>
+            <param name="src">源对象</param>
+            <param name="defaultVal">转换失败时期望返回的时间类型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.ReadShort(System.Byte[],System.Int32)">
+            <summary>
+            返回由字节数组中指定位置的两个字节转换来的 16 位有符号整型 (NetworkToHostOrder)。
+            </summary>
+            <param name="src">字节数组</param>
+            <param name="startIndex">读数起始位置</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.ReadInt(System.Byte[],System.Int32)">
+            <summary>
+            返回由字节数组中指定位置的两个字节转换来的 32 位有符号整型 (NetworkToHostOrder)。
+            </summary>
+            <param name="src">字节数组</param>
+            <param name="startIndex">读数起始位置</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.ReadUInt(System.Byte[],System.Int32)">
+            <summary>
+            返回由字节数组中指定位置的两个字节转换来的 32 位无符号整型 (NetworkToHostOrder)。
+            </summary>
+            <param name="src">字节数组</param>
+            <param name="startIndex">读数起始位置</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.ReadLong(System.Byte[],System.Int32)">
+            <summary>
+            返回由字节数组中指定位置的两个字节转换来的 64 位有符号整型 (NetworkToHostOrder)。
+            </summary>
+            <param name="src">字节数组</param>
+            <param name="startIndex">读数起始位置</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetBytes(System.Int32)">
+            <summary>
+            获得byte数组。
+            </summary>
+            <param name="src">整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetBytes(System.Int16)">
+            <summary>
+            获得byte数组。
+            </summary>
+            <param name="src">短整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetBytes(System.Int64)">
+            <summary>
+            获得byte数组。
+            </summary>
+            <param name="src">长整型值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.RightBytes(System.Byte[],System.Int32)">
+            <summary>
+            获得byte数组。
+            </summary>
+            <param name="src">整型值</param>
+            <param name="bytesRightLen">要靠右保留的byte个数</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.SplitToInt32Array(System.String,System.String)">
+            <summary>
+            将以分隔符分隔的字符串转为int数组
+            </summary>
+            <param name="str"></param>
+            <param name="seperator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.SplitToInt32Array(System.String,System.String[])">
+            <summary>
+            将以分隔符分隔的字符串转为int数组
+            </summary>
+            <param name="str"></param>
+            <param name="seperators"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.ConcatEnumerable(System.Collections.IEnumerable,System.String)">
+            <summary>
+            合并一组可枚举的对象为字符串
+            </summary>
+            <param name="enumerable">被枚举对象</param>
+            <param name="seperator">分隔符</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetDt4Drs(System.Data.DataRow[],System.Int32,System.Int32)">
+            <summary>
+            复制DataRow[]中的指定记录到一个新的DataTable
+            </summary>
+            <param name="drs"></param>
+            <param name="startRecordIndex"></param>
+            <param name="endRecordIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetDt4Drs(System.Data.DataRow[])">
+            <summary>
+            复制DataRow[]中的所有记录到一个新的DataTable
+            </summary>
+            <param name="drs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetDt4Drs(System.Data.DataTable,System.Int32,System.Int32)">
+            <summary>
+            复制DataTable中的指定记录到一个新的DataTable
+            </summary>
+            <param name="dt"></param>
+            <param name="startRecord"></param>
+            <param name="endRecord"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetTableDs(System.Data.DataTable,System.Boolean)">
+            <summary>
+            为一个未知是否存在于DataSet中的DataTable包装DataSet
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.IsValidDt(System.Data.DataTable)">
+            <summary>
+            判断DataTable是否有效
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.IsValidDs(System.Data.DataSet)">
+            <summary>
+            判断DataSet是否有效
+            </summary>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetCrossDt(System.Data.DataTable,System.String[],System.String,System.String,System.String)">
+            <summary>
+            获取交叉表(将原来的行表,转化成交叉表)
+            </summary>
+            <param name="dt">要转换的DataTable</param>
+            <param name="arrCols">增加多列并指定列名</param>
+            <param name="srcCol">指定将列名对应到值的字段,如arrCols为{"200901","200902","200903"},那么srcCol指定的列中,应包括对应的值</param>
+            <param name="valCol">取值字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.ComboDtCol(System.Data.DataTable,System.String,System.String,System.String[])">
+            <summary>
+            从DataTable的一列中,获取数据组成的字符串数组(该数组经过Distinct)
+            </summary>
+            <param name="dt">DataTable</param>
+            <param name="colName">列名</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetDtFieldDistValue(System.Data.DataTable,System.String)">
+            <summary>
+            从DataTable的一列中,获取数据组成的字符串数组(该数组经过Distinct)
+            </summary>
+            <param name="dt">DataTable</param>
+            <param name="colName">列名</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetRequestVal(System.String,System.String)">
+            <summary>
+            得到Request中指定参数的值（返回String值）
+            </summary>
+            <param name="keyName">要获取的参数的名称</param>
+            <param name="defaultVal">当不存在该参数时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetRequestVal(System.String,System.Int32)">
+            <summary>
+            得到Request中指定参数的值（返回Int值）
+            </summary>
+            <param name="keyName">要获取的参数的名称</param>
+            <param name="defaultVal">当不存在该参数时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetCookieVal(System.String,System.String)">
+            <summary>
+            得到Cookie中指定参数的值（返回String值）
+            </summary>
+            <param name="keyName">要获取的参数的名称</param>
+            <param name="defaultVal">当不存在该参数时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetCookieVal(System.String,System.Int32)">
+            <summary>
+            得到Cookie中指定参数的值（返回Int值）
+            </summary>
+            <param name="keyName">要获取的参数的名称</param>
+            <param name="defaultVal">当不存在该参数时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetAppSetting(System.String,System.String)">
+            <summary>
+            得到一个系统配置项的值
+            </summary>
+            <param name="keyName">配置项名称</param>
+            <param name="defaultVal">在不存在该配置项时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetAppSetting(System.String,System.Int32)">
+            <summary>
+            得到一个系统配置项的值
+            </summary>
+            <param name="keyName">配置项名称</param>
+            <param name="defaultVal">在不存在该配置项时返回的默认值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetConnStrConfig(System.String)">
+            <summary>
+            得到一个连接字符串配置项的值
+            <para>当配置不存在时，返回Null</para>
+            </summary>
+            <param name="keyName">配置项名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.GetLenthStr(System.String,System.Int32)">
+            <summary>
+            获得字符串值的前N位字符
+            </summary>
+            <param name="src">指定的字符串</param>
+            <param name="len">指定的长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.Tools.EncodeStr4Sql(System.String)">
+            <summary>
+            对字符串进行编码，以保证SQL参数的安全性
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cmsbase_sdk.XmlHelper">
+            <summary>
+            Xml常用处理方法集合.
+            </summary>
+        </member>
+        <member name="M:cmsbase_sdk.XmlHelper.GetXmlDoc(System.String)">
+            <summary>
+            依据XML文件或XML格式字符串，获得XmlDocument对象。
+            </summary>
+            <param name="filePathOrXmlStr">XML文件路径（或XML格式字符串）</param>
+            <returns>返回XmlDocument对象，出现异常时返回值为空</returns>
+        </member>
+        <member name="M:cmsbase_sdk.XmlHelper.SaveXmlDoc(System.String,System.Xml.XmlDocument)">
+            <summary>
+            将XmlDocument对象保存为指定路径的XML文件。
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="xmlDoc">XmlDocument对象</param>
+            <returns>出现异常时返回值为False</returns>
+        </member>
+        <member name="M:cmsbase_sdk.XmlHelper.GetNodeValue(System.Xml.XmlDocument,System.String)">
+            <summary>
+            获取XPATH指定节点的值。
+            </summary>
+            <param name="xmlDoc">XmlDocument对象</param>
+            <param name="xpath">XPATH字符串参数，如：//CacheTime、//settings/CacheTime、...</param>
+            <returns>出现异常时，返回值为空</returns>
+        </member>
+        <member name="M:cmsbase_sdk.XmlHelper.SetNodeValue(System.Xml.XmlDocument@,System.String,System.String)">
+            <summary>
+            设置XPATH指定节点的值。
+            </summary>
+            <param name="xmlDoc">XmlDocument对象</param>
+            <param name="xpath">XPATH值，如：//CacheTime、//appSettings/CacheTime、...</param>
+            <param name="nodeVal">要设置的节点的值</param>
+            <returns>出现异常时，返回值为False</returns>
+        </member>
+        <member name="M:cmsbase_sdk.XmlHelper.GetNodeAttr(System.Xml.XmlDocument,System.String,System.String)">
+            <summary>
+            获取XPATH指定节点下，指定属性的值。
+            </summary>
+            <param name="xmlDoc">XmlDocument对象</param>
+            <param name="nodePath">XPATH值，如：//CacheTime、//appSettings/CacheTime、...</param>
+            <param name="attrName">要设置的节点属性名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.XmlHelper.SetNodeAttr(System.Xml.XmlDocument@,System.String,System.String,System.String)">
+            <summary>
+            设置XPATH指定节点下，指定属性的值。
+            </summary>
+            <param name="xmlDoc">XmlDocument对象</param>
+            <param name="nodePath">XPATH值，如：//CacheTime、//appSettings/CacheTime、...</param>
+            <param name="attrName">要设置的节点属性名称</param>
+            <param name="attrVal">要设置的节点属性的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.XmlHelper.UpdateXmlFileNodeValue(System.String,System.String,System.String)">
+            <summary>
+            更新XML文件的节点的值。
+            <para>操作步骤：打开XML->更新节点->写入XML文件，因此，本方法不适用于频繁调用。</para>
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="xpath">XPATH值，如：//CacheTime、//appSettings/CacheTime、...</param>
+            <param name="nodeVal">要设置的节点的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:cmsbase_sdk.XmlHelper.UpdateXmlFileNodeAttr(System.String,System.String,System.String,System.String)">
+            <summary>
+            更新XML文件的节点下指定属性的值。
+            <para>操作步骤：打开XML->更新节点->写入XML文件，因此，本方法不适用于频繁调用。</para>
+            </summary>
+            <param name="filePath">XML文件路径</param>
+            <param name="nodePath">xpath值，如：//CacheTime、//appSettings/CacheTime、...</param>
+            <param name="attrName">要设置的节点属性名称</param>
+            <param name="attrVal">要设置的节点属性的值</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

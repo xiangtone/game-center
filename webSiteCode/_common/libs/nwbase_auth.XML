@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>nwbase_auth</name>
+    </assembly>
+    <members>
+        <member name="P:nwbase_auth.API.ResultBase.code">
+            <summary>
+            结果代码，0=成功，其它=失败
+            </summary>
+        </member>
+        <member name="P:nwbase_auth.API.ResultBase.msg">
+            <summary>
+            结果消息
+            </summary>
+        </member>
+        <member name="T:nwbase_auth.AuthPageBase">
+            <summary>
+            授权验证页面基类
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.AuthPageBase.AuthUser">
+            <summary>
+            用户对象
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.AuthPageBase.AuthModule">
+            <summary>
+            模块对象
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.AuthPageBase.IsLogin">
+            <summary>
+            是否已登录
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.AuthPageBase.IsAuth">
+            <summary>
+            是否已授权
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.AuthPageBase.AuthDomain">
+            <summary>
+            验证主域名，默认为cms.huashenggame.com
+            </summary>
+        </member>
+        <member name="M:nwbase_auth.AuthPageBase.OnInit(System.EventArgs)">
+            <summary>
+            页面初始化时
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:nwbase_auth.AuthPageBase.OnUnAuth">
+            <summary>
+            未授权时触发
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthModule.ModuleId">
+            <summary>
+            模块ID
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthModule.PermType">
+            <summary>
+            授权类型
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthModule.ModuleName">
+            <summary>
+            模块名
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthModule.ModulePath">
+            <summary>
+            模块路径（不是URL）
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthModule.Rights">
+            <summary>
+            权限值
+            </summary>
+        </member>
+        <member name="T:nwbase_auth.Model.AuthUser">
+            <summary>
+            授权用户类
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthUser.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthUser.UserToken">
+            <summary>
+            用户Token
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthUser.TeamType">
+            <summary>
+            团队类型，1=牛玩，2=厂商，3=CP
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthUser.TeamRefId">
+            <summary>
+            团队关联ID，厂商ID或CPID，0=牛玩
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthUser.TeamFlag">
+            <summary>
+            团队标识
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthUser.TeamName">
+            <summary>
+            团队名称
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthUser.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthUser.NickName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="F:nwbase_auth.Model.AuthUser.RealName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="T:nwbase_auth.UserRight">
+            <summary>
+            用户权限相关接口
+            </summary>
+        </member>
+        <member name="M:nwbase_auth.UserRight.SetAPIURL(System.String)">
+            <summary>
+            更改API地址
+            </summary>
+            <param name="newAPIURL"></param>
+        </member>
+        <member name="M:nwbase_auth.UserRight.Verify(System.String,System.String)">
+            <summary>
+            验证用户名密码
+            返回值：
+            0=成功，1=用户名密码错误（或用户名密码为空），2=密码错误，3=用户不存在，4=异常
+            </summary>
+            <param name="userName"></param>
+            <param name="passwordMD5"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_auth.UserRight.GetUser(System.String,System.String)">
+            <summary>
+            验证用户名密码并获取用户信息
+            返回值：
+            0=成功，1=用户名或密码错误（或用户名密码为空），2=密码错误，3=用户不存在，4=异常
+            </summary>
+            <param name="userName"></param>
+            <param name="passwordMD5"></param>
+            <returns></returns>
+        </member>
+        <member name="M:nwbase_auth.UserRight.Auth(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            验证用户Id及Token并判断用户是否具有模块权限
+            返回值：
+            0=成功，1=参数错误，2=无权限
+            </summary>
+            <param name="userId"></param>
+            <param name="userToken"></param>
+            <param name="requestUrl"></param>
+            <param name="actionValue"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

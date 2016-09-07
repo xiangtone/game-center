@@ -47,7 +47,7 @@
       <HintPath>..\packages\Newtonsoft.Json.1.0\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nwbase_auth">
-      <HintPath>..\..\..\..\_common\libs\nwbase_auth.dll</HintPath>
+      <HintPath>..\..\..\_common\libs\nwbase_auth.dll</HintPath>
     </Reference>
     <Reference Include="nwbase_sdk">
       <HintPath>..\Libraries\nwbase_sdk.dll</HintPath>

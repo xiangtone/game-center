@@ -40,10 +40,10 @@
       <HintPath>..\Libraries\nwbase_sdk.dll</HintPath>
     </Reference>
     <Reference Include="nwbase_utils">
-      <HintPath>..\..\..\..\_common\libs\nwbase_utils.dll</HintPath>
+      <HintPath>..\..\..\_common\libs\nwbase_utils.dll</HintPath>
     </Reference>
     <Reference Include="RedisUtils">
-      <HintPath>..\..\..\..\_common\libs\RedisUtils.dll</HintPath>
+      <HintPath>..\..\..\_common\libs\RedisUtils.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -94,6 +94,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
