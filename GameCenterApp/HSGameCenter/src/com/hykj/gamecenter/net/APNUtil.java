@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -507,11 +508,51 @@ public class APNUtil {
         return networkInfo.isConnectedOrConnecting();
     }
 
+    //mac地址统一获取方式，统一小写
     public static String getMac(Context context) {
         WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         // wm 无线MAC地址（取不到则不传）
         String wm = wifi.getConnectionInfo().getMacAddress();
-        return wm;
+        if (Build.VERSION.SDK_INT >= 23 || wm.equals("02:00:00:00:00:00")) {
+            wm = getMac();
+        }
+        return wm.toLowerCase();
+    }
+
+    private static String getMac() {
+        try {
+            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+            while (interfaces.hasMoreElements()) {
+                NetworkInterface iF = interfaces.nextElement();
+                if (!iF.getName().toLowerCase().equals("wlan0")) {
+                    continue;
+                }
+
+                byte[] addr = iF.getHardwareAddress();
+                if (addr == null || addr.length == 0) {
+                    continue;
+                }
+
+                StringBuilder buf = new StringBuilder();
+                for (byte b : addr) {
+                    buf.append(String.format("%02X:", b));
+                }
+                if (buf.length() > 0) {
+                    buf.deleteCharAt(buf.length() - 1);
+                }
+//                String mac = buf.toString();
+                return buf.toString();
+//                Log.d("mac", "interfaceName=" + iF.getName() + ", mac=" + mac);
+//                if (iF.getName().equals("wlan0")) {
+//                    return mac;
+//                } else {
+//                    return Build.UNKNOWN;
+//                }
+            }
+        } catch (SocketException e) {
+            return "";
+        }
+        return "";
     }
 
     public static String getCurrentIp() {

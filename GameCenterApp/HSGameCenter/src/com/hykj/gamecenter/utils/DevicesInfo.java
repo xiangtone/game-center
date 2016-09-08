@@ -1,7 +1,6 @@
 package com.hykj.gamecenter.utils;
 
 import android.content.Context;
-import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 
@@ -30,9 +29,7 @@ public class DevicesInfo {
         String ip = APNUtil.getCurrentIp();
         this.ip = ip != null ? ip : "";
 
-        WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        String wm = wifi.getConnectionInfo().getMacAddress();
-        this.y_device_ext_mac = wm != null ? wm : "";
+        this.y_device_ext_mac = APNUtil.getMac(context);
 
         TelephonyManager tm = (TelephonyManager) context
                 .getSystemService(Context.TELEPHONY_SERVICE);

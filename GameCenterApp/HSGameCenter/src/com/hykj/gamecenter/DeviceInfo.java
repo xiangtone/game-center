@@ -4,12 +4,12 @@ package com.hykj.gamecenter;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.wifi.WifiManager;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
+import com.hykj.gamecenter.net.APNUtil;
 import com.hykj.gamecenter.statistic.StatisticManager;
 import com.hykj.gamecenter.utils.Logger;
 
@@ -42,7 +42,6 @@ public class DeviceInfo
 
         TelephonyManager tm = (TelephonyManager) context
                 .getSystemService(Context.TELEPHONY_SERVICE);
-        WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         DisplayMetrics dm = context.getResources().getDisplayMetrics();
         ConnectivityManager cm = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -68,7 +67,7 @@ public class DeviceInfo
         }
 
         // wm 无线MAC地址（取不到则不传）
-        String wm = wifi.getConnectionInfo().getMacAddress();
+        String wm = APNUtil.getMac(context);
         if (!TextUtils.isEmpty(wm))
         {
             sbuilder.append("&wm=" + wm);
