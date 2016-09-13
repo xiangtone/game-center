@@ -30,6 +30,8 @@ public class AsyncHttpPostSession extends AsyncHttpSession {
 
 	public void doPost(byte[] requestData) {
 		mRequestData = requestData;
+//		String bytesToHexString = StringUtils.bytesToHexString(mRequestData);	//打印请求数据
+//		Logger.i(TAG, "doPost: " + bytesToHexString, "oddshou");
 		createPost();
 	}
 
