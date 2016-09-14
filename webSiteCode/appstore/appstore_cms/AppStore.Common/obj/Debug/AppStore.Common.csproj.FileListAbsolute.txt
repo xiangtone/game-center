@@ -1,0 +1,12 @@
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Common\bin\Debug\AppStore.Common.dll.config
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Common\bin\Debug\AppStore.Common.dll
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Common\bin\Debug\AppStore.Common.pdb
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Common\bin\Debug\log4net.dll
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Common\bin\Debug\MySql.Data.dll
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Common\bin\Debug\Newtonsoft.Json.dll
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Common\bin\Debug\nwbase_utils.dll
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Common\bin\Debug\RedisUtils.dll
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Common\bin\Debug\nwbase_utils.xml
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Common\obj\Debug\AppStore.Common.csprojResolveAssemblyReference.cache
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Common\obj\Debug\AppStore.Common.dll
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Common\obj\Debug\AppStore.Common.pdb

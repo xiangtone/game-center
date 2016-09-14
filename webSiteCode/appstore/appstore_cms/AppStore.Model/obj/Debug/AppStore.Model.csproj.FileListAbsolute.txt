@@ -1,0 +1,5 @@
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Model\bin\Debug\AppStore.Model.dll
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Model\bin\Debug\AppStore.Model.pdb
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Model\obj\Debug\AppStore.Model.dll
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Model\obj\Debug\AppStore.Model.pdb
+D:\githubrepo\game-center\webSiteCode\appstore\appstore_cms\AppStore.Model\obj\Debug\AppStore.Model.csprojResolveAssemblyReference.cache
