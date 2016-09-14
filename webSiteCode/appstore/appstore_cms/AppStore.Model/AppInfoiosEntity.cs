@@ -45,6 +45,55 @@ namespace AppStore.Model
             get; 
         }
 
+        ///<summary>
+        /// App类型显示
+        /// </summary>
+        public string AppType
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// App显示大小
+        /// </summary>
+        public string AppSize
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// App版本
+        /// </summary>
+        public string AppVersion
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        ///  app价格
+        /// </summary>
+        public string AppPrice
+        {
+            set;
+            get;
+        }
+        ///<summary>
+        /// 推荐标示语
+        /// </summary>
+        public string RecommFlagWord
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// 缩略图URL地址
+        /// </summary>
+        public string ThumbPicUrl { get; set; }
+
         /// <summary>
         /// 应用状态
         /// </summary>
@@ -61,7 +110,7 @@ namespace AppStore.Model
         /// <summary>
         /// Iccn Url地址
         /// </summary>
-        public string IconUrl
+        public string IconPicUrl
         {
             set;
             get; 

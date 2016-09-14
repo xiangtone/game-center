@@ -54,6 +54,19 @@ namespace AppStore.Web
                     ShowName = this.ShowName.Text.Trim(),
                     //开发商名称
                     DevName = this.DevName.Text.Trim(),
+                    //应用类型
+                    AppType = this.AppType.Text.Trim(),
+                    //应用大小
+                    AppSize = this.AppSize.Text.Trim(),
+                    //应用价格
+                    AppPrice = this.AppPrice.Text.Trim(),
+                    //应用版本
+                    AppVersion = this.AppVersion.Text.Trim(),
+                    //应用标示语
+                    RecommFlagWord = this.RecommFlagWord.Text.Trim(),
+                    //缩略图
+                    ThumbPicUrl = this.ThumbPicUrl.Value,
+
                     //应用连接Url地址
                     AppUrl = this.AppUrl.Text.Trim(),
                     //应用推荐语
@@ -62,7 +75,7 @@ namespace AppStore.Web
                     AppDesc = this.AppDesc.Text.Trim(),
 
                     //Icon Url地址
-                    IconUrl = this.Request<string>("IconPicUrl", string.Empty),
+                    IconPicUrl = this.Request<string>("IconPicUrl", string.Empty),
                     //IconUrl = this.IconUrl.Value,
                     //广告Urls
                     //AdsPicUrl = this.AdsUrl.Text.Trim(),
@@ -87,7 +100,7 @@ namespace AppStore.Web
                     this.Alert("安装包包名不能为空");
                     return;
                 }
-                else if (string.IsNullOrEmpty(appInfoios.IconUrl))
+                else if (string.IsNullOrEmpty(appInfoios.IconPicUrl))
                 {
                     this.Alert("Icon不能为空");
                     return;
@@ -125,7 +138,7 @@ namespace AppStore.Web
 
 
                 #region 处理缩略图
-                if (!string.IsNullOrEmpty(appInfoios.IconUrl))
+                if (!string.IsNullOrEmpty(appInfoios.IconPicUrl))
                 {
 
                     if (this.Width != 0 && this.Height != 0)
@@ -133,7 +146,7 @@ namespace AppStore.Web
                         //裁剪方式
                         string croptype = this.Request<string>("cropType", string.Empty);
 
-                        Bitmap bitSource = ImageHelper.GetBitmapFromUrl(appInfoios.IconUrl);
+                        Bitmap bitSource = ImageHelper.GetBitmapFromUrl(appInfoios.IconPicUrl);
 
                         if (bitSource == null)
                         {
@@ -162,10 +175,10 @@ namespace AppStore.Web
 
                         byte[] imageBytes = BitmapToBytes(bitSource);
                         //StartTransfer中的AppID在前端页面中上传控件定义
-                        string token = up.StartTransfer(2, 11, appInfoios.IconUrl.Substring(appInfoios.IconUrl.LastIndexOf("."), 4), 1, imageBytes.Length, string.Empty);
+                        string token = up.StartTransfer(2, 11, appInfoios.IconPicUrl.Substring(appInfoios.IconPicUrl.LastIndexOf("."), 4), 1, imageBytes.Length, string.Empty);
                         string resultString = up.Transfer(token, imageBytes, 1);
 
-                        appInfoios.IconUrl = resultString.Split(',')[1];
+                        appInfoios.IconPicUrl = resultString.Split(',')[1];
 
                         //up.GenerateThumb(appInfo.ThumbPicUrl, 0);
                         up.GenerateThumb(token);

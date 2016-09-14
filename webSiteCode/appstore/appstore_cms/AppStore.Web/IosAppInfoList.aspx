@@ -77,7 +77,7 @@
         <ItemTemplate>
             <tr class='<%#(Container.ItemIndex%2==0)?"odd":""%>'>
                  <td style="width: 70px;">
-                    <img src='<%#Eval("IconUrl") %>' width="60" height="60" class="icon" /><br />
+                    <img src='<%#Eval("IconPicUrl") %>' width="60" height="60" class="icon" /><br />
                     <%#Eval("AppID") %>
                 </td>
                 <td>

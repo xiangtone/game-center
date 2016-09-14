@@ -25,8 +25,15 @@ namespace AppStore.DAL
             paramsList.Add(new MySqlParameter("@AppName", entity.AppName));
             paramsList.Add(new MySqlParameter("@ShowName", entity.ShowName));
             paramsList.Add(new MySqlParameter("@DevName", entity.DevName));
+            paramsList.Add(new MySqlParameter("@AppType", entity.AppType));
+            paramsList.Add(new MySqlParameter("@AppSize", entity.AppSize));
+            paramsList.Add(new MySqlParameter("@AppPrice", entity.AppPrice));
+            paramsList.Add(new MySqlParameter("@AppVersion", entity.AppVersion));
             paramsList.Add(new MySqlParameter("@Status", entity.Status));
-            paramsList.Add(new MySqlParameter("@IconUrl", entity.IconUrl));
+            paramsList.Add(new MySqlParameter("@RecommFlagWord", entity.RecommFlagWord));
+            paramsList.Add(new MySqlParameter("@IconPicUrl", entity.IconPicUrl));
+            paramsList.Add(new MySqlParameter("@ThumbPicUrl", entity.ThumbPicUrl));
+            paramsList.Add(new MySqlParameter("@IconUrl", entity.IconPicUrl));
             paramsList.Add(new MySqlParameter("@AppPicUrl", entity.AppPicUrl));
             paramsList.Add(new MySqlParameter("@AppUrl", entity.AppUrl));  
             paramsList.Add(new MySqlParameter("@AppDesc", entity.AppDesc));
@@ -82,8 +89,14 @@ namespace AppStore.DAL
                                                             AppName,
                                                             ShowName,
                                                             DevName,
+                                                            AppType,
+                                                            AppSize,
+                                                            AppPrice,
+                                                            AppVersion,
                                                             Status,
-                                                            IconUrl,
+                                                            RecommFlagWord,
+                                                            ThumbPicUrl,
+                                                            IconPicUrl,
                                                             AppPicUrl,
                                                             AppUrl,
                                                             AppDesc,
@@ -99,8 +112,14 @@ namespace AppStore.DAL
                                                             @AppName,
                                                             @ShowName,
                                                             @DevName,
+                                                            @AppType,
+                                                            @AppSize,
+                                                            @AppPrice,
+                                                            @AppVersion,
                                                             @Status,
-                                                            @IconUrl,
+                                                            @RecommFlagWord,
+                                                            @ThumbPicUrl,
+                                                            @IconPicUrl,
                                                             @AppPicUrl,
                                                             @AppUrl,
                                                             @AppDesc,
@@ -134,15 +153,21 @@ namespace AppStore.DAL
                                         AppName  = @AppName,          
                                         ShowName  = @ShowName,
                                         DevName  = @DevName,
+                                        AppType =@AppType,
+                                        AppSize =@AppSize,
+                                        AppPrice =@AppPrice,
+                                        AppVersion=@AppVersion,
                                         Status  = @Status,
-                                        IconUrl = @IconUrl,
+                                        RecommFlagWord=@RecommFlagWord,
+                                        ThumbPicUrl=@ThumbPicUrl,
+                                        IconPicUrl = @IconPicUrl,
                                         AppUrl  = @AppUrl,
                                         AppPicUrl =@AppPicUrl,
                                         AppDesc  = @AppDesc,
                                         Remarks  = @Remarks,
                                         UpdateTime  = @UpdateTime,
                                         RecommWord  = @RecommWord,
-                                        AdsPicUrl = @AdsPicUrl         
+                                        AdsPicUrl = @AdsPicUrl       
                                     WHERE AppID = @AppID;";
 
             #endregion
@@ -294,7 +319,7 @@ namespace AppStore.DAL
             #region CommandText
             List<MySqlParameter> paramsList = new List<MySqlParameter>();
             commandText.AppendFormat(@"
-                                 select a.AppID,a.AppName,a.ShowName,a.DevName,a.Status,a.IconUrl,a.AppPicUrl,a.AppUrl,a.AppDesc,a.RecommWord,a.CreateTime,a.UpdateTime,a.AdsPicUrl,a.Remarks
+                                 select a.AppID,a.AppName,a.ShowName,a.DevName,a.AppType,a.AppSize,a.AppPrice,a.AppVersion,a.Status,a.RecommFlagWord,a.IconPicUrl,a.ThumbPicUrl,a.AppPicUrl,a.AppUrl,a.AppDesc,a.RecommWord,a.CreateTime,a.UpdateTime,a.AdsPicUrl,a.Remarks
                                     from appinfo_ios a
                                     where (1=1 ) {0}
                                     Order By a.AppID DESC LIMIT @StartIndex, @EndIndex
@@ -358,8 +383,14 @@ namespace AppStore.DAL
                                         AppName,
                                         ShowName,
                                         DevName,
+                                        AppType,
+                                        AppSize,
+                                        AppPrice,
+                                        AppVersion,
                                         Status,
-                                        IconUrl,
+                                        RecommFlagWord,
+                                        IconPicUrl,
+                                        ThumbPicUrl,
                                         AppPicUrl,
                                         AppUrl,
                                         AppDesc,
@@ -489,7 +520,7 @@ namespace AppStore.DAL
             #endregion
             List<MySqlParameter> paramsList = new List<MySqlParameter>();
             commandText.AppendFormat(@"
-                                 select a.AppID,a.AppName,a.ShowName,a.DevName,a.Status,a.IconUrl,a.AppPicUrl,a.AppUrl,AppDesc,a.RecommWord,a.CreateTime
+                                 select a.AppID,a.AppName,a.ShowName,a.DevName,a.AppType,a.AppSize,a.AppPrice,a.AppVersion,a.Status,a.RecommFlagWord,a.ThumbPicUrl,a.IconPicUrl,a.AppPicUrl,a.AppUrl,AppDesc,a.RecommWord,a.CreateTime
                                  a.UpdateTime,a.AdsPicUrl,a.Remarks where (1=1 {0}) limit {1}
                                 ", GetStrWhere(entity, paramsList), pagecount);
             #endregion
@@ -498,7 +529,7 @@ namespace AppStore.DAL
 
             string sql = "";
             //Type 1=已上架游戏 2=待审核游戏  3=游戏接入情况 
-            sql = string.Format(@"select tt.ShowName as '游戏名',tt.DevName as '开发者',tt.Status as '状态',tt.AppID as 'ID'  from ({0})tt where tt.Status in ({1})  limit {2}", commandText.ToString(), status, pagecount);
+            sql = string.Format(@"select * from ({0})tt where tt.Status in ({1})  limit {2}", commandText.ToString(), status, pagecount);
 
             return MySqlHelper.ExecuteDataset(this.ConnectionString, commandText.ToString(), null);
         }

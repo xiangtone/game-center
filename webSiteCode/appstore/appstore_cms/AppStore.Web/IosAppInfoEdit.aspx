@@ -149,6 +149,9 @@
             } else if (id == "AdsPicUrl") {
                 $("#<%=AdsPicUrl.ClientID %>").val(filename);
                 $("#ShowAdsPic").attr("src", filename);
+            }else if (id == "ThumbPicUrl") {
+                $("#<%=ThumbPicUrl.ClientID%>").val(filename)
+                $("#ShowThumbPic").attr("src", filename);
             }else {
                 return;
             }
@@ -228,6 +231,33 @@
                     <asp:TextBox runat="server" CssClass="required form_inputbox" ID="DevName" txt_name="开发者" />
                 </td>
             </tr>
+             <tr>
+                <td class="form_text">应用类型</td>
+                <td>
+                    <asp:TextBox runat="server" CssClass="required form_inputbox" ID="AppType" txt_name="应用类型" Width="200px" />
+                </td>
+            </tr>
+
+            <tr>
+                <td class="form_text">应用大小</td>
+                <td>
+                    <asp:TextBox runat="server" CssClass="required form_inputbox" ID="AppSize" txt_name="应用大小" />
+                </td>
+            </tr>
+
+             <tr>
+                <td class="form_text">应用版本</td>
+                <td>
+                    <asp:TextBox runat="server" CssClass="required form_inputbox" ID="AppVersion" txt_name="应用版本" />
+                </td>
+            </tr>
+
+            <tr>
+                <td class="form_text">应用价格</td>
+                <td>
+                    <asp:TextBox runat="server" CssClass="required form_inputbox" ID="AppPrice" txt_name="应用价格" />
+                </td>
+            </tr>
 
             <tr>
                 <td class="form_text">应用状态</td>
@@ -238,7 +268,12 @@
                     </asp:DropDownList>
                 </td>
             </tr>
-           
+              <tr>
+                <td class="form_text">推荐标示语</td>
+                <td>
+                    <asp:TextBox runat="server" CssClass="required form_inputbox" ID="RecommFlagWord" txt_name="推荐标示语" Width="200px"/>
+                </td>
+            </tr>
 
             <tr>
                 <td class="form_text">推荐语</td>
@@ -262,6 +297,25 @@
                 <td class="form_text">游戏URL地址</td>
                 <td>
                     <asp:TextBox ID="AppUrl" TextMode="MultiLine" runat="server" CssClass="multi_text" Width="325" /></td>
+            </tr>
+
+                        <tr>
+                <td class="form_text">上传缩略图</td>
+                <td>
+                    <asp:HiddenField ID="ThumbPicUrl" runat="server"/>
+                    <object type="application/x-shockwave-flash" data="UploadControl/ResourceUpload.swf" id="UploadThumbPicUrl" style="visibility: visible; height: 80px; min-width: 300px;">
+                        <param name="quality" value="high" />
+                        <param name="wmode" value="opaque" />
+                        <param name="flashVars" value="config=UploadControl/configuration.xml&ctrlid=ThumbPicUrl&token=123456&thumb=false&url=<%=this.UploadUrl %>&appid=2&subid=11&extension=,jpg,png,gif," />
+                        <param name="allowScriptAccess" value="sameDomain" />
+                    </object>
+                </td>
+            </tr>
+            <tr >
+                <td class="form_text">缩略图展示</td>
+                <td>
+                    <asp:Image ID="ShowThumbPic" ClientIDMode="Static" CssClass="thumbPic" runat="server"/>
+                </td>
             </tr>
              <tr>
                 <td class="form_text">上传广告图</td>

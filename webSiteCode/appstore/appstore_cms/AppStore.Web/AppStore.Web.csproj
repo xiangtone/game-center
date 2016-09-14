@@ -362,6 +362,7 @@
     <Content Include="themes\default\images\PadaCMS.psd" />
     <Content Include="themes\font\fzzxhjtxz.eot" />
     <Content Include="themes\font\fzzxhjtxz.TTF" />
+    <None Include="Properties\PublishProfiles\Appstore.pubxml" />
     <None Include="Web References\WebReference\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

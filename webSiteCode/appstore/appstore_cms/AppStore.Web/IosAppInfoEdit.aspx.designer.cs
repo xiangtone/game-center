@@ -40,6 +40,42 @@ namespace AppStore.Web {
         protected global::System.Web.UI.WebControls.TextBox DevName;
         
         /// <summary>
+        /// AppType 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AppType;
+        
+        /// <summary>
+        /// AppSize 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AppSize;
+        
+        /// <summary>
+        /// AppVersion 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AppVersion;
+        
+        /// <summary>
+        /// AppPrice 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AppPrice;
+        
+        /// <summary>
         /// Status 控件。
         /// </summary>
         /// <remarks>
@@ -47,6 +83,15 @@ namespace AppStore.Web {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Status;
+        
+        /// <summary>
+        /// RecommFlagWord 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox RecommFlagWord;
         
         /// <summary>
         /// RecommWord 控件。
@@ -83,6 +128,24 @@ namespace AppStore.Web {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox AppUrl;
+        
+        /// <summary>
+        /// ThumbPicUrl 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField ThumbPicUrl;
+        
+        /// <summary>
+        /// ShowThumbPic 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ShowThumbPic;
         
         /// <summary>
         /// AdsPicUrl 控件。

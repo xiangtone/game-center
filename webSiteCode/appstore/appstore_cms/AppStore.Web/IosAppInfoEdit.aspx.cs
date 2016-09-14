@@ -46,8 +46,17 @@ namespace AppStore.Web
                     this.DevName.Text = CurrentEntity.DevName.ToString();
                     this.RecommWord.Text = CurrentEntity.RecommWord;
                     this.AppDesc.Text = CurrentEntity.AppDesc;
-                    this.ShowIconPic.ImageUrl = string.IsNullOrEmpty(CurrentEntity.IconUrl) ? @"Theme/Images/empty.png" : CurrentEntity.IconUrl;
-                    this.IconUrl.Value = CurrentEntity.IconUrl;
+
+                    this.AppType.Text = CurrentEntity.AppType;
+                    this.AppSize.Text = CurrentEntity.AppSize;
+                    this.AppVersion.Text = CurrentEntity.AppVersion;
+                    this.AppPrice.Text = CurrentEntity.AppPrice;
+                    this.RecommFlagWord.Text = CurrentEntity.RecommFlagWord;
+                    this.ThumbPicUrl.Value = CurrentEntity.ThumbPicUrl;
+                    this.ShowThumbPic.ImageUrl = string.IsNullOrEmpty(CurrentEntity.AdsPicUrl) ? @"Theme/Images/empty.png" : CurrentEntity.ThumbPicUrl;
+
+                    this.ShowIconPic.ImageUrl = string.IsNullOrEmpty(CurrentEntity.IconPicUrl) ? @"Theme/Images/empty.png" : CurrentEntity.IconPicUrl;
+                    this.IconUrl.Value = CurrentEntity.IconPicUrl;
                     this.AppUrl.Text = CurrentEntity.AppUrl;
                     this.AppPicUrl = CurrentEntity.AppPicUrl;
                     this.AdsPicUrl.Value = CurrentEntity.AdsPicUrl;
@@ -68,10 +77,18 @@ namespace AppStore.Web
                 AppInfoiosEntity appInfoios = new AppInfoiosEntity();
                 appInfoios.AppID = this.AppID;
                 appInfoios.AppName = this.AppName.Text.Trim();
+
+                appInfoios.RecommFlagWord = this.RecommFlagWord.Text.Trim();
+                appInfoios.AppType = this.AppType.Text.Trim();
+                appInfoios.AppSize = this.AppSize.Text.Trim();
+                appInfoios.AppPrice = this.AppPrice.Text.Trim();
+                appInfoios.AppVersion = this.AppVersion.Text.Trim();
+                appInfoios.ThumbPicUrl = this.ThumbPicUrl.Value;
+
                 appInfoios.ShowName = this.ShowName.Text.Trim();
                 appInfoios.DevName = this.DevName.Text.Trim();
                 appInfoios.RecommWord = this.RecommWord.Text.Trim();
-                appInfoios.IconUrl = this.IconUrl.Value;
+                appInfoios.IconPicUrl = this.IconUrl.Value;
                 appInfoios.AppDesc = this.AppDesc.Text.Trim();
                 appInfoios.Remarks = this.Remarks.Text.Trim();
                 appInfoios.Status = this.Status.SelectedValue.Convert<int>();
@@ -90,7 +107,7 @@ namespace AppStore.Web
 
 
                 #region 处理缩略图
-                if (!string.IsNullOrEmpty(appInfoios.IconUrl))
+                if (!string.IsNullOrEmpty(appInfoios.IconPicUrl))
                 {
 
                     if (this.Width != 0 && this.Height != 0)
@@ -98,7 +115,7 @@ namespace AppStore.Web
                         //裁剪方式
                         string croptype = this.Request<string>("cropType", string.Empty);
 
-                        Bitmap bitSource = ImageHelper.GetBitmapFromUrl(appInfoios.IconUrl);
+                        Bitmap bitSource = ImageHelper.GetBitmapFromUrl(appInfoios.IconPicUrl);
 
                         if (bitSource == null)
                         {
@@ -127,10 +144,10 @@ namespace AppStore.Web
 
                         byte[] imageBytes = BitmapToBytes(bitSource);
                         //StartTransfer中的AppID和CID在前端页面中上传控件定义
-                        string token = up.StartTransfer(2, 11, appInfoios.IconUrl.Substring(appInfoios.IconUrl.LastIndexOf("."), 4), 1, imageBytes.Length, string.Empty);
+                        string token = up.StartTransfer(2, 11, appInfoios.IconPicUrl.Substring(appInfoios.IconPicUrl.LastIndexOf("."), 4), 1, imageBytes.Length, string.Empty);
                         string resultString = up.Transfer(token, imageBytes, 1);
 
-                        appInfoios.IconUrl = resultString.Split(',')[1];
+                        appInfoios.IconPicUrl = resultString.Split(',')[1];
 
                         //up.GenerateThumb(appInfo.ThumbPicUrl, 0);
                         up.GenerateThumb(token);
